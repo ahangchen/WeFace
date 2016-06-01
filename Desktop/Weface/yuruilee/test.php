@@ -1,0 +1,9 @@
+<?php
+$url="http://gc.ditu.aliyun.com/geocoding?a=%E8%8B%8F%E5%B7%9E%E5%B8%82";
+$fp=fopen($url,'r');
+while(!feof($fp)){
+    $result=fgets($fp,1024);
+}
+file_put_contents('check.json',$result);
+fclose($fp);
+?>
