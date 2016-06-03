@@ -1,0 +1,88 @@
+html,body
+{
+	height: 100%
+}
+table,input,button
+{
+	/*position: relative;*/
+	height: 100%;
+	width: 100%;
+
+}
+form
+{
+	height: 360px;
+	width: 400px;
+}
+table
+{
+	border-bottom:2px dashed #cccccc;
+	border-left: 2px dashed #cccccc;
+	border-right:2px dashed #cccccc;
+	border-top:2px dashed #cccccc;
+	margin:15px;
+	padding:15px;
+}
+
+
+tr
+{
+	width: 500px;
+	height:30px; 
+	margin:0;
+	padding: 0;
+}
+td
+{
+	/*控件居中*/
+	vertical-align: center;
+}
+.footer,.footer_placeholder
+{
+	height: 80px;
+	width: 100%;
+}
+.footer_placeholder
+{
+	clear: both;
+}
+.footer
+{
+	font-size: 8pt;
+	color: #FF8C1F;
+	position: absolute;
+	bottom: 0%;
+}
+#login_logup
+{
+    font-color: red;
+    font-size: 5pt;
+}
+
+#login_button
+{
+    background-color: #217DF1;
+    border-color: transparent;
+    font-size: 12pt;
+    font-family:Arial;
+    color: white;
+    width: 100%;
+    margin:0;
+	padding: 0;
+}
+.login_label
+{
+	background-color: #217DF1;
+	color: white;
+	font-family: Arial;
+	font-size: 10pt;
+}
+#login_window
+{
+	position: absolute;
+	bottom: 25%;
+	left: 33%;
+	height: 100%；
+	
+	margin-bottom: 120px;
+}

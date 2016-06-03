@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<meta charset="utf-8">
+<head>
+	<title>登陆SBay华工二手交易网站</title>
+</head>
+<body>
+<div id="login_window">
+	<link rel="stylesheet" type="text/css" href="css/login.css">
+	<form id="login_form" action="" method="post">
+		<table align="center" >
+			<tr >
+			<td colspan="3">
+				<h1 id="login_header" align="center">SBay华工二手交易</h1>
+			</td>
+			</tr>
+			<tr>
+				<!-- <td class="login_label">学号</td> -->
+				<td colspan="3"><input id="studentId" type="text" placeholder="请输入华南理工大学学生学号" onkeydown="onlyNum()"></input></td>
+			</tr>
+			<tr>
+				<!-- <td class="login_label" >密码</td> -->
+				<td colspan="3"><input id="password" type="password" placeholder="请输入密码"></input></td>
+			</tr>
+			<tr>
+				<td>
+					<input id="code" placeholder="请输入右侧验证码" type="text" maxlength="4" onkeydown="onlyNum()"></input>
+				</td>
+				<td>
+					<p id="codeNum" onclick="loadCode()"></p>
+				</td>
+			</tr>
+			<tr>
+				<td colspan="3" align="center" ><button type="submit" id="login_button">登录</button></a></td>
+			</tr>
+			<tr id="login_logup" align="right" style="font-size: 8pt">
+				<td></td>
+				<td><a href="">忘记密码</a>&nbsp&nbsp&nbsp<a href="">免费注册</a></td>
+			</tr>
+		</table>
+	</form>
+	<div class="footer_placeholder" ></div>
+</div>
+<div class="footer" align="center">
+	<div id="showUs">
+		<p>技术支持 <b>|</b> 杨穗珠</p>
+	</div>
+	<div id="aboutSBay">
+		<a href="">关于SBay</a>
+	</div>
+</div>
+<!-- 控制输入框只能输入数字 -->
+<script language=javascript>
+function onlyNum()
+{
+ if(!(event.keyCode==46)&&!(event.keyCode==8)&&!(event.keyCode==37)&&!(event.keyCode==39))
+  if(!((event.keyCode>=48&&event.keyCode<=57)||(event.keyCode>=96&&event.keyCode<=105)))
+    event.returnValue=false;
+}
+</script>
+<script type="text/javascript" src="jQuery/jquery-1.12.3.js"></script>
+<script type="js/ajaxForCode.js"></script>
+</body>
+</html>
