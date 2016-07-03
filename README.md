@@ -8,4 +8,4 @@ http://underarmy.oschina.io/stroy
 
 设计图
 
-http://pan.baidu.com/s/1slpG8Nz
+百度云 账号 15913903712 密码wemeet2333
