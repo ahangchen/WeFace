@@ -13,7 +13,7 @@ http://underarmy.oschina.io/stroy
 ## Notice
 - 模块与Deadline: http://git.oschina.net/underarmy/WeFace/milestones
 
-可以在这个页面看到每个大模块的截止时间
+> 可以在这个页面看到每个大模块的截止时间
 
 - 需求列表：http://git.oschina.net/underarmy/WeFace/issues
 
