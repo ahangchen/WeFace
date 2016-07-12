@@ -1,0 +1,7 @@
+{
+	"banner":[
+    {"bannerImg":"img/img1.jpg","bannerUrl":"pages/BannerRes.html"},
+    {"bannerImg":"img/img2.jpg","bannerUrl":"pages/BannerRes.html"},
+    {"bannerImg":"img/img3.jpg","bannerUrl":"pages/BannerRes.html"}
+    ]
+}
