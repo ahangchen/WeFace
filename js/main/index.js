@@ -34,7 +34,7 @@ $("#teamBtn").click(function(){
     var teamNames = $(".teamList li div");
     var teamsDesc = $(".teamList li span");
     var curIndex_team = 0;
-    $.getJSON('js/teams.json',function(data){
+    $.getJSON('../js/main/teams.json',function(data){
         for (var i = 0; i < 3; i++) {
             var firstTeamImg = data.teams[i].teamImg;
             var firstTeamName = data.teams[i].teamName;
@@ -51,7 +51,7 @@ $("#teamBtn").click(function(){
     $(".nextBtn_teams").click(function(){
         var a = $.ajax({
             type: "post",
-            url: "js/teams.json",
+            url: "../js/main/teams.json",
             dataType: "json",
             success: function(data){
                 if (curIndex_team == triTeamLen) {
@@ -76,7 +76,7 @@ $("#teamBtn").click(function(){
     $(".preBtn_teams").click(function(){
         var a = $.ajax({
             type: "post",
-            url: "js/teams.json",
+            url: "../js/main/teams.json",
             dataType: "json",
             success: function(data){
                 if (curIndex_team == 0) {
@@ -121,7 +121,7 @@ $("#teamBtn").click(function(){
     var projectNames = $(".projectList li div");
     var projectsDesc = $(".projectList li span");
     var curIndex_project = 0;
-    $.getJSON('js/projects.json',function(data){
+    $.getJSON('../js/main/projects.json',function(data){
         for (var i = 0; i < 3; i++) {
             var firstProjectImg = data.projects[i].projectImg;
             var firstProjectName = data.projects[i].projectName;
@@ -138,7 +138,7 @@ $("#teamBtn").click(function(){
     $(".nextBtn_project").click(function(){
         var a = $.ajax({
             type: "post",
-            url: "js/projects.json",
+            url: "../js/main/projects.json",
             dataType: "json",
             success: function(data){
                 if (curIndex_project == triProjectLen) {
@@ -163,7 +163,7 @@ $("#teamBtn").click(function(){
     $(".preBtn_project").click(function(){
         var a = $.ajax({
             type: "post",
-            url: "js/projects.json",
+            url: "../js/main/projects.json",
             dataType: "json",
             success: function(data){
                 if (curIndex_project == 0) {

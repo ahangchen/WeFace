@@ -1,13 +1,13 @@
 {
 	"projects":[
-    {"projectId":1,"projectName":"1p","projectDesc":"111111111111","projectImg":"img/team/team6.jpg"},
-    {"projectId":2,"projectName":"2p","projectDesc":"neenennenenenenenenenne","projectImg":"img/team/team3.jpg"},
-    {"projectId":3,"projectName":"3p","projectDesc":"neenennenenenenenenenne","projectImg":"img/team/team2.jpg"},
-    {"projectId":4,"projectName":"4p","projectDesc":"neenennenenenenenenenne","projectImg":"img/team/team4.jpg"},
-    {"projectId":5,"projectName":"5p","projectDesc":"neenennenenenenenenenne","projectImg":"img/team/team1.jpg"},
-    {"projectId":6,"projectName":"6p","projectDesc":"neenennenenenenenenenne","projectImg":"img/team/team5.jpg"},
-    {"projectId":7,"projectName":"7p","projectDesc":"neenennenenenenenenenne","projectImg":"img/team/team7.png"},
-    {"projectId":8,"projectName":"8","projectDesc":"neenennenenenenenenenne","projectImg":"img/team/team9.png"},
-    {"projectId":9,"projectName":"9","projectDesc":"neenennenenenenenenenne","projectImg":"img/team/team8.png"}
+    {"projectId":1,"projectName":"1p","projectDesc":"111111111111","projectImg":"../res/imgs/main/team/team6.jpg"},
+    {"projectId":2,"projectName":"2p","projectDesc":"neenennenenenenenenenne","projectImg":"../res/imgs/main/team/team3.jpg"},
+    {"projectId":3,"projectName":"3p","projectDesc":"neenennenenenenenenenne","projectImg":"../res/imgs/main/team/team2.jpg"},
+    {"projectId":4,"projectName":"4p","projectDesc":"neenennenenenenenenenne","projectImg":"../res/imgs/main/team/team4.jpg"},
+    {"projectId":5,"projectName":"5p","projectDesc":"neenennenenenenenenenne","projectImg":"../res/imgs/main/team/team1.jpg"},
+    {"projectId":6,"projectName":"6p","projectDesc":"neenennenenenenenenenne","projectImg":"../res/imgs/main/team/team5.jpg"},
+    {"projectId":7,"projectName":"7p","projectDesc":"neenennenenenenenenenne","projectImg":"../res/imgs/main/team/team7.png"},
+    {"projectId":8,"projectName":"8","projectDesc":"neenennenenenenenenenne","projectImg":"../res/imgs/main/team/team9.png"},
+    {"projectId":9,"projectName":"9","projectDesc":"neenennenenenenenenenne","projectImg":"../res/imgs/main/team/team8.png"}
     ]
 }
