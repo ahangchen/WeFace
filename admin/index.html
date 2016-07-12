@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>WeMeet管家</title>
+    <!--Import Google Icon Font-->
+    <!--<link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">-->
+    <!--Import materialize.css-->
+    <!--<link type="text/css" rel="stylesheet" href="../css/materialize.css" media="screen,projection"/>-->
+    <link type="text/css" rel="stylesheet" href="http://materializecss.com/css/ghpages-materialize.css" media="screen,projection"/>
+    <link type="text/css" rel="stylesheet" href="../css/admin/main.css" media="screen,projection"/>
+
+    <!--Let browser know website is optimized for mobile-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+    <!--<link type="text/css" rel="stylesheet" href="../css/base.css">-->
+    <!--<link type="text/css" rel="stylesheet" href="../css/admin/main.css">-->
+</head>
+<body>
+<!--<div class="container">-->
+<!-- Page Content goes here -->
+<header>
+    <nav class="top-nav amber darken-3">
+        <div class="container">
+            <div class="nav-wrapper"><a class="page-title">Administrator</a></div>
+        </div>
+    </nav>
+    <div class="container">
+        <a href="#" data-activates="nav-mobile" class="button-collapse top-nav full hide-on-large-only">
+            <i class="material-icons">menu</i>
+        </a>
+    </div>
+    <ul id="nav-mobile" class="side-nav fixed" style="transform: translateX(0%);">
+        <li class="logo center-align">
+            <a id="logo-container" href="http://materializecss.com/" class="brand-logo">
+                <object id="front-page-logo" type="image/svg+xml" data="../res/imgs/materialize.svg">Your browser does
+                    not support SVG
+                </object>
+            </a>
+        </li>
+        <li class="search">
+            <div class="search-wrapper card">
+                <input id="search"><i class="material-icons">search</i>
+                <div class="search-results"></div>
+            </div>
+        </li>
+        <li class="no-padding">
+            <ul class="collapsible collapsible-accordion">
+                <li class="bold" id="nav_about"><a href="#!" class="waves-effect waves-teal">About</a></li>
+                <li class="bold"><a class="collapsible-header  waves-effect waves-teal">团队</a>
+                    <div class="collapsible-body" style="">
+                        <ul>
+                            <li id="nav_invite"><a href="#!">邀请团队</a></li>
+                            <li id="nav_team_info"><a href="#!">团队信息</a></li>
+
+                        </ul>
+                    </div>
+                </li>
+
+            </ul>
+        </li>
+        <li class="no-padding">
+            <ul class="collapsible collapsible-accordion">
+                <li class="bold"><a class="collapsible-header  waves-effect waves-teal">职位</a>
+                    <div class="collapsible-body" style="">
+                        <ul>
+                            <li id="nav_job_info"><a href="#!">职业信息</a></li>
+                        </ul>
+                    </div>
+                </li>
+
+            </ul>
+        </li>
+
+    </ul>
+</header>
+<main>
+    <iframe id="content-frame" name="content_frame" class="main-content" frameborder="0" src="about.html"></iframe>
+    <!--<div class="container">test</div>-->
+</main>
+<footer class="page-footer">
+    <div class="container">
+        <div class="row">
+            <div class="col l6 s12">
+                <h5 class="white-text">WeMeet项目组</h5>
+                <p class="grey-text text-lighten-4">团队主页：<a href="http://underarmy.oschina.io/stroy" class="white-text">http://underarmy.oschina.io/stroy</a></p>
+            </div>
+            <div class="col l4 offset-l2 s12">
+                <h5 class="white-text">友情链接</h5>
+                <ul>
+                    <li><a class="grey-text text-lighten-3" href="http://www.scut.edu.cn">华南理工大学</a></li>
+                    <li><a class="grey-text text-lighten-3" href="https://github.com/ahangchen">Github · ahangchen</a></li>
+                    <li><a class="grey-text text-lighten-3" href="http://ahangchen.site">技术博客 · 梦里风林</a></li>
+                    <li><a class="grey-text text-lighten-3" href="https://github.com/xx-net/xx-net">科学上网</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="footer-copyright">
+        <div class="container">
+            © 2016 - 2026 Apache License 2
+            <a class="grey-text text-lighten-4 right" href="http://ahangchen.site">More Links</a>
+        </div>
+    </div>
+</footer>
+
+<!--</div>-->
+<!--Import jQuery before materialize.js-->
+<script type="text/javascript" src="../js/jquery-2.1.1.min.js"></script>
+<script src="../js/admin/main.js" type="text/javascript"></script>
+<script type="text/javascript" src="../js/materialize.min.js"></script>
+</body>
+</html>
