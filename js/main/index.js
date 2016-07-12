@@ -20,7 +20,7 @@ $("#teamBtn").click(function(){
     $("#teamBtn").css("text-decoration","underline");
     var a = $.ajax({
         type:"get",
-        url: "pages/indexForTeamPage.html",
+        url: "pages/roles_team.html",
         dataType:"html",
         success:function(data){
             $("#indexDiv").html(data);
