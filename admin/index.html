@@ -4,10 +4,10 @@
     <meta charset="UTF-8">
     <title>WeMeet管家</title>
     <!--Import Google Icon Font-->
-    <!--<link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">-->
+    <link href="../css/md-icon.css" rel="stylesheet">
     <!--Import materialize.css-->
     <!--<link type="text/css" rel="stylesheet" href="../css/materialize.css" media="screen,projection"/>-->
-    <link type="text/css" rel="stylesheet" href="http://materializecss.com/css/ghpages-materialize.css" media="screen,projection"/>
+    <link type="text/css" rel="stylesheet" href="../css/ghpages-materialize.css" media="screen,projection"/>
     <link type="text/css" rel="stylesheet" href="../css/admin/main.css" media="screen,projection"/>
 
     <!--Let browser know website is optimized for mobile-->
@@ -20,17 +20,17 @@
 <!--<div class="container">-->
 <!-- Page Content goes here -->
 <header>
-    <nav class="top-nav amber darken-3">
+    <nav class="top-nav">
         <div class="container">
             <div class="nav-wrapper"><a class="page-title">Administrator</a></div>
         </div>
     </nav>
-    <div class="container">
+    <div class="container" id="nav_menu">
         <a href="#" data-activates="nav-mobile" class="button-collapse top-nav full hide-on-large-only">
             <i class="material-icons">menu</i>
         </a>
     </div>
-    <ul id="nav-mobile" class="side-nav fixed" style="transform: translateX(0%);">
+    <ul id="nav-mobile" class="side-nav hide-on-med-and-down" style="transform: translateX(0%);">
         <li class="logo center-align">
             <a id="logo-container" href="http://materializecss.com/" class="brand-logo">
                 <object id="front-page-logo" type="image/svg+xml" data="../res/imgs/materialize.svg">Your browser does
@@ -38,12 +38,12 @@
                 </object>
             </a>
         </li>
-        <li class="search">
-            <div class="search-wrapper card">
-                <input id="search"><i class="material-icons">search</i>
-                <div class="search-results"></div>
-            </div>
-        </li>
+        <!--<li class="search">-->
+            <!--<div class="search-wrapper card">-->
+                <!--<input id="search"><i class="material-icons">search</i>-->
+                <!--<div class="search-results"></div>-->
+            <!--</div>-->
+        <!--</li>-->
         <li class="no-padding">
             <ul class="collapsible collapsible-accordion">
                 <li class="bold" id="nav_about"><a href="#!" class="waves-effect waves-teal">About</a></li>
@@ -75,7 +75,7 @@
     </ul>
 </header>
 <main>
-    <iframe id="content-frame" name="content_frame" class="main-content" frameborder="0" src="about.html"></iframe>
+    <iframe id="content-frame" name="content_frame" class="main-content" onload="this.height=content-frame.document.body.scrollHeight" frameborder="0" src="about.html"></iframe>
     <!--<div class="container">test</div>-->
 </main>
 <footer class="page-footer">

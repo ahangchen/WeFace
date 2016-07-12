@@ -18,8 +18,21 @@ $(document).ready(function() {
         $('#content-frame').attr('src', 'team/info.html');
     });
     $('#nav_job_info').click(function (e) {
-        console.log('joninfo');
         $('#content-frame').attr('src', 'job/info.html');
+    });
+    $("#content-frame").load(function(){
+        var content_height = $(this).contents().find("body").height();
+        $(this).height(content_height);
+    });
+    var nav_show = false;
+    $("#nav_menu").click(function(e) {
+        if(nav_show){
+            $(".button-collapse").sideNav('hide');
+            nav_show = false;
+        } else {
+            $(".button-collapse").sideNav('show');
+            nav_show = true;
+        }
     });
 });
 
