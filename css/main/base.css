@@ -1,0 +1,85 @@
+/*body {
+  background:url(../res/imgs/background.png);
+    background-size: 130% auto;
+    height: 2000px;
+}
+*/
+.salary{
+    color: #a9650d;
+    font-family: "PingFangSC-Ultralight","PingFang SC Ultralight","PingFang SC";
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 100;
+    position: absolute;
+
+}
+
+.page{
+    color: #2738a9;
+    font-family: "PingFangSC-Ultralight","PingFang SC Ultralight","PingFang SC";
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 100;
+    position: absolute;
+
+}
+.subtext{
+    color: #000;
+    font-family: "PingFangSC-Ultralight","PingFang SC Ultralight","PingFang SC";
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 100;
+    position: absolute;
+}
+
+
+#select1{
+    cursor:pointer;
+    position:absolute;
+    width:110px;
+    height:40px;
+    background:#ffffff;
+    margin-left:0px;
+    margin-top:60px;
+}
+
+#select2{
+    cursor: pointer;
+    position:absolute;
+    width:110px;
+    height:40px;
+    background:#ffffff;
+    margin-left:115px;
+    margin-top:60px;
+}
+
+#select3{
+    cursor: pointer;
+    position:absolute;
+    width:110px;
+    height:40px;
+    background:#ffffff;
+    margin-left:230px;
+    margin-top:60px;
+}
+
+.message{
+    cursor: pointer;
+    position:absolute;
+    width:970px;
+    margin-left: auto;
+    margin-right: auto;
+    height:150px;
+    background:#ffffff;
+}
+
+.changepage{
+    cursor: pointer;
+    position:absolute;
+    left: 750px;
+    top: 1800px;
+    width:70px;
+    height:35px;
+    background:#ffffff;
+}
+

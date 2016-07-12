@@ -1,0 +1,626 @@
+/*居中公用类*/
+.comWidth{
+	width: 970px;
+	margin-left: auto;
+	margin-right: auto;
+
+}
+html{
+	background-image: url(../../img/main/background.png);
+	background-size: 120% auto;
+}
+a:link{
+	text-decoration: none;
+	color: black;
+}
+a:visited{
+	color: black;
+}
+/*－－－－－－－－－－－－－－－－－－－－－导航栏样式By雨芮－－－－－－－－－－－－－－－－－－－－－－－－－－－－－*/
+.send {
+    position:relative;
+    width:970px;
+    height:55px;
+    -moz-box-shadow: inset 0 0 10px #CCC;
+   	-webkit-box-shadow: inset 0 0 10px #CCC;
+ 	box-shadow: inset 0 0 10px #CCC;
+    background: rgba(255, 255, 255, 1);
+    
+}
+
+.send .arrow {
+    position:absolute;
+    top:-16px;
+    right:850px;
+    width:0;
+    height:0;
+    font-size:0;
+    border:solid 8px;
+    border-color: #B2DDDB #B2DDDB #ffffff #B2DDDB;  
+/*这里按照实际的背景颜色改一下，1，2，4和背景颜色相同*/
+}
+
+.text{
+    color: #000;
+    font-family: "PingFangSC-Ultralight","PingFang SC Ultralight","PingFang SC";
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 100;
+    position: absolute;
+}
+
+.searchguide{
+    color: #000;
+    font-family: "PingFangSC-Ultralight","PingFang SC Ultralight","PingFang SC";
+    font-style: normal;
+    font-size: 15px;
+    position: absolute;
+    border:solid 1.5px;
+    border-color: #9b9796;
+    border-radius: 4px;
+    text-align: left;
+}
+
+.searchguide:hover, .searchguide:focus {
+    border: 1px solid #56b4ef;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05) inset, 0 0 8px rgba(82, 168, 236, 0.6);
+}
+
+.button{
+    cursor: pointer;
+}
+
+
+/*----------------------------------导航栏-------------------------------------------------------------*/
+.header,.logoBar,.banner{
+	
+	/*filter:alpha(opacity=40);
+	opacity:0.4;*/
+	/*-moz-box-shadow: inset 0 0 10px #CCC;
+   	-webkit-box-shadow: inset 0 0 10px #CCC;
+ 	box-shadow: inset 0 0 10px #CCC;*/
+ 	background: rgba(255, 255, 255, 0.7);
+}
+#logo{
+	position: absolute;
+	left: 20px;
+	top: 5px;
+}
+.header{
+	background: rgba(255, 255, 255，1);
+}
+
+.fl{
+	float: left;
+}
+.fr{
+	float: right;
+}
+.topBar{
+	top: 5%;
+	height: 35px;
+	font-size: 12px;
+	line-height: 30px;
+	background: rgba(255, 255, 255, 1);
+}
+.topBar a{
+	font-size: 14px;
+	color: #FF0000;
+	font-family: "PingFangSC-Ultralight","PingFang SC Ultralight","PingFang SC";
+	cursor: pointer;
+}
+.header a{
+	margin-left: 10px;
+	line-height: 35px;
+	background: rgba(255, 255, 255, 0.5);
+	cursor: pointer;
+}
+.header .line{
+	position: relative;
+	top: 5px;
+	font-weight: lighter;
+	font-size: 20pt;
+	line-height: 20px;
+	color: gray;
+}
+.send img{
+	margin-top: 3px;
+	width: 40px;
+}
+.logoBar{
+	height: 50px;
+	background-color: white;
+	/*box-shadow:0 0 3px gray outset;*/
+	-moz-box-shadow: inset 0 0 10px #CCC;
+   	-webkit-box-shadow: inset 0 0 10px #CCC;
+ 	box-shadow: inset 0 0 10px #CCC;
+}
+.logoBar .mainBtn{
+	height: 50px;
+
+}
+.send a:hover{
+	text-decoration: underline;
+	text-shadow: 0px 0px 2px black;
+}
+.send a:active{
+	
+}
+.logoBar hr{
+	height: 46px;
+	margin-left: 20px;
+	margin-top: 1px;
+	line-height: 50px;
+}
+.mainBtn{
+	background: rgba(255, 255, 255, 0.5);
+	margin:30px 13px 30px 13px;
+	font-family: "PingFangSC-Ultralight","PingFang SC Ultralight","PingFang SC";
+}
+.send .mainBtn{
+	margin-left: 80px;
+	font-size: 16pt;
+	line-height: 50px;
+}
+.searchBox{
+	width: 282px;
+	margin-top: 10px;	
+}
+.logoBar span,p{
+	margin-left: 30px;
+	font-family: "PingFangSC-Ultralight","PingFang SC Ultralight","PingFang SC";
+}
+.logoBar span{
+	margin-top: 3px;
+}
+.searchText{
+
+	width: 250px;
+	color: #000;
+    font-family: "PingFangSC-Ultralight","PingFang SC Ultralight","PingFang SC";
+    font-style: normal;
+    font-size: 15px;
+    border:solid 1.5px;
+    border-color: #9b9796;
+    border-radius: 4px;
+    text-align: left;
+}
+.searchBtn{
+	position: relative;
+	left: -6px;
+	height: 30px;
+	width: 20px;
+}
+
+/*-----------------------------------------------角色选择板块-------------------------------------------*/
+.banner{
+	position: relative;
+	margin-top: 0px;
+	height: 326px;
+	margin-bottom: 10px;
+	-moz-box-shadow: inset 0 0 10px #CCC;
+   	-webkit-box-shadow: inset 0 0 10px #CCC;
+ 	box-shadow: inset 0 0 10px #CCC;
+}
+.mediumBox{
+	width: 510px;
+	height: 330px;
+	margin-left: auto;
+	margin-right: auto;
+}
+.rolesTable{
+	position: relative;
+	top: 37px;
+	width: 420px;
+	height: 160px;
+	border-spacing: 0px;
+}
+.rolesTable td{
+	width: 142px;
+	height: 100px;
+	padding-top: 0px;
+	padding-bottom:0px;
+	padding-left: 5px;
+	font-weight: normal;
+	font-family: "PingFangSC-Ultralight","PingFang SC Ultralight","PingFang SC";
+}
+.rolesTable th{
+	font-size: 23pt;
+
+	font-family: "PingFangSC-Ultralight","PingFang SC Ultralight","PingFang SC";
+}
+.rolestable tr{
+	height: 100px;
+	padding-top: 0px;
+}
+.roles{
+	line-height: 50px;
+	height:45px;
+	/*margin-top: 5px;*/
+	font-size: 25pt;
+}
+#studentRole{
+	background-color: #40ABF0;
+}
+#teamRole{
+	background-color: #F0E85D;
+}
+#projectRole{
+	background-color: #F0A916;
+}
+#praticeRole{
+	background-color: #F0B796;
+}
+#companyRole{
+	background-color: #ADF0BB;
+}
+#schoolRole{
+	background-color: #B9BAC0;
+}
+.rolesTable a:link,a:visited{
+	display: block;
+	font-weight: bold;
+	color: black;
+	width:120px;
+	text-align:center;
+	padding:10px 20px 20px 20px;
+	/*filter:alpha(opacity=60);
+	opacity:0.6;*/
+}
+
+/*---------------------------------------banner部分----------------------------------*/
+.banner_big{
+	background-color: white;
+	height: 442px;
+	margin-bottom: 10px;
+	-moz-box-shadow: inset 0 0 10px #CCC;
+   	-webkit-box-shadow: inset 0 0 10px #CCC;
+ 	box-shadow: inset 0 0 10px #CCC;
+}
+.preBtn,.nextBtn{
+	height: 100px;
+	width: 30px;
+	border: none;
+	position: relative;
+	top: 130px;
+}
+.preBtn{
+	float: left;
+	position: relative;
+	left: 10px;
+	top: 170px;
+	margin-left: 10px;
+
+}
+.nextBtn{
+	float: right;
+	position: relative;
+	right: 20px;
+	top: -185px;
+}
+.imgBox{
+	position: relative;
+	left: 50px;
+	top: 41px;
+	background-color: gray;
+	height: 362px;
+	width: 775px;
+	margin-left: 50px;
+	/*margin-right: 50px;*/
+	list-style-type: none;
+	overflow: hidden;
+}
+.imgList{
+	list-style-type: none;
+	width: 2325px;
+	height: 362px;
+	margin:0px;
+	padding-left: 0px;
+	position: absolute;
+	left: 0px;
+	top: 0px;
+}
+.banner_big .imgList img{
+	display: block;
+	height: 362px;
+	width: 775px;
+}
+
+.banner_big .imgBox li{
+	float: left;
+	list-style-type: none;
+}
+/*------------------------------------------------热门团队板块-----------------------------*/
+.hotTeam,.hotProject{
+	height: 450px;
+	margin-bottom: 10px;
+	-moz-box-shadow: inset 0 0 10px #CCC;
+   	-webkit-box-shadow: inset 0 0 10px #CCC;
+ 	box-shadow: inset 0 0 10px #CCC;
+}
+.hotTeam{
+	background: rgba(255, 255, 255, 0.8);
+}
+.hotTeamTopic,.hotProjectTopic{
+	position: relative;
+	left: 60px;
+	width: 720px;
+	height: 80px;
+}
+.decoration hr{
+	line-height: 80px;
+	width: 250px;
+	height:1px;
+	/*border:none;*/
+	background-color: gray; 
+	margin:0px 0px 0px 0px;
+	display: inline-block;
+}
+.deco_left{
+	position: relative;
+	left: 112px;
+}
+.deco_right{
+	position: relative;
+	left: 110px;
+}
+.preBtn_teams,.nextBtn_teams{
+	height: 100px;
+	width: 30px;
+	border: none;
+}
+.preBtn_teams{
+	float: left;
+	position: relative;
+	left: 10px;
+	top: 90px;
+	margin-left: 10px;
+
+}
+.nextBtn_teams{
+	float: right;
+	position: relative;
+	right: 20px;
+	top: -215px;
+}
+.topic{
+	position: relative;
+	width: 200px;
+	height: 70px;
+	/*margin-left: 100px;*/
+	line-height: 80px;
+	font-size: 20pt;
+	padding: 4px 10px 4px 10px;
+	border: gray solid 3px;
+	left: 112px;
+}
+.hotTeams{
+	position: relative;
+	left: -23px;
+	width: 798px;
+	height: 330px;
+	padding-left: 0px;
+	padding-right: 30px;
+	margin-left: auto;
+	margin-right: auto;
+	overflow: hidden;
+
+}
+.teamList{
+	list-style-type: none;
+	padding-left: 0px;
+	width: 2520px;
+	height: 200px;
+	position: absolute;
+	left: 0px;
+	top: 0px;
+}
+.teamList li{
+	float: left;
+	margin-left: 10px;
+}
+.teamList a{
+    display:block;
+}
+.teamList a:visited{
+	text-decoration: none;
+}
+.teamList img{
+	position:relative;
+	z-index: 22;
+	width: 250px;
+	height: 230px;
+	margin-right: 16px;
+	border: gray solid 2px;
+	display: block;
+}
+.teamList .desc{
+  text-align:center;
+  font-weight:normal;
+  line-height: 60px;
+  background-color: gray;
+  width:254px;
+  height: 60px;
+  font-size:25px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  margin-right: 16px;
+  border-top: white solid 2px;
+  }
+.teamList span{
+	text-align: center;
+	vertical-align: middle;
+	/*line-height: 200px;*/
+	position: absolute;
+	z-index: 23;
+	top: 1px;
+	bottom: -1px;
+	width: 250px;
+	height: 230px;
+	margin-right: 35px;
+	border: gray solid 2px;
+	display: none;
+	filter:alpha(opacity=40);
+	-moz-opacity:0.4;
+	opacity: 0.4;
+	background:#000;
+	color:#fff;
+}
+.teamIntro {
+	position: absolute;
+	left: 270px;
+	top: 840px;
+	width: 720px;
+	height: 250px;
+	padding-left: 0px;
+	margin-left: auto;
+	margin-right: auto;
+	overflow: hidden;
+	list-style-type: none;
+}
+.teamInfoList li{
+	float: left;
+	margin-left: 10px;
+}
+.teamInfoList {
+	list-style-type: none;
+	filter:alpha(opacity=50);
+	-moz-opacity:0.5;
+	opacity: 0.5;
+	background:#000;
+	color:#fff;
+	line-height:30px;
+	text-align:left;
+	width: 2200px;
+	height: 200px;
+	position: absolute;
+	left: 0px;
+	top: 0px;
+	display:none;
+}
+.teamInfoList span{
+	width: 190px;
+	height: 200px;
+	margin-right: 35px;
+	border: gray solid 2px;
+	display:none;
+}
+.teamList a:hover span{
+
+	display: block;
+}
+/*---------------------------------------------热门项目板块-----------------------------------------------*/
+.preBtn_project,.nextBtn_project{
+	height: 100px;
+	width: 30px;
+	border: none;
+}
+.preBtn_project{
+	float: left;
+	position: relative;
+	left: 10px;
+	top: 90px;
+	margin-left: 10px;
+
+}
+.nextBtn_project{
+	float: right;
+	position: relative;
+	right: 20px;
+	top: -255px;
+}
+.hotProject{
+	background-color: white;
+}
+.hotProjects{
+	position: relative;
+	left: -23px;
+	width: 798px;
+	height: 355px;
+	padding-left: 0px;
+	padding-right: 30px;
+	margin-left: auto;
+	margin-right: auto;
+	overflow: hidden;
+
+}
+.projectList{
+	list-style-type: none;
+	padding-left: 0px;
+	width: 2520px;
+	height: 200px;
+	position: absolute;
+	left: 0px;
+	top: 0px;
+}
+.projectList li{
+	float: left;
+	margin-left: 10px;
+}
+.projectList img{
+	position:relative;
+	z-index: 22;
+	width: 250px;
+	height: 230px;
+	margin-right: 16px;
+	border: gray solid 2px;
+}
+
+.projectList span{
+	text-align: center;
+	line-height: 200px;
+	position: absolute;
+	z-index: 23;
+	top: 1px;
+	bottom: -1px;
+	width: 250px;
+	height: 230px;
+	margin-right: 16px;
+	border: gray solid 2px;
+	display: none;
+	filter:alpha(opacity=40);
+	-moz-opacity:0.4;
+	opacity: 0.4;
+	background:#000;
+	color:#fff;
+}
+.projectList a:hover span{
+
+	display: block;
+}
+.projectList .desc{
+  text-align:center;
+  font-weight:normal;
+  line-height: 60px;
+  background-color: gray;
+  width:253px;
+  height: 60px;
+  font-size:25px;
+  padding-top: 9px;
+  padding-bottom: 10px;
+  margin-right: 16px;
+  }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
