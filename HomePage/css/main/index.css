@@ -36,7 +36,7 @@ a:visited{
     height:0;
     font-size:0;
     border:solid 8px;
-    border-color: #B2DDDB #B2DDDB #ffffff #B2DDDB;  
+    border-color: #ffffff #ffffff #ffffff #ffffff;
 /*这里按照实际的背景颜色改一下，1，2，4和背景颜色相同*/
 }
 
@@ -71,6 +71,7 @@ a:visited{
 }
 
 
+
 /*----------------------------------导航栏-------------------------------------------------------------*/
 .header,.logoBar,.banner{
 	
@@ -87,7 +88,7 @@ a:visited{
 	top: 5px;
 }
 .header{
-	background: rgba(255, 255, 255，1);
+	background: rgba(255, 255, 255,1);
 }
 
 .fl{
