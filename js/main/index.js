@@ -1,5 +1,49 @@
-$(function(){
 
+//-----------------------------------------------首页的js代码-----------------------------------------------------
+
+$(function(){
+// －－－－－－－－－－－－－－－banner初始化－－－－－－－－－－－－－－－－－－
+
+    $.getJSON('../js/main/banners.json',function(data){
+        var lis = $(".imgList li img");
+        var link = $(".imgList li a");
+        for (var i = 0; i < lis.length; i++) {
+            var bannerUrl = data.banner[i].bannerImg;
+            var imgHref = data.banner[i].bannerUrl;
+            $(lis[i]).attr("src",bannerUrl);
+            $(link[i]).attr("href",imgHref);
+        }
+    });
+    var curIndexBanner = 0;
+    var imgLen_banner = $(".imgList li").length;
+    $(".preBtn").click(function(){
+        curIndexBanner = (curIndexBanner > 0) ? (--curIndexBanner) : (imgLen_banner - 1);
+        changeTo(curIndexBanner);
+    });
+    $(".nextBtn").click(function(){
+        // curIndexBanner = (curIndexBanner < imgLen_banner - 1) ? (++curIndexBanner) : 0;
+        if (curIndexBanner == imgLen_banner - 1) {
+            curIndexBanner = 0;
+        }
+        else{
+            curIndexBanner++;
+        }
+        changeTo(curIndexBanner);
+
+    });
+    function changeTo(num){
+        var goLeft = num * 775;
+        $(".imgList").animate({left: "-" + goLeft + "px"},500);
+    }
+    $(".imgList").hover(function() {
+        clearInterval(picTimer);
+    },function() {
+        picTimer = setInterval(function() {
+            changeTo(curIndexBanner);
+            curIndexBanner++;
+            if(curIndexBanner == imgLen_banner) {curIndexBanner = 0;}
+        },5000); //此5000代表自动播放的间隔，单位：毫秒
+    }).trigger("mouseleave");
 
 // －－－－－－－－－－－－－－－导航的切换－－－－－－－－－－－－－－－－－－－－－－－－－－
     $("#indexBtn").click(function(){
@@ -10,7 +54,6 @@ $(function(){
             url: "pages/indexForMainPage.html",
             dataType:"html",
             success:function(data){
-
                 $("#indexDiv").html(data);
             }
         })
@@ -20,7 +63,7 @@ $(function(){
         $("#teamBtn").css("text-decoration","underline");
         var a = $.ajax({
             type:"get",
-            url: "pages/roles_team.html",
+            url: "../team/roles_team.html",
             dataType:"html",
             success:function(data){
                 $("#indexDiv").html(data);
@@ -33,7 +76,7 @@ $(function(){
     var teamLink = $(".teamList li a");
     var teamNames = $(".teamList li div");
     var teamsDesc = $(".teamList li span");
-    var curIndex_team = 0;
+    var curIndexOfTeam = 0;
     $.getJSON('../js/main/teams.json',function(data){
         for (var i = 0; i < 3; i++) {
             var firstTeamImg = data.teams[i].teamImg;
@@ -43,8 +86,8 @@ $(function(){
             $(teamNames[i]).html(firstTeamName);
             $(teamsDesc[i]).html(firstTeamDesc);
         }
-        curIndex_team += 3;
-    })
+        curIndexOfTeam += 3;
+    });
 
 // －－－－－－－－－－－－－－－－－动态加载团队－－－－－－－－－－－－－－－－－－－－－－－－－
     var triTeamLen = $(".teamList li").length;
@@ -54,24 +97,37 @@ $(function(){
             url: "../js/main/teams.json",
             dataType: "json",
             success: function(data){
-                if (curIndex_team == triTeamLen) {
-                    curIndex_team = 0 ;
-                }
-                else{
-                    for (var i = curIndex_team ; i < curIndex_team + 3; i++) {
+
+                var maxlength = data.teams.length;
+                if (curIndexOfTeam == maxlength) {
+                    curIndexOfTeam = 0;
+                } else {
+
+                    for (var j = 0; j < 3; j++) {
+                        $('.teamList').append('<li> <a  target="_blank"><img ><div class="desc">团队名称</div><span></span></a></li>');
+                    }
+                    triTeamLen += 3;
+                    var len = 840 * teamLength / 3 + "px";
+                    $("#teamList").css("width",len);
+
+                    teamlis = $(".teamList li img");
+                    teamLink = $(".teamList li a");
+                    teamNames = $(".teamList li div");
+                    teamsDesc = $(".teamList li span");
+                    for (var i = curIndexOfTeam; i < curIndexOfTeam + 3; i++) {
                         var teamImg = data.teams[i].teamImg;
                         var teamName = data.teams[i].teamName;
                         var teamDesc = data.teams[i].teamDesc;
-                        $(teamlis[i]).attr("src",teamImg);
+                        $(teamlis[i]).attr("src", teamImg);
                         $(teamNames[i]).html(teamName);
                         $(teamsDesc[i]).html(teamDesc);
                     }
+
                 }
-                changeToNextTeam(curIndex_team);
-                curIndex_team += 3;
+                changeToNextTeam(triTeamLen,curIndexOfTeam);
+                curIndexOfTeam += 3;
             }
         });
-
     });
     $(".preBtn_teams").click(function(){
         var a = $.ajax({
@@ -79,7 +135,8 @@ $(function(){
             url: "../js/main/teams.json",
             dataType: "json",
             success: function(data){
-                if (curIndex_team == 0) {
+                var maxlength = data.teams.length;
+                if (curIndexOfTeam == 0) {
                     for (var i = triTeamLen - 3 ; i < triTeamLen ; i++) {
                         var teamImg = data.teams[i].teamImg;
                         var teamName = data.teams[i].teamName;
@@ -88,10 +145,10 @@ $(function(){
                         $(teamNames[i]).html(teamName);
                         $(teamsDesc[i]).html(teamDesc);
                     }
-                    curIndex_team = triTeamLen - 3;
+                    curIndexOfTeam = maxlength - 3;
                 }
                 else{
-                    for (var i = curIndex_team - 3; i < curIndex_team ; i++) {
+                    for (var i = curIndexOfTeam - 3; i < curIndexOfTeam ; i++) {
                         var teamImg = data.teams[i].teamImg;
                         var teamName = data.teams[i].teamName;
                         var teamDesc = data.teams[i].teamDesc;
@@ -99,14 +156,15 @@ $(function(){
                         $(teamNames[i]).html(teamName);
                         $(teamsDesc[i]).html(teamDesc);
                     }
-                    curIndex_team -= 3;
+                    curIndexOfTeam -= 3;
                 }
-                changeToNextTeam(curIndex_team);
+                changeToNextTeam(curIndexOfTeam);
 
             }
         });
     });
     function changeToNextTeam(teamNum){
+
         var goTeam = teamNum / 3 * 840;
         $(".teamList").animate({left: "-" + goTeam + "px"},500);
     }
@@ -120,7 +178,7 @@ $(function(){
     var projectLink = $(".projectList li a");
     var projectNames = $(".projectList li div");
     var projectsDesc = $(".projectList li span");
-    var curIndex_project = 0;
+    var curIndexOfProject = 0;
     $.getJSON('../js/main/projects.json',function(data){
         for (var i = 0; i < 3; i++) {
             var firstProjectImg = data.projects[i].projectImg;
@@ -130,8 +188,8 @@ $(function(){
             $(projectNames[i]).html(firstProjectName);
             $(projectsDesc[i]).html(firstProjectDesc);
         }
-        curIndex_project += 3;
-    })
+        curIndexOfProject += 3;
+    });
 
 // －－－－－－－－－－－－－－－－－动态加载项目－－－－－－－－－－－－－－－－－－－－－－－－－
     var triProjectLen = $(".projectList li").length;
@@ -141,11 +199,11 @@ $(function(){
             url: "../js/main/projects.json",
             dataType: "json",
             success: function(data){
-                if (curIndex_project == triProjectLen) {
-                    curIndex_project = 0 ;
+                if (curIndexOfProject == triProjectLen) {
+                    curIndexOfProject = 0 ;
                 }
                 else{
-                    for (var i = curIndex_project ; i < curIndex_project + 3; i++) {
+                    for (var i = curIndexOfProject ; i < curIndexOfProject + 3; i++) {
                         var projectImg = data.projects[i].projectImg;
                         var projectName = data.projects[i].projectName;
                         var projectDesc = data.projects[i].projectDesc;
@@ -154,8 +212,8 @@ $(function(){
                         $(projectsDesc[i]).html(projectDesc);
                     }
                 }
-                changeToNextProject(curIndex_project);
-                curIndex_project += 3;
+                changeToNextProject(curIndexOfProject);
+                curIndexOfProject += 3;
             }
         });
 
@@ -166,7 +224,7 @@ $(function(){
             url: "../js/main/projects.json",
             dataType: "json",
             success: function(data){
-                if (curIndex_project == 0) {
+                if (curIndexOfProject == 0) {
                     for (var i = triProjectLen - 3 ; i < triProjectLen ; i++) {
                         var projectImg = data.projects[i].projectImg;
                         var projectName = data.projects[i].projectName;
@@ -175,10 +233,10 @@ $(function(){
                         $(projectNames[i]).html(projectName);
                         $(projectsDesc[i]).html(projectDesc);
                     }
-                    curIndex_project = triProjectLen - 3;
+                    curIndexOfProject = triProjectLen - 3;
                 }
                 else{
-                    for (var i = curIndex_project - 3; i < curIndex_project ; i++) {
+                    for (var i = curIndexOfProject - 3; i < curIndexOfProject ; i++) {
                         var projectImg = data.projects[i].projectImg;
                         var projectName = data.projects[i].projectName;
                         var projectDesc = data.projects[i].projectDesc;
@@ -186,9 +244,9 @@ $(function(){
                         $(projectNames[i]).html(projectName);
                         $(projectsDesc[i]).html(projectDesc);
                     }
-                    curIndex_project -= 3;
+                    curIndexOfProject -= 3;
                 }
-                changeToNextProject(curIndex_project);
+                changeToNextProject(curIndexOfProject);
 
             }
         });
@@ -198,7 +256,7 @@ $(function(){
         $(".projectList").animate({left: "-" + goProject + "px"},500);
     }
 
-})
+});
 
 
    

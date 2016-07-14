@@ -1,0 +1,189 @@
+<!--------------------------------------------------登陆后的首页---------------------------------->
+
+<!DOCTYPE html>
+<html>
+<meta charset="utf-8">
+<head>
+	<title>华南理工大学人才交流市场</title>
+</head>
+<body>
+<script type="text/javascript" src="../js/main/jquery.js"></script>
+<script type="text/javascript" src="../js/main/index.js"></script>
+<link href="../css/main/base.css" type="text/css" rel="stylesheet"/>
+<link rel="stylesheet" type="text/css" href="../css/main/index.css">
+<link rel="stylesheet" type="text/css" href="../css/main/studentLogin.css">
+<div class="header comWidth">
+	<div class="topBar">
+		<div class="comWidth">
+			<div class ="header fl">
+				<a href="test/information.html" target="_blank">关于基地</a>
+			</div>
+			<div class="header fr">
+				<a class="topBarItem" id="userName" href="test/userInfo.html" target="_blank">WeMeet</a>
+				<!-- <span id="line">|</span> -->
+				<span class="line">|</span>
+				<a class="topBarItem" id="submintBtn" href="test/submit.html" target="_blank">投递</a>
+				<span class="line">|</span>
+				<a class="topBarItem" id="message" href="test/message.html" target="_blank">消息</a>
+				<span class="line">|</span>
+				<a class="topBarItem" id="collection" href="test/collection.html" target="_blank">关注收藏</a>
+			</div>
+		</div>
+	</div>
+</div>
+<div class="send comWidth z-depth">
+	<img id="logo" src="../res/imgs/main/logo.png">
+	<div class="arrow"></div>
+	<p class="schoolText text">华南理工大学</p>
+	<p class="webNameText text" >人才交流平台</p>
+
+	<p class="indexBtnText text" ><a id="indexBtn">首页</a></p>
+	<p class="teamBtnText text" ><a id="teamBtn" >团队</a></p>
+
+	<input class="searchguide" type="text" placeholder="输入职位、团队、项目名称" >
+	<button class="button" type="submit">
+		<img class="searchImg" src="../res/imgs/main/search.png"/>
+	</button>
+</div>
+
+<div style="border-left: solid 2px #bbbbbb;width: 2px;height:40px;top:48px;left:400px;position: absolute"></div>
+
+<div id="indexDiv" class="comWidth">
+	<div class="banner comWidth z-depth">
+		<div class="mediumBox">
+			<table class="rolesTable">
+				<th colspan="3">为实现学生价值提供更好的服务  </th>
+				<tr>
+					<td>
+
+						<a class="roles" href="../stu/roles_stu.html" target="_blank" id="studentRole">学生</a>
+					</td>
+					<td>
+
+						<a class="roles" href="../team/roles_team.html" target="_blank" id="teamRole">团队</a>
+					</td>
+					<td>
+
+						<a class="roles" href="test/roles_project.html" target="_blank" id="projectRole">项目</a>
+					</td>
+				</tr>
+				<tr>
+					<td>
+
+						<a class="roles" href="test/roles_pratice.html" target="_blank" id="praticeRole">实习</a>
+					</td>
+					<td>
+
+						<a class="roles" href="test/roles_company.html" target="_blank" id="companyRole">公司</a>
+					</td>
+					<td>
+
+						<a class="roles" href="test/roles_school.html" target="_blank" id="schoolRole">校组织</a>
+					</td>
+				</tr>
+			</table>
+		</div>
+
+	</div>
+	<div class="bannerBar comWidth  z-depth bannerBig ">
+		<button class="preBtn "></button>
+		<div class="imgBox">
+			<ul class="imgList fl">
+				<li><a href="" target="_blank"><img src="" alt="1"></a></li>
+				<li><a href="" target="_blank"><img src="" alt="2"></a></li>
+				<li><a href="" target="_blank"><img src="" alt="3"></a></li>
+
+			</ul>
+		</div>
+		<button class="nextBtn "></button>
+	</div>
+	<div class="bannerBar comWidth hotTeam z-depth">
+		<div class="hotTeamTopic">
+			<span class="decoration decoLeft"><hr /></span>
+			<span class="topic">热门团队</span>
+			<span class="decoration decoRight"><hr /></span>
+		</div>
+		<button class="preBtnOfTeams "></button>
+		<div class="hotTeams">
+			<ul class="teamList">
+
+				<li>
+					<a href="../team/hotTeamRes.html" target="_blank"><img src=""><div class="desc">团队名称</div><span></span></a>
+				</li>
+				<li>
+					<a href="../team/hotTeamRes.html" target="_blank"><img src=""><div class="desc">团队名称</div><span></span></a>
+				</li>
+				<li>
+					<a href="../team/hotTeamRes.html" target="_blank"><img src=""><div class="desc">团队名称</div><span></span></a>
+				</li>
+				<li>
+					<a href="../team/hotTeamRes.html" target="_blank"><img src=""><div class="desc">团队名称</div><span></span></a>
+				</li>
+				<li>
+					<a href="../team/hotTeamRes.html" target="_blank"><img src=""><div class="desc">团队名称</div><span></span></a>
+				</li>
+				<li>
+					<a href="../team/hotTeamRes.html" target="_blank"><img src=""><div class="desc">团队名称</div><span></span></a>
+				</li>
+				<li>
+					<a href="../team/hotTeamRes.html" target="_blank"><img src=""><div class="desc">团队名称</div><span></span></a>
+				</li>
+				<li>
+					<a href="../team/hotTeamRes.html" target="_blank"><img src=""><div class="desc">团队名称</div><span></span></a>
+				</li>
+				<li>
+					<a href="../team/hotTeamRes.html" target="_blank"><img src=""><div class="desc">团队名称</div><span></span></a>
+				</li>
+			</ul>
+		</div>
+
+		<button class="nextBtnOfTeams "></button>
+	</div>
+	<div class="bannerBar comWidth hotProject z-depth">
+		<div class="hotProjectTopic">
+			<span class="decoration decoLeft"><hr /></span>
+			<span class="topic">热门项目</span>
+			<span class="decoration decoRight"><hr /></span>
+		</div>
+		<button class="preBtnOfProject "></button>
+		<div class="hotProjects">
+			<ul class="projectList">
+
+
+
+
+				<li>
+					<a href="test/hotProjectRes.html" target="_blank"><img src="../res/imgs/main/team/team1.jpg"><div class="desc"></div><span></span></a>
+				</li>
+				<li>
+					<a href="test/hotProjectRes.html" target="_blank"><img src="../res/imgs/main/team/team2.jpg"><div class="desc"></div><span></span></a>
+				</li>
+				<li>
+					<a href="test/hotProjectRes.html" target="_blank"><img src=""><div class="desc"></div><span></span></a>
+				</li>
+				<li>
+					<a href="test/hotProjectRes.html" target="_blank"><img src=""><div class="desc"></div><span></span></a>
+				</li>
+				<li>
+					<a href="test/hotProjectRes.html" target="_blank"><img src=""><div class="desc"></div><span></span></a>
+				</li>
+				<li>
+					<a href="test/hotProjectRes.html" target="_blank"><img src=""><div class="desc"></div><span></span></a>
+				</li>
+				<li>
+					<a href="test/hotProjectRes.html" target="_blank"><img src=""><div class="desc"></div><span></span></a>
+				</li>
+				<li>
+					<a href="test/hotProjectRes.html" target="_blank"><img src=""><div class="desc"></div><span></span></a>
+				</li>
+				<li>
+					<a href="test/hotProjectRes.html" target="_blank"><img src=""><div class="desc"></div><span></span></a>
+				</li>
+			</ul>
+		</div>
+		<button class="nextBtnOfProject "></button>
+	</div>
+</div>
+
+</body>
+</html>

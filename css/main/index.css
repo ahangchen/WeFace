@@ -1,4 +1,7 @@
-/*居中公用类*/
+/*-------------------首页的css样式表--------------------------------------------------------------------------*/
+
+
+/*-------------------------------------------居中公用类------------------------------------------------------*/
 .comWidth{
 	width: 970px;
 	margin-left: auto;
@@ -23,6 +26,23 @@ a:visited{
 	box-shadow: 0 16px 28px 0 rgba(0, 0, 0, 0.22), 0 25px 55px 0 rgba(0, 0, 0, 0.21);
 }
 /*－－－－－－－－－－－－－－－－－－－－－导航栏样式By雨芮－－－－－－－－－－－－－－－－－－－－－－－－－－－－－*/
+.schoolText{
+	margin-left: 100px;
+	margin-top: 3px;
+}
+.webNameText{
+	margin-left: 100px;
+	margin-top: 25px;
+}
+.indexBtnText{
+	margin-left: 350px;
+	margin-top: 15px;
+}
+.teamBtnText{
+	margin-left: 500px;
+	margin-top: 15px;
+}
+
 .send {
 	position:relative;
 	width:970px;
@@ -65,6 +85,9 @@ a:visited{
 	border-color: #9b9796;
 	border-radius: 4px;
 	text-align: left;
+	margin-left: 620px;
+	margin-top: 15px;
+	width: 300px;
 }
 
 .searchguide:hover, .searchguide:focus {
@@ -74,8 +97,18 @@ a:visited{
 
 .button{
 	cursor: pointer;
+	margin-left: 923px;
+	margin-top: 15px;
+	width: 20px;
+	height: 26.5px;
 }
-
+.button .searchImg{
+	margin-left: -10px;
+	padding-left: 2px;
+	width: 20px;
+	height: 20px;
+	margin-top: 1px;
+}
 
 /*----------------------------------导航栏-------------------------------------------------------------*/
 .header,.logoBar,.banner{
@@ -93,7 +126,7 @@ a:visited{
 	top: 5px;
 }
 .header{
-	background: rgba(255, 255, 255,1.0);
+	background: rgba(255,255,255,1.0);
 }
 
 .fl{
@@ -276,7 +309,7 @@ a:visited{
 }
 
 /*---------------------------------------banner部分----------------------------------*/
-.banner_big{
+.bannerBig{
 	background-color: white;
 	height: 442px;
 	margin-bottom: 10px;
@@ -327,13 +360,13 @@ a:visited{
 	left: 0px;
 	top: 0px;
 }
-.banner_big .imgList img{
+.bannerBig .imgList img{
 	display: block;
 	height: 362px;
 	width: 775px;
 }
 
-.banner_big .imgBox li{
+.bannerBig .imgBox li{
 	float: left;
 	list-style-type: none;
 }
@@ -363,20 +396,20 @@ a:visited{
 	margin:0px 0px 0px 0px;
 	display: inline-block;
 }
-.deco_left{
+.decoLeft{
 	position: relative;
 	left: 112px;
 }
-.deco_right{
+.decoRight{
 	position: relative;
 	left: 110px;
 }
-.preBtn_teams,.nextBtn_teams{
+.preBtnOfTeams,.nextBtnOfTeams{
 	height: 100px;
 	width: 30px;
 	border: none;
 }
-.preBtn_teams{
+.preBtnOfTeams{
 	float: left;
 	position: relative;
 	left: 10px;
@@ -384,7 +417,7 @@ a:visited{
 	margin-left: 10px;
 
 }
-.nextBtn_teams{
+.nextBtnOfTeams{
 	float: right;
 	position: relative;
 	right: 20px;
@@ -416,7 +449,8 @@ a:visited{
 .teamList{
 	list-style-type: none;
 	padding-left: 0px;
-	width: 2520px;
+	/*width: 2520px;*/
+	width:840px;
 	height: 200px;
 	position: absolute;
 	left: 0px;
@@ -514,12 +548,12 @@ a:visited{
 	display: block;
 }
 /*---------------------------------------------热门项目板块-----------------------------------------------*/
-.preBtn_project,.nextBtn_project{
+.preBtnOfProject,.nextBtnOfProject{
 	height: 100px;
 	width: 30px;
 	border: none;
 }
-.preBtn_project{
+.preBtnOfProject{
 	float: left;
 	position: relative;
 	left: 10px;
@@ -527,7 +561,7 @@ a:visited{
 	margin-left: 10px;
 
 }
-.nextBtn_project{
+.nextBtnOfProject{
 	float: right;
 	position: relative;
 	right: 20px;
@@ -551,7 +585,8 @@ a:visited{
 .projectList{
 	list-style-type: none;
 	padding-left: 0px;
-	width: 2520px;
+	/*width: 2520px;*/
+	width: 840px;
 	height: 200px;
 	position: absolute;
 	left: 0px;
