@@ -223,11 +223,11 @@
                 clearInterval(picTimer); 
                 },function() { 
                     picTimer = setInterval(function() { 
-                        curIndex_banner++; 
-                    // changeTo(curIndex_banner); 
-                    // curIndex_banner++; 
+
+                     changeTo(curIndex_banner);
+                     curIndex_banner++;
                     if(curIndex_banner == imgLen_banner) {curIndex_banner = 0;} 
-                    changeTo(curIndex_banner); 
+                    
                     },5000); //此3000代表自动播放的间隔，单位：毫秒 
                 }).trigger("mouseleave"); 
         })
