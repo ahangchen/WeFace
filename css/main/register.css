@@ -1,0 +1,152 @@
+* {
+    margin: 0px;
+    padding: 0px;
+    list-style: none;
+}
+
+.regi-form,
+.success-form,
+.end-form {
+    display: none;
+}
+
+.choice-form,
+.regi-form,
+.success-form,
+.end-form {
+    width: 320px;
+    margin: auto;
+}
+
+.main {
+    width: 560px;
+    position: fixed;
+    margin-left: -280px;
+    padding-top: 40px;
+    top: 70px;
+    left: 50%;
+    border: gray solid 1px;
+    border-radius: 10px;
+}
+
+.actor-title {
+    height: 20px;
+    margin-bottom: 15px;
+    font-size: 15px;
+}
+
+#actor-show {
+    width: 320px;
+    height: 38px;
+    font-size: 25px;
+    font-family: "黑体";
+    color: #A1A1A1;
+    line-height: 38px;
+    background-color: #EEEEEE;
+    border: #000000 solid 1px;
+    border-radius: 4px;
+        text-indent:3px;
+}
+
+#choice {
+    width: 320px;
+    heigth: 144px;
+    background-color: #EEEEEE;
+    position: absolute;
+    left: 0px;
+    top: 40px;
+    border: #000000 solid 1px;
+    display: none;
+}
+
+.actor-choice {
+    line-height: 38px;
+    height: 38px;
+    font-size: 25px;
+    font-family: "黑体";
+    color: #A1A1A1;
+    text-indent:3px;
+}
+#actor-stu:hover{
+    height: 37px;
+    background-color: #ffffff;
+    border-bottom: #000000 solid 1px;
+    cursor: pointer;
+}
+#actor-com:hover{
+    height: 37px;
+    line-height: 37px;
+    background-color: #ffffff;
+    border-top: #000000 solid 1px;
+        cursor: pointer;
+}
+#actor-society:hover,
+#actor-group:hover{
+    height: 36px;
+    background-color: #ffffff;
+    border-top: #000000 solid 1px;
+    border-bottom: #000000 solid 1px;
+        cursor: pointer;
+}
+
+.actor-button {
+    margin-top: 30px;
+    display: inline-block;
+}
+
+#actor-cancel {
+    margin-right: 14px;
+}
+
+.actor-button>input {
+    width: 153px;
+    height: 40px;
+    background-color: #ffffff;
+    border: black solid 1px;
+}
+
+.regi-login {
+    font-size: 15px;
+    height: 20px;
+    text-align: center;
+    display: block;
+    margin-top: 30px;
+    margin-bottom:40px;
+}
+
+
+
+/*下面注册界面的css*/
+.regi-a>input,.regi-group>input{
+    font-size:20px;
+    font-family: "宋体";
+    width:320px;
+    height:38px;
+    margin-bottom:20px;
+    border:black solid 1px;
+    border-radius:5px;
+    text-indent:4px;
+}
+
+.regi-b{
+    margin-top:5px;
+    margin-bottom:20px;
+}
+
+#regi-conf{
+    width:320px;
+    margin-bottom:10px;
+    height: 40px;
+    background-color: orange;
+    border:none;
+}
+
+/*下面是成功显示界面*/
+.success-form>p{
+    margin-bottom: 20px;
+    text-align: center;
+}
+.success-back{
+    display: block;
+    margin-bottom:40px;
+}
