@@ -2,31 +2,31 @@ $(function(){
 
 
 // －－－－－－－－－－－－－－－导航的切换－－－－－－－－－－－－－－－－－－－－－－－－－－
-$("#indexBtn").click(function(){
-    $("#teamBtn").css("text-decoration","none");
-    $(this).css("text-decoration","underline");
-    var a = $.ajax({
-        type:"get",
-        url: "pages/indexForMainPage.html",
-        dataType:"html",
-        success:function(data){
-            
-            $("#indexDiv").html(data);
-        }
-    })
-});
-$("#teamBtn").click(function(){
-    $("#indexBtn").css("text-decoration","none");
-    $("#teamBtn").css("text-decoration","underline");
-    var a = $.ajax({
-        type:"get",
-        url: "pages/roles_team.html",
-        dataType:"html",
-        success:function(data){
-            $("#indexDiv").html(data);
-        }
-    })
-});
+    $("#indexBtn").click(function(){
+        $("#teamBtn").css("text-decoration","none");
+        $(this).css("text-decoration","underline");
+        var a = $.ajax({
+            type:"get",
+            url: "pages/indexForMainPage.html",
+            dataType:"html",
+            success:function(data){
+
+                $("#indexDiv").html(data);
+            }
+        })
+    });
+    $("#teamBtn").click(function(){
+        $("#indexBtn").css("text-decoration","none");
+        $("#teamBtn").css("text-decoration","underline");
+        var a = $.ajax({
+            type:"get",
+            url: "pages/roles_team.html",
+            dataType:"html",
+            success:function(data){
+                $("#indexDiv").html(data);
+            }
+        })
+    });
 // －－－－－－－－－－－－－－－热门团队－－－－－－－－－－－－－－－－－－－－－－－－－－－
 // －－－－－－－－－－－－－热门团队初始化－－－－－－－－－－－－－－－－－－－－－－－－－－
     var teamlis = $(".teamList li img");
@@ -102,13 +102,13 @@ $("#teamBtn").click(function(){
                     curIndex_team -= 3;
                 }
                 changeToNextTeam(curIndex_team);
-                
+
             }
         });
     });
     function changeToNextTeam(teamNum){
-                var goTeam = teamNum / 3 * 840;
-                $(".teamList").animate({left: "-" + goTeam + "px"},500);
+        var goTeam = teamNum / 3 * 840;
+        $(".teamList").animate({left: "-" + goTeam + "px"},500);
     }
 
 
@@ -189,14 +189,14 @@ $("#teamBtn").click(function(){
                     curIndex_project -= 3;
                 }
                 changeToNextProject(curIndex_project);
-                
+
             }
         });
     });
     function changeToNextProject(projectNum){
-                var goProject = projectNum / 3 * 840;
-                $(".projectList").animate({left: "-" + goProject + "px"},500);
-       }
+        var goProject = projectNum / 3 * 840;
+        $(".projectList").animate({left: "-" + goProject + "px"},500);
+    }
 
 })
 
