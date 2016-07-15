@@ -449,7 +449,7 @@ a:visited{
 .teamList{
 	list-style-type: none;
 	padding-left: 0px;
-	/*width: 2520px;*/
+
 	width:840px;
 	height: 200px;
 	position: absolute;

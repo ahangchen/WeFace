@@ -21,7 +21,7 @@ $(function(){
         changeTo(curIndexBanner);
     });
     $(".nextBtn").click(function(){
-        // curIndexBanner = (curIndexBanner < imgLen_banner - 1) ? (++curIndexBanner) : 0;
+
         if (curIndexBanner == imgLen_banner - 1) {
             curIndexBanner = 0;
         }
@@ -77,7 +77,7 @@ $(function(){
     var teamNames = $(".teamList li div");
     var teamsDesc = $(".teamList li span");
     var curIndexOfTeam = 0;
-    $.getJSON('../js/main/teams.json',function(data){
+    $.getJSON('../data/teamTest.json',function(data){
         for (var i = 0; i < 3; i++) {
             var firstTeamImg = data.teams[i].teamImg;
             var firstTeamName = data.teams[i].teamName;
@@ -91,24 +91,26 @@ $(function(){
 
 // －－－－－－－－－－－－－－－－－动态加载团队－－－－－－－－－－－－－－－－－－－－－－－－－
     var triTeamLen = $(".teamList li").length;
-    $(".nextBtn_teams").click(function(){
+    $(".nextBtnOfTeams").click(function(){
         var a = $.ajax({
             type: "post",
-            url: "../js/main/teams.json",
+            url: "../data/teamTest.json",
             dataType: "json",
             success: function(data){
-
-                var maxlength = data.teams.length;
-                if (curIndexOfTeam == maxlength) {
+                var maxLength = data.teams.length;
+                if (curIndexOfTeam == maxLength) {
                     curIndexOfTeam = 0;
-                } else {
-
-                    for (var j = 0; j < 3; j++) {
-                        $('.teamList').append('<li> <a  target="_blank"><img ><div class="desc">团队名称</div><span></span></a></li>');
+                }
+                else {
+                    if (triTeamLen < maxLength) {
+                        for (var j = 0; j < 3; j++) {
+                            $(".teamList").append('<li><a  target="_blank"><img ><div class="desc">团队名称</div><span></span></a></li>');
+                        }
                     }
                     triTeamLen += 3;
-                    var len = 840 * teamLength / 3 + "px";
-                    $("#teamList").css("width",len);
+                    var len = 840 * (triTeamLen / 3);
+                    var lenCss = len + "px";
+                    $(".teamList").css("width", lenCss);
 
                     teamlis = $(".teamList li img");
                     teamLink = $(".teamList li a");
@@ -116,27 +118,44 @@ $(function(){
                     teamsDesc = $(".teamList li span");
                     for (var i = curIndexOfTeam; i < curIndexOfTeam + 3; i++) {
                         var teamImg = data.teams[i].teamImg;
+
                         var teamName = data.teams[i].teamName;
                         var teamDesc = data.teams[i].teamDesc;
                         $(teamlis[i]).attr("src", teamImg);
                         $(teamNames[i]).html(teamName);
                         $(teamsDesc[i]).html(teamDesc);
                     }
-
                 }
-                changeToNextTeam(triTeamLen,curIndexOfTeam);
+                changeToNextTeam(curIndexOfTeam);
                 curIndexOfTeam += 3;
             }
         });
     });
-    $(".preBtn_teams").click(function(){
+    $(".preBtnOfTeams").click(function(){
         var a = $.ajax({
             type: "post",
-            url: "../js/main/teams.json",
+            url: "../data/teamTest.json",
             dataType: "json",
             success: function(data){
-                var maxlength = data.teams.length;
+                var maxLength = data.teams.length;
+
                 if (curIndexOfTeam == 0) {
+                    if(triTeamLen < maxLength) {
+                        for (var j = 0; j < maxLength - triTeamLen; j++) {
+                            $(".teamList").append('<li><a  target="_blank"><img ><div class="desc">团队名称</div><span></span></a></li>');
+                        }
+                        triTeamLen = maxLength;
+                        var len = 840 * (triTeamLen / 3);
+                        var lenCss = len + "px";
+                        $(".teamList").css("width", lenCss);
+                    }
+
+
+                    teamlis = $(".teamList li img");
+                    teamLink = $(".teamList li a");
+                    teamNames = $(".teamList li div");
+                    teamsDesc = $(".teamList li span");
+
                     for (var i = triTeamLen - 3 ; i < triTeamLen ; i++) {
                         var teamImg = data.teams[i].teamImg;
                         var teamName = data.teams[i].teamName;
@@ -145,7 +164,7 @@ $(function(){
                         $(teamNames[i]).html(teamName);
                         $(teamsDesc[i]).html(teamDesc);
                     }
-                    curIndexOfTeam = maxlength - 3;
+                    curIndexOfTeam = maxLength - 3;
                 }
                 else{
                     for (var i = curIndexOfTeam - 3; i < curIndexOfTeam ; i++) {
@@ -179,7 +198,7 @@ $(function(){
     var projectNames = $(".projectList li div");
     var projectsDesc = $(".projectList li span");
     var curIndexOfProject = 0;
-    $.getJSON('../js/main/projects.json',function(data){
+    $.getJSON('../data/projectTest.json',function(data){
         for (var i = 0; i < 3; i++) {
             var firstProjectImg = data.projects[i].projectImg;
             var firstProjectName = data.projects[i].projectName;
@@ -193,16 +212,30 @@ $(function(){
 
 // －－－－－－－－－－－－－－－－－动态加载项目－－－－－－－－－－－－－－－－－－－－－－－－－
     var triProjectLen = $(".projectList li").length;
-    $(".nextBtn_project").click(function(){
+    $(".nextBtnOfProject").click(function(){
         var a = $.ajax({
             type: "post",
-            url: "../js/main/projects.json",
+            url: "../data/projectTest.json",
             dataType: "json",
             success: function(data){
-                if (curIndexOfProject == triProjectLen) {
+                var maxLength = data.projects.length;
+                if (curIndexOfProject == maxLength) {
                     curIndexOfProject = 0 ;
                 }
                 else{
+                    if (triProjectLen < maxLength) {
+                        for (var j = 0; j < 3; j++) {
+                            $(".projectList").append('<li><a  target="_blank"><img ><div class="desc">项目名称</div><span></span></a></li>');
+                        }
+                    }
+                    triProjectLen += 3;
+                    var len = 840 * (triProjectLen / 3);
+                    var lenCss = len + "px";
+                    $(".projectList").css("width", lenCss);
+
+                    projectlis = $(".projectList li img");
+                    projectNames = $(".projectList li div");
+                    projectsDesc = $(".projectList li span");
                     for (var i = curIndexOfProject ; i < curIndexOfProject + 3; i++) {
                         var projectImg = data.projects[i].projectImg;
                         var projectName = data.projects[i].projectName;
@@ -218,14 +251,28 @@ $(function(){
         });
 
     });
-    $(".preBtn_project").click(function(){
+    $(".preBtnOfProject").click(function(){
         var a = $.ajax({
             type: "post",
-            url: "../js/main/projects.json",
+            url: "../data/projectTest.json",
             dataType: "json",
             success: function(data){
+                var maxLength = data.projects.length;
                 if (curIndexOfProject == 0) {
-                    for (var i = triProjectLen - 3 ; i < triProjectLen ; i++) {
+                    if (triProjectLen < maxLength) {
+                        for (var j = 0; j < maxLength - triProjectLen; j++) {
+                            $(".projectList").append('<li><a  target="_blank"><img ><div class="desc">项目名称</div><span></span></a></li>');
+                        }
+                        triProjectLen = maxLength;
+                        var len = 840 * (triProjectLen / 3);
+                        var lenCss = len + "px";
+                        $(".projectList").css("width", lenCss);
+                    }
+                    projectlis = $(".projectList li img");
+                    projectNames = $(".projectList li div");
+                    projectsDesc = $(".projectList li span");
+
+                    for (var i = maxLength - 3 ; i < maxLength ; i++) {
                         var projectImg = data.projects[i].projectImg;
                         var projectName = data.projects[i].projectName;
                         var projectDesc = data.projects[i].projectDesc;
