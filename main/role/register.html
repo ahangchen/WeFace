@@ -1,0 +1,78 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>zhucedenglu</title>
+    <link href="../../css/main/register.css" rel="stylesheet" type="text/css">
+    <script src="../../js/main/jquery.js"></script>
+</head>
+
+<body>
+    <div class="main">
+        <form class="choice-form" action="#" method="get">
+            <ul>
+                <li>
+                    <p class="actor-title">请选择你所需要注册的角色</p>
+                </li>
+                <li style="position: relative">
+                    <p id="actor-show">学生</p>
+                    <ul id="choice" name="place">
+                        <li class="actor-choice" id="actor-stu" name="学生">学生</li>
+                        <li class="actor-choice" id="actor-group" name="团队">团队</li>
+                        <li class="actor-choice" id="actor-society" name="社团">社团</li>
+                        <li class="actor-choice" id="actor-com" name="公司">公司</li>
+                    </ul>
+                </li>
+                <li>
+                    <div class="actor-button">
+                        <input id="actor-cancel" type="button" value="取消" />
+                    </div><!--
+                    --><div class="actor-button">
+                        <input id="actor-next" type="button" value="下一步" />
+                    </div>
+                </li>
+                <li><a class="regi-login" href="">已有账号，点此登录</a></li>
+            </ul>
+        </form>
+        <form class="regi-form" action="#" method="get">
+            <ul>
+                <li class="regi-a">
+                    <input id="account" type="text" value="" placeholder="输入常用邮箱地址" />
+                    <span id="account-warn"></span>
+                </li>
+                <li class="regi-a">
+                    <input type="text" value="" placeholder="输入验证字符" />
+                </li>
+                <li class="regi-group">
+                    <input style="display:block;margin-bottom:0px" type="text" value="" placeholder="输入团队邀请码" />
+                    <a style="display:block;margin-bottom:20px" href="">如何获得团队邀请码?</a>
+                </li>
+                <li class="regi-a">
+                    <input id="pwd" type="password" value="" placeholder="输入密码" />
+                </li>
+                <li class="regi-a">
+                    <input id="pwd-conf" type="password" value="" placeholder="再次输入密码" />
+                    <span id="pwd-info"></span>
+                </li>
+                <li class="regi-b">
+                    <input type="checkbox" value="" />我已阅读并同意《交流平台协议》</li>
+                <li>
+                    <input id="regi-conf" type="button" value="注册" />
+                </li>
+                <li><a class="regi-login" href="">已有账号，点此登录</a></li>
+            </ul>
+        </form>
+        <div class="success-form">
+            <p>注册成功，请到邮箱进行账号激活</p>
+            <p>将在 <span id="time">5</span> 秒后自动跳转到主页</p>
+            <p><a href="../index.html" class="success-back">点击直接跳转</a></p>
+        </div>
+        <div class="end-form">
+            您的账号已激活完成。
+        </div>
+    </div>
+    <script src="../../js/main/register.js"></script>
+</body>
+
+</html>

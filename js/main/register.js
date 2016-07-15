@@ -38,7 +38,7 @@
 	$('#regi-conf').click(function() {
 		var account = document.getElementById('account').value;
 		var pwd = document.getElementById('pwd').value;
-                var code= 0;
+		var code = 0;
 		var data = {
 			"account": account,
 			"pwd": pwd,
@@ -47,7 +47,7 @@
 		$.ajax({
 			type: 'POST',
 			data: data,
-			url: '../../js/main/register.json',
+			url: '../../data/register.json',
 			dataType: 'json',
 			success: function(data) {
 				var err = data.err;
