@@ -3,6 +3,7 @@
 	var flag = false;
 	$('html').click(function() {
 		$('#choice').css('display', 'none');
+		//$('.actor-button').css('display', 'inline-block');
 	}); //全局点击下拉框收回
 	$('.actor-choice').click(function() {
 		choice = $(this).attr('name');
@@ -10,10 +11,12 @@
 	}); //获取选择的选项
 	$('#actor-show').click(function() {
 		$('#choice').css('display', 'block');
+		//$('.actor-button').css('display', 'none');
 		event.stopPropagation();
 	}); //展示下拉框
 	$('#actor-cancel').click(function() {
 		$('.main').css('display', 'none');
+		window.location.href = "../index.html"
 	}); //取消函数
 	$('#actor-next').click(function() {
 		$('.choice-form').css('display', 'none');
@@ -36,7 +39,7 @@
 		}
 	}); //密码判断；
 	$('#regi-conf').click(function() {
-		var account = document.getElementById('account').value;
+		var account = $('.account').attr('value');
 		var pwd = document.getElementById('pwd').value;
 		var code = 0;
 		var data = {

@@ -26,9 +26,6 @@
     width: 320px;
     height: 38px;
     margin-bottom: 20px;
-    border: black solid 1px;
-    border-radius: 5px;
-    text-indent: 4px;
 }
 
 #pwd-find {
@@ -52,4 +49,33 @@
     display: block;
     margin-top: 15px;
     margin-bottom: 20px;
+}
+
+input:not([type]):focus:not([readonly]),
+input[type=text]:focus:not([readonly]),
+input[type=password]:focus:not([readonly]),
+input[type=email]:focus:not([readonly]),
+input[type=url]:focus:not([readonly]),
+input[type=time]:focus:not([readonly]),
+input[type=date]:focus:not([readonly]),
+input[type=datetime]:focus:not([readonly]),
+input[type=datetime-local]:focus:not([readonly]),
+input[type=tel]:focus:not([readonly]),
+input[type=number]:focus:not([readonly]),
+input[type=search]:focus:not([readonly]),
+textarea.materialize-textarea:focus:not([readonly]) {
+    border-bottom: 1px solid orange;
+    box-shadow: 0 1px 0 0 orange;
+}
+
+.input-field input[type=text]:focus + label {
+    color: orange;
+}
+
+.input-field input[type=password]:focus + label {
+    color: orange;
+}
+
+.input-field label {
+    left: 0;
 }
