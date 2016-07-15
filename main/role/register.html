@@ -4,8 +4,8 @@
 <head>
     <meta charset="UTF-8">
     <title>zhucedenglu</title>
+    <link href="../../css/ghpages-materialize.css" rel="stylesheet" type="text/css">
     <link href="../../css/main/register.css" rel="stylesheet" type="text/css">
-    <script src="../../js/main/jquery.js"></script>
 </head>
 
 <body>
@@ -26,41 +26,48 @@
                 </li>
                 <li>
                     <div class="actor-button">
-                        <input id="actor-cancel" type="button" value="取消" />
+                        <a class="waves-effect waves-light btn" id="actor-cancel" type="button">取消</a>
                     </div><!--
                     --><div class="actor-button">
-                        <input id="actor-next" type="button" value="下一步" />
+                        <a class="waves-effect waves-light btn" id="actor-next" type="button">下一步</a>
                     </div>
                 </li>
-                <li><a class="regi-login" href="">已有账号，点此登录</a></li>
+                <li><a class="regi-login" href="login.html">已有账号，点此登录</a></li>
             </ul>
         </form>
         <form class="regi-form" action="#" method="get">
             <ul>
-                <li class="regi-a">
-                    <input id="account" type="text" value="" placeholder="输入常用邮箱地址" />
+                <div class="regi-a input-field col s6">
+                    <input id="account" type="text"/>
+                    <label for="account">输入常用邮箱地址</label>
                     <span id="account-warn"></span>
+                </div>
+                <li class="regi-a input-field col s6">
+                    <input id="code" type="text" value="" />
+                    <label for="code">输入验证字符</label>
                 </li>
-                <li class="regi-a">
-                    <input type="text" value="" placeholder="输入验证字符" />
-                </li>
-                <li class="regi-group">
-                    <input style="display:block;margin-bottom:0px" type="text" value="" placeholder="输入团队邀请码" />
+                <li class="regi-group  input-field col s6">
+                    <input id ="welcome" style="display:block;margin-bottom:0px" type="text" value=""  />
+                    <label for="welcome">输入团队邀请码</label>
                     <a style="display:block;margin-bottom:20px" href="">如何获得团队邀请码?</a>
                 </li>
-                <li class="regi-a">
-                    <input id="pwd" type="password" value="" placeholder="输入密码" />
+                <li class="regi-a input-field col s6">
+                    <input id="pwd" type="password" value="" />
+                    <label for="pwd">输入密码</label>
                 </li>
-                <li class="regi-a">
-                    <input id="pwd-conf" type="password" value="" placeholder="再次输入密码" />
+                <li class="regi-a input-field col s6">
+                    <input id="pwd-conf" type="password" value="" />
+                    <label for="pwd-conf">再次输入密码</label>
                     <span id="pwd-info"></span>
                 </li>
                 <li class="regi-b">
-                    <input type="checkbox" value="" />我已阅读并同意《交流平台协议》</li>
-                <li>
-                    <input id="regi-conf" type="button" value="注册" />
+                    <input type="checkbox" value="" id="test5" />
+                    <label for="test5">我已阅读并同意《交流平台协议》</label>
                 </li>
-                <li><a class="regi-login" href="">已有账号，点此登录</a></li>
+                <li>
+                    <a class="waves-effect waves-light btn" id="regi-conf" type="button">注册</a>
+                </li>
+                <li><a class="regi-login" href="login.html">已有账号，点此登录</a></li>
             </ul>
         </form>
         <div class="success-form">
@@ -72,7 +79,9 @@
             您的账号已激活完成。
         </div>
     </div>
-    <script src="../../js/main/register.js"></script>
+    <script type="text/javascript" src="../../js/jquery-2.1.1.min.js"></script>
+    <script type="text/javascript" src="../../js/materialize.min.js"></script>
+    <script type="text/javascript" src="../../js/main/register.js"></script>
 </body>
 
 </html>

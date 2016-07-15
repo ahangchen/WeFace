@@ -4,25 +4,30 @@
 <head>
     <meta charset="UTF-8">
     <title>zhucedenglu</title>
+    <link href="../../css/ghpages-materialize.css" rel="stylesheet" type="text/css">
     <link href="../../css/main/find.css" rel="stylesheet" type="text/css">
-    <script src="../../js/main/jquery.js"></script>
 </head>
 
 <body>
     <div class="main" id="mail-check">
         <p id="title">验证邮箱 — 发送重置邮件 — 重置密码</p>
-        <input id="email" type="text" placeholder="输入注册使用的邮箱" />
-        <input id="conf" type="button" value="验证"/>
+        <div class="mail-show input-field col s6">
+            <input id="email" type="text" />
+            <label for="email">输入注册使用的邮箱</label>
+        </div>
+         <a class="waves-effect waves-light btn" id="conf" type="button" />验证</a>
     </div>
     <div class="main" id="mail-conf">
-    	<p id="title">验证邮箱 — 发送重置邮件 — 重置密码</p>
-    	<p class="conf-show">验证邮件已发送至邮箱，请到邮箱进行验证</p>
-    	<input id="conf" type="button" value="去邮箱验证"/>
+        <p id="title">验证邮箱 — 发送重置邮件 — 重置密码</p>
+        <p class="conf-show">验证邮件已发送至邮箱，请到邮箱进行验证</p>
+        <a class="waves-effect waves-light btn" id="conf-mail" type="button" />去邮箱验证</a>
     </div>
     <div class="main" id="pwd">
         <input id="email" type="text" placeholder="输入新密码" />
-                <input id="email" type="text" placeholder="再次输入密码" />
+        <input id="email" type="text" placeholder="再次输入密码" />
     </div>
+    <script src="../../js/main/jquery.js"></script>
+    <script type="text/javascript" src="../../js/materialize.min.js"></script>
     <script type="text/javascript" src="../../js/main/find.js"></script>
 </body>
 
