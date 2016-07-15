@@ -4,7 +4,7 @@
 $(function(){
 // －－－－－－－－－－－－－－－banner初始化－－－－－－－－－－－－－－－－－－
 
-    $.getJSON('../js/main/banners.json',function(data){
+    $.getJSON('../data/banners.json',function(data){
         var lis = $(".imgList li img");
         var link = $(".imgList li a");
         for (var i = 0; i < lis.length; i++) {

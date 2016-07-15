@@ -90,11 +90,11 @@ a:visited{
 	transition: all 0.3s;
 }
 
-.searchguide:hover, .searchguide:focus {
-	border: 1px solid #56b4ef;
-	box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05) inset, 0 0 8px rgba(82, 168, 236, 0.6);
-}
 
+ .searchguide:focus{
+	 border-bottom: 1px solid #26a69a;
+	 box-shadow: 0 1px 0 0 #26a69a;
+ }
 .button{
 	cursor: pointer;
 	margin-left: 0px;
@@ -105,14 +105,7 @@ a:visited{
 	border: 0px;
 	background: none;
 }
-.button .searchImg{
-	margin-left: -10px;
-	padding-left: 5px;
-	width: 2rem;
-	height: 2rem;
-	margin-top: 1px;
 
-}
 
 /*----------------------------------导航栏-------------------------------------------------------------*/
 
@@ -246,14 +239,14 @@ a:visited{
 }
 .rolesTable{
 	position: relative;
-	top: 37px;
+	top: 28px;
 	width: 420px;
 	height: 160px;
 	border-spacing: 0px;
 }
 .rolesTable td{
 	width: 142px;
-	height: 100px;
+	height: 86px;
 	padding-top: 0px;
 	padding-bottom:0px;
 	padding-left: 5px;
@@ -262,7 +255,7 @@ a:visited{
 }
 .rolesTable th{
 	font-size: 23pt;
-
+	height: 80px;
 	font-family: "PingFangSC-Ultralight","PingFang SC Ultralight","PingFang SC";
 }
 .rolestable tr{
@@ -276,22 +269,23 @@ a:visited{
 	font-size: 25pt;
 }
 #studentRole{
-	background-color: #bbdefb;
+
+	background-color:rgba(0,191,213,0.5);
 }
 #teamRole{
-	background-color: #ffe0b2 ;
+	background-color:rgba(205,220,57,0.5);
 }
 #projectRole{
-	background-color: #ffccbc;
+	background-color:rgba(255,193,7,0.5);
 }
 #praticeRole{
-	background-color: #ff8a65;
+	background-color:rgba(161,136,161,0.5);
 }
 #companyRole{
-	background-color: #b9f6ca;
+	background-color:rgba(77,182,172,0.5);
 }
 #schoolRole{
-	background-color: #e0e0e0;
+	background-color: rgba(117,117,117,0.5);
 }
 .rolesTable a:link,a:visited{
 	display: block;
@@ -299,7 +293,7 @@ a:visited{
 	color: black;
 	width:120px;
 	text-align:center;
-	padding:10px 20px 20px 20px;
+	padding:15px 20px 20px 20px;
 	/*filter:alpha(opacity=60);
 	opacity:0.6;*/
 }
@@ -475,7 +469,7 @@ a:visited{
 	text-align:center;
 	font-weight:normal;
 	line-height: 60px;
-	background-color: rgb(211,211,211);
+	background-color: rgb(239, 239, 239);
 	width:254px;
 	height: 60px;
 	font-size:25px;
@@ -624,7 +618,7 @@ a:visited{
 	text-align:center;
 	font-weight:normal;
 	line-height: 60px;
-	background-color: rgb(211,211,211);
+	background-color: rgb(239, 239, 239);
 	width:253.5px;
 	height: 60px;
 	font-size:25px;
