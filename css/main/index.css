@@ -24,47 +24,6 @@ a:visited {
     box-shadow: 0 16px 28px 0 rgba(0, 0, 0, 0.22), 0 25px 55px 0 rgba(0, 0, 0, 0.21);
 }
 
-/*－－－－－－－－－－－－－－－－－－－－－导航栏样式By雨芮－－－－－－－－－－－－－－－－－－－－－－－－－－－－－*/
-.schoolText {
-    margin-left: 100px;
-    margin-top: 3px;
-}
-
-.webNameText {
-    margin-left: 100px;
-    margin-top: 25px;
-}
-
-.indexBtnText {
-    margin-left: 350px;
-    margin-top: 15px;
-}
-
-.teamBtnText {
-    margin-left: 500px;
-    margin-top: 15px;
-}
-
-.text {
-    color: #000;
-
-    font-size: 18px;
-    font-style: normal;
-    font-weight: 100;
-    position: absolute;
-}
-
-.button {
-    cursor: pointer;
-    margin-left: 0;
-    position: relative;
-    top: 8px;
-    width: 2.5rem;
-    height: 2.5rem;
-    border: 0;
-    background: none;
-}
-
 /*----------------------------------导航栏-------------------------------------------------------------*/
 
 #logo {
@@ -131,63 +90,12 @@ a:visited {
 }
 
 
-.logoBar {
-    height: 50px;
-    background-color: white;
-    /*box-shadow:0 0 3px gray outset;*/
-    -moz-box-shadow: inset 0 0 10px #CCC;
-    -webkit-box-shadow: inset 0 0 10px #CCC;
-    box-shadow: inset 0 0 10px #CCC;
-}
-
-.logoBar .mainBtn {
-    height: 50px;
-
-}
-
-.logoBar hr {
-    height: 46px;
-    margin-left: 20px;
-    margin-top: 1px;
-    line-height: 50px;
-}
-
 .mainBtn {
     /*background: rgba(255, 255, 255, 0.5);*/
     margin: 30px 13px 30px 13px;
 
 }
 
-.searchBox {
-    width: 282px;
-    margin-top: 10px;
-}
-
-.logoBar span, p {
-    margin-left: 30px;
-
-}
-
-.logoBar span {
-    margin-top: 3px;
-}
-
-.searchText {
-    width: 250px;
-    color: #000;
-    font-style: normal;
-    font-size: 15px;
-    border: 1px solid #9b9796;
-    border-radius: 4px;
-    text-align: left;
-}
-
-.searchBtn {
-    position: relative;
-    left: -6px;
-    height: 30px;
-    width: 20px;
-}
 
 /*-----------------------------------------------角色选择板块-------------------------------------------*/
 .banner {
