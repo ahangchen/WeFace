@@ -74,7 +74,8 @@ a:visited {
 }
 
 .header a {
-    margin-left: 10px;
+    margin-left: 0;
+    padding-right: 5px;
     line-height: 35px;
     /*background: rgba(255, 255, 255, 0.5);*/
     cursor: pointer;
@@ -83,6 +84,7 @@ a:visited {
 .header .line {
     position: relative;
     top: 5px;
+    margin-right: 5px;
     font-weight: lighter;
     font-size: 20pt;
     line-height: 20px;
@@ -92,7 +94,7 @@ a:visited {
 
 .mainBtn {
     /*background: rgba(255, 255, 255, 0.5);*/
-    margin: 30px 13px 30px 13px;
+    margin: 30px 5px 30px 13px;
 
 }
 
