@@ -37,8 +37,8 @@ a:visited {
     line-height: 20px;
 }
 
-#search {
-    margin: 20px 5px;
+.search-bar {
+    height:100%;
 }
 
 .nav-wrapper li a {
