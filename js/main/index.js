@@ -4,7 +4,7 @@
 $(function(){
 // －－－－－－－－－－－－－－－banner初始化－－－－－－－－－－－－－－－－－－
 
-    $.getJSON('../js/main/banners.json',function(data){
+    $.getJSON('../data/banners.json',function(data){
         var lis = $(".imgList li img");
         var link = $(".imgList li a");
         for (var i = 0; i < lis.length; i++) {
@@ -184,7 +184,7 @@ $(function(){
     });
     function changeToNextTeam(teamNum){
 
-        var goTeam = teamNum / 3 * 840;
+        var goTeam = teamNum / 3 * 827;
         $(".teamList").animate({left: "-" + goTeam + "px"},500);
     }
 
@@ -299,7 +299,7 @@ $(function(){
         });
     });
     function changeToNextProject(projectNum){
-        var goProject = projectNum / 3 * 840;
+        var goProject = projectNum / 3 * 827;
         $(".projectList").animate({left: "-" + goProject + "px"},500);
     }
 
