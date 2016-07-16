@@ -1,4 +1,3 @@
-
 <!-- 网站首页(未登录状态)-->
 
 
@@ -12,13 +11,14 @@
 <script type="text/javascript" src="../js/main/jquery.js"></script>
 <script type="text/javascript" src="../js/main/index.js"></script>
 <link href="../css/main/base.css" type="text/css" rel="stylesheet"/>
-<!--<link rel="stylesheet" type="text/css" href="../css/materialize.css">-->
+<link href="../css/base.css" type="text/css" rel="stylesheet"/>
+<link rel="stylesheet" type="text/css" href="../css/materialize.css">
 <link rel="stylesheet" type="text/css" href="../css/main/index.css">
 <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 <div class="header comWidth">
     <div class="topBar">
         <div class="comWidth">
-            <div class ="header fl">
+            <div class="header fl">
                 <a href="test/information.html" target="_blank">关于基地</a>
             </div>
             <div class="header fr">
@@ -31,27 +31,29 @@
     </div>
 </div>
 
-<div class="send comWidth z-depth">
-    <img id="logo" src="../res/imgs/main/logo.png">
-    <div class="arrow"></div>
-    <p class="schoolText text">华南理工大学</p>
-    <p class="webNameText text" >人才交流平台</p>
+<nav class="white lighten-5 comWidth">
+    <div class="nav-wrapper row">
+        <ul class="left hide-on-med-and-down">
+            <li><img id="logo" src="../res/imgs/materialize.svg"/></li>
+            <li><p class="logo-name">华南理工大学<br/>人才交流平台
+                <p></li>
+            <li><a href="#" id="indexBtn">首页</a></li>
+            <li><a href="#" id="teamBtn">团队</a></li>
+        </ul>
 
-    <p class="indexBtnText text" ><a id="indexBtn">首页</a></p>
-    <p class="teamBtnText text" ><a id="teamBtn" >团队</a></p>
-    <input class="searchguide" type="text" placeholder="输入职位、团队、项目名称" >
-    <button class="button" type="submit">
-        <i class="medium material-icons">search</i>
-    </button>
-</div>
-
-<div style="border-left: solid 2px #bbbbbb;width: 2px;height:40px;top:48px;left:400px;position: absolute"></div>
+        <div class="input-field col s4 right">
+            <input id="search" type="search" placeholder="Click to search" required>
+            <label for="search"><i class="material-icons">search</i></label>
+            <i class="material-icons">close</i>
+        </div>
+    </div>
+</nav>
 
 <div id="indexDiv" class="comWidth">
     <div class="banner comWidth z-depth">
         <div class="mediumBox">
             <table class="rolesTable">
-                <th colspan="3">为实现学生价值提供更好的服务  </th>
+                <th colspan="3">为实现学生价值提供更好的服务</th>
                 <tr>
                     <td>
 
@@ -98,21 +100,27 @@
     </div>
     <div class="bannerBar comWidth hotTeam z-depth">
         <div class="hotTeamTopic">
-            <span class="decoration decoLeft"><hr /></span>
+            <span class="decoration decoLeft"><hr/></span>
             <span class="topic">热门团队</span>
-            <span class="decoration decoRight"><hr /></span>
+            <span class="decoration decoRight"><hr/></span>
         </div>
         <button class="preBtnOfTeams "></button>
         <div class="hotTeams">
             <ul class="teamList">
                 <li>
-                    <a href="../team/hotTeamRes.html" target="_blank"><img src=""><div class="desc">团队名称</div><span></span></a>
+                    <a href="../team/hotTeamRes.html" target="_blank"><img src="">
+                        <div class="desc">团队名称</div>
+                        <span></span></a>
                 </li>
                 <li>
-                    <a href="../team/hotTeamRes.html" target="_blank"><img src=""><div class="desc">团队名称</div><span></span></a>
+                    <a href="../team/hotTeamRes.html" target="_blank"><img src="">
+                        <div class="desc">团队名称</div>
+                        <span></span></a>
                 </li>
                 <li>
-                    <a href="../team/hotTeamRes.html" target="_blank"><img src=""><div class="desc">团队名称</div><span></span></a>
+                    <a href="../team/hotTeamRes.html" target="_blank"><img src="">
+                        <div class="desc">团队名称</div>
+                        <span></span></a>
                 </li>
             </ul>
         </div>
@@ -121,21 +129,27 @@
     </div>
     <div class="bannerBar comWidth hotProject z-depth">
         <div class="hotProjectTopic">
-            <span class="decoration decoLeft"><hr /></span>
+            <span class="decoration decoLeft"><hr/></span>
             <span class="topic">热门项目</span>
-            <span class="decoration decoRight"><hr /></span>
+            <span class="decoration decoRight"><hr/></span>
         </div>
         <button class="preBtnOfProject "></button>
         <div class="hotProjects">
             <ul class="projectList">
                 <li>
-                    <a href="test/hotProjectRes.html" target="_blank"><img src="../res/imgs/main/team/team1.jpg"><div class="desc"></div><span></span></a>
+                    <a href="test/hotProjectRes.html" target="_blank"><img src="../res/imgs/main/team/team1.jpg">
+                        <div class="desc"></div>
+                        <span></span></a>
                 </li>
                 <li>
-                    <a href="test/hotProjectRes.html" target="_blank"><img src="../res/imgs/main/team/team2.jpg"><div class="desc"></div><span></span></a>
+                    <a href="test/hotProjectRes.html" target="_blank"><img src="../res/imgs/main/team/team2.jpg">
+                        <div class="desc"></div>
+                        <span></span></a>
                 </li>
                 <li>
-                    <a href="test/hotProjectRes.html" target="_blank"><img src=""><div class="desc"></div><span></span></a>
+                    <a href="test/hotProjectRes.html" target="_blank"><img src="">
+                        <div class="desc"></div>
+                        <span></span></a>
                 </li>
 
             </ul>
