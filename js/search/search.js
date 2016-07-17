@@ -80,11 +80,11 @@ $(function() {
 
             for(var i=(currentPage-1)*10;i<pageSize*currentPage;i++){
                 var salary=min_salary[i]+'~'+max_salary[i];
-                $("#msg"+i).append("<div style='height:60px;width:350px;padding: 18px 5px 18px 5px;'><div class='container'><div style='font-size: 20px;font-weight: 100;'>"+job_name[i]+"</div></div></div>");
-                $("#msg"+i).append("<div style='height:60px;width:350px;padding: 18px 5px 18px 5px;'><div class='container'><div style='font-size: 18px;font-weight: 100;'>"+job_summary[i]+"</div></div></div>");
-                $("#msg"+i).append("<div style='height:60px;width:350px;padding: 18px 5px 18px 5px;'><div class='container'><div style='font-size: 18px;font-weight: 100;'>"+salary+"</div></div></div>");
-                $("#msg"+i).append("<div style='height:60px;width: 350px;margin-left: 350px;margin-top: -180px;padding: 18px 5px 18px 5px;'><div class='container'><div style='font-size: 20px;font-weight: 100;'>"+team_name[i]+"</div></div></div>");
-                $("#msg"+i).append("<div style='height:60px;width: 350px;margin-left: 350px;padding: 18px 5px 18px 5px;'><div class='container'><div style='font-size: 18px;font-weight: 100;'>"+team_about[i]+"</div></div></div>");
+                $("#msg"+i).append("<div class='positionText1'><div class='container'><div class='textMessage'>"+job_name[i]+"</div></div></div>");
+                $("#msg"+i).append("<div class='positionText1'><div class='container'><div class='textMessage'>"+job_summary[i]+"</div></div></div>");
+                $("#msg"+i).append("<div class='positionText1'><div class='container'><div class='textMessage'>"+salary+"</div></div></div>");
+                $("#msg"+i).append("<div class='positionText2'><div class='container'><div class='textMessage'>"+team_name[i]+"</div></div></div>");
+                $("#msg"+i).append("<div class='positionText3'><div class='container'><div class='textMessage'>"+team_about[i]+"</div></div></div>");
             }
         });
         
