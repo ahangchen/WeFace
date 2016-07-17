@@ -87,69 +87,7 @@ $(function() {
                 $("#msg"+i).append("<div style='height:60px;width: 350px;margin-left: 350px;padding: 18px 5px 18px 5px;'><div class='container'><div style='font-size: 18px;font-weight: 100;'>"+team_about[i]+"</div></div></div>");
             }
         });
-        /*$("#nextPage").click(function() {
-            for(var t=0;t<pageSize;t++){
-                $("#msg"+t).remove();
-            }
-            $("#changePage").remove();
-            pageSize=getPageSize(total-currentPage*10);
-            currentPage++;
-            scrollTo(0,0);
-            for(var load=0;load<pageSize;load++) {  //加载显示结果的块
-                var temp="msg"+load;
-                $("#searchResult").append("<div id="+temp+" style='height: 180px;width: 100%;margin-top: 10px;'></div>");
-                $("#"+temp).css("background-color","rgba(255, 255, 255, 1)").css("-moz-box-shadow","inset 0 0 10px #CCC")
-                    .css("-webkit-box-shadow","inset 0 0 10px #CCC").css("box-shadow","inset 0 0 10px #CCC");
-            }
-            $("#searchResult").append("<div class='row' id='changePage'>" +
-                "<div class='col s2 push-s6' id='firstPage'>首页</div>"+
-                "<div class='col s2 push-s6' id='previousPage'>上一页</div>"+
-                "<div class='col s2 push-s6' id='nextPage'>下一页</div>"+
-                "<div class='col s2 push-s6' id='lastPage'>尾页</div>"+
-                "</div>")
-            for(var i=(currentPage-1)*10;i<10+pageSize;i++){
-                var salary=min_salary[i]+'~'+max_salary[i];
-                var j=i%10;
-                $("#msg"+j).append("<div style='height:60px;width:350px;padding: 18px 5px 18px 5px;'><div class='container'><div style='font-size: 20px;font-weight: 100;'>"+job_name[i]+"</div></div></div>");
-                $("#msg"+j).append("<div style='height:60px;width:350px;padding: 18px 5px 18px 5px;'><div class='container'><div style='font-size: 18px;font-weight: 100;'>"+job_summary[i]+"</div></div></div>");
-                $("#msg"+j).append("<div style='height:60px;width:350px;padding: 18px 5px 18px 5px;'><div class='container'><div style='font-size: 18px;font-weight: 100;'>"+salary+"</div></div></div>");
-                $("#msg"+j).append("<div style='height:60px;width: 350px;margin-left: 350px;margin-top: -180px;padding: 18px 5px 18px 5px;'><div class='container'><div style='font-size: 20px;font-weight: 100;'>"+team_name[i]+"</div></div></div>");
-                $("#msg"+j).append("<div style='height:60px;width: 350px;margin-left: 350px;padding: 18px 5px 18px 5px;'><div class='container'><div style='font-size: 18px;font-weight: 100;'>"+team_about[i]+"</div></div></div>");
-            }
-
-        });
-
-        $("#previousPage").click(function() {
-            for(var t=0;t<pageSize;t++){
-                $("#msg"+t).remove();
-            }
-            $("#changePage").remove();
-            currentPage--;
-            pageSize=getPageSize(total-currentPage*10);
-            scrollTo(0,0);
-            for(var load=0;load<pageSize;load++) {  //加载显示结果的块
-                var temp="msg"+load;
-                $("#searchResult").append("<div id="+temp+" style='height: 180px;width: 100%;margin-top: 10px;'></div>");
-                $("#"+temp).css("background-color","rgba(255, 255, 255, 1)").css("-moz-box-shadow","inset 0 0 10px #CCC")
-                    .css("-webkit-box-shadow","inset 0 0 10px #CCC").css("box-shadow","inset 0 0 10px #CCC");
-            }
-            $("#searchResult").append("<div class='row' id='changePage'>" +
-                "<div class='col s2 push-s6' id='firstPage'>首页</div>"+
-                "<div class='col s2 push-s6' id='previousPage'>上一页</div>"+
-                "<div class='col s2 push-s6' id='nextPage'>下一页</div>"+
-                "<div class='col s2 push-s6' id='lastPage'>尾页</div>"+
-                "</div>");
-            for(var i=(currentPage-1)*10;i<10+pageSize;i++){
-                var salary=min_salary[i]+'~'+max_salary[i];
-                var j=i%10;
-                $("#msg"+j).append("<div style='height:60px;width:350px;padding: 18px 5px 18px 5px;'><div class='container'><div style='font-size: 20px;font-weight: 100;'>"+job_name[i]+"</div></div></div>");
-                $("#msg"+j).append("<div style='height:60px;width:350px;padding: 18px 5px 18px 5px;'><div class='container'><div style='font-size: 18px;font-weight: 100;'>"+job_summary[i]+"</div></div></div>");
-                $("#msg"+j).append("<div style='height:60px;width:350px;padding: 18px 5px 18px 5px;'><div class='container'><div style='font-size: 18px;font-weight: 100;'>"+salary+"</div></div></div>");
-                $("#msg"+j).append("<div style='height:60px;width: 350px;margin-left: 350px;margin-top: -180px;padding: 18px 5px 18px 5px;'><div class='container'><div style='font-size: 20px;font-weight: 100;'>"+team_name[i]+"</div></div></div>");
-                $("#msg"+j).append("<div style='height:60px;width: 350px;margin-left: 350px;padding: 18px 5px 18px 5px;'><div class='container'><div style='font-size: 18px;font-weight: 100;'>"+team_about[i]+"</div></div></div>");
-            }
-
-        });*/
+        
         
     });
 
@@ -176,13 +114,6 @@ $(function() {
                 $("#"+temp).css("background-color","rgba(255, 255, 255, 1)").css("-moz-box-shadow","inset 0 0 10px #CCC")
                     .css("-webkit-box-shadow","inset 0 0 10px #CCC").css("box-shadow","inset 0 0 10px #CCC");
             }
-            $("#searchResult").append("<div class='row' id='changePage'>" +
-                "<div class='col s2 push-s6' id='firstPage'>首页</div>"+
-                "<div class='col s2 push-s6' id='previousPage'>上一页</div>"+
-                "<div class='col s2 push-s6' id='nextPage'>下一页</div>"+
-                "<div class='col s2 push-s6' id='lastPage'>尾页</div>"+
-                "</div>")
-
             for (var key in result) {
                 for (var k = 0; k < total; k++) {
                     job_id.push(result[key][k].job_id);
@@ -199,11 +130,11 @@ $(function() {
 
             for(var i=(currentPage-1)*10;i<pageSize*currentPage;i++){
                 var salary=min_salary[i]+'~'+max_salary[i];
-                $("#msg"+i).append("<div style='height:60px;width:350px;padding: 18px 5px 18px 5px;'><div class='container'><div style='font-size: 20px;font-weight: 100;'>"+job_name[i]+"</div></div></div>");
-                $("#msg"+i).append("<div style='height:60px;width:350px;padding: 18px 5px 18px 5px;'><div class='container'><div style='font-size: 20px;font-weight: 100;'>"+job_summary[i]+"</div></div></div>");
-                $("#msg"+i).append("<div style='height:60px;width:350px;padding: 18px 5px 18px 5px;'><div class='container'><div style='font-size: 20px;font-weight: 100;'>"+salary+"</div></div></div>");
-                $("#msg"+i).append("<div style='height:60px;width: 350px;margin-left: 350px;margin-top: -180px;padding: 18px 5px 18px 5px;'><div class='container'><div style='font-size: 20px;font-weight: 100;'>"+team_name[i]+"</div></div></div>");
-                $("#msg"+i).append("<div style='height:60px;width: 350px;margin-left: 350px;padding: 18px 5px 18px 5px;'><div class='container'><div style='font-size: 20px;font-weight: 100;'>"+team_about[i]+"</div></div></div>");
+                $("#msg"+i).append("<div class='positionText1'><div class='container'><div class='textMessage'>"+job_name[i]+"</div></div></div>");
+                $("#msg"+i).append("<div class='positionText1'><div class='container'><div class='textMessage'>"+job_summary[i]+"</div></div></div>");
+                $("#msg"+i).append("<div class='positionText1'><div class='container'><div class='textMessage'>"+salary+"</div></div></div>");
+                $("#msg"+i).append("<div class='positionText2'><div class='container'><div class='textMessage'>"+team_name[i]+"</div></div></div>");
+                $("#msg"+i).append("<div class='positionText3'><div class='container'><div class='textMessage'>"+team_about[i]+"</div></div></div>");
             }
         });
     });
@@ -240,9 +171,9 @@ $(function() {
             pageNum=calculatePage(total,pageSize); //记录总共的页数
 
             for(var i=(currentPage-1)*10;i<pageSize*currentPage;i++){
-                $("#msg"+i).append("<div style='height:60px;width:350px;margin-left: 250px;padding: 18px 5px 18px 5px;'><div class='container'><div style='font-size: 20px;font-weight: 100;'>"+team_name[i]+"</div></div></div>");
-                $("#msg"+i).append("<div style='height:60px;width:350px;margin-left: 250px;padding: 10px 5px 10px 5px;'><div class='container'><div style='font-size: 20px;font-weight: 100;'>"+team_about[i]+"</div></div></div>");
-                $("#msg"+i).append("<div style='height:60px;width:350px;margin-left: 600px;;margin-top: -70px;padding: 18px 5px 18px 5px;'><div class='container'><div style='font-size: 20px;font-weight: 100;'>"+team_type[i]+"</div></div></div>");
+                $("#msg"+i).append("<div class='teamText1'><div class='container'><div class='textMessage'>"+team_name[i]+"</div></div></div>");
+                $("#msg"+i).append("<div class='teamText2'><div class='container'><div class='textMessage'>"+team_about[i]+"</div></div></div>");
+                $("#msg"+i).append("<div class='teamText3'><div class='container'><div class='textMessage'>"+team_type[i]+"</div></div></div>");
             }
         });
 
@@ -285,10 +216,10 @@ $(function() {
             pageNum=calculatePage(total,pageSize); //记录总共的页数
 
             for(var i=(currentPage-1)*10;i<pageSize*currentPage;i++){
-                $("#msg"+i).append("<div style='height:60px;width:350px;padding: 18px 5px 18px 5px;'><div class='container'><div style='font-size: 20px;font-weight: 100;'>"+project_name[i]+"</div></div></div>");
-                $("#msg"+i).append("<div style='height:60px;width:350px;padding: 30px 5px 30px 5px;'><div class='container'><div style='font-size: 16px;font-weight: 100;'>"+project_about[i]+"</div></div></div>");
-                $("#msg"+i).append("<div style='height:60px;width: 350px;margin-left: 350px;margin-top: -120px;padding: 18px 5px 18px 5px;'><div class='container'><div style='font-size: 20px;font-weight: 100;'>"+team_name[i]+"</div></div></div>");
-                $("#msg"+i).append("<div style='height:60px;width: 350px;margin-left: 350px;padding: 30px 5px 30px 5px;'><div class='container'><div style='font-size: 16px;font-weight: 100;'>"+team_about[i]+"</div></div></div>");
+                $("#msg"+i).append("<div class='projectText1'><div class='container'><div class='textMessage'>"+project_name[i]+"</div></div></div>");
+                $("#msg"+i).append("<div class='projectText2'><div class='container'><div class='smalltextMessage'>"+project_about[i]+"</div></div></div>");
+                $("#msg"+i).append("<div class='projectText3'><div class='container'><div class='textMessage'>"+team_name[i]+"</div></div></div>");
+                $("#msg"+i).append("<div class='projectText4'><div class='container'><div class='smalltextMessage'>"+team_about[i]+"</div></div></div>");
             }
         });
 
@@ -316,11 +247,11 @@ $(function() {
                 for (var i = (currentPage - 1) * 10; i < 10*(currentPage - 1) + pageSize; i++) {
                     var salary = min_salary[i] + '~' + max_salary[i];
                     var j = i % 10;
-                    $("#msg" + j).append("<div style='height:60px;width:350px;padding: 18px 5px 18px 5px;'><div class='container'><div style='font-size: 20px;font-weight: 100;'>" + job_name[i] + "</div></div></div>");
-                    $("#msg" + j).append("<div style='height:60px;width:350px;padding: 18px 5px 18px 5px;'><div class='container'><div style='font-size: 18px;font-weight: 100;'>" + job_summary[i] + "</div></div></div>");
-                    $("#msg" + j).append("<div style='height:60px;width:350px;padding: 18px 5px 18px 5px;'><div class='container'><div style='font-size: 18px;font-weight: 100;'>" + salary + "</div></div></div>");
-                    $("#msg" + j).append("<div style='height:60px;width: 350px;margin-left: 350px;margin-top: -180px;padding: 18px 5px 18px 5px;'><div class='container'><div style='font-size: 20px;font-weight: 100;'>" + team_name[i] + "</div></div></div>");
-                    $("#msg" + j).append("<div style='height:60px;width: 350px;margin-left: 350px;padding: 18px 5px 18px 5px;'><div class='container'><div style='font-size: 18px;font-weight: 100;'>" + team_about[i] + "</div></div></div>");
+                    $("#msg" + i).append("<div class='positionText1'><div class='container'><div class='textMessage'>" + job_name[i] + "</div></div></div>");
+                    $("#msg" + i).append("<div class='positionText1'><div class='container'><div class='textMessage'>" + job_summary[i] + "</div></div></div>");
+                    $("#msg" + i).append("<div class='positionText1'><div class='container'><div class='textMessage'>" + salary + "</div></div></div>");
+                    $("#msg" + i).append("<div class='positionText2'><div class='container'><div class='textMessage'>" + team_name[i] + "</div></div></div>");
+                    $("#msg" + i).append("<div class='positionText3'><div class='container'><div class='textMessage'>" + team_about[i] + "</div></div></div>");
                 }
                 break;
             }
@@ -329,9 +260,9 @@ $(function() {
             {
                 for(var i=(currentPage-1)*10;i < 10*(currentPage - 1) + pageSize;i++){
                     var j = i % 10;
-                    $("#msg"+j).append("<div style='height:60px;width:350px;margin-left: 250px;padding: 18px 5px 18px 5px;'><div class='container'><div style='font-size: 20px;font-weight: 100;'>"+team_name[i]+"</div></div></div>");
-                    $("#msg"+j).append("<div style='height:60px;width:350px;margin-left: 250px;padding: 10px 5px 10px 5px;'><div class='container'><div style='font-size: 20px;font-weight: 100;'>"+team_about[i]+"</div></div></div>");
-                    $("#msg"+j).append("<div style='height:60px;width:350px;margin-left: 600px;;margin-top: -70px;padding: 18px 5px 18px 5px;'><div class='container'><div style='font-size: 20px;font-weight: 100;'>"+team_type[i]+"</div></div></div>");
+                    $("#msg"+i).append("<div class='teamText1'><div class='container'><div class='textMessage'>"+team_name[i]+"</div></div></div>");
+                    $("#msg"+i).append("<div class='teamText2'><div class='container'><div class='textMessage'>"+team_about[i]+"</div></div></div>");
+                    $("#msg"+i).append("<div class='teamText3'><div class='container'><div class='textMessage'>"+team_type[i]+"</div></div></div>");
                 }
 
                 break;
@@ -342,12 +273,11 @@ $(function() {
             {
                 for(var i=(currentPage-1)*10;i < 10*(currentPage - 1) + pageSize;i++){
                     var j = i % 10;
-                    $("#msg"+j).append("<div style='height:60px;width:350px;padding: 18px 5px 18px 5px;'><div class='container'><div style='font-size: 20px;font-weight: 100;'>"+project_name[i]+"</div></div></div>");
-                    $("#msg"+j).append("<div style='height:60px;width:350px;padding: 30px 5px 30px 5px;'><div class='container'><div style='font-size: 16px;font-weight: 100;'>"+project_about[i]+"</div></div></div>");
-                    $("#msg"+j).append("<div style='height:60px;width: 350px;margin-left: 350px;margin-top: -120px;padding: 18px 5px 18px 5px;'><div class='container'><div style='font-size: 20px;font-weight: 100;'>"+team_name[i]+"</div></div></div>");
-                    $("#msg"+j).append("<div style='height:60px;width: 350px;margin-left: 350px;padding: 30px 5px 30px 5px;'><div class='container'><div style='font-size: 16px;font-weight: 100;'>"+team_about[i]+"</div></div></div>");
+                    $("#msg"+i).append("<div class='projectText1'><div class='container'><div class='textMessage'>"+project_name[i]+"</div></div></div>");
+                    $("#msg"+i).append("<div class='projectText2'><div class='container'><div class='smalltextMessage'>"+project_about[i]+"</div></div></div>");
+                    $("#msg"+i).append("<div class='projectText3'><div class='container'><div class='textMessage'>"+team_name[i]+"</div></div></div>");
+                    $("#msg"+i).append("<div class='projectText4'><div class='container'><div class='smalltextMessage'>"+team_about[i]+"</div></div></div>");
                 }
-
                 break;
 
             }
@@ -376,11 +306,11 @@ $(function() {
                 for (var i = (currentPage - 1) * 10; i < 10*currentPage; i++) {
                     var salary = min_salary[i] + '~' + max_salary[i];
                     var j = i % 10;
-                    $("#msg" + j).append("<div style='height:60px;width:350px;padding: 18px 5px 18px 5px;'><div class='container'><div style='font-size: 20px;font-weight: 100;'>" + job_name[i] + "</div></div></div>");
-                    $("#msg" + j).append("<div style='height:60px;width:350px;padding: 18px 5px 18px 5px;'><div class='container'><div style='font-size: 18px;font-weight: 100;'>" + job_summary[i] + "</div></div></div>");
-                    $("#msg" + j).append("<div style='height:60px;width:350px;padding: 18px 5px 18px 5px;'><div class='container'><div style='font-size: 18px;font-weight: 100;'>" + salary + "</div></div></div>");
-                    $("#msg" + j).append("<div style='height:60px;width: 350px;margin-left: 350px;margin-top: -180px;padding: 18px 5px 18px 5px;'><div class='container'><div style='font-size: 20px;font-weight: 100;'>" + team_name[i] + "</div></div></div>");
-                    $("#msg" + j).append("<div style='height:60px;width: 350px;margin-left: 350px;padding: 18px 5px 18px 5px;'><div class='container'><div style='font-size: 18px;font-weight: 100;'>" + team_about[i] + "</div></div></div>");
+                    $("#msg" + i).append("<div class='positionText1'><div class='container'><div class='textMessage'>" + job_name[i] + "</div></div></div>");
+                    $("#msg" + i).append("<div class='positionText1'><div class='container'><div class='textMessage'>" + job_summary[i] + "</div></div></div>");
+                    $("#msg" + i).append("<div class='positionText1'><div class='container'><div class='textMessage'>" + salary + "</div></div></div>");
+                    $("#msg" + i).append("<div class='positionText2'><div class='container'><div class='textMessage'>" + team_name[i] + "</div></div></div>");
+                    $("#msg" + i).append("<div class='positionText3'><div class='container'><div class='textMessage'>" + team_about[i] + "</div></div></div>");
                 }
                 break;
 
@@ -389,9 +319,9 @@ $(function() {
             case "../data/team.json":{
                 for(var i=(currentPage-1)*10;i<10*currentPage;i++){
                     var j = i % 10;
-                    $("#msg"+j).append("<div style='height:60px;width:350px;margin-left: 250px;padding: 18px 5px 18px 5px;'><div class='container'><div style='font-size: 20px;font-weight: 100;'>"+team_name[i]+"</div></div></div>");
-                    $("#msg"+j).append("<div style='height:60px;width:350px;margin-left: 250px;padding: 10px 5px 10px 5px;'><div class='container'><div style='font-size: 20px;font-weight: 100;'>"+team_about[i]+"</div></div></div>");
-                    $("#msg"+j).append("<div style='height:60px;width:350px;margin-left: 600px;;margin-top: -70px;padding: 18px 5px 18px 5px;'><div class='container'><div style='font-size: 20px;font-weight: 100;'>"+team_type[i]+"</div></div></div>");
+                    $("#msg"+i).append("<div class='teamText1'><div class='container'><div class='textMessage'>"+team_name[i]+"</div></div></div>");
+                    $("#msg"+i).append("<div class='teamText2'><div class='container'><div class='textMessage'>"+team_about[i]+"</div></div></div>");
+                    $("#msg"+i).append("<div class='teamText3'><div class='container'><div class='textMessage'>"+team_type[i]+"</div></div></div>");
                 }
 
                 break;
@@ -401,10 +331,10 @@ $(function() {
             case "../data/project.json":{
                 for(var i=(currentPage-1)*10;i<10*currentPage;i++){
                     var j = i % 10;
-                    $("#msg"+j).append("<div style='height:60px;width:350px;padding: 18px 5px 18px 5px;'><div class='container'><div style='font-size: 20px;font-weight: 100;'>"+project_name[i]+"</div></div></div>");
-                    $("#msg"+j).append("<div style='height:60px;width:350px;padding: 30px 5px 30px 5px;'><div class='container'><div style='font-size: 16px;font-weight: 100;'>"+project_about[i]+"</div></div></div>");
-                    $("#msg"+j).append("<div style='height:60px;width: 350px;margin-left: 350px;margin-top: -120px;padding: 18px 5px 18px 5px;'><div class='container'><div style='font-size: 20px;font-weight: 100;'>"+team_name[i]+"</div></div></div>");
-                    $("#msg"+j).append("<div style='height:60px;width: 350px;margin-left: 350px;padding: 30px 5px 30px 5px;'><div class='container'><div style='font-size: 16px;font-weight: 100;'>"+team_about[i]+"</div></div></div>");
+                    $("#msg"+i).append("<div class='projectText1'><div class='container'><div class='textMessage'>"+project_name[i]+"</div></div></div>");
+                    $("#msg"+i).append("<div class='projectText2'><div class='container'><div class='smalltextMessage'>"+project_about[i]+"</div></div></div>");
+                    $("#msg"+i).append("<div class='projectText3'><div class='container'><div class='textMessage'>"+team_name[i]+"</div></div></div>");
+                    $("#msg"+i).append("<div class='projectText4'><div class='container'><div class='smalltextMessage'>"+team_about[i]+"</div></div></div>");
                 }
 
                 break;
@@ -431,11 +361,11 @@ $(function() {
             case "../data/job.json":{
                 for (var i = (currentPage - 1) * 10; i < pageSize; i++) {
                     var salary = min_salary[i] + '~' + max_salary[i];
-                    $("#msg" + i).append("<div style='height:60px;width:350px;padding: 18px 5px 18px 5px;'><div class='container'><div style='font-size: 20px;font-weight: 100;'>" + job_name[i] + "</div></div></div>");
-                    $("#msg" + i).append("<div style='height:60px;width:350px;padding: 18px 5px 18px 5px;'><div class='container'><div style='font-size: 18px;font-weight: 100;'>" + job_summary[i] + "</div></div></div>");
-                    $("#msg" + i).append("<div style='height:60px;width:350px;padding: 18px 5px 18px 5px;'><div class='container'><div style='font-size: 18px;font-weight: 100;'>" + salary + "</div></div></div>");
-                    $("#msg" + i).append("<div style='height:60px;width: 350px;margin-left: 350px;margin-top: -180px;padding: 18px 5px 18px 5px;'><div class='container'><div style='font-size: 20px;font-weight: 100;'>" + team_name[i] + "</div></div></div>");
-                    $("#msg" + i).append("<div style='height:60px;width: 350px;margin-left: 350px;padding: 18px 5px 18px 5px;'><div class='container'><div style='font-size: 18px;font-weight: 100;'>" + team_about[i] + "</div></div></div>");
+                    $("#msg" + i).append("<div class='positionText1'><div class='container'><div class='textMessage'>" + job_name[i] + "</div></div></div>");
+                    $("#msg" + i).append("<div class='positionText1'><div class='container'><div class='textMessage'>" + job_summary[i] + "</div></div></div>");
+                    $("#msg" + i).append("<div class='positionText1'><div class='container'><div class='textMessage'>" + salary + "</div></div></div>");
+                    $("#msg" + i).append("<div class='positionText2'><div class='container'><div class='textMessage'>" + team_name[i] + "</div></div></div>");
+                    $("#msg" + i).append("<div class='positionText3'><div class='container'><div class='textMessage'>" + team_about[i] + "</div></div></div>");
                 }
                 break;
 
@@ -444,9 +374,9 @@ $(function() {
             case "../data/team.json":{
                 for(var i=(currentPage-1)*10;i<pageSize;i++){
                     var j = i % 10;
-                    $("#msg"+j).append("<div style='height:60px;width:350px;margin-left: 250px;padding: 18px 5px 18px 5px;'><div class='container'><div style='font-size: 20px;font-weight: 100;'>"+team_name[i]+"</div></div></div>");
-                    $("#msg"+j).append("<div style='height:60px;width:350px;margin-left: 250px;padding: 10px 5px 10px 5px;'><div class='container'><div style='font-size: 20px;font-weight: 100;'>"+team_about[i]+"</div></div></div>");
-                    $("#msg"+j).append("<div style='height:60px;width:350px;margin-left: 600px;;margin-top: -70px;padding: 18px 5px 18px 5px;'><div class='container'><div style='font-size: 20px;font-weight: 100;'>"+team_type[i]+"</div></div></div>");
+                    $("#msg"+i).append("<div class='teamText1'><div class='container'><div class='textMessage'>"+team_name[i]+"</div></div></div>");
+                    $("#msg"+i).append("<div class='teamText2'><div class='container'><div class='textMessage'>"+team_about[i]+"</div></div></div>");
+                    $("#msg"+i).append("<div class='teamText3'><div class='container'><div class='textMessage'>"+team_type[i]+"</div></div></div>");
                 }
 
                 break;
@@ -456,10 +386,10 @@ $(function() {
             case "../data/project.json":{
                 for(var i=(currentPage-1)*10;i<pageSize;i++){
                     var j = i % 10;
-                    $("#msg"+j).append("<div style='height:60px;width:350px;padding: 18px 5px 18px 5px;'><div class='container'><div style='font-size: 20px;font-weight: 100;'>"+project_name[i]+"</div></div></div>");
-                    $("#msg"+j).append("<div style='height:60px;width:350px;padding: 30px 5px 30px 5px;'><div class='container'><div style='font-size: 16px;font-weight: 100;'>"+project_about[i]+"</div></div></div>");
-                    $("#msg"+j).append("<div style='height:60px;width: 350px;margin-left: 350px;margin-top: -120px;padding: 18px 5px 18px 5px;'><div class='container'><div style='font-size: 20px;font-weight: 100;'>"+team_name[i]+"</div></div></div>");
-                    $("#msg"+j).append("<div style='height:60px;width: 350px;margin-left: 350px;padding: 30px 5px 30px 5px;'><div class='container'><div style='font-size: 16px;font-weight: 100;'>"+team_about[i]+"</div></div></div>");
+                    $("#msg"+i).append("<div class='projectText1'><div class='container'><div class='textMessage'>"+project_name[i]+"</div></div></div>");
+                    $("#msg"+i).append("<div class='projectText2'><div class='container'><div class='smalltextMessage'>"+project_about[i]+"</div></div></div>");
+                    $("#msg"+i).append("<div class='projectText3'><div class='container'><div class='textMessage'>"+team_name[i]+"</div></div></div>");
+                    $("#msg"+i).append("<div class='projectText4'><div class='container'><div class='smalltextMessage'>"+team_about[i]+"</div></div></div>");
                 }
 
                 break;
@@ -468,7 +398,7 @@ $(function() {
         }
 
 
-    })
+    });
 
     $("#lastPage").click(function () {
         for(var t=0;t<pageSize;t++){
@@ -488,11 +418,11 @@ $(function() {
                 for (var i = (currentPage - 1) * 10; i < 10*(currentPage - 1) + pageSize; i++) {
                     var salary = min_salary[i] + '~' + max_salary[i];
                     var j = i % 10;
-                    $("#msg" + j).append("<div style='height:60px;width:350px;padding: 18px 5px 18px 5px;'><div class='container'><div style='font-size: 20px;font-weight: 100;'>" + job_name[i] + "</div></div></div>");
-                    $("#msg" + j).append("<div style='height:60px;width:350px;padding: 18px 5px 18px 5px;'><div class='container'><div style='font-size: 18px;font-weight: 100;'>" + job_summary[i] + "</div></div></div>");
-                    $("#msg" + j).append("<div style='height:60px;width:350px;padding: 18px 5px 18px 5px;'><div class='container'><div style='font-size: 18px;font-weight: 100;'>" + salary + "</div></div></div>");
-                    $("#msg" + j).append("<div style='height:60px;width: 350px;margin-left: 350px;margin-top: -180px;padding: 18px 5px 18px 5px;'><div class='container'><div style='font-size: 20px;font-weight: 100;'>" + team_name[i] + "</div></div></div>");
-                    $("#msg" + j).append("<div style='height:60px;width: 350px;margin-left: 350px;padding: 18px 5px 18px 5px;'><div class='container'><div style='font-size: 18px;font-weight: 100;'>" + team_about[i] + "</div></div></div>");
+                    $("#msg" + i).append("<div class='positionText1'><div class='container'><div class='textMessage'>" + job_name[i] + "</div></div></div>");
+                    $("#msg" + i).append("<div class='positionText1'><div class='container'><div class='textMessage'>" + job_summary[i] + "</div></div></div>");
+                    $("#msg" + i).append("<div class='positionText1'><div class='container'><div class='textMessage'>" + salary + "</div></div></div>");
+                    $("#msg" + i).append("<div class='positionText2'><div class='container'><div class='textMessage'>" + team_name[i] + "</div></div></div>");
+                    $("#msg" + i).append("<div class='positionText3'><div class='container'><div class='textMessage'>" + team_about[i] + "</div></div></div>");
                 }
                 break;
 
@@ -500,11 +430,10 @@ $(function() {
 
             case "../data/team.json":{
                 for(var i=(currentPage-1)*10;i<(currentPage - 1) * 10+pageSize;i++){
-                    $("#msg"+i).append("<div style='height:60px;width:350px;margin-left: 250px;padding: 18px 5px 18px 5px;'><div class='container'><div style='font-size: 20px;font-weight: 100;'>"+team_name[i]+"</div></div></div>");
-                    $("#msg"+i).append("<div style='height:60px;width:350px;margin-left: 250px;padding: 10px 5px 10px 5px;'><div class='container'><div style='font-size: 20px;font-weight: 100;'>"+team_about[i]+"</div></div></div>");
-                    $("#msg"+i).append("<div style='height:60px;width:350px;margin-left: 600px;;margin-top: -70px;padding: 18px 5px 18px 5px;'><div class='container'><div style='font-size: 20px;font-weight: 100;'>"+team_type[i]+"</div></div></div>");
+                    $("#msg"+i).append("<div class='teamText1'><div class='container'><div class='textMessage'>"+team_name[i]+"</div></div></div>");
+                    $("#msg"+i).append("<div class='teamText2'><div class='container'><div class='textMessage'>"+team_about[i]+"</div></div></div>");
+                    $("#msg"+i).append("<div class='teamText3'><div class='container'><div class='textMessage'>"+team_type[i]+"</div></div></div>");
                 }
-
                 break;
 
             }
