@@ -4,8 +4,8 @@ $(function() {
 		var account = document.getElementById("account").value;
 		var pwd = document.getElementById("pwd").value;
 		var data = {
-			"account": account,
-			"pwd": pwd
+			account: account,
+			pwd: pwd
 		};
 		$.ajax({
 			type: 'POST',

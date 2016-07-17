@@ -9,21 +9,36 @@
 </head>
 
 <body>
-    <div class="main">
+
+    <div class="main card" style="padding-bottom:2px">
         <form class="choice-form" action="#" method="get">
             <ul>
                 <li>
                     <p class="actor-title">请选择你所需要注册的角色</p>
                 </li>
+
+                <!-- Dropdown Trigger -->
+                <a id="actor-show" class='dropdown-button btn' href='#' data-activates='dropdown1'>学生（单击可选择）</a>
+
+                <!-- Dropdown Structure -->
+                <ul id='dropdown1' class='dropdown-content'>
+                    <li><a  class="actor-choice" id="actor-stu" name="学生">学生</a></li>
+                    <li><a class="actor-choice" id="actor-group" name="团队">团队</a></li>
+                    <li><a class="actor-choice" id="actor-society" name="社团">社团</a></li>
+                    <li><a class="actor-choice" id="actor-com" name="公司">公司</a></li>
+                </ul>
+
+<!--
                 <li style="position: relative">
                     <p id="actor-show">学生</p>
-                    <ul id="choice" name="place">
+                    <ul class="dropdown" id="choice" name="place">
                         <li class="actor-choice" id="actor-stu" name="学生">学生</li>
                         <li class="actor-choice" id="actor-group" name="团队">团队</li>
                         <li class="actor-choice" id="actor-society" name="社团">社团</li>
                         <li class="actor-choice" id="actor-com" name="公司">公司</li>
                     </ul>
                 </li>
+                -->
                 <li>
                     <div class="actor-button">
                         <a class="waves-effect waves-light btn" id="actor-cancel" type="button">取消</a>
@@ -36,15 +51,17 @@
             </ul>
         </form>
         <form class="regi-form" action="#" method="get">
-            <ul>
+            <ul >
                 <div class="regi-a input-field col s6">
                     <input id="account" type="text"/>
                     <label for="account">输入常用邮箱地址</label>
-                    <span id="account-warn"></span>
+                    <div class="result" id="account-result"></div>
                 </div>
                 <li class="regi-a input-field col s6">
-                    <input id="code" type="text" value="" />
-                    <label for="code">输入验证字符</label>
+                    <input id="code" type="text" value="" style="display:inline-block"/>
+                    <label for="code" style="display:inline-block">输入验证字符</label>
+                    <img width="100px" height="35px" id="code-check" title="看不清，点击换一张"/>
+                    <div class="result" id="code-result"></div>
                 </li>
                 <li class="regi-group  input-field col s6">
                     <input id ="welcome" style="display:block;margin-bottom:0px" type="text" value=""  />
@@ -54,20 +71,21 @@
                 <li class="regi-a input-field col s6">
                     <input id="pwd" type="password" value="" />
                     <label for="pwd">输入密码</label>
+                    <div class="result" id="pwd-result"></div>
                 </li>
                 <li class="regi-a input-field col s6">
                     <input id="pwd-conf" type="password" value="" />
                     <label for="pwd-conf">再次输入密码</label>
-                    <span id="pwd-info"></span>
+                    <div class="result" id="conf-result"></div>
                 </li>
                 <li class="regi-b">
-                    <input type="checkbox" value="" id="test5" />
-                    <label for="test5">我已阅读并同意《交流平台协议》</label>
-                </li>
-                <li>
-                    <a class="waves-effect waves-light btn" id="regi-conf" type="button">注册</a>
-                </li>
-                <li><a class="regi-login" href="login.html">已有账号，点此登录</a></li>
+                    <input type="checkbox" id="agree" />
+                    <label for="agree">我已阅读并同意《交流平台协议》</label>
+            </li>
+            <li>
+                <a class="waves-effect waves-light btn" id="regi-conf" type="button">注册</a>
+            </li>
+            <li><a class="regi-login" href="login.html">已有账号，点此登录</a></li>
             </ul>
         </form>
         <div class="success-form">

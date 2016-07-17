@@ -1,7 +1,17 @@
+html{
+    background-image: url(../../res/imgs/bg.svg);
+    background-size: 100% auto;
+}
+
+body{
+        width: 560px;
+    margin: auto;
+}
 * {
     margin: 0px;
     padding: 0px;
     list-style: none;
+    font-family: "Roboto", sans-serif;
 }
 
 .regi-form,
@@ -21,16 +31,13 @@
 .main {
     width: 560px;
     padding-top: 40px;
-    margin:auto;
     margin-top: 70px;
-    margin-bottom:70px;
-    border: gray solid 1px;
-    border-radius: 10px;
+    margin-bottom: 70px;
 }
+
 form p:last-child {
     margin-bottom: 20px;
 }
-
 
 .actor-title {
     height: 20px;
@@ -40,14 +47,22 @@ form p:last-child {
 
 #actor-show {
     width: 320px;
-    height: 38px;
-    font-size: 25px;
-    color: #A1A1A1;
-    line-height: 38px;
-    background-color: #EEEEEE;
-    border: orange solid 1px;
-    border-radius: 4px;
-    text-indent: 3px;
+    height: 40px;
+    line-height: 40px;
+    font-size: 20px;
+    background-color: orange;
+    text-align: left;
+    text-indent: -20px;
+}
+
+#dropdown1 > li > a {
+    height: 40px;
+    color: orange;
+    line-height: 10px;
+}
+
+.dropdown-content li {
+    min-height: 40px;
 }
 
 #choice {
@@ -59,38 +74,6 @@ form p:last-child {
     border: orange solid 1px;
     display: none;
     z-index: 5;
-}
-
-.actor-choice {
-    line-height: 38px;
-    height: 38px;
-    font-size: 25px;
-    color: #A1A1A1;
-    text-indent: 3px;
-}
-
-#actor-stu:hover {
-    height: 37px;
-    background-color: #ffffff;
-    border-bottom: orange solid 1px;
-    cursor: pointer;
-}
-
-#actor-com:hover {
-    height: 37px;
-    line-height: 37px;
-    background-color: #ffffff;
-    border-top: orange solid 1px;
-    cursor: pointer;
-}
-
-#actor-society:hover,
-#actor-group:hover {
-    height: 36px;
-    background-color: #ffffff;
-    border-top: orange solid 1px;
-    border-bottom: orange solid 1px;
-    cursor: pointer;
 }
 
 .actor-button {
@@ -107,9 +90,10 @@ form p:last-child {
     background-color: orange;
 }
 
-.actor-button>a {
+.actor-button > a {
     width: 153px;
     height: 40px;
+    line-height: 40px;
 }
 
 .regi-login {
@@ -121,7 +105,6 @@ form p:last-child {
     margin-bottom: 40px;
 }
 
-
 /*
 input[type=password]:focus:not([readonly]){
     border-bottom:1px solid black;
@@ -132,18 +115,16 @@ input[type=text]:focus:not([readonly]){
 box-shadow: none;
 }*/
 
-[type="checkbox"]:checked+label:before {
+[type="checkbox"]:checked + label:before {
     border-right: 2px solid orange;
     border-bottom: 2px solid orange;
 }
 
-
 /*下面注册界面的css*/
 
-.regi-a>input,
-.regi-group>input {
+.regi-a > input,
+.regi-group > input {
     font-size: 20px;
-    font-family: "宋体";
     width: 320px;
     height: 38px;
     margin-bottom: 20px;
@@ -164,15 +145,13 @@ box-shadow: none;
     height: 40px;
     background-color: orange;
     border: none;
-    font-family: "黑体";
     font-size: 17px;
     height: 40px;
 }
 
-
 /*下面是成功显示界面*/
 
-.success-form>p {
+.success-form > p {
     margin-bottom: 20px;
     text-align: center;
 }
@@ -205,4 +184,23 @@ textarea.materialize-textarea:focus:not([readonly]) {
 
 .input-field input[type=password]:focus + label {
     color: orange;
+}
+
+#code{
+    width:200px;
+}
+.result {
+    margin-top: -10px;
+    margin-bottom: 20px;
+    height: 7px;
+    font-size: 7px;
+    line-height: 10px;
+    color: red;
+}
+
+img{
+    margin-left: 5px;
+    margin-bottom: -30px;
+    border: 1px solid #ccc;
+    display: inline-block;
 }
