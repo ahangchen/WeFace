@@ -7,36 +7,44 @@ $(function(){
         $('.preBtn i').css("visibility","visible");
     },function() {
         $('.preBtn i').css("visibility","hidden");
+        $('.preBtn').css("background-color","transparent");
+
     }).trigger("mouseleave");
 
     $('.nextBtn').hover(function(){
         $('.nextBtn i').css("visibility","visible");
     },function() {
         $('.nextBtn i').css("visibility","hidden");
+        $('.nextBtn').css("background-color","transparent");
+
     }).trigger("mouseleave");
 
     $('.preBtnOfTeams').hover(function(){
         $('.preBtnOfTeams i').css("visibility","visible");
     },function() {
         $('.preBtnOfTeams i').css("visibility","hidden");
+        $('.preBtnOfTeams').css("background-color","transparent");
     }).trigger("mouseleave");
 
     $('.nextBtnOfTeams').hover(function(){
         $('.nextBtnOfTeams i').css("visibility","visible");
     },function() {
         $('.nextBtnOfTeams i').css("visibility","hidden");
+        $('.nextBtnOfTeams').css("background-color","transparent");
     }).trigger("mouseleave");
 
     $('.preBtnOfProject').hover(function(){
         $('.preBtnOfProject i').css("visibility","visible");
     },function() {
         $('.preBtnOfProject i').css("visibility","hidden");
+        $('.preBtnOfProject').css("background-color","transparent");
     }).trigger("mouseleave");
 
     $('.nextBtnOfProject').hover(function(){
         $('.nextBtnOfProject i').css("visibility","visible");
     },function() {
         $('.nextBtnOfProject i').css("visibility","hidden");
+        $('.nextBtnOfProject').css("background-color","transparent");
     }).trigger("mouseleave");
 
 
