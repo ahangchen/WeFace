@@ -27,7 +27,7 @@ a:visited {
 
 /*箭头样式*/
 .preBtn i,.nextBtn i,.preBtnOfTeams i,.preBtnOfProject i,.nextBtnOfProject i,.nextBtnOfTeams i{
-    /*display: none;*/
+   
     visibility: hidden;
     color:#353535;
     /*visibility: visible;*/
