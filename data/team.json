@@ -1,16 +1,9 @@
 {
-  "WEMEET":[{"teamID":"001","teamName":"WEMEET团队","teamDescribe":"学生自主创业团队承包各种网页,APP设计与制作","homePage":"www.scut.com"},
-    {"teamID":"001","teamName":"WEMEET团队","teamDescribe":"学生自主创业团队承包各种网页,APP设计与制作","homePage":"www.scut.com"},
-    {"teamID":"001","teamName":"WEMEET团队","teamDescribe":"学生自主创业团队承包各种网页,APP设计与制作","homePage":"www.scut.com"},
-    {"teamID":"001","teamName":"WEMEET团队","teamDescribe":"学生自主创业团队承包各种网页,APP设计与制作","homePage":"www.scut.com"},
-    {"teamID":"001","teamName":"WEMEET团队","teamDescribe":"学生自主创业团队承包各种网页,APP设计与制作","homePage":"www.scut.com"},
-    {"teamID":"001","teamName":"WEMEET团队","teamDescribe":"学生自主创业团队承包各种网页,APP设计与制作","homePage":"www.scut.com"},
-    {"teamID":"001","teamName":"WEMEET团队","teamDescribe":"学生自主创业团队承包各种网页,APP设计与制作","homePage":"www.scut.com"},
-    {"teamID":"001","teamName":"WEMEET团队","teamDescribe":"学生自主创业团队承包各种网页,APP设计与制作","homePage":"www.scut.com"},
-    {"teamID":"001","teamName":"WEMEET团队","teamDescribe":"学生自主创业团队承包各种网页,APP设计与制作","homePage":"www.scut.com"},
-    {"teamID":"001","teamName":"WEMEET团队","teamDescribe":"学生自主创业团队承包各种网页,APP设计与制作","homePage":"www.scut.com"},
-    {"teamID":"001","teamName":"WEMEET团队","teamDescribe":"学生自主创业团队承包各种网页,APP设计与制作","homePage":"www.scut.com"},
-    {"teamID":"001","teamName":"WEMEET团队","teamDescribe":"学生自主创业团队承包各种网页,APP设计与制作","homePage":"www.scut.com"}
+  "team":[{"team_id":"001","team_name":"WEMEET团队","team_about":"学生自主创业团队承包各种网页,APP设计与制作","team_logo":"www.scut.com","team_type":"学生创业团队"},
+    {"team_id":"001","team_name":"WEMEET团队","team_about":"学生自主创业团队承包各种网页,APP设计与制作","team_logo":"www.scut.com","team_type":"学生创业团队"},
+    {"team_id":"001","team_name":"WEMEET团队","team_about":"学生自主创业团队承包各种网页,APP设计与制作","team_logo":"www.scut.com","team_type":"学生创业团队"},
+    {"team_id":"001","team_name":"WEMEET团队","team_about":"学生自主创业团队承包各种网页,APP设计与制作","team_logo":"www.scut.com","team_type":"学生创业团队"},
+    {"team_id":"001","team_name":"WEMEET团队","team_about":"学生自主创业团队承包各种网页,APP设计与制作","team_logo":"www.scut.com","team_type":"学生创业团队"}
   ]
 
 }
