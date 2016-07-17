@@ -247,11 +247,11 @@ $(function() {
                 for (var i = (currentPage - 1) * 10; i < 10*(currentPage - 1) + pageSize; i++) {
                     var salary = min_salary[i] + '~' + max_salary[i];
                     var j = i % 10;
-                    $("#msg" + i).append("<div class='positionText1'><div class='container'><div class='textMessage'>" + job_name[i] + "</div></div></div>");
-                    $("#msg" + i).append("<div class='positionText1'><div class='container'><div class='textMessage'>" + job_summary[i] + "</div></div></div>");
-                    $("#msg" + i).append("<div class='positionText1'><div class='container'><div class='textMessage'>" + salary + "</div></div></div>");
-                    $("#msg" + i).append("<div class='positionText2'><div class='container'><div class='textMessage'>" + team_name[i] + "</div></div></div>");
-                    $("#msg" + i).append("<div class='positionText3'><div class='container'><div class='textMessage'>" + team_about[i] + "</div></div></div>");
+                    $("#msg" + j).append("<div class='positionText1'><div class='container'><div class='textMessage'>" + job_name[i] + "</div></div></div>");
+                    $("#msg" + j).append("<div class='positionText1'><div class='container'><div class='textMessage'>" + job_summary[i] + "</div></div></div>");
+                    $("#msg" + j).append("<div class='positionText1'><div class='container'><div class='textMessage'>" + salary + "</div></div></div>");
+                    $("#msg" + j).append("<div class='positionText2'><div class='container'><div class='textMessage'>" + team_name[i] + "</div></div></div>");
+                    $("#msg" + j).append("<div class='positionText3'><div class='container'><div class='textMessage'>" + team_about[i] + "</div></div></div>");
                 }
                 break;
             }
@@ -260,9 +260,9 @@ $(function() {
             {
                 for(var i=(currentPage-1)*10;i < 10*(currentPage - 1) + pageSize;i++){
                     var j = i % 10;
-                    $("#msg"+i).append("<div class='teamText1'><div class='container'><div class='textMessage'>"+team_name[i]+"</div></div></div>");
-                    $("#msg"+i).append("<div class='teamText2'><div class='container'><div class='textMessage'>"+team_about[i]+"</div></div></div>");
-                    $("#msg"+i).append("<div class='teamText3'><div class='container'><div class='textMessage'>"+team_type[i]+"</div></div></div>");
+                    $("#msg"+j).append("<div class='teamText1'><div class='container'><div class='textMessage'>"+team_name[i]+"</div></div></div>");
+                    $("#msg"+j).append("<div class='teamText2'><div class='container'><div class='textMessage'>"+team_about[i]+"</div></div></div>");
+                    $("#msg"+j).append("<div class='teamText3'><div class='container'><div class='textMessage'>"+team_type[i]+"</div></div></div>");
                 }
 
                 break;
@@ -273,10 +273,10 @@ $(function() {
             {
                 for(var i=(currentPage-1)*10;i < 10*(currentPage - 1) + pageSize;i++){
                     var j = i % 10;
-                    $("#msg"+i).append("<div class='projectText1'><div class='container'><div class='textMessage'>"+project_name[i]+"</div></div></div>");
-                    $("#msg"+i).append("<div class='projectText2'><div class='container'><div class='smalltextMessage'>"+project_about[i]+"</div></div></div>");
-                    $("#msg"+i).append("<div class='projectText3'><div class='container'><div class='textMessage'>"+team_name[i]+"</div></div></div>");
-                    $("#msg"+i).append("<div class='projectText4'><div class='container'><div class='smalltextMessage'>"+team_about[i]+"</div></div></div>");
+                    $("#msg"+j).append("<div class='projectText1'><div class='container'><div class='textMessage'>"+project_name[i]+"</div></div></div>");
+                    $("#msg"+j).append("<div class='projectText2'><div class='container'><div class='smalltextMessage'>"+project_about[i]+"</div></div></div>");
+                    $("#msg"+j).append("<div class='projectText3'><div class='container'><div class='textMessage'>"+team_name[i]+"</div></div></div>");
+                    $("#msg"+j).append("<div class='projectText4'><div class='container'><div class='smalltextMessage'>"+team_about[i]+"</div></div></div>");
                 }
                 break;
 
@@ -306,11 +306,11 @@ $(function() {
                 for (var i = (currentPage - 1) * 10; i < 10*currentPage; i++) {
                     var salary = min_salary[i] + '~' + max_salary[i];
                     var j = i % 10;
-                    $("#msg" + i).append("<div class='positionText1'><div class='container'><div class='textMessage'>" + job_name[i] + "</div></div></div>");
-                    $("#msg" + i).append("<div class='positionText1'><div class='container'><div class='textMessage'>" + job_summary[i] + "</div></div></div>");
-                    $("#msg" + i).append("<div class='positionText1'><div class='container'><div class='textMessage'>" + salary + "</div></div></div>");
-                    $("#msg" + i).append("<div class='positionText2'><div class='container'><div class='textMessage'>" + team_name[i] + "</div></div></div>");
-                    $("#msg" + i).append("<div class='positionText3'><div class='container'><div class='textMessage'>" + team_about[i] + "</div></div></div>");
+                    $("#msg" + j).append("<div class='positionText1'><div class='container'><div class='textMessage'>" + job_name[i] + "</div></div></div>");
+                    $("#msg" + j).append("<div class='positionText1'><div class='container'><div class='textMessage'>" + job_summary[i] + "</div></div></div>");
+                    $("#msg" + j).append("<div class='positionText1'><div class='container'><div class='textMessage'>" + salary + "</div></div></div>");
+                    $("#msg" + j).append("<div class='positionText2'><div class='container'><div class='textMessage'>" + team_name[i] + "</div></div></div>");
+                    $("#msg" + j).append("<div class='positionText3'><div class='container'><div class='textMessage'>" + team_about[i] + "</div></div></div>");
                 }
                 break;
 
@@ -319,9 +319,9 @@ $(function() {
             case "../data/team.json":{
                 for(var i=(currentPage-1)*10;i<10*currentPage;i++){
                     var j = i % 10;
-                    $("#msg"+i).append("<div class='teamText1'><div class='container'><div class='textMessage'>"+team_name[i]+"</div></div></div>");
-                    $("#msg"+i).append("<div class='teamText2'><div class='container'><div class='textMessage'>"+team_about[i]+"</div></div></div>");
-                    $("#msg"+i).append("<div class='teamText3'><div class='container'><div class='textMessage'>"+team_type[i]+"</div></div></div>");
+                    $("#msg"+j).append("<div class='teamText1'><div class='container'><div class='textMessage'>"+team_name[i]+"</div></div></div>");
+                    $("#msg"+j).append("<div class='teamText2'><div class='container'><div class='textMessage'>"+team_about[i]+"</div></div></div>");
+                    $("#msg"+j).append("<div class='teamText3'><div class='container'><div class='textMessage'>"+team_type[i]+"</div></div></div>");
                 }
 
                 break;
@@ -331,10 +331,10 @@ $(function() {
             case "../data/project.json":{
                 for(var i=(currentPage-1)*10;i<10*currentPage;i++){
                     var j = i % 10;
-                    $("#msg"+i).append("<div class='projectText1'><div class='container'><div class='textMessage'>"+project_name[i]+"</div></div></div>");
-                    $("#msg"+i).append("<div class='projectText2'><div class='container'><div class='smalltextMessage'>"+project_about[i]+"</div></div></div>");
-                    $("#msg"+i).append("<div class='projectText3'><div class='container'><div class='textMessage'>"+team_name[i]+"</div></div></div>");
-                    $("#msg"+i).append("<div class='projectText4'><div class='container'><div class='smalltextMessage'>"+team_about[i]+"</div></div></div>");
+                    $("#msg"+j).append("<div class='projectText1'><div class='container'><div class='textMessage'>"+project_name[i]+"</div></div></div>");
+                    $("#msg"+j).append("<div class='projectText2'><div class='container'><div class='smalltextMessage'>"+project_about[i]+"</div></div></div>");
+                    $("#msg"+j).append("<div class='projectText3'><div class='container'><div class='textMessage'>"+team_name[i]+"</div></div></div>");
+                    $("#msg"+j).append("<div class='projectText4'><div class='container'><div class='smalltextMessage'>"+team_about[i]+"</div></div></div>");
                 }
 
                 break;
@@ -374,9 +374,9 @@ $(function() {
             case "../data/team.json":{
                 for(var i=(currentPage-1)*10;i<pageSize;i++){
                     var j = i % 10;
-                    $("#msg"+i).append("<div class='teamText1'><div class='container'><div class='textMessage'>"+team_name[i]+"</div></div></div>");
-                    $("#msg"+i).append("<div class='teamText2'><div class='container'><div class='textMessage'>"+team_about[i]+"</div></div></div>");
-                    $("#msg"+i).append("<div class='teamText3'><div class='container'><div class='textMessage'>"+team_type[i]+"</div></div></div>");
+                    $("#msg"+j).append("<div class='teamText1'><div class='container'><div class='textMessage'>"+team_name[i]+"</div></div></div>");
+                    $("#msg"+j).append("<div class='teamText2'><div class='container'><div class='textMessage'>"+team_about[i]+"</div></div></div>");
+                    $("#msg"+j).append("<div class='teamText3'><div class='container'><div class='textMessage'>"+team_type[i]+"</div></div></div>");
                 }
 
                 break;
@@ -386,10 +386,10 @@ $(function() {
             case "../data/project.json":{
                 for(var i=(currentPage-1)*10;i<pageSize;i++){
                     var j = i % 10;
-                    $("#msg"+i).append("<div class='projectText1'><div class='container'><div class='textMessage'>"+project_name[i]+"</div></div></div>");
-                    $("#msg"+i).append("<div class='projectText2'><div class='container'><div class='smalltextMessage'>"+project_about[i]+"</div></div></div>");
-                    $("#msg"+i).append("<div class='projectText3'><div class='container'><div class='textMessage'>"+team_name[i]+"</div></div></div>");
-                    $("#msg"+i).append("<div class='projectText4'><div class='container'><div class='smalltextMessage'>"+team_about[i]+"</div></div></div>");
+                    $("#msg"+j).append("<div class='projectText1'><div class='container'><div class='textMessage'>"+project_name[i]+"</div></div></div>");
+                    $("#msg"+j).append("<div class='projectText2'><div class='container'><div class='smalltextMessage'>"+project_about[i]+"</div></div></div>");
+                    $("#msg"+j).append("<div class='projectText3'><div class='container'><div class='textMessage'>"+team_name[i]+"</div></div></div>");
+                    $("#msg"+j).append("<div class='projectText4'><div class='container'><div class='smalltextMessage'>"+team_about[i]+"</div></div></div>");
                 }
 
                 break;
@@ -418,11 +418,11 @@ $(function() {
                 for (var i = (currentPage - 1) * 10; i < 10*(currentPage - 1) + pageSize; i++) {
                     var salary = min_salary[i] + '~' + max_salary[i];
                     var j = i % 10;
-                    $("#msg" + i).append("<div class='positionText1'><div class='container'><div class='textMessage'>" + job_name[i] + "</div></div></div>");
-                    $("#msg" + i).append("<div class='positionText1'><div class='container'><div class='textMessage'>" + job_summary[i] + "</div></div></div>");
-                    $("#msg" + i).append("<div class='positionText1'><div class='container'><div class='textMessage'>" + salary + "</div></div></div>");
-                    $("#msg" + i).append("<div class='positionText2'><div class='container'><div class='textMessage'>" + team_name[i] + "</div></div></div>");
-                    $("#msg" + i).append("<div class='positionText3'><div class='container'><div class='textMessage'>" + team_about[i] + "</div></div></div>");
+                    $("#msg" + j).append("<div class='positionText1'><div class='container'><div class='textMessage'>" + job_name[i] + "</div></div></div>");
+                    $("#msg" + j).append("<div class='positionText1'><div class='container'><div class='textMessage'>" + job_summary[i] + "</div></div></div>");
+                    $("#msg" + j).append("<div class='positionText1'><div class='container'><div class='textMessage'>" + salary + "</div></div></div>");
+                    $("#msg" + j).append("<div class='positionText2'><div class='container'><div class='textMessage'>" + team_name[i] + "</div></div></div>");
+                    $("#msg" + j).append("<div class='positionText3'><div class='container'><div class='textMessage'>" + team_about[i] + "</div></div></div>");
                 }
                 break;
 
@@ -441,10 +441,10 @@ $(function() {
             case "../data/project.json":{
                 for(var i=(currentPage-1)*10;i<(currentPage - 1) * 10+pageSize;i++){
                     var j = i % 10;
-                    $("#msg"+j).append("<div style='height:60px;width:350px;padding: 18px 5px 18px 5px;'><div class='container'><div style='font-size: 20px;font-weight: 100;'>"+project_name[i]+"</div></div></div>");
-                    $("#msg"+j).append("<div style='height:60px;width:350px;padding: 30px 5px 30px 5px;'><div class='container'><div style='font-size: 16px;font-weight: 100;'>"+project_about[i]+"</div></div></div>");
-                    $("#msg"+j).append("<div style='height:60px;width: 350px;margin-left: 350px;margin-top: -120px;padding: 18px 5px 18px 5px;'><div class='container'><div style='font-size: 20px;font-weight: 100;'>"+team_name[i]+"</div></div></div>");
-                    $("#msg"+j).append("<div style='height:60px;width: 350px;margin-left: 350px;padding: 30px 5px 30px 5px;'><div class='container'><div style='font-size: 16px;font-weight: 100;'>"+team_about[i]+"</div></div></div>");
+                    $("#msg"+j).append("<div class='projectText1'><div class='container'><div class='textMessage'>"+project_name[i]+"</div></div></div>");
+                    $("#msg"+j).append("<div class='projectText2'><div class='container'><div class='smalltextMessage'>"+project_about[i]+"</div></div></div>");
+                    $("#msg"+j).append("<div class='projectText3'><div class='container'><div class='textMessage'>"+team_name[i]+"</div></div></div>");
+                    $("#msg"+j).append("<div class='projectText4'><div class='container'><div class='smalltextMessage'>"+team_about[i]+"</div></div></div>");
                 }
 
                 break;
