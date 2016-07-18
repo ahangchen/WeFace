@@ -10,6 +10,22 @@
 
 <body>
     <div class="card main">
+        <div class="choice-show">
+            <p class="actor-title" style="margin-bottom: 20px;">请选择你所需要登录的角色</p>
+
+
+        <!-- Dropdown Trigger -->
+        <a id="actor-show" class='dropdown-button btn' href='#' data-activates='dropdown1' style="margin-bottom: 20px">学生（单击可选择）</a>
+
+        <!-- Dropdown Structure -->
+        <ul id='dropdown1' class='dropdown-content'>
+            <li><a  class="actor-choice" id="actor-stu" name="学生">学生</a></li>
+            <li><a class="actor-choice" id="actor-group" name="团队">团队</a></li>
+            <li><a class="actor-choice" id="actor-society" name="社团">社团</a></li>
+            <li><a class="actor-choice" id="actor-com" name="公司">公司</a></li>
+        </ul>
+        </div>
+
         <form>
             <ul class="login-form">
                 <li class="login-view input-field col s6">
@@ -18,21 +34,22 @@
                     <p id="account-warn"></p>
                 </li>
                 <li class="login-view input-field col s6">
-                    <input id="pwd" type="text" />
+                    <input id="pwd" type="password" />
                     <label for="pwd">输入密码</label>
                     <p id="pwd-warn"></p>
                 </li>
-                <li class="login-view" id="pwd-find"><a style="display: block;margin-top:10px" href="find.html">忘记密码</a></li>
-                <li>
-                <a class="waves-effect waves-light btn" id="login-conf" type="button" />登录</a>
-                </li class="login-view">
+                <li class="login-view" id="pwd-find"><a style="display: block;margin-top:10px">忘记密码</a></li>
+                <li class="login-view">
+                <a class="waves-effect waves-light btn" id="login-conf" type="button" >登录</a>
+                </li>
                 <li id="regi"><a href="register.html">没有账号，立即注册</a></li>
             </ul>
         </form>
     </div>
-    <script src="../../js/main/jquery.js"></script>
+    <script type="text/javascript" src="../../js/main/jquery.js"></script>
     <script type="text/javascript" src="../../js/materialize.min.js"></script>
-    <script src="../../js/main/login.js"></script>
+    <script type="text/javascript" src="../../js/main/pwd_hash.js"></script>
+    <script type="text/javascript" src="../../js/main/login.js"></script>
 </body>
 
 </html>

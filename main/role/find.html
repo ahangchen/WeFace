@@ -9,26 +9,44 @@
 </head>
 
 <body>
-    <div class="main" id="mail-check">
-        <p id="title">验证邮箱 — 发送重置邮件 — 重置密码</p>
-        <div class="mail-show input-field col s6">
-            <input id="email" type="text" />
-            <label for="email">输入注册使用的邮箱</label>
-        </div>
-         <a class="waves-effect waves-light btn" id="conf" type="button" />验证</a>
+
+<div class="main card" id="mail-check">
+    <p class="title">验证邮箱 — 发送重置邮件 — 重置密码</p>
+    <div class="choice-show">
+        <p class="actor-title" style="margin-bottom: 20px;">请选择你所需要登录的角色</p>
+
+
+        <!-- Dropdown Trigger -->
+        <a id="actor-show" class='dropdown-button btn' href='#' data-activates='dropdown1' style="margin-bottom: 20px">学生（单击可选择）</a>
+
+        <!-- Dropdown Structure -->
+        <ul id='dropdown1' class='dropdown-content'>
+            <li><a class="actor-choice" id="actor-stu" name="学生">学生</a></li>
+            <li><a class="actor-choice" id="actor-group" name="团队">团队</a></li>
+            <li><a class="actor-choice" id="actor-society" name="社团">社团</a></li>
+            <li><a class="actor-choice" id="actor-com" name="公司">公司</a></li>
+        </ul>
     </div>
-    <div class="main" id="mail-conf">
-        <p id="title">验证邮箱 — 发送重置邮件 — 重置密码</p>
-        <p class="conf-show">验证邮件已发送至邮箱，请到邮箱进行验证</p>
-        <a class="waves-effect waves-light btn" id="conf-mail" type="button" />去邮箱验证</a>
+
+    <div class="mail-show input-field col s6">
+        <input id="email" type="text"/>
+        <label for="email">输入注册使用的邮箱</label>
+        <p id="find-result"></p>
     </div>
-    <div class="main" id="pwd">
-        <input id="email" type="text" placeholder="输入新密码" />
-        <input id="email" type="text" placeholder="再次输入密码" />
-    </div>
-    <script src="../../js/main/jquery.js"></script>
-    <script type="text/javascript" src="../../js/materialize.min.js"></script>
-    <script type="text/javascript" src="../../js/main/find.js"></script>
+    <a class="waves-effect waves-light btn" id="conf" type="button"/>验证</a>
+</div>
+<div class="main card" id="mail-conf">
+    <p class="title">验证邮箱 — 发送重置邮件 — 重置密码</p>
+    <p class="conf-show">验证邮件已发送至邮箱，请到邮箱进行验证</p>
+    <a class="waves-effect waves-light btn" id="conf-mail" type="button"/>去邮箱验证</a>
+</div>
+<div class="main card" id="pwd">
+    <input class="new-pwd" type="text" placeholder="输入新密码"/>
+    <input class="new-conf" type="text" placeholder="再次输入密码"/>
+</div>
+<script src="../../js/main/jquery.js"></script>
+<script type="text/javascript" src="../../js/materialize.min.js"></script>
+<script type="text/javascript" src="../../js/main/find.js"></script>
 </body>
 
 </html>

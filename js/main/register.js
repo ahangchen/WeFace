@@ -99,10 +99,11 @@
             if (account_flag == true && pwd_flag == true && checked) {
                 var account = $('.account').attr('value');
                 var pwd = document.getElementById('pwd').value;
+                var pwd_hash = hex_sha1("pwd");
                 var code = document.getElementById('code').value;
                 var data = {
                     account: account,
-                    pwd: pwd,
+                    pwd: pwd_hash,
                     code: code
                 };
                 $.ajax({
@@ -116,13 +117,13 @@
                             flag = true;
                         }
                         if (err == -2) {
-                            document.getElementById('account-warn').innerHTML = "验证码错误";
+                            document.getElementById('code-result').innerHTML = "验证码错误";
                         }
                         if (err == -3) {
-                            document.getElementById('account-warn').innerHTML = "账号已经存在";
+                            document.getElementById('account-result').innerHTML = "账号已经存在";
                         }
                         if (err == -1) {
-                            document.getElementById('account-warn').innerHTML = "请求方法错误";
+                            document.getElementById('account-result').innerHTML = "请求方法错误";
                         }
                         if (flag == true) {
                             $('.regi-form').css('display', 'none');
@@ -148,11 +149,12 @@
             if (account_flag == true && pwd_flag == true && checked) {
                 var account = $('.account').attr('value');
                 var pwd = document.getElementById('pwd').value;
+                var pwd_hash = hex_sha1("pwd");
                 var inv_code = document.getElementById('welcome').value;
                 var code = document.getElementById('code').value;
                 var data = {
                     account: account,
-                    pwd: pwd,
+                    pwd: pwd_hash,
                     inv_code:inv_code,
                     code: code
                 };
@@ -167,17 +169,18 @@
                             flag = true;
                         }
                         if (err == -2) {
-                            document.getElementById('account-warn').innerHTML = "验证码错误";
+                            document.getElementById('code-result').innerHTML = "验证码错误";
                         }
-                        if (err == -3) {
-                            document.getElementById('account-warn').innerHTML = "账号已经存在";
+                        if (err == -4) {
+                            document.getElementById('account-result').innerHTML = "邀请码或账号不正确";
                         }
                         if (err == -1) {
-                            document.getElementById('account-warn').innerHTML = "请求方法错误";
+                            document.getElementById('account-result').innerHTML = "请求方法错误";
                         }
                         if (flag == true) {
                             $('.regi-form').css('display', 'none');
-                            $('.success-form').css('display', 'block'); //注册成功界面显示
+                            $('.success-form').css('display', 'block');
+                            $('#go-to').css('display', 'none');//注册成功界面显示
                             var a = 5;
 
                             function timeleft() {
