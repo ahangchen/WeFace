@@ -1,0 +1,161 @@
+<!--学生信息编辑-->
+
+<!DOCTYPE html>
+<html>
+<meta charset="utf-8">
+<head>
+    <title>华南理工大学人才交流市场</title>
+</head>
+<body>
+
+<script type="text/javascript" src="../js/jquery-2.1.1.min.js"></script>
+<script type="text/javascript" src="../js/main/index.js"></script>
+<script type="text/javascript" src="../js/search/search.js"></script>
+<script type="text/javascript" src="../js/stu/fix_msg.js"></script>
+<script type="text/javascript" src="../js/materialize.js"></script>
+<link href="../css/main/base.css" type="text/css" rel="stylesheet"/>
+<link href="../css/base.css" type="text/css" rel="stylesheet"/>
+<link rel="stylesheet" type="text/css" href="../css/materialize.min.css">
+<link rel="stylesheet" type="text/css" href="../css/main/index.css">
+<link rel="stylesheet" type="text/css" href="../css/main/search.css">
+<link rel="stylesheet" type="text/css" href="../css/stu/fix_msg.css">
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+<div class="header comWidth">
+    <div class="topBar">
+        <div class="comWidth">
+            <div class="header fl">
+                <a href="../main/test/information.html" target="_blank">关于基地</a>
+            </div>
+            <div class="header fr">
+                <a class="mainBtn" href="../main/role/login.html" target="_blank">登录</a>
+
+                <span class="line">|</span>
+                <a class="mainBtn" href="../main/role/register.html" target="_blank">注册</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<nav class="white lighten-5 comWidth">
+    <div class="nav-wrapper">
+        <ul class="left hide-on-med-and-down">
+            <li><img id="logo" src="../res/imgs/materialize.svg"/></li>
+            <li><p class="logo-name">华南理工大学<br/>人才交流平台
+                <p></li>
+            <li><a href="#" id="indexBtn">首页</a></li>
+            <li><a href="#" id="teamBtn">团队</a></li>
+        </ul>
+
+        <div class="input-field right search-bar" id="searchDiv">
+            <input id="search" type="search" placeholder="Click to search" required>
+            <label for="search"><i class="material-icons">search</i></label>
+            <i class="material-icons">close</i>
+        </div>
+    </div>
+</nav>
+
+<div class="comWidth" id="student_message_box">
+    <div class="row">
+        <form class="col s6">
+            <div class="input-field col s8">
+                <input id="first_name" type="text" class="validate">
+                <label for="first_name">输入你的名字</label>
+            </div>
+            <div class="input-field col s8">
+                <input id="school_name" type="text" class="validate">
+                <label for="school_name">输入你所在的学校</label>
+            </div>
+            <div class="input-field col s8">
+                <input id="major_name" type="text" class="validate">
+                <label for="major_name">输入你的专业</label>
+            </div>
+            <div class="input-field col s8">
+                <select class="browser-default">
+                    <option value="" disabled selected>选择你所在的城市</option>
+                    <option value="1">广州</option>
+                    <option value="2">深圳</option>
+                    <option value="3">上海</option>
+                    <option value="4">北京</option>
+                    <option value="5">厦门</option>
+                    <option value="6">杭州</option>
+                    <option value="7">成都</option>
+                    <option value="8">天津</option>
+                    <option value="9">南京</option>
+                    <option value="10">其它</option>
+                </select>
+            </div>
+            <div class="input-field col s8">
+                <select class="browser-default">
+                    <option value="" disabled selected>选择你的最高学历</option>
+                    <option value="1">本科</option>
+                    <option value="2">硕士</option>
+                    <option value="3">博士</option>
+                    <option value="4">其它</option>
+                </select>
+            </div>
+            <div class="input-field col s8">
+                <select class="browser-default">
+                    <option value="" disabled selected>选择你的在读年级</option>
+                    <option value="1">应届毕业生</option>
+                    <option value="2">大一</option>
+                    <option value="3">大二</option>
+                    <option value="4">大三</option>
+                    <option value="5">研一</option>
+                    <option value="6">研二</option>
+                    <option value="7">其它</option>
+                </select>
+            </div>
+            <div class="input-field col s11" id="enter_email">
+                <input id="email" type="email" class="validate">
+                <label for="email" data-error="!邮箱格式不正确" data-success="right">输入你的邮箱</label>
+                <span class="red-text text-lighten-2">不会显示在您的信息中,您投递简历后会被相应的公司看到</span>
+            </div>
+            <div class="input-field col s11" id="enter_tel">
+                <input id="tel" type="email" class="validate">
+                <label for="tel">输入你的联系方式</label>
+                <span class="red-text text-lighten-2">不会显示在您的信息中,您投递简历后会被相应的公司看到</span>
+                <a id="saveButton" class="waves-effect waves-light btn">保存</a>
+                <a id="cancelButton" class="waves-effect waves-light btn">取消</a>
+            </div>
+        </form>
+    </div>
+
+    <div id="update_photo">
+            <!--<form enctype="multipart/form-data" method="post" action="{% url 'mng:upload'%}" onsubmit="return checkUpload()">
+                <div class="doc-name">
+                    <a href="#" class="file">
+                        <input type="file" name="file" id="upload_file" onchange="changeFileName(this)"/>
+                        <input type="text" name="name" style="display: none" value="选择文件"/>
+                    </a>
+                </div>
+
+                <div class="doc-bottom">
+                    <button class="click_label" type="submit">上传</button>
+                </div>
+            </form>-->
+        <div id="button_submit"></div>
+    </div>
+
+    <div id="complete_msg">
+        <img src="../res/imgs/complete.svg" id="complete_logo"/></br>
+        <span class="flow-text">完善个人档案</span>
+    </div>
+
+    <div id="attach_file">
+        <form action="#">
+            <div class="file-field input-field">
+                <div>
+                    <input type="file">
+                    <img src="../res/imgs/attach_file.svg" id="attach_logo"/></br>
+                    <span class="flow-text">上传简历附件</span>
+                </div>
+                <div class="file-path-wrapper">
+                    <input class="file-path validate" type="text">
+                </div>
+            </div>
+        </form>
+    </div>
+
+
+
+</div>
