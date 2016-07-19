@@ -24,3 +24,6 @@ http://underarmy.oschina.io/stroy
     - 根据设计出的图（查看百度网盘）编写样式，
     - 与后台（[项目地址](http://git.oschina.net/underarmy/WeMeet)）交互获取数据并填充到页面。（后台接口没准备好时，将请求后台和返回数据写成一个function，先自己填充fake数据，等到后台接口做好后，替换成后台的接口就好）
 
+## 接口文档
+- 团队： http://git.oschina.net/underarmy/WeMeet/blob/master/doc/story/team_interface.md
+- 学生：http://git.oschina.net/underarmy/WeMeet/blob/master/doc/stu_interface.md
