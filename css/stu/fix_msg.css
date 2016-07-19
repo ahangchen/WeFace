@@ -1,0 +1,57 @@
+#student_message_box{
+    width:970px;
+    height:auto;
+    background: rgba(255, 255, 255, 0.5);
+    -moz-box-shadow: 0 5px 5px 0 rgba(0, 0, 0, 0.22), 0 10px 10px 0 rgba(0, 0, 0, 0.21);
+    -webkit-box-shadow: 0 5px 5px 0 rgba(0, 0, 0, 0.22), 0 10px 10px 0 rgba(0, 0, 0, 0.21);
+    box-shadow: 0 5px 5px 0 rgba(0, 0, 0, 0.22), 0 10px 10px 0 rgba(0, 0, 0, 0.21);
+}
+
+#saveButton,#cancelButton{
+    margin-top: 15px;
+    margin-bottom: 15px;
+    width: 150px;
+}
+
+#update_photo{
+    top: 230px;
+    margin-left: 150px;
+    width: 1200px;
+    height: 100px;
+    position: absolute;
+}
+
+#complete_msg{
+   top: 330px;
+    margin-left: 170px;
+    width: 100px;
+    height: 100px;
+    position: absolute;
+}
+
+#complete_logo{
+    width: 50px;
+    height: 50px;
+    margin: 10px;
+}
+
+#attach_file{
+    top: 500px;
+    margin-left: 170px;
+    width: 100px;
+    height: 100px;
+    position: absolute;
+}
+
+#attach_logo{
+    width: 50px;
+    height: 50px;
+    margin: 10px;
+}
+
+#button_submit{
+    width: 100px;
+    height: 100px;
+    background-color: grey;
+    cursor: pointer;
+}
