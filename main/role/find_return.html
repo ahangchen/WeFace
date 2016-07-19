@@ -9,8 +9,9 @@
 </head>
 
 <body>
-
+<p id="hash_id" class="display:none">{{hash_id}}</p>
 <div class="main card" id="mail-check">
+    <div id="return_show">
     <p class="title" style="margin:auto;text-align: center">重置密码</p>
     <ul style="width:320px;margin:auto;padding-bottom: 20px">
         <li class="regi-a input-field col s6">
@@ -24,11 +25,14 @@
             <div class="result" id="conf-result"></div>
         </li>
     </ul>
+<div id="result"></div>
     <a class="waves-effect waves-light btn" type="button" id="finish"/>完成</a>
-
+</div>
+    <p id="success-show" style="display: none"><a href="../../main/index.html">密码找回成功，点此回到主页</a></p>
 </div>
 <script src="../../js/main/jquery.js"></script>
 <script type="text/javascript" src="../../js/materialize.min.js"></script>
+<script type="text/javascript" src="../../js/main/pwd_hash.js"></script>
 <script type="text/javascript" src="../../js/main/find_return.js"></script>
 </body>
 
