@@ -1,0 +1,401 @@
+.comWidth {
+    width:        970px;
+    margin-left:  auto;
+    margin-right: auto;
+
+}
+
+a:link {
+    text-decoration: none;
+    color:           black;
+}
+
+a:visited {
+    color: black;
+}
+
+html{
+    background-image: url(../../res/imgs/bg.svg);
+    background-size: 100% auto;
+}
+.fl{
+    float: left;
+}
+.fr{
+    float: right;
+}
+label{
+    color: #353535;
+    font-size: 16px;
+}
+/*----------------------------------导航栏-------------------------------------------------------------*/
+
+#logo {
+    height: 44px;
+    margin: 10px;
+}
+
+a.topBarItem.dropdown-button.btn{
+    width:            120px;
+    background-color: transparent;
+    box-shadow:       none;
+    text-align:       right;
+    padding-right:    6px;
+}
+
+.logo-name {
+    margin:      10px 5px 5px 5px;
+    font-size:   16px;
+    line-height: 20px;
+}
+
+.search-bar {
+    height: 100%;
+}
+
+.nav-wrapper li a {
+    width:      100px;
+    text-align: center;
+}
+
+.header {}
+
+.fl {
+    float: left;
+}
+
+.fr {
+    float: right;
+}
+
+.topBar {
+    top:         5%;
+    height:      35px;
+    font-size:   12px;
+    line-height: 30px;
+    background:  rgba(255, 255, 255, 0.5);
+}
+
+.topBar a {
+    font-size: 14px;
+    /*color:   #FF0000;*/
+    cursor:    pointer;
+}
+
+.header a {
+    margin-left:  7px;
+    margin-right: 5px;
+    line-height:  35px;
+}
+
+.header .line {
+    position:    relative;
+    top:         3px;
+    margin-left: 5px;
+    font-weight: lighter;
+    font-size:   20pt;
+    line-height: 20px;
+    color:       gray;
+}
+
+.mainBtn {
+    margin: 20px 5px 20px 13px;
+}
+
+
+
+/*选择导航栏*/
+div.col.s12{
+    position: relative;
+    top:      -15px;
+    padding:  0;
+}
+
+.label{
+    height: 80px;
+    color: white;
+    font-size: 16px;
+    line-height: 80px;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+.chip{
+    background-color: white;
+    color: #ff8f00;
+    margin-left: 10px;
+}
+.chip a{
+    color: #ff8f00;
+    cursor: default;
+}
+.editBtnGroup{
+    width: 160px;
+    float: right;
+    margin-right: 20px;
+    margin-top: 15px;
+}
+.editBtnGroup i{
+    color: #ff8f00;
+}
+#addBtn{
+    margin-right: 20px;
+}
+#selectBar{
+    /*display: none;*/
+    padding-left: 30px;
+    background-color: #ff8f00;
+    height: 80px;
+    margin-bottom: 0px;
+    transition:height 2s;
+    -moz-transition:height 2s; /* Firefox 4 */
+    -webkit-transition:height 2s; /* Safari and Chrome */
+    -o-transition:height 2s; /* Opera */
+}
+#selectBar  .s12{
+    position: relative;
+    top: -30px;
+}
+#editBar{
+    display: none;
+    background-color: rgba(255,255,255,0.5);
+    margin-top: 20px;
+    margin-bottom: 50px;
+    padding-top:10px;
+    padding-bottom: 10px;
+    transition:height 2s;
+    -moz-transition:height 2s; /* Firefox 4 */
+    -webkit-transition:height 2s; /* Safari and Chrome */
+    -o-transition:height 2s; /* Opera */
+}
+form p{
+    display: inline;
+    color: black;
+}
+form p label{
+    font-size: 1.3em;
+    height: 25px;
+    line-height: 25px;
+    color: black;
+    margin-right: 10px;
+    margin-left: 10px;
+}
+.buttonBar button{
+    margin-left: 10px;
+    margin-right: 10px;
+}
+#saveEdit{
+    background-color: #ff8f00;
+    color: white;
+}
+#cancelEdit{
+    background-color: white;
+    color: black;
+}
+form .buttonBar{
+    margin-top: 20px;
+    width: 250px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/*每一个卡片的显示*/
+#positionCards{
+    margin-top: 20px;
+}
+.positionCard{
+
+    height: 145px;
+    padding-top: 30px;
+    padding-left: 20px;
+    /*padding-right: 20px;*/
+    background-color: rgb(255,255,255);
+    margin-bottom: 20px;
+}
+.positionCard label{
+    text-align: center;
+    font-size: 1.3em;
+    height: 25px;
+    line-height: 25px;
+    color: black;
+    border:#353535 1px solid;
+}
+.positionCard .row{
+    height: 46px;
+}
+.positionName{
+    padding: 10px 10px 10px 10px;
+}
+.positionName{
+    position: relative;
+    left: 0;
+    top: 0;
+    padding: 10px 10px 10px 10px;
+}
+.salary{
+    width: 222px;
+    /*  position: relative;
+      top: 60px;
+      left: -323px;*/
+    padding: 10px 90px 10px 90px;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+.required{
+    /*  position: relative;
+      top: 60px;
+      left: -300px;*/
+    margin-left: 30px;
+    padding: 10px 10px 10px 10px;
+}
+.submitted{
+    text-align: center;
+    width: 63px;
+    margin-left: 30px;
+    background-color: #66bb6a;
+    color: white;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+.temperory{
+    text-align: center;
+    width: 63px;
+    margin-left: 30px;
+    background-color: #03a9f4;
+    color: white;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+.mamageBtn,.deleteBtn{
+    /*margin-right: 20px;*/
+    display: block;
+    margin-bottom: 20px;
+}
+.btngroups{
+    margin-right: 20px;
+    margin-top: 25px;
+    width: 160px;
+    height: 95px;
+    line-height: 95px;
+    position: relative;
+    top: -155px;
+}
+.btngroups a i{
+    color: #ff8f00;
+
+}
+.delJobBtn{
+    margin-right: 20px;
+}
+/*页码的显示*/
+.pageNum{
+    position: relative;
+    top: -20px;
+    width: 320px;
+    text-align: center;
+    margin-top: 60px;
+    margin-left: auto;
+    margin-right: auto;
+}
+.activePage{
+    background-color: transparent;
+    text-decoration: underline;
+}
+
+/*－－－－－－－－－－－－－－－－－－－管理编辑页面的样式－－－－－－－－－－－－－－－－－－－－－－*/
+.mainForm .manageForm{
+    padding: 0;
+}
+.positionType select{
+    display: block;
+}
+.initialized{
+    display: none;
+}
+.address select{
+    display: inline-block;
+}
+hr{
+    display: block;
+    width: 100%;
+}
+.radioGroup{
+    width: 415px;
+    height: 50px;
+    margin-right: auto;
+    margin-left: auto;
+}
+#saveForm{
+    margin-right: 40px;
+    background-color: #ff8f00;
+}
+#cancelForm{
+    margin-left: 40px;
+    background-color:white;
+    color: #353535;
+}
+.baseInfo{
+    padding-top: 20px;
+    padding-right: 100px;
+    padding-left: 100px;
+    position: relative;
+    top: -27px;
+    height: 700px;
+    background-color: rgba(255,255,255,0.7);
+}
+.requirementDiv{
+    padding-right: 100px;
+    padding-left: 100px;
+    padding-top: 40px;
+    position: relative;
+    top: -27px;
+    height: 320px;
+    margin-top: 20px;
+    background-color:rgb(255,255,255);
+}
+.buttonDiv{
+    position: relative;
+    top: -27px;
+    height: 126px;
+    background-color: rgba(255,255,255,0.7);
+    margin-top: 10px;
+    line-height: 126px;
+    color: #353535;
+    font-size: 16px;
+}
+.submitBtnGroup{
+    width: 280px;
+    margin-left: auto;
+    margin-right: auto;
+    padding-bottom: 30px;
+}
+.divide{
+    text-align: center;
+    height: 76px;
+    line-height: 76px;
+    font-size: 4em;
+}
+.add{
+    position: relative;
+    color: #353535;
+    font-size: 16px;
+    top: -100px;
+    left: 240px;
+}
+
+
+/*新增职位页面的样式*/
+.prescribe{
+    color: red;
+    font-size: 16px;
+    margin-right: 50px;
+}
+
+
+
+
+
+

@@ -1,0 +1,33 @@
+{
+  "jobs":[
+    {"jobId":"001","name":"WeMeet","address":"广东省广州市番禺区","minSalary":"3000","maxSalary":"6000","exp":"半年实习／本科","job_state":"submitted"},
+    {"jobId":"002","name":"WeMeet","address":"广东省广州市番禺区","minSalary":"3000","maxSalary":"6000","exp":"半年实习／本科","job_state":"temperory"},
+    {"jobId":"003","name":"WeMeet","address":"广东省广州市番禺区","minSalary":"3000","maxSalary":"6000","exp":"半年实习／本科","job_state":"submitted"},
+    {"jobId":"004","name":"WeMeet","address":"广东省广州市番禺区","minSalary":"3000","maxSalary":"6000","exp":"半年实习／本科","job_state":"submitted"},
+    {"jobId":"005","name":"WeMeet","address":"广东省广州市番禺区","minSalary":"3000","maxSalary":"6000","exp":"半年实习／本科","job_state":"submitted"},
+    {"jobId":"006","name":"WeMeet","address":"广东省广州市番禺区","minSalary":"3000","maxSalary":"6000","exp":"半年实习／本科","job_state":"temperory"},
+    {"jobId":"007","name":"WeMeet","address":"广东省广州市番禺区","minSalary":"3000","maxSalary":"6000","exp":"半年实习／本科","job_state":"submitted"},
+    {"jobId":"008","name":"WeMeet","address":"广东省广州市番禺区","minSalary":"3000","maxSalary":"6000","exp":"半年实习／本科","job_state":"submitted"},
+    {"jobId":"009","name":"WeMeet","address":"广东省广州市番禺区","minSalary":"3000","maxSalary":"6000","exp":"半年实习／本科","job_state":"temperory"},
+    {"jobId":"010","name":"WeMeet","address":"广东省广州市番禺区","minSalary":"3000","maxSalary":"6000","exp":"半年实习／本科","job_state":"submitted"},
+    {"jobId":"011","name":"WeMeet","address":"广东省广州市番禺区","minSalary":"3000","maxSalary":"6000","exp":"半年实习／本科","job_state":"submitted"},
+    {"jobId":"012","name":"WeMeet","address":"广东省广州市番禺区","minSalary":"3000","maxSalary":"6000","exp":"半年实习／本科","job_state":"submitted"},
+    {"jobId":"013","name":"WeMeet","address":"广东省广州市番禺区","minSalary":"3000","maxSalary":"6000","exp":"半年实习／本科","job_state":"temperory"},
+    {"jobId":"014","name":"WeMeet","address":"广东省广州市番禺区","minSalary":"3000","maxSalary":"6000","exp":"半年实习／本科","job_state":"submitted"},
+    {"jobId":"015","name":"WeMeet","address":"广东省广州市番禺区","minSalary":"3000","maxSalary":"6000","exp":"半年实习／本科","job_state":"submitted"},
+    {"jobId":"016","name":"WeMeet","address":"广东省广州市番禺区","minSalary":"3000","maxSalary":"6000","exp":"半年实习／本科","job_state":"temperory"},
+    {"jobId":"017","name":"WeMeet","address":"广东省广州市番禺区","minSalary":"3000","maxSalary":"6000","exp":"半年实习／本科","job_state":"submitted"},
+    {"jobId":"018","name":"WeMeet","address":"广东省广州市番禺区","minSalary":"3000","maxSalary":"6000","exp":"半年实习／本科","job_state":"submitted"},
+    {"jobId":"019","name":"WeMeet","address":"广东省广州市番禺区","minSalary":"3000","maxSalary":"6000","exp":"半年实习／本科","job_state":"temperory"},
+    {"jobId":"020","name":"WeMeet","address":"广东省广州市番禺区","minSalary":"3000","maxSalary":"6000","exp":"半年实习／本科","job_state":"submitted"},
+    {"jobId":"021","name":"WeMeet","address":"广东省广州市番禺区","minSalary":"3000","maxSalary":"6000","exp":"半年实习／本科","job_state":"submitted"},
+    {"jobId":"022","name":"WeMeet","address":"广东省广州市番禺区","minSalary":"3000","maxSalary":"6000","exp":"半年实习／本科","job_state":"submitted"},
+    {"jobId":"023","name":"WeMeet","address":"广东省广州市番禺区","minSalary":"3000","maxSalary":"6000","exp":"半年实习／本科","job_state":"submitted"},
+    {"jobId":"024","name":"WeMeet","address":"广东省广州市番禺区","minSalary":"3000","maxSalary":"6000","exp":"半年实习／本科","job_state":"temperory"},
+    {"jobId":"025","name":"WeMeet","address":"广东省广州市番禺区","minSalary":"3000","maxSalary":"6000","exp":"半年实习／本科","job_state":"submitted"},
+    {"jobId":"026","name":"WeMeet","address":"广东省广州市番禺区","minSalary":"3000","maxSalary":"6000","exp":"半年实习／本科","job_state":"submitted"},
+    {"jobId":"027","name":"WeMeet","address":"广东省广州市番禺区","minSalary":"3000","maxSalary":"6000","exp":"半年实习／本科","job_state":"submitted"},
+    {"jobId":"028","name":"WeMeet","address":"广东省广州市番禺区","minSalary":"3000","maxSalary":"6000","exp":"半年实习／本科","job_state":"submitted"},
+    {"jobId":"029","name":"WeMeet","address":"广东省广州市番禺区","minSalary":"3000","maxSalary":"6000","exp":"半年实习／本科","job_state":"submitted"}
+  ]
+}

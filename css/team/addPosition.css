@@ -1,0 +1,9 @@
+.baseInfo{
+    padding-top: 20px;
+    padding-right: 100px;
+    padding-left: 100px;
+    position: relative;
+    top: -27px;
+    height: 790px;
+    background-color: rgba(255,255,255,0.7);
+}
