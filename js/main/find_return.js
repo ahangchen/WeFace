@@ -1,4 +1,4 @@
-var pwd_falg=false;
+var pwd_flag = false;
 $('#pwd-conf').blur(function () {
     pwd_flag = false;
     var pwd = document.getElementById('pwd').value;
@@ -41,38 +41,34 @@ $('#pwd').blur(function () {
         document.getElementById("conf-result").innerHTML = "";
     }
 }); //密码判断；
-$("#finish").click(function(){
-    var credential=document.getElementById("hash_id");
+$("#finish").click(function () {
+    var account;//未获取
+    var credential = document.getElementById("hash_id").innerHTML;
     var pwd = document.getElementById('pwd').value;
     var pwd_hash = hex_sha1("pwd");
-    if(pwd_falg==true){
-        var data={account:account,credential:credential,pwd:pwd_hash};
+    if (pwd_flag == true) {
+        var data = {account: account, credential: credential, pwd: pwd_hash};
         $.ajax({
             type: 'POST',
             data: data,
             url: '../../data/find.json',
             dataType: 'json',
             success: function (data) {
-                if(data.err==0)
-                {
-$("#return_show").css("display","none");
-                    $("#success_show").css("display","block");
+                if (data.err == 0) {
+                    $("#return_show").css("display", "none");
+                    $("#success-show").css("display", "block");
                 }
-                if(data.err==-4)
-                {
-                    document.getElementById('result').innerHTML ="账号不存在";
+                if (data.err == -4) {
+                    document.getElementById('result').innerHTML = "账号不存在";
                 }
-                if(data.err==-7)
-                {
-                    document.getElementById('result').innerHTML ="凭据错误";
+                if (data.err == -7) {
+                    document.getElementById('result').innerHTML = "凭据错误";
                 }
-                if(data.err==-10)
-                {
-                    document.getElementById('result').innerHTML ="操作失败";
+                if (data.err == -10) {
+                    document.getElementById('result').innerHTML = "操作失败";
                 }
-                if(data.err==-1)
-                {
-                    document.getElementById('result').innerHTML ="请求方法错误";
+                if (data.err == -1) {
+                    document.getElementById('result').innerHTML = "请求方法错误";
                 }
             }
         });

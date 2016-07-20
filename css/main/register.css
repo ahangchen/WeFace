@@ -46,11 +46,12 @@ form p:last-child {
 }
 
 #actor-show {
+    color:orange;
     width: 320px;
     height: 40px;
     line-height: 40px;
     font-size: 20px;
-    background-color: orange;
+    background-color: transparent;
     text-align: left;
     text-indent: -20px;
 }
@@ -203,4 +204,22 @@ img{
     margin-bottom: -30px;
     border: 1px solid #ccc;
     display: inline-block;
+}
+
+#aaa:hover{
+   background: transparent;
+}
+
+#actor-show{
+    box-shadow: none;
+    border-bottom: 1px solid gray;
+}
+#actor-show{
+    background: none;
+    border-radius: 0;
+    box-shadow: none;
+    border-bottom: 1px solid #9e9e9e;
+    color:#9e9e9e;
+    font-size:1rem;
+    text-indent:-2em;
 }

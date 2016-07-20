@@ -7,8 +7,8 @@
     <link href="../../css/ghpages-materialize.css" rel="stylesheet" type="text/css">
     <link href="../../css/main/register.css" rel="stylesheet" type="text/css">
 </head>
-
 <body>
+
 
     <div class="main card" style="padding-bottom:2px">
         <form class="choice-form" action="#" method="get">
@@ -18,11 +18,12 @@
                 </li>
 
                 <!-- Dropdown Trigger -->
-                <a id="actor-show" class='dropdown-button btn' href='#' data-activates='dropdown1'>学生（单击可选择）</a>
+                <a id="actor-show" class='dropdown-button btn' href='#' data-activates='dropdown1'>请选择（默认为学生）<span style="margin-right:-40px;float:right">▼</span></a>
 
                 <!-- Dropdown Structure -->
                 <ul id='dropdown1' class='dropdown-content'>
-                    <li><a  class="actor-choice" id="actor-stu" name="学生">学生</a></li>
+                    <li id="aaa"><a style="color:gray">请选择</a></li>
+                    <li><a class="actor-choice" id="actor-stu" name="学生">学生</a></li>
                     <li><a class="actor-choice" id="actor-group" name="团队">团队</a></li>
                     <li><a class="actor-choice" id="actor-society" name="社团">社团</a></li>
                     <li><a class="actor-choice" id="actor-com" name="公司">公司</a></li>
@@ -60,7 +61,7 @@
                 <li class="regi-a input-field col s6">
                     <input id="code" type="text" value="" style="display:inline-block"/>
                     <label for="code" style="display:inline-block">输入验证字符</label>
-                    <img width="100px" height="35px" id="code-check" title="看不清，点击换一张"/>
+                    <img width="100px" height="35px" id="check" title="看不清，点击换一张"/>
                     <div class="result" id="code-result"></div>
                 </li>
                 <li class="regi-group  input-field col s6">
