@@ -187,9 +187,10 @@ $(function(){
 
 // 初始化页码
     function initPages(p){
+        var len = $('.pagination').children('li').length;
+        alert(len);
         $('.pagination').children('li').each(function(i){
-            var len = $('.pagination').children('li').length;
-            if(i > 1 && i < (len-1)){
+            if(i > 1 && i < (len - 1)){
                 $(this).remove();
             }
         });
