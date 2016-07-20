@@ -18,7 +18,7 @@
         document.getElementById("conf-result").innerHTML = "";
     });
     /*--------------------------------用 户 名 检 测 部 分--------------------------------*/
-    $('#account').blur(function () {
+    $('#account').(function () {
         account_flag = false;
         var pattern = /^(\w)+(\.\w+)*@(\w)+((\.\w{2,3}){1,3})$/;
         var account = document.getElementById("account").value;
