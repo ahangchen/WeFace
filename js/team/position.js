@@ -196,14 +196,8 @@ $(function(){
                 initPages(pages);
                 // 显示编辑职位的页面
                 $('.editInfoBtn').click(function(){
-                    var a = $.ajax({
-                        type:"get",
-                        url:"positionEdit.html",
-                        dataType:"html",
-                        success:function(data){
-                            $("#positionDiv").html(data);
-                        }
-                    });
+                    var editJobId = $(this).parents('.positionCard').attr('id');
+                    showEditPage(editJobId);
                 });
                 // 删除按钮的响应事件
                 $('.delJobBtn').click(function(){
@@ -219,6 +213,7 @@ $(function(){
                                 if (data.err==0) {
                                     alert(data.msg);
                                     delJobFromDom(delJobId);
+                                    $("#firstPage").attr("class","activePage");
                                 }
                                 else{
                                     alert("删除失败请刷新再试");
@@ -246,12 +241,12 @@ $(function(){
         if (p < 10) {
             for (var i = p; i > 1 ; i--) {
                 var pageNum = "page";
-                $('.activePage').after('<li class="waves-effect"><a class="page">'+i+'</a></li>');
+                $('#firstPage').after('<li class="waves-effect"><a class="page">'+i+'</a></li>');
             }
         }
         else{
             for (var i = 10; i > 1; i--) {
-                $('.activePage').after('<li class="waves-effect"><a class="'+pageNum+'">'+i+'</a></li>');
+                $('#firstPage').after('<li class="waves-effect"><a class="'+pageNum+'">'+i+'</a></li>');
             }
         }
         $('.page').click(function(){
@@ -279,7 +274,6 @@ $(function(){
     function delJobFromDom(jId){
         $('#'+jId).remove();
         removeLastPage();
-
         init(tags);
     }
     // 上下页切换
@@ -351,14 +345,8 @@ $(function(){
                     $("#positionCards").append('<div class="positionCard comwidth" id="'+id+'"><div class="row"><label class="positionName">'+jobName+'<span class = "jAddr">（'+jobAddr+'）</span></label><div class="chip '+state+'">'+stateText+'</div></div><div class="row"><label class="salary">'+minMon+'-'+maxMon+'</label><label class="required">'+jobExp+'</label></div><div class="btngroups fr"><a class="btn-floating btn-large waves-effect waves-light white delJobBtn"  ><i class="medium material-icons" >remove</i></a><a class="btn-floating btn-large white editInfoBtn" ><i class="medium material-icons" >mode_edit</i></a></div></div>');
                 }
                 $('.editInfoBtn').click(function(){
-                    var a = $.ajax({
-                        type:"get",
-                        url:"positionEdit.html",
-                        dataType:"html",
-                        success:function(data){
-                            $("#positionDiv").html(data);
-                        }
-                    });
+                    var editJobId = $(this).parents('.positionCard').attr('id');
+                    showEditPage(editJobId);
                 });
                 // 删除按钮的响应事件
                 $('.delJobBtn').click(function(){
@@ -374,6 +362,7 @@ $(function(){
                                 if (data.err==0) {
                                     alert(data.msg);
                                     delJobFromDom(delJobId);
+                                    $("#firstPage").attr("class","activePage");
                                 }
                                 else{
                                     alert("删除失败请刷新再试");
@@ -385,6 +374,71 @@ $(function(){
                         alert("你点击了取消");
                     }
                 });
+            }
+        });
+    }
+
+    function showEditPage(eJobId){
+
+        var jobInfo = {
+            "team_id": "",
+            "job_name": "UI设计",
+            "min_salary": "",
+            "max_salary":"",
+            "prince": "",
+            "city": "",
+            "town": "",
+            "address": "",
+            "edu_cmd": "",
+            "exp_cmd": "",
+            "job_type": "",
+            "work_type": "",
+            "summary": "",
+            "pub_date": "",
+            "pub_state": "",
+            "job_cmd": "",
+            "work_cmd": ""
+        };
+        var aj = $.ajax({
+            type:"post",
+            data:'eJobId',
+            // url:'http://110.64.69.66:8081/team/job_info/',
+            url:"../../js/team/position.json",
+            dataType:'json',
+            success:function(data){
+
+                if (data.err == '0') {
+                    jobInfo.team_id = data.team_id;
+                    jobInfo.edu_cmd = data.edu_cmd;
+                    jobInfo.job_name = data.job_name;
+                    jobInfo.min_salary = data.min_salary;
+                    jobInfo.max_salary = data.max_salary;
+                    jobInfo.prince= data.prince;
+                    jobInfo.city = data.city;
+                    jobInfo.town = data.town;
+                    jobInfo.address = data.address;
+                    jobInfo.edu_cmd = data.edu_cmd;
+                    jobInfo.exp_cmd = data.exp_cmd;
+                    jobInfo.job_type = data .job_type;
+                    jobInfo.work_type = data.work_type;
+                    jobInfo.summary = data.summary;
+                    jobInfo.pub_date = data.pub_date;
+                    jobInfo.pub_state = data.pub_state;
+                    jobInfo.job_cmd = data.job_cmd;
+                    jobInfo.work_cmd = data.work_cmd;
+                }
+                else {
+                    alert(data.msg);
+                }
+            }
+        });
+        var a = $.ajax({
+            type:"get",
+            url:"positionEdit.html",
+            dataType:"html",
+            success:function(data){
+                var name = $(data).find("#jobName");
+                $("#positionDiv").html(data);
             }
         });
     }
