@@ -142,5 +142,141 @@
         </ul>
     </div>
 </div>
+<div id="manageDiv">
+    <div class="row mainForm">
+        <form class="col s12 manageForm">
+            <div class="baseInfo comWidth">
+                <div class="row">
+                    <div class="input-field col s6">
+                        <input disabled value="weMeet" id="firmName" type="text" class="validate">
+                        <label for="firmName">公司名称（自动关联）</label>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="input-field col s6">
+                        <input disabled value="网页前端工程师" id="jobName" type="text" class="validate">
+                        <label for="jobName">职位名称（自动关联）</label>
+                    </div>
+                    <div class="input-field col s6 ">
+                        <select class="type">
+                            <option value="" disabled selected>请选择</option>
+                            <option value="1">产品</option>
+                            <option value="2">技术</option>
+                            <option value="3" >设计</option>
+                            <option value="4">行政</option>
+                            <option value="5">营销</option>
+                            <option value="6">运营</option>
+                            <option value="7">运维支持</option>
+                            <option value="8">文案策划</option>
+                            <option value="9">市场</option>
+                        </select>
+                        <label>职业类型</label>
+                    </div>
+                </div>
+
+                <div class="row salaryRow">
+                    <div class="input-field col s4">
+                        <input   id="minSaraly" type="text" class="validate">
+                        <label for="minSaraly">薪资（RMB）</label>
+                    </div>
+                    <div class="col s2 divide"> ~ </div>
+                    <div class="input-field col s4">
+                        <input   id="maxSaraly" type="text" class="validate">
+                        <label for="maxSaraly">薪资（RMB）</label>
+                    </div>
+                </div>
+
+                <div class="input-field col s12 ">
+                    <select class="col s4 province">
+                        <option value="" disabled selected>请选择</option>
+                        <option value="1">广东省</option>
+                        <option value="2">其他</option>
+                    </select>
+                    <select class="col s4 city">
+                        <option value="" disabled selected>请选择</option>
+                        <option value="1">广州市</option>
+                        <option value="2">其他</option>
+                    </select>
+                    <select class="col s4 region">
+                        <option value="" disabled selected>请选择</option>
+                        <option value="1" >番禺区</option>
+                        <option value="2">海珠区</option>
+                        <option value="3">天河区</option>
+                        <option value="4">荔湾区</option>
+                        <option value="5">越秀区</option>
+                        <option value="6">白云区</option>
+                        <option value="7">黄埔区</option>
+                        <option value="8">增城区</option>
+                        <option value="9">从化区</option>
+                        <option value="10">花都区</option>
+                        <option value="11">南沙区</option>
+                        <option value="12">其他</option>
+                    </select>
+                    <label>工作地点</label>
+                    <div class="row detailAddress">
+                        <div class="input-field col s6">
+                            <input id="detailAddress" type="text" class="validate">
+                            <label for="detailAddress">具体地址</label>
+                        </div>
+                    </div>
+                </div>
+                <div class="row ">
+                    <div class="input-field col s6">
+                        <input  value="" id="experience" type="text" class="validate">
+                        <label for="experience">经验要求</label>
+                    </div>
+                    <div class="input-field col s6 ">
+                        <select class="atrr">
+                            <option value="" disabled selected>请选择</option>
+                            <option value="1">实习</option>
+                            <option value="2">全职</option>
+                            <option value="3">兼职</option>
+                        </select>
+                        <label>工作性质</label>
+                    </div>
+                </div>
+
+                <div class="row ">
+                    <div class="input-field col s6">
+                        <input  value="" id="requirement" type="text" class="validate" length="20">
+                        <label for="requirement">职位突出特点（20字）</label>
+                    </div>
+                </div>
+            </div>
+            <div class="requirementDiv comWidth">
+                <div class="row ">
+                    <div class="input-field col s10">
+                        <textarea id="requirementForPosition" class="materialize-textarea"></textarea>
+                        <label for="requirementForPosition">岗位要求</label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="input-field col s10">
+                        <textarea id="requirementForGetPosition" class="materialize-textarea"></textarea>
+                        <label for="requirementForGetPosition">任职要求</label>
+                    </div>
+                </div>
+            </div>
+            <div class="buttonDiv comWidth">
+                <div class="radioGroup">
+                    <p>
+                        <input  class="with-gap" name="stateGroup" type="radio" id="submit" />
+                        <label for="submit">发布职位（接受投递）</label>
+                    </p>
+                    <p>
+                        <input class="with-gap" name="stateGroup" type="radio" id="reserve" />
+                        <label for="reserve">暂存职位（不能投递）</label>
+                    </p>
+                    <label class="add">（不会显示在外部职位展示页面）</label>
+                </div>
+            </div>
+            <div class="submitBtnGroup">
+                <button class="btn waves-effect waves-light" id="saveForm">保存</button>
+                <button class="btn waves-effect waves-light" id="cancelForm">取消</button>
+            </div>
+        </form>
+    </div>
+</div>
 </body>
 </html>

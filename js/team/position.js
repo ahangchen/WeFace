@@ -407,11 +407,12 @@ $(function(){
             type:"post",
             data:'eJobId',
             // url:'http://110.64.69.66:8081/team/job_info/',
-            url:"../../js/team/position.json",
+            url:"../../data/position/position.json",
             dataType:'json',
             success:function(data){
 
                 if (data.err == '0') {
+
                     jobInfo.team_id = data.team_id;
                     jobInfo.edu_cmd = data.edu_cmd;
                     jobInfo.job_name = data.job_name;
@@ -430,21 +431,124 @@ $(function(){
                     jobInfo.pub_state = data.pub_state;
                     jobInfo.job_cmd = data.job_cmd;
                     jobInfo.work_cmd = data.work_cmd;
+
+                    initManageHTML(jobInfo);
                 }
                 else {
                     alert(data.msg);
                 }
+            },
+            error: function (data) {
+                alert("无法获取团队信息");
+            },
+            headers: {
+                "Access-Control-Allow-Origin":"*"
             }
         });
-        var a = $.ajax({
-            type:"get",
-            url:"positionEdit.html",
-            dataType:"html",
-            success:function(data){
-                var name = $(data).find("#jobName");
-                $("#positionDiv").html(data);
-            }
-        });
+
     }
+    function initManageHTML(jobInfo){
+        $("#jobName").attr("value",jobInfo.job_name);
+
+        $("#minSaraly").attr("class","validate valid");
+        $("#minSaraly").next('label').attr("class","active");
+        $("#minSaraly").attr("value",jobInfo.min_salary);
+
+        $("#maxSaraly").attr("class","validate valid");
+        $("#maxSaraly").next('label').attr("class","active");
+        $("#maxSaraly").attr("value",jobInfo.max_salary);
+
+        $("#detailAddress").attr("class","validate valid");
+        $("#detailAddress").next('label').attr("class","active");
+        $("#detailAddress").attr("value",jobInfo.address);
+
+        $("#experience").attr("class","validate valid");
+        $("#experience").next('label').attr("class","active");
+        $("#experience").attr("value",jobInfo.exp_cmd);
+
+        $("#requirement").attr("class","validate valid");
+        $("#requirement").next('label').attr("class","active");
+        $("#requirement").attr("value",jobInfo.summary);
+
+        $("#requirementForPosition").next('label').attr("class","active");
+        $("#requirementForPosition").html(jobInfo.job_cmd);
+
+        $("#requirementForGetPosition").next('label').attr("class","active");
+        $("#requirementForGetPosition").html(jobInfo.work_cmd);
+
+        var jobType = $(".type").children('ul').children();
+
+        console.log(jobInfo.job_type);
+        switch(jobInfo.job_type){
+            case "产品":$(jobType[1]).attr("class","active selected");break;
+            case "技术":$(jobType[2]).attr("class","active selected");break;
+            case "设计":$(jobType[3]).attr("class","active selected");break;
+            case "行政":$(jobType[4]).attr("class","active selected");break;
+            case "营销":$(jobType[5]).attr("class","active selected");break;
+            case "运维支持":$(jobType[7]).attr("class","active selected");break;
+            case "文案策划":$(jobType[8]).attr("class","active selected");break;
+            case "市场":$(jobType[9]).attr("class","active selected");break;
+            case "运营":$(jobType[6]).attr("class","active selected");break;
+            default:$(jobType[0]).attr("class","active selected");
+        }
+        $('.type').children('input').attr("value",jobInfo.job_type);
+
+        if (jobInfo.pub_state == 1) {
+            $('#submit').attr("checked","checked");
+        }
+        else{
+            $('#reserve').attr("checked","checked");
+        }
+
+        var province = $(".province").children('ul').children();
+        if (jobInfo.prince == "广东省") {
+            $(province[1]).attr("class","active selected");
+        }
+        else{
+            $(province[2]).attr("class","active selected");
+        }
+        $('.province').children('input').attr("value",jobInfo.prince);
+
+        var city = $(".city").children('ul').children();
+        if (jobInfo.city == "广州市") {
+            $(city[1]).attr("class","active selected");
+        }
+        else{
+            $(city[2]).attr("class","active selected");
+        }
+        $('.city').children('input').attr("value",jobInfo.city);
+
+        var region = $(".region").children('ul').children();
+        switch(jobInfo.town){
+            case "番禺区":$(region[1]).attr("class","active selected");break;
+            case "海珠区":$(region[2]).attr("class","active selected");break;
+            case "天河区":$(region[3]).attr("class","active selected");break;
+            case "荔湾区":$(region[4]).attr("class","active selected");break;
+            case "越秀区":$(region[5]).attr("class","active selected");break;
+            case "白云区":$(region[6]).attr("class","active selected");break;
+            case "黄埔区":$(region[7]).attr("class","active selected");break;
+            case "增城区":$(region[8]).attr("class","active selected");break;
+            case "从化区":$(region[9]).attr("class","active selected");break;
+            case "花都区":$(region[10]).attr("class","active selected");break;
+            case "南沙区":$(region[11]).attr("class","active selected");break;
+            default:$(region[12]).attr("class","active selected");
+        }
+        $('.region').children('input').attr("value",jobInfo.town);
+
+        var attribute = $('.atrr').children('ul').children();
+        switch(jobInfo.work_type){
+            case "实习":$(attribute[1]).attr("class","active selected");break;
+            case "全职":$(attribute[2]).attr("class","active selected");break;
+            case "兼职":$(attribute[3]).attr("class","active selected");break;
+            default:$(attribute[0]).attr("class","active selected");
+        }
+        $('.atrr').children('input').attr("value",jobInfo.work_type);
+
+        $('#manageDiv').css("display","block");
+        $("#positionDiv").css("display","none");
+
+    }
+
+
 
 });
