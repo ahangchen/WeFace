@@ -1,6 +1,8 @@
 #student_message_box{
     width:970px;
-    height:auto;
+    height:900px;
+    position: absolute;
+    left: 108px;
     background: rgba(255, 255, 255, 0.5);
     -moz-box-shadow: 0 5px 5px 0 rgba(0, 0, 0, 0.22), 0 10px 10px 0 rgba(0, 0, 0, 0.21);
     -webkit-box-shadow: 0 5px 5px 0 rgba(0, 0, 0, 0.22), 0 10px 10px 0 rgba(0, 0, 0, 0.21);
@@ -11,47 +13,96 @@
     margin-top: 15px;
     margin-bottom: 15px;
     width: 150px;
+    color: #000;
+    background-color: #fff;
 }
 
-#update_photo{
-    top: 230px;
-    margin-left: 150px;
-    width: 1200px;
-    height: 100px;
+#saveButton:hover,#cancelButton:hover{
+    color: #fff;
+    background-color: #fb8c00;
+}
+
+.photo_logo{
+    top: 50px;
+    left: 150px;
+    width: 120px;
+    height: 120px;
     position: absolute;
+    cursor: pointer;
 }
 
-#complete_msg{
-   top: 330px;
-    margin-left: 170px;
+.photo_logo #put_photo_here{
+    width: 120px;
+    height: 120px;
+    background-color: #cecece;
+}
+
+.complete_msg{
+   top: 230px;
+    left: 170px;
     width: 100px;
     height: 100px;
     position: absolute;
+    cursor: pointer;
 }
 
-#complete_logo{
+.complete_msg #complete_logo{
     width: 50px;
     height: 50px;
-    margin: 10px;
+    margin-left: 20px;
+    margin-right: 20px;
 }
 
-#attach_file{
-    top: 500px;
-    margin-left: 170px;
+.complete_msg #text{
+    font-size: 16px;
+}
+
+.attach_file{
+
+    top: 350px;
+    left: 170px;
     width: 100px;
     height: 100px;
     position: absolute;
+    cursor: pointer;
 }
 
-#attach_logo{
+.attach_file #attach_logo{
     width: 50px;
     height: 50px;
-    margin: 10px;
+    margin-left: 20px;
+    margin-right: 20px;
 }
 
+.attach_file #text{
+    font-size: 16px;
+}
 #button_submit{
     width: 100px;
     height: 100px;
     background-color: grey;
     cursor: pointer;
+}
+
+.function_button{
+    width:50%;
+    height: 100%;
+
+}
+
+.personal_message{
+    height: 100%;
+    left: 485px;
+    position: absolute;
+    top:10px;
+}
+
+#local_photo{
+    width: 120px;
+    height: 120px;
+}
+
+#doc_link{
+    width: 150px;
+    margin-left:-15px;
 }

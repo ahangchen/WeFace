@@ -54,9 +54,39 @@
     </div>
 </nav>
 
-<div class="comWidth" id="student_message_box">
-    <div class="row">
-        <form class="col s6">
+<div  id="student_message_box">
+    <div class="function_button">
+        <div class="photo_logo">
+            <div id="put_photo_here" onclick="F_Open_dialog()">
+                <img id="local_photo" />
+                <form method="post" action="" enctype="multipart/form-data">
+                    <input type="file" id="update_photo" style="display: none" onchange="show_local_img(this)">
+                </form>
+            </div>
+        </div>
+        <div class="complete_msg">
+            <img src="../res/imgs/complete.svg" id="complete_logo"/></br>
+            <span id="text">完善个人档案</span>
+        </div>
+
+        <div class="attach_file">
+            <form action="">
+                <div class="file-field input-field ">
+                    <div>
+                        <input type="file">
+                        <img src="../res/imgs/attach_file.svg" id="attach_logo"/></br>
+                        <span id=text">上传简历附件</span>
+                    </div>
+                    <div class="file-path-wrapper" id="doc_link">
+                        <input class="file-path validate" type="text">
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <div class="personal_message">
+        <form class="row ">
             <div class="input-field col s8">
                 <input id="first_name" type="text" class="validate">
                 <label for="first_name">输入你的名字</label>
@@ -70,7 +100,7 @@
                 <label for="major_name">输入你的专业</label>
             </div>
             <div class="input-field col s8">
-                <select class="browser-default">
+                    <select class="browser-default">
                     <option value="" disabled selected>选择你所在的城市</option>
                     <option value="1">广州</option>
                     <option value="2">深圳</option>
@@ -119,43 +149,6 @@
             </div>
         </form>
     </div>
-
-    <div id="update_photo">
-            <!--<form enctype="multipart/form-data" method="post" action="{% url 'mng:upload'%}" onsubmit="return checkUpload()">
-                <div class="doc-name">
-                    <a href="#" class="file">
-                        <input type="file" name="file" id="upload_file" onchange="changeFileName(this)"/>
-                        <input type="text" name="name" style="display: none" value="选择文件"/>
-                    </a>
-                </div>
-
-                <div class="doc-bottom">
-                    <button class="click_label" type="submit">上传</button>
-                </div>
-            </form>-->
-        <div id="button_submit"></div>
-    </div>
-
-    <div id="complete_msg">
-        <img src="../res/imgs/complete.svg" id="complete_logo"/></br>
-        <span class="flow-text">完善个人档案</span>
-    </div>
-
-    <div id="attach_file">
-        <form action="#">
-            <div class="file-field input-field">
-                <div>
-                    <input type="file">
-                    <img src="../res/imgs/attach_file.svg" id="attach_logo"/></br>
-                    <span class="flow-text">上传简历附件</span>
-                </div>
-                <div class="file-path-wrapper">
-                    <input class="file-path validate" type="text">
-                </div>
-            </div>
-        </form>
-    </div>
-
 
 
 </div>
