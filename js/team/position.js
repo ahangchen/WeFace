@@ -1,44 +1,50 @@
 /**
  * Created by jewel on 16/7/20.
  */
+
 $(function(){
+    var clickedJobId = "";
+    var tagsObj = $(".activeTag a");
+    var selectedTags = new Array(10);
+    for (var i = 0; i < tagsObj.length; i++) {
+        selectedTags[i] = $(tagsObj[i]).html();
+    }
+    // 初始化第一页
+    init(selectedTags);
+
+    var pages = 1;
+
     // 限定标签选择，选了“全部”以后不能选择其他
     //选择标签
     $('.chip').click(function(){
-        var selectedTag = [];
         var targetObj = $(".activeTag a");
         var curTag = $(this).children('a');
         if ($(curTag).html()=="全部") {
             var tags = $(this).nextAll();
-            selectedTag = ["全部"];
             for (var i = 0; i < (tags.length - 1); i++) {
                 $(tags[i]).attr("class","chip normalTag");
             }
             $(this).attr("class","chip activeTag");
+            selectedTags = ["全部"];
         }
         else{
             $('#entireTag').attr("class","chip normalTag");
             $(this).attr("class","chip activeTag");
             targetObj = $(".activeTag a");
             for (var i = 0; i < targetObj.length; i++) {
-                selectedTag[i] = $(targetObj[i]).html();
+                selectedTags[i] = $(targetObj[i]).html();
             }
         }
         removeLastPage();
-        init(selectedTag);
+        init(selectedTags);
     });
 
 
 
-    //显示职位查询
-    var tagsObj = $(".activeTag a");
-    var tags = ["全部"];
-    for (var i = 0; i < tagsObj.length; i++) {
-        tags[i] = $(tagsObj[i]).html();
-    }
-    var pages = 1;
-    // 初始化第一页
-    init(tags);
+
+
+
+
 
     $('select').material_select();
 
@@ -129,102 +135,101 @@ $(function(){
             init(selectedTag);
         });
     }
-    // 显示新增职位的页面
-    var currentDiv  = " ";
-    var editDiv = " ";
-    var newAddDiv = " ";
-    $('#addBtn').click(function(){
-        currentDiv = $('#positionDiv').html();
-        var a = $.ajax({
-            type:"get",
-            url:"addPosition.html",
-            dataType:"html",
-            success:function(data){
-                $("#positionDiv").html(data);
-            }
-        });
-    });
-
-
     // 初始化职位显示第一页
     function init(tags){
         var a = $.ajax({
             type:'post',
-            data:'tags',
-            url:'../../data/position/showposition.json',
+            data:tags,
+            url:'http://110.64.69.66:8081/team/search_job/',
             dataType:'json',
             success:function(data){
-                pages = Math.ceil(data.jobs.length/10);
+                if (data.err == 0) {
+                    pages = Math.ceil(data.jobs.length/10);
 
-                if (pages == 1) {
-                    for (var i = 0; i < data.jobs.length; i++) {
-                        var jobId = data.jobs[i].jobId;
-                        var jobName = data.jobs[i].name;
-                        var jobAddr = data.jobs[i].address;
-                        var minMon = data.jobs[i].minSalary;
-                        var maxMon = data.jobs[i].maxSalary;
-                        var jobExp = data.jobs[i].exp;
-                        var state = data.jobs[i].job_state;
-                        var stateText = "";
-                        switch(state){
-                            case "submitted":stateText = "已发布";break;
-                            case "temperory":stateText = "暂存";break;
-                            default:break;
-                        }
-                        $("#positionCards").append('<div class="positionCard comwidth" id="'+jobId+'"><div class="row"><label class="positionName">'+jobName+'<span class = "jAddr">（'+jobAddr+'）</span></label><div class="chip '+state+'">'+stateText+'</div></div><div class="row"><label class="salary">'+minMon+'-'+maxMon+'</label><label class="required">'+jobExp+'</label></div><div class="btngroups fr"><a class="btn-floating btn-large waves-effect waves-light white delJobBtn"  ><i class="medium material-icons" >remove</i></a><a class="btn-floating btn-large white editInfoBtn" ><i class="medium material-icons" >mode_edit</i></a></div></div>');
-                    }
-
-                }
-                else{
-                    for (var i = 0; i < 10; i++) {
-                        var jobId = data.jobs[i].jobId;
-                        var jobName = data.jobs[i].name;
-                        var jobAddr = data.jobs[i].address;
-                        var minMon = data.jobs[i].minSalary;
-                        var maxMon = data.jobs[i].maxSalary;
-                        var jobExp = data.jobs[i].exp;
-                        var state = data.jobs[i].job_state;
-                        var stateText = "";
-                        switch(state){
-                            case "submitted":stateText = "已发布";break;
-                            case "temperory":stateText = "暂存";break;
-                            default:break;
-                        }
-                        $("#positionCards").append('<div class="positionCard comwidth" id="'+jobId+'"><div class="row"><label class="positionName">'+jobName+'<span class = "jAddr">（'+jobAddr+'）</span></label><div class="chip '+state+'">'+stateText+'</div></div><div class="row"><label class="salary">'+minMon+'-'+maxMon+'</label><label class="required">'+jobExp+'</label></div><div class="btngroups fr"><a class="btn-floating btn-large waves-effect waves-light white delJobBtn" ><i class="medium material-icons" >remove</i></a><a class="btn-floating btn-large white editInfoBtn" ><i class="medium material-icons" >mode_edit</i></a></div></div>');
-                    }
-                }
-                initPages(pages);
-                // 显示编辑职位的页面
-                $('.editInfoBtn').click(function(){
-                    var editJobId = $(this).parents('.positionCard').attr('id');
-                    showEditPage(editJobId);
-                });
-                // 删除按钮的响应事件
-                $('.delJobBtn').click(function(){
-                    var ch = confirm("确定删除该职位信息？");
-                    if (ch) {
-                        var delJobId = $(this).parents('.positionCard').attr('id');
-                        var a = $.ajax({
-                            type: 'post',
-                            data:'delJobId',
-                            url:'../../data/position/delJob.json',
-                            dataType:'json',
-                            success:function(data){
-                                if (data.err==0) {
-                                    alert(data.msg);
-                                    delJobFromDom(delJobId);
-                                    $("#firstPage").attr("class","activePage");
-                                }
-                                else{
-                                    alert("删除失败请刷新再试");
-                                }
+                    if (pages == 1) {
+                        for (var i = 0; i < data.jobs.length; i++) {
+                            var jobId = data.jobs[i].ob_id;
+                            var jobName = data.jobs[i].job_name;
+                            var jobAddr = data.jobs[i].city;
+                            var minMon = data.jobs[i].min_salary;
+                            var maxMon = data.jobs[i].max_salary;
+                            var jobExp = data.jobs[i].exp;
+                            var stateNum = data.jobs[i].job_state;
+                            var stateText = "";
+                            var state = "";
+                            switch(stateNum){
+                                case "1":stateText = "已发布";state = "submitted";break;
+                                case "0":stateText = "暂存";state = "temperory";break;
+                                default:break;
                             }
-                        });
+                            $("#positionCards").append('<div class="positionCard comwidth" id="'+jobId+'"><div class="row"><label class="positionName"><a>'+jobName+'</a><span class = "jAddr">（'+jobAddr+'）</span></label><div class="chip '+state+'">'+stateText+'</div></div><div class="row"><label class="salary">'+minMon+'-'+maxMon+'/月</label><label class="required">'+jobExp+'</label></div><div class="btngroups fr"><a class="btn-floating btn-large waves-effect waves-light white delJobBtn"  ><i class="medium material-icons" >remove</i></a><a class="btn-floating btn-large white editInfoBtn" ><i class="medium material-icons" >mode_edit</i></a></div></div>');
+                        }
+
                     }
                     else{
-                        alert("你点击了取消");
+                        for (var i = 0; i < 10; i++) {
+                            var jobId = data.jobs[i].ob_id;
+                            var jobName = data.jobs[i].job_name;
+                            var jobAddr = data.jobs[i].city;
+                            var minMon = data.jobs[i].min_salary;
+                            var maxMon = data.jobs[i].max_salary;
+                            var jobExp = data.jobs[i].exp;
+                            var stateNum = data.jobs[i].job_state;
+                            var stateText = "";
+                            var state = "";
+                            switch(stateNum){
+                                case "1":stateText = "已发布";state = "submitted";break;
+                                case "0":stateText = "暂存";state = "temperory";break;
+                                default:break;
+                            }
+                            $("#positionCards").append('<div class="positionCard comwidth" id="'+jobId+'"><div class="row"><label class="positionName"><a>'+jobName+'</a><span class = "jAddr">（'+jobAddr+'）</span></label><div class="chip '+state+'">'+stateText+'</div></div><div class="row"><label class="salary">'+minMon+'-'+maxMon+'/月</label><label class="required">'+jobExp+'</label></div><div class="btngroups fr"><a class="btn-floating btn-large waves-effect waves-light white delJobBtn" ><i class="medium material-icons" >remove</i></a><a class="btn-floating btn-large white editInfoBtn" ><i class="medium material-icons" >mode_edit</i></a></div></div>');
+                        }
                     }
-                });
+
+                    initPages(pages);
+                    // 显示编辑职位的页面
+                    $('.editInfoBtn').click(function(){
+                        var editJobId = $(this).parents('.positionCard').attr('id');
+                        clickedJobId = editJobId;
+
+                        showEditPage(editJobId);
+                    });
+                    // 删除按钮的响应事件
+                    $('.delJobBtn').click(function(){
+                        var ch = confirm("确定删除该职位信息？");
+                        if (ch) {
+                            var delJobId = $(this).parents('.positionCard').attr('id');
+                            var a = $.ajax({
+                                type: 'post',
+                                data:'delJobId',
+                                url:'../../data/position/delJob.json',
+                                dataType:'json',
+                                success:function(data){
+                                    if (data.err==0) {
+                                        alert(data.msg);
+                                        delJobFromDom(delJobId);
+                                        $("#firstPage").attr("class","activePage");
+                                    }
+                                    else{
+                                        alert("删除失败请刷新再试");
+                                    }
+                                },
+                                headers: {
+                                    "Access-Control-Allow-Origin":"*"
+                                }
+                            });
+                        }
+                        else{
+                            alert("你点击了取消");
+                        }
+                    });
+                }
+                else{
+                    alert(data.msg);
+                }
+            },
+            headers: {
+                "Access-Control-Allow-Origin":"*"
             }
         });
     }
@@ -324,8 +329,8 @@ $(function(){
     function showActivePage(curPage){
         var a = $.ajax({
             type:'post',
-            data:'tags',
-            url:'../../data/position/showposition.json',
+            data: selectedTags,
+            url:'http://110.64.69.66:8081/team/search_job/',
             dataType:'json',
             success:function(data){
                 var terminal = curPage * 10;
@@ -333,23 +338,25 @@ $(function(){
                     terminal = data.jobs.length;
                 }
                 for (var i = (curPage-1)*10; i < terminal; i++) {
-                    var id = data.jobs[i].jobId;
-                    var jobName = data.jobs[i].name;
-                    var jobAddr = data.jobs[i].address;
-                    var minMon = data.jobs[i].minSalary;
-                    var maxMon = data.jobs[i].maxSalary;
+                    var jobId = data.jobs[i].ob_id;
+                    var jobName = data.jobs[i].job_name;
+                    var jobAddr = data.jobs[i].city;
+                    var minMon = data.jobs[i].min_salary;
+                    var maxMon = data.jobs[i].max_salary;
                     var jobExp = data.jobs[i].exp;
-                    var state = data.jobs[i].job_state;
-                    var stateText = "";
-                    switch(state){
-                        case "submitted":stateText = "已发布";break;
-                        case "temperory":stateText = "暂存";break;
+                    var stateNum = data.jobs[i].job_state;                    var stateText = "";
+                    var state = "";
+                    switch(stateNum){
+                        case "1":stateText = "已发布";state = "submitted";break;
+                        case "0":stateText = "暂存";state = "temperory";break;
                         default:break;
                     }
-                    $("#positionCards").append('<div class="positionCard comwidth" id="'+id+'"><div class="row"><label class="positionName">'+jobName+'<span class = "jAddr">（'+jobAddr+'）</span></label><div class="chip '+state+'">'+stateText+'</div></div><div class="row"><label class="salary">'+minMon+'-'+maxMon+'</label><label class="required">'+jobExp+'</label></div><div class="btngroups fr"><a class="btn-floating btn-large waves-effect waves-light white delJobBtn"  ><i class="medium material-icons" >remove</i></a><a class="btn-floating btn-large white editInfoBtn" ><i class="medium material-icons" >mode_edit</i></a></div></div>');
+                    $("#positionCards").append('<div class="positionCard comwidth" id="'+id+'"><div class="row"><label class="positionName"><a>'+jobName+'</a><span class = "jAddr">（'+jobAddr+'）</span></label><div class="chip '+state+'">'+stateText+'</div></div><div class="row"><label class="salary">'+minMon+'-'+maxMon+'/月</label><label class="required">'+jobExp+'</label></div><div class="btngroups fr"><a class="btn-floating btn-large waves-effect waves-light white delJobBtn"  ><i class="medium material-icons" >remove</i></a><a class="btn-floating btn-large white editInfoBtn" ><i class="medium material-icons" >mode_edit</i></a></div></div>');
                 }
+
                 $('.editInfoBtn').click(function(){
                     var editJobId = $(this).parents('.positionCard').attr('id');
+                    clickedJobId = editJobId;
                     showEditPage(editJobId);
                 });
                 // 删除按钮的响应事件
@@ -371,6 +378,9 @@ $(function(){
                                 else{
                                     alert("删除失败请刷新再试");
                                 }
+                            },
+                            headers: {
+                                "Access-Control-Allow-Origin":"*"
                             }
                         });
                     }
@@ -378,6 +388,9 @@ $(function(){
                         alert("你点击了取消");
                     }
                 });
+            },
+            headers: {
+                "Access-Control-Allow-Origin":"*"
             }
         });
     }
@@ -385,7 +398,6 @@ $(function(){
     function showEditPage(eJobId){
 
         var jobInfo = {
-            "team_id": "",
             "job_name": "UI设计",
             "min_salary": "",
             "max_salary":"",
@@ -405,9 +417,9 @@ $(function(){
         };
         var aj = $.ajax({
             type:"post",
-            data:'eJobId',
-            // url:'http://110.64.69.66:8081/team/job_info/',
-            url:"../../data/position/position.json",
+            data: eJobId,
+            url:'http://110.64.69.66:8081/team/job_info/',
+            // url:"../../js/team/position.json",
             dataType:'json',
             success:function(data){
 
@@ -478,7 +490,7 @@ $(function(){
 
         var jobType = $(".type").children('ul').children();
 
-        console.log(jobInfo.job_type);
+
         switch(jobInfo.job_type){
             case "产品":$(jobType[1]).attr("class","active selected");break;
             case "技术":$(jobType[2]).attr("class","active selected");break;
@@ -549,6 +561,40 @@ $(function(){
 
     }
 
-
+    $('#saveForm').click(function(){
+        var jobDetail = {
+            job_id:clickedJobId,
+            name:$("#jobName").val(),
+            j_type:$('.type').children('input').val(),
+            min_salary: $("#minSaraly").val(),
+            max_salary: $("#maxSaraly").val(),
+            prince: $('.province').children('input').val(),
+            city: $('.city').children('input').val(),
+            town: $('.region').children('input').val(),
+            exp_cmd: $("#experience").val(),
+            w_type: $('.atrr').children('input').val(),
+            job_cmd:$("#requirementForPosition").val(),
+            work_cmd: $("#requirementForGetPosition").val(),
+            pub_state: 0
+        }
+        if ($('#submit').attr("checked")) {
+            jobDetail.job_state = 1;
+        }
+        var a = $.ajax({
+            type:'post',
+            url:'http://110.64.69.66:8081/team/job_update/',
+            data:jobDetail,
+            dataType:'json',
+            success:function(data){
+                alert(data.msg);
+            },
+            error:function(){
+                alert("保存失败");
+            },
+            headers: {
+                "Access-Control-Allow-Origin":"*"
+            }
+        });
+    });
 
 });
