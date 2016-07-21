@@ -190,7 +190,7 @@ $(function(){
                             case "temperory":stateText = "暂存";break;
                             default:break;
                         }
-                        $("#positionCards").append('<div class="positionCard comwidth" id="'+jobId+'"><div class="row"><label class="positionName">'+jobName+'<span class = "jAddr">（'+jobAddr+'）</span></label><div class="chip '+state+'">'+stateText+'</div></div><div class="row"><label class="salary">'+minMon+'-'+maxMon+'</label><label class="required">'+jobExp+'</label></div><div class="btngroups fr"><a class="btn-floating btn-large waves-effect waves-light white delJobBtn"  ><i class="medium material-icons" >remove</i></a><a class="btn-floating btn-large white editInfoBtn" ><i class="medium material-icons" >mode_edit</i></a></div></div>');
+                        $("#positionCards").append('<div class="positionCard comwidth" id="'+jobId+'"><div class="row"><label class="positionName">'+jobName+'<span class = "jAddr">（'+jobAddr+'）</span></label><div class="chip '+state+'">'+stateText+'</div></div><div class="row"><label class="salary">'+minMon+'-'+maxMon+'</label><label class="required">'+jobExp+'</label></div><div class="btngroups fr"><a class="btn-floating btn-large waves-effect waves-light white delJobBtn" ><i class="medium material-icons" >remove</i></a><a class="btn-floating btn-large white editInfoBtn" ><i class="medium material-icons" >mode_edit</i></a></div></div>');
                     }
                 }
                 initPages(pages);
@@ -328,7 +328,11 @@ $(function(){
             url:'../../data/position/showposition.json',
             dataType:'json',
             success:function(data){
-                for (var i = (curPage-1)*10; i < curPage*10; i++) {
+                var terminal = curPage * 10;
+                if (terminal > data.jobs.length) {
+                    terminal = data.jobs.length;
+                }
+                for (var i = (curPage-1)*10; i < terminal; i++) {
                     var id = data.jobs[i].jobId;
                     var jobName = data.jobs[i].name;
                     var jobAddr = data.jobs[i].address;
