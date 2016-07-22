@@ -18,6 +18,9 @@ $(function(){
             work_cmd: $("#requirementForGetPosition").val(),
             pub_state: 0
         };
+        if ($('#submit').attr("checked")) {
+            jobDetail.job_state = 1;
+        }
         var a = $.ajax({
             type:'post',
             url:'http://110.64.69.66:8081/team/add_job/',
