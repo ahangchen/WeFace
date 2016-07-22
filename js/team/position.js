@@ -17,7 +17,7 @@ $(function(){
     // 限定标签选择，选了“全部”以后不能选择其他
     //选择标签
     $('.chip').click(function(){
-        var targetObj = $(".activeTag a");
+        targetObj = $(".activeTag a");
         var curTag = $(this).children('a');
         if ($(curTag).html()=="全部") {
             var tags = $(this).nextAll();
@@ -141,7 +141,7 @@ $(function(){
     function init(tags){
         var tag = {
             'jobTags':tags
-        }
+        };
         var a = $.ajax({
             type:'post',
             data:tag,
@@ -243,6 +243,7 @@ $(function(){
 // 初始化页码
     function initPages(p){
         var len = $('.pagination').children('li').length;
+        var pageNum = "page";
         $('.pagination').children('li').each(function(i){
             if(i > 1 && i < (len - 1)){
                 $(this).remove();
@@ -250,7 +251,7 @@ $(function(){
         });
         if (p < 10) {
             for (var i = p; i > 1 ; i--) {
-                var pageNum = "page";
+
                 $('#firstPage').after('<li class="waves-effect"><a class="page">'+i+'</a></li>');
             }
         }
@@ -349,7 +350,8 @@ $(function(){
                     var minMon = data.jobs[i].min_salary;
                     var maxMon = data.jobs[i].max_salary;
                     var jobExp = data.jobs[i].exp;
-                    var stateNum = data.jobs[i].job_state;                    var stateText = "";
+                    var stateNum = data.jobs[i].job_state;
+                    var stateText = "";
                     var state = "";
                     switch(stateNum){
                         case "1":stateText = "已发布";state = "submitted";break;
@@ -581,7 +583,7 @@ $(function(){
             job_cmd:$("#requirementForPosition").val(),
             work_cmd: $("#requirementForGetPosition").val(),
             pub_state: 0
-        }
+        };
         if ($('#submit').attr("checked")) {
             jobDetail.job_state = 1;
         }
