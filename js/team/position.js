@@ -23,9 +23,10 @@ $(function(){
             var tags = $(this).nextAll();
             for (var i = 0; i < (tags.length - 1); i++) {
                 $(tags[i]).attr("class","chip normalTag");
+                selectedTags[i+1] = "";
             }
             $(this).attr("class","chip activeTag");
-            selectedTags = ["全部"];
+            selectedTags[0] = "全部";
         }
         else{
             $('#entireTag').attr("class","chip normalTag");
@@ -111,35 +112,39 @@ $(function(){
             }
         }
         $("#entireTag").attr("class","chip activeTag");
+        //选择标签
         $('.chip').click(function(){
-            var selectedTag = [];
             var targetObj = $(".activeTag a");
             var curTag = $(this).children('a');
             if ($(curTag).html()=="全部") {
                 var tags = $(this).nextAll();
-                selectedTag = ["全部"];
                 for (var i = 0; i < (tags.length - 1); i++) {
                     $(tags[i]).attr("class","chip normalTag");
+                    selectedTags[i+1] = "";
                 }
                 $(this).attr("class","chip activeTag");
+                selectedTags[0] = "全部";
             }
             else{
                 $('#entireTag').attr("class","chip normalTag");
                 $(this).attr("class","chip activeTag");
                 targetObj = $(".activeTag a");
                 for (var i = 0; i < targetObj.length; i++) {
-                    selectedTag[i] = $(targetObj[i]).html();
+                    selectedTags[i] = $(targetObj[i]).html();
                 }
             }
             removeLastPage();
-            init(selectedTag);
+            init(selectedTags);
         });
     }
     // 初始化职位显示第一页
     function init(tags){
+        var tag = {
+            'jobTags':tags
+        }
         var a = $.ajax({
             type:'post',
-            data:tags,
+            data:tag,
             url:'http://110.64.69.66:8081/team/search_job/',
             dataType:'json',
             success:function(data){
