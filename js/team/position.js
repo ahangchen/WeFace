@@ -499,15 +499,15 @@ $(function(){
 
 
         switch(jobInfo.job_type){
-            case "产品":$(jobType[1]).attr("class","active selected");break;
-            case "技术":$(jobType[2]).attr("class","active selected");break;
-            case "设计":$(jobType[3]).attr("class","active selected");break;
-            case "行政":$(jobType[4]).attr("class","active selected");break;
-            case "营销":$(jobType[5]).attr("class","active selected");break;
-            case "运维支持":$(jobType[7]).attr("class","active selected");break;
-            case "文案策划":$(jobType[8]).attr("class","active selected");break;
-            case "市场":$(jobType[9]).attr("class","active selected");break;
-            case "运营":$(jobType[6]).attr("class","active selected");break;
+            case "4":$(jobType[1]).attr("class","active selected");break;
+            case "2":$(jobType[2]).attr("class","active selected");break;
+            case "3":$(jobType[3]).attr("class","active selected");break;
+            case "1":$(jobType[4]).attr("class","active selected");break;
+            case "9":$(jobType[5]).attr("class","active selected");break;
+            case "6":$(jobType[7]).attr("class","active selected");break;
+            case "8":$(jobType[8]).attr("class","active selected");break;
+            case "7":$(jobType[9]).attr("class","active selected");break;
+            case "5":$(jobType[6]).attr("class","active selected");break;
             default:$(jobType[0]).attr("class","active selected");
         }
         $('.type').children('input').attr("value",jobInfo.job_type);

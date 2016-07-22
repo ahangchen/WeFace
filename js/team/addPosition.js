@@ -3,10 +3,24 @@
  */
 $(function(){
     $("#addJob").click(function(){
+        var job_type;
+        switch($('.type').children('input').val()){
+            case "行政":job_type = 1;break;
+            case "技术":job_type = 2;break;
+            case "设计":job_type = 3;break;
+            case "产品":job_type = 4;break;
+            case "运营":job_type = 5;break;
+            case "运维支持":job_type = 6;break;
+            case "市场":job_type = 7;break;
+            case "文案策划":job_type = 8;break;
+            case "营销":job_type = 9;break;
+            default:;
+
+        }
 
         var jobDetail = {
             name:$("#jobName").val(),
-            j_type:$('.type').children('input').val(),
+            j_type:job_type,
             min_salary: $("#minSaraly").val(),
             max_salary: $("#maxSaraly").val(),
             prince: $('.province').children('input').val(),
