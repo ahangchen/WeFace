@@ -307,6 +307,9 @@ margin-top:-10px;
 }
 #detail4 .btn-floating.btn-large i {
 
-    margin-bottom:20px;
-    line-height: 15px;
+    margin-top:-20px;
+    line-height: 5px;
+}
+.btn-large {
+line-height: 41px;
 }
