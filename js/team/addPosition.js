@@ -47,7 +47,7 @@ $(function(){
                 }
             },
             error:function(data){
-                alert("新建失败");
+                alert(data.msg);
             },
             headers: {
                 "Access-Control-Allow-Origin":"*"

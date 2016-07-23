@@ -149,17 +149,17 @@ $(function(){
             dataType:'json',
             success:function(data){
                 if (data.err == 0) {
-                    pages = Math.ceil(data.jobs.length/10);
+                    pages = Math.ceil(data.message.length/10);
 
                     if (pages == 1) {
-                        for (var i = 0; i < data.jobs.length; i++) {
-                            var jobId = data.jobs[i].ob_id;
-                            var jobName = data.jobs[i].job_name;
-                            var jobAddr = data.jobs[i].city;
-                            var minMon = data.jobs[i].min_salary;
-                            var maxMon = data.jobs[i].max_salary;
-                            var jobExp = data.jobs[i].exp;
-                            var stateNum = data.jobs[i].job_state;
+                        for (var i = 0; i < data.message.length; i++) {
+                            var jobId = data.message[i].ob_id;
+                            var jobName = data.message[i].job_name;
+                            var jobAddr = data.message[i].city;
+                            var minMon = data.message[i].min_salary;
+                            var maxMon = data.message[i].max_salary;
+                            var jobExp = data.message[i].exp;
+                            var stateNum = data.message[i].job_state;
                             var stateText = "";
                             var state = "";
                             switch(stateNum){
@@ -173,13 +173,13 @@ $(function(){
                     }
                     else{
                         for (var i = 0; i < 10; i++) {
-                            var jobId = data.jobs[i].ob_id;
-                            var jobName = data.jobs[i].job_name;
-                            var jobAddr = data.jobs[i].city;
-                            var minMon = data.jobs[i].min_salary;
-                            var maxMon = data.jobs[i].max_salary;
-                            var jobExp = data.jobs[i].exp;
-                            var stateNum = data.jobs[i].job_state;
+                            var jobId = data.message[i].ob_id;
+                            var jobName = data.message[i].job_name;
+                            var jobAddr = data.message[i].city;
+                            var minMon = data.message[i].min_salary;
+                            var maxMon = data.message[i].max_salary;
+                            var jobExp = data.message[i].exp;
+                            var stateNum = data.message[i].job_state;
                             var stateText = "";
                             var state = "";
                             switch(stateNum){
@@ -203,11 +203,14 @@ $(function(){
                     $('.delJobBtn').click(function(){
                         var ch = confirm("确定删除该职位信息？");
                         if (ch) {
-                            var delJobId = $(this).parents('.positionCard').attr('id');
+                            var delJob = $(this).parents('.positionCard').attr('id');
+                            var delJobId = {
+                                jobId:delJob
+                            };
                             var a = $.ajax({
                                 type: 'post',
                                 data:'delJobId',
-                                url:'../../data/position/delJob.json',
+                                url:'http://110.64.69.66:8081/team/delete_job/',
                                 dataType:'json',
                                 success:function(data){
                                     if (data.err==0) {
@@ -232,6 +235,9 @@ $(function(){
                 else{
                     alert(data.msg);
                 }
+            },
+            error:function(data){
+              alert(data.msg + " 错误码为"+data.err);
             },
             headers: {
                 "Access-Control-Allow-Origin":"*"
@@ -340,17 +346,17 @@ $(function(){
             dataType:'json',
             success:function(data){
                 var terminal = curPage * 10;
-                if (terminal > data.jobs.length) {
-                    terminal = data.jobs.length;
+                if (terminal > data.message.length) {
+                    terminal = data.message.length;
                 }
                 for (var i = (curPage-1)*10; i < terminal; i++) {
-                    var jobId = data.jobs[i].ob_id;
-                    var jobName = data.jobs[i].job_name;
-                    var jobAddr = data.jobs[i].city;
-                    var minMon = data.jobs[i].min_salary;
-                    var maxMon = data.jobs[i].max_salary;
-                    var jobExp = data.jobs[i].exp;
-                    var stateNum = data.jobs[i].job_state;
+                    var jobId = data.message[i].ob_id;
+                    var jobName = data.message[i].job_name;
+                    var jobAddr = data.message[i].city;
+                    var minMon = data.message[i].min_salary;
+                    var maxMon = data.message[i].max_salary;
+                    var jobExp = data.message[i].exp;
+                    var stateNum = data.message[i].job_state;
                     var stateText = "";
                     var state = "";
                     switch(stateNum){
@@ -370,11 +376,14 @@ $(function(){
                 $('.delJobBtn').click(function(){
                     var ch = confirm("确定删除该职位信息？");
                     if (ch) {
-                        var delJobId = $(this).parents('.positionCard').attr('id');
+                        var delJob = $(this).parents('.positionCard').attr('id');
+                        var delJobId = {
+                            jobId:delJob
+                        };
                         var a = $.ajax({
                             type: 'post',
                             data:'delJobId',
-                            url:'../../data/position/delJob.json',
+                            url:'http://110.64.69.66:8081/team/delete_job/',
                             dataType:'json',
                             success:function(data){
                                 if (data.err==0) {
@@ -396,13 +405,16 @@ $(function(){
                     }
                 });
             },
+            error:function(data){
+                alert(data.msg + " 错误码为"+data.err);
+            },
             headers: {
                 "Access-Control-Allow-Origin":"*"
             }
         });
     }
 
-    function showEditPage(eJobId){
+    function showEditPage(eId){
 
         var jobInfo = {
             "job_name": "UI设计",
@@ -421,6 +433,9 @@ $(function(){
             "pub_state": "",
             "job_cmd": "",
             "work_cmd": ""
+        };
+        var eJobId = {
+            id:eId
         };
         var aj = $.ajax({
             type:"post",
@@ -458,7 +473,7 @@ $(function(){
                 }
             },
             error: function (data) {
-                alert("无法获取团队信息");
+                alert("无法获取职位信息");
             },
             headers: {
                 "Access-Control-Allow-Origin":"*"
@@ -596,7 +611,7 @@ $(function(){
                 alert(data.msg);
             },
             error:function(){
-                alert("保存失败");
+                alert(data.msg);
             },
             headers: {
                 "Access-Control-Allow-Origin":"*"
