@@ -31,7 +31,7 @@
 
 <nav class="white lighten-5 comWidth">
     <div class="nav-wrapper">
-        <ul class="hide-on-med-and-down">
+        <ul>
             <li><img id="logo" src="../res/imgs/materialize.svg"/></li>
             <li><p class="logo-name">华南理工大学<br/>人才交流平台
                 <p></li>
@@ -50,21 +50,29 @@
 <!--学生主页部分-->
 <div id="stu-main">
 
-    <div class="card" id="basic-info" style="margin-top:0;margin-bottom: 0">
-        <ul id="list1">
-            <a id="edit-icon" class="btn-floating btn-large waves-effect waves-light"><i class="material-icons">•••</i></a>
-            <li class="detail-info" id="detail1">
-                <span id="detail-name">Mingjie_Zhang </span><span
-                    id="detail-sex">&nbsp&nbsp&nbsp&nbsp&nbsp♂♀</span><span id="detail-age">20岁</span>
-            </li>
+            <div class="card" id="basic-info" style="margin-top:0;margin-bottom: 0">
+                <ul id="list1">
+                    <div id="edit-icon" class="fixed-action-btn click-to-toggle horizontal " style="position:relative;">
+                        <a style="background:#fff;" class="btn-floating btn-large">
+                            <i  style="color:#ff8f00" class="large material-icons">•••</i>
+                        </a>
+                        <ul>
+                            <li style="display: block"><a style="background:#fff;" class="btn-floating"><i style="color:#ff8f00" class="material-icons">mode_edit</i></a></li>
+                            <li style="display: block"><a style="background:#fff;" class="btn-floating darken-1"><i style="color:#ff8f00" class="material-icons">attach_file</i></a></li>
+                        </ul>
+                    </div>
+                    <li class="detail-info" id="detail1">
+                        <span id="detail-name">Mingjie_Zhang</span><span
+                            id="detail-sex">&nbsp&nbsp&nbsp&nbsp&nbsp<i id="boy">♂</i><i id="girl">♀</i></span><span id="detail-age">20岁</span>
+                    </li>
             <li class="detail-info" id="detail2">
-                <span>联系方式</span><span>邮箱地址</span><span>(仅本人可见)</span>
+                <span id="detail-tel">联系方式</span><span id="detail-mail">邮箱地址</span><span>(仅本人可见)</span>
             </li>
         </ul>
-        <img width="150px" height="150px" src="../res/imgs/stu/stu-test.png" style="float:left;"/>
+        <img id="avatar_path" width="150px" height="150px" src="../res/imgs/stu/stu-test.png" style="float:left;" alt="头像无法显示"/>
         <ul id="list2">
             <li class="detail-info" id="detail3">
-                <span class="chip">学校 专业</span><span class="chip">学历 年级</span><span class="chip">所在地</span>
+                <span class="chip"><i id="detail-school">学校</i><i id="detail-major"> 专业</i></span></span><span class="chip"><i id="detail-background">学历</i><i id="detail-grade"> 年级</i></span><span class="chip" id="detail-location">所在地</span>
             </li>
             <li class="detail-info" id="detail4"><img src="../res/imgs/attach_file.svg" style="vertical-align: middle"/><a
                     href="#" style="text-decoration:underline;vertical-align: middle">XXX-个人简历.pdf</a><a id="cancel-icon" class="btn-floating btn-large waves-effect waves-light"><i class="material-icons">close</i></a></li>
@@ -76,8 +84,8 @@
         <div style="float:right" id="nav-list">
             <ul>
                 <div style="margin:23px 0 23px 0">
+                    <a class="go-page" id="goto1" href="#file-edu">
                     <li class="list-choice" id="choice1">教育经历</li>
-                    <a href="#file-edu">
                     <div class="circle3" id="cir1a">
                         <div class="circle2" id="cir1b">
                             <div class="circle1" id="cir1c">
@@ -88,8 +96,8 @@
                 </div>
 
                 <div style="margin:23px 0 23px 0">
+                    <a class="go-page" id="goto2" href="#file-practice">
                     <li class="list-choice" id="choice2">实习经历</li>
-                    <a href="#file-practice">
                         <div class="circle3" id="cir2a">
                         <div class="circle2"  id="cir2b">
                             <div class="circle1" id="cir2c">
@@ -99,8 +107,8 @@
                     </a>
                 </div>
                 <div style="margin:23px 0 23px 0">
+                    <a class="go-page" id="goto3" href="#file-project">
                     <li class="list-choice" id="choice3">项目经历</li>
-                    <a href="#file-project">
                         <div class="circle3" id="cir3a">
                             <div class="circle2" id="cir3b">
                                 <div class="circle1" id="cir3c">
@@ -110,8 +118,8 @@
                     </a>
                 </div>
                 <div style="margin:23px 0 23px 0">
+                    <a class="go-page" id="goto4" href="#file-works">
                     <li class="list-choice" id="choice4">作品集展示</li>
-                    <a href="#file-works">
                     <div class="circle3" id="cir4a">
                         <div class="circle2" id="cir4b">
                             <div class="circle1" id="cir4c">
@@ -121,8 +129,8 @@
                         </a>
                         </div>
                         <div style="margin:23px 0 23px 0">
+                            <a class="go-page" id="goto5" href="#file-skill">
                             <li class="list-choice" id="choice5">技能评价</li>
-                            <a href="#file-skill">
                             <div class="circle3" id="cir5a">
                                 <div class="circle2" id="cir5b">
                                     <div class="circle1" id="cir5c">
@@ -143,8 +151,8 @@
                     <p id="edu1">本科 2018年毕业</p>
                     <P id="edu2">华南理工大学 软件工程</P>
                     <P id="edu3">华南理工大学 软件工程</P>
-                    <P id="edu4">华南理工大学 软件工程</P>
-                    <P id="edu5">华南理工大学 软件工程</P>
+                    <P id="edu4"></P>
+                    <P id="edu5"></P>
                 </div>
             </div>
 
@@ -152,37 +160,32 @@
                 <div style="height:24px;margin-bottom:20px"><p class="file-title">实习经历</p>
                     <div class="file-icon"></div>
                 </div>
-                <div class="file-detail">
+                <div class="file-detail" id="prac-all">
                     <!------------命名规范说明:标题栏为prac1a prac1b prac1c... 具体内容为prac11 prac12...------------------>
                     <div class="prac-show" id="prac1">
-                        <p><span id="prac1a">火星</span><span id="prac1b">2015年7月-8月</span><span id="prac1c">步行者</span>
+                        <p><span id="prac1a"></span><span id="prac1b"></span><span id="prac1c"></span>
                         </p>
-                        <p id="prac11">
-                            干啥的干啥的干啥的干啥的干啥的干啥的干啥的干啥的干啥的干啥的干啥的干啥的干啥的干啥的干啥的干啥的干啥的干啥的干啥的干啥的干啥的干啥的干啥的干啥的干啥的干啥的干啥的干啥的干啥的干啥的干啥的干啥的干啥的干啥的干啥的干啥的</p>
+                        <p id="prac11"></p>
                     </div>
                     <div class="prac-show" id="prac2">
-                        <p><span id="prac2a">地球</span><span id="prac2b">2015年7月-8月</span><span id="prac2c">步行者</span>
+                        <p><span id="prac2a"></span><span id="prac2b"></span><span id="prac2c"></span>
                         </p>
-                        <p id="prac21">
-                            干啥的干啥的干啥的干啥的干啥的干啥的干啥的干啥的干啥的干啥的干啥的干啥的干啥的干啥的干啥的干啥的干啥的干啥的干啥的干啥的干啥的干啥的干啥的干啥的干啥的干啥的干啥的干啥的干啥的干啥的干啥的干啥的干啥的干啥的干啥的干啥的</p>
+                        <p id="prac21"></p>
                     </div>
                     <div class="prac-show" id="prac3">
-                        <p><span id="prac3a">地球</span><span id="prac3b">2015年7月-8月</span><span id="prac3c">步行者</span>
+                        <p><span id="prac3a"></span><span id="prac3b"></span><span id="prac3c"></span>
                         </p>
-                        <p id="prac31">
-                            干啥的干啥的干啥的干啥的干啥的干啥的干啥的干啥的干啥的干啥的干啥的干啥的干啥的干啥的干啥的干啥的干啥的干啥的干啥的干啥的干啥的干啥的干啥的干啥的干啥的干啥的干啥的干啥的干啥的干啥的干啥的干啥的干啥的干啥的干啥的干啥的</p>
+                        <p id="prac31"></p>
                     </div>
                     <div class="prac-show" id="prac4">
-                        <p><span id="prac4a">地球</span><span id="prac4b">2015年7月-8月</span><span id="prac4c">步行者</span>
+                        <p><span id="prac4a"></span><span id="prac4b"></span><span id="prac4c"></span>
                         </p>
-                        <p id="prac41">
-                            干啥的干啥的干啥的干啥的干啥的干啥的干啥的干啥的干啥的干啥的干啥的干啥的干啥的干啥的干啥的干啥的干啥的干啥的干啥的干啥的干啥的干啥的干啥的干啥的干啥的干啥的干啥的干啥的干啥的干啥的干啥的干啥的干啥的干啥的干啥的干啥的</p>
+                        <p id="prac41"></p>
                     </div>
                     <div class="prac-show" id="prac5">
-                        <p><span id="prac5a">地球</span><span id="prac5b">2015年7月-8月</span><span id="prac5c">步行者</span>
+                        <p><span id="prac5a"></span><span id="prac5b"></span><span id="prac5c"></span>
                         </p>
-                        <p id="prac51">
-                            干啥的干啥的干啥的干啥的干啥的干啥的干啥的干啥的干啥的干啥的干啥的干啥的干啥的干啥的干啥的干啥的干啥的干啥的干啥的干啥的干啥的干啥的干啥的干啥的干啥的干啥的干啥的干啥的干啥的干啥的干啥的干啥的干啥的干啥的干啥的干啥的</p>
+                        <p id="prac51"></p>
                     </div>
                     <footer id="prac-toggle">
                         <div style="border-bottom:2px solid #ff8f00;width:610px;"></div>
@@ -197,36 +200,31 @@
                 <div style="height:24px;margin-bottom:20px"><p class="file-title">项目经历</p>
                     <div class="file-icon"></div>
                 </div>
-                <div class="file-detail">
+                <div class="file-detail" id="proj-all">
                     <div class="proj-show" id="proj1">
-                        <p><span id="proj1a">地球</span><span id="proj1b">2015年7月-8月</span><span id="proj1c">步行者</span>
+                        <p><span id="proj1a"></span><span id="proj1b"></span><span id="proj1c"></span>
                         </p>
-                        <p id="proj11">
-                            干啥的干啥的干啥的干啥的干啥的干啥的干啥的干啥的干啥的干啥的干啥的干啥的干啥的干啥的干啥的干啥的干啥的干啥的干啥的干啥的干啥的干啥的干啥的干啥的干啥的干啥的干啥的干啥的干啥的干啥的干啥的干啥的干啥的干啥的干啥的干啥的</p>
+                        <p id="proj11"></p>
                     </div>
                     <div class="proj-show" id="proj2">
-                        <p><span id="proj2a">地球</span><span id="proj2b">2015年7月-8月</span><span id="proj2c">步行者</span>
+                        <p><span id="proj2a"></span><span id="proj2b"></span><span id="proj2c"></span>
                         </p>
-                        <p id="proj21">
-                            干啥的干啥的干啥的干啥的干啥的干啥的干啥的干啥的干啥的干啥的干啥的干啥的干啥的干啥的干啥的干啥的干啥的干啥的干啥的干啥的干啥的干啥的干啥的干啥的干啥的干啥的干啥的干啥的干啥的干啥的干啥的干啥的干啥的干啥的干啥的干啥的</p>
+                        <p id="proj21"></p>
                     </div>
                     <div class="proj-show" id="proj3">
-                        <p><span id="proj3a">地球</span><span id="proj3b">2015年7月-8月</span><span id="proj3c">步行者</span>
+                        <p><span id="proj3a"></span><span id="proj3b"></span><span id="proj3c"></span>
                         </p>
-                        <p id="proj31">
-                            干啥的干啥的干啥的干啥的干啥的干啥的干啥的干啥的干啥的干啥的干啥的干啥的干啥的干啥的干啥的干啥的干啥的干啥的干啥的干啥的干啥的干啥的干啥的干啥的干啥的干啥的干啥的干啥的干啥的干啥的干啥的干啥的干啥的干啥的干啥的干啥的</p>
+                        <p id="proj31"></p>
                     </div>
                     <div class="proj-show" id="proj4">
-                        <p><span id="proj4a">地球</span><span id="proj4b">2015年7月-8月</span><span id="proj4c">步行者</span>
+                        <p><span id="proj4a"></span><span id="proj4b"></span><span id="proj4c"></span>
                         </p>
-                        <p id="proj41">
-                            干啥的干啥的干啥的干啥的干啥的干啥的干啥的干啥的干啥的干啥的干啥的干啥的干啥的干啥的干啥的干啥的干啥的干啥的干啥的干啥的干啥的干啥的干啥的干啥的干啥的干啥的干啥的干啥的干啥的干啥的干啥的干啥的干啥的干啥的干啥的干啥的</p>
+                        <p id="proj41"></p>
                     </div>
                     <div class="proj-show" id="proj5">
-                        <p><span id="proj5a">地球</span><span id="proj5b">2015年7月-8月</span><span id="proj5c">步行者</span>
+                        <p><span id="proj5a"></span><span id="proj5b"></span><span id="proj5c"></span>
                         </p>
-                        <p id="proj51">
-                            干啥的干啥的干啥的干啥的干啥的干啥的干啥的干啥的干啥的干啥的干啥的干啥的干啥的干啥的干啥的干啥的干啥的干啥的干啥的干啥的干啥的干啥的干啥的干啥的干啥的干啥的干啥的干啥的干啥的干啥的干啥的干啥的干啥的干啥的干啥的干啥的</p>
+                        <p id="proj51"></p>
                     </div>
                     <footer id="proj-toggle">
                         <div style="border-bottom:2px solid #ff8f00;width:610px;"></div>
@@ -239,26 +237,10 @@
                 <div style="height:24px;margin-bottom:20px"><p class="file-title">作品集展示</p>
                     <div class="file-icon"></div>
                 </div>
-                <div class="file-detail">
+                <div class="file-detail" id="works-all">
                     <div class="works-show">
-                        <p id="work1a"><a href="#" style="text-decoration:underline">XXX作品集1.pdf</a></p>
-                        <p id="work1b">作品集在线地址：<a href="#">www.abc.com</a></p>
-                    </div>
-                    <div class="works-show">
-                        <p id="work2a"><a href="#" style="text-decoration:underline">XXX作品集2.pdf</a></p>
-                        <p id="work2b">作品集在线地址：<a href="#">www.abc.com</a></p>
-                    </div>
-                    <div class="works-show">
-                        <p id="work3a"><a href="#" style="text-decoration:underline">XXX作品集3.pdf</a></p>
-                        <p id="work3b">作品集在线地址：<a href="#">www.abc.com</a></p>
-                    </div>
-                    <div class="works-show">
-                        <p id="work4a"><a href="#" style="text-decoration:underline">XXX作品集4.pdf</a></p>
-                        <p id="work4b">作品集在线地址：<a href="#">www.abc.com</a></p>
-                    </div>
-                    <div class="works-show">
-                        <p id="work5a"><a href="#" style="text-decoration:underline">XXX作品集5.pdf</a></p>
-                        <p id="work5b">作品集在线地址：<a href="#">www.abc.com</a></p>
+                        <p id="work1a"><a target="_blank" id="works-path" href="#" style="text-decoration:underline"><span id="works-id" style="font-size: 16px">xxx</span>作品集.pdf</a></p>
+                        <p id="work1b">作品集在线地址：<a target="_blank" id="works-site" href="#">www.abc.com</a></p>
                     </div>
                 </div>
             </div>
@@ -267,41 +249,41 @@
                 <div style="height:24px;margin-bottom:20px"><p class="file-title">技能评价</p>
                     <div class="file-icon"></div>
                 </div>
-                <div class="file-detail">
-                    <div class="skill-show">
-                        <span id="skill1a">javaScript</span><!--
-                        --><div id="skill1b" class="progress skill-detail"><!--
-                        --><div class="determinate" style="width: 70%"></div><!--
+                <div class="file-detail" id="skill-all">
+                    <div class="skill-show" id="skill-all1">
+                        <span id="skill1a"></span><!--
+                        --><div  class="progress skill-detail"><!--
+                        --><div id="skill1b" class="determinate" style="width: 70%"></div><!--
                         --></div><!--
-                        --><span id="skill1c">良好</span>
+                        --><span id="skill1c"></span>
                     </div>
-                    <div class="skill-show">
-                        <span id="skill2a">html</span><!--
-                        --><div id="skill2b" class="progress skill-detail"><!--
-                        --><div class="determinate" style="width: 60%"></div><!--
+                    <div class="skill-show" id="skill-all2">
+                        <span id="skill2a"></span><!--
+                        --><div class="progress skill-detail"><!--
+                        --><div id="skill2b" class="determinate" style="width: 60%"></div><!--
                         --></div><!--
-                        --><span id="skill2c">良好</span>
+                        --><span id="skill2c"></span>
                     </div>
-                    <div class="skill-show">
-                        <span id="skill3a">css</span><!--
-                        --><div id="skill3b" class="progress skill-detail"><!--
-                        --><div class="determinate" style="width: 50%"></div><!--
+                    <div class="skill-show" id="skill-all3">
+                        <span id="skill3a"></span><!--
+                        --><div class="progress skill-detail"><!--
+                        --><div id="skill3b" class="determinate" style="width: 50%"></div><!--
                         --></div><!--
-                        --><span id="skill3c">良好</span>
+                        --><span id="skill3c"></span>
                     </div>
-                    <div class="skill-show">
-                        <span id="skill4a">react</span><!--
-                        --><div id="skill4b" class="progress skill-detail"><!--
-                        --><div class="determinate" style="width: 40%"></div><!--
+                    <div class="skill-show" id="skill-all4">
+                    <span id="skill4a"></span><!--
+                        --><div  class="progress skill-detail"><!--
+                        --><div id="skill4b" class="determinate" style="width: 40%"></div><!--
                         --></div><!--
-                        --><span id="skill4c">良好</span>
-                    </div>
-                    <div class="skill-show">
-                        <span id="skill5a">ajax</span><!--
-                        --><div id="skill5b" class="progress skill-detail"><!--
-                        --><div class="determinate" style="width: 30%"></div><!--
+                        --><span id="skill4c"></span>
+                </div>
+                    <div class="skill-show" id="skill-all5">
+                        <span id="skill5a"></span><!--
+                        --><div  class="progress skill-detail"><!--
+                        --><div id="skill5b" class="determinate" style="width: 30%"></div><!--
                         --></div><!--
-                        --><span id="skill5c">良好</span>
+                        --><span id="skill5c"></span>
                     </div>
 
 

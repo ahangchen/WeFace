@@ -86,6 +86,12 @@
     background-color: #ffffff;
 }
 
+.chip>i{
+    font-size: 16px;
+    color: #ff8f00;
+    background-color: #ffffff;
+}
+
 #detail4 {
     font-weight: bold;
     margin-top: 93px;
@@ -134,7 +140,7 @@
 
 /*-------实习经历部分的css-------*/
 .prac-show > p:nth-child(1) {
-    margin-bottom: 8px;
+    padding-bottom: 8px;
 }
 
 .prac-show > p > span {
@@ -142,7 +148,7 @@
 }
 
 .prac-show > p:nth-child(2) {
-    margin-bottom: 15px;
+    padding-bottom: 15px;
 }
 
 #file-practice > .file-detail > div:nth-child(n+2) {
@@ -282,10 +288,9 @@ footer:hover{
 
 /*有关图标*/
 #edit-icon{
-    background-color:#ffffff;
     float:right;
+    margin-top: 21px;
     margin-right:20px;
-margin-top:-10px;
 }
 
 #edit-icon>i{
@@ -312,4 +317,8 @@ margin-top:-10px;
 }
 .btn-large {
 line-height: 41px;
+}
+
+#boy,#girl{
+    display: none;
 }

@@ -1,0 +1,12 @@
+{
+  "err": 0,
+  "avatar_path": "../res/imgs/stu/stu-test.png",
+  "name": "zmj",
+  "school": "scut",
+  "sex": 1,
+  "age": 20,
+  "edu_background": "本科在读",
+  "location": "广州",
+  "tel": "110",
+  "mail": "1@..."
+}
