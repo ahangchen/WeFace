@@ -104,16 +104,16 @@ $(function () {
             dataType: "json",
             success: function (data) {
                 var err = data.err;
-                if (err == -8) {
+                if (err == '-8') {
                     alert("学生不存在");
                 }
-                if (err == -1) {
+                if (err == '-1') {
                     alert("学生不存在");
                 }
-                if (err == -10) {
+                if (err == '-10') {
                     alert("操作失败");
                 }
-                if (err == 0) {
+                if (err == '0') {
                     var avatar_path = data.avatar_path;
                     var name = data.name;
                     var school = data.school;
@@ -150,16 +150,16 @@ $(function () {
             dataType: "json",
             success: function (data) {
                 var err = data.err;
-                if (err == -18) {
+                if (err == '-18') {
                     document.getElementById("edu-show").innerHTML = "无教育经历";
                 }
-                if (err == -1) {
+                if (err == '-1') {
                     alert("请求方法错误");
                 }
-                if (err == -10) {
+                if (err == '-10') {
                     alert("操作失败");
                 }
-                if (err == 0) {
+                if (err == '0') {
                     var grade = data.grade;
                     var major = data.major;
                     document.getElementById("detail-grade").innerHTML = " " + grade;
@@ -184,17 +184,17 @@ $(function () {
             dataType: "json",
             success: function (data) {
                 var err = data.err;
-                if (err == -20) {
+                if (err == '-20') {
                     document.getElementById("prac-all").innerHTML = "无实习经历";
                     $("#prac-toggle").css("display", "none");
                 }
-                if (err == -1) {
+                if (err == '-1') {
                     alert("请求方法错误");
                 }
-                if (err == -10) {
+                if (err == '-10') {
                     alert("操作失败");
                 }
-                if (err == 0) {
+                if (err == '0') {
                     var intern_list = data.intern_list;
                     if (intern_list.length == 1) {
                         $("#prac-toggle").css("display", "none");
@@ -227,17 +227,17 @@ $(function () {
             dataType: "json",
             success: function (data) {
                 var err = data.err;
-                if (err == -21) {
+                if (err == '-21') {
                     document.getElementById("proj-all").innerHTML = "无项目经历";
                     $("#proj-toggle").css("display", "none");
                 }
-                if (err == -1) {
+                if (err == '-1') {
                     alert("请求方法错误");
                 }
-                if (err == -10) {
+                if (err == '-10') {
                     alert("操作失败");
                 }
-                if (err == 0) {
+                if (err == '0') {
                     var proj_list = data.proj_list;
                     if (proj_list.length == 1) {
                         $("#proj-toggle").css("display", "none");
@@ -268,16 +268,16 @@ $(function () {
             dataType: "json",
             success: function (data) {
                 var err = data.err;
-                if (err == -23) {
+                if (err == '-23') {
                     document.getElementById("works-all").innerHTML = "无作品集";
                 }
-                if (err == -1) {
+                if (err == '-1') {
                     alert("请求方法错误");
                 }
-                if (err == -10) {
+                if (err == '-10') {
                     alert("操作失败");
                 }
-                if (err == 0) {
+                if (err == '0') {
                     document.getElementById("works-id").innerHTML = stu_id;
                     var path = data.path;
                     var site = data.site;
@@ -295,20 +295,20 @@ $(function () {
             dataType: "json",
             success: function (data) {
                 var err = data.err;
-                if (err == -24) {
+                if (err == '-24') {
                     document.getElementById("skill-all").innerHTML = "无技能评价";
                 }
-                if (err == -1) {
+                if (err == '-1') {
                     alert("请求方法错误");
                 }
-                if (err == -10) {
+                if (err == '-10') {
                     alert("操作失败");
                 }
-                if (err == 0) {
+                if (err == '0') {
                     var skill_list = data.skill_list;
                     for (var i = 0; i < skill_list.length; i++) {
                         var s_name = skill_list[i].name;
-                        var s_value = skill_list[i].value;
+                        var s_value = parseInt(skill_list[i].value);
                         if (s_value >= 0 && s_value < 25) {
                             var s_show = "入门";
                         }

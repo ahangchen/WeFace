@@ -1,6 +1,6 @@
 {
-  "err": 0,
-  "work_id": 1,
+  "err": "0",
+  "works_id": "1",
   "path": "http://www.baidu.com",
   "site": "http://www.baidu.com"
 }

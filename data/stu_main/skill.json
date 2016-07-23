@@ -1,25 +1,25 @@
 {
-  "err": 0,
+  "err": "0",
   "skill_list": [
     {
-      "skill_id": 1,
+      "skill_id": "1",
       "name": "java",
-      "value": 10
+      "value": "10"
     },
     {
-      "skill_id": 2,
+      "skill_id": "2",
       "name": "javascript",
-      "value": 60
+      "value": "60"
     },
     {
-      "skill_id": 3,
+      "skill_id": "3",
       "name": "css",
-      "value": 50
+      "value": "50"
     },
     {
-      "skill_id": 4,
+      "skill_id": "4",
       "name": "html",
-      "value": 90
+      "value": "90"
     }
   ]
 }
