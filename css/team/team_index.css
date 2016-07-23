@@ -277,3 +277,14 @@ a:hover{
 	text-align: center;
 	line-height: 800px;
 }
+div.chip {
+position: relative;
+float: right;
+margin-right: 5px;
+margin-top: 10px;
+}
+.four_need_medium{
+	float: left;
+	margin-left: 35px;
+	margin-top: 4px;
+}
