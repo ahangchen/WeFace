@@ -92,17 +92,29 @@ a:hover{
 	margin: 10px 20px 10px 120px;
 	float: left;
 }
-.tag{
+.tag_even{
 	width: 70px;
 	height: 40px;
 	border-radius: 10px;
 	float: left;
 	line-height: 40px;
-	border: 1px rgb(255,147,74) solid;
 	text-align: center;
 	font-size: 10px;
 	margin: 2px 5px;
-	color:rgb(255,147,74);
+	background-color:rgb(255,147,74);
+	color: white;
+}
+.tag_odd{
+	width: 70px;
+	height: 40px;
+	border-radius: 10px;
+	float: left;
+	line-height: 40px;
+	text-align: center;
+	font-size: 10px;
+	margin: 2px 5px;
+	background-color:white;
+	color: rgb(255,147,74);
 }
 .team_home{
 	line-height: 50px;
@@ -145,18 +157,17 @@ a:hover{
 }
 #main_left_middle_two{
 	width: 620px;
-	height: 180px;
+	height: 310px;
 	padding-top: 10px;
 	background-color: white;
 	  -webkit-box-shadow:0 0 10px gray;  
   	-moz-box-shadow:0 0 10px gray;  
  	 box-shadow:0 0 10px gray;
+ 	 padding: 20px;
 }
 .piture{
 	height: 160px;
 	width: 380px;
-	display: block;
-	float: left;
 }
 .fanxiang{
 	font-size: 20px;
@@ -228,17 +239,11 @@ a:hover{
  	 box-shadow:0 0 10px gray;
 }
 .float{
-	background-color: rgb(255,147,74);
 	height: 50px;
 	line-height: 50px;
-	padding-left: 20px;
-	color: white;
-	font-size: 20px;  
-	-webkit-box-shadow:0 0 10px gray;  
-  	-moz-box-shadow:0 0 10px gray;  
- 	 box-shadow:0 0 10px gray;
-	  -webkit-box-shadow:0 0 10px gray;  
-  	-moz-box-shadow:0 0 10px gray;  
+	padding-left: 30px;
+	padding-top: 20px;
+	font-size: 30px;  
 }
 .textarea{
 	padding: 30px;

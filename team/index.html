@@ -2,17 +2,16 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="zh-CN">
     <head>
         <title>新建网页</title>
-        <link rel="stylesheet" type="text/css" href="../css/team/team_index.css">
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-        <script type="text/javascript" src="../js/team/team_index.js"></script  >
-        <script type="text/javascript" src="../js/jquery-2.1.1.min.js"></script>
         <link href="../css/base.css" type="text/css" rel="stylesheet"/>
         <link rel="stylesheet" type="text/css" href="../css/materialize.css">
         <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
         <link rel="stylesheet" type="text/css" href="../css/team/position.css">
+        <link rel="stylesheet" type="text/css" href="../css/team/team_index.css">
         <script type="text/javascript" src="../js/jquery-2.1.1.min.js"></script>
         <script type="text/javascript" src="../js/materialize.min.js"></script>
         <script type="text/javascript" src="../js/team/position.js"></script>
+        <script type="text/javascript" src="../js/team/team_index.js"></script>
     </head>
     <body>
         <div id="max">
@@ -60,19 +59,19 @@
                 </div>
             </nav>
             <div id="information">
-                <img src="../res/imgs/team/吉他社招新海报.jpg" id="team_logo">
+                <img src="" id="team_logo">
                 <div id="information_two">
                     WEMEET<br>
                     承包各种网页设计、制作，8人团队<br>
                     在这里遇见最好的自己
                 </div>
                 <div id="information_three">
-                    <div class="tag">技术宅</div>
-                    <div class="tag">技术宅</div>
-                    <div class="tag">强迫症</div>
-                    <div class="tag">高效率</div>
-                    <div class="tag">高效率</div>
-                    <div class="tag">网页开发</div>
+                    <div class="tag_odd" id="tag_one"></div>
+                    <div class="tag_even" id="tag_two"></div>
+                    <div class="tag_odd" id="tag_three"></div>
+                    <div class="tag_even" id="tag_four"></div>
+                    <div class="tag_odd" id="tag_five"></div>
+                    <div class="tag_even" id="tag_six"></div>
                 </div>
             </div>
             <div class="four team_home" ><a href="#team_home_div" class="selected">团队主页</a></div>
@@ -82,29 +81,42 @@
             <div id="team_home_div">
                 <div id="left">
                     <div id="main_left_top">
-                        <div class="float" id="one">团队介绍</div>
+                        <div class="float" id="one">团队介绍<i class="material-icons small">play_arrow</i></div>
                         <div class="textarea">
                             测试数据测试数据测试数据测试数据测试数据测试数据测试数据测试数据测试数据测试数据测试数据测试数据测试数据测试数据测试数据测试数据测试数据测试数据测试数据测试数据测试数据测试数据测试数据测试数据测试数据测试数据测试数据
                         </div>
                     </div>
                     <div id="main_left_middle">
                         <div id="main_left_middle_one">
-                            <div class="float"  id="two">发展历程</div>
+                            <div class="float"  id="two">发展历程<i class="material-icons small">play_arrow</i></div>
                             <div class="textarea">
                                 测试数据测试数据测试数据测试数据测试数据测试数据测试数据测试数据测试数据测试数据测试数据测试数据测试数据测试数据测试数据测试数据测试数据测试数据测试数据测试数据测试数据测试数据测试数据测试数据测试数据测试数据测试数据测试数据测试数据测试数据测试数据测试数据测试数据测试数据测试数据测试数据测试数据测试数据测试数据测试数据测试数据测试数据测试数据测试数据测试数据测试数据测试数据测试数据测试数据测试数据测试数据测试数据测试数据测试数据测试数据测试数据测试数据测试数据测试数据测试数据测试数据测试数据测试数据测试数据测试数据测试数据测试数据测试数据测试数据测试数据测试数据测试数据测试数据测试数据测试数据测试数据测试数据测试数据测试数据
                             </div>
                         </div>
                         <div id="main_left_middle_two">
-                            <a href="" class="fanxiang" id="fanxiang_left"><i class="large material-icons">chevron_left</i></a>
+                            <!--                                         <a href="" class="fanxiang" id="fanxiang_left"><i class="small material-icons">chevron_left</i></a>
                             <img src="../res/imgs/team/p1.jpg" alt="" class="piture " id="p1"/>
                             <img src="../res/imgs/team/p2.jpg" alt="" class="piture nodisplay" id="p2" />
                             <img src="../res/imgs/team/p3.jpg" alt="" class="piture nodisplay" id="p3"/>
-                            <a href="javascript:rightclick()" class="fanxiang" id="fanxiang_right"><i class="large material-icons">chevron_right</i></a>
+                            <a href="javascript:rightclick()" class="fanxiang" id="fanxiang_right"><i class="small material-icons">chevron_right</i></a> -->
+                            <div class="slider">
+                                <ul class="slides">
+                                    <li>
+                                        <img src="../res/imgs/team/p1.jpg" class="piture "> <!-- random image -->
+                                    </li>
+                                    <li>
+                                        <img src="../res/imgs/team/p2.jpg" class="piture "> <!-- random image -->
+                                    </li>
+                                    <li>
+                                        <img src="../res/imgs/team/p3.jpg" class="piture "> <!-- random image -->
+                                    </li>
+                                </ul>
+                            </div>
                         </div>
                     </div>
                 </div>
                 <div id="right">
-                    <div class="float" id="four">学生成员</div>
+                    <div class="float" id="four">学生成员<i class="material-icons small">play_arrow</i></div>
                     <div id="main_right_one">
                         <img src="../res/imgs/team/touxiang1.jpg" alt="头像"id ="leader" class="Head_portrait" />
                         <img src="../res/imgs/team/touxiang3.jpg" alt="头像" class="Head_portrait" />
@@ -121,35 +133,5 @@
             <div id="Demand_for_jobs_div"><h1>我是需求职位页面</h1></div>
             <div id="Recently_div"><h1>我是最近页面</h1></div>
         </div>
-        <script type="text/javascript">
-        $(function() {
-                                        var tabhosts = $(".four a");
-                                        
-                                        tabhosts.each(function() {
-                                                                        $($(this).attr("href")).hide();
-                                                                        
-                                                                        if ($(this).hasClass("selected")) {
-                                                                        $($(this).attr("href")).show();
-                                                                       $(this).parent() .css("border-bottom","5px black solid");
-                                                                        }
-                                                                        
-                                        $(this).click(function(event) {
-                                        event.preventDefault();
-                                        
-                                        if (!$(this).hasClass("selected")) {
-                                        tabhosts.each(function() {
-                                        $(this).removeClass("selected");
-                                        $($(this).attr("href")).hide();
-                                         $(this).parent() .css("border-bottom","");
-                                        });
-                                        
-                                        $(this).addClass("selected");
-                                        $($(this).attr("href")).show();
-                                         $(this).parent() .css("border-bottom","5px black solid");
-                                        }
-                                        });
-                                        });
-                             });
-        </script>
     </body>
 </html>
