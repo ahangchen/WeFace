@@ -3,7 +3,8 @@
  */
 $(function(){
     // 学生点击职位名字后，主页在url上传职位id
-    // var jId = $.url().param('data');
+    var jId = $.url().param('jId');
+    var sId = $.url().param('sId');
     var tId,jName,min,max,prov,city,town,addr,edu,exp,jobType,workType,sum,date,state,jobCmd,workCmd;
     var tName,tLogo,tAbout,tTel,tMail;
     var tLabel = new Array();
@@ -106,17 +107,17 @@ $(function(){
         stu_id:stu_id,
         job_id:JId
     };
-    // var sId = {
-    //   id = sId
-    // };
+     var sId = {
+       id : sId
+     };
     $.ajax({
         type:'post',
-        url:'../js/stu/resume.json',
-        // data:sId,
+        url:'http://110.64.69.66:8081/student/resume/get/',
+         data:sId,
         dataType:'json',
         success:function(data){
-            $('#resume').html(data.msg);
-            $('#subResTime').html(data.date);
+            $('#resume').html(data.path);
+            //$('#subResTime').html(data.date);
         },
         error:function(data){
             $('#resume').html(data.msg);
