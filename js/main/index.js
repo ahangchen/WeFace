@@ -122,28 +122,54 @@ $(function(){
     var teamLink = $(".teamList li a");
     var teamNames = $(".teamList li div");
     var teamsDesc = $(".teamList li span");
+    var teamLi = $('.teamList li');
     var curIndexOfTeam = 0;
-    $.getJSON('../data/teamTest.json',function(data){
+    $.getJSON('http://110.64.69.66:8081/team/hot_team/',function(data){
         for (var i = 0; i < 3; i++) {
-            var firstTeamImg = data.teams[i].teamImg;
-            var firstTeamName = data.teams[i].teamName;
-            var firstTeamDesc = data.teams[i].teamDesc;
+            var firstTeamImg = data.msg[i].logo_path;
+            var firstTeamName = data.msg[i].name;
+            var firstTeamDesc = data.msg[i].about;
+            var firstTeamid = data.msg[i].id;
             $(teamlis[i]).attr("src",firstTeamImg);
             $(teamNames[i]).html(firstTeamName);
             $(teamsDesc[i]).html(firstTeamDesc);
+            $(teamLi[i]).attr("id",firstTeamid);
         }
         curIndexOfTeam += 3;
     });
-
+    //$.ajax({
+    //    type:"get",
+    //    url:"http://110.64.69.66:8081/team/hot_team/",
+    //    dataType:"json",
+    //    success:function(data){
+    //        for (var i = 0; i < 3; i++) {
+    //            var firstTeamImg = data.msg[i].logo_path;
+    //            var firstTeamName = data.msg[i].name;
+    //            var firstTeamDesc = data.msg[i].about;
+    //            var firstTeamid = data.msg[i].id;
+    //            $(teamlis[i]).attr("src",firstTeamImg);
+    //            $(teamNames[i]).html(firstTeamName);
+    //            $(teamsDesc[i]).html(firstTeamDesc);
+    //            $(teamLi[i]).attr("id",firstTeamid);
+    //        }
+    //        curIndexOfTeam += 3;
+    //    },
+    //    error:function(data){
+    //        alert(data.msg);
+    //    },
+    //    headers:{
+    //        "Access-Control-Allow-Origin":"*"
+    //    }
+    //});
 // －－－－－－－－－－－－－－－－－动态加载团队－－－－－－－－－－－－－－－－－－－－－－－－－
     var triTeamLen = $(".teamList li").length;
     $(".nextBtnOfTeams").click(function(){
         var a = $.ajax({
-            type: "post",
-            url: "../data/teamTest.json",
+            type: "get",
+            url: "http://110.64.69.66:8081/team/hot_team/",
             dataType: "json",
             success: function(data){
-                var maxLength = data.teams.length;
+                var maxLength = data.msg.length;
                 if (curIndexOfTeam == maxLength) {
                     curIndexOfTeam = 0;
                 }
@@ -162,28 +188,37 @@ $(function(){
                     teamLink = $(".teamList li a");
                     teamNames = $(".teamList li div");
                     teamsDesc = $(".teamList li span");
+                    teamLi = $(".teamList li");
                     for (var i = curIndexOfTeam; i < curIndexOfTeam + 3; i++) {
-                        var teamImg = data.teams[i].teamImg;
+                        var teamImg = data.msg[i].logo_path;
 
-                        var teamName = data.teams[i].teamName;
-                        var teamDesc = data.teams[i].teamDesc;
+                        var teamName = data.msg[i].name;
+                        var teamDesc = data.msg[i].about;
+                        var teamid = data.msg[i].id;
                         $(teamlis[i]).attr("src", teamImg);
                         $(teamNames[i]).html(teamName);
                         $(teamsDesc[i]).html(teamDesc);
+                        $(teamLi[i]).attr("id",teamid);
                     }
                 }
                 changeToNextTeam(curIndexOfTeam);
                 curIndexOfTeam += 3;
+            },
+            error:function(data){
+                alert(data.msg);
+            },
+            headers: {
+                "Access-Control-Allow-Origin":"*"
             }
         });
     });
     $(".preBtnOfTeams").click(function(){
         var a = $.ajax({
-            type: "post",
-            url: "../data/teamTest.json",
+            type: "get",
+            url: "http://110.64.69.66:8081/team/hot_team/",
             dataType: "json",
             success: function(data){
-                var maxLength = data.teams.length;
+                var maxLength = data.msg.length;
 
                 if (curIndexOfTeam == 0) {
                     if(triTeamLen < maxLength) {
@@ -201,30 +236,40 @@ $(function(){
                     teamLink = $(".teamList li a");
                     teamNames = $(".teamList li div");
                     teamsDesc = $(".teamList li span");
-
+                    teamLi = $('.teamList li');
                     for (var i = triTeamLen - 3 ; i < triTeamLen ; i++) {
-                        var teamImg = data.teams[i].teamImg;
-                        var teamName = data.teams[i].teamName;
-                        var teamDesc = data.teams[i].teamDesc;
+                        var teamImg = data.msg[i].logo_path;
+                        var teamName = data.msg[i].name;
+                        var teamDesc = data.msg[i].about;
+                        var teamid = data.msg[i].id;
                         $(teamlis[i]).attr("src",teamImg);
                         $(teamNames[i]).html(teamName);
                         $(teamsDesc[i]).html(teamDesc);
+                        $(teamLi[i]).attr("id",teamid);
                     }
                     curIndexOfTeam = maxLength - 3;
                 }
                 else{
                     for (var i = curIndexOfTeam - 3; i < curIndexOfTeam ; i++) {
-                        var teamImg = data.teams[i].teamImg;
-                        var teamName = data.teams[i].teamName;
-                        var teamDesc = data.teams[i].teamDesc;
+                        var teamImg = data.msg[i].logo_path;
+                        var teamName = data.msg[i].name;
+                        var teamDesc = data.msg[i].about;
+                        var teamid = data.msg[i].id;
                         $(teamlis[i]).attr("src",teamImg);
                         $(teamNames[i]).html(teamName);
                         $(teamsDesc[i]).html(teamDesc);
+                        $(teamLi[i]).attr("id",teamid);
                     }
                     curIndexOfTeam -= 3;
                 }
                 changeToNextTeam(curIndexOfTeam);
 
+            },
+            error:function(data){
+                alert(data.msg);
+            },
+            headers: {
+                "Access-Control-Allow-Origin":"*"
             }
         });
     });
@@ -243,15 +288,18 @@ $(function(){
     var projectLink = $(".projectList li a");
     var projectNames = $(".projectList li div");
     var projectsDesc = $(".projectList li span");
+    var projectLi = $(".projectList li");
     var curIndexOfProject = 0;
-    $.getJSON('../data/projectTest.json',function(data){
+    $.getJSON('http://110.64.69.66:8081/team/hot_product/',function(data){
         for (var i = 0; i < 3; i++) {
-            var firstProjectImg = data.projects[i].projectImg;
-            var firstProjectName = data.projects[i].projectName;
-            var firstProjectDesc = data.projects[i].projectDesc;
+            var firstProjectImg = data.msg[i].img_path;
+            var firstProjectName = data.msg[i].name;
+            var firstProjectDesc = data.msg[i].content;
+            var proId = data.msg[i].id;
             $(projectlis[i]).attr("src",firstProjectImg);
             $(projectNames[i]).html(firstProjectName);
             $(projectsDesc[i]).html(firstProjectDesc);
+            $(projectLi[i]).attr("id",proId);
         }
         curIndexOfProject += 3;
     });
@@ -260,11 +308,11 @@ $(function(){
     var triProjectLen = $(".projectList li").length;
     $(".nextBtnOfProject").click(function(){
         var a = $.ajax({
-            type: "post",
-            url: "../data/projectTest.json",
+            type: "get",
+            url: "http://110.64.69.66:8081/team/hot_product/",
             dataType: "json",
             success: function(data){
-                var maxLength = data.projects.length;
+                var maxLength = data.msg.length;
                 if (curIndexOfProject == maxLength) {
                     curIndexOfProject = 0 ;
                 }
@@ -282,28 +330,38 @@ $(function(){
                     projectlis = $(".projectList li img");
                     projectNames = $(".projectList li div");
                     projectsDesc = $(".projectList li span");
+                    projectLi = $(".projectList li");
+
                     for (var i = curIndexOfProject ; i < curIndexOfProject + 3; i++) {
-                        var projectImg = data.projects[i].projectImg;
-                        var projectName = data.projects[i].projectName;
-                        var projectDesc = data.projects[i].projectDesc;
+                        var projectImg = data.msg[i].img_path;
+                        var projectName = data.msg[i].name;
+                        var projectDesc = data.msg[i].content;
+                        var proId = data.msg[i].id;
                         $(projectlis[i]).attr("src",projectImg);
                         $(projectNames[i]).html(projectName);
                         $(projectsDesc[i]).html(projectDesc);
+                        $(projectLi[i]).attr("id",proId);
                     }
                 }
                 changeToNextProject(curIndexOfProject);
                 curIndexOfProject += 3;
+            },
+            error:function(data){
+                alert(data.msg);
+            },
+            headers: {
+                "Access-Control-Allow-Origin":"*"
             }
         });
 
     });
     $(".preBtnOfProject").click(function(){
         var a = $.ajax({
-            type: "post",
-            url: "../data/projectTest.json",
+            type: "get",
+            url: "http://110.64.69.66:8081/team/hot_product/",
             dataType: "json",
             success: function(data){
-                var maxLength = data.projects.length;
+                var maxLength = data.msg.length;
                 if (curIndexOfProject == 0) {
                     if (triProjectLen < maxLength) {
                         for (var j = 0; j < maxLength - triProjectLen; j++) {
@@ -317,30 +375,39 @@ $(function(){
                     projectlis = $(".projectList li img");
                     projectNames = $(".projectList li div");
                     projectsDesc = $(".projectList li span");
-
+                    projectLi = $(".projectList li");
                     for (var i = maxLength - 3 ; i < maxLength ; i++) {
-                        var projectImg = data.projects[i].projectImg;
-                        var projectName = data.projects[i].projectName;
-                        var projectDesc = data.projects[i].projectDesc;
+                        var projectImg = data.msg[i]. img_path;
+                        var projectName = data.msg[i].name;
+                        var projectDesc = data.msg[i].content;
+                        var proId = data.msg[i].id;
                         $(projectlis[i]).attr("src",projectImg);
                         $(projectNames[i]).html(projectName);
                         $(projectsDesc[i]).html(projectDesc);
+                        $(projectLi[i]).attr("id",proId);
                     }
                     curIndexOfProject = triProjectLen - 3;
                 }
                 else{
                     for (var i = curIndexOfProject - 3; i < curIndexOfProject ; i++) {
-                        var projectImg = data.projects[i].projectImg;
-                        var projectName = data.projects[i].projectName;
-                        var projectDesc = data.projects[i].projectDesc;
+                        var projectImg = data.msg[i].img_path;
+                        var projectName = data.msg[i].name;
+                        var projectDesc = data.msg[i].content;
                         $(projectlis[i]).attr("src",projectImg);
                         $(projectNames[i]).html(projectName);
                         $(projectsDesc[i]).html(projectDesc);
+                        $(projectLi[i]).attr("id",proId);
                     }
                     curIndexOfProject -= 3;
                 }
                 changeToNextProject(curIndexOfProject);
 
+            },
+            error:function(data){
+                alert(data.msg);
+            },
+            headers: {
+                "Access-Control-Allow-Origin":"*"
             }
         });
     });

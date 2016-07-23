@@ -7,13 +7,12 @@
 
 a:link {
     text-decoration: none;
-    color:           black;
+    color:           #353535;
 }
 
 a:visited {
-    color: black;
+    color: #353535;
 }
-
 html{
     background-image: url(../../res/imgs/bg.svg);
     background-size: 100% auto;
@@ -238,6 +237,10 @@ form .buttonBar{
     padding: 10px 10px 10px 10px;
     cursor: pointer;
 }
+.positionName a{
+    font-size: 24px;
+    color: #353535;
+}
 .salary{
     width: 180px;
     font-size: 16px;
@@ -334,7 +337,7 @@ hr{
     margin-right: auto;
     margin-left: auto;
 }
-#saveForm{
+#saveForm,#addJob{
     margin-right: 40px;
     background-color: #ff8f00;
 }
@@ -401,7 +404,9 @@ hr{
     margin-right: 50px;
 }
 
-
+#manageDiv{
+    display: none;
+}
 
 
 
