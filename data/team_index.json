@@ -2,6 +2,7 @@
     "res": {
         "man_cnt": 0,
         "slogan": "",
+        "name": "wemeet",
         "about": "",
         "mail": "1418659400@qq.com",
         "tid": 1,
@@ -34,7 +35,7 @@
             "网页开发"
         ],
         "history": "",
-        "logo_path": "../res/imgs/team/吉他社招新海报.jpg"
+        "logo_path": "../res/imgs/materialize.svg"
     },
     "err": 0
 }

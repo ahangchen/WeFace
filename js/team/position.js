@@ -237,7 +237,7 @@ $(function(){
                 }
             },
             error:function(data){
-              alert(data.msg + " 错误码为"+data.err);
+              console.log(data.msg + " 错误码为"+data.err);
             },
             headers: {
                 "Access-Control-Allow-Origin":"*"
@@ -406,7 +406,7 @@ $(function(){
                 });
             },
             error:function(data){
-                alert(data.msg + " 错误码为"+data.err);
+                console.log(data.msg + " 错误码为"+data.err);
             },
             headers: {
                 "Access-Control-Allow-Origin":"*"
