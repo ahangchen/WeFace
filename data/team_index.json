@@ -1,0 +1,40 @@
+{
+    "res": {
+        "man_cnt": 0,
+        "slogan": "",
+        "about": "",
+        "mail": "1418659400@qq.com",
+        "tid": 1,
+        "tel": "666752",
+        "b_type": 0,
+        "stus": [
+            {
+                "school": null,
+                "id": 1,
+                "name": "cwh",
+                "logo_path": null
+            },
+            {
+                "school": null,
+                "id": 2,
+                "name": "mlh",
+                "logo_path": null
+            }
+        ],
+        "imgs": [
+            "team/1/pic.png",
+            "team/1/pic2.png"
+        ],
+        "label": [
+            "技术宅l",
+            "技术宅",
+            "强迫症",
+            "高效率",
+            "高效率",
+            "网页开发"
+        ],
+        "history": "",
+        "logo_path": "../res/imgs/team/吉他社招新海报.jpg"
+    },
+    "err": 0
+}
