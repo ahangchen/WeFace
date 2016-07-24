@@ -139,6 +139,9 @@ $(function () {
                     document.getElementById("detail-tel").innerHTML = tel;
                     document.getElementById("detail-mail").innerHTML = mail;
                 }
+            },
+            headers: {
+                "Access-Control-Allow-Origin":"*"
             }
         });
 
@@ -167,13 +170,16 @@ $(function () {
                     var edu_list = data.edu_list;
                     for (var i = 0; i < edu_list.length; i++) {
                         var edui = "edu" + (i + 1);
-                        var e_major = edu_list[i].major;
-                        var e_year = edu_list[i].graduation_year;
-                        var e_back = edu_list[i].edu_background;
-                        var e_school = edu_list[i].school;
-                        document.getElementById(edui).innerHTML = "<p><span style='font-size:16px'>" + e_back + "</span><span style='font-size:16px'> " + e_year + "年毕业</span></p><p><span style='font-size:16px'>" + e_school + "</span><span style='font-size:16px'> " + e_major + "</span></p>";
-                    }
+                    var e_major = edu_list[i].major;
+                    var e_year = edu_list[i].graduation_year;
+                    var e_back = edu_list[i].edu_background;
+                    var e_school = edu_list[i].school;
+                    document.getElementById(edui).innerHTML = "<p><span style='font-size:16px'>" + e_back + "</span><span style='font-size:16px'> " + e_year + "年毕业</span></p><p><span style='font-size:16px'>" + e_school + "</span><span style='font-size:16px'> " + e_major + "</span></p>";
                 }
+                }
+            },
+            headers: {
+                "Access-Control-Allow-Origin":"*"
             }
         });
         /*-----------------------------获取实习经历---------------------------*/
@@ -216,6 +222,9 @@ $(function () {
 
                     }
                 }
+            },
+            headers: {
+                "Access-Control-Allow-Origin":"*"
             }
         });
         /*-----------------------------获取项目经历---------------------------*/
@@ -257,6 +266,9 @@ $(function () {
                         document.getElementById(proji1).innerHTML = p_description;
                     }
                 }
+            },
+            headers: {
+                "Access-Control-Allow-Origin":"*"
             }
         });
 
@@ -285,6 +297,9 @@ $(function () {
                     document.getElementById("works-site").href = site;
                     document.getElementById("works-site").innerHTML = site;
                 }
+            },
+            headers: {
+                "Access-Control-Allow-Origin":"*"
             }
         });
         /*-----------------------------技能展示---------------------------*/
@@ -333,6 +348,9 @@ $(function () {
                         $(skillalli).css("display", "none");
                     }
                 }
+            },
+            headers: {
+                "Access-Control-Allow-Origin":"*"
             }
         });
 
