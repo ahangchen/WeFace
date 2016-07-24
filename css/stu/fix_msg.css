@@ -1,8 +1,7 @@
 #student_message_box{
     width:970px;
     height:900px;
-    position: absolute;
-    left: 108px;
+    position: relative;
     background: rgba(255, 255, 255, 0.5);
     -moz-box-shadow: 0 5px 5px 0 rgba(0, 0, 0, 0.22), 0 10px 10px 0 rgba(0, 0, 0, 0.21);
     -webkit-box-shadow: 0 5px 5px 0 rgba(0, 0, 0, 0.22), 0 10px 10px 0 rgba(0, 0, 0, 0.21);
@@ -22,87 +21,92 @@
     background-color: #fb8c00;
 }
 
-.photo_logo{
-    top: 50px;
-    left: 150px;
-    width: 120px;
-    height: 120px;
-    position: absolute;
-    cursor: pointer;
-}
-
-.photo_logo #put_photo_here{
-    width: 120px;
-    height: 120px;
-    background-color: #cecece;
-}
-
-.complete_msg{
-   top: 230px;
-    left: 170px;
-    width: 100px;
-    height: 100px;
-    position: absolute;
-    cursor: pointer;
-}
-
-.complete_msg #complete_logo{
-    width: 50px;
-    height: 50px;
-    margin-left: 20px;
-    margin-right: 20px;
-}
-
-.complete_msg #text{
-    font-size: 16px;
-}
-
-.attach_file{
-
-    top: 350px;
-    left: 170px;
-    width: 100px;
-    height: 100px;
-    position: absolute;
-    cursor: pointer;
-}
-
-.attach_file #attach_logo{
-    width: 50px;
-    height: 50px;
-    margin-left: 20px;
-    margin-right: 20px;
-}
-
-.attach_file #text{
-    font-size: 16px;
-}
-#button_submit{
-    width: 100px;
-    height: 100px;
-    background-color: grey;
-    cursor: pointer;
-}
-
 .function_button{
     width:50%;
     height: 100%;
-
+    position: absolute;
+    left: 100px;
 }
 
-.personal_message{
-    height: 100%;
-    left: 485px;
-    position: absolute;
-    top:10px;
+.photo_logo{
+    width: 120px;
+    height: 120px;
+    padding:18px;
+    margin-top: 50px;
+    margin-left: 50px;
+    border-radius: 10px;
+    background-color: #dbdbdb;
+    cursor: pointer;
 }
 
 #local_photo{
     width: 120px;
     height: 120px;
+    position: absolute;
+    left: 150px;
+    top: 50px;
+    border-radius: 10px;
+
 }
 
-#doc_link{
-    width: 150px;
-    margin-left:-15px;
+.attach_file{
+    width: 80px;
+    height: 80px;
+    padding:18px;
+    margin-top: 60px;
+    margin-left: 65px;
+    border-radius: 100px;
+    background-color: #fff;
+    cursor: pointer;
 }
+
+.attach_file #attach_logo{
+    width: 45px;
+    height: 45px;
+}
+
+.text{
+    width: 150px;
+    height: 40px;
+    margin-top: 10px;
+    margin-left: 50px;
+    font-size: 18px;
+}
+.doc_path{
+    width: 220px;
+    height: 40px;
+    margin-top: 10px;
+    opacity: 0;
+}
+
+#delete_file{
+    width: 35px;
+    height: 35px;
+    background-color: #fff;
+    padding: 1px;
+}
+
+#close_ico{
+    color: #fb8c00;
+    width: 30px;
+    height: 30px;
+}
+
+#doc_path_logo{
+    width: 35px;
+    height: 35px;
+}
+#path_line{
+    font-size: 18px;
+    font-weight: bold;
+    width: 150px;
+}
+
+.personal_message{
+    width:50%;
+    height: 100%;
+    position: absolute;
+    left: 450px;
+    top:10px;
+}
+
