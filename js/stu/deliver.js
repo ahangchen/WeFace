@@ -19,6 +19,15 @@ $(function(){
     };
     init();
     $('#flushBtn').click(function(){
+        // 把已统计的量全部归零
+        unreadCh = 0;
+        unredCon = 0;
+        unreadAdm = 0;
+        unreadQui = 0;
+        unreadSu = 0;
+        unreadNum = 0;
+        $('.newNum').html("");
+        $('.newNum').css('visibility','hidden');
         $('#entire').html("");
         $('#unchecked').html("");
         $('#uncontact').html("");
@@ -240,7 +249,7 @@ $(function(){
         });
     }
     $('.tabs li a').click(function(){
-        $(this).children('.newNum').css('display','none');
+        $(this).children('.newNum').css('visibility','hidden');
         unreadNum = unreadNum - parseInt($(this).children('.newNum').html());
         $(li[0]).html(unreadNum);
         if (unreadNum == 0) {
