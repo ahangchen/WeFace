@@ -1,3 +1,38 @@
+function edit() {
+    if ($("#edu1").html() == "") {
+        $("#add1").css("display", "block");
+    }
+    else {
+        $("#ea1").css("display", "inline-block");
+    }
+    if ($("#prac1a").html() == "") {
+        $("#add2").css("display", "block");
+    }
+    else {
+        $("#ea2").css("display", "inline-block");
+    }
+    if ($("#proj1a").html() == "") {
+        $("#add3").css("display", "block");
+    }
+    else {
+        $("#ea3").css("display", "inline-block");
+    }
+    if ($("#works-id").html() == "") {
+        $("#add4").css("display", "block");
+    }
+    else {
+        $("#ea4").css("display", "inline-block");
+    }
+    if ($("#skill1a").html() == "") {
+        $("#add5").css("display", "block");
+    }
+    else {
+        $("#ea5").css("display", "inline-block");
+    }
+
+}
+
+
 $(function () {
     /*下面代码是导航栏*/
     $(".go-page").click(function () {
@@ -74,14 +109,15 @@ $(function () {
     //下面是导航栏
     function nav() {
         var startPos = $("#nav-list").offset().top;
-        var x = document.documentElement.clientWidth;
-        if (x <= 970) {
-            var left = "770px";
-        }
-        if (x > 970) {
-            var left = (x - 970) / 2 + 770 + "px";
-        }
         $.event.add(window, "scroll", function () {
+            var x = document.documentElement.clientWidth;
+            var left;
+            if (x <= 970) {
+                left = "770px";
+            }
+            if (x > 970) {
+                left = (x - 970) / 2 + 770 + "px";
+            }
             var p = $(window).scrollTop();
             $("#nav-list").css('position', ((p) > startPos) ? 'fixed' : '');
             $("#nav-list").css('top', ((p) > startPos) ? '0px' : '');
@@ -92,6 +128,7 @@ $(function () {
     window.onload = function () {
         nav();
         //var id;获取url中id;
+        var ajax_num = 6;
         var stu_id = 1;
         var data_info = {"id": stu_id};
         var data_file = {"stu_id": stu_id};
@@ -119,29 +156,34 @@ $(function () {
                     var school = data.school;
                     var sex = data.sex;
                     var age = data.age;
-                    var edu_background = data.edu_background;
+                    var major = data.major;
                     var location = data.location;
                     var tel = data.tel;
                     var mail = data.mail;
                     document.getElementById("avatar_path").src = avatar_path;
                     document.getElementById("detail-name").innerHTML = name;
                     document.getElementById("detail-school").innerHTML = school;
-                    if (sex == 0) {
+                    if (sex == "0") {
                     }
-                    if (sex == 1) {
+                    if (sex == "1") {
                         $("#boy").css("display", "inline");
                     }
-                    if (sex == 2) {
+                    if (sex == "2") {
                         $("#girl").css("display", "inline");
                     }
                     document.getElementById("detail-age").innerHTML = age;
-                    document.getElementById("detail-background").innerHTML = edu_background;
+                    document.getElementById("detail-major").innerHTML = major;
+                    document.getElementById("detail-location").innerHTML = location;
                     document.getElementById("detail-tel").innerHTML = tel;
                     document.getElementById("detail-mail").innerHTML = mail;
                 }
+                ajax_num--;
+                if (ajax_num == 0) {
+                    edit();
+                }
             },
             headers: {
-                "Access-Control-Allow-Origin":"*"
+                "Access-Control-Allow-Origin": "*"
             }
         });
 
@@ -153,8 +195,8 @@ $(function () {
             dataType: "json",
             success: function (data) {
                 var err = data.err;
-                if (err == '-18') {
-                    document.getElementById("edu-show").innerHTML = "无教育经历";
+                if (err == '-118') {
+                    document.getElementById("edu-show").innerHTML = "";
                 }
                 if (err == '-1') {
                     alert("请求方法错误");
@@ -164,22 +206,28 @@ $(function () {
                 }
                 if (err == '0') {
                     var grade = data.grade;
-                    var major = data.major;
+                    var edu_background = data.edu_background;
                     document.getElementById("detail-grade").innerHTML = " " + grade;
-                    document.getElementById("detail-major").innerHTML = " " + major;
+                    document.getElementById("detail-background").innerHTML = " " + edu_background;
                     var edu_list = data.edu_list;
                     for (var i = 0; i < edu_list.length; i++) {
                         var edui = "edu" + (i + 1);
-                    var e_major = edu_list[i].major;
-                    var e_year = edu_list[i].graduation_year;
-                    var e_back = edu_list[i].edu_background;
-                    var e_school = edu_list[i].school;
-                    document.getElementById(edui).innerHTML = "<p><span style='font-size:16px'>" + e_back + "</span><span style='font-size:16px'> " + e_year + "年毕业</span></p><p><span style='font-size:16px'>" + e_school + "</span><span style='font-size:16px'> " + e_major + "</span></p>";
+                        var edu_alli = "#edu-all" + (i + 1);
+                        $(edu_alli).css("display", "block");
+                        var e_major = edu_list[i].major;
+                        var e_year = edu_list[i].graduation_year;
+                        var e_back = edu_list[i].edu_background;
+                        var e_school = edu_list[i].school;
+                        document.getElementById(edui).innerHTML = "<p><span style='font-size:16px'>" + e_back + "</span><span style='font-size:16px'> " + e_year + "年毕业</span></p><p><span style='font-size:16px'>" + e_school + "</span><span style='font-size:16px'> " + e_major + "</span></p>";
+                    }
                 }
+                ajax_num--;
+                if (ajax_num == 0) {
+                    edit();
                 }
             },
             headers: {
-                "Access-Control-Allow-Origin":"*"
+                "Access-Control-Allow-Origin": "*"
             }
         });
         /*-----------------------------获取实习经历---------------------------*/
@@ -190,8 +238,8 @@ $(function () {
             dataType: "json",
             success: function (data) {
                 var err = data.err;
-                if (err == '-20') {
-                    document.getElementById("prac-all").innerHTML = "无实习经历";
+                if (err == '-119') {
+                    document.getElementById("prac-all").innerHTML = "";
                     $("#prac-toggle").css("display", "none");
                 }
                 if (err == '-1') {
@@ -202,7 +250,7 @@ $(function () {
                 }
                 if (err == '0') {
                     var intern_list = data.intern_list;
-                    if (intern_list.length == 1) {
+                    if (intern_list.length == 1 || intern_list.length == 0) {
                         $("#prac-toggle").css("display", "none");
                     }
                     for (var i = 0; i < intern_list.length; i++) {
@@ -222,9 +270,13 @@ $(function () {
 
                     }
                 }
+                ajax_num--;
+                if (ajax_num == 0) {
+                    edit();
+                }
             },
             headers: {
-                "Access-Control-Allow-Origin":"*"
+                "Access-Control-Allow-Origin": "*"
             }
         });
         /*-----------------------------获取项目经历---------------------------*/
@@ -236,7 +288,7 @@ $(function () {
             dataType: "json",
             success: function (data) {
                 var err = data.err;
-                if (err == '-21') {
+                if (err == '-120') {
                     document.getElementById("proj-all").innerHTML = "无项目经历";
                     $("#proj-toggle").css("display", "none");
                 }
@@ -248,7 +300,7 @@ $(function () {
                 }
                 if (err == '0') {
                     var proj_list = data.proj_list;
-                    if (proj_list.length == 1) {
+                    if (proj_list.length == 1 || proj_list.length == 0) {
                         $("#proj-toggle").css("display", "none");
                     }
                     for (var i = 0; i < proj_list.length; i++) {
@@ -266,9 +318,13 @@ $(function () {
                         document.getElementById(proji1).innerHTML = p_description;
                     }
                 }
+                ajax_num--;
+                if (ajax_num == 0) {
+                    edit();
+                }
             },
             headers: {
-                "Access-Control-Allow-Origin":"*"
+                "Access-Control-Allow-Origin": "*"
             }
         });
 
@@ -280,8 +336,8 @@ $(function () {
             dataType: "json",
             success: function (data) {
                 var err = data.err;
-                if (err == '-23') {
-                    document.getElementById("works-all").innerHTML = "无作品集";
+                if (err == '-121') {
+                    document.getElementById("works-all").innerHTML = "";
                 }
                 if (err == '-1') {
                     alert("请求方法错误");
@@ -290,16 +346,20 @@ $(function () {
                     alert("操作失败");
                 }
                 if (err == '0') {
-                    document.getElementById("works-id").innerHTML = stu_id;
+                    document.getElementById("works-id").innerHTML = stu_id + "作品集.pdf";
                     var path = data.path;
                     var site = data.site;
                     document.getElementById("works-path").href = path;
                     document.getElementById("works-site").href = site;
-                    document.getElementById("works-site").innerHTML = site;
+                    document.getElementById("works-site").innerHTML = "作品集在线地址：" + site;
+                }
+                ajax_num--;
+                if (ajax_num == 0) {
+                    edit();
                 }
             },
             headers: {
-                "Access-Control-Allow-Origin":"*"
+                "Access-Control-Allow-Origin": "*"
             }
         });
         /*-----------------------------技能展示---------------------------*/
@@ -322,6 +382,8 @@ $(function () {
                 if (err == '0') {
                     var skill_list = data.skill_list;
                     for (var i = 0; i < skill_list.length; i++) {
+                        var skill0i = "#skill0" + (i + 1);
+                        $(skill0i).css("display", "block");
                         var s_name = skill_list[i].name;
                         var s_value = parseInt(skill_list[i].value);
                         if (s_value >= 0 && s_value < 25) {
@@ -348,12 +410,56 @@ $(function () {
                         $(skillalli).css("display", "none");
                     }
                 }
+                ajax_num--;
+                if (ajax_num == 0) {
+                    edit();
+                }
             },
             headers: {
-                "Access-Control-Allow-Origin":"*"
+                "Access-Control-Allow-Origin": "*"
             }
         });
-
     }
+
+    /*-----------------------------点击编辑---------------------------*/
+    $(".right-edit").click(function () {
+        var id = $(this).attr("id");
+        var i = id.substring(10, 11);
+        var choice = $(this).html();
+        if (choice == "编辑") {
+            $(this).html("取消");
+            var right_iconi1 = ".right-icon" + i;
+            $(right_iconi1).css("display", "block");
+        }
+        if (choice == "取消") {
+            $(this).html("编辑");
+            var right_iconi2 = ".right-icon" + i;
+            $(right_iconi2).css("display", "none");
+        }
+    });
+    /*-----------------------------教育经历编辑和删除---------------------------*/
+    $(".edu-cancel").click(function () {
+        if (confirm('确定要该条教育经历么?')) {
+            var id = $(this).attr("id");
+            var i = id.substring(10, 11);
+            var edualli = "#edu-all" + i;
+            $(edualli).css("display", "none");
+            var edui = "#edu" + i;
+            $(edui).html("");
+            var edu_array = $(".edu p");
+            var account = 0;
+            for (var i = 0; i < 5; i++) {
+                if (edu_array.htm = "") {
+                    account++;
+                }
+            }
+            if (account == 5) {
+                $("#ea1").css("display", "none");
+                $("#add1").css("display", "block");
+            }
+        }
+        return false;
+    });
+
 
 });

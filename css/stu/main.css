@@ -86,7 +86,7 @@
     background-color: #ffffff;
 }
 
-.chip>i{
+.chip > i {
     font-size: 16px;
     color: #ff8f00;
     background-color: #ffffff;
@@ -114,8 +114,14 @@
 .file-title {
     height: 24px;
     font-size: 24px;
-    line-height: 24px;
+    line-height: 37px;
     display: inline-block;
+}
+
+.title-show {
+    height: 39px;
+    line-height: 39px;
+    margin-bottom: 20px
 }
 
 .file-icon {
@@ -125,6 +131,7 @@
     border-top: 12px solid #ffffff;
     border-bottom: 12px solid #ffffff;
     margin-left: 8px;
+    margin-top: 7px;
     vertical-align: top;
 }
 
@@ -136,6 +143,10 @@
 
 #edu-show > p {
     margin-bottom: 5px;
+}
+
+.edu{
+    display: none;
 }
 
 /*-------实习经历部分的css-------*/
@@ -156,6 +167,9 @@
 }
 
 /*-------项目经历部分的css-------*/
+.proj-show,.prac-show{
+    margin-bottom: 12px;
+}
 
 .proj-show > p:nth-child(1) {
     margin-bottom: 8px;
@@ -189,25 +203,25 @@
 
 /*-------技能部分的css-------*/
 .skill-detail {
-    width: 430px;
+    width: 280px;
 }
 
 .skill-show {
     height: 16px;
     font-size: 16px;
     line-height: 16px;
-    margin-bottom: 15px;
+    margin-bottom: 40px;
 }
 
-.skill-show>span:nth-child(1){
-    width:100px;
+.skill-show > span:nth-child(1) {
+    width: 100px;
     height: 16px;
     font-size: 16px;
     line-height: 16px;
     display: inline-block;
 }
 
-.skill-show>span:nth-child(3){
+.skill-show > span:nth-child(3) {
     height: 16px;
     font-size: 16px;
     line-height: 16px;
@@ -216,61 +230,66 @@
     text-align: right;
 }
 
+.skill-total{
+    display: none;
+}
+
 .progress {
     display: inline-block;
-    margin:0;
+    margin: 0;
     vertical-align: middle;
-    height:6px;
+    height: 6px;
     background-color: lightgray;
 }
 
-.progress .determinate{
-    background-color:#ff8f00;
+.progress .determinate {
+    background-color: #ff8f00;
 }
 
 /*右边导航栏*/
-#nav-list{
-    width:200px;
+#nav-list {
+    width: 200px;
 }
 
-.circle1{
+.circle1 {
     position: absolute;
-    width:14px;
-    height:14px;
+    width: 14px;
+    height: 14px;
     border-radius: 50%;
-    background-color:#ff8f00;
-    top:3px;
-    left:3px;
+    background-color: #ff8f00;
+    top: 3px;
+    left: 3px;
 }
 
-.circle2{
+.circle2 {
     position: absolute;
-    width:20px;
-    height:20px;
+    width: 20px;
+    height: 20px;
     border-radius: 50%;
-    background-color:#ffffff;
-    top:2px;
-    left:2px;
+    background-color: #ffffff;
+    top: 2px;
+    left: 2px;
 
 }
-.circle3{
+
+.circle3 {
     position: relative;
-    width:24px;
-    height:24px;
+    width: 24px;
+    height: 24px;
     border-radius: 50%;
-    background-color:#ff8f00;
+    background-color: #ff8f00;
     margin-left: 15px;
 }
 
-#cir2a,#cir3a,#cir4a,#cir5a,#cir2b,#cir3b,#cir4b,#cir5b{
+#cir2a, #cir3a, #cir4a, #cir5a, #cir2b, #cir3b, #cir4b, #cir5b {
     background-color: transparent;
 }
 
-#choice1{
+#choice1 {
     font-weight: bold;
 }
 
-.list-choice{
+.list-choice {
     float: left;
     font-size: 24px;
     height: 24px;
@@ -278,47 +297,118 @@
     margin-left: 60px;
 }
 
-.circle3:hover{
+.circle3:hover {
     cursor: pointer;
 }
 
-footer:hover{
+footer:hover {
     cursor: pointer;
 }
 
 /*有关图标*/
-#edit-icon{
-    float:right;
+#edit-icon {
+    float: right;
     margin-top: 21px;
-    margin-right:20px;
+    margin-right: 20px;
 }
 
-#edit-icon>i{
-    color:#ff8f00;
+#edit-icon > i {
+    color: #ff8f00;
 }
 
-#cancel-icon{
-    background-color:#ffffff;
+#cancel-icon {
+    background-color: #ffffff;
 }
 
-#cancel-icon>i{
-    color:#ff8f00;
+#cancel-icon > i {
+    color: #ff8f00;
 }
 
 #detail4 .btn-floating.btn-large {
     width: 27px;
-    height:27px;
-    margin-left:20px;
+    height: 27px;
+    margin-left: 20px;
 }
+
 #detail4 .btn-floating.btn-large i {
 
-    margin-top:-20px;
+    margin-top: -20px;
     line-height: 5px;
 }
+
 .btn-large {
-line-height: 41px;
+    line-height: 41px;
 }
 
-#boy,#girl{
+#boy, #girl {
     display: none;
 }
+
+/*编辑档案的css*/
+.add-item {
+    margin-top: -10px;
+    margin-bottom: 7px;
+    display: none;
+}
+
+.add-cancel1 {
+    vertical-align: top;
+    margin-left: 413px;
+    display: none;
+}
+
+.add-cancel {
+    vertical-align: top;
+    margin-left: 380px;
+    display: none;
+}
+
+.add-out {
+    background-color: #ff8f00;
+    display: block;
+    margin: auto
+}
+
+.add-out:hover {
+    background-color: #ff8f00;
+}
+
+.btn-floating i {
+    color: #ffffff;
+}
+
+.right-top-icon1, .right-top-icon2 {
+    padding-left: 5px;
+    padding-right: 5px;
+    margin-left: 15px;
+    line-height: 26px;
+    font-size: 16px;
+    color: #ff8f00;
+    display: inline-block;
+    cursor: pointer;
+}
+
+.right-top-icon1:hover, .right-top-icon2:hover {
+    border-bottom: 1px solid #ff8f00;
+}
+
+.right-icon2,.right-icon3 {
+    vertical-align: top;
+    margin-top: -10px;
+}
+.right-icon1{
+    vertical-align: top;
+    margin-top: 5px;
+    float:right;
+}
+.right-icon2,.right-icon3,.right-icon5{
+    float:right;
+}
+.right-icon5{
+    vertical-align: top;
+    margin-top:-10px;
+}
+.right-icon1,.right-icon2,.right-icon3,.right-icon5{
+    display: none;
+}
+

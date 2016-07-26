@@ -81,9 +81,9 @@
     /*--------------------------------验 证 码 检 测 部 分--------------------------------*/
     $(function () {
         $('#code-check').click(function () {
-            $('#code-check').src = "http://127.0.0.1:8000/team/valid_code";
+            $('#code-check').src = "http://110.64.69.66:8081/team/valid_code";
             var a = $.ajax({
-                url: "http://127.0.0.1:8000/team/valid_code",
+                url: "http://110.64.69.66:8081/team/valid_code",
                 processData: false
             }).always(function (data) {
                 console.log('test');
@@ -97,9 +97,10 @@
         if (choice == '学生') {
             var checked = document.getElementById('agree').checked;
             if (account_flag == true && pwd_flag == true && checked) {
-                var account = $('.account').attr('value');
+                var account = $('#account').val();
+                alert(account);
                 var pwd = document.getElementById('pwd').value;
-                var pwd_hash = hex_sha1("pwd");
+                var pwd_hash = hex_sha1(pwd);
                 var code = document.getElementById('code').value;
                 var data = {
                     account: account,
@@ -109,21 +110,24 @@
                 $.ajax({
                     type: 'POST',
                     data: data,
-                    url: '../../data/register.json',
+                    url: 'http://110.64.69.66:8081/student/register/',
                     dataType: 'json',
                     success: function (data) {
                         var err = data.err;
-                        if (err == 0) {
+                        if (err == "0") {
                             flag = true;
                         }
-                        if (err == -2) {
+                        if (err == "-2") {
                             document.getElementById('code-result').innerHTML = "验证码错误";
                         }
-                        if (err == -3) {
+                        if (err == '-3') {
                             document.getElementById('account-result').innerHTML = "账号已经存在";
                         }
-                        if (err == -1) {
+                        if (err == '-1') {
                             document.getElementById('account-result').innerHTML = "请求方法错误";
+                        }
+                        if (err == '-10') {
+                            document.getElementById('account-result').innerHTML = "操作失败";
                         }
                         if (flag == true) {
                             $('.regi-form').css('display', 'none');
@@ -140,20 +144,24 @@
 
                             setInterval(timeleft, 1000);
                         }
+                    },
+                    headers: {
+                        "Access-Control-Allow-Origin":"*"
                     }
                 });
+
             }
         }
         else{
             var checked = document.getElementById('agree').checked;
             if (account_flag == true && pwd_flag == true && checked) {
-                var account = $('.account').attr('value');
+                var account = $('#account').val();
                 var pwd = document.getElementById('pwd').value;
-                var pwd_hash = hex_sha1("pwd");
+                var pwd_hash = hex_sha1(pwd);
                 var inv_code = document.getElementById('welcome').value;
                 var code = document.getElementById('code').value;
                 var data = {
-                    account: account,
+                    mail: account,
                     pwd: pwd_hash,
                     inv_code:inv_code,
                     code: code
@@ -161,21 +169,25 @@
                 $.ajax({
                     type: 'POST',
                     data: data,
-                    url: '../../data/register.json',
+                    url: 'http://110.64.69.66:8081/team/register/',
                     dataType: 'json',
+                    xhrFields: {withCredentials: true},
                     success: function (data) {
                         var err = data.err;
-                        if (err == 0) {
+                        if (err == '0') {
                             flag = true;
                         }
-                        if (err == -2) {
+                        if (err == '-2') {
                             document.getElementById('code-result').innerHTML = "验证码错误";
                         }
-                        if (err == -4) {
+                        if (err == '-4') {
                             document.getElementById('account-result').innerHTML = "邀请码或账号不正确";
                         }
-                        if (err == -1) {
+                        if (err == '-1') {
                             document.getElementById('account-result').innerHTML = "请求方法错误";
+                        }
+                        if (err == '-10') {
+                            document.getElementById('account-result').innerHTML = "操作失败";
                         }
                         if (flag == true) {
                             $('.regi-form').css('display', 'none');
@@ -193,7 +205,11 @@
 
                             setInterval(timeleft, 1000);
                         }
-                    }
+                    },
+                 headers: {
+                     "Access-Control-Allow-Origin":"http://110.64.69.66:8081",
+                     "Access-Control-Allow-Credentials": "true"
+                 }
                 });
             }
         }

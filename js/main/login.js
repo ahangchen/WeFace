@@ -27,7 +27,7 @@ $(function () {
                 var flag = false;
                 var account = document.getElementById("account").value;
                 var pwd = document.getElementById("pwd").value;
-                var pwd_hash = hex_sha1("pwd");
+                var pwd_hash = hex_sha1(pwd);
                 var data = {
                     account: account,
                     pwd: pwd_hash
@@ -35,10 +35,11 @@ $(function () {
                 $.ajax({
                     type: 'POST',
                     data: data,
-                    url: '../../data/login.json',
+                    url: 'http://110.64.69.66:8081/student/register/',
                     dataType: 'json',
                     success: function (data) {
                         var err = data.err;
+                        var stu_id=data.msg;
                         if (err == 0) {
                             flag = true;
                         }
@@ -60,6 +61,9 @@ $(function () {
                         if (flag == true) {
                             window.location.href = "../studentLogin.html?account="+account;
                         }
+                    },
+                    headers: {
+                        "Access-Control-Allow-Origin":"*"
                     }
                 });
             }
@@ -67,18 +71,19 @@ $(function () {
                 var flag = false;
                 var account = document.getElementById("account").value;
                 var pwd = document.getElementById("pwd").value;
-                var pwd_hash = hex_sha1("pwd");
+                var pwd_hash = hex_sha1(pwd);
                 var data = {
-                    account: account,
+                    mail: account,
                     pwd: pwd_hash
                 };
                 $.ajax({
                     type: 'POST',
                     data: data,
-                    url: '../../data/login.json',
+                    url: 'http://110.64.69.66:8081/team/login/',
                     dataType: 'json',
                     success: function (data) {
                         var err = data.err;
+                        var tid=data.msg;
                         if (err == 0) {
                             flag = true;
                         }
@@ -95,8 +100,12 @@ $(function () {
                             document.getElementById('account-warn').innerHTML = "账号不可用";
                         }
                         if (flag == true) {
-                            window.location.href = "../pages/indexForMainPage.html?account="+account;
+                            console.log(tid);
+                            window.location.href = "../../team/index.html?tid="+tid;
                         }
+                    },
+                    headers: {
+                        "Access-Control-Allow-Origin":"*"
                     }
                 });
             }
