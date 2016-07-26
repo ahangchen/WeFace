@@ -35,7 +35,7 @@ a:hover{
 	margin-top: 12px;
 	display: block;
 	float: left;
-}i
+}
 #name{
 	line-height: 70px;
 	float: left;
@@ -71,9 +71,10 @@ a:hover{
 }
 #information{
 	width: 970px;
-	 -webkit-box-shadow:0 0 10px gray;  
-  	-moz-box-shadow:0 0 10px gray;  
- 	 box-shadow:0 0 10px gray;
+	background: rgba(255, 255, 255, 0.5);
+	-moz-box-shadow: 0 5px 5px 0 rgba(0, 0, 0, 0.22), 0 10px 10px 0 rgba(0, 0, 0, 0.21);
+	-webkit-box-shadow: 0 5px 5px 0 rgba(0, 0, 0, 0.22), 0 10px 10px 0 rgba(0, 0, 0, 0.21);
+	box-shadow: 0 5px 5px 0 rgba(0, 0, 0, 0.22), 0 10px 10px 0 rgba(0, 0, 0, 0.21);
 	height: 120px;
 	margin-top: 5px;
 }
