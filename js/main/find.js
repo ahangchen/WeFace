@@ -20,7 +20,7 @@ $(function () {
             $.ajax({
                 type: 'POST',
                 data: data,
-                url: '../../data/find.json',
+                url: 'http://110.64.69.66:8081/student/rsmail/',
                 dataType: 'json',
                 success: function (data) {
                     var err = data.err;
@@ -38,6 +38,9 @@ $(function () {
                         document.getElementById("find-result").innerHTML = "操作失败";
                     }
 
+                },
+                headers: {
+                    "Access-Control-Allow-Origin":"*"
                 }
             });
         }

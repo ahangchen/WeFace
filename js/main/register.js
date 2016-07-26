@@ -98,7 +98,6 @@
             var checked = document.getElementById('agree').checked;
             if (account_flag == true && pwd_flag == true && checked) {
                 var account = $('#account').val();
-                alert(account);
                 var pwd = document.getElementById('pwd').value;
                 var pwd_hash = hex_sha1(pwd);
                 var code = document.getElementById('code').value;

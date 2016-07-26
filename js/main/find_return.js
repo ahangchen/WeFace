@@ -51,7 +51,7 @@ $("#finish").click(function () {
         $.ajax({
             type: 'POST',
             data: data,
-            url: '../../data/find.json',
+            url: '.http://110.64.69.66:8081/student/reset/',
             dataType: 'json',
             success: function (data) {
                 if (data.err == 0) {
@@ -70,6 +70,9 @@ $("#finish").click(function () {
                 if (data.err == -1) {
                     document.getElementById('result').innerHTML = "请求方法错误";
                 }
+            },
+            headers: {
+                "Access-Control-Allow-Origin":"*"
             }
         });
     }

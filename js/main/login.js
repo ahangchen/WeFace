@@ -35,11 +35,11 @@ $(function () {
                 $.ajax({
                     type: 'POST',
                     data: data,
-                    url: 'http://110.64.69.66:8081/student/register/',
+                    url: 'http://110.64.69.66:8081/student/login/',
                     dataType: 'json',
                     success: function (data) {
                         var err = data.err;
-                        var stu_id=data.msg;
+                        var stu_id=data.id;
                         if (err == 0) {
                             flag = true;
                         }
@@ -59,7 +59,7 @@ $(function () {
                             document.getElementById('account-warn').innerHTML = "操作失败";
                         }
                         if (flag == true) {
-                            window.location.href = "../studentLogin.html?account="+account;
+                            window.location.href = "../../stu/main.html?stu_id="+stu_id;
                         }
                     },
                     headers: {
