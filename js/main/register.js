@@ -41,7 +41,7 @@
         var pwdconf = document.getElementById('pwd-conf').value;
         if (pwd.length >= 6) {
             if (pwd != pwdconf) {
-                document.getElementByIfd("conf-result").innerHTML = "两次输入的密码不同，请重新输入";
+                document.getElementById("conf-result").innerHTML = "两次输入的密码不同，请重新输入";
             }
             if (pwd == pwdconf && pwdconf != "") {
                 $("#conf-result").css("color", "green");
@@ -79,18 +79,18 @@
     }); //密码判断；
 
     /*--------------------------------验 证 码 检 测 部 分--------------------------------*/
-    $(function () {
-        $('#code-check').click(function () {
-            var a = $.ajax({
-                url: "http://110.64.69.66:8081/team/valid_code",
-                processData: false,
-                xhrFields: {withCredentials: true}
-            }).always(function (data) {
-                console.log('test');
-                $("#code-check").attr('src', "data:image/gif;base64," + data);
-            });
-        });
-    });
+    // $(function () {
+    //     $('#code-check').click(function () {
+    //         var a = $.ajax({
+    //             url: "http://110.64.69.66:8081/team/valid_code",
+    //             processData: false,
+    //             xhrFields: {withCredentials: true}
+    //         }).always(function (data) {
+    //             console.log('test');
+    //             $("#code-check").attr('src', "data:image/gif;base64," + data);
+    //         });
+    //     });
+    // });
 
 
     $('#regi-conf').click(function () {
@@ -224,8 +224,12 @@
 
 function loadValidCode(id) {
     $.ajax({
-        url: "http://110.64.69.66:8081/team/valid_code",
-        processData: false
+        url: "http://110.64.69.66:8081/team/valid_code/",
+        processData: false,
+        xhrFields: {withCredentials: true},
+        headers: {
+            "Access-Control-Allow-Origin":"*"
+        }
     }).always(function (data) {
             console.log('test');
             $(id).attr('src', "data:image/gif;base64," + data);
