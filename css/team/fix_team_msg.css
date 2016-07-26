@@ -1,0 +1,26 @@
+#basic_team_information{
+    opacity: 0;
+    width:970px;
+    height: 0;
+    background: rgba(255, 255, 255, 0.5);
+    -moz-box-shadow: 0 5px 5px 0 rgba(0, 0, 0, 0.22), 0 10px 10px 0 rgba(0, 0, 0, 0.21);
+    -webkit-box-shadow: 0 5px 5px 0 rgba(0, 0, 0, 0.22), 0 10px 10px 0 rgba(0, 0, 0, 0.21);
+    box-shadow: 0 5px 5px 0 rgba(0, 0, 0, 0.22), 0 10px 10px 0 rgba(0, 0, 0, 0.21);
+}
+
+#team_message_box{
+    width:970px;
+    height:500px;
+    position: relative;
+    background: rgba(255, 255, 255, 0.5);
+    -moz-box-shadow: 0 5px 5px 0 rgba(0, 0, 0, 0.22), 0 10px 10px 0 rgba(0, 0, 0, 0.21);
+    -webkit-box-shadow: 0 5px 5px 0 rgba(0, 0, 0, 0.22), 0 10px 10px 0 rgba(0, 0, 0, 0.21);
+    box-shadow: 0 5px 5px 0 rgba(0, 0, 0, 0.22), 0 10px 10px 0 rgba(0, 0, 0, 0.21);
+}
+
+#team_tag{
+    background-color: #fff;
+    width: 10px;
+    height: 5px;
+    border-radius: 5px;
+}
