@@ -437,7 +437,7 @@ $(function () {
             $(right_iconi2).css("display", "none");
         }
     });
-    /*-----------------------------教育经历编辑和删除---------------------------*/
+    /*-----------------------------教育经历删除---------------------------*/
     $(".edu-cancel").click(function () {
         if (confirm('确定要该条教育经历么?')) {
             var id = $(this).attr("id");
@@ -446,10 +446,11 @@ $(function () {
             $(edualli).css("display", "none");
             var edui = "#edu" + i;
             $(edui).html("");
-            var edu_array = $(".edu p");
             var account = 0;
-            for (var i = 0; i < 5; i++) {
-                if (edu_array.htm = "") {
+            for(var i=0;i<5;i++){
+                var edui="edu"+(i+1);
+                var temp=document.getElementById(edui).innerHTML;
+                if(temp==""){
                     account++;
                 }
             }
@@ -460,6 +461,19 @@ $(function () {
         }
         return false;
     });
+
+    /*-----------------------------教育经历编辑---------------------------*/
+$(".edu-edit").click(function(){
+    var id = $(this).attr("id");
+    var i = id.substring(8, 9);
+    var edit_fieldi="#edit-field"+i;
+    var edui=edit_fieldi+">#edu"+i;
+    var right_iconi=edit_fieldi+">.right-icon1";
+    $(edui).css("display","none");
+    $(right_iconi).css("display","none");
+    $(edit_fieldi).html("");
+
+});
 
 
 });
