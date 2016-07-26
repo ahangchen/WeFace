@@ -81,10 +81,10 @@
     /*--------------------------------验 证 码 检 测 部 分--------------------------------*/
     $(function () {
         $('#code-check').click(function () {
-            $('#code-check').src = "http://110.64.69.66:8081/team/valid_code";
             var a = $.ajax({
                 url: "http://110.64.69.66:8081/team/valid_code",
-                processData: false
+                processData: false,
+                xhrFields: {withCredentials: true}
             }).always(function (data) {
                 console.log('test');
                 $("#code-check").attr('src', "data:image/gif;base64," + data);
@@ -110,6 +110,7 @@
                     type: 'POST',
                     data: data,
                     url: 'http://110.64.69.66:8081/student/register/',
+                    xhrFields: {withCredentials: true},
                     dataType: 'json',
                     success: function (data) {
                         var err = data.err;
@@ -206,8 +207,7 @@
                         }
                     },
                  headers: {
-                     "Access-Control-Allow-Origin":"http://110.64.69.66:8081",
-                     "Access-Control-Allow-Credentials": "true"
+                     "Access-Control-Allow-Origin":"*"
                  }
                 });
             }
@@ -238,9 +238,5 @@ $(document).ready(function () {
     $('#check').click(function () {
         loadValidCode('#check');
     });
-    $('#check2').click(function () {
-        loadValidCode('#check2');
-    });
     loadValidCode('#check');
-    loadValidCode('#check2');
 });
