@@ -15,7 +15,8 @@ $(function(){
     //在学生主页的url中获取学生id
     var stuId = getUrlVar('stuId');
     var sId = {
-        stu_id:stuId
+        stu_id:stuId,
+        state:5
     };
     init();
     $('#flushBtn').click(function(){
@@ -42,7 +43,7 @@ $(function(){
             //url:"../data/stu/deliverAll.json",
             //测试用的json文件
             data:sId,
-            url:"http://110.64.69.66:8081/student/apply/info/",
+            url:"http://110.64.69.66:8081/student/apply/list/",
             dataType:"json",
             success:function(data){
                 var chCnt = 0;

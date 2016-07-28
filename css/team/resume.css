@@ -1,0 +1,244 @@
+/*简历管理页面的css*/
+/*-------------------------------------------居中公用类------------------------------------------------------*/
+.comWidth {
+    width:        970px;
+    margin-left:  auto;
+    margin-right: auto;
+
+}
+
+a:link {
+    text-decoration: none;
+    color:           #353535;
+}
+
+a:visited {
+    color: #353535;
+}
+html{
+    background-image: url(../../res/imgs/bg.svg);
+    background-size: 100% auto;
+}
+.fl{
+    float: left;
+}
+.fr{
+    float: right;
+}
+label{
+    color: #353535;
+    font-size: 16px;
+}
+.left{
+    height: 64px;
+}
+#search{
+    margin-bottom:0;
+}
+/*----------------------------------导航栏-------------------------------------------------------------*/
+
+#logo {
+    height: 44px;
+    margin: 10px;
+}
+
+a.topBarItem.dropdown-button.btn{
+    width:            120px;
+    background-color: transparent;
+    box-shadow:       none;
+    text-align:       right;
+    padding-right:    6px;
+}
+
+.logo-name {
+    margin:      10px 5px 5px 5px;
+    font-size:   16px;
+    line-height: 20px;
+}
+
+.search-bar {
+    height: 100%;
+}
+
+.nav-wrapper li a {
+    width:      100px;
+    text-align: center;
+}
+
+.header {}
+
+.fl {
+    float: left;
+}
+
+.fr {
+    float: right;
+}
+
+.topBar {
+    top:         5%;
+    height:      35px;
+    font-size:   12px;
+    line-height: 30px;
+    background:  rgba(255, 255, 255, 0.5);
+}
+
+.topBar a {
+    font-size: 14px;
+    /*color:   #FF0000;*/
+    cursor:    pointer;
+}
+
+.header a {
+    margin-left:  7px;
+    margin-right: 5px;
+    line-height:  35px;
+}
+
+.header .line {
+    position:    relative;
+    top:         3px;
+    margin-left: 5px;
+    font-weight: lighter;
+    font-size:   20pt;
+    line-height: 20px;
+    color:       gray;
+}
+
+.mainBtn {
+    margin: 20px 5px 20px 13px;
+}
+
+/*－－－－－－－－－－－－－－－－－－－－选择状态栏－－－－－－－－－－－－－－－－－－*/
+div.col.s12{
+    position: relative;
+    top:      -15px;
+    padding:  0;
+    overflow: visible;
+}
+/*－－－－－－－－－－－－－－－－－－－－－新消息条数－－－－－－－－－－－－－－－－－－－－－－－－－－*/
+.tabs .newNum{
+    display: inline-block;
+    background-color: #ff8f00;
+    border-radius: 50%;
+    color: white;
+    position: relative;
+    top: 0;
+    left: 10px;
+    width: 30px;
+    height: 30px;
+    line-height: 30px;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    /*visibility: hidden;*/
+}
+#resumeBtn .newNum{
+    background-color: #ff8f00;
+    border-radius: 50%;
+    color: white;
+    position: absolute;
+    top: 0;
+    left: 290px;
+    width: 30px;
+    height: 30px;
+    line-height: 30px;
+    /*visibility: hidden;*/
+}
+
+.states{
+    width: 970px;
+    min-height: 66px;
+    padding-bottom: 2px;
+    background-color: rgba(255,255,255,0.5);
+    margin-bottom: 15px;
+}
+.stateBar .tabs{
+    height: 44px;
+    width: 532px;
+
+}
+div.col.s9.stateBar{
+    padding-left: 0;
+}
+ul.tabs{
+    margin-top: 20px;
+    width: 532px;
+    margin-left: 0;
+    margin-bottom: 5px;
+}
+/*－－－－－－－－简历显示－－－－－－－－－－*/
+.resumeCard{
+    min-height: 114px;
+    background-color: white;
+    padding: 24px 44px 30px 70px;
+    margin-top: 8px;
+}
+.deliverBar{
+    margin-top: 16px;
+}
+.state{
+    margin-left: 20px;
+}
+.checkBtn:visited{
+    color: white;
+}
+.solveBtn:visited{
+    color: white;
+}
+.resumeCard a:link{
+    color: white;
+}
+.name{
+    font-size: 24px;
+}
+div.col.s3{
+    text-align: center;
+}
+.date{
+    margin-top: 16px;
+}
+.admitChip{
+    background-color: #ff8f00;
+    color: white;
+}
+.unsuitChip{
+    background-color: #939393;
+    color: white;
+}
+.admitChip,.unsuitChip{
+    margin-left: 60px;
+    font-size: 16px;
+    height: 36px;
+    width: 100px;
+    position: relative;
+    top: -3px;
+    line-height: 36px;
+    text-align: center;
+    font-weight: lighter;
+    border-radius: 18px;
+}
+.checkBtn,.solveBtn{
+    color: white;
+    background-color: #ff8f00;
+}
+.checkBtn:hover,.solveBtn:hover{
+    background-color: #ffaf10;
+}
+/*－－－－－－－－－－－－－－－－－－－－－－－页码－－－－－－－－－－－－－－－－*/
+.newPageNum,.unQuiPageNum,.unConPageNum,.completeNum{
+    margin-top: 30px;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+}
+.pagination li.active{
+    color: #353535;
+    background-color: transparent;
+    text-decoration: underline;
+}
+.pagination li.active a{
+    color: #353535;
+}
+
+
