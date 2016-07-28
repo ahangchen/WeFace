@@ -1,26 +1,104 @@
-#basic_team_information{
-    opacity: 0;
-    width:970px;
-    height: 0;
-    background: rgba(255, 255, 255, 0.5);
-    -moz-box-shadow: 0 5px 5px 0 rgba(0, 0, 0, 0.22), 0 10px 10px 0 rgba(0, 0, 0, 0.21);
-    -webkit-box-shadow: 0 5px 5px 0 rgba(0, 0, 0, 0.22), 0 10px 10px 0 rgba(0, 0, 0, 0.21);
-    box-shadow: 0 5px 5px 0 rgba(0, 0, 0, 0.22), 0 10px 10px 0 rgba(0, 0, 0, 0.21);
+#fix_msg_button{
+    margin-left:-300px;
+    margin-top: 50px;
 }
 
-#team_message_box{
-    width:970px;
-    height:500px;
-    position: relative;
-    background: rgba(255, 255, 255, 0.5);
-    -moz-box-shadow: 0 5px 5px 0 rgba(0, 0, 0, 0.22), 0 10px 10px 0 rgba(0, 0, 0, 0.21);
-    -webkit-box-shadow: 0 5px 5px 0 rgba(0, 0, 0, 0.22), 0 10px 10px 0 rgba(0, 0, 0, 0.21);
-    box-shadow: 0 5px 5px 0 rgba(0, 0, 0, 0.22), 0 10px 10px 0 rgba(0, 0, 0, 0.21);
+.put_photo_here{
+    width: 150px;
+    height: 150px;
+    margin-top: -155px;
+    margin-left: 50px;
+    cursor:pointer;
 }
 
-#team_tag{
+#photo_logo{
+    background-color: #dcd8d7;
+    width: 150px;
+    height:150px;
+    border-radius: 10px;
+}
+
+#photo_camera{
+    margin-left: 30px;
+    margin-top: 30px;
+}
+
+#local_photo{
+    width: 150px;
+    height: 150px;
+    margin-left: 50px;
+    margin-top:50px;
+    border-radius: 10px;
+}
+
+.team_msg{
+    width: 400px;
+    height:400px;
+    float: right;
+    margin-top:-180px;
+    margin-right: 200px;
+}
+
+.team_name{
+    height: 100px;
+    width: 400px;
+}
+
+.job_type{
+    width: 100px;
+    height: 100px;
+    margin-top: -20px;
+}
+
+.add_type{
+    margin-top:-100px;
+    margin-left: 150px;
+}
+
+.team_number{
+    margin-top: 30px;
+    width: 200px;
+    height: 100px;
+}
+
+.team_slogan{
+    margin-top: -30px;
+}
+
+.complete_btn{
+    margin-top: 30px;
+}
+
+#saveButton,#cancelButton{
+    margin-top: 15px;
+    margin-bottom: 15px;
+    width: 150px;
+    color: #000;
     background-color: #fff;
-    width: 10px;
-    height: 5px;
-    border-radius: 5px;
 }
+
+#saveButton:hover,#cancelButton:hover{
+    color: #fff;
+    background-color: #fb8c00;
+}
+
+#type_tag{
+    margin-top: -100px;
+    float: right;
+    margin-right: -200px;
+    width: 400px;
+    height: 100px;
+}
+
+#type_tag .chip{
+    background-color: #fff;
+    color: orange;
+    float: left;
+}
+
+
+
+
+
+
+
