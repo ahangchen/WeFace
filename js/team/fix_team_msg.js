@@ -2,6 +2,18 @@ $(function () {
     $("#fix_msg_button").click(function () {
         $("#information").empty().css("height","500px");
         $("#team_introuduction").empty();
+        $("#main_right_one").append('<div id="add_member"><a class="btn-floating btn-large waves-effect waves orange">'+
+            '<i class="material-icons" style="color:#fff">add</i></a></div>');
+        $("#main_right_one").append('<div class="add_member_btn">'+
+            '<a id="member_saveButton" class="waves-effect waves-light btn">保存</a>'+
+            '<a id="member_cancelButton" class="waves-effect waves-light btn">取消</a> </div>');
+        $("#member_information").empty();
+        $("#member_information").append('<div class="input-field connect "><i class="material-icons prefix">phone</i>'
+            +'<input id="connect_tel" type="tel" class="validate"><label for="connect_tel">输入公司的联系电话</label> </div>');
+        $("#member_information").append('<div class="input-field connect "><i class="material-icons prefix">email</i>'
+            +'<input id="connect_mail" type="email" class="validate"><label for="connect_tel">输入公司的联系邮箱</label> </div>');
+        $("#member_information").append('<div class="edit_connect_btn"> <a id="connect_saveButton" class="waves-effect waves-light btn">保存</a>'
+            +'<a id="connect_cancelButton" class="waves-effect waves-light btn">取消</a> </div>');
          $.ajax({
             type:"get",
             url: "basic_msg_for_team.html",
