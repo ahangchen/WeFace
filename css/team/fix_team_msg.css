@@ -96,8 +96,32 @@
     float: left;
 }
 
+.team_intro{
+    margin-top: -30px;
+    margin-left: 40px;
+    width: 500px;
+}
 
+.intro_complete_btn{
+    margin-left: 150px;
+    margin-top: -30px;
+}
 
+#intro_saveButton,#intro_cancelButton{
+    color: #000;
+    background-color: #fff;
+    margin-left: 10px;
+}
+
+#intro_saveButton:hover,#intro_cancelButton:hover{
+    color: #fff;
+    background-color: #fb8c00;
+}
+
+#list_auto{
+    margin-left: -55px;
+    margin-top: -90px;
+}
 
 
 
