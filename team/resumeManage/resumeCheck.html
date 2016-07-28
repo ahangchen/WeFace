@@ -1,0 +1,95 @@
+<!-- 处理／查看简历的html -->
+<!DOCTYPE html>
+<html>
+<meta charset="utf-8">
+<head>
+    <title>简历处理</title>
+</head>
+<body>
+<link href="../../css/base.css" type="text/css" rel="stylesheet"/>
+<link rel="stylesheet" type="text/css" href="../../css/materialize.css">
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+<link rel="stylesheet" type="text/css" href="../../css/team/resumeSolve.css">
+<script type="text/javascript" src="../../js/jquery-2.1.1.min.js"></script>
+<script type="text/javascript" src="../../js/materialize.js"></script>
+<script type="text/javascript" src="../../js/team/resumeSolve.js"></script>
+<div class="header comWidth">
+    <div class="topBar">
+        <div class="comWidth">
+            <div class ="header fl">
+                <a href="test/information.html" target="_blank">关于基地</a>
+            </div>
+            <div class="header fr">
+                <a class="topBarItem dropdown-button btn"  data-activates='dropdown1' href="#">发布</a>
+                <ul id='dropdown1' class='dropdown-content'>
+                    <li><a href="#!">发布职位</a></li>
+                    <li><a href="#!">发布项目</a></li>
+                </ul>
+                <!-- <span id="line">|</span> -->
+                <span class="line">|</span>
+                <a class="topBarItem" id="submintBtn" href="test/submit.html" target="_blank">团队主页</a>
+                <span class="line">|</span>
+                <a class="topBarItem" id="message" href="test/message.html" target="_blank">消息</a>
+                <span class="line">|</span>
+                <a class="topBarItem" id="collection" href="test/collection.html" target="_blank">退出</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<nav class="white lighten-5 comWidth">
+    <div class="nav-wrapper">
+        <ul class="left">
+            <li><img id="logo" src="../../res/imgs/materialize.svg"/></li>
+            <li><p class="logo-name">华南理工大学<br/>人才交流平台
+                <p></li>
+            <li><a href="#" id="resumeBtn">简历管理</a></li>
+            <li><a href="#" id="positionBtn">职位管理</a></li>
+            <li><a href="#" id="projectBtn">项目管理</a></li>
+        </ul>
+        <div class="input-field right search-bar">
+            <input id="search" type="search" placeholder="Click to search" required>
+            <label for="search"><i class="material-icons">search</i></label>
+            <i class="material-icons">close</i>
+        </div>
+    </div>
+</nav>
+<div class="comWidth manageDiv">
+    <div class="infoCard z-depth-2">
+        <div class="imgBox">
+            <img src="../../res/imgs/main/img1.jpg" class="stuImg">
+        </div>
+        <div class="baseInfo">
+            <div class="nameBar">
+                <span class="name">姓名</span>
+                <span class="sex">性别</span>
+                <span class="age">年龄</span>
+            </div>
+            <div class="contactInfo">
+                <span class="mail">123456789@163.com</span>
+                <span class="tel">12345678901</span>
+
+            </div>
+            <div class="eduInfo">
+                <div class="chip"><span class="school">学校&nbsp&nbsp&nbsp&nbsp</span><span class="department">专业</span></div>
+                <div class="chip grade">年级</div>
+                <div class="chip addr">所在地</div>
+            </div>
+        </div>
+        <div class="resumeCard ">
+            <span class="attachImg"><img src="../../res/imgs/attach_file.svg"></span>
+            <a class="resumeName">XX的简历.pdf</a>
+        </div>
+    </div>
+    <div class="selectBar z-depth-2">
+        <div class="state  row">
+            已录用
+        </div>
+        <div class="buttonBar ">
+            <a class="waves-effect waves-light btn" id="returnBtn">返回</a>
+        </div>
+    </div>
+</div>
+</body>
+</html>
