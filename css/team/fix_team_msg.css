@@ -154,6 +154,49 @@
     background-color: #fb8c00;
 }
 
+#add_member{
+    margin-left:200px;
+    margin-top: -70px;
+}
+
+.add_member_btn{
+margin-top: 50px;
+    margin-left: 20px;
+}
+
+#member_saveButton,#member_cancelButton{
+    color: #000;
+    background-color: #fff;
+    margin-left: 10px;
+}
+
+#member_saveButton:hover,#member_cancelButton:hover{
+    color: #fff;
+    background-color: #fb8c00;
+}
+
+#connect_tel,#connect_mail{
+    width: 200px
+}
+
+
+.edit_connect_btn{
+    margin-left: 50px;
+    width: 400px;
+}
+
+#connect_saveButton,#connect_cancelButton{
+    color: #000;
+    background-color: #fff;
+    margin-left: 10px;
+}
+
+#connect_saveButton:hover,#connect_cancelButton:hover{
+    color: #fff;
+    background-color: #fb8c00;
+}
+
+
 
 
 
