@@ -1,14 +1,26 @@
 $(function () {
     $("#fix_msg_button").click(function () {
         $("#information").empty().css("height","500px");
-        //$("#basic_team_information").css("opacity","1").css("height","600px");
-        //$("#orgin_page").css("top","-100px");
+        $("#team_introuduction").empty();
+        /*$("#main_left_top").append('<div class="input-field team_intro">' +
+            '<textarea id="team_intro" class="materialize-textarea" length="120"></textarea></div>');
+        $("#main_left_top").append('<div class="intro_complete_btn">'+
+            '<a id="intro_saveButton" class="waves-effect waves-light btn">保存</a>'+
+            '<a id="intro_cancelButton" class="waves-effect waves-light btn">取消</a></div>');*/
          $.ajax({
             type:"get",
             url: "basic_msg_for_team.html",
             dataType:"html",
             success:function(data){
                 $("#information").html(data);
+            }
+        });
+        $.ajax({
+            type:"get",
+            url: "team_intro.html",
+            dataType:"html",
+            success:function(data){
+                $("#team_introuduction").html(data);
             }
         })
     });
