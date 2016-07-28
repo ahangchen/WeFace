@@ -2,11 +2,6 @@ $(function () {
     $("#fix_msg_button").click(function () {
         $("#information").empty().css("height","500px");
         $("#team_introuduction").empty();
-        /*$("#main_left_top").append('<div class="input-field team_intro">' +
-            '<textarea id="team_intro" class="materialize-textarea" length="120"></textarea></div>');
-        $("#main_left_top").append('<div class="intro_complete_btn">'+
-            '<a id="intro_saveButton" class="waves-effect waves-light btn">保存</a>'+
-            '<a id="intro_cancelButton" class="waves-effect waves-light btn">取消</a></div>');*/
          $.ajax({
             type:"get",
             url: "basic_msg_for_team.html",
@@ -24,6 +19,19 @@ $(function () {
             }
         })
     });
+
+    $("#history_button").click(function () {
+        $.ajax({
+            type:"get",
+            url: "develop_history.html",
+            dataType:"html",
+            success:function(data){
+                $("#history_text").html(data);
+            }
+        })
+
+    });
+
 
     var tag=[];//记录已选择的标签
     var tag_num=0;
