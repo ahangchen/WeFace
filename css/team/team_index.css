@@ -6,6 +6,7 @@ body{
 	width: 970px;
 	margin: 0 auto;
 	height: 1000px;
+	padding-bottom: 20px;
 }
 #head{
 	height: 25px;
@@ -13,16 +14,10 @@ body{
 	text-align: right;
 }
 
-
+div{
+	border: 1px black solid;
+}
 #team_home_div{
-}
-a{
-	text-decoration: none;
-	color: black;
-}
-a:hover{
-	text-decoration: none;
-	color: blue;
 }
 #logo{
 	float: left;
@@ -93,19 +88,7 @@ a:hover{
 	margin: 10px 20px 10px 120px;
 	float: left;
 }
-.tag_even{
-	width: 70px;
-	height: 40px;
-	border-radius: 10px;
-	float: left;
-	line-height: 40px;
-	text-align: center;
-	font-size: 10px;
-	margin: 2px 5px;
-	background-color:rgb(255,147,74);
-	color: white;
-}
-.tag_odd{
+.tag{
 	width: 70px;
 	height: 40px;
 	border-radius: 10px;
@@ -131,7 +114,7 @@ a:hover{
 	margin-right: 10px;
 }
 #right{	
-	height: 550px;
+	height: 600px;
 	width: 335px;
 	float: left;
 	background-color: white;
@@ -158,13 +141,13 @@ a:hover{
 }
 #main_left_middle_two{
 	width: 620px;
-	height: 310px;
+	height: 380px;
 	padding-top: 10px;
 	background-color: white;
 	  -webkit-box-shadow:0 0 10px gray;  
   	-moz-box-shadow:0 0 10px gray;  
  	 box-shadow:0 0 10px gray;
- 	 padding: 20px;
+ 	 padding: 0px 20px 20px 20px;
 }
 .piture{
 	height: 160px;
@@ -196,19 +179,36 @@ a:hover{
 	width: 80px;
 	border-radius: 80px;
 	border: 1px black solid;
-	margin: 5px 25px;
+	
+}
+.Head_portrait_div{
+	float: left;
+	height: 110px;
+	width: 110px;
+	text-align: center;
+}
+.Head_portrait_div_left{
+	margin-left: 20px;
+}
+.leader_div{
+	height: 150px;
+	width: 150px;
+	margin: 5px 60px;
+	text-align: center;
 }
 #leader{
 	height: 100px;
 	width: 100px;
 	border-radius: 50px;
 	border: 1px black solid;
-	margin: 5px 80px;
+	margin-left: 0px;
+	
 }
 #member_information{
 	height: 160px;
 	width: 160px;
-	margin-left: 80px;
+	margin-left: 30px;
+	margin-top: 20px;
 }
 .team_tag{
 	height: 25px;
@@ -254,22 +254,6 @@ a:hover{
 	padding: 0px 2px;
 	border-left: 1px black solid;
 }
-#Team_project_div{
-	height: 800px;
-	width: 980px;
-	background-color: white;
-	margin-top: 50px;
-	text-align: center;
-	line-height: 800px;
-}
-#Demand_for_jobs_div{
-	height: 800px;
-	width: 980px;
-	background-color: white;
-	margin-top: 50px;
-	text-align: center;
-	line-height: 800px;
-}
 #Recently_div{
 	height: 800px;
 	width: 980px;
@@ -288,4 +272,52 @@ margin-top: 10px;
 	float: left;
 	margin-left: 35px;
 	margin-top: 4px;
+}
+.slider{
+	margin-top: 20px;
+}
+#contact_way{
+	margin-top: 70px;
+}
+
+/*团队项目css*/
+#Team_project_div{
+	height: 800px;
+	margin-top: 50px;
+	line-height: 800px;
+}
+.Team_project_list{
+	height: 200px;
+	background-color: white;
+	margin-bottom: 10px;
+}
+.projectName{
+	height: 50px;
+	line-height: 50px;
+	padding-left: 30px;
+	padding-top: 20px;
+	font-size: 30px; 
+	width: 650px;
+	float: left;
+}
+.projectImgDiv{
+	width: 310px;
+	float: left;
+	height: 200px;
+}
+.projectImg{
+	width: 310px;
+	height: 200px;
+}
+ .projectIntroduction{
+ 	width: 650px;
+ 	height: 200px;
+ }
+ /*需求职位css*/
+ #Demand_for_jobs_div{
+	height: 800px;
+	width: 980px;
+	margin-top: 50px;
+	text-align: center;
+	line-height: 800px;
 }

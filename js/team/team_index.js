@@ -9,7 +9,7 @@
 
            if ($(this).hasClass("selected")) {
              $($(this).attr("href")).show();
-             $(this).parent().css("border-bottom", "5px black solid");
+             $(this).parent().css("border-bottom", "5px rgb(255,147,74) solid");
            }
 
            $(this).click(function(event) {
@@ -24,7 +24,7 @@
 
                $(this).addClass("selected");
                $($(this).attr("href")).show();
-               $(this).parent().css("border-bottom", "5px black solid");
+               $(this).parent().css("border-bottom", "5px rgb(255,147,74) solid");
              }
            });
          });
@@ -47,12 +47,10 @@
            };
            // 团队名称加载
            $("#p1").html(data.res.name);
-           // 团队简介加载
-           $("#p2").html(data.res.about);
            // 团队标语加载
-           $("#p3").html(data.res.slogan);
+           $("#p2").html(data.res.slogan);
            // 团队介绍加载
-           $("#team_introuduction").html(data.res.introuduction);
+           $("#team_introuduction").html(data.res.about);
            // 团队发展历程加载
            $("#history_text").html(data.res.history);
            // 团队成员头像加载
@@ -65,6 +63,13 @@
            for (var i = 0; i < piture.length; i++) {
              $(piture[i]).attr('src', data.res.imgs[i]);
            };
+           //团队联系方式加载
+           $("#member_information").html(data.res.tel+"<br>"+data.res.mail);
+           // 团队成员姓名加载
+           var name_arr = $(".name");
+          for (var i = 0; i < name_arr.length; i++) {
+            $(name_arr[i]).html(data.res.stus[i].name);
+          };
          });
        });
        
