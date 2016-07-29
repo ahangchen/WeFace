@@ -8,10 +8,11 @@
         <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
         <link rel="stylesheet" type="text/css" href="../css/team/position.css">
         <link rel="stylesheet" type="text/css" href="../css/team/team_index.css">
+        <link rel="stylesheet" type="text/css" href="../css/team/fix_team_msg.css">
         <script type="text/javascript" src="../js/jquery-2.1.1.min.js"></script>
         <script type="text/javascript" src="../js/materialize.min.js"></script>
-        <script type="text/javascript" src="../js/team/position.js"></script>
         <script type="text/javascript" src="../js/team/team_index.js"></script>
+        <script type="text/javascript" src="../js/team/fix_team_msg.js"></script>
     </head>
     <body>
         <div id="max">
@@ -48,7 +49,7 @@
                         <li><p class="logo-name">华南理工大学<br/>人才交流平台
                         <p></li>
                         <li><a href="#" id="resumeBtn">简历管理</a></li>
-                        <li><a href="#" id="positionBtn">职位管理</a></li>
+                        <li><a href="position/showPosition.html?t_id=1" id="positionBtn">职位管理</a></li>
                         <li><a href="#" id="projectBtn">项目管理</a></li>
                     </ul>
                     <div class="input-field right search-bar">
@@ -72,8 +73,10 @@
                     <div class="tag_even tag" id="tag_four"></div>
                     <div class="tag_odd tag" id="tag_five"></div>
                     <div class="tag_even tag" id="tag_six"></div>
+                    <a class="btn-floating btn-small waves-effect waves-light white" id="fix_msg_button"><i class="material-icons" style="color:orangered">edit</i></a>
                 </div>
             </div>
+            <div id="orgin_page">
             <div class="four team_home" ><a href="#team_home_div" class="selected">团队主页</a></div>
             <div class="four"><a href="#Team_project_div" ><div class="four_need_medium">团队项目</div><div class="chip red white-text" id="badge_one">10</div></a></div>
             <div class="four"><a href="#Demand_for_jobs_div" ><div class="four_need_medium">需求职位</div><div class="chip red white-text" id="badge_two">16</div></a></div>
@@ -87,6 +90,7 @@
                     </div>
                     <div id="main_left_middle">
                         <div id="main_left_middle_one">
+                            <a class="btn-floating btn-small waves-effect waves-light white" id="history_button"><i class="material-icons" style="color:orangered">edit</i></a>
                             <div class="float"  id="two">发展历程<i class="material-icons small">play_arrow</i></div>
                             <div class="textarea" id="history_text">
                             </div>
@@ -116,7 +120,7 @@
                 <div id="right">
                     <div class="float" id="four">学生成员<i class="material-icons small">play_arrow</i></div>
                     <div id="main_right_one">
-                        <img src="" alt="头像"id ="leader" class="Head_portrait" />
+                        <img src="" alt="头像" id ="leader" class="Head_portrait" />
                         <img src="" alt="头像" class="Head_portrait" />
                         <img src="" alt="头像" class="Head_portrait" />
                         <img src="" alt="头像" class="Head_portrait" />
@@ -126,6 +130,7 @@
                         <div id="member_information">成员信息（主要负责人姓名、介绍、经历）</div>
                     </div>
                 </div>
+            </div>
             </div>
             <div id="Team_project_div" ><h1>我是团队项目页面</h1></div>
             <div id="Demand_for_jobs_div"><h1>我是需求职位页面</h1></div>
