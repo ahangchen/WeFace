@@ -7,3 +7,9 @@
     height: 790px;
     background-color: rgba(255,255,255,0.7);
 }
+#addJob a{
+    color: white;
+}
+#cancelForm a{
+    color: #353535;;
+}

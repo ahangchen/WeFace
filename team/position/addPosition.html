@@ -105,17 +105,17 @@
                 </div>
                 <div class="row">
                     <div class="input-field col s12 ">
-                        <select class="col s4 province">
+                        <select class="col s4 " id="province">
                             <option value="" disabled selected>请选择</option>
                             <option value="1">广东省</option>
                             <option value="2">其他</option>
                         </select>
-                        <select class="col s4 city">
+                        <select class="col s4 " id="city">
                             <option value="" disabled selected>请选择</option>
                             <option value="1">广州市</option>
                             <option value="2">其他</option>
                         </select>
-                        <select class="col s4 region">
+                        <select class="col s4 " id="region">
                             <option value="" disabled selected>请选择</option>
                             <option value="1">番禺区</option>
                             <option value="2">海珠区</option>
@@ -147,7 +147,7 @@
                         <label for="experience">经验要求</label>
                     </div>
                     <div class="input-field col s6 ">
-                        <select class="atrr">
+                        <select id="atrr">
                             <option value="" disabled selected>请选择</option>
                             <option value="1">实习</option>
                             <option value="2">全职</option>
@@ -193,11 +193,12 @@
                 </div>
 
             </div>
-            <div class="submitBtnGroup">
-                <button class="btn waves-effect waves-light" id="addJob">保存</button>
-                <button class="btn waves-effect waves-light" id="cancelForm">取消</button>
-            </div>
+
         </form>
+        <div class="submitBtnGroup">
+            <button class="btn waves-effect waves-light"  id="addJob"><a>保存</a></button>
+            <button class="btn waves-effect waves-light" id="cancelForm"><a>取消</a></button>
+        </div>
     </div>
 </div>
 </body>
