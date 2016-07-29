@@ -1,39 +1,77 @@
 function edit() {
-    if ($("#edu1").html() == "") {
+    if ($("#edu1").html() == "" && $("#edu2").html() == "" && $("#edu3").html() == "" && $("#edu4").html() == "" && $("#edu5").html() == "") {
         $("#add1").css("display", "block");
     }
     else {
         $("#ea1").css("display", "inline-block");
     }
-    if ($("#prac1a").html() == "") {
+
+    if ($("#prac1a").html() == "" && $("#prac2a").html() == "" && $("#prac3a").html() == "" && $("#prac4a").html() == "" && $("#prac5a").html() == "") {
         $("#add2").css("display", "block");
     }
     else {
         $("#ea2").css("display", "inline-block");
     }
-    if ($("#proj1a").html() == "") {
+
+    if ($("#proj1a").html() == "" && $("#proj2a").html() == "" && $("#proj3a").html() == "" && $("#proj4a").html() == "" && $("#proj5a").html() == "") {
         $("#add3").css("display", "block");
     }
     else {
         $("#ea3").css("display", "inline-block");
     }
+
     if ($("#works-id").html() == "") {
         $("#add4").css("display", "block");
     }
     else {
         $("#ea4").css("display", "inline-block");
     }
+
     if ($("#skill1a").html() == "") {
         $("#add5").css("display", "block");
     }
     else {
         $("#ea5").css("display", "inline-block");
     }
-
+    pracnone1();
+    pracnone2();
 }
 
 
+
+
+function pracnone1() {
+        var flag = false;
+        for (var i = 1; i <= 5; i++) {
+            var pracia = "#prac" + i + "a";
+            var praci = "#prac" + i;
+            if ($(pracia).html() != "" && flag == false) {
+                $(praci).css("display", "block");
+                flag = true;
+            }
+            else {
+                $(praci).css("display", "none");
+            }
+        }
+}
+    function pracnone2() {
+        var flag = false;
+        for (var i = 1; i <= 5; i++) {
+            var projia = "#proj" + i + "a";
+            var proji = "#proj" + i;
+            if ($(projia).html() != "" && flag == false) {
+                $(proji).css("display", "block");
+                flag = true;
+            }
+            else {
+                $(proji).css("display", "none");
+            }
+        }
+    }
+
+
 $(function () {
+
     /*下面代码是导航栏*/
     $(".go-page").click(function () {
         $(".circle3").css("background", "transparent");
@@ -66,8 +104,18 @@ $(function () {
         $("#choice5").css("font-weight", "bold");
     });
     /*下面代码是收起展开*/
-    $("#prac-toggle").click(function () {
-        if ($("#prac2").is(":hidden")) {
+    $("#prac-toggle").bind("click",prac_toggle);
+    function prac_toggle() {
+        var temp = new Array();
+        var count = 0;
+        for (var j = 1;j <= 5; j++ ) {
+            var tempi = "#prac" + j + "a";
+            if ($(tempi).html()!= "") {
+                temp[count++] = j;
+            }
+        }
+        var x="#prac"+temp[1];
+        if ($(x).is(":hidden")) {
             $(".prac-show").css("display", "block");
             for (var i = 1; i <= 5; i++) {
                 var pracia = "prac" + i + "a";
@@ -80,15 +128,28 @@ $(function () {
             $(this).css("transform", "rotate(180deg)");
         }
         else {
+            var praci="#prac"+temp[0];
             $(".prac-show").css("display", "none");
-            $("#prac1").css("display", "block");
+            $(praci).css("display", "block");
             $(this).css("transform", "rotate(0deg)");
         }
-    });
+
+    }
 
 
-    $("#proj-toggle").click(function () {
-        if ($("#proj2").is(":hidden")) {
+    $("#proj-toggle").bind("click",proj_toggle);
+
+        function proj_toggle() {
+        var temp = new Array();
+        var count = 0;
+        for (var j = 1;j <= 5; j++ ) {
+            var tempi = "#proj" + j + "a";
+            if ($(tempi).html()!= "") {
+                temp[count++] = j;
+            }
+        }
+        var x="#proj"+temp[1];
+        if ($(x).is(":hidden")) {
             $(".proj-show").css("display", "block");
             for (var i = 1; i <= 5; i++) {
                 var projia = "proj" + i + "a";
@@ -101,11 +162,13 @@ $(function () {
             $(this).css("transform", "rotate(180deg)");
         }
         else {
+            var proji="#proj"+temp[0];
             $(".proj-show").css("display", "none");
-            $("#proj1").css("display", "block");
+            $(proji).css("display", "block");
             $(this).css("transform", "rotate(0deg)");
         }
-    });
+    }
+
     //下面是导航栏
     function nav() {
         var startPos = $("#nav-list").offset().top;
@@ -211,14 +274,16 @@ $(function () {
                     document.getElementById("detail-background").innerHTML = " " + edu_background;
                     var edu_list = data.edu_list;
                     for (var i = 0; i < edu_list.length; i++) {
-                        var edui = "edu" + (i + 1);
-                        var edu_alli = "#edu-all" + (i + 1);
+                        var edu_id = edu_list[i].edu_id;
+                        var edui = "edu" + (edu_id);
+                        var edu_alli = "#edu-all" + (edu_id);
                         $(edu_alli).css("display", "block");
                         var e_major = edu_list[i].major;
                         var e_year = edu_list[i].graduation_year;
                         var e_back = edu_list[i].edu_background;
                         var e_school = edu_list[i].school;
-                        document.getElementById(edui).innerHTML = "<p><span style='font-size:16px'>" + e_back + "</span><span style='font-size:16px'> " + e_year + "年毕业</span></p><p><span style='font-size:16px'>" + e_school + "</span><span style='font-size:16px'> " + e_major + "</span></p>";
+                        document.getElementById(edui).innerHTML = "<p><span style='font-size:16px'>" + e_back + "</span><span style='font-size:16px'> " + e_year + "</span>年毕业</p><p><span style='font-size:16px'>" + e_school + "</span><span style='font-size:16px'> " + e_major + "</span></p>";
+
                     }
                 }
                 ajax_num--;
@@ -254,10 +319,11 @@ $(function () {
                         $("#prac-toggle").css("display", "none");
                     }
                     for (var i = 0; i < intern_list.length; i++) {
-                        var pracia = "prac" + (i + 1) + "a";
-                        var pracib = "prac" + (i + 1) + "b";
-                        var pracic = "prac" + (i + 1) + "c";
-                        var praci1 = "prac" + (i + 1) + "1";
+                        var id = intern_list[i].intern_id;
+                        var pracia = "prac" + (id) + "a";
+                        var pracib = "prac" + (id) + "b";
+                        var pracic = "prac" + (id) + "c";
+                        var praci1 = "prac" + (id) + "1";
                         var i_company = intern_list[i].company;
                         var i_position = intern_list[i].position;
                         var i_time = intern_list[i].begin_time + "-" + intern_list[i].end_time;
@@ -304,14 +370,15 @@ $(function () {
                         $("#proj-toggle").css("display", "none");
                     }
                     for (var i = 0; i < proj_list.length; i++) {
+                        var proj_id = proj_list[i].proj_id;
                         var p_name = proj_list[i].name;
                         var p_duty = proj_list[i].duty;
                         var p_year = proj_list[i].year;
                         var p_description = proj_list[i].description;
-                        var projia = "proj" + (i + 1) + "a";
-                        var projib = "proj" + (i + 1) + "b";
-                        var projic = "proj" + (i + 1) + "c";
-                        var proji1 = "proj" + (i + 1) + "1";
+                        var projia = "proj" + (proj_id) + "a";
+                        var projib = "proj" + (proj_id) + "b";
+                        var projic = "proj" + (proj_id) + "c";
+                        var proji1 = "proj" + (proj_id) + "1";
                         document.getElementById(projia).innerHTML = p_name;
                         document.getElementById(projib).innerHTML = p_duty;
                         document.getElementById(projic).innerHTML = p_year;
@@ -426,17 +493,171 @@ $(function () {
         var id = $(this).attr("id");
         var i = id.substring(10, 11);
         var choice = $(this).html();
+        var right_addi = "#right-add" + i;
         if (choice == "编辑") {
             $(this).html("取消");
             var right_iconi1 = ".right-icon" + i;
             $(right_iconi1).css("display", "block");
+            $(right_addi).attr("disabled", "disabled");
+            $(right_addi).css("color", "gray");
+            if(i==2){
+                $("#prac-toggle").unbind("click",prac_toggle);
+                var temp = new Array();
+                var count = 0;
+                for (var j = 1;j <= 5; j++ ) {
+                    var tempi = "#prac" + j + "a";
+                    if ($(tempi).html()!= "") {
+                        temp[count++] = j;
+                    }
+                }
+                var x="#prac"+temp[1];
+                if ($(x).is(":hidden")) {
+                    $(".prac-show").css("display", "block");
+                    for (var i = 1; i <= 5; i++) {
+                        var pracia = "prac" + i + "a";
+                var pracia_value = document.getElementById(pracia);
+                var praci = "#prac" + i;
+                if (pracia_value.innerHTML == "") {
+                    $(praci).css("display", "none");
+                }
+            }
+            $("#prac-toggle").css("transform", "rotate(180deg)");
+        }
+    }
+    if(i==3){
+                $("#proj-toggle").unbind("click",proj_toggle);
+                var temp = new Array();
+                var count = 0;
+                for (var j = 1;j <= 5; j++ ) {
+                    var tempi = "#proj" + j + "a";
+                    if ($(tempi).html()!= "") {
+                        temp[count++] = j;
+                    }
+                }
+                var x="#proj"+temp[1];
+                if ($(x).is(":hidden")) {
+                    $(".proj-show").css("display", "block");
+                    for (var i = 1; i <= 5; i++) {
+                        var projia = "proj" + i + "a";
+                        var projia_value = document.getElementById(projia);
+                        var proji = "#proj" + i;
+                        if (projia_value.innerHTML == "") {
+                            $(proji).css("display", "none");
+                        }
+                    }
+                    $("#proj-toggle").css("transform", "rotate(180deg)");
+                }
+            }
         }
         if (choice == "取消") {
+            if(i==2) {
+                $("#prac-toggle").bind("click", prac_toggle);
+            }
+            if(i==3) {
+                $("#proj-toggle").bind("click", proj_toggle);
+            }
             $(this).html("编辑");
             var right_iconi2 = ".right-icon" + i;
+            $(right_addi).attr("disabled", false);
             $(right_iconi2).css("display", "none");
+            $(right_addi).css("color", "#ff8f00");
+            $(".edu-field").css("display", "none");
+            $(".edu>p").css("display", "inline-block");
         }
     });
+    /*-----------------------------教育经历击增加--------------------------*/
+    $("#right-add1").click(function () {
+        var account = 0;
+        for (var i = 1; i <= 5; i++) {
+            var edui = "#edu" + i;
+            if ($(edui).html() !== "") {
+                account++;
+            }
+        }
+        if (account == 5) {
+            alert("已经达到上限，不能再增加");
+        }
+        else {
+            var choice = $(this).html();
+            var id = $(this).attr("id");
+            var i = id.substring(9, 10);
+            var add_newi = ".add-new" + i;
+            var right_editi = "#right-edit" + i;
+            if (choice == "添加") {
+                $(this).html("取消");
+                $(add_newi).css("display", "block");
+                $(right_editi).attr("disabled", "disabled");
+                $(right_editi).css("color", "gray");
+            }
+            else {
+                $(this).html("添加");
+                $(add_newi).css("display", "none");
+                $(right_editi).attr("disabled", false);
+                $(right_editi).css("color", "#ff8f00");
+            }
+        }
+    });
+
+    $("#add1>a>i").click(function () {
+        $("#add1").css("display", "none");
+        $(".add-new1").css("display", "block");
+    });
+
+
+    $('#edu-nosave0').click(function () {
+        $(".add-new1").css("display", "none");
+        $("#right-add1").html("添加");
+        $("#right-edit1").attr("disabled", false);
+        $("#right-edit1").css("color", "#ff8f00");
+    });
+    /*-----------------------------实习经历击增加--------------------------*/
+    $("#right-add2").click(function () {
+        var account = 0;
+        for (var i = 1; i <= 5; i++) {
+            var pracia = "#prac" + i+"a";
+            if ($(pracia).html() !== "") {
+                account++;
+            }
+        }
+        if (account == 5) {
+            alert("已经达到上限，不能再增加");
+        }
+        else {
+            var choice = $(this).html();
+            var id = $(this).attr("id");
+            var i = id.substring(9, 10);
+            var add_newi = ".add-new" + i;
+            var right_editi = "#right-edit" + i;
+            if (choice == "添加") {
+                $(this).html("取消");
+                $(add_newi).css("display", "block");
+                $(right_editi).attr("disabled", "disabled");
+                $(right_editi).css("color", "gray");
+            }
+            else {
+                $(this).html("添加");
+                $(add_newi).css("display", "none");
+                $(right_editi).attr("disabled", false);
+                $(right_editi).css("color", "#ff8f00");
+            }
+        }
+    });
+
+    $("#add2>a>i").click(function () {
+        $("#add2").css("display", "none");
+        $(".add-new2").css("display", "block");
+    });
+
+
+    $('#prac-nosave0').click(function () {
+        $(".add-new2").css("display", "none");
+        $("#right-add2").html("添加");
+        $("#right-edit2").attr("disabled", false);
+        $("#right-edit2").css("color", "#ff8f00");
+    });
+
+
+
     /*-----------------------------教育经历删除---------------------------*/
     $(".edu-cancel").click(function () {
         if (confirm('确定要该条教育经历么?')) {
@@ -447,10 +668,10 @@ $(function () {
             var edui = "#edu" + i;
             $(edui).html("");
             var account = 0;
-            for(var i=0;i<5;i++){
-                var edui="edu"+(i+1);
-                var temp=document.getElementById(edui).innerHTML;
-                if(temp==""){
+            for (var i = 0; i < 5; i++) {
+                var edui = "edu" + (i + 1);
+                var temp = document.getElementById(edui).innerHTML;
+                if (temp == "") {
                     account++;
                 }
             }
@@ -462,18 +683,188 @@ $(function () {
         return false;
     });
 
+    $('select').material_select();
     /*-----------------------------教育经历编辑---------------------------*/
-$(".edu-edit").click(function(){
-    var id = $(this).attr("id");
-    var i = id.substring(8, 9);
-    var edit_fieldi="#edit-field"+i;
-    var edui=edit_fieldi+">#edu"+i;
-    var right_iconi=edit_fieldi+">.right-icon1";
-    $(edui).css("display","none");
-    $(right_iconi).css("display","none");
-    $(edit_fieldi).html("");
+    $(".edu-edit").click(function () {
+        var id = $(this).attr("id");
+        var i = id.substring(8, 9);
+        var edui = "#edu" + i;
+        var right_iconi = "#edu" + i + "+.right-icon1";
+        var edu_fieldi = "#edu-field" + i;
+        var edui1 = edui + ">p:nth-child(1)>span:nth-child(1)";
+        var edui2 = edui + ">p:nth-child(1)>span:nth-child(2)";
+        var edui3 = edui + ">p:nth-child(2)>span:nth-child(1)";
+        var edui4 = edui + ">p:nth-child(2)>span:nth-child(2)";
+        var edu_fieldi1 = edu_fieldi + ">div:nth-child(1)>input";
+        var edu_fieldi2 = edu_fieldi + ">div:nth-child(2)>input";
+        var choice1 = ".choice1>input";
+        var choice1a = ".choice1>ul>li:nth-child(2)";
+        var choice1b = ".choice1>ul>li:nth-child(3)";
+        var choice1c = ".choice1>ul>li:nth-child(4)";
+        var choice1d = ".choice1>ul>li:nth-child(5)";
+        var choice1e = ".choice1>ul>li:nth-child(6)";
+        $(edu_fieldi1).val($(edui3).html());
+        $(edu_fieldi2).val($(edui4).html());
+        $(choice1).val($(edui1).html());
+        switch ($(edui1).html()) {
+            case "本科":
+                $(choice1a).attr("class", "active selected");
+                break;
+            case "硕士":
+                $(choice1b).attr("class", "active selected");
+                break;
+            case "博士":
+                $(choice1c).attr("class", "active selected");
+                break;
+            case "大专":
+                $(choice1d).attr("class", "active selected");
+                break;
+            case "其他":
+                $(choice1e).attr("class", "active selected");
+                break;
+        }
+
+        var choice2 = ".choice2>input";
+        var choice2a = ".choice2>ul>li:nth-child(2)";
+        var choice2b = ".choice2>ul>li:nth-child(3)";
+        var choice2c = ".choice2>ul>li:nth-child(4)";
+        var choice2d = ".choice2>ul>li:nth-child(5)";
+        $(choice2).val($(edui2).html());
+        switch ($(edui2).html()) {
+            case "2016":
+                $(choice2a).attr("class", "active selected");
+                break;
+            case "2017":
+                $(choice2b).attr("class", "active selected");
+                break;
+            case "2018":
+                $(choice2c).attr("class", "active selected");
+                break;
+            case "2019":
+                $(choice2d).attr("class", "active selected");
+                break;
+        }
+
+
+        $(edui).css("display", "none");
+        $(right_iconi).css("display", "none");
+        $(edu_fieldi).css("display", "block");
+    });
+    /*-----------------------------保存取消按钮---------------------------*/
+    $('.nosave').click(function () {
+        var id = $(this).attr("id");
+        var flag1 = id.substring(0, 10);
+        var i1 = id.substring(10, 11);
+        var edui = "#edu" + i1;
+        var right_iconi = "#edu" + i1 + "+.right-icon1";
+        var edu_fieldi = "#edu-field" + i1;
+        if (flag1 == "edu-nosave") {
+            $(edu_fieldi).css("display", "none");
+            $(edui).css("display", "inline-block");
+            $(right_iconi).css("display", "block");
+        }
+        var account = 0;
+        for (var i = 1; i <= 5; i++) {
+            var edui = "#edu" + i;
+            if ($(edui).html() !== "") {
+                account++;
+            }
+        }
+        if (account == 0) {
+            $("#add1").css("display", "block");
+        }
+    });//取消
+
+
+    /* copyhhh实习和项目*/
+    /*-----------------------------实习经历删除按钮---------------------------*/
+    $(".prac-cancel").click(function () {
+        if (confirm('确定要该条实习经历么?')) {
+            var id = $(this).attr("id");
+            var i = id.substring(11, 12);
+            var pracia = "#prac" + i + "a";
+            var pracib = "#prac" + i + "b";
+            var pracic = "#prac" + i + "c";
+            var praci1 = "#prac" + i + "1";
+            var praci="#prac"+i;
+            $(pracia).html("");
+            $(pracib).html("");
+            $(pracic).html("");
+            $(praci1).html("");
+            $(praci).css("display","none");
+            var prac_editi="#prac-edit"+i;
+            var prac_canceli="#prac-cancel"+i;
+            $(prac_editi).css("display","none");
+            $(prac_canceli).css("display","none");
+            var account = 0;
+            for (var i = 0; i < 5; i++) {
+                var tempia="#prac"+(i+1)+"a"
+                var temp = $(tempia).html();
+                if (temp == "") {
+                    account++;
+                }
+            }
+            if (account == 5) {
+                $("#ea2").css("display", "none");
+                $("#add2").css("display", "block");
+                $("#prac-toggle").css("display","none");
+            }
+            if (account == 4) {
+                $("#prac-toggle").css("display","none");
+            }
+        }
+        return false;
+    });
+    /*-----------------------------项目经历删除按钮---------------------------*/
+    $(".proj-cancel").click(function () {
+        if (confirm('确定要该条实习经历么?')) {
+            var id = $(this).attr("id");
+            var i = id.substring(11, 12);
+            alert(i);
+            var projia = "#proj" + i + "a";
+            var projib = "#proj" + i + "b";
+            var projic = "#proj" + i + "c";
+            var proji1 = "#proj" + i + "1";
+            var proji="#proj"+i;
+            $(projia).html("");
+            $(projib).html("");
+            $(projic).html("");
+            $(proji1).html("");
+            $(proji).css("display","none");
+            var proj_editi="#proj-edit"+i;
+            var proj_canceli="#proj-cancel"+i;
+            $(proj_editi).css("display","none");
+            $(proj_canceli).css("display","none");
+            var account = 0;
+            for (var i = 0; i < 5; i++) {
+                var tempia="#proj"+(i+1)+"a"
+                var temp = $(tempia).html();
+                if (temp == "") {
+                    account++;
+                }
+            }
+            if (account == 5) {
+                $("#ea3").css("display", "none");
+                $("#add3").css("display", "block");
+                $("#proj-toggle").css("display","none");
+            }
+            if (account == 4) {
+                $("#proj-toggle").css("display","none");
+            }
+        }
+        return false;
+    });
+
 
 });
 
 
-});
+
+
+
+
+
+
+
+
+
