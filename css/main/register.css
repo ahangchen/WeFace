@@ -144,10 +144,9 @@ box-shadow: none;
     width: 320px;
     margin-bottom: 10px;
     height: 40px;
-    background-color: orange;
+    background-color: #ff8f00;
     border: none;
     font-size: 17px;
-    height: 40px;
 }
 
 /*下面是成功显示界面*/
@@ -175,16 +174,16 @@ input[type=tel]:focus:not([readonly]),
 input[type=number]:focus:not([readonly]),
 input[type=search]:focus:not([readonly]),
 textarea.materialize-textarea:focus:not([readonly]) {
-    border-bottom: 1px solid orange;
-    box-shadow: 0 1px 0 0 orange;
+    border-bottom: 1px solid #ff8f00;
+    box-shadow: 0 1px 0 0 #ff8f00;
 }
 
 .input-field input[type=text]:focus + label {
-    color: orange;
+    color: #ff8f00;
 }
 
 .input-field input[type=password]:focus + label {
-    color: orange;
+    color: #ff8f00;
 }
 
 #code{

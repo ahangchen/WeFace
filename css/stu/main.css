@@ -145,7 +145,7 @@
     margin-bottom: 5px;
 }
 
-.edu{
+.edu {
     display: none;
 }
 
@@ -162,12 +162,8 @@
     padding-bottom: 15px;
 }
 
-#file-practice > .file-detail > div:nth-child(n+2) {
-    display: none;
-}
-
 /*-------项目经历部分的css-------*/
-.proj-show,.prac-show{
+.proj-show, .prac-show {
     margin-bottom: 12px;
 }
 
@@ -183,9 +179,6 @@
     margin-bottom: 15px;
 }
 
-#file-project > .file-detail > div:nth-child(n+2) {
-    display: none;
-}
 
 /*-------作品集部分的css-------*/
 .works-show > p {
@@ -230,7 +223,7 @@
     text-align: right;
 }
 
-.skill-total{
+.skill-total {
     display: none;
 }
 
@@ -392,23 +385,109 @@ footer:hover {
     border-bottom: 1px solid #ff8f00;
 }
 
-.right-icon2,.right-icon3 {
+.right-icon2, .right-icon3 {
     vertical-align: top;
     margin-top: -10px;
 }
-.right-icon1{
+
+.right-icon1 {
     vertical-align: top;
     margin-top: 5px;
-    float:right;
+    float: right;
 }
-.right-icon2,.right-icon3,.right-icon5{
-    float:right;
+
+.right-icon2, .right-icon3, .right-icon5 {
+    float: right;
 }
-.right-icon5{
+
+.right-icon5 {
     vertical-align: top;
-    margin-top:-10px;
+    margin-top: -10px;
 }
-.right-icon1,.right-icon2,.right-icon3,.right-icon5{
+
+.right-icon1, .right-icon2, .right-icon3, .right-icon5 {
     display: none;
 }
 
+/*编辑信息*/
+
+input:not([type]):focus:not([readonly]),
+input[type=text]:focus:not([readonly]),
+input[type=password]:focus:not([readonly]),
+input[type=email]:focus:not([readonly]),
+input[type=url]:focus:not([readonly]),
+input[type=time]:focus:not([readonly]),
+input[type=date]:focus:not([readonly]),
+input[type=datetime]:focus:not([readonly]),
+input[type=datetime-local]:focus:not([readonly]),
+input[type=tel]:focus:not([readonly]),
+input[type=number]:focus:not([readonly]),
+input[type=search]:focus:not([readonly]),
+textarea.materialize-textarea:focus:not([readonly]) {
+    border-bottom: 1px solid #ff8f00;
+    box-shadow: 0 1px 0 0 #ff8f00;
+}
+
+.input-field input[type=text]:focus + label {
+    color: #ff8f00;
+}
+
+.input-field input[type=password]:focus + label {
+    color: #ff8f00;
+}
+
+.input-field {
+    width: 239px;
+    margin-right: 32px;
+    margin-left: 32px;
+    display: inline-block;
+}
+
+.input-field > label {
+    left: 0;
+}
+
+
+
+.save {
+    width: 129px;
+    height:35px;
+    margin-top: 30px;
+    margin-right: 12px;
+    margin-left: 162px;
+    background-color: #ff8f00;
+    border: none;
+    font-size: 17px;
+    vertical-align: middle;
+    line-height: 35px;
+}
+
+.nosave{
+    width: 129px;
+    margin-top: 30px;
+    margin-right: 162px;
+    margin-left:12px;
+    height: 35px;
+    background-color: #fff;
+    border: none;
+    font-size: 17px;
+    color:#ff8f00;
+    vertical-align: middle;
+    line-height: 35px;
+}
+
+.save:hover {
+    background-color: #ff8f00;
+}
+
+
+.nosave:hover {
+    background-color: #fff;
+}
+
+.dropdown-content li > a, .dropdown-content li > span {
+    color:#ff8f00;
+}
+.edu-field{
+    display: none;
+}

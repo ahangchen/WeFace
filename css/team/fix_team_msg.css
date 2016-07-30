@@ -1,26 +1,202 @@
-#basic_team_information{
-    opacity: 0;
-    width:970px;
-    height: 0;
-    background: rgba(255, 255, 255, 0.5);
-    -moz-box-shadow: 0 5px 5px 0 rgba(0, 0, 0, 0.22), 0 10px 10px 0 rgba(0, 0, 0, 0.21);
-    -webkit-box-shadow: 0 5px 5px 0 rgba(0, 0, 0, 0.22), 0 10px 10px 0 rgba(0, 0, 0, 0.21);
-    box-shadow: 0 5px 5px 0 rgba(0, 0, 0, 0.22), 0 10px 10px 0 rgba(0, 0, 0, 0.21);
+#fix_msg_button{
+    margin-left:-300px;
+    margin-top: 50px;
 }
 
-#team_message_box{
-    width:970px;
-    height:500px;
-    position: relative;
-    background: rgba(255, 255, 255, 0.5);
-    -moz-box-shadow: 0 5px 5px 0 rgba(0, 0, 0, 0.22), 0 10px 10px 0 rgba(0, 0, 0, 0.21);
-    -webkit-box-shadow: 0 5px 5px 0 rgba(0, 0, 0, 0.22), 0 10px 10px 0 rgba(0, 0, 0, 0.21);
-    box-shadow: 0 5px 5px 0 rgba(0, 0, 0, 0.22), 0 10px 10px 0 rgba(0, 0, 0, 0.21);
+.put_photo_here{
+    width: 150px;
+    height: 150px;
+    margin-top: -155px;
+    margin-left: 50px;
+    cursor:pointer;
 }
 
-#team_tag{
+#photo_logo{
+    background-color: #dcd8d7;
+    width: 150px;
+    height:150px;
+    border-radius: 10px;
+}
+
+#photo_camera{
+    margin-left: 30px;
+    margin-top: 30px;
+}
+
+#local_photo{
+    width: 150px;
+    height: 150px;
+    margin-left: 50px;
+    margin-top:50px;
+    border-radius: 10px;
+}
+
+.team_msg{
+    width: 400px;
+    height:400px;
+    float: right;
+    margin-top:-180px;
+    margin-right: 200px;
+}
+
+.team_name{
+    height: 100px;
+    width: 400px;
+}
+
+.job_type{
+    width: 100px;
+    height: 100px;
+    margin-top: -20px;
+}
+
+.add_type{
+    margin-top:-100px;
+    margin-left: 150px;
+}
+
+.team_number{
+    margin-top: 30px;
+    width: 200px;
+    height: 100px;
+}
+
+.team_slogan{
+    margin-top: -30px;
+}
+
+.complete_btn{
+    margin-top: 30px;
+}
+
+#saveButton,#cancelButton{
+    margin-top: 15px;
+    margin-bottom: 15px;
+    width: 150px;
+    color: #000;
     background-color: #fff;
-    width: 10px;
-    height: 5px;
-    border-radius: 5px;
 }
+
+#saveButton:hover,#cancelButton:hover{
+    color: #fff;
+    background-color: #fb8c00;
+}
+
+#type_tag{
+    margin-top: -100px;
+    float: right;
+    margin-right: -200px;
+    width: 400px;
+    height: 100px;
+}
+
+#type_tag .chip{
+    background-color: #fff;
+    color: orange;
+    float: left;
+}
+
+.team_intro{
+    margin-top: -30px;
+    margin-left: 40px;
+    width: 500px;
+}
+
+.intro_complete_btn{
+    margin-left: 150px;
+    margin-top: -30px;
+}
+
+#intro_saveButton,#intro_cancelButton{
+    color: #000;
+    background-color: #fff;
+    margin-left: 10px;
+}
+
+#intro_saveButton:hover,#intro_cancelButton:hover{
+    color: #fff;
+    background-color: #fb8c00;
+}
+
+#intro_list_auto{
+    margin-left: -55px;
+    margin-top: -90px;
+}
+
+#history_button{
+    float: right;
+}
+
+#develop_history{
+    width: 500px;
+    margin-top: -30px;
+    margin-left: 40px;
+
+}
+
+#history_list_auto{
+    float: left;
+    margin-top: -50px;
+}
+
+.history_complete_btn{
+    margin-left: 150px;
+}
+
+#history_saveButton,#history_cancelButton{
+    color: #000;
+    background-color: #fff;
+    margin-left: 10px;
+}
+
+#history_saveButton:hover,#history_cancelButton:hover{
+    color: #fff;
+    background-color: #fb8c00;
+}
+
+#add_member{
+    margin-left:200px;
+    margin-top: -70px;
+}
+
+.add_member_btn{
+margin-top: 50px;
+    margin-left: 20px;
+}
+
+#member_saveButton,#member_cancelButton{
+    color: #000;
+    background-color: #fff;
+    margin-left: 10px;
+}
+
+#member_saveButton:hover,#member_cancelButton:hover{
+    color: #fff;
+    background-color: #fb8c00;
+}
+
+#connect_tel,#connect_mail{
+    width: 200px
+}
+
+
+.edit_connect_btn{
+    margin-left: 50px;
+    width: 400px;
+}
+
+#connect_saveButton,#connect_cancelButton{
+    color: #000;
+    background-color: #fff;
+    margin-left: 10px;
+}
+
+#connect_saveButton:hover,#connect_cancelButton:hover{
+    color: #fff;
+    background-color: #fb8c00;
+}
+
+
+
+
+

@@ -4,38 +4,38 @@
   "edu_background": "本科在读",
   "edu_list": [
     {
-      "edu_id": "3",
+      "edu_id": "1",
       "major": "软件工程",
       "graduation_year": "2018",
       "edu_background": "本科在读",
       "school": "华南理工大学"
     },
     {
-      "edu_id": "3",
+      "edu_id": "4",
       "major": "软件工程",
       "graduation_year": "2018",
       "edu_background": "本科在读",
       "school": "华南理工大学"
     },
     {
-      "edu_id":"1",
+      "edu_id":"3",
       "major": "语文",
       "graduation_year": "2011",
-      "edu_background": "初中",
+      "edu_background": "本科",
       "school": "春外"
     },
     {
       "edu_id":"2",
       "major": "数学",
       "graduation_year":"2014",
-      "edu_background":"高中",
+      "edu_background":"硕士",
       "school": "春晖中学"
     },
     {
-      "edu_id": "3",
+      "edu_id": "5",
       "major": "软件工程",
       "graduation_year": "2018",
-      "edu_background": "本科在读",
+      "edu_background": "本科",
       "school": "华南理工大学"
     }
   ]
