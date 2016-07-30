@@ -120,11 +120,13 @@
                 <div id="right">
                     <div class="float" id="four">学生成员<i class="material-icons small">play_arrow</i></div>
                     <div id="main_right_one">
-                        <img src="" alt="头像" id ="leader" class="Head_portrait" />
-                        <img src="" alt="头像" class="Head_portrait" />
-                        <img src="" alt="头像" class="Head_portrait" />
-                        <img src="" alt="头像" class="Head_portrait" />
-                        <img src="" alt="头像" class="Head_portrait" />
+                        <div id="team_member_icon">
+                            <img src="" alt="头像" id ="leader" class="Head_portrait" />
+                            <img src="" alt="头像" class="Head_portrait" />
+                            <img src="" alt="头像" class="Head_portrait" />
+                            <img src="" alt="头像" class="Head_portrait" />
+                            <img src="" alt="头像" class="Head_portrait" />
+                        </div>
                     </div>
                     <div id="main_right_two">
                         <div id="member_information">成员信息（主要负责人姓名、介绍、经历）</div>
@@ -135,6 +137,19 @@
             <div id="Team_project_div" ><h1>我是团队项目页面</h1></div>
             <div id="Demand_for_jobs_div"><h1>我是需求职位页面</h1></div>
             <div id="Recently_div"><h1>我是最近页面</h1></div>
+            <div id="add_member_dialog" class="modal modal-fixed-footer">
+                <a class="btn-floating btn-flat btn-small white modal-close right"><i class="material-icons" style="color:orange">close</i></a>
+                <div class="modal-content" id="enter_result">
+                    <div  id="add_member_note">输入姓名，搜索匹配头像和账号，可通过点击成员头像查看该成员个人主页。若有重名，请核对后进行选择。若成员未注册推荐注册，完善个人主页。</div>
+                    <div class="input-field member_name "><i class="material-icons prefix">account_circle</i>
+                        <input id="member_name" type="text" class="validate"><label for="member_name">输入成员姓名</label>
+                    </div>
+                    <div id="member_search_result">
+                            <a href="#" id="searchMemberButton" class="waves-effect waves-light btn modal-action">
+                                <i class="material-icons" id="search_member_icon">search</i>搜索</a>
+                    </div>
+               </div>
+            </div>
         </div>
     </body>
 </html>
