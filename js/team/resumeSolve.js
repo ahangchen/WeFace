@@ -2,9 +2,11 @@
 $(function(){
     // 从URL中获取投递的id
     var apply_id = getUrlVar('a_id');
+    var t_id = getUrlVar('t_id');
     var postData ={
         apply_id:apply_id
     };
+    $("#returnBtn").attr("href","resume.html?t_id="+t_id);
     var resumeInfo = {
         imgSrc:"",
         name:"",
@@ -48,76 +50,54 @@ $(function(){
     $('#send').click(function(){
         $('.sendMail').css('display','block');
 
-        $("#solveBtn").click(function(){
-            var mailText = $('.mailContent').val();
-            var mailData = {
-                mail:resumeInfo.mail,
-                text:mailText
-            };
-            var selectVar = $('input[name="group1"]:checked').val();
-            var solveData = {
-                apply_id:apply_id,
-                state:selectVar
-            };
-            $.ajax({
-                type:"post",
-                url:"http://110.64.69.66:8081/team/apply/mail/",
-                data:mailData,
-                dataType:"json",
-                success:function(data){
-                    console.log("邮件发送成功");
-                },
-                error:function(data){
-                    alert(data.msg);
-                },
-                headers:{
-                    "Access-Control-Allow-Origin":"*"
-                }
-            });
-
-            $.ajax({
-                type:"post",
-                url:"http://110.64.69.66:8081/team/apply/handle/",
-                data:selectVar,
-                dataType:"json",
-                success:function(data){
-                    alert("处理成功");
-                },
-                error:function(data){
-                    alert(data.msg);
-                },
-                headers:{
-                    "Access-Control-Allow-Origin":"*"
-                }
-            });
-        });
     });
     $('#unsend').click(function(){
         $('.sendMail').css('display','none');
-
-        $("#solveBtn").click(function(){
-            var selectVar = $('input[name="group1"]:checked').val();
-            var solveData = {
-                apply_id:apply_id,
-                state:selectVar
-            };
+    });
+    $("#solveBtn").click(function(){
+        var mailText = $('.mailContent').val();
+        var mailData = {
+            apply_id:apply_id,
+            text:mailText
+        };
+        var selectVar = $('input[name="group1"]:checked').val();
+        var solveData = {
+            apply_id:apply_id,
+            state:selectVar
+        };
+        var isSend = $('input[name="mailGroup"]:checked').val();
+        if(isSend) {
             $.ajax({
-                type:"post",
-                url:"http://110.64.69.66:8081/team/apply/handle/",
-                data:selectVar,
-                dataType:"json",
-                success:function(data){
-                    alert("处理成功");
+                type: "post",
+                url: "http://110.64.69.66:8081/team/apply/mail/",
+                data: mailData,
+                dataType: "json",
+                success: function (data) {
+                    console.log("邮件发送成功");
                 },
-                error:function(data){
+                error: function (data) {
                     alert(data.msg);
                 },
-                headers:{
-                    "Access-Control-Allow-Origin":"*"
+                headers: {
+                    "Access-Control-Allow-Origin": "*"
                 }
             });
+        }
+        $.ajax({
+            type:"post",
+            url:"http://110.64.69.66:8081/team/apply/handle/",
+            data:solveData,
+            dataType:"json",
+            success:function(data){
+                alert("处理成功");
+            },
+            error:function(data){
+                alert(data.msg);
+            },
+            headers:{
+                "Access-Control-Allow-Origin":"*"
+            }
         });
-
     });
     // 点击链接下载文件
     $('.resumeName').click(function(){

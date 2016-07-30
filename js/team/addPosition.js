@@ -53,9 +53,9 @@ $(function(){
         var job_type;
         switch($('.type').children('input').val()){
             case "行政":job_type = 1;break;
-            case "技术":job_type = 2;break;
-            case "设计":job_type = 3;break;
-            case "产品":job_type = 4;break;
+            case "技术":job_type = 3;break;
+            case "设计":job_type = 4;break;
+            case "产品":job_type = 2;break;
             case "运营":job_type = 5;break;
             case "运维支持":job_type = 6;break;
             case "市场":job_type = 7;break;
@@ -86,12 +86,8 @@ $(function(){
             address:$('#detailAddress').val(),
             team_id:tId
         };
-
-        if ($('#submit').attr("checked")) {
-            jobDetail.job_state = 1;
-        }
-
-
+        var selectVar = $('input[name="stateGroup"]:checked').val();
+        jobDetail.pub_state = selectVar;
         if(jobDetail.name!="" && jobDetail.j_type!="" && jobDetail.prince!="" && jobDetail.city!="" && jobDetail.town!="" && jobDetail.address!="") {
 
             var a = $.ajax({

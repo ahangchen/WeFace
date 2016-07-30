@@ -297,7 +297,7 @@ $(function(){
                     '</div>'+
                     '</div>');
                 var link = $('#'+divId).children('.resumeCard').children('.s3').children('a');
-                $(link[count]).attr('href','resumeSolve.html?a_id='+array[i].id);
+                $(link[count]).attr('href','resumeSolve.html?a_id='+array[i].id+'&t_id='+tId);
                 count++;
             }
         }
@@ -336,7 +336,7 @@ $(function(){
                         '</div>');
                 }
                 var link = $('#'+divId).children('.resumeCard').children('.s3').children('a');
-                $(link[count]).attr('href','resumeSolve.html?a_id='+array[i].id);
+                $(link[count]).attr('href','resumeCheck.html?a_id='+array[i].id+'&t_id='+tId);
                 count++;
             }
         }

@@ -3,6 +3,18 @@
  */
 
 $(function(){
+    //获取职位类型
+    $.ajax({
+        type:'post',
+        url:"http://110.64.69.66:8081/team/job_type/",
+        dataType:'json',
+        success:function(data){
+            console.log(data.msg);
+        },
+        headers:{
+            "Access-Control-Allow-Origin":"*"
+        }
+    });
     //获取url中的参数t_id
 
     //得到参数数组
@@ -27,6 +39,8 @@ $(function(){
 
     // 团队点击职位名字后，在url上获取传职位id
     var tId = getUrlVar('t_id');
+
+
     $("#addBtn").click(function(){
         $(this).attr('href','addPosition.html?t_id='+tId);
     });
@@ -56,10 +70,10 @@ $(function(){
             selectedTags[0] = "全部";
         }
         else{
-
             for(var i = 0;i < selectedTags.length;i++){
                 selectedTags[i] = "";
             }
+
             $('#entireTag').attr("class","chip normalTag");
             if($(this).attr('class')=="chip normalTag"){
                 $(this).attr("class","chip activeTag");
@@ -71,6 +85,9 @@ $(function(){
             for (var i = 0; i < targetObj.length; i++) {
                 selectedTags[i] = $(targetObj[i]).html();
             }
+        }
+        for(var i = 0; i < selectedTags.length; i++) {
+            if(selectedTags[i].length == 0) selectedTags.splice(i,1);
         }
         removeLastPage();
         console.log(selectedTags);
@@ -195,15 +212,15 @@ $(function(){
                 break;
             }
             switch (tags[i]){
-                case"行政":tags[i] = 0;break;
-                case"技术":tags[i] = 1;break;
-                case"设计":tags[i] = 2;break;
-                case"产品":tags[i] = 3;break;
-                case"运营":tags[i] = 4;break;
-                case"运维支持":tags[i] = 5;break;
-                case"市场":tags[i] = 6;break;
-                case"文案策划":tags[i] = 7;break;
-                case"营销":tags[i] = 8;break;
+                case"行政":tags[i] = 1;break;
+                case"技术":tags[i] = 3;break;
+                case"设计":tags[i] = 4;break;
+                case"产品":tags[i] = 2;break;
+                case"运营":tags[i] = 5;break;
+                case"运维支持":tags[i] = 6;break;
+                case"市场":tags[i] = 7;break;
+                case"文案策划":tags[i] = 8;break;
+                case"营销":tags[i] = 9;break;
             }
         }
         var tag = {
@@ -221,18 +238,23 @@ $(function(){
 
                     if (pages == 1) {
                         for (var i = 0; i < data.message.length; i++) {
-                            var jobId = data.message[i].ob_id;
+                            var jobId = data.message[i].jobId;
                             var jobName = data.message[i].name;
-                            var jobAddr = data.message[i].city;
-                            var minMon = data.message[i].min_salary;
-                            var maxMon = data.message[i].max_salary;
+                            var jobAddrNum = data.message[i].city;
+                            var minMon = data.message[i].minSaraly;
+                            var maxMon = data.message[i].maxSaraly;
                             var jobExp = data.message[i].exp;
                             var stateNum = data.message[i].job_state;
                             var stateText = "";
                             var state = "";
+                            var jobAddr = "";
+                            switch (jobAddrNum){
+                                case 1:jobAddr = "广州市";break;
+                                default:jobAddr = "其他";break;
+                            }
                             switch(stateNum){
-                                case "1":stateText = "已发布";state = "submitted";break;
-                                case "0":stateText = "暂存";state = "temperory";break;
+                                case 1:stateText = "已发布";state = "submitted";break;
+                                case 0:stateText = "暂存";state = "temperory";break;
                                 default:break;
                             }
                             $("#positionCards").append('<div class="positionCard comwidth" id="'+jobId+'"><div class="row"><label class="positionName"><a>'+jobName+'</a><span class = "jAddr">（'+jobAddr+'）</span></label><div class="chip '+state+'">'+stateText+'</div></div><div class="row"><label class="salary">'+minMon+'-'+maxMon+'/月</label><label class="required">'+jobExp+'</label></div><div class="btngroups fr"><a class="btn-floating btn-large waves-effect waves-light white delJobBtn"  ><i class="medium material-icons" >remove</i></a><a class="btn-floating btn-large white editInfoBtn" ><i class="medium material-icons" >mode_edit</i></a></div></div>');
@@ -242,18 +264,23 @@ $(function(){
                     }
                     else{
                         for (var i = 0; i < 10; i++) {
-                            var jobId = data.message[i].ob_id;
+                            var jobId = data.message[i].jobId;
                             var jobName = data.message[i].name;
-                            var jobAddr = data.message[i].city;
-                            var minMon = data.message[i].min_salary;
-                            var maxMon = data.message[i].max_salary;
+                            var jobAddrNum = data.message[i].city;
+                            var minMon = data.message[i].minSaraly;
+                            var maxMon = data.message[i].maxSaraly;
                             var jobExp = data.message[i].exp;
                             var stateNum = data.message[i].job_state;
                             var stateText = "";
                             var state = "";
+                            var jobAddr = "";
+                            switch (jobAddrNum){
+                                case 1:jobAddr = "广州市";break;
+                                default:jobAddr = "其他";break;
+                            }
                             switch(stateNum){
-                                case "1":stateText = "已发布";state = "submitted";break;
-                                case "0":stateText = "暂存";state = "temperory";break;
+                                case 1:stateText = "已发布";state = "submitted";break;
+                                case 0:stateText = "暂存";state = "temperory";break;
                                 default:break;
                             }
                             $("#positionCards").append('<div class="positionCard comwidth" id="'+jobId+'"><div class="row"><label class="positionName"><a>'+jobName+'</a><span class = "jAddr">（'+jobAddr+'）</span></label><div class="chip '+state+'">'+stateText+'</div></div><div class="row"><label class="salary">'+minMon+'-'+maxMon+'/月</label><label class="required">'+jobExp+'</label></div><div class="btngroups fr"><a class="btn-floating btn-large waves-effect waves-light white delJobBtn" ><i class="medium material-icons" >remove</i></a><a class="btn-floating btn-large white editInfoBtn" ><i class="medium material-icons" >mode_edit</i></a></div></div>');
@@ -272,6 +299,8 @@ $(function(){
                     // 删除按钮的响应事件
                     $('.delJobBtn').click(function(){
                         var ch = confirm("确定删除该职位信息？");
+                        console.log($(this).parents('.positionCard').attr('id'));
+                        console.log(ch);
                         if (ch) {
                             var delJob = $(this).parents('.positionCard').attr('id');
                             var delJobId = {
@@ -279,13 +308,13 @@ $(function(){
                             };
                             var a = $.ajax({
                                 type: 'post',
-                                data:'delJobId',
+                                data:delJobId,
                                 url:'http://110.64.69.66:8081/team/delete_job/',
                                 dataType:'json',
                                 success:function(data){
                                     if (data.err==0) {
                                         alert(data.msg);
-                                        delJobFromDom(delJobId);
+                                        delJobFromDom(delJob);
                                         $("#firstPage").attr("class","activePage");
                                     }
                                     else{
@@ -359,9 +388,10 @@ $(function(){
 
     // 删除节点刷新页面
     function delJobFromDom(jId){
-        $('#'+jId).remove();
+        console.log(jId);
+        $("#"+jId).remove();
         removeLastPage();
-        init(tags);
+        init(selectedTags);
     }
     // 上下页切换
     $('#prePage').click(function(){
@@ -409,10 +439,11 @@ $(function(){
     }
     // 按页码后显示该页内容
     function showActivePage(curPage){
-        var tags = new Array();
+        var tags = new Array(10);
+        console.log(selectedTags.length);
         for(var i = 0;i<selectedTags.length;i++){
             if(selectedTags[i]=="全部"){
-                for(var j = 0;j < 9;j++)
+                for(var j = 1;j < 10;j++)
                 {
                     tags[j] = j;
                 }
@@ -421,31 +452,31 @@ $(function(){
             else {
                 switch (selectedTags[i]) {
                     case"行政":
-                        tags[i] = 0;
-                        break;
-                    case"技术":
                         tags[i] = 1;
                         break;
-                    case"设计":
-                        tags[i] = 2;
-                        break;
-                    case"产品":
+                    case"技术":
                         tags[i] = 3;
                         break;
-                    case"运营":
+                    case"设计":
                         tags[i] = 4;
                         break;
-                    case"运维支持":
+                    case"产品":
+                        tags[i] = 2;
+                        break;
+                    case"运营":
                         tags[i] = 5;
                         break;
-                    case"市场":
+                    case"运维支持":
                         tags[i] = 6;
                         break;
-                    case"文案策划":
+                    case"市场":
                         tags[i] = 7;
                         break;
-                    case"营销":
+                    case"文案策划":
                         tags[i] = 8;
+                        break;
+                    case"营销":
+                        tags[i] = 9;
                         break;
                 }
             }
@@ -465,15 +496,20 @@ $(function(){
                     terminal = data.message.length;
                 }
                 for (var i = (curPage-1)*10; i < terminal; i++) {
-                    var jobId = data.message[i].ob_id;
+                    var jobId = data.message[i].jobId;
                     var jobName = data.message[i].name;
-                    var jobAddr = data.message[i].city;
-                    var minMon = data.message[i].min_salary;
-                    var maxMon = data.message[i].max_salary;
+                    var jobAddrNum = data.message[i].city;
+                    var minMon = data.message[i].minSaraly;
+                    var maxMon = data.message[i].maxSaraly;
                     var jobExp = data.message[i].exp;
                     var stateNum = data.message[i].job_state;
                     var stateText = "";
                     var state = "";
+                    var jobAddr = "";
+                    switch (jobAddrNum){
+                        case 1:jobAddr = "广州市";break;
+                        default:jobAddr = "其他";break;
+                    }
                     switch(stateNum){
                         case "1":stateText = "已发布";state = "submitted";break;
                         case "0":stateText = "暂存";state = "temperory";break;
@@ -504,7 +540,7 @@ $(function(){
                             success:function(data){
                                 if (data.err==0) {
                                     alert(data.msg);
-                                    delJobFromDom(delJobId);
+                                    delJobFromDom(delJob);
                                     $("#firstPage").attr("class","activePage");
                                 }
                                 else{
