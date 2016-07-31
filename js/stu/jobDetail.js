@@ -2,9 +2,28 @@
  * Created by jewel on 16/7/23.
  */
 $(function(){
+    //得到参数数组
+
+    function getUrlVars(){
+
+        var vars = [], hash;
+        var hashes = window.location.href.slice(window.location.href.indexOf('?') + 1).split('&');
+        for(var i = 0; i < hashes.length; i++)
+        {
+            hash = hashes[i].split('=');
+            vars.push(hash[0]);
+            vars[hash[0]] = hash[1];
+        }
+        return vars;
+    }
+
+    //得到指定参数的value
+    function getUrlVar(name){
+        return getUrlVars()[name];
+    }
     // 学生点击职位名字后，主页在url上传职位id
-    var jId = $.url().param('jId');
-    var sId = $.url().param('sId');
+    var jId = getUrlVar('job_id');
+    var stu_id = getUrlVar('stu_id');
     var tId,jName,min,max,prov,city,town,addr,edu,exp,jobType,workType,sum,date,state,jobCmd,workCmd;
     var tName,tLogo,tAbout,tTel,tMail;
     var tLabel = new Array();
@@ -40,7 +59,7 @@ $(function(){
                 var teamId = {
                     tid:tId
                 };
-                var teamUrl = "http://110.64.69.66.8081/team/info?tid="+tId;
+                var teamUrl = "http://110.64.69.66:8081/team/info/?tid="+tId;
                 $.ajax({
                     type:'post',
                     url:teamUrl,
@@ -105,18 +124,18 @@ $(function(){
     }
     var submitRes = {
         stu_id:stu_id,
-        job_id:JId
+        job_id:jId
     };
      var sId = {
-       id : sId
+       stu_id : stu_id
      };
     $.ajax({
         type:'post',
         url:'http://110.64.69.66:8081/student/resume/get/',
-         data:sId,
+        data:sId,
         dataType:'json',
         success:function(data){
-            $('#resume').html(data.path);
+            $('#resume').html(data.resume_path);
             //$('#subResTime').html(data.date);
         },
         error:function(data){

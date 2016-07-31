@@ -4,10 +4,10 @@
 <meta charset="utf-8">
 <head>
     <title>团队风采</title>
-    <link href="../css/main/team_recent.css" rel="stylesheet"/>
+    <link rel="stylesheet" type="text/css" href="../css/materialize.css">
     <link href="../css/base.css" type="text/css" rel="stylesheet"/>
     <link href="../css/main/index.css" type="text/css" rel="stylesheet"/>
-    <link rel="stylesheet" type="text/css" href="../css/materialize.css">
+    <link href="../css/main/team_recent.css" rel="stylesheet"/>
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 </head>
 <body>
@@ -16,13 +16,13 @@
     <div class="topBar">
         <div class="comWidth">
             <div class="header fl">
-                <a href="test/information.html" target="_blank">关于基地</a>
+                <a href="#" target="_blank">关于基地</a>
             </div>
             <div class="header fr">
-                <a class="mainBtn" href="role/login.html" target="_blank">登录</a>
+                <a class="mainBtn" href="../main/role/login.html" target="_blank">登录</a>
 
                 <span class="line">|</span>
-                <a class="mainBtn" href="role/register.html" target="_blank">注册</a>
+                <a class="mainBtn" href="../main/role/register.html" target="_blank">注册</a>
             </div>
         </div>
     </div>
@@ -46,51 +46,243 @@
     </div>
 </nav>
 
-<div class="recent-bg comWidth">
-    <div class="row">
-        团队动态
+<!--<div class="recent-bg comWidth">-->
+<!--<div class="row">-->
+<!--团队动态-->
+<!--</div>-->
+<!--<div class="row">-->
+<!--<div class="col s1 valign-wrapper"><i class="material-icons arrow-btn valign">chevron_left</i></div>-->
+<!--<div class="col s3 recent-container">-->
+<!--<div class="recent-img z-depth">-->
+<!--<div class="img_container valign-wrapper">-->
+<!--<img class="valign  center" src="../res/imgs/materialize.svg"/>-->
+<!--</div>-->
+
+<!--<div class="recent-foot center grey lighten-4">-->
+<!--<div>WeMeet</div>-->
+<!--<div>在这里，遇见更好的自己</div>-->
+<!--</div>-->
+<!--</div>-->
+<!--</div>-->
+<!--<div class="col s3 recent-container">-->
+<!--<div class="recent-img z-depth">-->
+<!--<div class="img_container valign-wrapper">-->
+<!--<img class="valign center" src="../res/imgs/materialize.svg"/>-->
+<!--</div>-->
+
+<!--<div class="recent-foot center grey lighten-4">-->
+<!--<div>WeMeet</div>-->
+<!--<div>在这里，遇见更好的自己</div>-->
+<!--</div>-->
+<!--</div>-->
+<!--</div>-->
+<!--<div class="col s3 recent-container">-->
+<!--<div class="recent-img z-depth">-->
+<!--<div class="img_container valign-wrapper">-->
+<!--<img class="valign  center" src="../res/imgs/materialize.svg"/>-->
+<!--</div>-->
+
+<!--<div class="recent-foot center grey lighten-4">-->
+<!--<div>WeMeet</div>-->
+<!--<div>在这里，遇见更好的自己</div>-->
+<!--</div>-->
+<!--</div>-->
+<!--</div>-->
+<!--<div class="col s1"><i class="material-icons arrow-btn">chevron_right</i></div>-->
+<!--</div>-->
+<!--</div>-->
+<div id="show" class="shadow comWidth">
+    <div>
+        <hr id="hr1" size=2 width=350px color=#616161/>
+        <span id="team">团 队 动 态</span>
+        <hr id="hr2" size=2 width=350px color=#616161/>
     </div>
-    <div class="row">
-        <div class="col s1 valign-wrapper"><i class="material-icons arrow-btn valign">chevron_left</i></div>
-        <div class="col s3 recent-container">
-            <div class="recent-img z-depth">
-                <div class="img_container valign-wrapper">
-                    <img class="valign  center" src="../res/imgs/materialize.svg"/>
+    <div class="btn" id="btn1" onclick="move(-1860)" onmouseover="startMove(this,100,'opacity')"
+         onmouseout="startMove(this,40,'opacity')">&lt;</div>
+    <div id="win_pic">
+        <div id="show_pic">
+            <div class="show_team shadow">
+                <img src="../res/imgs/team/recent/show7.BMP"/>
+                <div class="show_text">
+                    <h1>团队名称</h1>
+                    <h2>最新动态，包括新闻、目的、和哈哈呵呵嘿嘿洗洗</h2>
                 </div>
+            </div>
+            <div class="show_team shadow">
+                <img src="../res/imgs/team/recent/show8.BMP"/>
+                <div class="show_text">
+                    <h1>团队名称</h1>
+                    <h2>最新动态，包括新闻、目的、和哈哈呵呵嘿嘿洗洗</h2>
+                </div>
+            </div>
+            <div class="show_team shadow">
+                <img src="../res/imgs/team/recent/show9.BMP"/>
+                <div class="show_text">
+                    <h1>团队名称</h1>
+                    <h2>最新动态，包括新闻、目的、和哈哈呵呵嘿嘿洗洗</h2>
+                </div>
+            </div>
+            <!--第1组-->
+            <div class="show_team shadow">
+                <img src="../res/imgs/team/recent/show1.jpg"/>
+                <div class="show_text">
+                    <h1>团队名称</h1>
+                    <h2>最新动态，包括新闻、目的、和哈哈呵呵嘿嘿洗洗</h2>
+                </div>
+            </div>
+            <div class="show_team shadow">
+                <img src="../res/imgs/team/recent/show2.jpg"/>
+                <div class="show_text">
+                    <h1>团队名称</h1>
+                    <h2>最新动态，包括新闻、目的、和哈哈呵呵嘿嘿洗洗</h2>
+                </div>
+            </div>
+            <div class="show_team shadow">
+                <img src="../res/imgs/team/recent/show3.png"/>
+                <div class="show_text">
+                    <h1>团队名称</h1>
+                    <h2>最新动态，包括新闻、目的、和哈哈呵呵嘿嘿洗洗</h2>
+                </div>
+            </div>
+            <!--第2组-->
+            <div class="show_team shadow">
+                <img src="../res/imgs/team/recent/show4.BMP"/>
+                <div class="show_text">
+                    <h1>团队名称</h1>
+                    <h2>最新动态，包括新闻、目的、和哈哈呵呵嘿嘿洗洗</h2>
+                </div>
+            </div>
+            <div class="show_team shadow">
+                <img src="../res/imgs/team/recent/show5.bmp"/>
+                <div class="show_text">
+                    <h1>团队名称</h1>
+                    <h2>最新动态，包括新闻、目的、和哈哈呵呵嘿嘿洗洗</h2>
+                </div>
+            </div>
+            <div class="show_team shadow">
+                <img src="../res/imgs/team/recent/show6.BMP"/>
+                <div class="show_text">
+                    <h1>团队名称</h1>
+                    <h2>最新动态，包括新闻、目的、和哈哈呵呵嘿嘿洗洗</h2>
+                </div>
+            </div>
+            <!--第三组-->
+            <div class="show_team shadow">
+                <img src="../res/imgs/team/recent/show7.BMP"/>
+                <div class="show_text">
+                    <h1>团队名称</h1>
+                    <h2>最新动态，包括新闻、目的、和哈哈呵呵嘿嘿洗洗</h2>
+                </div>
+            </div>
+            <div class="show_team shadow">
+                <img src="../res/imgs/team/recent/show8.BMP"/>
+                <div class="show_text">
+                    <h1>团队名称</h1>
+                    <h2>最新动态，包括新闻、目的、和哈哈呵呵嘿嘿洗洗</h2>
+                </div>
+            </div>
+            <div class="show_team shadow">
+                <img src="../res/imgs/team/recent/show9.BMP"/>
+                <div class="show_text">
+                    <h1>团队名称</h1>
+                    <h2>最新动态，包括新闻、目的、和哈哈呵呵嘿嘿洗洗</h2>
+                </div>
+            </div>
 
-                <div class="recent-foot center grey lighten-4">
-                    <div>WeMeet</div>
-                    <div>在这里，遇见更好的自己</div>
+            <div class="show_team shadow">
+                <img src="../res/imgs/team/recent/show1.jpg"/>
+                <div class="show_text">
+                    <h1>团队名称</h1>
+                    <h2>最新动态，包括新闻、目的、和哈哈呵呵嘿嘿洗洗</h2>
+                </div>
+            </div>
+            <div class="show_team shadow">
+                <img src="../res/imgs/team/recent/show2.jpg"/>
+                <div class="show_text">
+                    <h1>团队名称</h1>
+                    <h2>最新动态，包括新闻、目的、和哈哈呵呵嘿嘿洗洗</h2>
+                </div>
+            </div>
+            <div class="show_team shadow">
+                <img src="../res/imgs/team/recent/show3.png"/>
+                <div class="show_text">
+                    <h1>团队名称</h1>
+                    <h2>最新动态，包括新闻、目的、和哈哈呵呵嘿嘿洗洗</h2>
                 </div>
             </div>
         </div>
-        <div class="col s3 recent-container">
-            <div class="recent-img z-depth">
-                <div class="img_container valign-wrapper">
-                    <img class="valign center" src="../res/imgs/materialize.svg"/>
-                </div>
-
-                <div class="recent-foot center grey lighten-4">
-                    <div>WeMeet</div>
-                    <div>在这里，遇见更好的自己</div>
-                </div>
-            </div>
-        </div>
-        <div class="col s3 recent-container">
-            <div class="recent-img z-depth">
-                <div class="img_container valign-wrapper">
-                    <img class="valign  center" src="../res/imgs/materialize.svg"/>
-                </div>
-
-                <div class="recent-foot center grey lighten-4">
-                    <div>WeMeet</div>
-                    <div>在这里，遇见更好的自己</div>
-                </div>
-            </div>
-        </div>
-        <div class="col s1"><i class="material-icons arrow-btn">chevron_right</i></div>
     </div>
+    <div class="btn" id="btn2" onclick="move(-620)" onmouseover="startMove(this,100,'opacity')"
+         onmouseout="startMove(this,40,'opacity')">&gt;</div>
 </div>
-
+<div id="main_card" class="bp_contain">
+    <a href="#">
+        <div class="card shadow">
+            <img src="../res/imgs/team/recent/card1.png"/>
+            <div class="card_text">
+                <span>WEMEET</span>
+                <h2>团队介绍 team introduction</h2>
+                <h3>5个团队项目<br>10个团队成员<br>10个团队成员</h3>
+            </div>
+            <p>团队标语：在这里遇见更好的自己</p>
+        </div>
+    </a>
+    <a href="#">
+        <div class="card shadow">
+            <img src="../res/imgs/team/recent/card2.jpg"/>
+            <div class="card_text">
+                <span>WEMEET</span>
+                <h2>团队介绍 team introduction</h2>
+                <h3>5个团队项目<br>10个团队成员<br>10个团队成员</h3>
+            </div>
+            <p>团队标语：在这里遇见更好的自己</p>
+        </div>
+    </a>
+    <a href="#">
+        <div class="card shadow">
+            <img src="../res/imgs/team/recent/card3.jpg"/>
+            <div class="card_text">
+                <span>WEMEET</span>
+                <h2>团队介绍 team introduction</h2>
+                <h3>5个团队项目<br>10个团队成员<br>10个团队成员</h3>
+            </div>
+            <p>团队标语：在这里遇见更好的自己</p>
+        </div>
+    </a>
+    <a href="#">
+        <div class="card shadow">
+            <img src="../res/imgs/team/recent/card4.jpg"/>
+            <div class="card_text">
+                <span>WEMEET</span>
+                <h2>团队介绍 team introduction</h2>
+                <h3>5个团队项目<br>10个团队成员<br>10个团队成员</h3>
+            </div>
+            <p>团队标语：在这里遇见更好的自己</p>
+        </div>
+    </a>
+    <a href="#">
+        <div class="card shadow">
+            <img src="../res/imgs/team/recent/card5.jpg"/>
+            <div class="card_text">
+                <span>WEMEET</span>
+                <h2>团队介绍 team introduction</h2>
+                <h3>5个团队项目<br>10个团队成员<br>10个团队成员</h3>
+            </div>
+            <p>团队标语：在这里遇见更好的自己</p>
+        </div>
+    </a>
+    <a href="#">
+        <div class="card shadow">
+            <img src="../res/imgs/team/recent/card6.jpg"/>
+            <div class="card_text">
+                <span>WEMEET</span>
+                <h2>团队介绍 team introduction</h2>
+                <h3>5个团队项目<br>10个团队成员<br>10个团队成员</h3>
+            </div>
+            <p>团队标语：在这里遇见更好的自己</p>
+        </div>
+    </a>
+</div>
+<script type="text/javascript" src="../js/team/team_recent.js"></script>
 </body>
 </html>

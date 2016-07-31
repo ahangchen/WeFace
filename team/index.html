@@ -15,6 +15,7 @@
         <script type="text/javascript" src="../js/team/fix_team_msg.js"></script>
     </head>
     <body>
+
         <div id="max">
             <div class="header comWidth">
                 <div class="topBar">
@@ -67,13 +68,13 @@
                     <p id="p3"></p>
                 </div>
                 <div id="information_three">
-                    <div class="tag_odd tag" id="tag_one"></div>
-                    <div class="tag_even tag" id="tag_two"></div>
-                    <div class="tag_odd tag" id="tag_three"></div>
-                    <div class="tag_even tag" id="tag_four"></div>
-                    <div class="tag_odd tag" id="tag_five"></div>
-                    <div class="tag_even tag" id="tag_six"></div>
-                    <a class="btn-floating btn-small waves-effect waves-light white" id="fix_msg_button"><i class="material-icons" style="color:orangered">edit</i></a>
+                    <div class="tag" id="tag_one"></div>
+                    <div class="tag" id="tag_two"></div>
+                    <div class="tag" id="tag_three"></div>
+                    <div class="tag" id="tag_four"></div>
+                    <div class="tag" id="tag_five"></div>
+                    <div class="tag" id="tag_six"></div>
+                    <a class="btn-floating btn-small waves-effect waves-light orange" id="fix_msg_button"><i class="material-icons" style="color:white">edit</i></a>
                 </div>
             </div>
             <div id="orgin_page">
@@ -84,18 +85,19 @@
             <div id="team_home_div">
                 <div id="left">
                     <div id="main_left_top">
+                        <a class="btn-floating btn-small waves-effect waves-light orange" id="fix_team_intro"><i class="material-icons" style="color:white">edit</i></a>
                         <div class="float" id="one">团队介绍<i class="material-icons small">play_arrow</i></div>
-                        <div class="textarea" id="team_introuduction">
-                        </div>
+                        <div class="textarea" id="team_introuduction"></div>
                     </div>
                     <div id="main_left_middle">
                         <div id="main_left_middle_one">
-                            <a class="btn-floating btn-small waves-effect waves-light white" id="history_button"><i class="material-icons" style="color:orangered">edit</i></a>
+                            <a class="btn-floating btn-small waves-effect waves-light orange" id="history_button"><i class="material-icons" style="color:white">edit</i></a>
                             <div class="float"  id="two">发展历程<i class="material-icons small">play_arrow</i></div>
                             <div class="textarea" id="history_text">
                             </div>
                         </div>
                         <div id="main_left_middle_two">
+                            <div class="float" id="team_img">团队照片<i class="material-icons small">play_arrow</i></div>
                             <!--                                         <a href="" class="fanxiang" id="fanxiang_left"><i class="small material-icons">chevron_left</i></a>
                             <img src="../res/imgs/team/p1.jpg" alt="" class="piture " id="p1"/>
                             <img src="../res/imgs/team/p2.jpg" alt="" class="piture nodisplay" id="p2" />
@@ -119,22 +121,44 @@
                 </div>
                 <div id="right">
                     <div class="float" id="four">学生成员<i class="material-icons small">play_arrow</i></div>
+                    <a class="btn-floating btn-small waves-effect waves-light orange" id="edit_member"><i class="material-icons" style="color:white">edit</i></a>
                     <div id="main_right_one">
-                        <img src="" alt="头像" id ="leader" class="Head_portrait" />
-                        <img src="" alt="头像" class="Head_portrait" />
-                        <img src="" alt="头像" class="Head_portrait" />
-                        <img src="" alt="头像" class="Head_portrait" />
-                        <img src="" alt="头像" class="Head_portrait" />
+                        <div id="team_member_icon">
+                            <div class="leader_div"><img src="" alt="头像" id ="leader" class="Head_portrait" /><br>创始人<br><span class="name"></span></div>
+                            <div class="Head_portrait_div Head_portrait_div_left"><img src="" alt="头像" class="Head_portrait" /><br><span class="name"></span></div>
+                            <div class="Head_portrait_div"><img src="" alt="头像" class="Head_portrait" /><br><span class="name"></span></div>
+                            <div class="Head_portrait_div Head_portrait_div_left" ><img src="" alt="头像" class="Head_portrait" /><br><span class="name"></span></div>
+                            <div class="Head_portrait_div"><img src="" alt="头像" class="Head_portrait" /><br><span class="name"></span></div>
+                        </div>
                     </div>
+                    <div class="float" id="contact_way">联系方式<i class="material-icons small">play_arrow</i></div>
                     <div id="main_right_two">
-                        <div id="member_information">成员信息（主要负责人姓名、介绍、经历）</div>
+                        <a class="btn-floating btn-small waves-effect waves-light orange" id="team_connect"><i class="material-icons" style="color:white">edit</i></a>
+                        <div id="member_information"></div>
                     </div>
                 </div>
             </div>
             </div>
-            <div id="Team_project_div" ><h1>我是团队项目页面</h1></div>
+            <div id="Team_project_div" >
+                <div class="Team_project_list">
+                    <div class="projectName" >项目名称<i class="material-icons small">play_arrow</i></div>
+                    <div class="projectImgDiv"><img src="" alt="" class="projectImg" /></div>
+                    <div class="projectIntroduction"></div>
+                </div>
+                <div class="Team_project_list">
+                    <div class="projectName" >项目名称<i class="material-icons small">play_arrow</i></div>
+                    <div class="projectImgDiv"><img src="" alt="" class="projectImg" /></div>
+                    <div class="projectIntroduction"></div>
+                </div>
+                <div class="Team_project_list">
+                    <div class="projectName">项目名称<i class="material-icons small">play_arrow</i></div>
+                    <div class="projectImgDiv"><img src="" alt="" class="projectImg" /></div>
+                    <div class="projectIntroduction"></div>
+                </div>
             <div id="Demand_for_jobs_div"><h1>我是需求职位页面</h1></div>
             <div id="Recently_div"><h1>我是最近页面</h1></div>
         </div>
+        </div>
+
     </body>
 </html>

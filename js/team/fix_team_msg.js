@@ -1,38 +1,49 @@
-$(function () {
-    $("#fix_msg_button").click(function () {
-        $("#information").empty().css("height","500px");
-        $("#team_introuduction").empty();
-        $("#main_right_one").append('<div id="add_member"><a class="btn-floating btn-large waves-effect waves orange">'+
-            '<i class="material-icons" style="color:#fff">add</i></a></div>');
-        $("#main_right_one").append('<div class="add_member_btn">'+
-            '<a id="member_saveButton" class="waves-effect waves-light btn">保存</a>'+
-            '<a id="member_cancelButton" class="waves-effect waves-light btn">取消</a> </div>');
-        $("#member_information").empty();
-        $("#member_information").append('<div class="input-field connect "><i class="material-icons prefix">phone</i>'
-            +'<input id="connect_tel" type="tel" class="validate"><label for="connect_tel">输入公司的联系电话</label> </div>');
-        $("#member_information").append('<div class="input-field connect "><i class="material-icons prefix">email</i>'
-            +'<input id="connect_mail" type="email" class="validate"><label for="connect_tel">输入公司的联系邮箱</label> </div>');
-        $("#member_information").append('<div class="edit_connect_btn"> <a id="connect_saveButton" class="waves-effect waves-light btn">保存</a>'
-            +'<a id="connect_cancelButton" class="waves-effect waves-light btn">取消</a> </div>');
-         $.ajax({
-            type:"get",
-            url: "basic_msg_for_team.html",
-            dataType:"html",
-            success:function(data){
-                $("#information").html(data);
-            }
-        });
-        $.ajax({
-            type:"get",
-            url: "team_intro.html",
-            dataType:"html",
-            success:function(data){
-                $("#team_introuduction").html(data);
-            }
-        })
-    });
+$(function(){
 
-    $("#history_button").click(function () {
+    //修改团队介绍
+        $("#fix_team_intro").on("click",function(){
+            $.ajax({
+                type:"get",
+                url: "team_intro.html",
+                dataType:"html",
+                success:function(data){
+                    $("#team_introuduction").html(data);
+                }
+            })
+        });
+
+        //获取团队原来的介绍
+        var oldIntro;
+        $.getJSON('../data/team_index.json', function(data) {
+            oldIntro=data.res.about+'\n\n';
+            $("#team_intro").val(data.res.about+'\n\n').trigger('autoresize');
+        });
+
+        //取消对团队介绍的编辑
+        $("#intro_cancelButton").unbind('click').on("click",function () {
+            $("#team_introuduction").empty().html(oldIntro);
+        });
+
+        //保存对团队介绍的编辑,post
+        $("#intro_saveButton").on("click",function () {
+            var temp=$("#team_intro").val().replace(/\n/gm,'<br>');//所有的分点能换行
+            $("#team_introuduction").html(temp);
+        });
+
+        //点击分点按钮进行分点
+        $("#intro_list_auto").unbind("click").on("click",function(){
+            var temp;
+            if(oldIntro==$("#team_intro").val()){
+                temp=($("#team_intro").val()).replace(/\n\n/, "")+'\n'+'◆';
+            }
+            else
+               temp=($("#team_intro").val()).replace(/\n\n/, "")+'◆';
+            $("#team_intro").val(temp+'\n').trigger('autoresize');
+        });
+
+
+    //团队发展历史的编辑
+    $("#history_button").on("click",function(){
         $.ajax({
             type:"get",
             url: "develop_history.html",
@@ -41,53 +52,73 @@ $(function () {
                 $("#history_text").html(data);
             }
         })
-
     });
 
+    //获取原来的团队历史
+    var oldHistory;
+    $.getJSON('../data/team_index.json', function(data) {
+        oldHistory=data.res.history+'\n\n';
+        $("#develop_history").val(data.res.history+'\n\n').trigger('autoresize');
+    });
 
-    var tag=[];//记录已选择的标签
-    var tag_num=0;
-    $("#type_tag").click(function () {
-        tag_num=$("#type_tag").length-1;
-        });
+    //取消对团队历史的编辑
+    $("#history_cancelButton").unbind('click').on("click",function(){
+        $("#history_text").empty().html(oldHistory);
+    });
 
-    var option_collapse=[];
+    //保存对团队历史的修改,post
+    $("#history_saveButton").unbind('click').on("click",function(){
+        var temp=$("#develop_history").val().replace(/\n/gm,'<br>');//所有的分点能换行
+        $("#history_text").html(temp);
+    });
 
-    $(".add_type").click(function(){
-        var option_num=$(".tag_select").val();
-        console.log(option_num);
-        if(tag_num<5&&option_num!=null) {
-            var type_name=$(".tag_select option:selected").text();
-            if(tag_num!=0){
-                for(var i=0;i<option_collapse.length;i++){
-                    if(option_num==option_collapse[i])
-                        return;
-                }
-            }
-            option_collapse.length=0;
-            tag.push(type_name);
-            $("#type_tag").append('<div class="tag_collapse chip" id='+option_num+'>'+type_name+'<i class="close material-icons">close</i> </div>');
-            $("div .tag_collapse").each(function () {
-                option_collapse.push(this.id);
-            });
-            console.log(option_collapse);
-            tag_num++;
+    //点击分点按钮进行分点
+    $("#history_list_auto").unbind("click").on("click",function(){
+        var temp;
+        if(oldHistory==$("#develop_history").val()){
+            temp=($("#develop_history").val()).replace(/\n\n/, "")+'\n'+'◆';
         }
+        else
+            temp=($("#develop_history").val()).replace(/\n\n/, "")+'◆';
+        $("#develop_history").val(temp+'\n').trigger('autoresize');
     });
+
+
+    //修改团队的联系方式
+    $("#team_connect").unbind('click').on("click",function(){
+        $.ajax({
+            type:"get",
+            url: "team_connect.html",
+            dataType:"html",
+            success:function(data){
+                $("#member_information").html(data);
+            }
+        })
+    });
+
+    var team_tel;
+    var team_mail;
+    $.getJSON('../data/team_index.json', function(data) {
+        team_tel=data.res.tel;
+        team_mail=data.res.mail;
+        $("#connect_tel").val(data.res.tel).trigger('autoresize');
+        $("#connect_mail").val(data.res.mail).trigger('autoresize');
+    });
+
+    //取消对团队联系方式的修改
+    $("#connect_cancelButton").unbind('click').on("click",function(){
+        $("#member_information").empty().html(team_tel+"<br>"+team_mail);
+
+    });
+
+    //保存对团队联系方式的修改,post,显示新的
+    $("#connect_saveButton").unbind('click').on("click",function(){
+        $("#member_information").html($("#connect_tel").val()+"<br>"+$("#connect_mail").val());
+    });
+
+
 
 
 });
 
-function F_Open_img(){
-    document.getElementById("update_photo").click();
 
-}
-function show_local_img(file){//预览图片
-    $("#photo_logo").css("opacity","0");
-    var img = document.getElementById("local_photo");
-    var reader = new FileReader();
-    reader.onload = function(evt) {
-        img.src = evt.target.result;
-    };
-    reader.readAsDataURL(file.files[0]);
-}

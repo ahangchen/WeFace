@@ -13,7 +13,8 @@ $(function(){
     var unreadNum = 0;
     var li = $('.tabs li a .newNum');
     //在学生主页的url中获取学生id
-    var stuId = getUrlVar('stuId');
+    var stuId = getUrlVar('stu_id');
+    console.log(stuId);
     var sId = {
         stu_id:stuId,
         state:5
@@ -59,19 +60,24 @@ $(function(){
                     min = data.apply_list[i].min_salary;
                     max = data.apply_list[i].max_salary;
                     firmName = data.apply_list[i].team_name;
-                    addr = data.apply_list[i].city;
+                    addrNum = data.apply_list[i].city;
                     jName = data.apply_list[i].job_name;
                     teamId = data.apply_list[i].team_id;
                     jobId = data.apply_list[i].job_id;
+                    var addr;
                     if(data.apply_list[i].is_read == 0){
                         unreadNum++;
                     }
+                    switch (addrNum){
+                        case 1:addr = "广州市";break;
+                        default:addr = "其他";break;
+                    }
                     switch(state){
-                        case "0":stateType ="unchChip";stateText ="待查看";break;
-                        case "1":stateType ="unconChip";stateText ="待沟通";break;
-                        case "2":stateType ="unquChip";stateText ="待面试";break;
-                        case "3":stateType ="admChip";stateText ="录用";break;
-                        case "4":stateType ="unsuitChip";stateText ="不合适";break;
+                        case 0:stateType ="unchChip";stateText ="待查看";break;
+                        case 1:stateType ="unconChip";stateText ="待沟通";break;
+                        case 2:stateType ="unquChip";stateText ="待面试";break;
+                        case 3:stateType ="admChip";stateText ="录用";break;
+                        case 4:stateType ="unsuitChip";stateText ="不合适";break;
                     }
                     $('#entire').append('<div class="jobCard z-depth-3">'+
                         '<div class="nameBar">'+
@@ -90,7 +96,7 @@ $(function(){
                         '<span class="chageTime">'+changeDate+'</span>'+
                         '</div></div>');
                     var link = $('#entire .nameBar a');
-                    $(link[i]).attr('href','jobDetail.html?jId='+jobId);
+                    $(link[i]).attr('href','jobDetail.html?job_id='+jobId+'&stu_id='+stuId);
                     $(li[0]).html(unreadNum);
                     var statelink;
                     switch(stateText){
@@ -112,7 +118,7 @@ $(function(){
                                 '<span class="chageTime">'+changeDate+'</span>'+
                                 '</div></div>');
                             statelink = $('#unchecked .nameBar a');
-                            $(statelink[chCnt]).attr('href','jobDetail.html?jId='+jobId);
+                            $(statelink[chCnt]).attr('href','jobDetail.html?job_id='+jobId+'&stu_id='+stuId);
                             chCnt++;
                             if (data.apply_list[i].is_read == 0) {
                                 unreadCh++;
@@ -138,7 +144,7 @@ $(function(){
                                 '</div></div>');
                             statelink = $('#uncontact .nameBar a');
 
-                            $(statelink[conCnt]).attr('href','jobDetail.html?jId='+jobId);
+                            $(statelink[conCnt]).attr('href','jobDetail.html?job_id='+jobId+'&stu_id='+stuId);
                             conCnt++;
                             if (data.apply_list[i].is_read == 0) {
                                 unredCon++;
@@ -163,7 +169,7 @@ $(function(){
                                 '<span class="chageTime">'+changeDate+'</span>'+
                                 '</div></div>');
                             statelink = $('#unquiz .nameBar a');
-                            $(statelink[quiCnt]).attr('href','jobDetail.html?jId='+jobId);
+                            $(statelink[quiCnt]).attr('href','jobDetail.html?job_id='+jobId+'&stu_id='+stuId);
                             quiCnt++;
                             if (data.apply_list[i].is_read == 0) {
                                 unreadQui++;
@@ -188,7 +194,7 @@ $(function(){
                                 '<span class="chageTime">'+changeDate+'</span>'+
                                 '</div></div>');
                             statelink = $('#admitted .nameBar a');
-                            $(statelink[admCnt]).attr('href','jobDetail.html?jId='+jobId);
+                            $(statelink[admCnt]).attr('href','jobDetail.html?job_id='+jobId+'&stu_id='+stuId);
                             admCnt++;
                             if (data.apply_list[i].is_read == 0) {
                                 unreadAdm++;
@@ -213,7 +219,7 @@ $(function(){
                                 '<span class="chageTime">'+changeDate+'</span>'+
                                 '</div></div>');
                             statelink = $('#unsuit .nameBar a');
-                            $(statelink[suitCnt]).attr('href','jobDetail.html?jId='+jobId);
+                            $(statelink[suitCnt]).attr('href','jobDetail.html?job_id='+jobId+'&stu_id='+stuId);
                             suitCnt++;
                             if (data.apply_list[i].is_read == 0) {
                                 unreadSu++;

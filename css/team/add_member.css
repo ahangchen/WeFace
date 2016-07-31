@@ -1,0 +1,43 @@
+.add_member_btn{
+    margin-top: 340px;
+    margin-left: 20px;
+}
+
+#member_cancelButton{
+    color: #000;
+    background-color: #fff;
+    margin-left: 10px;
+    margin-bottom: 0;
+}
+
+#member_saveButton{
+    color: #fff;
+    background-color: orange;
+    margin-left: 10px;
+    margin-bottom: 0;
+}
+.leader_div_edit{
+    height: 150px;
+    width: 150px;
+    margin: 5px 60px;
+    text-align: center;
+}
+
+.Head_portrait_edit{
+    height: 80px;
+    width: 80px;
+    border-radius: 80px;
+    border: 1px black solid;
+
+}
+
+.Head_portrait_div_edit{
+    float: left;
+    height: 110px;
+    width: 110px;
+    text-align: center;
+}
+
+.Head_portrait_div_left_edit{
+    margin-left: 20px;
+}

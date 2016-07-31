@@ -1,6 +1,7 @@
 #fix_msg_button{
-    margin-left:-300px;
-    margin-top: 50px;
+    margin-right: 0;
+    margin-left: 240px;
+    margin-top: -160px;
 }
 
 .put_photo_here{
@@ -29,6 +30,12 @@
     margin-left: 50px;
     margin-top:50px;
     border-radius: 10px;
+}
+
+#fix_team_intro{
+    float: right;
+    margin-right: 6px;
+    margin-top: 6px;
 }
 
 .team_msg{
@@ -66,21 +73,28 @@
 }
 
 .complete_btn{
-    margin-top: 30px;
+    margin-top: 10px;
+    margin-bottom: 10px;
 }
 
-#saveButton,#cancelButton{
+#cancelButton{
     margin-top: 15px;
     margin-bottom: 15px;
-    width: 150px;
+    margin-left: 20px;
+    width: 100px;
     color: #000;
     background-color: #fff;
 }
 
-#saveButton:hover,#cancelButton:hover{
+#saveButton{
+    margin-top: 15px;
+    margin-bottom: 15px;
+    margin-left: 20px;
+    width: 100px;
     color: #fff;
-    background-color: #fb8c00;
+    background-color: orange;
 }
+
 
 #type_tag{
     margin-top: -100px;
@@ -107,24 +121,29 @@
     margin-top: -30px;
 }
 
-#intro_saveButton,#intro_cancelButton{
+#intro_cancelButton{
     color: #000;
     background-color: #fff;
     margin-left: 10px;
 }
 
-#intro_saveButton:hover,#intro_cancelButton:hover{
+#intro_saveButton{
     color: #fff;
-    background-color: #fb8c00;
+    background-color: orange;
+    margin-left: 10px;
 }
 
+
 #intro_list_auto{
-    margin-left: -55px;
-    margin-top: -90px;
+    margin-left: -10px;
+    margin-top: -85px;
+    margin-bottom: 35px;
 }
 
 #history_button{
     float: right;
+    margin-right: 6px;
+    margin-top: 6px;
 }
 
 #develop_history{
@@ -135,48 +154,36 @@
 }
 
 #history_list_auto{
-    float: left;
-    margin-top: -50px;
+    margin-top: -65px;
+    margin-left: 35px;
+    margin-bottom: 55px;
 }
 
 .history_complete_btn{
     margin-left: 150px;
 }
 
-#history_saveButton,#history_cancelButton{
+#history_cancelButton{
     color: #000;
     background-color: #fff;
     margin-left: 10px;
 }
 
-#history_saveButton:hover,#history_cancelButton:hover{
+#history_saveButton{
     color: #fff;
-    background-color: #fb8c00;
-}
-
-#add_member{
-    margin-left:200px;
-    margin-top: -70px;
-}
-
-.add_member_btn{
-margin-top: 50px;
-    margin-left: 20px;
-}
-
-#member_saveButton,#member_cancelButton{
-    color: #000;
-    background-color: #fff;
+    background-color: orange;
     margin-left: 10px;
 }
 
-#member_saveButton:hover,#member_cancelButton:hover{
-    color: #fff;
-    background-color: #fb8c00;
+
+#edit_member{
+    margin-left: 290px;
+    margin-top: -80px;
 }
 
 #connect_tel,#connect_mail{
-    width: 200px
+    width: 200px;
+    margin-top: -10px;
 }
 
 
@@ -185,18 +192,108 @@ margin-top: 50px;
     width: 400px;
 }
 
-#connect_saveButton,#connect_cancelButton{
+#connect_cancelButton{
     color: #000;
     background-color: #fff;
     margin-left: 10px;
 }
 
-#connect_saveButton:hover,#connect_cancelButton:hover{
+#connect_saveButton{
+    color: #fff;
+    background-color: orange;
+    margin-left: 10px;
+}
+
+#add_member_dialog{
+    height: 540px;
+    width: 450px;
+}
+
+#add_member_note{
+    margin-top: 25px;
+    width: 370px;
+    height: 70px;
+    margin-left: 30px;
+}
+
+.member_name{
+    margin-top: 1rem;
+    margin-left: 20px;
+}
+
+#member_name{
+    width: 250px;
+}
+
+.modal-content,.modal{
+    overflow: hidden;
+}
+
+.match_email{
+    width: 270px;
+    margin-left: 60px;
+
+}
+
+#searchMemberButton{
     color: #fff;
     background-color: #fb8c00;
+    margin-left: 150px;
+    margin-top:200px;
+
+}
+
+#search_member_icon{
+    margin-left: 0;
+    color: #fff;
+}
+
+#add_member_img{
+    margin-left: 80px;
+    margin-top:20px;
+}
+
+#addMemberButton{
+    color: #fff;
+    background-color: #fb8c00;
+    margin-left: 80px;
+    margin-top:35px;
 }
 
 
+#fault_note{
+    margin-top: 10px;
+    width: 350px;
+    height: 100px;
+    margin-left: 25px;
+}
+
+#member_found_email{
+    width: 300px;
+    margin-left: 20px;
+    margin-top: -14px;
+}
+
+#invite_btn{
+    color: #fff;
+    background-color: #fb8c00;
+    margin-left: 140px;
+    margin-top: 30px;
+}
+
+#team_connect{
+    margin-left: 290px;
+    margin-top: -50px;
+
+}
+
+#add_member{
+    margin-left: 15px;
+}
+
+#invite_to_join{
+    margin-top:-5px;
+}
 
 
 

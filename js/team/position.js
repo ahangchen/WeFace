@@ -3,6 +3,47 @@
  */
 
 $(function(){
+    //获取职位类型
+    $.ajax({
+        type:'post',
+        url:"http://110.64.69.66:8081/team/job_type/",
+        dataType:'json',
+        success:function(data){
+            console.log(data.msg);
+        },
+        headers:{
+            "Access-Control-Allow-Origin":"*"
+        }
+    });
+    //获取url中的参数t_id
+
+    //得到参数数组
+
+    function getUrlVars(){
+
+        var vars = [], hash;
+        var hashes = window.location.href.slice(window.location.href.indexOf('?') + 1).split('&');
+        for(var i = 0; i < hashes.length; i++)
+        {
+            hash = hashes[i].split('=');
+            vars.push(hash[0]);
+            vars[hash[0]] = hash[1];
+        }
+        return vars;
+    }
+
+    //得到指定参数的value
+    function getUrlVar(name){
+        return getUrlVars()[name];
+    }
+
+    // 团队点击职位名字后，在url上获取传职位id
+    var tId = getUrlVar('t_id');
+
+
+    $("#addBtn").click(function(){
+        $(this).attr('href','addPosition.html?t_id='+tId);
+    });
     var clickedJobId = "";
     var tagsObj = $(".activeTag a");
     var selectedTags = new Array(10);
@@ -29,14 +70,27 @@ $(function(){
             selectedTags[0] = "全部";
         }
         else{
+            for(var i = 0;i < selectedTags.length;i++){
+                selectedTags[i] = "";
+            }
+
             $('#entireTag').attr("class","chip normalTag");
-            $(this).attr("class","chip activeTag");
+            if($(this).attr('class')=="chip normalTag"){
+                $(this).attr("class","chip activeTag");
+            }
+            else {
+                $(this).attr("class","chip normalTag");
+            }
             targetObj = $(".activeTag a");
             for (var i = 0; i < targetObj.length; i++) {
                 selectedTags[i] = $(targetObj[i]).html();
             }
         }
+        for(var i = 0; i < selectedTags.length; i++) {
+            if(selectedTags[i].length == 0) selectedTags.splice(i,1);
+        }
         removeLastPage();
+        console.log(selectedTags);
         init(selectedTags);
     });
 
@@ -114,7 +168,7 @@ $(function(){
         $("#entireTag").attr("class","chip activeTag");
         //选择标签
         $('.chip').click(function(){
-            var targetObj = $(".activeTag a");
+            targetObj = $(".activeTag a");
             var curTag = $(this).children('a');
             if ($(curTag).html()=="全部") {
                 var tags = $(this).nextAll();
@@ -126,21 +180,52 @@ $(function(){
                 selectedTags[0] = "全部";
             }
             else{
+
+                for(var i = 0;i < selectedTags.length;i++){
+                    selectedTags[i] = "";
+                }
                 $('#entireTag').attr("class","chip normalTag");
-                $(this).attr("class","chip activeTag");
+                if($(this).attr('class')=="chip normalTag"){
+                    $(this).attr("class","chip activeTag");
+                }
+                else {
+                    $(this).attr("class","chip normalTag");
+                }
                 targetObj = $(".activeTag a");
                 for (var i = 0; i < targetObj.length; i++) {
                     selectedTags[i] = $(targetObj[i]).html();
                 }
             }
             removeLastPage();
+            console.log(selectedTags);
             init(selectedTags);
         });
     }
     // 初始化职位显示第一页
     function init(tags){
+        for(var i = 0;i<tags.length;i++){
+            if(tags[i]=="全部"){
+                for(var j = 0;j < 8;j++)
+                {
+                    tags[j] = j;
+                }
+                break;
+            }
+            switch (tags[i]){
+                case"行政":tags[i] = 1;break;
+                case"技术":tags[i] = 3;break;
+                case"设计":tags[i] = 4;break;
+                case"产品":tags[i] = 2;break;
+                case"运营":tags[i] = 5;break;
+                case"运维支持":tags[i] = 6;break;
+                case"市场":tags[i] = 7;break;
+                case"文案策划":tags[i] = 8;break;
+                case"营销":tags[i] = 9;break;
+            }
+        }
         var tag = {
-            'jobTags':tags
+            'jobTags':tags,
+            'teamId':tId
         };
         var a = $.ajax({
             type:'post',
@@ -153,18 +238,23 @@ $(function(){
 
                     if (pages == 1) {
                         for (var i = 0; i < data.message.length; i++) {
-                            var jobId = data.message[i].ob_id;
-                            var jobName = data.message[i].job_name;
-                            var jobAddr = data.message[i].city;
-                            var minMon = data.message[i].min_salary;
-                            var maxMon = data.message[i].max_salary;
+                            var jobId = data.message[i].jobId;
+                            var jobName = data.message[i].name;
+                            var jobAddrNum = data.message[i].city;
+                            var minMon = data.message[i].minSaraly;
+                            var maxMon = data.message[i].maxSaraly;
                             var jobExp = data.message[i].exp;
                             var stateNum = data.message[i].job_state;
                             var stateText = "";
                             var state = "";
+                            var jobAddr = "";
+                            switch (jobAddrNum){
+                                case 1:jobAddr = "广州市";break;
+                                default:jobAddr = "其他";break;
+                            }
                             switch(stateNum){
-                                case "1":stateText = "已发布";state = "submitted";break;
-                                case "0":stateText = "暂存";state = "temperory";break;
+                                case 1:stateText = "已发布";state = "submitted";break;
+                                case 0:stateText = "暂存";state = "temperory";break;
                                 default:break;
                             }
                             $("#positionCards").append('<div class="positionCard comwidth" id="'+jobId+'"><div class="row"><label class="positionName"><a>'+jobName+'</a><span class = "jAddr">（'+jobAddr+'）</span></label><div class="chip '+state+'">'+stateText+'</div></div><div class="row"><label class="salary">'+minMon+'-'+maxMon+'/月</label><label class="required">'+jobExp+'</label></div><div class="btngroups fr"><a class="btn-floating btn-large waves-effect waves-light white delJobBtn"  ><i class="medium material-icons" >remove</i></a><a class="btn-floating btn-large white editInfoBtn" ><i class="medium material-icons" >mode_edit</i></a></div></div>');
@@ -174,18 +264,23 @@ $(function(){
                     }
                     else{
                         for (var i = 0; i < 10; i++) {
-                            var jobId = data.message[i].ob_id;
-                            var jobName = data.message[i].job_name;
-                            var jobAddr = data.message[i].city;
-                            var minMon = data.message[i].min_salary;
-                            var maxMon = data.message[i].max_salary;
+                            var jobId = data.message[i].jobId;
+                            var jobName = data.message[i].name;
+                            var jobAddrNum = data.message[i].city;
+                            var minMon = data.message[i].minSaraly;
+                            var maxMon = data.message[i].maxSaraly;
                             var jobExp = data.message[i].exp;
                             var stateNum = data.message[i].job_state;
                             var stateText = "";
                             var state = "";
+                            var jobAddr = "";
+                            switch (jobAddrNum){
+                                case 1:jobAddr = "广州市";break;
+                                default:jobAddr = "其他";break;
+                            }
                             switch(stateNum){
-                                case "1":stateText = "已发布";state = "submitted";break;
-                                case "0":stateText = "暂存";state = "temperory";break;
+                                case 1:stateText = "已发布";state = "submitted";break;
+                                case 0:stateText = "暂存";state = "temperory";break;
                                 default:break;
                             }
                             $("#positionCards").append('<div class="positionCard comwidth" id="'+jobId+'"><div class="row"><label class="positionName"><a>'+jobName+'</a><span class = "jAddr">（'+jobAddr+'）</span></label><div class="chip '+state+'">'+stateText+'</div></div><div class="row"><label class="salary">'+minMon+'-'+maxMon+'/月</label><label class="required">'+jobExp+'</label></div><div class="btngroups fr"><a class="btn-floating btn-large waves-effect waves-light white delJobBtn" ><i class="medium material-icons" >remove</i></a><a class="btn-floating btn-large white editInfoBtn" ><i class="medium material-icons" >mode_edit</i></a></div></div>');
@@ -204,6 +299,8 @@ $(function(){
                     // 删除按钮的响应事件
                     $('.delJobBtn').click(function(){
                         var ch = confirm("确定删除该职位信息？");
+                        console.log($(this).parents('.positionCard').attr('id'));
+                        console.log(ch);
                         if (ch) {
                             var delJob = $(this).parents('.positionCard').attr('id');
                             var delJobId = {
@@ -211,13 +308,13 @@ $(function(){
                             };
                             var a = $.ajax({
                                 type: 'post',
-                                data:'delJobId',
+                                data:delJobId,
                                 url:'http://110.64.69.66:8081/team/delete_job/',
                                 dataType:'json',
                                 success:function(data){
                                     if (data.err==0) {
                                         alert(data.msg);
-                                        delJobFromDom(delJobId);
+                                        delJobFromDom(delJob);
                                         $("#firstPage").attr("class","activePage");
                                     }
                                     else{
@@ -291,9 +388,10 @@ $(function(){
 
     // 删除节点刷新页面
     function delJobFromDom(jId){
-        $('#'+jId).remove();
+        console.log(jId);
+        $("#"+jId).remove();
         removeLastPage();
-        init(tags);
+        init(selectedTags);
     }
     // 上下页切换
     $('#prePage').click(function(){
@@ -341,9 +439,55 @@ $(function(){
     }
     // 按页码后显示该页内容
     function showActivePage(curPage){
+        var tags = new Array(10);
+        console.log(selectedTags.length);
+        for(var i = 0;i<selectedTags.length;i++){
+            if(selectedTags[i]=="全部"){
+                for(var j = 1;j < 10;j++)
+                {
+                    tags[j] = j;
+                }
+                break;
+            }
+            else {
+                switch (selectedTags[i]) {
+                    case"行政":
+                        tags[i] = 1;
+                        break;
+                    case"技术":
+                        tags[i] = 3;
+                        break;
+                    case"设计":
+                        tags[i] = 4;
+                        break;
+                    case"产品":
+                        tags[i] = 2;
+                        break;
+                    case"运营":
+                        tags[i] = 5;
+                        break;
+                    case"运维支持":
+                        tags[i] = 6;
+                        break;
+                    case"市场":
+                        tags[i] = 7;
+                        break;
+                    case"文案策划":
+                        tags[i] = 8;
+                        break;
+                    case"营销":
+                        tags[i] = 9;
+                        break;
+                }
+            }
+        }
+        var tag = {
+            'jobTags':tags,
+            'teamId':tId
+        };
         var a = $.ajax({
             type:'post',
-            data: selectedTags,
+            data: tag,
             url:'http://110.64.69.66:8081/team/search_job/',
             dataType:'json',
             success:function(data){
@@ -352,15 +496,20 @@ $(function(){
                     terminal = data.message.length;
                 }
                 for (var i = (curPage-1)*10; i < terminal; i++) {
-                    var jobId = data.message[i].ob_id;
-                    var jobName = data.message[i].job_name;
-                    var jobAddr = data.message[i].city;
-                    var minMon = data.message[i].min_salary;
-                    var maxMon = data.message[i].max_salary;
+                    var jobId = data.message[i].jobId;
+                    var jobName = data.message[i].name;
+                    var jobAddrNum = data.message[i].city;
+                    var minMon = data.message[i].minSaraly;
+                    var maxMon = data.message[i].maxSaraly;
                     var jobExp = data.message[i].exp;
                     var stateNum = data.message[i].job_state;
                     var stateText = "";
                     var state = "";
+                    var jobAddr = "";
+                    switch (jobAddrNum){
+                        case 1:jobAddr = "广州市";break;
+                        default:jobAddr = "其他";break;
+                    }
                     switch(stateNum){
                         case "1":stateText = "已发布";state = "submitted";break;
                         case "0":stateText = "暂存";state = "temperory";break;
@@ -391,7 +540,7 @@ $(function(){
                             success:function(data){
                                 if (data.err==0) {
                                     alert(data.msg);
-                                    delJobFromDom(delJobId);
+                                    delJobFromDom(delJob);
                                     $("#firstPage").attr("class","activePage");
                                 }
                                 else{
@@ -420,6 +569,7 @@ $(function(){
     function showEditPage(eId){
 
         var jobInfo = {
+            "job_id":eId,
             "job_name": "UI设计",
             "min_salary": "",
             "max_salary":"",
@@ -435,7 +585,8 @@ $(function(){
             "pub_date": "",
             "pub_state": "",
             "job_cmd": "",
-            "work_cmd": ""
+            "work_cmd": "",
+            "team_id":""
         };
         var eJobId = {
             id:eId
@@ -600,7 +751,8 @@ $(function(){
             w_type: $('.atrr').children('input').val(),
             job_cmd:$("#requirementForPosition").val(),
             work_cmd: $("#requirementForGetPosition").val(),
-            pub_state: 0
+            pub_state: 0,
+            team_id:tId
         };
         if ($('#submit').attr("checked")) {
             jobDetail.job_state = 1;
