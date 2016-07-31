@@ -1,0 +1,67 @@
+{
+  "res": {
+    "man_cnt": 0,
+    "slogan": "在这里遇见最好的自己<br>承包各种网页设计、制作，8人团队",
+    "name": "WEMEET",
+    "about": "测试数据测试数据测试数据测试数据测试数据测试数据测试数据测试数据测试数据测试数据测试数据测试数据测试数据测试数据测试数据测试数据测试数据测试数据测试数据测试数据测试数据测试数据测试数据测试数据测试数据测试数据测试数据",
+    "mail": "1418659400@qq.com",
+    "tid": 1,
+    "tel": "666752",
+    "b_type": 0,
+    "introuduction":"",
+    "stus": [
+      {
+        "school": null,
+        "id": 1,
+        "name": "cwh",
+        "logo_path": "../res/imgs/team/touxiang1.jpg"
+      },
+      {
+        "school": null,
+        "id": 2,
+        "name": "mlh",
+        "logo_path": "../res/imgs/team/touxiang3.jpg"
+      },
+      {
+        "school": null,
+        "id": 3,
+        "name": "cwh",
+        "logo_path": "../res/imgs/team/touxiang4.jpg"
+      },
+      {
+        "school": null,
+        "id": 4,
+        "name": "cwh",
+        "logo_path": "../res/imgs/team/touxiang5.jpg"
+      },
+      {
+        "school": null,
+        "id": 5,
+        "name": "cwh",
+        "logo_path": "../res/imgs/team/touxiang6.jpg"
+      },
+      {
+        "school": null,
+        "id": 6,
+        "name": "141***400@qq.com",
+        "logo_path": ""
+      }
+    ],
+    "imgs": [
+      "../res/imgs/team/p1.jpg",
+      "../res/imgs/team/p2.jpg",
+      "../res/imgs/team/p3.jpg"
+    ],
+    "label": [
+      "技术宅",
+      "技术宅",
+      "强迫症",
+      "高效率",
+      "高效率",
+      "网页开发"
+    ],
+    "history": "测试数据测试数据测试数据测试数据测试数据测试数据测试数据测试数据测试数据测试数据测试数据测试数据测试数据测试数据测试数据测试数据测试数据测试数据测试数据测试数据测试数据测试数据测试数据测试数据测试数据测试数据测试数据测试数据测试数据测试数据测试数据测试数据测试数据测试数据测试数据测试数据测试数据测试数据测试数据测试数据测试数据测试数据测试数据测试数据测试数据测试数据测试数据测试数据测试数据测试数据测试数据测试数据测试数据测试数据测试数据测试数据测试数据测试数据测试数据测试数据测试数据测试数据测试数据测试数据测试数据测试数据测试数据测试数据测试数据测试数据测试数据测试数据测试数据测试数据测试数据测试数据测试数据测试数据测试数据",
+    "logo_path": "../res/imgs/materialize.svg"
+  },
+  "err": 0
+}
