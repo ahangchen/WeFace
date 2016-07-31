@@ -34,6 +34,8 @@
 
 #fix_team_intro{
     float: right;
+    margin-right: 6px;
+    margin-top: 6px;
 }
 
 .team_msg{
@@ -71,7 +73,8 @@
 }
 
 .complete_btn{
-    margin-top: 30px;
+    margin-top: 10px;
+    margin-bottom: 10px;
 }
 
 #cancelButton{
@@ -132,13 +135,15 @@
 
 
 #intro_list_auto{
-    margin-left: -15px;
-    margin-top: -90px;
-    margin-bottom: 30px;
+    margin-left: -10px;
+    margin-top: -85px;
+    margin-bottom: 35px;
 }
 
 #history_button{
     float: right;
+    margin-right: 6px;
+    margin-top: 6px;
 }
 
 #develop_history{
@@ -150,8 +155,8 @@
 
 #history_list_auto{
     margin-top: -65px;
-    margin-left: 30px;
-    margin-bottom: 50px;
+    margin-left: 35px;
+    margin-bottom: 55px;
 }
 
 .history_complete_btn{
