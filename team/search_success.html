@@ -14,12 +14,11 @@
 <script type="text/javascript" src="../js/materialize.min.js"></script>
 <script type="text/javascript" src="../js/team/fix_team_msg.js"></script>
 <div class="input-field match_email">
-    <select class="browser-default member_match_select">
+    <select class="browser-default member_match_select" id="add_member_email" onchange="match_others()">
 
     </select>
     <img src="" id="add_member_img" alt="头像" class="Head_portrait" />
-    <a href="#" id="addMemberButton" class="waves-effect waves-light btn modal-action modal-close">
-        <i class="material-icons" id="add_member_icon">add</i>添加</a>
+    <a href="#" id="addMemberButton" class="waves-effect waves-light btn modal-action modal-close">添加</a>
 </div>
 </body>
 </html>
