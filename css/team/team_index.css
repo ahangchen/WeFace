@@ -113,17 +113,16 @@ body{
 	float: left;
 	margin-right: 10px;
 }
-#right{	
-	height: 600px;
+#right{
 	width: 335px;
 	float: left;
 	background-color: white;
-	  -webkit-box-shadow:0 0 10px gray;  
+	-webkit-box-shadow:0 0 10px gray;
   	-moz-box-shadow:0 0 10px gray;  
  	 box-shadow:0 0 10px gray;
 }
 #main_left_top{
-	height: 200px;
+	/*height: 200px;*/
 	width: 620px;
 	margin-bottom: 10px;
 	background-color: white;
@@ -170,7 +169,6 @@ body{
 #main_right_one{
 	padding-top: 30px;
 	padding-left: 30px;
-	height: 340px;
 }
 #main_right_two{
 }
@@ -208,7 +206,6 @@ body{
 	height: 160px;
 	width: 160px;
 	margin-left: 30px;
-	margin-top: 20px;
 }
 .team_tag{
 	height: 25px;
@@ -277,7 +274,7 @@ margin-top: 10px;
 	margin-top: 20px;
 }
 #contact_way{
-	margin-top: 70px;
+	margin-top: 250px;
 }
 
 /*团队项目css*/
