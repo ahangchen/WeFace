@@ -38,40 +38,38 @@ function edit() {
 }
 
 
-
-
 function pracnone1() {
-        var flag = false;
-        for (var i = 1; i <= 5; i++) {
-            var pracia = "#prac" + i + "a";
-            var praci = "#prac" + i;
-            if ($(pracia).html() != "" && flag == false) {
-                $(praci).css("display", "block");
-                flag = true;
-            }
-            else {
-                $(praci).css("display", "none");
-            }
+    var flag = false;
+    for (var i = 1; i <= 5; i++) {
+        var pracia = "#prac" + i + "a";
+        var praci = "#prac" + i;
+        if ($(pracia).html() != "" && flag == false) {
+            $(praci).css("display", "block");
+            flag = true;
         }
-}
-    function pracnone2() {
-        var flag = false;
-        for (var i = 1; i <= 5; i++) {
-            var projia = "#proj" + i + "a";
-            var proji = "#proj" + i;
-            if ($(projia).html() != "" && flag == false) {
-                $(proji).css("display", "block");
-                flag = true;
-            }
-            else {
-                $(proji).css("display", "none");
-            }
+        else {
+            $(praci).css("display", "none");
         }
     }
+}
+function pracnone2() {
+    var flag = false;
+    for (var i = 1; i <= 5; i++) {
+        var projia = "#proj" + i + "a";
+        var proji = "#proj" + i;
+        if ($(projia).html() != "" && flag == false) {
+            $(proji).css("display", "block");
+            flag = true;
+        }
+        else {
+            $(proji).css("display", "none");
+        }
+    }
+}
 
 
 $(function () {
-
+var student_id=location.search.split("=")[1];
     /*下面代码是导航栏*/
     $(".go-page").click(function () {
         $(".circle3").css("background", "transparent");
@@ -104,17 +102,17 @@ $(function () {
         $("#choice5").css("font-weight", "bold");
     });
     /*下面代码是收起展开*/
-    $("#prac-toggle").bind("click",prac_toggle);
+    $("#prac-toggle").bind("click", prac_toggle);
     function prac_toggle() {
         var temp = new Array();
         var count = 0;
-        for (var j = 1;j <= 5; j++ ) {
+        for (var j = 1; j <= 5; j++) {
             var tempi = "#prac" + j + "a";
-            if ($(tempi).html()!= "") {
+            if ($(tempi).html() != "") {
                 temp[count++] = j;
             }
         }
-        var x="#prac"+temp[1];
+        var x = "#prac" + temp[1];
         if ($(x).is(":hidden")) {
             $(".prac-show").css("display", "block");
             for (var i = 1; i <= 5; i++) {
@@ -128,7 +126,7 @@ $(function () {
             $(this).css("transform", "rotate(180deg)");
         }
         else {
-            var praci="#prac"+temp[0];
+            var praci = "#prac" + temp[0];
             $(".prac-show").css("display", "none");
             $(praci).css("display", "block");
             $(this).css("transform", "rotate(0deg)");
@@ -137,18 +135,18 @@ $(function () {
     }
 
 
-    $("#proj-toggle").bind("click",proj_toggle);
+    $("#proj-toggle").bind("click", proj_toggle);
 
-        function proj_toggle() {
+    function proj_toggle() {
         var temp = new Array();
         var count = 0;
-        for (var j = 1;j <= 5; j++ ) {
+        for (var j = 1; j <= 5; j++) {
             var tempi = "#proj" + j + "a";
-            if ($(tempi).html()!= "") {
+            if ($(tempi).html() != "") {
                 temp[count++] = j;
             }
         }
-        var x="#proj"+temp[1];
+        var x = "#proj" + temp[1];
         if ($(x).is(":hidden")) {
             $(".proj-show").css("display", "block");
             for (var i = 1; i <= 5; i++) {
@@ -162,7 +160,7 @@ $(function () {
             $(this).css("transform", "rotate(180deg)");
         }
         else {
-            var proji="#proj"+temp[0];
+            var proji = "#proj" + temp[0];
             $(".proj-show").css("display", "none");
             $(proji).css("display", "block");
             $(this).css("transform", "rotate(0deg)");
@@ -189,18 +187,17 @@ $(function () {
     };
 
     window.onload = function () {
+        var ajax_num = 5;
         nav();
         //var id;获取url中id;
-        var ajax_num = 6;
-        var stu_id = 1;
-        var data_info = {"id": stu_id};
-        var data_file = {"stu_id": stu_id};
+        var data_info = {"id": 2};
+        var data_file = {"stu_id": 2};
 
         /*-----------------------------获取学生个人信息---------------------------*/
         $.ajax({
             type: "POST",
             data: data_info,
-            url: "../data/stu_main/info.json",
+            url: "http://110.64.69.66:8081/student/info/get/",
             dataType: "json",
             success: function (data) {
                 var err = data.err;
@@ -218,7 +215,12 @@ $(function () {
                     var name = data.name;
                     var school = data.school;
                     var sex = data.sex;
-                    var age = data.age;
+                    var myDate = new Date();
+                    var end_year = myDate.getFullYear();
+                    var end_month = myDate.getMonth() + 1;
+                    var start_year = data.year;
+                    var start_month = data.month;
+                    var age = (end_year - start_year) + ((end_month - start_month >= 0) ? 0 : (-1));
                     var major = data.major;
                     var location = data.location;
                     var tel = data.tel;
@@ -270,20 +272,21 @@ $(function () {
                 if (err == '0') {
                     var grade = data.grade;
                     var edu_background = data.edu_background;
-                    document.getElementById("detail-grade").innerHTML = " " + grade;
-                    document.getElementById("detail-background").innerHTML = " " + edu_background;
+                    document.getElementById("detail-grade").innerHTML = "" + grade;
+                    document.getElementById("detail-background").innerHTML = "" + edu_background;
                     var edu_list = data.edu_list;
                     for (var i = 0; i < edu_list.length; i++) {
                         var edu_id = edu_list[i].edu_id;
-                        var edui = "edu" + (edu_id);
-                        var edu_alli = "#edu-all" + (edu_id);
+                        var edui = "edu" + (i + 1);
+                        var edu_alli = "#edu-all" + (i + 1);
                         $(edu_alli).css("display", "block");
                         var e_major = edu_list[i].major;
                         var e_year = edu_list[i].graduation_year;
                         var e_back = edu_list[i].edu_background;
                         var e_school = edu_list[i].school;
-                        document.getElementById(edui).innerHTML = "<p><span style='font-size:16px'>" + e_back + "</span><span style='font-size:16px'> " + e_year + "</span>年毕业</p><p><span style='font-size:16px'>" + e_school + "</span><span style='font-size:16px'> " + e_major + "</span></p>";
-
+                        var i_edu = "#edu" + (i + 1);
+                        $(i_edu).attr("name", edu_id);
+                        document.getElementById(edui).innerHTML = "<p><span style='font-size:16px'>" + e_back + "</span><span style='margin-left:4px;font-size:16px'>" + e_year + "</span>年毕业</p><p><span style='font-size:16px'>" + e_school + "</span><span style='margin-left:4px;font-size:16px'>" + e_major + "</span></p>";
                     }
                 }
                 ajax_num--;
@@ -326,9 +329,10 @@ $(function () {
                         var praci1 = "prac" + (id) + "1";
                         var i_company = intern_list[i].company;
                         var i_position = intern_list[i].position;
-                        var i_time = intern_list[i].begin_time + "-" + intern_list[i].end_time;
+                        var begin_time = intern_list[i].begin_time.split("/");
+                        var end_time = intern_list[i].end_time.split("/");
+                        var i_time = begin_time[0] + "年" + begin_time[1] + "月~" + end_time[0] + "年" + end_time[1] + "月";
                         var i_description = intern_list[i].description;
-
                         document.getElementById(pracia).innerHTML = i_company;
                         document.getElementById(pracib).innerHTML = i_position;
                         document.getElementById(pracic).innerHTML = i_time;
@@ -413,12 +417,22 @@ $(function () {
                     alert("操作失败");
                 }
                 if (err == '0') {
-                    document.getElementById("works-id").innerHTML = stu_id + "作品集.pdf";
                     var path = data.path;
                     var site = data.site;
-                    document.getElementById("works-path").href = path;
-                    document.getElementById("works-site").href = site;
-                    document.getElementById("works-site").innerHTML = "作品集在线地址：" + site;
+                    if (path == undefined) {
+                        document.getElementById("works-id").innerHTML = "尚未上传作品集";
+                    } else {
+                        document.getElementById("works-path").href = path;
+                        document.getElementById("works-id").innerHTML = location.search.split("=")[1] + "作品集.pdf";
+                    }
+                    if (site == undefined) {
+                        document.getElementById("works-site").innerHTML = "尚未上传作品集在线地址";
+                    } else {
+                        document.getElementById("works-site").href = site;
+                        document.getElementById("works-site").innerHTML = "作品集在线地址：" + site;
+                    }
+
+
                 }
                 ajax_num--;
                 if (ajax_num == 0) {
@@ -500,41 +514,41 @@ $(function () {
             $(right_iconi1).css("display", "block");
             $(right_addi).attr("disabled", "disabled");
             $(right_addi).css("color", "gray");
-            if(i==2){
-                $("#prac-toggle").unbind("click",prac_toggle);
+            if (i == 2) {
+                $("#prac-toggle").unbind("click", prac_toggle);
                 var temp = new Array();
                 var count = 0;
-                for (var j = 1;j <= 5; j++ ) {
+                for (var j = 1; j <= 5; j++) {
                     var tempi = "#prac" + j + "a";
-                    if ($(tempi).html()!= "") {
+                    if ($(tempi).html() != "") {
                         temp[count++] = j;
                     }
                 }
-                var x="#prac"+temp[1];
+                var x = "#prac" + temp[1];
                 if ($(x).is(":hidden")) {
                     $(".prac-show").css("display", "block");
                     for (var i = 1; i <= 5; i++) {
                         var pracia = "prac" + i + "a";
-                var pracia_value = document.getElementById(pracia);
-                var praci = "#prac" + i;
-                if (pracia_value.innerHTML == "") {
-                    $(praci).css("display", "none");
+                        var pracia_value = document.getElementById(pracia);
+                        var praci = "#prac" + i;
+                        if (pracia_value.innerHTML == "") {
+                            $(praci).css("display", "none");
+                        }
+                    }
+                    $("#prac-toggle").css("transform", "rotate(180deg)");
                 }
             }
-            $("#prac-toggle").css("transform", "rotate(180deg)");
-        }
-    }
-    if(i==3){
-                $("#proj-toggle").unbind("click",proj_toggle);
+            if (i == 3) {
+                $("#proj-toggle").unbind("click", proj_toggle);
                 var temp = new Array();
                 var count = 0;
-                for (var j = 1;j <= 5; j++ ) {
+                for (var j = 1; j <= 5; j++) {
                     var tempi = "#proj" + j + "a";
-                    if ($(tempi).html()!= "") {
+                    if ($(tempi).html() != "") {
                         temp[count++] = j;
                     }
                 }
-                var x="#proj"+temp[1];
+                var x = "#proj" + temp[1];
                 if ($(x).is(":hidden")) {
                     $(".proj-show").css("display", "block");
                     for (var i = 1; i <= 5; i++) {
@@ -548,13 +562,47 @@ $(function () {
                     $("#proj-toggle").css("transform", "rotate(180deg)");
                 }
             }
+            if (i == 5) {
+                $(".skill-show").css("display", "none");
+                $(".edit-skill").css("display", "block");
+                for (var i = 1; i <= 5; i++) {
+                    var skill_inputi = "#skill-input" + i;
+                    var rangei = "#range" + i;
+                    var skillia = "#skill" + i + "a";
+                    var skillib = "#skill" + i + "b";
+                    var spanvalue = rangei + ">span>span";
+                    $(spanvalue).html(20);
+                    var widthi = $(skillib).css("width").split("%")[0];
+                    $(skill_inputi).val($(skillia).html());
+                    $(spanvalue).html(widthi);
+                }
+            }
         }
         if (choice == "取消") {
-            if(i==2) {
+            if (i == 2) {
                 $("#prac-toggle").bind("click", prac_toggle);
+                var right_iconi2 = ".right-icon" + i;
+                $(right_addi).attr("disabled", false);
+                $(right_iconi2).css("display", "none");
+                $(right_addi).css("color", "#ff8f00");
+                $(".prac-field").css("display", "none");
+                $(".prac-show>p:nth-child(2)").css("display", "inline-block");
+                $(".prac-show>p:nth-child(4)").css("display", "block");
             }
-            if(i==3) {
+            if (i == 3) {
                 $("#proj-toggle").bind("click", proj_toggle);
+                var right_iconi2 = ".right-icon" + i;
+                $(right_addi).attr("disabled", false);
+                $(right_iconi2).css("display", "none");
+                $(right_addi).css("color", "#ff8f00");
+                $(right_addi).css("color", "#ff8f00");
+                $(".proj-field").css("display", "none");
+                $(".proj-show>p:nth-child(2)").css("display", "inline-block");
+                $(".proj-show>p:nth-child(4)").css("display", "block");
+            }
+            if (i == 5) {
+                $(".skill-show").css("display", "block");
+                $(".edit-skill").css("display", "none");
             }
             $(this).html("编辑");
             var right_iconi2 = ".right-icon" + i;
@@ -563,6 +611,7 @@ $(function () {
             $(right_addi).css("color", "#ff8f00");
             $(".edu-field").css("display", "none");
             $(".edu>p").css("display", "inline-block");
+
         }
     });
     /*-----------------------------教育经历击增加--------------------------*/
@@ -598,6 +647,111 @@ $(function () {
         }
     });
 
+    $("#edu-save0").click(function () {
+        var school = $(".add-new1 .edu-school").val();
+        var major = $(".add-new1 .edu-major").val();
+        var graduation_year = $(".add-new1 .choice2>input").val();
+        var choice1=$(".add-new1 .choice1>input").val();
+        var edu_background = 0;
+        switch (choice1) {
+            case "本科":
+                edu_background = "2";
+                break;
+            case "硕士":
+                edu_background = "3";
+                break;
+            case "博士":
+                edu_background = "4";
+                break;
+            case "大专":
+                edu_background = "1";
+                break;
+            case "其他":
+                edu_background = "0";
+        }
+        if(school==""||major==""||graduation_year=="请选择"||choice1=="请选择")
+        {
+            alert("请完善资料再保存");
+        }
+        else{
+            $.ajax({
+                type: "POST",
+                data: {
+                    stu_id: location.search.split("=")[1],
+                    major: major,
+                    graduation_year:graduation_year ,
+                    edu_background: edu_background,
+                    school: school
+                },
+                url: "../data/stu_main/test.json",
+                dataType: "json",
+                success: function (data) {
+                    var err = data.err;
+                    if (err == "0") {
+                        $(".add-new1").css("display","none");
+                        $("#right-add1").html("添加");
+                        $("#right-edit1").css("color", "#ff8f00").attr("disabled", false);
+                        $.ajax({
+                            type: "POST",
+                            data: {
+                                stu_id:student_id
+                            },
+                            url: "../data/stu_main/edu.json",
+                            dataType: "json",
+                            success: function (data) {
+                                var err = data.err;
+                                if (err == '-118') {
+                                    document.getElementById("edu-show").innerHTML = "";
+                                }
+                                if (err == '-1') {
+                                    alert("请求方法错误");
+                                }
+                                if (err == '-10') {
+                                    alert("操作失败");
+                                }
+                                if (err == '0') {
+                                    var grade = data.grade;
+                                    var edu_background = data.edu_background;
+                                    document.getElementById("detail-grade").innerHTML = "" + grade;
+                                    document.getElementById("detail-background").innerHTML = "" + edu_background;
+                                    var edu_list = data.edu_list;
+                                    for (var i = 0; i < edu_list.length; i++) {
+                                        var edu_id = edu_list[i].edu_id;
+                                        var edui = "edu" + (i + 1);
+                                        var edu_alli = "#edu-all" + (i + 1);
+                                        $(edu_alli).css("display", "block");
+                                        var e_major = edu_list[i].major;
+                                        var e_year = edu_list[i].graduation_year;
+                                        var e_back = edu_list[i].edu_background;
+                                        var e_school = edu_list[i].school;
+                                        var i_edu = "#edu" + (i + 1);
+                                        $(i_edu).attr("name", edu_id);
+                                        document.getElementById(edui).innerHTML = "<p><span style='font-size:16px'>" + e_back + "</span><span style='margin-left:4px;font-size:16px'>" + e_year + "</span>年毕业</p><p><span style='font-size:16px'>" + e_school + "</span><span style='margin-left:4px;font-size:16px'>" + e_major + "</span></p>";
+                                    }
+                                }
+                                    edit();
+                            },
+                            headers: {
+                                "Access-Control-Allow-Origin": "*"
+                            }
+                        });
+                    }
+                    if (err == "-1") {
+                        alert("请求方法错误");
+                    }
+                    if (err == "-10") {
+                        alert("操作失败");
+                    }
+                    if (err == "-123") {
+                        alert("教育经历已达上限");
+                    }
+                },
+                headers: {
+                    "Access-Control-Allow-Origin": "*"
+                }
+            });        }
+    });
+
     $("#add1>a>i").click(function () {
         $("#add1").css("display", "none");
         $(".add-new1").css("display", "block");
@@ -614,7 +768,7 @@ $(function () {
     $("#right-add2").click(function () {
         var account = 0;
         for (var i = 1; i <= 5; i++) {
-            var pracia = "#prac" + i+"a";
+            var pracia = "#prac" + i + "a";
             if ($(pracia).html() !== "") {
                 account++;
             }
@@ -655,32 +809,100 @@ $(function () {
         $("#right-edit2").attr("disabled", false);
         $("#right-edit2").css("color", "#ff8f00");
     });
+    /*-----------------------------项目经历击增加--------------------------*/
+    $("#right-add3").click(function () {
+        var account = 0;
+        for (var i = 1; i <= 5; i++) {
+            var projia = "#proj" + i + "a";
+            if ($(projia).html() !== "") {
+                account++;
+            }
+        }
+        if (account == 5) {
+            alert("已经达到上限，不能再增加");
+        }
+        else {
+            var choice = $(this).html();
+            var id = $(this).attr("id");
+            var i = id.substring(9, 10);
+            var add_newi = ".add-new" + i;
+            var right_editi = "#right-edit" + i;
+            if (choice == "添加") {
+                $(this).html("取消");
+                $(add_newi).css("display", "block");
+                $(right_editi).attr("disabled", "disabled");
+                $(right_editi).css("color", "gray");
+            }
+            else {
+                $(this).html("添加");
+                $(add_newi).css("display", "none");
+                $(right_editi).attr("disabled", false);
+                $(right_editi).css("color", "#ff8f00");
+            }
+        }
+    });
+
+    $("#add3>a>i").click(function () {
+        $("#add3").css("display", "none");
+        $(".add-new3").css("display", "block");
+    });
 
 
+    $('#proj-nosave0').click(function () {
+        $(".add-new3").css("display", "none");
+        $("#right-add3").html("添加");
+        $("#right-edit3").attr("disabled", false);
+        $("#right-edit3").css("color", "#ff8f00");
+    });
 
     /*-----------------------------教育经历删除---------------------------*/
     $(".edu-cancel").click(function () {
         if (confirm('确定要该条教育经历么?')) {
             var id = $(this).attr("id");
             var i = id.substring(10, 11);
-            var edualli = "#edu-all" + i;
-            $(edualli).css("display", "none");
             var edui = "#edu" + i;
-            $(edui).html("");
-            var account = 0;
-            for (var i = 0; i < 5; i++) {
-                var edui = "edu" + (i + 1);
-                var temp = document.getElementById(edui).innerHTML;
-                if (temp == "") {
-                    account++;
+            var edualli = "#edu-all" + i;
+            var edu_id = $(edui).attr("name");
+            $.ajax({
+                type: "POST",
+                data: {
+                    stu_id: location.search.split("=")[1],
+                    edu_id: edu_id
+                },
+                url: "../data/stu_main/test.json",
+                dataType: "json",
+                success: function (data) {
+                    var err = data.err;
+                    if (err == "0") {
+                        $(edualli).css("display", "none");
+                        $(edui).html("");
+                        var account = 0;
+                        for (var i = 0; i < 5; i++) {
+                            var eduix = "edu" + (i + 1);
+                            var temp = document.getElementById(eduix).innerHTML;
+                            if (temp == "") {
+                                account++;
+                            }
+                        }
+                        if (account == 5) {
+                            $("#ea1").css("display", "none");
+                            $("#add1").css("display", "block");
+                        }
+                    }
+                    if (err == "-1") {
+                        alert("请求方法错误");
+                    }
+                    if (err == "-10") {
+                        alert("操作失败");
+                    }
+                },
+                headers: {
+                    "Access-Control-Allow-Origin": "*"
                 }
-            }
-            if (account == 5) {
-                $("#ea1").css("display", "none");
-                $("#add1").css("display", "block");
-            }
+            });
+
+
         }
-        return false;
     });
 
     $('select').material_select();
@@ -744,13 +966,149 @@ $(function () {
                 $(choice2d).attr("class", "active selected");
                 break;
         }
-
-
         $(edui).css("display", "none");
         $(right_iconi).css("display", "none");
         $(edu_fieldi).css("display", "block");
     });
-    /*-----------------------------保存取消按钮---------------------------*/
+    $(".save").click(function () {
+        var id = $(this).attr("id");//获取edui类似的数据
+        var edu_savei = id.substring(0, 8);
+        var i = id.substring(8, 9);
+        var edui = "#edu" + i;
+        var edu_fieldi = "#edu-field" + i;
+        var right_iconi = "#edu" + i + "+.right-icon1";
+        if (edu_savei == "edu-save") {
+            var edui1 = edui + ">p:nth-child(1)>span:nth-child(1)";
+            var edui2 = edui + ">p:nth-child(1)>span:nth-child(2)";
+            var edui3 = edui + ">p:nth-child(2)>span:nth-child(1)";
+            var edui4 = edui + ">p:nth-child(2)>span:nth-child(2)";
+            var edu_fieldi1 = edu_fieldi + ">div:nth-child(1)>input";
+            var edu_fieldi2 = edu_fieldi + ">div:nth-child(2)>input";
+            var choice1 = edu_fieldi + " .choice1>input";
+            var choice2 = edu_fieldi + " .choice2>input";
+            var edu_id = $(edui).attr("name");
+            var edu_background = 0;
+            switch (choice1) {
+                case "本科":
+                    edu_background = "2";
+                    break;
+                case "硕士":
+                    edu_background = "3";
+                    break;
+                case "博士":
+                    edu_background = "4";
+                    break;
+                case "大专":
+                    edu_background = "1";
+                    break;
+                case "其他":
+                    edu_background = "0";
+            }
+            $.ajax({
+                type: "POST",
+                data: {
+                    stu_id: location.search.split("=")[1],
+                    edu_id: edu_id,
+                    major: $(edu_fieldi2).val(),
+                    graduation_year: $(choice2).val(),
+                    edu_background: edu_background,
+                    school: $(edu_fieldi1).val()
+                },
+                url: "../data/stu_main/edu-edit.json",
+                dataType: "json",
+                success: function (data) {
+                    var err = data.err;
+                    if (err == "0") {
+                        $(edui1).html($(choice1).val());
+                        $(edui2).html($(choice2).val());
+                        $(edui3).html($(edu_fieldi1).val());
+                        $(edui4).html($(edu_fieldi2).val());
+                        $(edui).css("display", "inline-block");
+                        $(right_iconi).css("display", "block");
+                        $(edu_fieldi).css("display", "none");
+                    }
+                    if (err == "-1") {
+                        alert("请求方法错误");
+                    }
+                    if (err == "-10") {
+                        alert("操作失败");
+                    }
+                },
+                headers: {
+                    "Access-Control-Allow-Origin": "*"
+                }
+            });
+
+        }
+    });
+
+
+    /*-----------------------------实习经历编辑---------------------------*/
+    $(".prac-edit").click(function () {
+        var id = $(this).attr("id");
+        var i = id.substring(9, 10);
+        var prac = "#prac" + i;
+        var right_iconi = "#prac" + i + " .right-icon2";
+        var pracia = "#prac" + i + "a";
+        var pracib = "#prac" + i + "b";
+        var pracic = "#prac" + i + "c";
+        var i_time = $(pracic).html().split("~");
+        var begin_year = (i_time[0].split("年"))[0];
+        var begin_month = ((i_time[0].split("年"))[1].split("月"))[0];
+        var end_year = (i_time[1].split("年"))[0];
+        var end_month = ((i_time[1].split("年"))[1].split("月"))[0];
+        $(".prac-choice1 input").val(begin_year);
+        $(".prac-choice2 input").val(begin_month);
+        $(".prac-choice3 input").val(end_year);
+        $(".prac-choice4 input").val(end_month);//四个选择框
+        var praci1 = "#prac" + i + "1";
+        var prac_filedi = "#prac-field" + i;
+        var p = prac + " p";
+        var prac_texti = "#prac-text" + i;
+        var input1 = prac_filedi + " .prac-company";
+        var input2 = prac_filedi + " .prac-posi";
+
+        $(prac_texti).val($(praci1).html());
+        $(input1).val($(pracia).html());
+        $(input2).val($(pracib).html());
+        $(prac_filedi).css("display", "block");
+        $(p).css("display", "none");
+        $(praci1).css("display", "none");
+        $(right_iconi).css("display", "none");
+    });
+
+
+    /*-----------------------------项目经历编辑---------------------------*/
+    $(".proj-edit").click(function () {
+        var id = $(this).attr("id");
+        var i = id.substring(9, 10);
+        var proj = "#proj" + i;
+        var right_iconi = "#proj" + i + " .right-icon3";
+        var projia = "#proj" + i + "a";
+        var projib = "#proj" + i + "b";
+        var projic = "#proj" + i + "c";
+        var i_time = $(projic).html().split("年")[0];
+        var proji1 = "#proj" + i + "1";
+        var proj_filedi = "#proj-field" + i;
+        var p = proj + " p";
+        var proj_texti = "#proj-text" + i;
+        var input1 = proj_filedi + " .proj-company";
+        var input2 = proj_filedi + " .proj-posi";
+        $(".proj-choice1 input").val(i_time);
+        $(proj_texti).val($(proji1).html());
+        $(input1).val($(projia).html());
+        $(input2).val($(projib).html());
+        $(proj_filedi).css("display", "block");
+        $(p).css("display", "none");
+        $(proji1).css("display", "none");
+        $(right_iconi).css("display", "none");
+    });
+    /*-----------------------------作品集编辑---------------------------*/
+
+    /*-----------------------------技能编辑---------------------------*/
+
+
+    /*-----------------------------教育经历保存取消按钮---------------------------*/
     $('.nosave').click(function () {
         var id = $(this).attr("id");
         var flag1 = id.substring(0, 10);
@@ -774,6 +1132,60 @@ $(function () {
             $("#add1").css("display", "block");
         }
     });//取消
+    /*-----------------------------实习经历保存取消按钮---------------------------*/
+    $('.nosave').click(function () {
+        var id = $(this).attr("id");
+        var flag1 = id.substring(0, 11);
+        var i1 = id.substring(11, 12);
+        var praci = "#prac" + i1;
+        var right_iconi = praci + " .right-icon2";
+        var prac_fieldi = "#prac-field" + i1;
+        var p1 = praci + " p:nth-child(2)";
+        var p2 = praci + " p:nth-child(4)";
+        if (flag1 == "prac-nosave") {
+            $(prac_fieldi).css("display", "none");
+            $(p1).css("display", "inline-block");
+            $(p2).css("display", "block");
+            $(right_iconi).css("display", "block");
+        }
+        var account = 0;
+        for (var i = 1; i <= 5; i++) {
+            var pracia = "#prac" + i + "a";
+            if ($(pracia).html() !== "") {
+                account++;
+            }
+        }
+        if (account == 0) {
+            $("#add2").css("display", "block");
+        }
+    });//取消
+    /*-----------------------------实习经历保存取消按钮---------------------------*/
+    $('.nosave').click(function () {
+        var id = $(this).attr("id");
+        var flag1 = id.substring(0, 11);
+        var i1 = id.substring(11, 12);
+        var proji = "#proj" + i1;
+        var right_iconi = proji + " .right-icon3";
+        var proj_fieldi = "#proj-field" + i1;
+        var p1 = proji + " p:nth-child(2)";
+        var p2 = proji + " p:nth-child(4)";
+        if (flag1 == "proj-nosave") {
+            $(proj_fieldi).css("display", "none");
+            $(p1).css("display", "inline-block");
+            $(p2).css("display", "block");
+            $(right_iconi).css("display", "block");
+        }
+        var account = 0;
+        for (var i = 1; i <= 5; i++) {
+            var projia = "#proj" + i + "a";
+            if ($(projia).html() !== "") {
+                account++;
+            }
+        }
+        if (account == 0) {
+            $("#add3").css("display", "block");
+        }
+    });//取消
 
 
     /* copyhhh实习和项目*/
@@ -786,19 +1198,19 @@ $(function () {
             var pracib = "#prac" + i + "b";
             var pracic = "#prac" + i + "c";
             var praci1 = "#prac" + i + "1";
-            var praci="#prac"+i;
+            var praci = "#prac" + i;
             $(pracia).html("");
             $(pracib).html("");
             $(pracic).html("");
             $(praci1).html("");
-            $(praci).css("display","none");
-            var prac_editi="#prac-edit"+i;
-            var prac_canceli="#prac-cancel"+i;
-            $(prac_editi).css("display","none");
-            $(prac_canceli).css("display","none");
+            $(praci).css("display", "none");
+            var prac_editi = "#prac-edit" + i;
+            var prac_canceli = "#prac-cancel" + i;
+            $(prac_editi).css("display", "none");
+            $(prac_canceli).css("display", "none");
             var account = 0;
             for (var i = 0; i < 5; i++) {
-                var tempia="#prac"+(i+1)+"a"
+                var tempia = "#prac" + (i + 1) + "a"
                 var temp = $(tempia).html();
                 if (temp == "") {
                     account++;
@@ -807,10 +1219,10 @@ $(function () {
             if (account == 5) {
                 $("#ea2").css("display", "none");
                 $("#add2").css("display", "block");
-                $("#prac-toggle").css("display","none");
+                $("#prac-toggle").css("display", "none");
             }
             if (account == 4) {
-                $("#prac-toggle").css("display","none");
+                $("#prac-toggle").css("display", "none");
             }
         }
         return false;
@@ -820,24 +1232,23 @@ $(function () {
         if (confirm('确定要该条实习经历么?')) {
             var id = $(this).attr("id");
             var i = id.substring(11, 12);
-            alert(i);
             var projia = "#proj" + i + "a";
             var projib = "#proj" + i + "b";
             var projic = "#proj" + i + "c";
             var proji1 = "#proj" + i + "1";
-            var proji="#proj"+i;
+            var proji = "#proj" + i;
             $(projia).html("");
             $(projib).html("");
             $(projic).html("");
             $(proji1).html("");
-            $(proji).css("display","none");
-            var proj_editi="#proj-edit"+i;
-            var proj_canceli="#proj-cancel"+i;
-            $(proj_editi).css("display","none");
-            $(proj_canceli).css("display","none");
+            $(proji).css("display", "none");
+            var proj_editi = "#proj-edit" + i;
+            var proj_canceli = "#proj-cancel" + i;
+            $(proj_editi).css("display", "none");
+            $(proj_canceli).css("display", "none");
             var account = 0;
             for (var i = 0; i < 5; i++) {
-                var tempia="#proj"+(i+1)+"a"
+                var tempia = "#proj" + (i + 1) + "a"
                 var temp = $(tempia).html();
                 if (temp == "") {
                     account++;
@@ -846,10 +1257,10 @@ $(function () {
             if (account == 5) {
                 $("#ea3").css("display", "none");
                 $("#add3").css("display", "block");
-                $("#proj-toggle").css("display","none");
+                $("#proj-toggle").css("display", "none");
             }
             if (account == 4) {
-                $("#proj-toggle").css("display","none");
+                $("#proj-toggle").css("display", "none");
             }
         }
         return false;

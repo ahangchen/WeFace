@@ -18,17 +18,17 @@
       "school": "华南理工大学"
     },
     {
-      "edu_id":"3",
+      "edu_id": "3",
       "major": "语文",
       "graduation_year": "2011",
       "edu_background": "本科",
       "school": "春外"
     },
     {
-      "edu_id":"2",
+      "edu_id": "2",
       "major": "数学",
-      "graduation_year":"2014",
-      "edu_background":"硕士",
+      "graduation_year": "2014",
+      "edu_background": "硕士",
       "school": "春晖中学"
     },
     {

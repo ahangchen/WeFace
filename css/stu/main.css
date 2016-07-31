@@ -164,7 +164,7 @@
 
 /*-------项目经历部分的css-------*/
 .proj-show, .prac-show {
-    margin-bottom: 12px;
+    margin-bottom: 32px;
 }
 
 .proj-show > p:nth-child(1) {
@@ -488,6 +488,41 @@ textarea.materialize-textarea:focus:not([readonly]) {
 .dropdown-content li > a, .dropdown-content li > span {
     color:#ff8f00;
 }
-.edu-field{
+.edu-field,.prac-field,.proj-field{
     display: none;
+}
+
+input:not([type]):focus:not([readonly])+label, input[type=text]:focus:not([readonly])+label, input[type=password]:focus:not([readonly])+label, input[type=email]:focus:not([readonly])+label, input[type=url]:focus:not([readonly])+label, input[type=time]:focus:not([readonly])+label, input[type=date]:focus:not([readonly])+label, input[type=datetime]:focus:not([readonly])+label, input[type=datetime-local]:focus:not([readonly])+label, input[type=tel]:focus:not([readonly])+label, input[type=number]:focus:not([readonly])+label, input[type=search]:focus:not([readonly])+label, textarea.materialize-textarea:focus:not([readonly])+label {
+    color: #ff8f00;
+}
+
+.edit-skill>div,.edit-skill>p{
+    display: inline-block;
+}
+.edit-skill>div{
+    width:150px;
+    margin:20px 0;
+}
+.edit-skill>p{
+    margin-left:40px;
+    margin-right:50px;
+    width:280px;
+    height:6px;
+}
+
+input[type=range]{
+    margin:-20px 0;
+    background-color: #ff8f00;
+}
+
+input[type=range]+.thumb{
+    background-color: #ff8f00;
+}
+
+.edit-skill{
+    display:none;
+}
+
+input[type=range]+.thumb .value{
+    color:#ff8f00;
 }
