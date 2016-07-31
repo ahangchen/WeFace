@@ -15,6 +15,7 @@
         <script type="text/javascript" src="../js/team/fix_team_msg.js"></script>
     </head>
     <body>
+
         <div id="max">
             <div class="header comWidth">
                 <div class="topBar">
@@ -73,7 +74,7 @@
                     <div class="tag" id="tag_four"></div>
                     <div class="tag" id="tag_five"></div>
                     <div class="tag" id="tag_six"></div>
-                    <a class="btn-floating btn-small waves-effect waves-light white" id="fix_msg_button"><i class="material-icons" style="color:orangered">edit</i></a>
+                    <a class="btn-floating btn-small waves-effect waves-light orange" id="fix_msg_button"><i class="material-icons" style="color:white">edit</i></a>
                 </div>
             </div>
             <div id="orgin_page">
@@ -84,13 +85,13 @@
             <div id="team_home_div">
                 <div id="left">
                     <div id="main_left_top">
+                        <a class="btn-floating btn-small waves-effect waves-light orange" id="fix_team_intro"><i class="material-icons" style="color:white">edit</i></a>
                         <div class="float" id="one">团队介绍<i class="material-icons small">play_arrow</i></div>
-                        <div class="textarea" id="team_introuduction">
-                        </div>
+                        <div class="textarea" id="team_introuduction"></div>
                     </div>
                     <div id="main_left_middle">
                         <div id="main_left_middle_one">
-                            <a class="btn-floating btn-small waves-effect waves-light white" id="history_button"><i class="material-icons" style="color:orangered">edit</i></a>
+                            <a class="btn-floating btn-small waves-effect waves-light orange" id="history_button"><i class="material-icons" style="color:white">edit</i></a>
                             <div class="float"  id="two">发展历程<i class="material-icons small">play_arrow</i></div>
                             <div class="textarea" id="history_text">
                             </div>
@@ -120,6 +121,7 @@
                 </div>
                 <div id="right">
                     <div class="float" id="four">学生成员<i class="material-icons small">play_arrow</i></div>
+                    <a class="btn-floating btn-small waves-effect waves-light orange" id="edit_member"><i class="material-icons" style="color:white">edit</i></a>
                     <div id="main_right_one">
                         <div id="team_member_icon">
                             <div class="leader_div"><img src="" alt="头像" id ="leader" class="Head_portrait" /><br>创始人<br><span class="name"></span></div>
@@ -131,6 +133,7 @@
                     </div>
                     <div class="float" id="contact_way">联系方式<i class="material-icons small">play_arrow</i></div>
                     <div id="main_right_two">
+                        <a class="btn-floating btn-small waves-effect waves-light orange" id="team_connect"><i class="material-icons" style="color:white">edit</i></a>
                         <div id="member_information">成员信息（主要负责人姓名、介绍、经历）</div>
                     </div>
                 </div>
@@ -154,19 +157,8 @@
                 </div>
             <div id="Demand_for_jobs_div"><h1>我是需求职位页面</h1></div>
             <div id="Recently_div"><h1>我是最近页面</h1></div>
-            <div id="add_member_dialog" class="modal modal-fixed-footer">
-                <a class="btn-floating btn-flat btn-small white modal-close right"><i class="material-icons" style="color:orange">close</i></a>
-                <div class="modal-content" id="enter_result">
-                    <div  id="add_member_note">输入姓名，搜索匹配头像和账号，可通过点击成员头像查看该成员个人主页。若有重名，请核对后进行选择。若成员未注册推荐注册，完善个人主页。</div>
-                    <div class="input-field member_name "><i class="material-icons prefix">account_circle</i>
-                        <input id="member_name" type="text" class="validate"><label for="member_name">输入成员姓名</label>
-                    </div>
-                    <div id="member_search_result">
-                            <a href="#" id="searchMemberButton" class="waves-effect waves-light btn modal-action">
-                                <i class="material-icons" id="search_member_icon">search</i>搜索</a>
-                    </div>
-               </div>
-            </div>
         </div>
+        </div>
+
     </body>
 </html>
