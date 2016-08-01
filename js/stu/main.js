@@ -256,7 +256,7 @@ var student_id=location.search.split("=")[1];
         $.ajax({
             type: "POST",
             data: data_file,
-            url: "http://110.64.69.66:8081/student/info/edu/get/",
+            url: "../data/stu_main/edu.json",
             dataType: "json",
             success: function (data) {
                 var err = data.err;
@@ -271,7 +271,23 @@ var student_id=location.search.split("=")[1];
                 if (err == '0') {
                     var grade = data.grade;
                     var edu_background = data.edu_background;
-                    document.getElementById("detail-grade").innerHTML = "" + grade;
+                    switch (edu_background) {
+                        case "2":
+                            edu_background = "本科";
+                            break;
+                        case "3":
+                            edu_background = "硕士";
+                            break;
+                        case "4":
+                            edu_background = "博士";
+                            break;
+                        case "1":
+                            edu_background = "大专";
+                            break;
+                        case "0":
+                            edu_background = "其他";
+                    }
+                    document.getElementById("detail-grade").innerHTML = "" + grade+"届";
                     document.getElementById("detail-background").innerHTML = "" + edu_background;
                     var edu_list = data.edu_list;
                     for (var i = 0; i < edu_list.length; i++) {
@@ -282,6 +298,22 @@ var student_id=location.search.split("=")[1];
                         var e_major = edu_list[i].major;
                         var e_year = edu_list[i].graduation_year;
                         var e_back = edu_list[i].edu_background;
+                        switch (e_back) {
+                            case "2":
+                                e_back = "本科";
+                                break;
+                            case "3":
+                                e_back = "硕士";
+                                break;
+                            case "4":
+                                e_back = "博士";
+                                break;
+                            case "1":
+                                e_back = "大专";
+                                break;
+                            case "0":
+                                e_back = "其他";
+                        }
                         var e_school = edu_list[i].school;
                         var i_edu = "#edu" + (i + 1);
                         $(i_edu).attr("name", edu_id);
