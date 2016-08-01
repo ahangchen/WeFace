@@ -689,8 +689,9 @@ var student_id=location.search.split("=")[1];
                     var err = data.err;
                     if (err == "0") {
                         $(".add-new1").css("display","none");
-                        $("#right-add1").html("添加");
-                        $("#right-edit1").css("color", "#ff8f00").attr("disabled", false);
+                        $("#right-add1").html("添加").css("color", "#ff8f00").attr("disabled", false);
+                        $("#right-edit1").html("编辑").css("color", "#ff8f00").attr("disabled", false);
+                        $(".right-icon1").css("display","none");
                         $.ajax({
                             type: "POST",
                             data: {
