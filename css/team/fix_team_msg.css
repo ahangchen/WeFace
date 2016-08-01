@@ -48,7 +48,9 @@
 
 .add_type{
     margin-left: 120px;
-    margin-top: -70px;
+    margin-top: -60px;
+   width: 35px;
+    height: 35px;
 }
 
 .team_number{
@@ -368,6 +370,8 @@
 
 .tag_select{
     width: 100px;
+    height: 30px;
+    margin-top: 5px;
 }
 
 #show_type_as_tag{
@@ -387,10 +391,14 @@
 .chips-initial .chip{
     background-color:#fff;
     margin-left: 3px;
+    margin-top: 5px;
 }
 
 .chips-initial .close{
     color:orange;
+}
+.chips-initial input::-webkit-input-placeholder {
+    color: rgba(6, 6, 5, 0.56);
 }
 
 
