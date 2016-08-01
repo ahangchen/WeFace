@@ -190,8 +190,8 @@ var student_id=location.search.split("=")[1];
         var ajax_num = 5;
         nav();
         //var id;获取url中id;
-        var data_info = {"id": 2};
-        var data_file = {"stu_id": 2};
+        var data_info = {"id": student_id};
+        var data_file = {"stu_id": student_id};
 
         /*-----------------------------获取学生个人信息---------------------------*/
         $.ajax({

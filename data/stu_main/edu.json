@@ -3,5 +3,19 @@
   "grade": "大二",
   "edu_background": "1",
   "edu_list": [
+    {
+      "edu_id": "1",
+      "major": "软件工程",
+      "graduation_year": "2018",
+      "edu_background": "1",
+      "school": "华南理工大学"
+    },
+    {
+      "edu_id": "4",
+      "major": "软件工程",
+      "graduation_year": "2018",
+      "edu_background": "2",
+      "school": "华南理工大学"
+    }
   ]
 }
