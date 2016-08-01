@@ -259,7 +259,8 @@ $(function(){
                         chip_data.push(tag_temp);
                     }
                     $('.chips-initial').material_chip({//要用一定的格式
-                        data:chip_data});
+                        data:chip_data,
+                        placeholder: '输入新标签'});
 
                     //-------------初始化完成-----------------
 
@@ -335,6 +336,8 @@ $(function(){
                             //移动下拉选择框
                             $(".job_type").css("margin-left",move_distance+'em');
                         }
+                        else if(type_num==5)
+                            alert("行业类型上限为5!");
 
                     });
 
