@@ -1,9 +1,17 @@
 {
-  "team":[{"team_id":"001","team_name":"WEMEET团队","team_about":"学生自主创业团队承包各种网页,APP设计与制作","team_logo":"www.scut.com","team_type":"学生创业团队"},
-    {"team_id":"001","team_name":"WEMEET团队","team_about":"学生自主创业团队承包各种网页,APP设计与制作","team_logo":"www.scut.com","team_type":"学生创业团队"},
-    {"team_id":"001","team_name":"WEMEET团队","team_about":"学生自主创业团队承包各种网页,APP设计与制作","team_logo":"www.scut.com","team_type":"学生创业团队"},
-    {"team_id":"001","team_name":"WEMEET团队","team_about":"学生自主创业团队承包各种网页,APP设计与制作","team_logo":"www.scut.com","team_type":"学生创业团队"},
-    {"team_id":"001","team_name":"WEMEET团队","team_about":"学生自主创业团队承包各种网页,APP设计与制作","team_logo":"www.scut.com","team_type":"学生创业团队"}
+  "team":[{"team_id":"001","team_name":"WEMEET团队","team_about":"学生自主创业团队承包各种网页,APP设计与制作","team_logo":"../res/imgs/team/p1.jpg","team_type":"www.scut.com"},
+    {"team_id":"001","team_name":"WEMEET团队","team_about":"学生自主创业团队承包各种网页,APP设计与制作","team_logo":"../res/imgs/team/p1.jpg","team_type":"www.scut.com"},
+    {"team_id":"001","team_name":"WEMEET团队","team_about":"学生自主创业团队承包各种网页,APP设计与制作","team_logo":"../res/imgs/team/p1.jpg","team_type":"www.scut.com"},
+    {"team_id":"001","team_name":"WEMEET团队","team_about":"学生自主创业团队承包各种网页,APP设计与制作","team_logo":"../res/imgs/team/p1.jpg","team_type":"www.scut.com"},
+    {"team_id":"001","team_name":"WEMEET团队","team_about":"学生自主创业团队承包各种网页,APP设计与制作","team_logo":"../res/imgs/team/p1.jpg","team_type":"www.scut.com"},
+    {"team_id":"001","team_name":"WEMEET团队","team_about":"学生自主创业团队承包各种网页,APP设计与制作","team_logo":"../res/imgs/team/p1.jpg","team_type":"www.scut.com"},
+    {"team_id":"001","team_name":"WEMEET团队","team_about":"学生自主创业团队承包各种网页,APP设计与制作","team_logo":"../res/imgs/team/p1.jpg","team_type":"www.scut.com"},
+    {"team_id":"001","team_name":"WEMEET团队","team_about":"学生自主创业团队承包各种网页,APP设计与制作","team_logo":"../res/imgs/team/p1.jpg","team_type":"www.scut.com"},
+    {"team_id":"001","team_name":"WEMEET团队","team_about":"学生自主创业团队承包各种网页,APP设计与制作","team_logo":"../res/imgs/team/p1.jpg","team_type":"www.scut.com"},
+    {"team_id":"001","team_name":"WEMEET团队","team_about":"学生自主创业团队承包各种网页,APP设计与制作","team_logo":"../res/imgs/team/p1.jpg","team_type":"www.scut.com"},
+    {"team_id":"001","team_name":"WEMEET团队","team_about":"学生自主创业团队承包各种网页,APP设计与制作","team_logo":"../res/imgs/team/p1.jpg","team_type":"www.scut.com"},
+    {"team_id":"001","team_name":"WEMEET团队","team_about":"学生自主创业团队承包各种网页,APP设计与制作","team_logo":"../res/imgs/team/p1.jpg","team_type":"www.scut.com"},
+    {"team_id":"001","team_name":"WEMEET团队","team_about":"学生自主创业团队承包各种网页,APP设计与制作","team_logo":"../res/imgs/team/p1.jpg","team_type":"www.scut.com"}
   ]
 
 }

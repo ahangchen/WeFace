@@ -1,35 +1,36 @@
 #fix_msg_button{
-    margin-right: 0;
-    margin-left: 240px;
-    margin-top: -160px;
+    float: right;
+    margin-right:10px;
+    margin-top: 10px;
 }
 
 .put_photo_here{
     width: 150px;
     height: 150px;
-    margin-top: -155px;
-    margin-left: 50px;
-    cursor:pointer;
-}
-
-#photo_logo{
     background-color: #dcd8d7;
-    width: 150px;
-    height:150px;
+    margin-top: 40px;
+    margin-left: 70px;
+    float: left;
     border-radius: 10px;
+    cursor:pointer;
+    position: relative;
 }
-
 #photo_camera{
     margin-left: 30px;
     margin-top: 30px;
 }
 
+.team_name{
+    width: 400px;
+    margin-left: 400px;
+    margin-top: -380px;
+}
+
 #local_photo{
     width: 150px;
     height: 150px;
-    margin-left: 50px;
-    margin-top:50px;
     border-radius: 10px;
+    position: absolute;
 }
 
 #fix_team_intro{
@@ -38,7 +39,55 @@
     margin-top: 6px;
 }
 
-.team_msg{
+.job_type{
+    width: 150px;
+    height: 42px;
+    margin-top: -35px;
+
+}
+
+.add_type{
+    margin-left: 120px;
+    margin-top: -70px;
+}
+
+.team_number{
+    margin-top: 10px;
+    margin-left: 400px;
+    width: 200px;
+}
+
+.team_slogan{
+    margin-left: 400px;
+    width: 400px;
+    margin-top: 10px;
+}
+
+.complete_btn{
+    margin-top: 20px;
+    height: 100px;
+    margin-left: 470px;
+}
+
+#cancelButton{
+    margin-top: 15px;
+    margin-bottom: 15px;
+    margin-left: 20px;
+    width: 100px;
+    color: #000;
+    background-color: #fff;
+}
+
+#saveButton{
+    margin-top: 15px;
+    margin-bottom: 15px;
+    margin-left: 20px;
+    width: 100px;
+    color: #fff;
+    background-color: orange;
+}
+
+/*.team_msg{
     width: 400px;
     height:400px;
     float: right;
@@ -67,6 +116,7 @@
     width: 200px;
     height: 100px;
 }
+
 
 .team_slogan{
     margin-top: -30px;
@@ -108,7 +158,7 @@
     background-color: #fff;
     color: orange;
     float: left;
-}
+}*/
 
 .team_intro{
     margin-top: -30px;
@@ -135,7 +185,7 @@
 
 
 #intro_list_auto{
-    margin-left: -10px;
+    margin-left: 1px;
     margin-top: -85px;
     margin-bottom: 35px;
 }
@@ -155,7 +205,7 @@
 
 #history_list_auto{
     margin-top: -65px;
-    margin-left: 35px;
+    margin-left: 38px;
     margin-bottom: 55px;
 }
 
@@ -294,6 +344,57 @@
 #invite_to_join{
     margin-top:-5px;
 }
+
+#photo_area{
+    height:200px;
+    width: 300px;
+}
+
+#team_belong_type{
+    margin-left: 400px;
+    margin-top: 10px;
+}
+
+.team_type_fix{
+    margin-top: 10px;
+    margin-left: 5px;
+    background-color: #fff;
+    text-align: center;
+}
+
+.team_type_fix .close{
+    color:orange;
+}
+
+.tag_select{
+    width: 100px;
+}
+
+#show_type_as_tag{
+    width: 350px;
+}
+
+#team_label_edit{
+    width: 300px;
+    margin-left: 20px;
+    margin-top: 20px;
+}
+
+#left_one{
+    height: 400px;
+}
+
+.chips-initial .chip{
+    background-color:#fff;
+    margin-left: 3px;
+}
+
+.chips-initial .close{
+    color:orange;
+}
+
+
+
 
 
 

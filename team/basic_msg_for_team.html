@@ -7,29 +7,34 @@
     <title>华南理工大学人才交流市场</title>
 </head>
 <body>
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <link rel="stylesheet" type="text/css" href="../css/materialize.min.css">
-    <link rel="stylesheet" type="text/css" href="../css/team/fix_team_msg.css">
-    <script type="text/javascript" src="../js/jquery-2.1.1.min.js"></script>
-    <script type="text/javascript" src="../js/materialize.min.js"></script>
-    <script type="text/javascript" src="../js/team/fix_team_msg.js"></script>
 
-    <img id="local_photo" />
-    <div class="put_photo_here" onclick="F_Open_img()">
-        <div id="photo_logo">
-            <i class="large material-icons dp48" id="photo_camera">photo_camera</i>
-            <form method="post" action="" enctype="multipart/form-data">
-                <input type="file" id="update_photo" style="display: none" onchange="show_local_img(this)">
-            </form>
+<div>
+    <div id="left_one">
+        <div id="photo_area">
+            <div class="put_photo_here" onclick="F_Open_img()">
+                <img id="local_photo" />
+                <i class="large material-icons dp48" id="photo_camera">photo_camera</i>
+                <form method="post" action="" enctype="multipart/form-data">
+                    <input type="file" id="update_photo" style="display: none" onchange="show_local_img(this)">
+                </form>
+            </div>
         </div>
+
+        <div id="team_label_edit">
+            <div class="chips chips-initial"></div>
+        </div>
+
+
+    </div>
+    <div class="input-field team_name">
+        <input id="team_name" type="text" class="validate">
     </div>
 
-    <div class="team_msg">
-        <div class="input-field team_name">
-            <input id="team_name" type="text" class="validate">
-            <label for="team_name">团队名称</label>
-        </div>
 
+    <div id="team_belong_type">
+        <div id="show_type_as_tag">
+
+        </div>
         <div class="input-field job_type">
             <select class="browser-default tag_select">
                 <option value="" disabled selected>行业类型</option>
@@ -38,41 +43,41 @@
                 <option value="3">医疗健康</option>
                 <option value="4">金融</option>
                 <option value="5">法务</option>
-                <option value="6">数据安全</option>
-                <option value="7">文化娱乐</option>
-                <option value="8">社交网络</option>
-                <option value="9">广告营销</option>
-                <option value="10">教育</option>
+                <option value="6">咨询</option>
+                <option value="7">O2O</option>
+                <option value="8">数据安全</option>
+                <option value="9">文化娱乐</option>
+                <option value="10">食品轻工</option>
+                <option value="11">广告营销</option>
+                <option value="12">游戏</option>
+                <option value="13">招聘</option>
+                <option value="14">教育</option>
+                <option value="15">旅游</option>
+                <option value="16">社交网络</option>
+                <option value="17">硬件</option>
+                <option value="18">分类信息</option>
+                <option value="19">生活服务</option>
+                <option value="20">其它</option>
             </select>
-        </div>
-
-        <div id="type_tag">
-
-        </div>
-
-
-
-        <div  class="add_type">
-            <a class="btn-floating btn-small waves-effect waves white"><i class="material-icons" style="color:orange">add</i></a>
-        </div>
-
-
-        <div class="input-field team_number">
-            <input disabled id="team_number" type="text" class="validate">
-            <label for="team_number">团队人数不可编辑</label>
-        </div>
-
-        <div class="input-field team_slogan">
-            <textarea id="team_slogan" class="materialize-textarea" length="120"></textarea>
-            <label for="team_slogan">团队标语</label>
-        </div>
-
-        <div class="complete_btn">
-            <a id="saveButton" class="waves-effect waves-light btn">保存</a>
-            <a id="cancelButton" class="waves-effect waves-light btn">取消</a>
+            <a class="add_type btn-floating btn-small waves-effect waves white"><i class="material-icons" style="color:orange">add</i></a>
         </div>
     </div>
 
 
+    <div class="input-field team_number">
+        <input disabled id="team_number" type="text" class="validate">
+    </div>
+
+    <div class="input-field team_slogan">
+        <input id="team_slogan" type="text" class="validate" />
+    </div>
+
+    <div class="complete_btn">
+        <a id="saveButton" class="waves-effect waves-light btn">保存</a>
+        <a id="cancelButton" class="waves-effect waves-light btn">取消</a>
+    </div>
+
+
+</div>
 </body>
 </html>

@@ -53,6 +53,9 @@ body{
 	max-height: 100px;
 	border:1px;
 	margin: 10px 20px 10px 20px;
+	width: 145px;
+	height: 100px;
+	margin: 15px 20px 15px 20px;
 	display: block;
 	float: left;
 }
@@ -65,13 +68,10 @@ body{
  	 box-shadow:0 0 10px gray;
 }
 #information{
-	width: 970px;
-	background: rgba(255, 255, 255, 0.5);
-	-moz-box-shadow: 0 5px 5px 0 rgba(0, 0, 0, 0.22), 0 10px 10px 0 rgba(0, 0, 0, 0.21);
-	-webkit-box-shadow: 0 5px 5px 0 rgba(0, 0, 0, 0.22), 0 10px 10px 0 rgba(0, 0, 0, 0.21);
-	box-shadow: 0 5px 5px 0 rgba(0, 0, 0, 0.22), 0 10px 10px 0 rgba(0, 0, 0, 0.21);
-	height: 120px;
-	margin-top: 5px;
+	width: 300px;
+	height: 130px;
+	margin-left: 250px;
+	margin-top: -150px;
 }
 #information_two{
 	width: 250px;
@@ -82,11 +82,13 @@ body{
 }
 #information_three{
 	padding-left: 50px;
-	width: 300px;
+	width: 400px;
 	height: 100px;
 	border:1px;
 	margin: 10px 20px 10px 120px;
 	float: left;
+	margin-top:-100px;
+	margin-left: 500px;
 }
 .tag{
 	width: 70px;
@@ -170,6 +172,7 @@ body{
 	padding-left: 30px;
 }
 #main_right_two{
+	margin-bottom: 20px;
 }
 .Head_portrait{
 	height: 80px;
@@ -258,7 +261,7 @@ body{
 	text-align: center;
 	line-height: 800px;
 }
-div.chip {
+#badge_one,#badge_two {
 position: relative;
 float: right;
 margin-right: 5px;
@@ -320,4 +323,49 @@ margin-top: 10px;
 
  #team_img {
 	 margin-left: -20px;
+ }
+
+ #orgin_basic_msg{
+	 width: 967px;
+	 margin-top: 5px;
+
+	 background: rgba(255, 255, 255, 0.5);
+
+ }
+
+ #team_logo_div{
+	 width: 150px;
+	 height:150px;
+	 margin: 5px;
+
+}
+
+
+ #remove_basic_msg{
+	 width: 800px;
+
+ }
+
+ #p1{
+	 font-size: 20px;
+ }
+
+ #p2{
+	 color: #ffa54d;
+	 padding-top: 3px;
+ }
+
+ #p4{
+	 padding-top: 5px;
+ }
+
+ #test{
+	 background: rgba(255, 255, 255, 0.5);
+	 -moz-box-shadow: 0 5px 5px 0 rgba(0, 0, 0, 0.22), 0 10px 10px 0 rgba(0, 0, 0, 0.21);
+	 -webkit-box-shadow: 0 5px 5px 0 rgba(0, 0, 0, 0.22), 0 10px 10px 0 rgba(0, 0, 0, 0.21);
+	 box-shadow: 0 5px 5px 0 rgba(0, 0, 0, 0.22), 0 10px 10px 0 rgba(0, 0, 0, 0.21);
+	 height: 50px;
+	 width: 967px;
+	 margin-right: 3px;
+	 float: right;
  }

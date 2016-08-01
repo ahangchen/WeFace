@@ -1,25 +1,54 @@
+/*修改显示DIV的样式*/
+#search_result{
+    position: relative;
+    top:10px;
+    width:960px;
+    height: auto;
+    opacity: 0;
+
+}
+
 #selector{
-    margin-top: 20px;
+    position: absolute;
+    top:10px;
+    width:3400px;
+    height: 50px;
+
+}
+
+.selectText{
+    color: #000;
+    font-size: 18px;
+    font-weight: 100;
+}
+
+.subtext{
+    color: #000;
+    font-size: 14px;
+    font-weight: 100;
+
 }
 
 #selectPosition{
     width: 100px;
     height:40px;
+    padding: 10px;
     -moz-box-shadow: inset 0 0 10px #CCC;
     -webkit-box-shadow: inset 0 0 10px #CCC;
     box-shadow: inset 0 0 10px #CCC;
     background: rgba(255, 255, 255, 1);
 }
 
-
 #selectTeam{
-      width: 100px;
-      height:40px;
-      -moz-box-shadow: inset 0 0 10px #CCC;
-      -webkit-box-shadow: inset 0 0 10px #CCC;
-      box-shadow: inset 0 0 10px #CCC;
-      background: rgba(255, 255, 255, 1);
-      margin-left: 3px;
+    width: 100px;
+    height:40px;
+    padding: 10px;
+    margin-left: 105px;
+    margin-top: -40px;
+    -moz-box-shadow: inset 0 0 10px #CCC;
+    -webkit-box-shadow: inset 0 0 10px #CCC;
+    box-shadow: inset 0 0 10px #CCC;
+    background: rgba(255, 255, 255, 1);
 }
 
 #selectProject{
@@ -29,69 +58,103 @@
     -webkit-box-shadow: inset 0 0 10px #CCC;
     box-shadow: inset 0 0 10px #CCC;
     background: rgba(255, 255, 255, 1);
-    margin-left: 3px;
-
-}
-.selectText{
-   margin:5px 0 0 4px;
-    color: #000;
-    font-size: 18px;
-    font-weight: 100;
-    position: absolute;
-}
-
-.subtext{
-    color: #000;
-    font-size: 14px;
-    font-weight: 100;
-    margin: 15px 0 0 40px;
-    position: absolute;
+    margin-left: 210px;
+    padding: 10px;
+    margin-top: -40px;
 }
 
 #searchResult{
     width:900px;
     height: auto;
+    position: absolute;
+    top:50px;
+}
 
+.resultBox{
+    height: 180px;
+    width: 900px;
+    margin-top: 10px;
+    background-color:rgba(255, 255, 255, 1);
+    -moz-box-shadow:inset 0 0 10px #CCC;
+    -webkit-box-shadow:inset 0 0 10px #CCC;
+    box-shadow:inset 0 0 10px #CCC;
 }
 
 #firstPage,#previousPage,#nextPage,#lastPage{
     width: 100px;
     height:40px;
+    padding-left: 25px;
+    padding-top: 10px;
     -moz-box-shadow: inset 0 0 10px #CCC;
     -webkit-box-shadow: inset 0 0 10px #CCC;
     box-shadow: inset 0 0 10px #CCC;
     background: rgba(255, 255, 255, 1);
-    margin-left: 3px;
-    margin-top: 5px;
+    cursor: pointer;
 }
 
-.positionText1{
-    height:60px;
+#firstPage{
+    position: absolute;
+    right: 700px;
+}
+#previousPage{
+    position: absolute;
+    right: 597px;
+}
+
+#nextPage{
+    position: absolute;
+    right: 494px;
+}
+
+#lastPage{
+    position: absolute;
+    right: 391px;
+}
+.resultBox #job_name{
+    width: 350px;
+    font-size: 22px;
+    font-weight: bold;
+    padding-top:30px;
+    padding-left: 30px;
+}
+
+.resultBox #job_summary{
+    font-size: 16px;
+    width: 350px;
+    padding-top: 10px;
+    padding-left: 30px;
+}
+
+.resultBox #job_salary{
+    font-size: 16px;
+    color: #ffb039;
+    width: 350px;
+    padding-top: 10px;
+    padding-left: 30px;
+}
+
+.resultBox #team_name{
+    font-size: 18px;
+    margin-top:-90px;
+    margin-left: 350px;
     width:350px;
-    padding: 18px 5px 18px 5px
-
 }
 
-.positionText2{
-    height:60px;
-    width: 350px;
+.resultBox #team_about{
+    font-size: 16px;
+    width: 250px;
     margin-left: 350px;
-    margin-top: -180px;
-    padding: 18px 5px 18px 5px;
+    margin-top: 10px;
 
 }
 
-.positionText3{
-    height:60px;
-    width: 350px;
-    margin-left: 350px;
-    padding: 18px 5px 18px 5px;
+.resultBox #team_logo{
+    width: 210px;
+    height: 160px;
+    margin-left: 650px;
+    margin-top: -115px;
+}
 
-}
-.textMessage{
-    font-size: 20px;
-    font-weight: 100
-}
 
 .teamText1{
     height:60px;
@@ -151,6 +214,14 @@
 .smalltextMessage{
     font-size: 16px;
     font-weight: 100;
+}
+
+#changePage{
+    visibility: hidden;
+    position: absolute;
+    width: 500px;
+    height: 50px;
+    left: 500px;
 }
 
 
