@@ -714,9 +714,13 @@ var student_id=location.search.split("=")[1];
                     edu_background: edu_background,
                     school: school
                 },
-                url: "http://110.64.69.66:8081/student/info/edu/add/",
+                url: "../data/stu_main/test.json",
                 dataType: "json",
                 success: function (data) {
+                    $(".add-new1 .edu-school").val("");
+                    $(".add-new1 .edu-major").val("");
+                    $(".add-new1 .choice2>input").val("请选择");
+                    $(".add-new1 .choice1>input").val("请选择");
                     var err = data.err;
                     if (err == "0") {
                         $(".add-new1").css("display","none");
@@ -728,7 +732,7 @@ var student_id=location.search.split("=")[1];
                             data: {
                                 stu_id:student_id
                             },
-                            url: "http://110.64.69.66:8081/student/info/edu/get/",
+                            url: "../data/stu_main/edu.json",
                             dataType: "json",
                             success: function (data) {
                                 var err = data.err;
