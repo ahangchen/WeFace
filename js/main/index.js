@@ -107,14 +107,14 @@ $(function(){
     $("#teamBtn").click(function(){
         $("#indexBtn").css("text-decoration","none");
         $("#teamBtn").css("text-decoration","underline");
-        var a = $.ajax({
-            type:"get",
-            url: "../team/roles_team.html",
-            dataType:"html",
-            success:function(data){
-                $("#indexDiv").html(data);
-            }
-        })
+        // var a = $.ajax({
+        //     type:"get",
+        //     url: "../team/roles_team.html",
+        //     dataType:"html",
+        //     success:function(data){
+        //         $("#indexDiv").html(data);
+        //     }
+        // })
     });
 // －－－－－－－－－－－－－－－热门团队－－－－－－－－－－－－－－－－－－－－－－－－－－－
 // －－－－－－－－－－－－－热门团队初始化－－－－－－－－－－－－－－－－－－－－－－－－－－
