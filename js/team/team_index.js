@@ -110,13 +110,12 @@ $(document).ready(function () {
             "Access-Control-Allow-Origin":"*"
         }
     });
-});
+
                $(this).addClass("selected");
                $($(this).attr("href")).show();
                $(this).parent().css("border-bottom", "5px rgb(255,147,74) solid");
-             }
-           });
-         });
+
+       
          // 开启slider
          $('.slider').slider({
            full_width: true,
