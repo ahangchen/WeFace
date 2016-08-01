@@ -261,7 +261,6 @@ var student_id=location.search.split("=")[1];
             success: function (data) {
                 var err = data.err;
                 if (err == '-118') {
-                    document.getElementById("edu-show").innerHTML = "";
                 }
                 if (err == '-1') {
                     alert("请求方法错误");
