@@ -256,7 +256,7 @@ var student_id=location.search.split("=")[1];
         $.ajax({
             type: "POST",
             data: data_file,
-            url: "../data/stu_main/edu.json",
+            url: "http://110.64.69.66:8081/student/info/edu/get/",
             dataType: "json",
             success: function (data) {
                 var err = data.err;
@@ -714,7 +714,7 @@ var student_id=location.search.split("=")[1];
                     edu_background: edu_background,
                     school: school
                 },
-                url: "../data/stu_main/test.json",
+                url: "http://110.64.69.66:8081/student/info/edu/add/",
                 dataType: "json",
                 success: function (data) {
                     $(".add-new1 .edu-school").val("");
@@ -732,7 +732,7 @@ var student_id=location.search.split("=")[1];
                             data: {
                                 stu_id:student_id
                             },
-                            url: "../data/stu_main/edu.json",
+                            url: "http://110.64.69.66:8081/student/info/edu/get/",
                             dataType: "json",
                             success: function (data) {
                                 var err = data.err;
