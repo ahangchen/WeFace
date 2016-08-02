@@ -39,12 +39,19 @@
                 "id": 5,
                 "name": "cwh",
                 "logo_path": "../res/imgs/team/touxiang6.jpg"
+            },
+                        {
+                "school": null,
+                "id": 6,
+                "name": "cwh",
+                "logo_path": "../res/imgs/team/touxiang1.jpg"
             }
         ],
         "imgs": [
             "../res/imgs/team/p1.jpg",
             "../res/imgs/team/p2.jpg",
-            "../res/imgs/team/p3.jpg"
+            "../res/imgs/team/p3.jpg",
+             "../res/imgs/team/吉他社招新海报.jpg"
         ],
         "label": [
             "技术宅",
