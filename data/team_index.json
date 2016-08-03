@@ -15,36 +15,6 @@
                 "id": 1,
                 "name": "cwh",
                 "logo_path": "../res/imgs/team/touxiang1.jpg"
-            },
-            {
-                "school": null,
-                "id": 2,
-                "name": "mlh",
-                "logo_path": "../res/imgs/team/touxiang3.jpg"
-            },
-             {
-                "school": null,
-                "id": 3,
-                "name": "cwh",
-                "logo_path": "../res/imgs/team/touxiang4.jpg"
-            },
-             {
-                "school": null,
-                "id": 4,
-                "name": "cwh",
-                "logo_path": "../res/imgs/team/touxiang5.jpg"
-            },
-             {
-                "school": null,
-                "id": 5,
-                "name": "cwh",
-                "logo_path": "../res/imgs/team/touxiang6.jpg"
-            },
-                        {
-                "school": null,
-                "id": 6,
-                "name": "cwh",
-                "logo_path": "../res/imgs/team/touxiang1.jpg"
             }
         ],
         "imgs": [

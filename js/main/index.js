@@ -126,10 +126,10 @@ $(function(){
     var curIndexOfTeam = 0;
     $.getJSON('http://110.64.69.66:8081/team/hot_team/',function(data){
         for (var i = 0; i < 3; i++) {
-            var firstTeamImg = data.msg[i].logo_path;
-            var firstTeamName = data.msg[i].name;
-            var firstTeamDesc = data.msg[i].about;
-            var firstTeamid = data.msg[i].id;
+            var firstTeamImg = data.message[i].logo_path;
+            var firstTeamName = data.message[i].name;
+            var firstTeamDesc = data.message[i].about;
+            var firstTeamid = data.message[i].id;
             $(teamlis[i]).attr("src",firstTeamImg);
             $(teamNames[i]).html(firstTeamName);
             $(teamsDesc[i]).html(firstTeamDesc);
@@ -169,7 +169,7 @@ $(function(){
             url: "http://110.64.69.66:8081/team/hot_team/",
             dataType: "json",
             success: function(data){
-                var maxLength = data.msg.length;
+                var maxLength = data.message.length;
                 if (curIndexOfTeam == maxLength) {
                     curIndexOfTeam = 0;
                 }
