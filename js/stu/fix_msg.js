@@ -17,6 +17,10 @@ $("#delete_file").click(function () {
     {
         document.getElementById("select_year").innerHTML += '<option value="'+i+'">'+i+'年</option>';
     }
+    $("#cancelButton").click(function () {
+        $('#student_message_box').css('display', 'none');
+        $('#basic-info').css('display', 'block');
+    })
 
 });
 

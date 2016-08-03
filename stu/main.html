@@ -8,6 +8,8 @@
     <link rel="stylesheet" type="text/css" href="../css/materialize.min.css">
     <link rel="stylesheet" type="text/css" href="../css/main/index.css">
     <link rel="stylesheet" type="text/css" href="../css/main/search.css">
+    <link rel="stylesheet" type="text/css" href="../css/stu/fix_msg.css">
+
     <link rel="stylesheet" type="text/css" href="../css/stu/main.css">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <title>学生个人主页</title>
@@ -51,18 +53,9 @@
     <div id="stu-main">
         <div class="card" id="basic-info" style="margin-top:0;margin-bottom: 0">
             <ul id="list1">
-                <div id="edit-icon" class="fixed-action-btn click-to-toggle horizontal " style="position:relative;">
-                    <a style="background:#fff;" class="btn-floating btn-large">
-                        <i style="color:#ff8f00" class="large material-icons">•••</i>
-                    </a>
-                    <ul>
-                        <li style="display: block"><a style="background:#fff;" class="btn-floating"><i style="color:#ff8f00"
-                                                                                                   class="material-icons">mode_edit</i></a>
-                        </li>
-                        <li style="display: block"><a style="background:#fff;" class="btn-floating darken-1"><i
-                            style="color:#ff8f00" class="material-icons">attach_file</i></a></li>
-                    </ul>
-                </div>
+                <a id="edit-icon" style="background:#fff;" class="btn-floating btn-large">
+                    <i style="color:#ff8f00" class="large material-icons">edit</i>
+                </a>
                 <li class="detail-info" id="detail1">
                     <span id="detail-name">Mingjie_Zhang</span><span id="detail-sex">&nbsp&nbsp&nbsp&nbsp&nbsp<i id="boy">♂</i><i id="girl">♀</i></span><span id="detail-age">20岁</span>
                 </li>
@@ -78,6 +71,137 @@
                 <li class="detail-info" id="detail4"><img src="../res/imgs/attach_file.svg" style="vertical-align: middle" /><a href="#" style="text-decoration:underline;vertical-align: middle">XXX-个人简历.pdf</a><a id="cancel-icon" class="btn-floating btn-large waves-effect waves-light"><i class="material-icons">close</i></a>
                 </li>
             </ul>
+        </div>
+        <div  id="student_message_box" class="comWidth" style="display: none">
+            <img id="local_photo" />
+            <div class="function_button">
+                <div class="photo_logo" onclick="F_Open_img()">
+                    <i class="large material-icons dp48">photo_camera</i>
+                    <form method="post" action="" enctype="multipart/form-data">
+                        <input type="file" id="update_photo" style="display: none" onchange="show_local_img(this)">
+                    </form>
+                </div>
+
+                <div class="attach_file" onclick="F_Open_file()">
+                    <img src="../res/imgs/attach_file.svg" id="attach_logo"/>
+                    <form method="post" action="" enctype="multipart/form-data">
+                        <input name="update_file" type="file" style="display: none" id="update_file" onchange="show_local_file()">
+                    </form>
+                </div>
+                <div class="text">上传简历附件</div>
+
+                <div class="doc_path">
+                    <table>
+                        <tr>
+                            <td>
+                                <img src="../res/imgs/attach_file.svg" id="doc_path_logo"/>
+                            </td>
+                            <td>
+                                <input id="path_line" type="text">
+                            </td>
+                            <td>
+                                <a id="delete_file" class="btn-floating waves-effect waves-light">
+                                    <i id="close_ico" class="material-icons">close</i>
+                                </a>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+
+            <div class="personal_message">
+                <form class="row ">
+                    <div class="input-field col s8">
+                        <input id="first_name" type="text" class="validate">
+                        <label for="first_name">输入你的名字</label>
+                    </div>
+
+                    <div class="col s8">
+                        <div class="input-field col s3">
+                            <select class="browser-default">
+                                <option value="" disabled selected>性别</option>
+                                <option value="1">男</option>
+                                <option value="2">女</option>
+                            </select>
+                        </div>
+
+                        <div class="input-field col s5">
+                            <select class="browser-default" id="select_year">
+                                <option value="" disabled selected>出生年份</option>
+                            </select>
+                        </div>
+
+                        <div class="input-field col s3">
+                            <select class="browser-default" id="select_month">
+                                <option value="" disabled selected>月份</option>
+                            </select>
+                        </div>
+
+                    </div>
+
+                    <div class="input-field col s8">
+                        <input id="school_name" type="text" class="validate">
+                        <label for="school_name">输入你所在的学校</label>
+                    </div>
+                    <div class="input-field col s8">
+                        <input id="major_name" type="text" class="validate">
+                        <label for="major_name">输入你的专业</label>
+                    </div>
+                    <div class="input-field col s8">
+                        <select class="browser-default">
+                            <option value="" disabled selected>选择你所在的城市</option>
+                            <option value="1">广州</option>
+                            <option value="2">深圳</option>
+                            <option value="3">上海</option>
+                            <option value="4">北京</option>
+                            <option value="5">厦门</option>
+                            <option value="6">杭州</option>
+                            <option value="7">成都</option>
+                            <option value="8">天津</option>
+                            <option value="9">南京</option>
+                            <option value="10">其它</option>
+                        </select>
+                    </div>
+                    <div class="input-field col s8">
+                        <!--<select class="browser-default">
+                            <option value="" disabled selected>选择你的最高学历</option>
+                            <option value="1">本科</option>
+                            <option value="2">硕士</option>
+                            <option value="3">博士</option>
+                            <option value="4">其它</option>
+                        </select>-->
+                        <input id="education_level" type="text" class="validate" readonly="true">
+                        <label for="education_level">最高学历为默认值</label>
+                    </div>
+                    <div class="input-field col s8">
+                        <!-- <select class="browser-default">
+                             <option value="" disabled selected>选择你的在读年级</option>
+                             <option value="1">应届毕业生</option>
+                             <option value="2">大一</option>
+                             <option value="3">大二</option>
+                             <option value="4">大三</option>
+                             <option value="5">研一</option>
+                             <option value="6">研二</option>
+                             <option value="7">其它</option>
+                         </select>-->
+                        <input id="grade_level" type="text" class="validate"  readonly="true">
+                        <label for="grade_level">在读年级为默认值</label>
+                    </div>
+                    <div class="input-field col s11" id="enter_email">
+                        <input id="email" type="email" class="validate">
+                        <label for="email"  data-success="right">输入你的邮箱</label>
+                        <span class="red-text text-lighten-2">不会显示在您的信息中,您投递简历后会被相应的公司看到</span>
+                    </div>
+                    <div class="input-field col s11" id="enter_tel">
+                        <input id="tel" type="tel" class="validate">
+                        <label for="tel">输入你的联系方式</label>
+                        <span class="red-text text-lighten-2">不会显示在您的信息中,您投递简历后会被相应的公司看到</span>
+                        <a id="saveButton" class="waves-effect waves-light btn">保存</a>
+                        <a id="cancelButton" class="waves-effect waves-light btn">取消</a>
+                    </div>
+                </form>
+            </div>
+
         </div>
         <div id="other-info" class="card" style="margin-bottom:50px;overflow: hidden;background-color: transparent;">
             <div style="float:right" id="nav-list">
@@ -1363,6 +1487,7 @@
     <script type="text/javascript" src="../js/search/search.js"></script>
     <script type="text/javascript" src="../js/materialize.js"></script>
     <script type="text/javascript" src="../js/stu/main.js"></script>
+    <script type="text/javascript" src="../js/stu/fix_msg.js"></script>
 </body>
 
 </html>

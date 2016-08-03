@@ -251,6 +251,10 @@ var student_id=location.search.split("=")[1];
                 "Access-Control-Allow-Origin": "*"
             }
         });
+        $('#edit-icon').click(function (event) {
+           $('#student_message_box').css('display', 'block');
+            $('#basic-info').css('display', 'none');
+        });
 
         /*-----------------------------获取学生教育经历---------------------------*/
         $.ajax({
