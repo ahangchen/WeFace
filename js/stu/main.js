@@ -197,7 +197,7 @@ $(function () {
         $.ajax({
             type: "POST",
             data: data_info,
-            url: "../data/stu_main/info.json",
+            url: "http://110.64.69.66:8081/student/info/get/",
             dataType: "json",
             success: function (data) {
                 var err = data.err;
@@ -260,7 +260,7 @@ $(function () {
         $.ajax({
             type: "POST",
             data: data_file,
-            url: "../data/stu_main/edu.json",
+            url: "http://110.64.69.66:8081/student/info/edu/get/",
             dataType: "json",
             success: function (data) {
                 var err = data.err;
@@ -337,7 +337,7 @@ $(function () {
         $.ajax({
             type: "POST",
             data: data_file,
-            url: "../data/stu_main/prac.json",
+            url: "http://110.64.69.66:8081/student/info/intern/get/",
             dataType: "json",
             success: function (data) {
                 var err = data.err;
@@ -390,7 +390,7 @@ $(function () {
         $.ajax({
             type: "POST",
             data: data_file,
-            url: "../data/stu_main/proj.json",
+            url: "http://110.64.69.66:8081/student/info/proj/get/",
             dataType: "json",
             success: function (data) {
                 var err = data.err;
@@ -441,7 +441,7 @@ $(function () {
         $.ajax({
             type: "POST",
             data: data_file,
-            url: "../data/stu_main/works.json",
+            url: "http://110.64.69.66:8081/student/info/works/get/",
             dataType: "json",
             success: function (data) {
                 var err = data.err;
@@ -486,7 +486,7 @@ $(function () {
         $.ajax({
             type: "POST",
             data: data_file,
-            url: "../data/stu_main/skill.json",
+            url: "http://110.64.69.66:8081/student/info/skill/get/",
             dataType: "json",
             success: function (data) {
                 var err = data.err;
@@ -550,7 +550,7 @@ $(function () {
             $.ajax({
                 type: "POST",
                 data: {stu_id: student_id},
-                url: "../data/stu_main/skill.json",
+                url: "http://110.64.69.66:8081/student/info/skill/get/",
                 dataType: "json",
                 success: function (data) {
                     var err = data.err;
@@ -733,7 +733,7 @@ $(function () {
                                     name: name,
                                     value: value
                                 },
-                                url: "../data/stu_main/test.json",
+                                url: "http://110.64.69.66:8081/student/info/skill/add/",
                                 dataType: "json",
                                 success: function (data) {
                                     var err = data.err;
@@ -764,7 +764,7 @@ $(function () {
                                     skill_id: skill_id,
                                     value: value
                                 },
-                                url: "../data/stu_main/test.json",
+                                url: "http://110.64.69.66:8081/student/info/skill/update/",
                                 dataType: "json",
                                 success: function (data) {
                                     var err = data.err;
@@ -805,7 +805,7 @@ $(function () {
                                     stu_id: student_id,
                                     skill_id: name
                                 },
-                                url: "../data/stu_main/test.json",
+                                url: "http://110.64.69.66:8081/student/info/skill/del/" ,
                                 dataType: "json",
                                 success: function (data) {
                                     var err = data.err;
@@ -880,7 +880,7 @@ $(function () {
         $.ajax({
             type: "POST",
             data: {stu_id: student_id},
-            url: "../data/stu_main/skill.json",
+            url: "http://110.64.69.66:8081/student/info/skill/get/",
             dataType: "json",
             success: function (data) {
                 var err = data.err;
@@ -1013,7 +1013,7 @@ $(function () {
                     edu_background: edu_background,
                     school: school
                 },
-                url: "../data/stu_main/test.json",
+                url: "http://110.64.69.66:8081/student/info/edu/add/",
                 dataType: "json",
                 success: function (data) {
                     $(".add-new1 .edu-school").val("");
@@ -1028,7 +1028,7 @@ $(function () {
                             data: {
                                 stu_id: student_id
                             },
-                            url: "../data/stu_main/edu.json",
+                            url: "http://110.64.69.66:8081/student/info/edu/get/",
                             dataType: "json",
                             success: function (data) {
                                 for (var i = 1; i <= 5; i++) {
@@ -1178,7 +1178,7 @@ $(function () {
                     end_time: end_time,
                     description: description
                 },
-                url: "../data/stu_main/test.json",
+                url: "http://110.64.69.66:8081/student/info/intern/add/" ,
                 dataType: "json",
                 success: function (data) {
                     var err = data.err;
@@ -1188,7 +1188,7 @@ $(function () {
                             data: {
                                 stu_id: student_id
                             },
-                            url: "../data/stu_main/prac.json",
+                            url: "http://110.64.69.66:8081/student/info/intern/get/",
                             dataType: "json",
                             success: function (data) {
                                 for (var i = 1; i < 5; i++) {
@@ -1332,7 +1332,7 @@ $(function () {
                     year: year,
                     description: description
                 },
-                url: "../data/stu_main/test.json",
+                url: "http://110.64.69.66:8081/student/info/proj/add/",
                 dataType: "json",
                 success: function (data) {
                     var err = data.err;
@@ -1342,7 +1342,7 @@ $(function () {
                             data: {
                                 stu_id: student_id
                             },
-                            url: "../data/stu_main/proj.json",
+                            url: "http://110.64.69.66:8081/student/info/proj/get/",
                             dataType: "json",
                             success: function (data) {
                                 for (var i = 1; i < 5; i++) {
@@ -1443,7 +1443,7 @@ $(function () {
                     path: work_path,
                     site: site
                 },
-                url: "../data/stu_main/test.json",
+                url: "http://110.64.69.66:8081/student/info/works/add/",
                 dataType: "json",
                 success: function (data) {
                     var err = data.err;
@@ -1456,7 +1456,7 @@ $(function () {
                             data: {
                                 stu_id: student_id
                             },
-                            url: "../data/stu_main/works.json",
+                            url: "http://110.64.69.66:8081/student/info/works/get/",
                             dataType: "json",
                             success: function (data) {
                                 var err = data.err;
@@ -1517,7 +1517,7 @@ $(function () {
                     path: work_path,
                     site: site
                 },
-                url: "../data/stu_main/test.json",
+                url: "http://110.64.69.66:8081/student/info/works/update/",
                 dataType: "json",
                 success: function (data) {
                     var err = data.err;
@@ -1530,7 +1530,7 @@ $(function () {
                             data: {
                                 stu_id: student_id
                             },
-                            url: "../data/stu_main/works.json",
+                            url: "http://110.64.69.66:8081/student/info/works/get/",
                             dataType: "json",
                             success: function (data) {
                                 var err = data.err;
@@ -1602,7 +1602,7 @@ $(function () {
                     stu_id: location.search.split("=")[1],
                     edu_id: edu_id
                 },
-                url: "../data/stu_main/test.json",
+                url: "http://110.64.69.66:8081/student/info/edu/del/",
                 dataType: "json",
                 success: function (data) {
                     var err = data.err;
@@ -1749,7 +1749,7 @@ $(function () {
                         edu_background: edu_background,
                         school: $(edu_fieldi1).val()
                     },
-                    url: "../data/stu_main/test.json",
+                    url: "http://110.64.69.66:8081/student/info/edu/update/",
                     dataType: "json",
                     success: function (data) {
                         var err = data.err;
@@ -1828,7 +1828,7 @@ $(function () {
                         end_time: $(e_y).val() + "/" + $(e_m).val(),
                         description: $(prac_texti).val()
                     },
-                    url: "../data/stu_main/test.json",
+                    url: "http://110.64.69.66:8081/student/info/intern/update/",
                     dataType: "json",
                     success: function (data) {
                         var err = data.err;
@@ -1895,7 +1895,7 @@ $(function () {
                         year: $(year_input).val(),
                         description: $(proj_texti).val()
                     },
-                    url: "../data/stu_main/test.json",
+                    url: "http://110.64.69.66:8081/student/info/proj/update/",
                     dataType: "json",
                     success: function (data) {
                         var err = data.err;
@@ -1930,7 +1930,7 @@ $(function () {
         formData.append('works', $('#file')[0].files[0]);
         formData.append('stu_id', student_id);
         $.ajax({
-            url: '../data/stu_main/test.json',
+            url: 'http://110.64.69.66:8081/student/info/works/update/',
             type: 'POST',
             cache: false,
             data: formData,
@@ -2068,7 +2068,7 @@ $(function () {
                     stu_id: location.search.split("=")[1],
                     prac_id: prac_id
                 },
-                url: "../data/stu_main/test.json",
+                url: "http://110.64.69.66:8081/student/info/intern/del/",
                 dataType: "json",
                 success: function (data) {
                     var err = data.err;
@@ -2133,7 +2133,7 @@ $(function () {
                     stu_id: location.search.split("=")[1],
                     proj_id: proj_id
                 },
-                url: "../data/stu_main/test.json",
+                url: "http://110.64.69.66:8081/student/info/proj/del/",
                 dataType: "json",
                 success: function (data) {
                     var err = data.err;
