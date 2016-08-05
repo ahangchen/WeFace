@@ -1053,8 +1053,6 @@ $(function () {
                                     $("#right-add1").html("添加").css("color", "#ff8f00").attr("disabled", false);
                                     $("#right-edit1").html("编辑").css("color", "#ff8f00").attr("disabled", false);
                                     $(".right-icon1").css("display", "none");
-                                    var grade = data.grade;
-                                    var edu_background = data.edu_background;
                                     var edu_list = data.edu_list;
                                     for (var i = 0; i < edu_list.length; i++) {
                                         var edu_id = edu_list[i].edu_id;
@@ -2066,7 +2064,7 @@ $(function () {
                 type: "POST",
                 data: {
                     stu_id: location.search.split("=")[1],
-                    prac_id: prac_id
+                    intern_id: prac_id
                 },
                 url: "http://110.64.69.66:8081/student/info/intern/del/",
                 dataType: "json",
