@@ -455,6 +455,8 @@ $(function () {
                     alert("操作失败");
                 }
                 if (err == '0') {
+                    var works_id=data.works_id;
+                    $(".works-show").attr("name",works_id);
                     var path = data.path;
                     var site = data.site;
                     if (path == undefined) {
@@ -1486,6 +1488,8 @@ $(function () {
                                     alert("操作失败");
                                 }
                                 if (err == '0') {
+                                    var works_id=data.works_id;
+                                    $(".works-show").attr("name",works_id);
                                     var path = data.path;
                                     var site = data.site;
                                     if (path == undefined) {
