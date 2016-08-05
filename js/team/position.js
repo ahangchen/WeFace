@@ -287,7 +287,7 @@ $(function(){
         }
         for (var i = (curPage-1)*10; i < terminal; i++) {
             $("#positionCards").append('<div class="positionCard comwidth" id="'+showArray[i].jobId+'"><div class="row"><label class="positionName"><a>'+showArray[i].jobName+'</a><span class = "jAddr">（'+showArray[i].jobAddr+'）</span></label><div class="chip '+showArray[i].state+'">'+showArray[i].stateText+'</div></div><div class="row"><label class="salary">'+showArray[i].minMon+'-'+showArray[i].maxMon+'/月</label><label class="required">'+showArray[i].jobExp+'</label></div><div class="btngroups fr"><a class="btn-floating btn-large waves-effect waves-light white delJobBtn" ><i class="medium material-icons" >remove</i></a><a class="btn-floating btn-large white editInfoBtn" ><i class="medium material-icons" >mode_edit</i></a></div></div>');
-            $('.positionName a').attr('href',"../jobDetail/html?data="+showArray[i].jobId);
+            $('.positionName a').attr('href',"../jobDetail.html?data="+showArray[i].jobId);
         }
 
         // 显示编辑职位的页面

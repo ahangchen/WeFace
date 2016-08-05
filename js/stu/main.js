@@ -252,7 +252,7 @@ $(function () {
             }
         });
         $('#edit-icon').click(function (event) {
-           $('#student_message_box').css('display', 'block');
+            $('#student_message_box').css('display', 'block');
             $('#basic-info').css('display', 'none');
         });
 
@@ -455,6 +455,8 @@ $(function () {
                     alert("操作失败");
                 }
                 if (err == '0') {
+                    var works_id=data.works_id;
+                    $(".works-show").attr("name",works_id);
                     var path = data.path;
                     var site = data.site;
                     if (path == undefined) {
@@ -527,9 +529,12 @@ $(function () {
                         document.getElementById(skillib).style = "width:" + s_value + "%";
                         document.getElementById(skillic).innerHTML = s_show;
                     }
-                    for (var i = skill_list.length + 1; i <= 5; i++) {
-                        var skillalli = "#skill-all" + i;
-                        $(skillalli).css("display", "none");
+
+                    if(skill_list.length<=4){
+                        for (var i = skill_list.length+1; i <= 5; i++) {
+                            var skill0i = "#skill0" + i;
+                            $(skill0i).css("display", "none");
+                        }
                     }
                 }
                 ajax_num--;
@@ -548,23 +553,23 @@ $(function () {
         function skill_load() {
             $.ajax({
                 type: "POST",
-                        data: {stu_id: student_id},
-                        url: cur_site + "student/info/skill/get/",
-                            dataType: "json",
-                            success: function (data) {
-                            var err = data.err;
-                            if (err == '-24') {
+                data: {stu_id: student_id},
+                url: cur_site + "student/info/skill/get/",
+                dataType: "json",
+                success: function (data) {
+                    var err = data.err;
+                    if (err == '-24') {
 
-                            }
-                            if (err == '-1') {
-                                alert("请求方法错误");
-                            }
-                            if (err == '-10') {
+                    }
+                    if (err == '-1') {
+                        alert("请求方法错误");
+                    }
+                    if (err == '-10') {
                         alert("操作失败");
                     }
                     if (err == '0') {
                         $("#right-edit5").html("编辑");
-                        $(".skill-total").css("display", "none");
+                        $(".skill-total").css("display", "block");
                         for (var i = 1; i <= 5; i++) {
                             var skillia = "#skill" + i + "a";
                             var skillic = "#skill" + i + "c";
@@ -572,6 +577,7 @@ $(function () {
                             $(skillic).html("");
                         }
                         var skill_list = data.skill_list;
+                        console.log(skill_list.length);
                         for (var i = 0; i < skill_list.length; i++) {
                             var skill0i = "#skill0" + (i + 1);
                             $(skill0i).css("display", "block");
@@ -599,9 +605,11 @@ $(function () {
                             document.getElementById(skillib).style = "width:" + s_value + "%";
                             document.getElementById(skillic).innerHTML = s_show;
                         }
-                        for (var i = skill_list.length + 1; i <= 5; i++) {
-                            var skillalli = "#skill-all" + i;
-                            $(skillalli).css("display", "none");
+                        if(skill_list.length<=4){
+                            for (var i = skill_list.length+1; i <= 5; i++) {
+                                var skill0i = "#skill0" + i;
+                                $(skill0i).css("display", "none");
+                            }
                         }
                     }
                     edit();
@@ -717,6 +725,7 @@ $(function () {
                 $("#skill-save").on("click", function () {
                     var skill_length = document.getElementsByClassName("edit-skill").length;
                     var skill_array = document.getElementsByClassName("edit-skill");
+                    var account = skill_length;
                     for (var i = 0; i < skill_length; i++) {
                         var skill_id = skill_array[i].attributes["name"].value;
                         var name = skill_array[i].getElementsByClassName("skill-input")[0].value;
@@ -747,7 +756,13 @@ $(function () {
                                     if (err == '-127') {
                                         alert("技能评价已达上限");
                                     }
-
+                                    account--;
+                                    if (account == 0) {
+                                        $("#skill-all").css("display", "block");
+                                        $("#edit-detail").css("display", "none");
+                                        $("#right-edit5").html("编辑");
+                                        skill_load();
+                                    }
                                 },
                                 headers: {
                                     "Access-Control-Allow-Origin": "*"
@@ -775,6 +790,13 @@ $(function () {
                                     if (err == '-10') {
                                         alert("操作失败");
                                     }
+                                    account--;
+                                    if (account == 0) {
+                                        $("#skill-all").css("display", "block");
+                                        $("#edit-detail").css("display", "none");
+                                        $("#right-edit5").html("编辑");
+                                        skill_load();
+                                    }
                                 },
                                 headers: {
                                     "Access-Control-Allow-Origin": "*"
@@ -783,72 +805,7 @@ $(function () {
 
                         }
                     }
-                    $("#skill-all").css("display", "block");
-                    $("#edit-detail").css("display", "none");
-                    $("#right-edit5").html("编辑");
-                    $.ajax({
-                        type: "POST",
-                        data: {stu_id: student_id},
-                        url: cur_site + "student/info/skill/get/",
-                        dataType: "json",
-                        success: function (data) {
-                            var err = data.err;
-                            if (err == '-24') {
 
-                            }
-                            if (err == '-1') {
-                                alert("请求方法错误");
-                            }
-                            if (err == '-10') {
-                                alert("操作失败");
-                            }
-                            if (err == '0') {
-                                $("#right-edit5").html("编辑");
-                                for (var i = 1; i <= 5; i++) {
-                                    var skillia = "#skill" + i + "a";
-                                    var skillic = "#skill" + i + "c";
-                                    $(skillia).html("");
-                                    $(skillic).html("");
-                                }
-                                var skill_list = data.skill_list;
-                                for (var i = 0; i < skill_list.length; i++) {
-                                    var skill0i = "#skill0" + (i + 1);
-                                    $(skill0i).css("display", "block");
-                                    var s_name = skill_list[i].name;
-                                    var skill_id = skill_list[i].skill_id;
-                                    var s_value = parseInt(skill_list[i].value);
-                                    if (s_value >= 0 && s_value < 25) {
-                                        var s_show = "入门";
-                                    }
-                                    if (s_value >= 25 && s_value < 50) {
-                                        var s_show = "掌握";
-                                    }
-                                    if (s_value >= 50 && s_value < 75) {
-                                        var s_show = "熟悉";
-                                    }
-                                    if (s_value >= 75 && s_value <= 100) {
-                                        var s_show = "精通";
-                                    }
-                                    var skillia = "skill" + (i + 1) + "a";
-                                    var skillib = "skill" + (i + 1) + "b";
-                                    var skillic = "skill" + (i + 1) + "c";
-                                    var xskillia = "#" + skillia;
-                                    $(xskillia).attr("name", skill_id);
-                                    document.getElementById(skillia).innerHTML = s_name;
-                                    document.getElementById(skillib).style = "width:" + s_value + "%";
-                                    document.getElementById(skillic).innerHTML = s_show;
-                                }
-                                for (var i = skill_list.length + 1; i <= 5; i++) {
-                                    var skillalli = "#skill-all" + i;
-                                    $(skillalli).css("display", "none");
-                                }
-                            }
-                            edit();
-                        },
-                        headers: {
-                            "Access-Control-Allow-Origin": "*"
-                        }
-                    });
                 });
 
 
@@ -866,7 +823,7 @@ $(function () {
                                     stu_id: student_id,
                                     skill_id: name
                                 },
-                                url: cur_site + "student/info/skill/del/" ,
+                                url: cur_site + "student/info/skill/del/",
                                 dataType: "json",
                                 success: function (data) {
                                     var err = data.err;
@@ -991,9 +948,11 @@ $(function () {
                         document.getElementById(skillib).style = "width:" + s_value + "%";
                         document.getElementById(skillic).innerHTML = s_show;
                     }
-                    for (var i = skill_list.length + 1; i <= 5; i++) {
-                        var skillalli = "#skill-all" + i;
-                        $(skillalli).css("display", "none");
+                    if(skill_list.length<=4){
+                        for (var i = skill_list.length+1; i <= 5; i++) {
+                            var skill0i = "#skill0" + i;
+                            $(skill0i).css("display", "none");
+                        }
                     }
                 }
                 edit();
@@ -1237,7 +1196,7 @@ $(function () {
                     end_time: end_time,
                     description: description
                 },
-                url: cur_site + "student/info/intern/add/" ,
+                url: cur_site + "student/info/intern/add/",
                 dataType: "json",
                 success: function (data) {
                     var err = data.err;
@@ -1404,7 +1363,7 @@ $(function () {
                             dataType: "json",
                             success: function (data) {
                                 for (var i = 1; i < 5; i++) {
-                                    var proj= "#proj" + i;
+                                    var proj = "#proj" + i;
                                     var a = "#proj" + i + "a";
                                     var b = "#proj" + i + "b";
                                     var c = "#proj" + i + "c";
@@ -1529,6 +1488,8 @@ $(function () {
                                     alert("操作失败");
                                 }
                                 if (err == '0') {
+                                    var works_id=data.works_id;
+                                    $(".works-show").attr("name",works_id);
                                     var path = data.path;
                                     var site = data.site;
                                     if (path == undefined) {
@@ -1988,7 +1949,7 @@ $(function () {
         formData.append('works', $('#file')[0].files[0]);
         formData.append('stu_id', student_id);
         $.ajax({
-            url: cur_site + 'student/info/works/update/',
+            url: cur_site + 'student/info/works/upload/',
             type: 'POST',
             cache: false,
             data: formData,
