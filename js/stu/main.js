@@ -527,9 +527,12 @@ $(function () {
                         document.getElementById(skillib).style = "width:" + s_value + "%";
                         document.getElementById(skillic).innerHTML = s_show;
                     }
-                    for (var i = skill_list.length + 1; i <= 5; i++) {
-                        var skillalli = "#skill-all" + i;
-                        $(skillalli).css("display", "none");
+
+                    if(skill_list.length<=4){
+                        for (var i = skill_list.length+1; i <= 5; i++) {
+                            var skill0i = "#skill0" + i;
+                            $(skill0i).css("display", "none");
+                        }
                     }
                 }
                 ajax_num--;
@@ -943,9 +946,11 @@ $(function () {
                         document.getElementById(skillib).style = "width:" + s_value + "%";
                         document.getElementById(skillic).innerHTML = s_show;
                     }
-                    for (var i = skill_list.length + 1; i <= 5; i++) {
-                        var skillalli = "#skill-all" + i;
-                        $(skillalli).css("display", "none");
+                    if(skill_list.length<=4){
+                        for (var i = skill_list.length+1; i <= 5; i++) {
+                            var skill0i = "#skill0" + i;
+                            $(skill0i).css("display", "none");
+                        }
                     }
                 }
                 edit();
