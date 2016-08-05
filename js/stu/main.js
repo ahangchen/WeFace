@@ -20,12 +20,7 @@ function edit() {
         $("#ea3").css("display", "inline-block");
     }
 
-    if ($("#works-id").html() == "") {
-        $("#add4").css("display", "block");
-    }
-    else {
-        $("#ea4").css("display", "inline-block");
-    }
+
 
     if ($("#skill1a").html() == "") {
         $("#add5").css("display", "block");
