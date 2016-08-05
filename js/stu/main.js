@@ -1194,7 +1194,6 @@ $(function () {
                                     var b = "#prac" + i + "b";
                                     var c = "#prac" + i + "c";
                                     var d = "#prac" + i + "1";
-                                    $(prac).css("display", "none");
                                     $(a).html("");
                                     $(b).html("");
                                     $(c).html("");
@@ -1237,7 +1236,6 @@ $(function () {
                                         document.getElementById(pracib).innerHTML = i_position;
                                         document.getElementById(pracic).innerHTML = i_time;
                                         document.getElementById(praci1).innerHTML = i_description;
-
                                     }
                                 }
                                 edit();
