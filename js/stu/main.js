@@ -811,6 +811,8 @@ $(function () {
                                     $(skillic).html("");
                                 }
                                 var skill_list = data.skill_list;
+                                $(".skill-total").css("display", "block");
+                                console.log(skill_list.length);
                                 for (var i = 0; i < skill_list.length; i++) {
                                     var skill0i = "#skill0" + (i + 1);
                                     $(skill0i).css("display", "block");
