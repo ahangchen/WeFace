@@ -1450,160 +1450,165 @@ $(function () {
     });
     /*-----------------------------作品集增加--------------------------*/
     $("#work-save").click(function () {
-        var works_id = $(".works-show").attr("name");
-        var site = $(".site-input").val();
-        if (works_id == "") {//增加作品集
-            $.ajax({
-                type: "POST",
-                data: {
-                    stu_id: student_id,
-                    path: work_path,
-                    site: site
-                },
-                url: cur_site + "student/info/works/add/",
-                dataType: "json",
-                success: function (data) {
-                    var err = data.err;
-                    if (err == "0") {
-                        $("#work-field").css("display", "none");
-                        $(".works-show").css("display", "block");
-                        $("#right-edit4").html("编辑");
-                        $.ajax({
-                            type: "POST",
-                            data: {
-                                stu_id: student_id
-                            },
-                            url: cur_site + "student/info/works/get/",
-                            dataType: "json",
-                            success: function (data) {
-                                var err = data.err;
-                                if (err == '-121') {
-                                    document.getElementById("works-id").innerHTML = "尚未上传作品集";
-                                    document.getElementById("works-site").innerHTML = "尚未上传作品集在线地址";
-                                }
-                                if (err == '-1') {
-                                    alert("请求方法错误");
-                                }
-                                if (err == '-10') {
-                                    alert("操作失败");
-                                }
-                                if (err == '0') {
-                                    var works_id=data.works_id;
-                                    $(".works-show").attr("name",works_id);
-                                    var path = data.path;
-                                    var site = data.site;
-                                    if (path == undefined) {
-                                        document.getElementById("works-id").innerHTML = "尚未上传作品集";
-                                    } else {
-                                        document.getElementById("works-path").href = path;
-                                        document.getElementById("works-id").innerHTML = location.search.split("=")[1] + "作品集.pdf";
-                                    }
-                                    if (site == undefined) {
-                                        document.getElementById("works-site").innerHTML = "尚未上传作品集在线地址";
-                                    } else {
-                                        document.getElementById("works-site").href = site;
-                                        document.getElementById("works-site").innerHTML = "作品集在线地址：" + site;
-                                    }
-                                }
-                                edit();
-                            },
-                            headers: {
-                                "Access-Control-Allow-Origin": "*"
-                            }
-                        });
-                    }
-                    if (err == "-1") {
-                        alert("请求方法错误");
-                    }
-                    if (err == "-10") {
-                        alert("操作失败");
-                    }
-                    if (err == "-126") {
-                        alert("已有作品集");
-                    }
-                },
-                headers: {
-                    "Access-Control-Allow-Origin": "*"
-                }
-            });
-        }
-        else {//更新作品集
-            $.ajax({
-                type: "POST",
-                data: {
-                    stu_id: student_id,
-                    works_id: works_id,
-                    path: work_path,
-                    site: site
-                },
-                url: cur_site + "student/info/works/update/",
-                dataType: "json",
-                success: function (data) {
-                    var err = data.err;
-                    if (err == "0") {
-                        $("#work-field").css("display", "none");
-                        $(".works-show").css("display", "block");
-                        $("#right-edit4").html("编辑");
-                        $.ajax({
-                            type: "POST",
-                            data: {
-                                stu_id: student_id
-                            },
-                            url: cur_site + "student/info/works/get/",
-                            dataType: "json",
-                            success: function (data) {
-                                var err = data.err;
-                                if (err == '-121') {
-                                    document.getElementById("works-id").innerHTML = "尚未上传作品集";
-                                    document.getElementById("works-site").innerHTML = "尚未上传作品集在线地址";
-                                }
-                                if (err == '-1') {
-                                    alert("请求方法错误");
-                                }
-                                if (err == '-10') {
-                                    alert("操作失败");
-                                }
-                                if (err == '0') {
-                                    var path = data.path;
-                                    var site = data.site;
-                                    if (path == undefined) {
-                                        document.getElementById("works-id").innerHTML = "尚未上传作品集";
-                                    } else {
-                                        document.getElementById("works-path").href = path;
-                                        document.getElementById("works-id").innerHTML = location.search.split("=")[1] + "作品集.pdf";
-                                    }
-                                    if (site == undefined) {
-                                        document.getElementById("works-site").innerHTML = "尚未上传作品集在线地址";
-                                    } else {
-                                        document.getElementById("works-site").href = site;
-                                        document.getElementById("works-site").innerHTML = "作品集在线地址：" + site;
-                                    }
-
-
-                                }
-                                edit();
-                            },
-                            headers: {
-                                "Access-Control-Allow-Origin": "*"
-                            }
-                        });
-                    }
-                    if (err == "-1") {
-                        alert("请求方法错误");
-                    }
-                    if (err == "-10") {
-                        alert("操作失败");
-                    }
-                    if (err == "-126") {
-                        alert("已有作品集");
-                    }
-                },
-                headers: {
-                    "Access-Control-Allow-Origin": "*"
-                }
-            });
+        if($('#file')[0].files[0]){
+            works_add_edit();
         }
     });
+    function works_add_edit() {
+            var works_id = $(".works-show").attr("name");
+            var site = $(".site-input").val();
+            if (works_id == "") {//增加作品集
+                $.ajax({
+                    type: "POST",
+                    data: {
+                        stu_id: student_id,
+                        path: work_path,
+                        site: site
+                    },
+                    url: cur_site + "student/info/works/add/",
+                    dataType: "json",
+                    success: function (data) {
+                        var err = data.err;
+                        if (err == "0") {
+                            $("#work-field").css("display", "none");
+                            $(".works-show").css("display", "block");
+                            $("#right-edit4").html("编辑");
+                            $.ajax({
+                                type: "POST",
+                                data: {
+                                    stu_id: student_id
+                                },
+                                url: cur_site + "student/info/works/get/",
+                                dataType: "json",
+                                success: function (data) {
+                                    var err = data.err;
+                                    if (err == '-121') {
+                                        document.getElementById("works-id").innerHTML = "尚未上传作品集";
+                                        document.getElementById("works-site").innerHTML = "尚未上传作品集在线地址";
+                                    }
+                                    if (err == '-1') {
+                                        alert("请求方法错误");
+                                    }
+                                    if (err == '-10') {
+                                        alert("操作失败");
+                                    }
+                                    if (err == '0') {
+                                        var works_id = data.works_id;
+                                        $(".works-show").attr("name", works_id);
+                                        var path = data.path;
+                                        var site = data.site;
+                                        if (path == undefined) {
+                                            document.getElementById("works-id").innerHTML = "尚未上传作品集";
+                                        } else {
+                                            document.getElementById("works-path").href = path;
+                                            document.getElementById("works-id").innerHTML = location.search.split("=")[1] + "作品集.pdf";
+                                        }
+                                        if (site == undefined) {
+                                            document.getElementById("works-site").innerHTML = "尚未上传作品集在线地址";
+                                        } else {
+                                            document.getElementById("works-site").href = site;
+                                            document.getElementById("works-site").innerHTML = "作品集在线地址：" + site;
+                                        }
+                                    }
+                                    edit();
+                                },
+                                headers: {
+                                    "Access-Control-Allow-Origin": "*"
+                                }
+                            });
+                        }
+                        if (err == "-1") {
+                            alert("请求方法错误");
+                        }
+                        if (err == "-10") {
+                            alert("操作失败");
+                        }
+                        if (err == "-126") {
+                            alert("已有作品集");
+                        }
+                    },
+                    headers: {
+                        "Access-Control-Allow-Origin": "*"
+                    }
+                });
+            }
+            else {//更新作品集
+                $.ajax({
+                    type: "POST",
+                    data: {
+                        stu_id: student_id,
+                        works_id: works_id,
+                        path: work_path,
+                        site: site
+                    },
+                    url: cur_site + "student/info/works/update/",
+                    dataType: "json",
+                    success: function (data) {
+                        var err = data.err;
+                        if (err == "0") {
+                            $("#work-field").css("display", "none");
+                            $(".works-show").css("display", "block");
+                            $("#right-edit4").html("编辑");
+                            $.ajax({
+                                type: "POST",
+                                data: {
+                                    stu_id: student_id
+                                },
+                                url: cur_site + "student/info/works/get/",
+                                dataType: "json",
+                                success: function (data) {
+                                    var err = data.err;
+                                    if (err == '-121') {
+                                        document.getElementById("works-id").innerHTML = "尚未上传作品集";
+                                        document.getElementById("works-site").innerHTML = "尚未上传作品集在线地址";
+                                    }
+                                    if (err == '-1') {
+                                        alert("请求方法错误");
+                                    }
+                                    if (err == '-10') {
+                                        alert("操作失败");
+                                    }
+                                    if (err == '0') {
+                                        var path = data.path;
+                                        var site = data.site;
+                                        if (path == undefined) {
+                                            document.getElementById("works-id").innerHTML = "尚未上传作品集";
+                                        } else {
+                                            document.getElementById("works-path").href = path;
+                                            document.getElementById("works-id").innerHTML = location.search.split("=")[1] + "作品集.pdf";
+                                        }
+                                        if (site == undefined) {
+                                            document.getElementById("works-site").innerHTML = "尚未上传作品集在线地址";
+                                        } else {
+                                            document.getElementById("works-site").href = site;
+                                            document.getElementById("works-site").innerHTML = "作品集在线地址：" + site;
+                                        }
+
+
+                                    }
+                                    edit();
+                                },
+                                headers: {
+                                    "Access-Control-Allow-Origin": "*"
+                                }
+                            });
+                        }
+                        if (err == "-1") {
+                            alert("请求方法错误");
+                        }
+                        if (err == "-10") {
+                            alert("操作失败");
+                        }
+                        if (err == "-126") {
+                            alert("已有作品集");
+                        }
+                    },
+                    headers: {
+                        "Access-Control-Allow-Origin": "*"
+                    }
+                });
+            }
+    }
     /*-----------------------------技能添加---------------------------*/
 
 
@@ -1959,7 +1964,9 @@ $(function () {
                 var err = data.err;
                 if (err == "0") {
                     work_path = data.path;
+                    $("#work-save").click(works_add_edit());
                     alert("文件上传成功");
+                    console.log(work_path);
                 }
                 if (err == "-128") {
                     alert("作品集文件不合法");
