@@ -20,7 +20,7 @@ $(function () {
             $.ajax({
                 type: 'POST',
                 data: data,
-                url: 'http://110.64.69.66:8081/student/rsmail/',
+                url: cur_site + 'student/rsmail/',
                 dataType: 'json',
                 success: function (data) {
                     var err = data.err;

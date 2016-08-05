@@ -197,7 +197,7 @@ $(function () {
         $.ajax({
             type: "POST",
             data: data_info,
-            url: "http://110.64.69.66:8081/student/info/get/",
+            url: cur_site + "student/info/get/",
             dataType: "json",
             success: function (data) {
                 var err = data.err;
@@ -211,7 +211,7 @@ $(function () {
                     alert("操作失败");
                 }
                 if (err == '0') {
-                    var avatar_path = data.avatar_path;
+                    var avatar_path = cur_media + data.avatar_path;
                     var name = data.name;
                     var school = data.school;
                     var sex = data.sex;
@@ -260,7 +260,7 @@ $(function () {
         $.ajax({
             type: "POST",
             data: data_file,
-            url: "http://110.64.69.66:8081/student/info/edu/get/",
+            url: cur_site + "student/info/edu/get/",
             dataType: "json",
             success: function (data) {
                 var err = data.err;
@@ -337,7 +337,7 @@ $(function () {
         $.ajax({
             type: "POST",
             data: data_file,
-            url: "http://110.64.69.66:8081/student/info/intern/get/",
+            url: cur_site + "student/info/intern/get/",
             dataType: "json",
             success: function (data) {
                 var err = data.err;
@@ -390,7 +390,7 @@ $(function () {
         $.ajax({
             type: "POST",
             data: data_file,
-            url: "http://110.64.69.66:8081/student/info/proj/get/",
+            url: cur_site + "student/info/proj/get/",
             dataType: "json",
             success: function (data) {
                 var err = data.err;
@@ -440,7 +440,7 @@ $(function () {
         $.ajax({
             type: "POST",
             data: data_file,
-            url: "http://110.64.69.66:8081/student/info/works/get/",
+            url: cur_site + "student/info/works/get/",
             dataType: "json",
             success: function (data) {
                 var err = data.err;
@@ -485,7 +485,7 @@ $(function () {
         $.ajax({
             type: "POST",
             data: data_file,
-            url: "http://110.64.69.66:8081/student/info/skill/get/",
+            url: cur_site + "student/info/skill/get/",
             dataType: "json",
             success: function (data) {
                 var err = data.err;
@@ -549,7 +549,7 @@ $(function () {
             $.ajax({
                 type: "POST",
                 data: {stu_id: student_id},
-                url: "http://110.64.69.66:8081/student/info/skill/get/",
+                url: cur_site + "student/info/skill/get/",
                 dataType: "json",
                 success: function (data) {
                     var err = data.err;
@@ -732,7 +732,7 @@ $(function () {
                                     name: name,
                                     value: value
                                 },
-                                url: "http://110.64.69.66:8081/student/info/skill/add/",
+                                url: cur_site + "student/info/skill/add/",
                                 dataType: "json",
                                 success: function (data) {
                                     var err = data.err;
@@ -763,7 +763,7 @@ $(function () {
                                     skill_id: skill_id,
                                     value: value
                                 },
-                                url: "http://110.64.69.66:8081/student/info/skill/update/",
+                                url: cur_site + "student/info/skill/update/",
                                 dataType: "json",
                                 success: function (data) {
                                     var err = data.err;
@@ -804,7 +804,7 @@ $(function () {
                                     stu_id: student_id,
                                     skill_id: name
                                 },
-                                url: "http://110.64.69.66:8081/student/info/skill/del/" ,
+                                url: cur_site + "student/info/skill/del/" ,
                                 dataType: "json",
                                 success: function (data) {
                                     var err = data.err;
@@ -879,7 +879,7 @@ $(function () {
         $.ajax({
             type: "POST",
             data: {stu_id: student_id},
-            url: "http://110.64.69.66:8081/student/info/skill/get/",
+            url: cur_site + "student/info/skill/get/",
             dataType: "json",
             success: function (data) {
                 var err = data.err;
@@ -1012,7 +1012,7 @@ $(function () {
                     edu_background: edu_background,
                     school: school
                 },
-                url: "http://110.64.69.66:8081/student/info/edu/add/",
+                url: cur_site + "student/info/edu/add/",
                 dataType: "json",
                 success: function (data) {
                     $(".add-new1 .edu-school").val("");
@@ -1027,7 +1027,7 @@ $(function () {
                             data: {
                                 stu_id: student_id
                             },
-                            url: "http://110.64.69.66:8081/student/info/edu/get/",
+                            url: cur_site + "student/info/edu/get/",
                             dataType: "json",
                             success: function (data) {
                                 for (var i = 1; i <= 5; i++) {
@@ -1175,7 +1175,7 @@ $(function () {
                     end_time: end_time,
                     description: description
                 },
-                url: "http://110.64.69.66:8081/student/info/intern/add/" ,
+                url: cur_site + "student/info/intern/add/" ,
                 dataType: "json",
                 success: function (data) {
                     var err = data.err;
@@ -1185,7 +1185,7 @@ $(function () {
                             data: {
                                 stu_id: student_id
                             },
-                            url: "http://110.64.69.66:8081/student/info/intern/get/",
+                            url: cur_site + "student/info/intern/get/",
                             dataType: "json",
                             success: function (data) {
                                 for (var i = 1; i < 5; i++) {
@@ -1329,7 +1329,7 @@ $(function () {
                     year: year,
                     description: description
                 },
-                url: "http://110.64.69.66:8081/student/info/proj/add/",
+                url: cur_site + "student/info/proj/add/",
                 dataType: "json",
                 success: function (data) {
                     var err = data.err;
@@ -1339,7 +1339,7 @@ $(function () {
                             data: {
                                 stu_id: student_id
                             },
-                            url: "http://110.64.69.66:8081/student/info/proj/get/",
+                            url: cur_site + "student/info/proj/get/",
                             dataType: "json",
                             success: function (data) {
                                 for (var i = 1; i < 5; i++) {
@@ -1440,7 +1440,7 @@ $(function () {
                     path: work_path,
                     site: site
                 },
-                url: "http://110.64.69.66:8081/student/info/works/add/",
+                url: cur_site + "student/info/works/add/",
                 dataType: "json",
                 success: function (data) {
                     var err = data.err;
@@ -1453,7 +1453,7 @@ $(function () {
                             data: {
                                 stu_id: student_id
                             },
-                            url: "http://110.64.69.66:8081/student/info/works/get/",
+                            url: cur_site + "student/info/works/get/",
                             dataType: "json",
                             success: function (data) {
                                 var err = data.err;
@@ -1514,7 +1514,7 @@ $(function () {
                     path: work_path,
                     site: site
                 },
-                url: "http://110.64.69.66:8081/student/info/works/update/",
+                url: cur_site + "student/info/works/update/",
                 dataType: "json",
                 success: function (data) {
                     var err = data.err;
@@ -1527,7 +1527,7 @@ $(function () {
                             data: {
                                 stu_id: student_id
                             },
-                            url: "http://110.64.69.66:8081/student/info/works/get/",
+                            url: cur_site + "student/info/works/get/",
                             dataType: "json",
                             success: function (data) {
                                 var err = data.err;
@@ -1599,7 +1599,7 @@ $(function () {
                     stu_id: location.search.split("=")[1],
                     edu_id: edu_id
                 },
-                url: "http://110.64.69.66:8081/student/info/edu/del/",
+                url: cur_site + "student/info/edu/del/",
                 dataType: "json",
                 success: function (data) {
                     var err = data.err;
@@ -1746,7 +1746,7 @@ $(function () {
                         edu_background: edu_background,
                         school: $(edu_fieldi1).val()
                     },
-                    url: "http://110.64.69.66:8081/student/info/edu/update/",
+                    url: cur_site + "student/info/edu/update/",
                     dataType: "json",
                     success: function (data) {
                         var err = data.err;
@@ -1825,7 +1825,7 @@ $(function () {
                         end_time: $(e_y).val() + "/" + $(e_m).val(),
                         description: $(prac_texti).val()
                     },
-                    url: "http://110.64.69.66:8081/student/info/intern/update/",
+                    url: cur_site + "student/info/intern/update/",
                     dataType: "json",
                     success: function (data) {
                         var err = data.err;
@@ -1892,7 +1892,7 @@ $(function () {
                         year: $(year_input).val(),
                         description: $(proj_texti).val()
                     },
-                    url: "http://110.64.69.66:8081/student/info/proj/update/",
+                    url: cur_site + "student/info/proj/update/",
                     dataType: "json",
                     success: function (data) {
                         var err = data.err;
@@ -1927,7 +1927,7 @@ $(function () {
         formData.append('works', $('#file')[0].files[0]);
         formData.append('stu_id', student_id);
         $.ajax({
-            url: 'http://110.64.69.66:8081/student/info/works/update/',
+            url: cur_site + 'student/info/works/update/',
             type: 'POST',
             cache: false,
             data: formData,
@@ -2065,7 +2065,7 @@ $(function () {
                     stu_id: location.search.split("=")[1],
                     intern_id: prac_id
                 },
-                url: "http://110.64.69.66:8081/student/info/intern/del/",
+                url: cur_site + "student/info/intern/del/",
                 dataType: "json",
                 success: function (data) {
                     var err = data.err;
@@ -2130,7 +2130,7 @@ $(function () {
                     stu_id: location.search.split("=")[1],
                     proj_id: proj_id
                 },
-                url: "http://110.64.69.66:8081/student/info/proj/del/",
+                url: cur_site + "student/info/proj/del/",
                 dataType: "json",
                 success: function (data) {
                     var err = data.err;

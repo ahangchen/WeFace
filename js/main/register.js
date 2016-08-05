@@ -82,7 +82,7 @@
     // $(function () {
     //     $('#code-check').click(function () {
     //         var a = $.ajax({
-    //             url: "http://110.64.69.66:8081/team/valid_code",
+    //             url: cur_site + "team/valid_code",
     //             processData: false,
     //             xhrFields: {withCredentials: true}
     //         }).always(function (data) {
@@ -109,7 +109,7 @@
                 $.ajax({
                     type: 'POST',
                     data: data,
-                    url: 'http://110.64.69.66:8081/student/register/',
+                    url: cur_site + 'student/register/',
                     xhrFields: {withCredentials: true},
                     dataType: 'json',
                     success: function (data) {
@@ -169,7 +169,7 @@
                 $.ajax({
                     type: 'POST',
                     data: data,
-                    url: 'http://110.64.69.66:8081/team/register/',
+                    url: cur_site + 'team/register/',
                     dataType: 'json',
                     xhrFields: {withCredentials: true},
                     success: function (data) {
@@ -224,7 +224,7 @@
 
 function loadValidCode(id) {
     $.ajax({
-        url: "http://110.64.69.66:8081/team/valid_code/",
+        url: cur_site + "team/valid_code/",
         processData: false,
         xhrFields: {withCredentials: true},
         headers: {

@@ -6,7 +6,7 @@ $(function(){
     //获取职位类型
     $.ajax({
         type:'post',
-        url:"http://110.64.69.66:8081/team/job_type/",
+        url:cur_site + "team/job_type/",
         dataType:'json',
         success:function(data){
             console.log(data.msg);
@@ -225,7 +225,7 @@ $(function(){
         var a = $.ajax({
             type:'post',
             data:tag,
-            url:'http://110.64.69.66:8081/team/search_job/',
+            url:cur_site + 'team/search_job/',
             dataType:'json',
             success:function(data){
                 if (data.err == 0) {
@@ -309,7 +309,7 @@ $(function(){
                 var a = $.ajax({
                     type: 'post',
                     data:delJobId,
-                    url:'http://110.64.69.66:8081/team/delete_job/',
+                    url:cur_site + 'team/delete_job/',
                     dataType:'json',
                     success:function(data){
                         if (data.err==0) {
@@ -453,7 +453,7 @@ $(function(){
         var aj = $.ajax({
             type:"post",
             data: eJobId,
-            url:'http://110.64.69.66:8081/team/job_info/',
+            url:cur_site + 'team/job_info/',
             // url:"../../js/team/position.json",
             dataType:'json',
             success:function(data){
@@ -618,7 +618,7 @@ $(function(){
         }
         var a = $.ajax({
             type:'post',
-            url:'http://110.64.69.66:8081/team/job_update/',
+            url:cur_site + 'team/job_update/',
             data:jobDetail,
             dataType:'json',
             success:function(data){

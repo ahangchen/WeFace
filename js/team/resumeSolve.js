@@ -23,7 +23,7 @@ $(function(){
     $.ajax({
         type:'post',
         data:postData,
-        url:"http://110.64.69.66:8081/team/apply/info/",
+        url:cur_site + "team/apply/info/",
         dataType:"json",
         success:function(data){
             resumeInfo.imgSrc = data.avatar_pah;
@@ -69,7 +69,7 @@ $(function(){
         if(isSend) {
             $.ajax({
                 type: "post",
-                url: "http://110.64.69.66:8081/team/apply/mail/",
+                url: cur_site + "team/apply/mail/",
                 data: mailData,
                 dataType: "json",
                 success: function (data) {
@@ -85,7 +85,7 @@ $(function(){
         }
         $.ajax({
             type:"post",
-            url:"http://110.64.69.66:8081/team/apply/handle/",
+            url:cur_site + "team/apply/handle/",
             data:solveData,
             dataType:"json",
             success:function(data){

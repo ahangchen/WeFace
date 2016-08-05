@@ -124,7 +124,7 @@ $(function(){
     var teamsDesc = $(".teamList li span");
     var teamLi = $('.teamList li');
     var curIndexOfTeam = 0;
-    $.getJSON('http://110.64.69.66:8081/team/hot_team/',function(data){
+    $.getJSON(cur_site + 'team/hot_team/',function(data){
         for (var i = 0; i < 3; i++) {
             var firstTeamImg = data.message[i].logo_path;
             var firstTeamName = data.message[i].name;
@@ -139,7 +139,7 @@ $(function(){
     });
     //$.ajax({
     //    type:"get",
-    //    url:"http://110.64.69.66:8081/team/hot_team/",
+    //    url:cur_site + "team/hot_team/",
     //    dataType:"json",
     //    success:function(data){
     //        for (var i = 0; i < 3; i++) {
@@ -166,7 +166,7 @@ $(function(){
     $(".nextBtnOfTeams").click(function(){
         var a = $.ajax({
             type: "get",
-            url: "http://110.64.69.66:8081/team/hot_team/",
+            url: cur_site + "team/hot_team/",
             dataType: "json",
             success: function(data){
                 var maxLength = data.message.length;
@@ -215,7 +215,7 @@ $(function(){
     $(".preBtnOfTeams").click(function(){
         var a = $.ajax({
             type: "get",
-            url: "http://110.64.69.66:8081/team/hot_team/",
+            url: cur_site + "team/hot_team/",
             dataType: "json",
             success: function(data){
                 var maxLength = data.msg.length;
@@ -290,7 +290,7 @@ $(function(){
     var projectsDesc = $(".projectList li span");
     var projectLi = $(".projectList li");
     var curIndexOfProject = 0;
-    $.getJSON('http://110.64.69.66:8081/team/hot_product/',function(data){
+    $.getJSON(cur_site + 'team/hot_product/',function(data){
         for (var i = 0; i < 3; i++) {
             var firstProjectImg = data.msg[i].img_path;
             var firstProjectName = data.msg[i].name;
@@ -309,7 +309,7 @@ $(function(){
     $(".nextBtnOfProject").click(function(){
         var a = $.ajax({
             type: "get",
-            url: "http://110.64.69.66:8081/team/hot_product/",
+            url: cur_site + "team/hot_product/",
             dataType: "json",
             success: function(data){
                 var maxLength = data.msg.length;
@@ -358,7 +358,7 @@ $(function(){
     $(".preBtnOfProject").click(function(){
         var a = $.ajax({
             type: "get",
-            url: "http://110.64.69.66:8081/team/hot_product/",
+            url: cur_site + "team/hot_product/",
             dataType: "json",
             success: function(data){
                 var maxLength = data.msg.length;
