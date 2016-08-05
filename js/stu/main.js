@@ -395,7 +395,6 @@ $(function () {
             success: function (data) {
                 var err = data.err;
                 if (err == '-120') {
-                    document.getElementById("proj-all").innerHTML = "无项目经历";
                     $("#proj-toggle").css("display", "none");
                 }
                 if (err == '-1') {
