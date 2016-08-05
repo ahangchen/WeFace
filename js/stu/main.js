@@ -433,10 +433,10 @@ $(function () {
         });
 
         /*-----------------------------作品集合展示---------------------------*/
-        $.ajax({
+        edit();       $.ajax({
             type: "POST",
             data: data_file,
-            url: cur_site + "student/info/works/get/",
+            url:cur_site + "student/info/works/get/",
             dataType: "json",
             success: function (data) {
                 var err = data.err;
@@ -1950,7 +1950,7 @@ $(function () {
         formData.append('works', $('#file')[0].files[0]);
         formData.append('stu_id', student_id);
         $.ajax({
-            url: cur_site + 'student/info/works/upload/',
+            url:cur_site + 'student/info/works/upload/',
             type: 'POST',
             cache: false,
             data: formData,
