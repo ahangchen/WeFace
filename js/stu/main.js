@@ -564,7 +564,7 @@ $(function () {
                     }
                     if (err == '0') {
                         $("#right-edit5").html("编辑");
-                        $(".skill-total").css("display", "none");
+                        $(".skill-total").css("display", "block");
                         for (var i = 1; i <= 5; i++) {
                             var skillia = "#skill" + i + "a";
                             var skillic = "#skill" + i + "c";
@@ -572,6 +572,7 @@ $(function () {
                             $(skillic).html("");
                         }
                         var skill_list = data.skill_list;
+                        console.log(skill_list.length);
                         for (var i = 0; i < skill_list.length; i++) {
                             var skill0i = "#skill0" + (i + 1);
                             $(skill0i).css("display", "block");
@@ -599,9 +600,11 @@ $(function () {
                             document.getElementById(skillib).style = "width:" + s_value + "%";
                             document.getElementById(skillic).innerHTML = s_show;
                         }
-                        for (var i = skill_list.length + 1; i <= 5; i++) {
-                            var skillalli = "#skill-all" + i;
-                            $(skillalli).css("display", "none");
+                        if(skill_list.length<=4){
+                            for (var i = skill_list.length+1; i <= 5; i++) {
+                                var skillalli = "#skill-all" + i;
+                                $(skillalli).css("display", "none");
+                            }
                         }
                     }
                     edit();
