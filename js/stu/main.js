@@ -815,6 +815,7 @@ $(function () {
                                     var skill0i = "#skill0" + (i + 1);
                                     $(skill0i).css("display", "block");
                                     var s_name = skill_list[i].name;
+                                    console.log(s_name);
                                     var skill_id = skill_list[i].skill_id;
                                     var s_value = parseInt(skill_list[i].value);
                                     if (s_value >= 0 && s_value < 25) {
@@ -829,6 +830,7 @@ $(function () {
                                     if (s_value >= 75 && s_value <= 100) {
                                         var s_show = "精通";
                                     }
+                                    console.log(s_show);
                                     var skillia = "skill" + (i + 1) + "a";
                                     var skillib = "skill" + (i + 1) + "b";
                                     var skillic = "skill" + (i + 1) + "c";
