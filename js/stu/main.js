@@ -602,8 +602,8 @@ $(function () {
                         }
                         if(skill_list.length<=4){
                             for (var i = skill_list.length+1; i <= 5; i++) {
-                                var skillalli = "#skill-all" + i;
-                                $(skillalli).css("display", "none");
+                                var skill0i = "#skill0" + i;
+                                $(skill0i).css("display", "none");
                             }
                         }
                     }
