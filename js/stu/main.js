@@ -1945,7 +1945,7 @@ $(function () {
         formData.append('works', $('#file')[0].files[0]);
         formData.append('stu_id', student_id);
         $.ajax({
-            url: cur_site + 'student/info/works/update/',
+            url: cur_site + 'student/info/works/upload/',
             type: 'POST',
             cache: false,
             data: formData,
