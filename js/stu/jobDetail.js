@@ -33,7 +33,7 @@ $(function(){
     var a =  $.ajax({
         type:'post',
         data:jobId,
-        url:"http://110.64.69.66:8081/team/job_info/",
+        url:cur_site + "team/job_info/",
         // url:"../js/stu/jobDetail.json",
         dataType:'json',
         success:function(data){
@@ -59,7 +59,7 @@ $(function(){
                 var teamId = {
                     tid:tId
                 };
-                var teamUrl = "http://110.64.69.66:8081/team/info/?tid="+tId;
+                var teamUrl = cur_site + "team/info/?tid="+tId;
                 $.ajax({
                     type:'post',
                     url:teamUrl,
@@ -131,7 +131,7 @@ $(function(){
      };
     $.ajax({
         type:'post',
-        url:'http://110.64.69.66:8081/student/resume/get/',
+        url:cur_site + 'student/resume/get/',
         data:sId,
         dataType:'json',
         success:function(data){
@@ -150,7 +150,7 @@ $(function(){
     $('#submitBtn').click(function(){
         $.ajax({
             type:'post',
-            url:"http://110.64.69.66:8081/student/resume/apply/",
+            url:cur_site + "student/resume/apply/",
             data:submitRes,
             dataType:'json',
             success:function(data){

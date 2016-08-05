@@ -59,7 +59,7 @@ $(document).ready(function () {
     var tid = getUrlVar('tid');
     $.ajax({
         type: 'GET',
-        url: "http://110.64.69.66:8081/team/info/",
+        url: cur_site + "team/info/",
         // url: "../data/team_index.json",
         dataType: "json",
         data: {'tid': tid} ,

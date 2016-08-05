@@ -13,7 +13,7 @@ $(document).ready(function () {
         console.log(formData);
         $.ajax({
             type: 'POST',
-            url: "http://110.64.69.66:8081/team/invite/",
+            url: cur_site + "team/invite/",
             dataType: "json",
             data: formData ,
             success: function (data) {

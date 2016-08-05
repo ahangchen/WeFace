@@ -62,7 +62,7 @@ $(function(){
         $.ajax({
             type:'post',
              data:postData,
-            url:'http://110.64.69.66:8081/team/apply/list/',
+            url:cur_site + 'team/apply/list/',
             dataType:'json',
             success:function(data){
                 num = data.unread_num;
@@ -124,7 +124,7 @@ $(function(){
         $.ajax({
             type:'post',
              data:post_data,
-            url:'http://110.64.69.66:8081/team/apply/list/',
+            url:cur_site + 'team/apply/list/',
             dataType:'json',
             success:function(data){
                 var unreadNum = data.unread_num;

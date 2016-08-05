@@ -5,7 +5,7 @@ $(function(){
         //修改团队介绍
         $("#fix_team_intro").on("click",function(){
             //获取旧的团队介绍
-            $.getJSON(/*"http://110.64.69.66:8081/team/info?tid=1"*/"../data/team_index.json", function(data) {
+            $.getJSON(/*cur_site + "team/info?tid=1"*/"../data/team_index.json", function(data) {
                 var change_line=(data.res.about).split('<br>').length-1;//得到有几个换行
                 oldIntro=data.res.about;
                 for(var i=0;i<change_line;i++)
@@ -46,7 +46,7 @@ $(function(){
                         $.ajax({
                             type: 'POST',
                             data: result,
-                            url: 'http://110.64.69.66:8081/team/update_team_info/',
+                            url: cur_site + 'team/update_team_info/',
                             xhrFields: {withCredentials: true},
                             dataType: 'json',
                             success: function (data) {
@@ -78,7 +78,7 @@ $(function(){
         //团队发展历史的编辑
         $("#history_button").on("click",function(){
             //获取旧的团队历史
-            $.getJSON("http://110.64.69.66:8081/team/info?tid=1", function(data) {
+            $.getJSON(cur_site + "team/info?tid=1", function(data) {
                 oldHistory=data.res.history+'\n\n';
                 oldIntro=data.res.about;
                 oldTid=data.res.tid;
@@ -121,7 +121,7 @@ $(function(){
                         $.ajax({
                             type: 'POST',
                             data: result,
-                            url: 'http://110.64.69.66:8081/team/update_team_info/',
+                            url: cur_site + 'team/update_team_info/',
                             xhrFields: {withCredentials: true},
                             dataType: 'json',
                             success: function (data) {
@@ -148,7 +148,7 @@ $(function(){
         //修改团队的联系方式
         $("#team_connect").on("click",function(){
             //获取旧的团队联系方式
-            $.getJSON("http://110.64.69.66:8081/team/info?tid=1", function(data) {
+            $.getJSON(cur_site + "team/info?tid=1", function(data) {
                 team_tel=data.res.tel;
                 team_mail=data.res.mail;
 
@@ -181,7 +181,7 @@ $(function(){
                         $.ajax({
                             type: 'POST',
                             data: result,
-                            url: 'http://110.64.69.66:8081/team/update_team_contact/',
+                            url: cur_site + 'team/update_team_contact/',
                             xhrFields: {withCredentials: true},
                             dataType: 'json',
                             success: function (data) {

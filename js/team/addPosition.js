@@ -27,7 +27,7 @@ $(function(){
     // 学生点击职位名字后，主页在url上传职位id
     var tId = getUrlVar('t_id');
     $('#cancelForm a').attr('href','showPosition.html?t_id='+tId);
-    var teamUrl = 'http://110.64.69.66:8081/team/info/?tid='+tId;
+    var teamUrl = cur_site + 'team/info/?tid='+tId;
     var teamId = {
       tid:tId
     };
@@ -92,7 +92,7 @@ $(function(){
 
             var a = $.ajax({
                 type: 'post',
-                url: 'http://110.64.69.66:8081/team/add_job/',
+                url: cur_site + 'team/add_job/',
                 data: jobDetail,
                 dataType: 'application/json',
                 success: function (data) {

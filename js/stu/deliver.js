@@ -44,7 +44,7 @@ $(function(){
             //url:"../data/stu/deliverAll.json",
             //测试用的json文件
             data:sId,
-            url:"http://110.64.69.66:8081/student/apply/list/",
+            url:cur_site + "student/apply/list/",
             dataType:"json",
             success:function(data){
                 var chCnt = 0;

@@ -35,7 +35,7 @@ $(function () {
                 $.ajax({
                     type: 'POST',
                     data: data,
-                    url: 'http://110.64.69.66:8081/student/login/',
+                    url: cur_site + 'student/login/',
                     dataType: 'json',
                     success: function (data) {
                         var err = data.err;
@@ -79,7 +79,7 @@ $(function () {
                 $.ajax({
                     type: 'POST',
                     data: data,
-                    url: 'http://110.64.69.66:8081/team/login/',
+                    url: cur_site + 'team/login/',
                     dataType: 'json',
                     success: function (data) {
                         var err = data.err;

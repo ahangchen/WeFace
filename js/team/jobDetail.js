@@ -11,7 +11,7 @@ $(function(){
     var a =  $.ajax({
         type:'post',
         data:jobId,
-        url:"http://110.64.69.66:8081/team/job_info/",
+        url:cur_site + "team/job_info/",
         // url:"../js/stu/jobDetail.json",
         dataType:'json',
         success:function(data){
