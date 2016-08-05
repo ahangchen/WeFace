@@ -1966,6 +1966,7 @@ $(function () {
                     work_path = data.path;
                     $("#work-save").click(works_add_edit());
                     alert("文件上传成功");
+                    $("#uploadForm").css("display","none");
                     console.log(work_path);
                 }
                 if (err == "-128") {
