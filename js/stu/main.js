@@ -20,6 +20,7 @@ function edit() {
         $("#ea3").css("display", "inline-block");
     }
 
+        $("#ea4").css("display", "inline-block");
 
 
     if ($("#skill1a").html() == "") {
