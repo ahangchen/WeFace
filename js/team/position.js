@@ -494,6 +494,7 @@ $(function(){
         });
 
     }
+
     function initManageHTML(jobInfo){
         $("#jobName").attr("value",jobInfo.job_name);
 
@@ -524,21 +525,21 @@ $(function(){
         $("#requirementForGetPosition").html(jobInfo.work_cmd);
 
         var jobType = $(".type").children('ul').children();
-
+        var type ="";
 
         switch(jobInfo.job_type){
-            case "4":$(jobType[1]).attr("class","active selected");break;
-            case "2":$(jobType[2]).attr("class","active selected");break;
-            case "3":$(jobType[3]).attr("class","active selected");break;
-            case "1":$(jobType[4]).attr("class","active selected");break;
-            case "9":$(jobType[5]).attr("class","active selected");break;
-            case "6":$(jobType[7]).attr("class","active selected");break;
-            case "8":$(jobType[8]).attr("class","active selected");break;
-            case "7":$(jobType[9]).attr("class","active selected");break;
-            case "5":$(jobType[6]).attr("class","active selected");break;
+            case "4":$(jobType[1]).attr("class","active selected");type = "产品";break;
+            case "2":$(jobType[2]).attr("class","active selected");type = "技术";break;
+            case "3":$(jobType[3]).attr("class","active selected");type = "设计";break;
+            case "1":$(jobType[4]).attr("class","active selected");type = "行政";break;
+            case "9":$(jobType[5]).attr("class","active selected");type = "营销";break;
+            case "6":$(jobType[7]).attr("class","active selected");type = "运营";break;
+            case "8":$(jobType[8]).attr("class","active selected");type = "运维支持";break;
+            case "7":$(jobType[9]).attr("class","active selected");type = "文案策划";break;
+            case "5":$(jobType[6]).attr("class","active selected");type = "市场";break;
             default:$(jobType[0]).attr("class","active selected");
         }
-        $('.type').children('input').attr("value",jobInfo.job_type);
+        $('.type').children('input').attr("value",type);
 
         if (jobInfo.pub_state == 1) {
             $('#submit').attr("checked","checked");
@@ -548,48 +549,56 @@ $(function(){
         }
 
         var province = $(".province").children('ul').children();
-        if (jobInfo.prince == "广东省") {
+        var provText = "";
+        if (jobInfo.prince == 1) {
             $(province[1]).attr("class","active selected");
+            provText = "广东省";
         }
         else{
             $(province[2]).attr("class","active selected");
+            provText = "其他";
         }
-        $('.province').children('input').attr("value",jobInfo.prince);
+        $('.province').children('input').attr("value",provText);
 
         var city = $(".city").children('ul').children();
-        if (jobInfo.city == "广州市") {
+        var cityText = "";
+        if (jobInfo.city == 1) {
             $(city[1]).attr("class","active selected");
+            cityText = "广州市";
         }
         else{
             $(city[2]).attr("class","active selected");
+            cityText = "其他";
         }
-        $('.city').children('input').attr("value",jobInfo.city);
+        $('.city').children('input').attr("value",cityText);
 
         var region = $(".region").children('ul').children();
+        var regionText = "";
         switch(jobInfo.town){
-            case "番禺区":$(region[1]).attr("class","active selected");break;
-            case "海珠区":$(region[2]).attr("class","active selected");break;
-            case "天河区":$(region[3]).attr("class","active selected");break;
-            case "荔湾区":$(region[4]).attr("class","active selected");break;
-            case "越秀区":$(region[5]).attr("class","active selected");break;
-            case "白云区":$(region[6]).attr("class","active selected");break;
-            case "黄埔区":$(region[7]).attr("class","active selected");break;
-            case "增城区":$(region[8]).attr("class","active selected");break;
-            case "从化区":$(region[9]).attr("class","active selected");break;
-            case "花都区":$(region[10]).attr("class","active selected");break;
-            case "南沙区":$(region[11]).attr("class","active selected");break;
+            case 1:$(region[1]).attr("class","active selected");regionText = "番禺区";break;
+            case 2:$(region[2]).attr("class","active selected");regionText = "海珠区";break;
+            case 3:$(region[3]).attr("class","active selected");regionText = "天河区";break;
+            case 4:$(region[4]).attr("class","active selected");regionText = "荔湾区";break;
+            case 5:$(region[5]).attr("class","active selected");regionText = "越秀区";break;
+            case 6:$(region[6]).attr("class","active selected");regionText = "白云区";break;
+            case 7:$(region[7]).attr("class","active selected");regionText = "黄埔区";break;
+            case 8:$(region[8]).attr("class","active selected");regionText = "增城区";break;
+            case 9:$(region[9]).attr("class","active selected");regionText = "从化区";break;
+            case 10:$(region[10]).attr("class","active selected");regionText = "花都区";break;
+            case 11:$(region[11]).attr("class","active selected");regionText = "南沙区";break;
             default:$(region[12]).attr("class","active selected");
         }
-        $('.region').children('input').attr("value",jobInfo.town);
+        $('.region').children('input').attr("value",regionText);
 
         var attribute = $('.atrr').children('ul').children();
+        var attrText = "";
         switch(jobInfo.work_type){
-            case "实习":$(attribute[1]).attr("class","active selected");break;
-            case "全职":$(attribute[2]).attr("class","active selected");break;
-            case "兼职":$(attribute[3]).attr("class","active selected");break;
+            case 2:$(attribute[1]).attr("class","active selected");attrText = "实习";break;
+            case 0:$(attribute[2]).attr("class","active selected");attrText = "全职";break;
+            case 1:$(attribute[3]).attr("class","active selected");attrText = "兼职";break;
             default:$(attribute[0]).attr("class","active selected");
         }
-        $('.atrr').children('input').attr("value",jobInfo.work_type);
+        $('.atrr').children('input').attr("value",attrText);
 
         $('#manageDiv').css("display","block");
         $("#positionDiv").css("display","none");
