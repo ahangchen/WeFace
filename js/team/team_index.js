@@ -65,7 +65,7 @@ $(document).ready(function () {
         data: {'tid': 1/*tid*/} ,
         success: function (data) {
             // 团队logo路径加载
-            var logo = data.res.logo_path;
+            var logo = cur_media + data.res.logo_path;
             $("#team_logo").attr('src', logo);
             // 团队标签加载
             var tag = $(".tag");

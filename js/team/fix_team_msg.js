@@ -228,7 +228,7 @@ $(function() {
                         oldIntro = data.res.about;
                         oldTid = data.res.tid;
                         oldName = data.res.name;
-                        oldLogoPath = data.res.logo_path;
+                        oldLogoPath = cur_media + data.res.logo_path;
                         oldSlogan = data.res.slogan;
                         oldAbout = data.res.about;
                         //alert($.inArray(data.res.b_type,b_type_id));
@@ -239,7 +239,7 @@ $(function() {
                         var move_distance = 0;//记录下拉框的移动距离
                         var label_num = oldLabel.length;//记录label的geshu
                         var label_dym_name = oldLabel;//动态记录label的名字,删除,添加
-                        var newLogo = oldLogoPath;//新的logo
+                        var newLogo = cur_media + oldLogoPath;//新的logo
                         var newSlogan = oldSlogan;//新的slogan
                         var newName = oldName;//新的名字
                         //-----------初始化之前的信息------------
@@ -432,7 +432,7 @@ $(function() {
                                 processData: false,
                                 contentType: false
                             }).done(function (res) {
-                                newLogo = res.msg;
+                                newLogo = cur_media + res.msg;
                                 //对团队的名字进行修改
                                 newName = $("#team_name").val();
                                 //对团队的slogan进行修改
