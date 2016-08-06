@@ -401,8 +401,78 @@
     color: rgba(6, 6, 5, 0.56);
 }
 
+.job_type{
+    margin-top: 5px;
+}
 
+#information{
+    width: 250px;
+}
 
+.edit_team_photo{
+    float: right;
+    margin-top: -40px;
+    margin-right: -10px;
+}
 
+#edit_photo_area{
+    margin-top: 20px;
+}
+
+#team_photo_edit .team_photo{
+    width: 150px;
+    height: 150px;
+}
+
+.photo_edit_complete{
+    margin-left: 170px;
+    margin-top: 30px;
+    height: 50px;
+}
+
+#save_photo_edit{
+    color: #fff;
+    background-color: orange;
+    margin-left: 10px;
+}
+
+#cancel_photo_edit{
+    color: #000;
+    background-color: #fff;
+    margin-left: 10px;
+}
+
+.put_team_photo_here{
+     width: 150px;
+     height: 150px;
+     background-color: orange;
+     cursor:pointer;
+ }
+
+#team_photo_adding{
+    color: #fff;
+   font-size:100px;
+    margin-left: 25px;
+    margin-top: 20px;
+}
+
+.team_photo_div{
+    width: 150px;
+    height: 150px;
+    background-color: #4d4d4d;
+    position: relative;
+    margin-left: 10px;
+    cursor:pointer;
+}
+
+.delete_team_photo{
+    position: absolute;
+    font-size: 100px;
+    margin-left: 20px;
+    margin-top: 30px;
+    color:#fff;
+    visibility: hidden;
+
+}
 
 
