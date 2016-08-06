@@ -1959,8 +1959,8 @@ $(function () {
             success: function (data) {
                 var err = data.err;
                 if (err == "0") {
-                    console.log(work_path);
                     work_path = data.path;
+                    console.log(work_path);
                     alert("文件上传成功");
                     $("#uploadForm").css("display","none");
                     $("#work-save").click(works_add_edit());
