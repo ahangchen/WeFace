@@ -6,75 +6,73 @@ $(function () {
     $("#fix_team_intro").on("click", function () {
         //获取旧的团队介绍
         $.getJSON(cur_site + "team/info?tid=1"/*"../data/team_index.json"*/, function (data) {
-            $.getJSON(cur_site + "team/info?tid=1"/*"../data/team_index.json"*/, function (data) {
-                var change_line = (data.res.about).split('<br>').length - 1;//得到有几个换行
-                oldIntro = data.res.about;
-                for (var i = 0; i < change_line; i++)
-                    oldIntro = oldIntro.replace('<br>', '\n');//在input中正常显示
-                oldTid = data.res.tid;
-                oldName = data.res.name;
-                oldLogoPath = data.res.logo_path;
-                oldSlogan = data.res.slogan;
-                oldAbout = data.res.about;
-                oldHistory = data.res.history;
-                //先只得到一个行业类型
-                oldBType = data.res.b_type;
-                $.ajax({
-                    type: "get",
-                    url: "team_intro.html",
-                    dataType: "html",
-                    success: function (data) {
-                        //解除累加绑定
-                        //$("#fix_team_intro").unbind('click');
-                        //获取修改团队介绍界面
-                        $("#team_introuduction").html(data);
-                        //初始化要修改的信息
-                        $("#team_intro").val(oldIntro + '\n\n').trigger('autoresize');
-                        //保存对团队介绍的编辑,post
-                        $("#intro_saveButton").on("click", function () {
-                            var up_intro = $("#team_intro").val().replace(/\n\n/, '');//把每次多余的\n去掉
-                            var new_intro = up_intro.replace(/\n/gm, '<br>');//所有的分点能换行,显示换行效果
-                            //console.log(new_intro);
-                            $("#team_introuduction").html(new_intro);
-                            var result = {
-                                tid: oldTid,
-                                name: oldName,
-                                logo_path: oldLogoPath,
-                                slogan: oldSlogan,
-                                about: up_intro,
-                                history: oldHistory,
-                                b_type: oldBType
-                            };
-                            $.ajax({
-                                type: 'POST',
-                                data: result,
-                                url: cur_site + 'team/update_team_info/',
-                                xhrFields: {withCredentials: true},
-                                dataType: 'json',
-                                success: function (data) {
-                                    console.log(data.msg);
-                                }
-                            })
-                        });
-                        //取消对团队介绍的编辑
-                        $("#intro_cancelButton").on("click", function () {
-                            $("#team_introuduction").empty().html(oldIntro);
-                        });
-                        //点击分点按钮进行分点
-                        $("#intro_list_auto").unbind("click").on("click", function () {
-                            var temp = ($("#team_intro").val()).replace(/\n\n/, "");
-                            $("#team_intro").val(temp + '\n' + '◆' + '\n\n').trigger('autoresize');
-                            /*var temp;
-                             if(oldIntro==$("#team_intro").val()){
-                             temp=($("#team_intro").val()).replace(/\n\n/, "")+'\n'+'◆';
-                             }
-                             else
-                             temp=($("#team_intro").val()).replace(/\n\n/, "")+'◆';
-                             $("#team_intro").val(temp+'\n').trigger('autoresize');*/
-                        });
-                    }
-                })
-            });
+            var change_line = (data.res.about).split('<br>').length - 1;//得到有几个换行
+            oldIntro = data.res.about;
+            for (var i = 0; i < change_line; i++)
+                oldIntro = oldIntro.replace('<br>', '\n');//在input中正常显示
+            oldTid = data.res.tid;
+            oldName = data.res.name;
+            oldLogoPath = data.res.logo_path;
+            oldSlogan = data.res.slogan;
+            oldAbout = data.res.about;
+            oldHistory = data.res.history;
+            //先只得到一个行业类型
+            oldBType = data.res.b_type;
+            $.ajax({
+                type: "get",
+                url: "team_intro.html",
+                dataType: "html",
+                success: function (data) {
+                    //解除累加绑定
+                    //$("#fix_team_intro").unbind('click');
+                    //获取修改团队介绍界面
+                    $("#team_introuduction").html(data);
+                    //初始化要修改的信息
+                    $("#team_intro").val(oldIntro + '\n\n').trigger('autoresize');
+                    //保存对团队介绍的编辑,post
+                    $("#intro_saveButton").on("click", function () {
+                        var up_intro = $("#team_intro").val().replace(/\n\n/, '');//把每次多余的\n去掉
+                        var new_intro = up_intro.replace(/\n/gm, '<br>');//所有的分点能换行,显示换行效果
+                        //console.log(new_intro);
+                        $("#team_introuduction").html(new_intro);
+                        var result = {
+                            tid: oldTid,
+                            name: oldName,
+                            logo_path: oldLogoPath,
+                            slogan: oldSlogan,
+                            about: up_intro,
+                            history: oldHistory,
+                            b_type: oldBType
+                        };
+                        $.ajax({
+                            type: 'POST',
+                            data: result,
+                            url: cur_site + 'team/update_team_info/',
+                            xhrFields: {withCredentials: true},
+                            dataType: 'json',
+                            success: function (data) {
+                                console.log(data.msg);
+                            }
+                        })
+                    });
+                    //取消对团队介绍的编辑
+                    $("#intro_cancelButton").on("click", function () {
+                        $("#team_introuduction").empty().html(oldIntro);
+                    });
+                    //点击分点按钮进行分点
+                    $("#intro_list_auto").unbind("click").on("click", function () {
+                        var temp = ($("#team_intro").val()).replace(/\n\n/, "");
+                        $("#team_intro").val(temp + '\n' + '◆' + '\n\n').trigger('autoresize');
+                        /*var temp;
+                         if(oldIntro==$("#team_intro").val()){
+                         temp=($("#team_intro").val()).replace(/\n\n/, "")+'\n'+'◆';
+                         }
+                         else
+                         temp=($("#team_intro").val()).replace(/\n\n/, "")+'◆';
+                         $("#team_intro").val(temp+'\n').trigger('autoresize');*/
+                    });
+                }
+            })
         });
     });
 
