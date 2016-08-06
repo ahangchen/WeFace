@@ -17,6 +17,7 @@ $(function() {
                 oldSlogan = data.res.slogan;
                 oldAbout = data.res.about;
                 oldHistory = data.res.history;
+                //先只得到一个行业类型
                 oldBType = data.res.b_type;
                 $.ajax({
                     type: "get",
@@ -213,7 +214,7 @@ $(function() {
                     $.getJSON(cur_site + "team/business/", function (data) {
                         if (data.err == 0) {
                             for (var i = 0; i < data.msg.length; i++) {
-                                $(".tag_select").append('<option value=' + data.msg[i].id + '>' + data.msg[i].name + '</option>');
+                                $(".tag_select").append('<option id="option'+i+'"value=' + data.msg[i].id + '>' + data.msg[i].name + '</option>');
                                 b_type_id.push(data.msg[i].id);
                                 b_type_name.push(data.msg[i].name);
                             }
@@ -222,7 +223,19 @@ $(function() {
                             console.log(data.err);
                     });
 
+
+                    //option的value是id,后面查找的时候根据这个就行了
+                    var tag_type_num;
                     $.getJSON(cur_site + "team/info?tid=1", function (data) {
+                        //得到有多少个行业类型
+                        tag_type_num=$(".tag_select option").length-1;
+
+                        //先只得到一个行业类型
+                        for(var i=0;i<tag_type_num;i++){
+                            if(data.res.b_type==$("#option"+i).attr("value"))
+                                oldBType=[$("#option"+i).text()];
+                        }
+
                         //记录之前所有的值
                         oldHistory = data.res.history;
                         oldIntro = data.res.about;
@@ -231,13 +244,11 @@ $(function() {
                         oldLogoPath = cur_media + data.res.logo_path;
                         oldSlogan = data.res.slogan;
                         oldAbout = data.res.about;
-                        //alert($.inArray(data.res.b_type,b_type_id));
-                        oldBType = data.res.b_type;
                         oldLabel = data.res.label;
                         var type_num = oldBType.length;//记录标签的个数
                         var type_dym_name = oldBType;//动态记录标签的名字,删除,添加
                         var move_distance = 0;//记录下拉框的移动距离
-                        var label_num = oldLabel.length;//记录label的geshu
+                        var label_num = oldLabel.length;//记录label的个数
                         var label_dym_name = oldLabel;//动态记录label的名字,删除,添加
                         var newLogo = cur_media + oldLogoPath;//新的logo
                         var newSlogan = oldSlogan;//新的slogan
@@ -252,6 +263,7 @@ $(function() {
                             $("#show_type_as_tag").append('<div class="chip team_type_fix">' + oldBType[i] +
                                 '<i class="close material-icons" id=' + oldBType[i] + '>close</i> </div>');
                         }
+
                         //计算移动距离
                         if (oldBType.length > 3) {//需要换行处理
                             for (var i = 3; i < oldBType.length; i++) {
@@ -422,6 +434,14 @@ $(function() {
                             var formData = new FormData();
                             formData.append('name', $("#update_photo").val());
                             formData.append('photo', $('#update_photo')[0].files[0]);
+                            var update_typeID;
+
+                            //先只得到一个行业类型
+                            for(var i=0;i<tag_type_num;i++){
+                                if(type_dym_name[1]==$("#option"+i).text())
+                                 update_typeID=$("#option"+i).attr('value');
+                            }
+
                             //上传照片
                             $.ajax({
                                 url: cur_site + "team/upload_logo/",
@@ -455,6 +475,9 @@ $(function() {
                                 }
                                 //console.log(newLogo);
                                 //post的result
+                                //console.log(type_dym_name[1]);
+
+
                                 var result={
                                     tid: oldTid,
                                     name: newName,
@@ -462,7 +485,7 @@ $(function() {
                                     slogan: newSlogan,
                                     about: oldIntro,
                                     history: oldHistory,
-                                    b_type: oldBType
+                                    b_type: update_typeID
                                 };
 
                                 $.ajax({
