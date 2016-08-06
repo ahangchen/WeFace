@@ -14,8 +14,8 @@
             <div class="put_photo_here" onclick="F_Open_img()">
                 <img id="local_photo" />
                 <i class="large material-icons dp48" id="photo_camera">photo_camera</i>
-                <form method="post" action="" enctype="multipart/form-data">
-                    <input type="file" id="update_photo" style="display: none" onchange="show_local_img(this)">
+                <form id="post_logo"  enctype="multipart/form-data">
+                    <input type="file" name="photo" id="update_photo" style="display: none" onchange="show_local_img(this)">
                 </form>
             </div>
         </div>
@@ -38,7 +38,7 @@
         <div class="input-field job_type">
             <select class="browser-default tag_select">
                 <option value="" disabled selected>行业类型</option>
-                <option value="1">移动互联网</option>
+                <!--<option value="1">移动互联网</option>
                 <option value="2">电子商务</option>
                 <option value="3">医疗健康</option>
                 <option value="4">金融</option>
@@ -57,7 +57,7 @@
                 <option value="17">硬件</option>
                 <option value="18">分类信息</option>
                 <option value="19">生活服务</option>
-                <option value="20">其它</option>
+                <option value="20">其它</option>-->
             </select>
             <a class="add_type btn-floating btn-small waves-effect waves white"><i class="material-icons" style="color:orange">add</i></a>
         </div>
