@@ -433,7 +433,7 @@ $(function () {
         });
 
         /*-----------------------------作品集合展示---------------------------*/
-        edit();       $.ajax({
+    $.ajax({
             type: "POST",
             data: data_file,
             url:cur_site + "student/info/works/get/",
@@ -1961,10 +1961,10 @@ $(function () {
                 var err = data.err;
                 if (err == "0") {
                     work_path = data.path;
-                    $("#work-save").click(works_add_edit());
+                    console.log(work_path);
                     alert("文件上传成功");
                     $("#uploadForm").css("display","none");
-                    console.log(work_path);
+                    $("#work-save").click(works_add_edit());
                 }
                 if (err == "-128") {
                     alert("作品集文件不合法");
