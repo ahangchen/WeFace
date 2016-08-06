@@ -84,21 +84,22 @@ $(document).ready(function () {
             //团队联系方式加载
             $("#member_information").html(data.res.tel + "<br/>" + data.res.mail);
 
-            // 团队成员头像加载
-            var Head_portrait = $(".Head_portrait");
-            for (var i = 0; i < Head_portrait.length; i++) {
-                $(Head_portrait[i]).attr('src', data.res.stus[i].logo_path);
+            // 团队图片动态加载
+            for (var i = 0; i < data.res.imgs.length; i++) {
+                $(".slides").append('<li><img src="'+data.res.imgs[i]+'" class="piture "></li>')
             }
-            // 团队图片加载
-            var piture = $(".piture");
-            for (var i = 0; i < piture.length; i++) {
-                $(piture[i]).attr('src', data.res.imgs[i]);
-            }
-
-            // 团队成员姓名加载
-            var name_arr = $(".name");
-            for (var i = 0; i < name_arr.length; i++) {
-                $(name_arr[i]).html(data.res.stus[i].name);
+            // 开启slider
+            $('.slider').slider({
+                full_width: true,
+                height: 250,
+            });
+            // 团队创始人头像姓名加载
+            $("#leader").attr('src',data.res.stus[0].logo_path);
+            $("#leaderName").html(data.res.stus[0].name);
+            // 团队非创始人成员头像加载
+            var stuNum = data.res.stus.length;
+            for (var i = 1; i < stuNum; i++) {
+                $("#team_member_icon").append('<div class="Head_portrait_div "><img src="'+data.res.stus[i].logo_path+'" alt="头像" class="Head_portrait" /><br><span class="name">'+data.res.stus[i].name+'</span></div>')
             }
 
         },
@@ -119,55 +120,55 @@ $(document).ready(function () {
        
          // 改变箭头图标的颜色
          $("i:contains('play_arrow')").css("color", "rgb(255,147,74)");
-         // JSON数据加载
-         $.getJSON('../data/team_index.json', function(data) {
-          // 团队logo路径加载
-           var logo = data.res.logo_path;
-           $("#team_logo").attr('src', logo);
-           // 团队标签加载
-           var tag_cnt=data.res.label.length;//动态加载div
-           for(var i=0;i<tag_cnt;i++){
-             $("#information_three").append('<div class="tag"></div>');
-           }
-           var tag = $(".tag");
-           for (var i = 0; i < tag.length; i++) {
-             $(tag[i]).html(data.res.label[i]);
-           }
-           // 团队名称加载
-           $("#p1").html(data.res.name);
-           // 团队简介,人数加载
-           $("#p3").html(data.res.about+","+data.res.man_cnt+"人团队");
-           // 团队标语
-           $("#p4").html(data.res.slogan);
-           // 团队行业类型加载
-           var type_temp='';
-           for(var i=0;i<(data.res.b_type).length;i++)
-           type_temp=type_temp+data.res.b_type[i]+' ';
-           $("#p2").html(type_temp);
-           // 团队介绍加载
-           $("#team_introuduction").html(data.res.about);
-           // 团队发展历程加载
-           $("#history_text").html(data.res.history);
-           //团队联系方式加载
-           $("#member_information").html(data.res.tel+"<br>"+data.res.mail);
-          // 团队图片动态加载
-          for (var i = 0; i < data.res.imgs.length; i++) {
-            $(".slides").append('<li><img src="'+data.res.imgs[i]+'" class="piture "></li>')
-          };
-            // 开启slider
-         $('.slider').slider({
-           full_width: true,
-           height: 250,
-         });
-         // 团队创始人头像姓名加载
-         $("#leader").attr('src',data.res.stus[0].logo_path);
-         $("#leaderName").html(data.res.stus[0].name);
-           // 团队非创始人成员头像加载
-           var stuNum = data.res.stus.length;
-           for (var i = 1; i < stuNum; i++) {
-            $("#team_member_icon").append('<div class="Head_portrait_div "><img src="'+data.res.stus[i].logo_path+'" alt="头像" class="Head_portrait" /><br><span class="name">'+data.res.stus[i].name+'</span></div>')
-           } 
-         });
+         // // JSON数据加载
+         // $.getJSON('../data/team_index.json', function(data) {
+         //  // 团队logo路径加载
+         //   var logo = data.res.logo_path;
+         //   $("#team_logo").attr('src', logo);
+         //   // 团队标签加载
+         //   var tag_cnt=data.res.label.length;//动态加载div
+         //   for(var i=0;i<tag_cnt;i++){
+         //     $("#information_three").append('<div class="tag"></div>');
+         //   }
+         //   var tag = $(".tag");
+         //   for (var i = 0; i < tag.length; i++) {
+         //     $(tag[i]).html(data.res.label[i]);
+         //   }
+         //   // 团队名称加载
+         //   $("#p1").html(data.res.name);
+         //   // 团队简介,人数加载
+         //   $("#p3").html(data.res.about+","+data.res.man_cnt+"人团队");
+         //   // 团队标语
+         //   $("#p4").html(data.res.slogan);
+         //   // 团队行业类型加载
+         //   var type_temp='';
+         //   for(var i=0;i<(data.res.b_type).length;i++)
+         //   type_temp=type_temp+data.res.b_type[i]+' ';
+         //   $("#p2").html(type_temp);
+         //   // 团队介绍加载
+         //   $("#team_introuduction").html(data.res.about);
+         //   // 团队发展历程加载
+         //   $("#history_text").html(data.res.history);
+         //   //团队联系方式加载
+         //   $("#member_information").html(data.res.tel+"<br>"+data.res.mail);
+         //  // 团队图片动态加载
+         //  for (var i = 0; i < data.res.imgs.length; i++) {
+         //    $(".slides").append('<li><img src="'+data.res.imgs[i]+'" class="piture "></li>')
+         //  };
+         //    // 开启slider
+         // $('.slider').slider({
+         //   full_width: true,
+         //   height: 250,
+         // });
+         // // 团队创始人头像姓名加载
+         // $("#leader").attr('src',data.res.stus[0].logo_path);
+         // $("#leaderName").html(data.res.stus[0].name);
+         //   // 团队非创始人成员头像加载
+         //   var stuNum = data.res.stus.length;
+         //   for (var i = 1; i < stuNum; i++) {
+         //    $("#team_member_icon").append('<div class="Head_portrait_div "><img src="'+data.res.stus[i].logo_path+'" alt="头像" class="Head_portrait" /><br><span class="name">'+data.res.stus[i].name+'</span></div>')
+         //   }
+         // });
 
        });
        

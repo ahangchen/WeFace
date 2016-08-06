@@ -6,7 +6,7 @@ $(function() {
     $("#fix_team_intro").on("click", function () {
         //获取旧的团队介绍
         $.getJSON(/*cur_site + "team/info?tid=1"*/"../data/team_index.json", function (data) {
-            $.getJSON("http://110.64.69.66:8081/team/info?tid=1"/*"../data/team_index.json"*/, function (data) {
+            $.getJSON(cur_site + "team/info?tid=1"/*"../data/team_index.json"*/, function (data) {
                 var change_line = (data.res.about).split('<br>').length - 1;//得到有几个换行
                 oldIntro = data.res.about;
                 for (var i = 0; i < change_line; i++)
@@ -210,7 +210,7 @@ $(function() {
                     var b_type_id = [];
                     var b_type_name = [];
                     //请求团队的职业类型
-                    $.getJSON("http://110.64.69.66:8081/team/business/", function (data) {
+                    $.getJSON(cur_site + "team/business/", function (data) {
                         if (data.err == 0) {
                             for (var i = 0; i < data.msg.length; i++) {
                                 $(".tag_select").append('<option value=' + data.msg[i].id + '>' + data.msg[i].name + '</option>');
@@ -222,7 +222,7 @@ $(function() {
                             console.log(data.err);
                     });
 
-                    $.getJSON("http://110.64.69.66:8081/team/info?tid=1", function (data) {
+                    $.getJSON(cur_site + "team/info?tid=1", function (data) {
                         //记录之前所有的值
                         oldHistory = data.res.history;
                         oldIntro = data.res.about;
@@ -445,7 +445,7 @@ $(function() {
                             formData.append('photo', $('#update_photo')[0].files[0]);
                             //上传照片
                             $.ajax({
-                                url: "http://110.64.69.101:8081/team/upload_logo/",
+                                url: cur_site + "team/upload_logo/",
                                 type: "post",
                                 cache: false,
                                 dataType: 'json',
@@ -466,7 +466,7 @@ $(function() {
                                 $.ajax({
                                     type: 'POST',
                                     data: result,
-                                    url: "http://110.64.69.66:8081/team/update_team_info/",
+                                    url: cur_site + "team/update_team_info/",
                                     xhrFields: {withCredentials: true},
                                     dataType: 'json',
                                     success: function (data) {
@@ -484,72 +484,85 @@ $(function() {
             });
 
         });
-
+    var tid = getId();
     //团队照片的编辑
     $(".edit_team_photo").on("click",function () {
-        $.getJSON('../data/team_index.json', function(data) {
-            var team_img=data.res.imgs;//初始化团队照片
-            var team_new_img=team_img;//团队增加删除后的照片
-            $.ajax({
-                type: "get",
-                url: "add_team_photo.html",
-                dataType: "html",
-                success: function (data) {
-                    //初始化团队照片编辑页面
-                    $("#edit_photo_area").html(data);
-                    for (var i = 0; i < team_img.length; i++) {
-                        if(i%3==0){
-                            $("#team_photo_edit").append('<div class="team_photo_div" style="margin-top:10px">'+
-                                '<i class="material-icons delete_team_photo">close</i><img src="' + team_img[i] + '" class="team_photo "></div>');
-                        }
-                        else {
-                            var margin_left_temp=i % 3 * 170+'px';
-                            $("#team_photo_edit").append('<div class="team_photo_div" style="margin-left:'+margin_left_temp+';margin-top: -150px;">' +
-                                '<i class="material-icons delete_team_photo">close</i><img src="' + team_img[i] + '" class="team_photo "></div>');
-                        }
-                    }
-                    //根据当前照片的数量初始化添加照片按钮的位置
-                   if(team_img.length%3==0)
-                        $(".put_team_photo_here").css("margin-top","10px");
-                    else
-                        $(".put_team_photo_here").css("margin-top","-150px");
-                    $(".put_team_photo_here").css("margin-left",team_img.length%3*170);
-
-                    //监听鼠标的移入事件
-                    $(".team_photo_div .team_photo").on("mouseover",function(){
-                        $(this).css("opacity","0.3");
-                        $(this).parent().children('.delete_team_photo').css("visibility","visible");
-                    });
-                    //监听鼠标的移出事件
-                    $(".team_photo_div .team_photo").on("mouseout",function(){
-                        $(this).css("opacity","1");
-                        $(this).parent().children('.delete_team_photo').css("visibility","hidden");
-                    });
-                    //监听点击事件
-                    $("#team_photo_edit .team_photo").on("click",function(){
-                        //动态改变团队照片数组中的地址,删除掉该删除的
-                       var delete_one=($(this).attr("src"));
-                       team_new_img.splice($.inArray(delete_one, team_new_img), 1);
-                        $(this).remove();
-                        $(this).parent().children('.delete_team_photo').css("visibility","visible");
-                    });
-                        //取消对团队照片的编辑
-                    $("#cancel_photo_edit").on("click",function(){
-                        $("#edit_photo_area").empty().append('<div class="slider"><ul class="slides"> </ul>');
-                        // 团队图片动态加载
+        $.ajax({
+            type: 'GET',
+            url: cur_site + "team/info/",
+            // url: "../data/team_index.json",
+            dataType: "json",
+            data: {'tid': tid} ,
+            success: function (data) {
+                var team_img=data.res.imgs;//初始化团队照片
+                var team_new_img=team_img;//团队增加删除后的照片
+                $.ajax({
+                    type: "get",
+                    url: "add_team_photo.html",
+                    dataType: "html",
+                    success: function (data) {
+                        //初始化团队照片编辑页面
+                        $("#edit_photo_area").html(data);
                         for (var i = 0; i < team_img.length; i++) {
-                            $(".slides").append('<li><img src="'+team_img[i]+'" class="piture "></li>')
+                            if(i%3==0){
+                                $("#team_photo_edit").append('<div class="team_photo_div" style="margin-top:10px">'+
+                                    '<i class="material-icons delete_team_photo">close</i><img src="' + team_img[i] + '" class="team_photo "></div>');
+                            }
+                            else {
+                                var margin_left_temp=i % 3 * 170+'px';
+                                $("#team_photo_edit").append('<div class="team_photo_div" style="margin-left:'+margin_left_temp+';margin-top: -150px;">' +
+                                    '<i class="material-icons delete_team_photo">close</i><img src="' + team_img[i] + '" class="team_photo "></div>');
+                            }
                         }
-                        // 开启slider
-                        $('.slider').slider({
-                            full_width: true,
-                            height: 250
+                        //根据当前照片的数量初始化添加照片按钮的位置
+                        if(team_img.length%3==0)
+                            $(".put_team_photo_here").css("margin-top","10px");
+                        else
+                            $(".put_team_photo_here").css("margin-top","-150px");
+                        $(".put_team_photo_here").css("margin-left",team_img.length%3*170);
+
+                        //监听鼠标的移入事件
+                        $(".team_photo_div .team_photo").on("mouseover",function(){
+                            $(this).css("opacity","0.3");
+                            $(this).parent().children('.delete_team_photo').css("visibility","visible");
                         });
-                    });
+                        //监听鼠标的移出事件
+                        $(".team_photo_div .team_photo").on("mouseout",function(){
+                            $(this).css("opacity","1");
+                            $(this).parent().children('.delete_team_photo').css("visibility","hidden");
+                        });
+                        //监听点击事件
+                        $("#team_photo_edit .team_photo").on("click",function(){
+                            //动态改变团队照片数组中的地址,删除掉该删除的
+                            var delete_one=($(this).attr("src"));
+                            team_new_img.splice($.inArray(delete_one, team_new_img), 1);
+                            $(this).remove();
+                            $(this).parent().children('.delete_team_photo').css("visibility","visible");
+                        });
+                        //取消对团队照片的编辑
+                        $("#cancel_photo_edit").on("click",function(){
+                            $("#edit_photo_area").empty().append('<div class="slider"><ul class="slides"> </ul>');
+                            // 团队图片动态加载
+                            for (var i = 0; i < team_img.length; i++) {
+                                $(".slides").append('<li><img src="'+team_img[i]+'" class="piture "></li>')
+                            }
+                            // 开启slider
+                            $('.slider').slider({
+                                full_width: true,
+                                height: 250
+                            });
+                        });
 
-                }
-            });
-
+                    }
+                });
+            },
+            error: function (data) {
+                console.log('get team info error');
+                console.log(data);
+            },
+            headers: {
+                "Access-Control-Allow-Origin":"*"
+            }
         });
 
     });
