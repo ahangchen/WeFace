@@ -141,7 +141,7 @@ body{
 }
 #main_left_middle_two{
 	width: 620px;
-	height: 380px;
+	height:auto;
 	background-color: white;
 	  -webkit-box-shadow:0 0 10px gray;  
   	-moz-box-shadow:0 0 10px gray;  
