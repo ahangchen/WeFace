@@ -14,10 +14,11 @@
             <div class="put_photo_here" onclick="F_Open_img()">
                 <img id="local_photo" />
                 <i class="large material-icons dp48" id="photo_camera">photo_camera</i>
-                <form id="post_logo"  enctype="multipart/form-data">
-                    <input type="file" name="photo" id="update_photo" style="display: none" onchange="show_local_img(this)">
-                </form>
             </div>
+            <form id="post_logo"  enctype="multipart/form-data">
+                <input type="file" id="update_photo" style="display: none" onchange="show_local_img(this)">
+                <button id="upload" type="button" style="display: none"></button>
+            </form>
         </div>
 
         <div id="team_label_edit">
