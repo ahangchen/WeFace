@@ -62,7 +62,7 @@ $(document).ready(function () {
         url: cur_site + "team/info/",
         // url: "../data/team_index.json",
         dataType: "json",
-        data: {'tid': tid} ,
+        data: {'tid': 1/*tid*/} ,
         success: function (data) {
             // 团队logo路径加载
             var logo = data.res.logo_path;
