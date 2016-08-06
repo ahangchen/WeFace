@@ -5,7 +5,7 @@ $(function() {
     //修改团队介绍
     $("#fix_team_intro").on("click", function () {
         //获取旧的团队介绍
-        $.getJSON(/*cur_site + "team/info?tid=1"*/"../data/team_index.json", function (data) {
+        $.getJSON(cur_site + "team/info?tid=1"/*"../data/team_index.json"*/, function (data) {
             $.getJSON(cur_site + "team/info?tid=1"/*"../data/team_index.json"*/, function (data) {
                 var change_line = (data.res.about).split('<br>').length - 1;//得到有几个换行
                 oldIntro = data.res.about;
@@ -296,7 +296,7 @@ $(function() {
                             $.ajax({
                                 type: 'POST',
                                 data: result,
-                                url: 'http://110.64.69.66:8081/team/add_team_label/',
+                                url: cur_site+"team/add_team_label/",
                                 xhrFields: {withCredentials: true},
                                 dataType: 'json',
                                 success: function (data) {
@@ -320,7 +320,7 @@ $(function() {
                             $.ajax({
                                 type: 'POST',
                                 data: result,
-                                url: 'http://110.64.69.66:8081/team/rm_team_label/',
+                                url: cur_site+"team/rm_team_label/",
                                 xhrFields: {withCredentials: true},
                                 dataType: 'json',
                                 success: function (data) {
@@ -415,46 +415,47 @@ $(function() {
                             }
                         });
 
-                        //保存修改
-                        $("#saveButton").on("click", function () {
-                            //记录对团队照片的修改
-                            newLogo = $("#update_photo").attr("name");
-                            console.log(newLogo);
-                            //对团队的名字进行修改
-                            newName = $("#team_name").val();
-                            //对团队的slogan进行修改
-                            newSlogan = $("#team_slogan").val();
-                            $("#remove_basic_msg").empty().append(
-                                '<div id="team_logo_div"><img src="' + oldLogoPath + '" id="team_logo"></div>' +
-                                '<div id="information"><p id="p1">' + newName + '</p><p id="p2">' + type_dym_name + '</p>' +
-                                '<p id="p3">' + oldAbout + "," + data.res.man_cnt + "人团队" + '</p> ' +
-                                '<p id="p4">' + newSlogan + '</p></div>' +
-                                '<div id="information_three"></div>'
-                            );
-                            //动态加载div
-                            for (var i = 0; i < label_num; i++) {
-                                $("#information_three").append('<div class="tag"></div>');
-                            }
-                            var tag = $(".tag");
-                            for (var i = 0; i < tag.length; i++) {
-                                $(tag[i]).html(label_dym_name[i]);
-                            }
 
+
+                        //上传照片返回地址,赋给新的logo
+                        $("#upload").on("click",function() {
                             var formData = new FormData();
                             formData.append('name', $("#update_photo").val());
                             formData.append('photo', $('#update_photo')[0].files[0]);
                             //上传照片
                             $.ajax({
                                 url: cur_site + "team/upload_logo/",
-                                type: "post",
+                                type: "POST",
                                 cache: false,
                                 dataType: 'json',
                                 data: formData,
-                                processDta: false,
+                                processData: false,
                                 contentType: false
                             }).done(function (res) {
                                 newLogo = res.msg;
-                                var result = {
+                                //对团队的名字进行修改
+                                newName = $("#team_name").val();
+                                //对团队的slogan进行修改
+                                newSlogan = $("#team_slogan").val();
+                                //加载新的信息
+                                $("#remove_basic_msg").empty().append(
+                                    '<div id="team_logo_div"><img src="' + newLogo + '" id="team_logo"></div>' +
+                                    '<div id="information"><p id="p1">' + newName + '</p><p id="p2">' + type_dym_name + '</p>' +
+                                    '<p id="p3">' + oldAbout + "," + data.res.man_cnt + "人团队" + '</p> ' +
+                                    '<p id="p4">' + newSlogan + '</p></div>' +
+                                    '<div id="information_three"></div>'
+                                );
+                                //动态加载div,加载新的label
+                                for (var i = 0; i < label_num; i++) {
+                                    $("#information_three").append('<div class="tag"></div>');
+                                }
+                                var tag = $(".tag");
+                                for (var i = 0; i < tag.length; i++) {
+                                    $(tag[i]).html(label_dym_name[i]);
+                                }
+                                //console.log(newLogo);
+                                //post的result
+                                var result={
                                     tid: oldTid,
                                     name: newName,
                                     logo_path: newLogo,
@@ -463,6 +464,7 @@ $(function() {
                                     history: oldHistory,
                                     b_type: oldBType
                                 };
+
                                 $.ajax({
                                     type: 'POST',
                                     data: result,
@@ -473,9 +475,14 @@ $(function() {
                                         console.log(data.msg);
                                     }
                                 });
+
                             });
                         });
 
+                        //点击保存修改
+                        $("#saveButton").on("click",function(){
+                            document.getElementById("upload").click();
+                        });
 
                     });
 
@@ -574,14 +581,15 @@ function F_Open_img(){
 
 }
 
-function show_local_img(file){//预览图片
+function show_local_img(file) {//预览图片
     var img = document.getElementById("local_photo");
     var reader = new FileReader();
-    reader.onload = function(evt) {
+    reader.onload = function (evt) {
         img.src = evt.target.result;
     };
     reader.readAsDataURL(file.files[0]);
 }
+
 
 function F_Open_team_img(){
     var team_photo_num=$(".team_photo").length;
@@ -614,6 +622,7 @@ function show_team_local_img(file) {//预览图片,添加团队照片
         $(".put_team_photo_here").css("margin-left",(team_photo_num+1)%3*170);
     };
     reader.readAsDataURL(file.files[0]);
+
 
 }
 
