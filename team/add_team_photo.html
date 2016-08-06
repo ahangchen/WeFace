@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>华南理工大学人才交流市场</title>
+</head>
+<body>
+<div>
+
+    <div id="team_photo_edit">
+
+    </div>
+
+    <div class="put_team_photo_here" onclick="F_Open_team_img()">
+    <i class="material-icons" id="team_photo_adding">add</i>
+        <form id="post_team_photo"  enctype="multipart/form-data">
+        <input type="file" name="photo" id="update_team_photo" style="display: none" onchange="show_team_local_img(this)">
+        </form>
+        <p style="margin-left: 25px;color:#fff;margin-top:-10px;">(图片上限为8)</p>
+    </div>
+
+    <div class="photo_edit_complete">
+        <a id="save_photo_edit" class="waves-effect waves-light btn">保存</a>
+        <a id="cancel_photo_edit" class="waves-effect waves-light btn">取消</a>
+    </div>
+
+</div>
+</body>
+</html>
