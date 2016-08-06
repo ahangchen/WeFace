@@ -458,7 +458,7 @@ $(function () {
                     if (path == undefined) {
                         document.getElementById("works-id").innerHTML = "尚未上传作品集";
                     } else {
-                        document.getElementById("works-path").href = path;
+                        document.getElementById("works-path").href = cur_media + path;
                         document.getElementById("works-id").innerHTML = location.search.split("=")[1] + "作品集.pdf";
                     }
                     if (site == undefined) {
@@ -1496,7 +1496,7 @@ $(function () {
                                         if (path == undefined) {
                                             document.getElementById("works-id").innerHTML = "尚未上传作品集";
                                         } else {
-                                            document.getElementById("works-path").href = path;
+                                            document.getElementById("works-path").href = cur_media + path;
                                             document.getElementById("works-id").innerHTML = location.search.split("=")[1] + "作品集.pdf";
                                         }
                                         if (site == undefined) {
@@ -1570,7 +1570,7 @@ $(function () {
                                         if (path == undefined) {
                                             document.getElementById("works-id").innerHTML = "尚未上传作品集";
                                         } else {
-                                            document.getElementById("works-path").href = path;
+                                            document.getElementById("works-path").href = cur_media + path;
                                             document.getElementById("works-id").innerHTML = location.search.split("=")[1] + "作品集.pdf";
                                         }
                                         if (site == undefined) {
@@ -1956,6 +1956,7 @@ $(function () {
             data: formData,
             processData: false,
             contentType: false,
+            dataType: "json",
             success: function (data) {
                 var err = data.err;
                 if (err == "0") {
