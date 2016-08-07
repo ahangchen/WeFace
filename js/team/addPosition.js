@@ -108,7 +108,7 @@ $(function(){
                     "Access-Control-Allow-Origin": "*"
                 }
             });
-            //$('#addJob a').attr('href','showPosition.html?t_id='+tId);
+            $('#addJob a').attr('href','showPosition.html?t_id='+tId);
         }
         else {
             alert("请将必填的信息补充完整");
