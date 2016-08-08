@@ -13,19 +13,16 @@
     box-sizing: border-box;
 }
 .recent_p{
-    position: absolute;
-    font-family: 幼圆;
     font-size: 50px;
-    position: absolute;
-    margin-left: 100px;
+    text-align: center;
 }
 .recent_p_left{
-    position: absolute;
-    font-family: 幼圆;
     font-size: 50px;
-    position: absolute;
-    margin-left: 100px;
-    left:200px;
+    width:150px;
+    height: 70px;
+    margin-left: 200px;
+    display: inline-block;
+    float: left;
 }
 .badge_top{
     width: 50px;
@@ -34,8 +31,7 @@
     color: white;
     text-align: center;
     line-height: 30px;
-    position: relative;
-    left: 350px;
+    display: inline-block;
     background-color: #ff9800;
 }
 .recent_right{
