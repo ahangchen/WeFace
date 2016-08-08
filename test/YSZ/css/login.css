@@ -64,7 +64,6 @@ td
     background-color: #217DF1;
     border-color: transparent;
     font-size: 12pt;
-    font-family:Arial;
     color: white;
     width: 100%;
     margin:0;
@@ -74,7 +73,6 @@ td
 {
 	background-color: #217DF1;
 	color: white;
-	font-family: Arial;
 	font-size: 10pt;
 }
 #login_window
