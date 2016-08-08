@@ -1,0 +1,22 @@
+#selectBar .s12{
+    top:0;
+}
+
+div.col.s12{
+    top:0;
+}
+
+#selectBar{
+    position: relative;
+    top: 5px;
+}
+.comWidth{
+    margin-left: 0;
+    margin-right: 0;
+}
+
+.pageNum{
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+}

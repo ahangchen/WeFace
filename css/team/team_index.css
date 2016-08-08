@@ -63,7 +63,7 @@ body{
 	width: 875px;
 	background-color: white;
 	height: 70px;
-	  -webkit-box-shadow:0 0 10px gray;  
+	  -webkit-box-shadow:0 0 10px gray;
   	-moz-box-shadow:0 0 10px gray;  
  	 box-shadow:0 0 10px gray;
 }
@@ -304,11 +304,8 @@ margin-top: 10px;
  }
  /*需求职位css*/
  #Demand_for_jobs_div{
-	height: 800px;
 	width: 980px;
 	margin-top: 50px;
-	text-align: center;
-	line-height: 800px;
 }
 
  #team_img {
@@ -351,9 +348,9 @@ margin-top: 10px;
 
  #test{
 	 background: rgba(255, 255, 255, 0.5);
-	 -moz-box-shadow: 0 5px 5px 0 rgba(0, 0, 0, 0.22), 0 10px 10px 0 rgba(0, 0, 0, 0.21);
-	 -webkit-box-shadow: 0 5px 5px 0 rgba(0, 0, 0, 0.22), 0 10px 10px 0 rgba(0, 0, 0, 0.21);
-	 box-shadow: 0 5px 5px 0 rgba(0, 0, 0, 0.22), 0 10px 10px 0 rgba(0, 0, 0, 0.21);
+	 -moz-box-shadow: 0 3px 3px 0 rgba(0, 0, 0, 0.2);
+	 -webkit-box-shadow: 0 3px 3px 0 rgba(0, 0, 0, 0.2);
+	 box-shadow: 0 3px 3px 0 rgba(0, 0, 0, 0.2);
 	 height: 50px;
 	 width: 967px;
 	 margin-right: 3px;
