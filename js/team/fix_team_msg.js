@@ -230,7 +230,7 @@ $(function () {
 
                     //先只得到一个行业类型
                     for (var i = 0; i < tag_type_num; i++) {
-                        if (data.res.b_type == $("#option" + i).attr("value"))
+                        if (data.res.b_type + 1 == $("#option" + i).attr("value"))
                             oldBType = [$("#option" + i).text()];
                     }
 
