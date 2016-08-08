@@ -72,17 +72,116 @@
                 </li>
             </ul>
         </div>
-        <div  id="student_message_box" class="comWidth" style="display: none">
-            <img id="local_photo" />
-            <div class="function_button">
-                <div class="photo_logo" onclick="F_Open_img()">
-                    <i class="large material-icons dp48">photo_camera</i>
-                    <form method="post" action="" enctype="multipart/form-data">
+
+        <div  id="student_message_box" style="display: none">
+            <div id="left_one">
+                <div id="photo_area">
+                    <div class="put_photo_here" onclick="F_Open_img()">
+                        <img id="local_photo" />
+                        <i class="large material-icons dp48" id="photo_camera">photo_camera</i>
+                    </div>
+                    <form id="post_photo"  enctype="multipart/form-data">
                         <input type="file" id="update_photo" style="display: none" onchange="show_local_img(this)">
+                        <button id="upload" type="button" style="display: none"></button>
                     </form>
                 </div>
 
-                <div class="attach_file" onclick="F_Open_file()">
+                <div id="file_area">
+                    <a class="btn-floating btn waves-effect waves-light white" id="attach_file">
+                        <img src="../res/imgs/attach_file.svg" style="margin-top: 15px;width: 50px;height:50px;"/>
+                    </a>
+                    <form method="post" action="" enctype="multipart/form-data">
+                        <input name="update_file" type="file" style="display: none" id="update_file" onchange="show_local_file()">
+                    </form>
+                    <div style="margin-top: 15px;margin-left: -3px;"><p style="font-size: 20px;">上传简历附件</p></div>
+
+                    <div id="file_path" style="display: none">
+                        <input type="text" id="file_name"/>
+                    </div>
+                </div>
+
+
+                <div id="right_one">
+                    <div class="input-field">
+                        <input id="first_name" type="text" class="validate">
+                        <label for="first_name">输入你的名字</label>
+                    </div>
+
+                    <div>
+                        <div class="input-field" id="sex_div">
+                            <select class="browser-default" id="select_sex">
+                                <option value="" disabled selected>性别</option>
+                                <option value="1">男</option>
+                                <option value="2">女</option>
+                            </select>
+                        </div>
+
+                        <div class="input-field" id="year_div">
+                            <select class="browser-default" id="select_year">
+                                <option value="" disabled selected>出生年份</option>
+                            </select>
+                        </div>
+
+                        <div class="input-field" id="month_div">
+                            <select class="browser-default" id="select_month">
+                                <option value="" disabled selected>月份</option>
+                            </select>
+                        </div>
+
+                        <div class="input-field">
+                            <input id="school_name" type="text" class="validate">
+                            <label for="school_name">输入你所在的学校</label>
+                        </div>
+                        <div class="input-field">
+                            <input id="major_name" type="text" class="validate">
+                            <label for="major_name">输入你的专业</label>
+                        </div>
+                        <div class="input-field ">
+                            <select class="browser-default">
+                                <option value="" disabled selected>选择你所在的城市</option>
+                                <option value="1">广州</option>
+                                <option value="2">深圳</option>
+                                <option value="3">上海</option>
+                                <option value="4">北京</option>
+                                <option value="5">厦门</option>
+                                <option value="6">杭州</option>
+                                <option value="7">成都</option>
+                                <option value="8">天津</option>
+                                <option value="9">南京</option>
+                                <option value="10">其它</option>
+                            </select>
+                        </div>
+                        <div class="input-field ">
+
+                            <input id="education_level" type="text" class="validate" disabled>
+                            <label for="education_level">最高学历为默认值</label>
+                        </div>
+                        <div class="input-field col s8">
+
+                            <input id="grade_level" type="text" class="validate"  disabled>
+                            <label for="grade_level">在读年级为默认值</label>
+                        </div>
+                        <div class="input-field" id="enter_email">
+                            <input id="email" type="email" class="validate">
+                            <label for="email"  data-success="right">输入你的邮箱</label>
+                            <span class="red-text text-lighten-2">不会显示在您的信息中,您投递简历后会被相应的公司看到</span>
+                        </div>
+                        <div class="input-field" id="enter_tel">
+                            <input id="tel" type="tel" class="validate">
+                            <label for="tel">输入你的联系方式</label>
+                            <span class="red-text text-lighten-2"> 不会显示在您的信息中,您投递简历后会被相应的公司看到</span>
+                        </div>
+
+                    </div>
+                    <div id="finish_edit">
+                        <a id="saveButton" class="waves-effect waves-light btn">保存</a>
+                        <a id="cancelButton" class="waves-effect waves-light btn white">取消</a>
+                    </div>
+                </div>
+            </div>
+
+
+                <!--<div class="attach_file" onclick="F_Open_file()">
                     <img src="../res/imgs/attach_file.svg" id="attach_logo"/>
                     <form method="post" action="" enctype="multipart/form-data">
                         <input name="update_file" type="file" style="display: none" id="update_file" onchange="show_local_file()">
@@ -106,10 +205,10 @@
                             </td>
                         </tr>
                     </table>
-                </div>
-            </div>
+                </div>-->
 
-            <div class="personal_message">
+
+            <!--<div class="personal_message">
                 <form class="row ">
                     <div class="input-field col s8">
                         <input id="first_name" type="text" class="validate">
@@ -163,28 +262,13 @@
                         </select>
                     </div>
                     <div class="input-field col s8">
-                        <!--<select class="browser-default">
-                            <option value="" disabled selected>选择你的最高学历</option>
-                            <option value="1">本科</option>
-                            <option value="2">硕士</option>
-                            <option value="3">博士</option>
-                            <option value="4">其它</option>
-                        </select>-->
-                        <input id="education_level" type="text" class="validate" readonly="true">
+
+                        <input id="education_level" type="text" class="validate" disabled>
                         <label for="education_level">最高学历为默认值</label>
                     </div>
                     <div class="input-field col s8">
-                        <!-- <select class="browser-default">
-                             <option value="" disabled selected>选择你的在读年级</option>
-                             <option value="1">应届毕业生</option>
-                             <option value="2">大一</option>
-                             <option value="3">大二</option>
-                             <option value="4">大三</option>
-                             <option value="5">研一</option>
-                             <option value="6">研二</option>
-                             <option value="7">其它</option>
-                         </select>-->
-                        <input id="grade_level" type="text" class="validate"  readonly="true">
+
+                        <input id="grade_level" type="text" class="validate"  disabled>
                         <label for="grade_level">在读年级为默认值</label>
                     </div>
                     <div class="input-field col s11" id="enter_email">
@@ -200,7 +284,7 @@
                         <a id="cancelButton" class="waves-effect waves-light btn">取消</a>
                     </div>
                 </form>
-            </div>
+            </div>-->
 
         </div>
         <div id="other-info" class="card" style="margin-bottom:50px;overflow: hidden;background-color: transparent;">
