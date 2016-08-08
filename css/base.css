@@ -1,18 +1,11 @@
-@font-face {
-    font-family: 'cwTeXHei';
-    font-style: normal;
-    font-weight: 500;
-    src: url(//fonts.gstatic.com/ea/cwtexhei/v3/cwTeXHei-zhonly.eot);
-    src: url(//fonts.gstatic.com/ea/cwtexhei/v3/cwTeXHei-zhonly.eot?#iefix) format('embedded-opentype'),
-    url(//fonts.gstatic.com/ea/cwtexhei/v3/cwTeXHei-zhonly.woff2) format('woff2'),
-    url(//fonts.gstatic.com/ea/cwtexhei/v3/cwTeXHei-zhonly.woff) format('woff'),
-    url(//fonts.gstatic.com/ea/cwtexhei/v3/cwTeXHei-zhonly.ttf) format('truetype');
-}
-
 * {
     margin: 0;
     padding: 0;
-    font-family: "Roboto", "Source Han Sans CN","cwTeXHei", sans-serif;
+    font-family: "Roboto",
+    "微软雅黑", "Microsoft YaHei",
+    "冬青黑体", "Hiragino Sans GB", "华文细黑", "STXihei",
+    "文泉驿微米黑", "WenQuanYi Micro Hei",
+    sans-serif;
     font-size: 15px;
     font-style: normal;
     color: #444;
@@ -25,7 +18,7 @@ html, body {
     height: 100%;
 }
 
-html{
+html {
     background-image: url(../res/imgs/bg.svg);
     background-size: 100% auto;
 }
