@@ -598,7 +598,7 @@ $(function () {
             data: {'tid': 1/*tid*/},
             success: function (data) {
                 var team_img = data.res.imgs;//初始化团队照片
-                var team_new_img = team_img;//团队增加删除后的照片
+
                 $.ajax({
                     type: "get",
                     url: "add_team_photo.html",
@@ -641,40 +641,81 @@ $(function () {
                         //监听点击删除事件
                         $("#team_photo_edit .team_photo").on("click", function () {
                             var delete_id = ($(this).attr("id"));
-                            var result={
-                                'tid':1,
-                                'img_id':delete_id
-                            };
-                            $.ajax({
-                                type:"post",
-                                url:cur_site+"team/rm_team_photo/",
-                                dataType: "json",
-                                xhrFields: {withCredentials: true},
-                                data:result,
-                                success:function (res) {
-                                    console.log(res);
-
-                                }
-
-                            })
+                            delete_orgin_photo.push(delete_id);
                             //动态改变团队照片数组中的地址,删除掉该删除的
                             $(this).remove();
                             $(this).parent().children('.delete_team_photo').css("visibility", "visible");
                         });
 
 
-                        //取消对团队照片的编辑
+                        //取消对团队照片的编辑,需要删除之前上传的
                         $("#cancel_photo_edit").on("click", function () {
+                            //在显示之前只对新增加且还存在的照片进行删除
+                            for(var i=0;i<dyn_team_photo.length;i++){
+                                var result={'tid':1,'img_id':dyn_team_photo[i]};
+                                $.ajax({
+                                    type:"post",
+                                    url:cur_site+"team/rm_team_photo/",
+                                    dataType: "json",
+                                    xhrFields: {withCredentials: true},
+                                    data:result,
+                                    success:function (res) {
+                                        console.log(res);
+                                    }
+
+                                });
+                            }
+
                             $("#edit_photo_area").empty().append('<div class="slider"><ul class="slides"> </ul>');
                             // 团队图片动态加载
                             for (var i = 0; i < team_img.length; i++) {
-                                $(".slides").append('<li><img src="' + team_img[i] + '" class="piture "></li>')
+                                $(".slides").append('<li><img src="' + cur_media+team_img[i].path + '" class="piture "></li>')
                             }
                             // 开启slider
                             $('.slider').slider({
                                 full_width: true,
                                 height: 250
                             });
+                        });
+
+                        //保存对团队照片的更改
+                        $("#save_photo_edit").on("click", function () {
+                            //在显示之前删除不存在的照片
+                            for(var i=0;i<delete_orgin_photo.length;i++){
+                                var result={'tid':1,'img_id':delete_orgin_photo[i]};
+                                $.ajax({
+                                    type:"post",
+                                    url:cur_site+"team/rm_team_photo/",
+                                    dataType: "json",
+                                    xhrFields: {withCredentials: true},
+                                    data:result,
+                                    success:function (res) {
+                                        console.log(res);
+                                    }
+
+                                });
+                            }
+                            $.ajax({
+                                type: 'GET',
+                                url: cur_site + "team/info/",
+                                // url: "../data/team_index.json",
+                                dataType: "json",
+                                data: {'tid': 1/*tid*/},
+                                success: function (data) {
+                                    var team_img = data.res.imgs;//初始化团队照片
+                                    $("#edit_photo_area").empty().append('<div class="slider"><ul class="slides"> </ul>');
+                                    // 团队图片动态加载
+                                    for (var i = 0; i < team_img.length; i++) {
+                                        $(".slides").append('<li><img src="' + cur_media+team_img[i].path + '" class="piture "></li>')
+                                    }
+                                    // 开启slider
+                                    $('.slider').slider({
+                                        full_width: true,
+                                        height: 250
+                                    });
+                                }
+                            });
+
                         });
 
                     }
@@ -691,11 +732,10 @@ $(function () {
 
     });
 
-})
+});
 
 
 var tag_logo_change=0;//记录团队logo是否上传
-
 //基本信息的编辑
 function F_Open_img() {
     document.getElementById("update_photo").click();
@@ -723,10 +763,16 @@ function F_Open_team_img() {
 
 }
 
+var dyn_team_photo=[];//记录团队照片的变更
+var delete_orgin_photo=[];//记录对之前照片是否存在删除操作
+
+
 function show_team_local_img(file) {//预览图片,添加团队照片
+
     document.getElementById("upload_team_photo").click();
     var reader = new FileReader();
-    var team_photo_num = $(".team_photo").length;
+    var team_photo_num=team_photo_num = $(".team_photo_div").length;
+    //console.log(team_photo_num);
     reader.onload = function (evt) {
         //新增团队照片
         var formData = new FormData();
@@ -743,6 +789,7 @@ function show_team_local_img(file) {//预览图片,添加团队照片
             dataType: 'json'
         }).done(function(res){
             console.log(res.msg);
+            dyn_team_photo.push(res.msg);
             if ((team_photo_num) % 3 == 0) {
                 $("#team_photo_edit").append('<div class="team_photo_div" style="margin-top:10px">' +
                     '<i class="material-icons delete_team_photo">close</i><img src="' + evt.target.result + '" class="team_photo " id="'+res.msg+'"></div>');
@@ -758,6 +805,7 @@ function show_team_local_img(file) {//预览图片,添加团队照片
             else
                 $(".put_team_photo_here").css("margin-top", "-150px");
             $(".put_team_photo_here").css("margin-left", (team_photo_num + 1) % 3 * 170);
+            team_photo_num++;//增加照片的数目
             //监听鼠标的移入事件
             $("#"+res.msg).on("mouseover", function () {
                 $(this).css("opacity", "0.3");
@@ -767,6 +815,16 @@ function show_team_local_img(file) {//预览图片,添加团队照片
             $("#"+res.msg).on("mouseout", function () {
                 $(this).css("opacity", "1");
                 $(this).parent().children('.delete_team_photo').css("visibility", "hidden");
+            });
+            //监听点击删除事件
+            $("#"+res.msg).on("click", function () {
+                var delete_id = ($(this).attr("id"));
+
+                dyn_team_photo.splice($.inArray(delete_id, dyn_team_photo), 1);
+                delete_orgin_photo.push(delete_id);
+
+                $(this).remove();
+                $(this).parent().children('.delete_team_photo').css("visibility", "visible");
             });
 
         })
