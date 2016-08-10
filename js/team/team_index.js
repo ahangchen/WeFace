@@ -62,7 +62,7 @@ $(document).ready(function () {
         url: cur_site + "team/info/",
         // url: "../data/team_index.json",
         dataType: "json",
-        data: {'tid': 1/*tid*/} ,
+        data: {'tid': tid} ,
         success: function (data) {
             // 团队logo路径加载
             var logo = cur_media + data.res.logo_path;
@@ -94,13 +94,18 @@ $(document).ready(function () {
                 height: 250,
             });
             // 团队创始人头像姓名加载
-            $("#leader").attr('src',data.res.stus[0].logo_path);
-            $("#leaderName").html(data.res.stus[0].name);
-            // 团队非创始人成员头像加载
-            var stuNum = data.res.stus.length;
-            for (var i = 1; i < stuNum; i++) {
-                $("#team_member_icon").append('<div class="Head_portrait_div "><img src="'+data.res.stus[i].logo_path+'" alt="头像" class="Head_portrait" /><br><span class="name">'+data.res.stus[i].name+'</span></div>')
+            if(data.res.stus.length < 1) {
+                console.log('no team stu');
+            } else {
+                $("#leader").attr('src',data.res.stus[0].logo_path);
+                $("#leaderName").html(data.res.stus[0].name);
+                // 团队非创始人成员头像加载
+                var stuNum = data.res.stus.length;
+                for (var i = 1; i < stuNum; i++) {
+                    $("#team_member_icon").append('<div class="Head_portrait_div "><img src="'+data.res.stus[i].logo_path+'" alt="头像" class="Head_portrait" /><br><span class="name">'+data.res.stus[i].name+'</span></div>')
+                }
             }
+
 
         },
         error: function (data) {
