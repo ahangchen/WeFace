@@ -82,21 +82,25 @@
                     </div>
                     <form id="post_photo"  enctype="multipart/form-data">
                         <input type="file" id="update_photo" style="display: none" onchange="show_local_img(this)">
-                        <button id="upload" type="button" style="display: none"></button>
                     </form>
                 </div>
 
                 <div id="file_area">
-                    <a class="btn-floating btn waves-effect waves-light white" id="attach_file">
-                        <img src="../res/imgs/attach_file.svg" style="margin-top: 15px;width: 50px;height:50px;"/>
-                    </a>
-                    <form method="post" action="" enctype="multipart/form-data">
-                        <input name="update_file" type="file" style="display: none" id="update_file" onchange="show_local_file()">
-                    </form>
+                    <div onclick="F_Open_file()">
+                        <a class="btn-floating btn waves-effect waves-light white" id="attach_file">
+                            <img src="../res/imgs/attach_file.svg" style="margin-top: 15px;width: 50px;height:50px;"/>
+                        </a>
+                        <form method="post" enctype="multipart/form-data">
+                            <input name="update_file" type="file" style="display: none" id="update_file" onchange="show_local_file()">
+                        </form>
+                    </div>
                     <div style="margin-top: 15px;margin-left: -3px;"><p style="font-size: 20px;">上传简历附件</p></div>
 
                     <div id="file_path" style="display: none">
                         <input type="text" id="file_name"/>
+                        <a id="delete_file" class="btn-floating waves-effect waves-light">
+                            <i id="close_ico" class="material-icons">close</i>
+                        </a>
                     </div>
                 </div>
 
@@ -137,7 +141,7 @@
                             <label for="major_name">输入你的专业</label>
                         </div>
                         <div class="input-field ">
-                            <select class="browser-default">
+                            <select class="browser-default" id="select_location">
                                 <option value="" disabled selected>选择你所在的城市</option>
                                 <option value="1">广州</option>
                                 <option value="2">深圳</option>
@@ -163,7 +167,7 @@
                         </div>
                         <div class="input-field" id="enter_email">
                             <input id="email" type="email" class="validate">
-                            <label for="email"  data-success="right">输入你的邮箱</label>
+                            <label for="email">输入你的邮箱</label>
                             <span class="red-text text-lighten-2">不会显示在您的信息中,您投递简历后会被相应的公司看到</span>
                         </div>
                         <div class="input-field" id="enter_tel">
@@ -1495,6 +1499,7 @@
     <script src="../js/materialize.js"></script>
     <script src="../js/stu/main.js"></script>
     <script src="../js/stu/fix_msg.js"></script>
+    <script src="../js/util.js"></script>
 </body>
 
 </html>
