@@ -250,6 +250,7 @@ $(function () {
         $('#edit-icon').click(function (event) {
             $('#student_message_box').css('display', 'block');
             $('#basic-info').css('display', 'none');
+            nav();
         });
 
         /*-----------------------------获取学生教育经历---------------------------*/
