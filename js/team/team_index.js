@@ -86,7 +86,7 @@ $(document).ready(function () {
 
             // 团队图片动态加载
             for (var i = 0; i < data.res.imgs.length; i++) {
-                $(".slides").append('<li><img src="'+data.res.imgs[i]+'" class="piture "></li>')
+                $(".slides").append('<li><img src="'+cur_media+data.res.imgs[i].path+'" class="piture "></li>')
             }
             // 开启slider
             $('.slider').slider({
