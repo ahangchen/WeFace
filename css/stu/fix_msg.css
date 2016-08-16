@@ -1,14 +1,112 @@
 #student_message_box{
     width:970px;
-    height:900px;
-    position: relative;
+    height:980px;
+    margin-left:auto;
+    margin-right:auto;
     background: rgba(255, 255, 255, 0.5);
     -moz-box-shadow: 0 5px 5px 0 rgba(0, 0, 0, 0.22), 0 10px 10px 0 rgba(0, 0, 0, 0.21);
     -webkit-box-shadow: 0 5px 5px 0 rgba(0, 0, 0, 0.22), 0 10px 10px 0 rgba(0, 0, 0, 0.21);
     box-shadow: 0 5px 5px 0 rgba(0, 0, 0, 0.22), 0 10px 10px 0 rgba(0, 0, 0, 0.21);
 }
 
-#saveButton,#cancelButton{
+#left_one{
+    height: 400px;
+}
+
+
+#photo_area{
+    height:200px;
+    width: 300px;
+}
+
+.put_photo_here{
+    width: 150px;
+    height: 150px;
+    background-color: #dcd8d7;
+    margin-top: 40px;
+    margin-left: 70px;
+    float: left;
+    border-radius: 10px;
+    cursor:pointer;
+    position: relative;
+}
+#photo_camera{
+    margin-left: 30px;
+    margin-top: 30px;
+}
+
+#local_photo{
+    width: 150px;
+    height: 150px;
+    border-radius: 10px;
+    position: absolute;
+}
+
+#file_area{
+    margin-left: 100px;
+    margin-top: 70px;
+    width: 150px;
+    height:150px;
+
+}
+
+#attach_file{
+    width: 80px;
+    height: 80px;
+}
+
+#right_one{
+    margin-top: -400px;
+    margin-left: 450px;
+}
+
+
+#finish_edit{
+    margin-top:40px;
+    height:20px;
+}
+
+#saveButton{
+    margin-left: 10px;
+}
+#cancelButton{
+    margin-left: 10px;
+    color: #000;
+}
+
+#right_one .input-field{
+    width:300px;
+}
+
+#right_one #sex_div{
+    width: 65px;
+}
+
+#right_one #year_div{
+    width:100px;
+}
+
+#right_one #month_div{
+    width:65px;
+}
+
+#delete_file{
+    width: 35px;
+    height: 35px;
+    background-color: #fff;
+    padding: 1px;
+    margin-left: 170px;
+    margin-top: -80px;
+}
+
+#close_ico{
+    color: #fb8c00;
+    width: 30px;
+    height: 30px;
+}
+
+
+/*#saveButton,#cancelButton{
     margin-top: 15px;
     margin-bottom: 15px;
     width: 150px;
@@ -22,18 +120,17 @@
 }
 
 .function_button{
-    width:50%;
-    height: 100%;
-    position: absolute;
-    left: 100px;
+  float:left;
+    margin-left:100px;
 }
 
 .photo_logo{
-    width: 120px;
-    height: 120px;
-    padding:18px;
+    width: 150px;
+    height: 150px;
+    float: left;
+    position:relative;
     margin-top: 50px;
-    margin-left: 50px;
+
     border-radius: 10px;
     background-color: #dbdbdb;
     cursor: pointer;
@@ -108,5 +205,5 @@
     position: absolute;
     left: 450px;
     top:10px;
-}
+}*/
 
