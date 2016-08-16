@@ -249,6 +249,58 @@ $(function () {
         });
         $('#edit-icon').click(function (event) {
             $('#student_message_box').css('display', 'block');
+            $.ajax({
+                type: "POST",
+                data: {'id':1},//data_info,
+                url: cur_site + "student/info/get/",
+                dataType: "json",
+                success: function (data) {
+                    $("#first_name").val(data.name);
+                    $("#school_name").val(data.school);
+                    $("#major_name").val(data.major);
+                    $("#email").val(data.mail);
+                    $("#tel").val(data.tel);
+                    //获得性别
+                    var all_options = document.getElementById("select_sex").options;
+                    for (var i=0; i<all_options.length; i++){
+                        if (all_options[i].value == data.sex)
+                        {
+                            all_options[i].selected = true;
+                        }
+                    }
+                    //获得出生年月
+                    all_options = document.getElementById("select_year").options;
+                    for (var i=0; i<all_options.length; i++){
+                        if (all_options[i].value == data.year)
+                        {
+                            all_options[i].selected = true;
+                        }
+                    }
+
+                    //获得出生月份
+                    all_options = document.getElementById("select_month").options;
+                    for (var i=0; i<all_options.length; i++){
+                        if (all_options[i].value == data.month)
+                        {
+                            all_options[i].selected = true;
+                        }
+                    }
+
+                    //获得所在地
+                    all_options = document.getElementById("select_location").options;
+                    for (var i=0; i<all_options.length; i++){
+                        if (all_options[i].value==data.location)
+                        {
+                            all_options[i].selected = true;
+                        }
+                    }
+
+                    //获得头像
+                    $("#local_photo").attr('src',cur_media+data.avatar_path);
+
+
+                }
+            });
             $('#basic-info').css('display', 'none');
             nav();
         });
