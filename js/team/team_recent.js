@@ -64,6 +64,7 @@ $.ajax({
 function show(toUrl, id, logo, teamName, recentContain) {
     var linkDiv = $('<a></a>');
     linkDiv.attr("href", toUrl + id);
+
     var recentDiv = $('<div></div>');
     linkDiv.append(recentDiv);
     recentDiv.attr("class", "show_team shadow");
@@ -81,3 +82,62 @@ function show(toUrl, id, logo, teamName, recentContain) {
     recentText.append(recent_h2);
     return linkDiv;
 }
+
+$.ajax({
+    type: "GET",
+    url: cur_site + "team/team/newest",
+    dataType: "json",
+    success: function (data) {
+        for(var i=0;i<data.res.length;i++){
+            var link_a=$('<a></a>');
+            link_a.attr("href",data.res[i].tid);
+            $("#team_card").append(link_a);
+            var cardContainer=$('<div></div>');
+            cardContainer.attr("class","card shadow");
+            link_a.append(cardContainer);
+            var team_logo=$('<img/>');
+            team_logo.attr("src",cur_media+data.res[i].logo_path);
+            cardContainer.append(team_logo);
+            var cardText=$('<div></div>');
+            cardText.attr("class","card_text");
+            cardContainer.append(cardText);
+            var team_name=$('<span></span>');
+            team_name.text(data.res[i].name);
+            cardText.append(team_name);
+            var aboutTeam=$('<h2></h2>');
+            aboutTeam.text(data.res[i].about);
+            cardText.append(aboutTeam);
+            var teamProject=$('<h3></h3>');
+            teamProject.text(data.res[i].proj_cnt+"个团队项目");
+            cardText.append(teamProject);
+            var teamMember=$('<h3></h3>');
+            teamMember.text(data.res[i].stu_cnt+"个团队成员");
+            cardText.append(teamMember);
+            var teamJob=$('<h3></h3>');
+            teamJob.text(data.res[i].job_cnt+"个团队任务");
+            cardText.append(teamJob);
+            var teamSlogan=$('<p></p>');
+            teamSlogan.text("团队标语:"+data.res[i].slogan);
+            cardContainer.append(teamSlogan);
+        }
+        var addMore=$('<div></div>');
+        addMore.attr("class","more");
+        $("#team_card").append(addMore);
+        var moreLink=$('<a></a>');
+        moreLink.attr("class","waves-effect waves-light btn  orange accent-2");
+        moreLink.attr("href","../main/search.html");
+        addMore.append(moreLink);
+        moreLink.text("加载更多");
+        var icons=$('<i></i>');
+        icons.attr("class","material-icons right");
+        icons.text("cloud");
+        moreLink.append(icons);
+
+    },
+    error: function (jqXHR) {
+        alert("发生错误" + jqXHR.status);
+    }
+
+});
+
+
