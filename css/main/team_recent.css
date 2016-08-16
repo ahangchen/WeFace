@@ -156,7 +156,7 @@ body,ul,h1,h2,div,p{
 
 .main_card{
     width: 970px;
-    height: 750px;
+    height: 100%;
     margin: 5px auto;
 }
 
@@ -201,9 +201,30 @@ body,ul,h1,h2,div,p{
     font-size: 15px;
     font-weight: normal;
     color: #ff8f00;
+    margin: 0.5rem 0.5rem 0.5rem 0.5rem;
 }
 
 .card p{
     line-height: 40px;
     color: black;
+}
+
+a.waves-effect.waves-light.btn i{
+    color: white;
+}
+
+.more{
+    margin:5px auto;
+    width: 970px;
+    position: absolute;
+    text-align: center;
+    /*display: inline-block;*/
+}
+
+.more a{
+    color: white;
+}
+
+.more a:visited,link{
+    color: white;
 }
