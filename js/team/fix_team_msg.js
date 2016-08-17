@@ -5,194 +5,217 @@ $(function () {
     //修改团队介绍
     $("#fix_team_intro").on("click", function () {
         //获取旧的团队介绍
-        $.getJSON(cur_site + "team/info?tid=1"/*"../data/team_index.json"*/, function (data) {
-            var change_line = (data.res.about).split('<br>').length - 1;//得到有几个换行
-            oldIntro = data.res.about;
-            for (var i = 0; i < change_line; i++)
-                oldIntro = oldIntro.replace('<br>', '\n');//在input中正常显示
-            oldTid = data.res.tid;
-            oldName = data.res.name;
-            oldLogoPath = data.res.logo_path;
-            oldSlogan = data.res.slogan;
-            oldAbout = data.res.about;
-            oldHistory = data.res.history;
-            //先只得到一个行业类型
-            oldBType = data.res.b_type;
-            $.ajax({
-                type: "get",
-                url: "team_intro.html",
-                dataType: "html",
-                success: function (data) {
-                    //解除累加绑定
-                    //$("#fix_team_intro").unbind('click');
-                    //获取修改团队介绍界面
-                    $("#team_introuduction").html(data);
-                    //初始化要修改的信息
-                    $("#team_intro").val(oldIntro + '\n\n').trigger('autoresize');
-                    //保存对团队介绍的编辑,post
-                    $("#intro_saveButton").on("click", function () {
-                        var up_intro = $("#team_intro").val().replace(/\n\n/, '');//把每次多余的\n去掉
-                        var new_intro = up_intro.replace(/\n/gm, '<br>');//所有的分点能换行,显示换行效果
-                        //console.log(new_intro);
-                        $("#team_introuduction").html(new_intro);
-                        var result = {
-                            tid: oldTid,
-                            name: oldName,
-                            logo_path: oldLogoPath,
-                            slogan: oldSlogan,
-                            about: up_intro,
-                            history: oldHistory,
-                            b_type: oldBType
-                        };
-                        $.ajax({
-                            type: 'POST',
-                            data: result,
-                            url: cur_site + 'team/update_team_info/',
-                            xhrFields: {withCredentials: true},
-                            dataType: 'json',
-                            success: function (data) {
-                                console.log(data.msg);
-                            }
-                        })
-                    });
-                    //取消对团队介绍的编辑
-                    $("#intro_cancelButton").on("click", function () {
-                        $("#team_introuduction").empty().html(oldIntro);
-                    });
-                    //点击分点按钮进行分点
-                    $("#intro_list_auto").unbind("click").on("click", function () {
-                        var temp = ($("#team_intro").val()).replace(/\n\n/, "");
-                        $("#team_intro").val(temp + '\n' + '◆' + '\n\n').trigger('autoresize');
-                        /*var temp;
-                         if(oldIntro==$("#team_intro").val()){
-                         temp=($("#team_intro").val()).replace(/\n\n/, "")+'\n'+'◆';
-                         }
-                         else
-                         temp=($("#team_intro").val()).replace(/\n\n/, "")+'◆';
-                         $("#team_intro").val(temp+'\n').trigger('autoresize');*/
-                    });
-                }
-            })
+        $.ajax({
+            type: 'GET',
+            url: cur_site + "team/info/",
+            // url: "../data/team_index.json",
+            dataType: "json",
+            data: {'tid': 1/*tid*/},
+            success: function (data) {
+                var change_line = (data.res.about).split('<br>').length - 1;//得到有几个换行
+                oldIntro = data.res.about;
+                for (var i = 0; i < change_line; i++)
+                    oldIntro = oldIntro.replace('<br>', '\n');//在input中正常显示
+                oldTid = data.res.tid;
+                oldName = data.res.name;
+                oldLogoPath = data.res.logo_path;
+                oldSlogan = data.res.slogan;
+                oldAbout = data.res.about;
+                oldHistory = data.res.history;
+                //先只得到一个行业类型
+                oldBType = data.res.b_type;
+                $.ajax({
+                    type: "get",
+                    url: "team_intro.html",
+                    dataType: "html",
+                    success: function (data) {
+                        //解除累加绑定
+                        //$("#fix_team_intro").unbind('click');
+                        //获取修改团队介绍界面
+                        $("#team_introuduction").html(data);
+                        //初始化要修改的信息
+                        $("#team_intro").val(oldIntro + '\n\n').trigger('autoresize');
+                        //保存对团队介绍的编辑,post
+                        $("#intro_saveButton").on("click", function () {
+                            var up_intro = $("#team_intro").val().replace(/\n\n/, '');//把每次多余的\n去掉
+                            var new_intro = up_intro.replace(/\n/gm, '<br>');//所有的分点能换行,显示换行效果
+                            //console.log(new_intro);
+                            $("#team_introuduction").html(new_intro);
+                            var result = {
+                                tid: oldTid,
+                                name: oldName,
+                                logo_path: oldLogoPath,
+                                slogan: oldSlogan,
+                                about: up_intro,
+                                history: oldHistory,
+                                b_type: oldBType
+                            };
+                            $.ajax({
+                                type: 'POST',
+                                data: result,
+                                url: cur_site + 'team/update_team_info/',
+                                xhrFields: {withCredentials: true},
+                                dataType: 'json',
+                                success: function (data) {
+                                    console.log(data.msg);
+                                }
+                            })
+                        });
+                        //取消对团队介绍的编辑
+                        $("#intro_cancelButton").on("click", function () {
+                            $("#team_introuduction").empty().html(oldIntro);
+                        });
+                        //点击分点按钮进行分点
+                        $("#intro_list_auto").unbind("click").on("click", function () {
+                            var temp = ($("#team_intro").val()).replace(/\n\n/, "");
+                            $("#team_intro").val(temp + '\n' + '◆' + '\n\n').trigger('autoresize');
+                            /*var temp;
+                             if(oldIntro==$("#team_intro").val()){
+                             temp=($("#team_intro").val()).replace(/\n\n/, "")+'\n'+'◆';
+                             }
+                             else
+                             temp=($("#team_intro").val()).replace(/\n\n/, "")+'◆';
+                             $("#team_intro").val(temp+'\n').trigger('autoresize');*/
+                        });
+                    }
+                })
+            }
         });
+
     });
 
     //团队发展历史的编辑
     $("#history_button").on("click", function () {
         //获取旧的团队历史
-        $.getJSON(cur_site + "team/info?tid=1", function (data) {
-            oldHistory = data.res.history + '\n\n';
-            oldIntro = data.res.about;
-            oldTid = data.res.tid;
-            oldName = data.res.name;
-            oldLogoPath = data.res.logo_path;
-            oldSlogan = data.res.slogan;
-            oldAbout = data.res.about;
-            oldBType = data.res.b_type;
+        $.ajax({
+            type: 'GET',
+            url: cur_site + "team/info/",
+            // url: "../data/team_index.json",
+            dataType: "json",
+            data: {'tid': 1/*tid*/},
+            success: function (data) {
+                oldHistory = data.res.history + '\n\n';
+                oldIntro = data.res.about;
+                oldTid = data.res.tid;
+                oldName = data.res.name;
+                oldLogoPath = data.res.logo_path;
+                oldSlogan = data.res.slogan;
+                oldAbout = data.res.about;
+                oldBType = data.res.b_type;
 
-            $.ajax({
-                type: "get",
-                url: "develop_history.html",
-                dataType: "html",
-                success: function (data) {
-                    //解除累加绑定
-                    //$("#history_button").unbind("click");
-                    //获取修改团队历史的界面
-                    $("#history_text").html(data);
-                    //初始化修改团队历史的信息
-                    $("#develop_history").val(oldHistory).trigger('autoresize');
+                $.ajax({
+                    type: "get",
+                    url: "develop_history.html",
+                    dataType: "html",
+                    success: function (data) {
+                        //解除累加绑定
+                        //$("#history_button").unbind("click");
+                        //获取修改团队历史的界面
+                        $("#history_text").html(data);
+                        //初始化修改团队历史的信息
+                        $("#develop_history").val(oldHistory).trigger('autoresize');
 
-                    //取消对团队历史的编辑
-                    $("#history_cancelButton").on("click", function () {
-                        $("#history_text").empty().html(oldHistory);
-                    });
-                    //保存对团队历史的修改,post
-                    $("#history_saveButton").unbind('click').on("click", function () {
-                        var up_history = $("#develop_history").val();
-                        var new_History = $("#develop_history").val().replace(/\n/gm, '<br>');//所有的分点能换行
-                        $("#history_text").html(new_History);
-                        var result = {
-                            tid: oldTid,
-                            name: oldName,
-                            logo_path: oldLogoPath,
-                            slogan: oldSlogan,
-                            about: oldIntro,
-                            history: up_history,
-                            b_type: oldBType
-                        };
-                        $.ajax({
-                            type: 'POST',
-                            data: result,
-                            url: cur_site + 'team/update_team_info/',
-                            xhrFields: {withCredentials: true},
-                            dataType: 'json',
-                            success: function (data) {
-                                console.log(data.msg);
+                        //取消对团队历史的编辑
+                        $("#history_cancelButton").on("click", function () {
+                            $("#history_text").empty().html(oldHistory);
+                        });
+                        //保存对团队历史的修改,post
+                        $("#history_saveButton").unbind('click').on("click", function () {
+                            var up_history = $("#develop_history").val();
+                            var new_History = $("#develop_history").val().replace(/\n/gm, '<br>');//所有的分点能换行
+                            $("#history_text").html(new_History);
+                            var result = {
+                                tid: oldTid,
+                                name: oldName,
+                                logo_path: oldLogoPath,
+                                slogan: oldSlogan,
+                                about: oldIntro,
+                                history: up_history,
+                                b_type: oldBType
+                            };
+                            $.ajax({
+                                type: 'POST',
+                                data: result,
+                                url: cur_site + 'team/update_team_info/',
+                                xhrFields: {withCredentials: true},
+                                dataType: 'json',
+                                success: function (data) {
+                                    console.log(data.msg);
+                                }
+                            })
+                        });
+
+                        //点击分点按钮进行分点
+                        $("#history_list_auto").unbind("click").on("click", function () {
+                            var temp;
+                            if (oldHistory == $("#develop_history").val()) {
+                                temp = ($("#develop_history").val()).replace(/\n\n/, "") + '\n' + '◆';
                             }
-                        })
-                    });
-
-                    //点击分点按钮进行分点
-                    $("#history_list_auto").unbind("click").on("click", function () {
-                        var temp;
-                        if (oldHistory == $("#develop_history").val()) {
-                            temp = ($("#develop_history").val()).replace(/\n\n/, "") + '\n' + '◆';
-                        }
-                        else
-                            temp = ($("#develop_history").val()).replace(/\n\n/, "") + '◆';
-                        $("#develop_history").val(temp + '\n').trigger('autoresize');
-                    });
-                }
-            })
+                            else
+                                temp = ($("#develop_history").val()).replace(/\n\n/, "") + '◆';
+                            $("#develop_history").val(temp + '\n').trigger('autoresize');
+                        });
+                    }
+                })
+            }
         });
     });
 
     //修改团队的联系方式
     $("#team_connect").on("click", function () {
         //获取旧的团队联系方式
-        $.getJSON(cur_site + "team/info?tid=1", function (data) {
-            team_tel = data.res.tel;
-            team_mail = data.res.mail;
+        $.ajax({
+            type: 'GET',
+            url: cur_site + "team/info/",
+            // url: "../data/team_index.json",
+            dataType: "json",
+            data: {'tid': 1/*tid*/},
+            success: function (data) {
+                team_tel = data.res.tel;
+                team_mail = data.res.mail;
 
-            $.ajax({
-                type: "get",
-                url: "team_connect.html",
-                dataType: "html",
-                success: function (data) {
-                    //解除之前的累计点击
-                    //$("#team_connect").unbind("click");
-                    //获取到修改联系方式的页面
-                    $("#member_information").html(data);
-                    //初始化要改的数据
-                    $("#connect_tel").val(team_tel).trigger('autoresize');
-                    $("#connect_mail").val(team_mail).trigger('autoresize');
-                    //取消对团队联系方式的修改
-                    $("#connect_cancelButton").on("click", function () {
-                        $("#member_information").empty().html(team_tel + "<br>" + team_mail);
-                    });
-                    //保存对团队联系方式的修改,post,显示新的
-                    $("#connect_saveButton").unbind('click').on("click", function () {
-                        var new_tel = $("#connect_tel").val();
-                        var new_mail = $("#connect_mail").val();
-                        $("#member_information").html(new_tel + "<br>" + new_mail);
-                        var result = {
-                            "tid": 1,
-                            "tel": new_tel,
-                            "mail": new_mail
-                        };
-                        $.ajax({
-                            type: 'POST',
-                            data: result,
-                            url: cur_site + 'team/update_team_contact/',
-                            xhrFields: {withCredentials: true},
-                            dataType: 'json',
-                            success: function (data) {
-                                console.log(data.msg);
-                            }
-                        })
-                    });
-                }
-            });
-        })
+                $.ajax({
+                    type: "get",
+                    url: "team_connect.html",
+                    dataType: "html",
+                    success: function (data) {
+                        //解除之前的累计点击
+                        //$("#team_connect").unbind("click");
+                        //获取到修改联系方式的页面
+                        $("#member_information").html(data);
+                        //初始化要改的数据
+                        $("#connect_tel").val(team_tel).trigger('autoresize');
+                        $("#connect_mail").val(team_mail).trigger('autoresize');
+                        //取消对团队联系方式的修改
+                        $("#connect_cancelButton").on("click", function () {
+                            $("#member_information").empty().html(team_tel + "<br>" + team_mail);
+                        });
+                        //保存对团队联系方式的修改,post,显示新的
+                        $("#connect_saveButton").unbind('click').on("click", function () {
+                            var new_tel = $("#connect_tel").val();
+                            var new_mail = $("#connect_mail").val();
+                            $("#member_information").html(new_tel + "<br>" + new_mail);
+                            var result = {
+                                "tid": 1,
+                                "tel": new_tel,
+                                "mail": new_mail
+                            };
+                            $.ajax({
+                                type: 'POST',
+                                data: result,
+                                url: cur_site + 'team/update_team_contact/',
+                                xhrFields: {withCredentials: true},
+                                dataType: 'json',
+                                success: function (data) {
+                                    console.log(data.msg);
+                                }
+                            })
+                        });
+                    }
+                });
+            }
+        });
+
     });
 
 
@@ -708,7 +731,7 @@ $(function () {
                                     data: {'tid': 1/*tid*/},
                                     success: function (data) {
                                         var new_team_img = data.res.imgs;//初始化团队照片
-                                        //console.log(new_team_img.length);
+                                        console.log(new_team_img.length);
                                         $("#edit_photo_area").empty().append('<div class="slider"><ul class="slides"> </ul>');
                                         // 团队图片动态加载
                                         for (var i = 0; i < new_team_img.length; i++) {
