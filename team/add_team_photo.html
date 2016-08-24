@@ -7,7 +7,7 @@
 <body>
 <div>
 
-    <div id="team_photo_edit">
+    <!--<div id="team_photo_edit">
 
     </div>
 
@@ -23,8 +23,22 @@
     <div class="photo_edit_complete">
         <a id="save_photo_edit" class="waves-effect waves-light btn">保存</a>
         <a id="cancel_photo_edit" class="waves-effect waves-light btn">取消</a>
+    </div>-->
+    <table id="team_photo_table">
+    </table>
+    <div class="photo_edit_complete">
+        <a id="save_photo_edit" class="waves-effect waves-light btn">保存</a>
+        <a id="cancel_photo_edit" class="waves-effect waves-light btn">取消</a>
     </div>
-
+</div>
+<div id="confirm_delete" class="modal" style="width: 500px;">
+    <div class="modal-content">
+        <p>你确定要删除么?</p>
+    </div>
+    <div class="modal-footer">
+        <a  id="yes" class=" modal-action modal-close waves-effect waves-green btn-flat">确定</a>
+        <a  id="no" class=" modal-action modal-close waves-effect waves-green btn-flat">取消</a>
+    </div>
 </div>
 </body>
 </html>
