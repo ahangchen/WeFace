@@ -402,6 +402,7 @@
 }
 
 .job_type{
+   /* margin-top: 5px;*/
 
 }
 
@@ -419,10 +420,6 @@
     margin-top: 20px;
 }
 
-#team_photo_edit .team_photo{
-    width: 150px;
-    height: 150px;
-}
 
 .photo_edit_complete{
     margin-left: 170px;
@@ -474,5 +471,21 @@
     visibility: hidden;
 
 }
+
+/*------------*/
+#team_photo_table .team_photo{
+    width: 150px;
+    height: 150px;
+}
+
+#team_photo_table td{
+    width: 150px;
+}
+
+#team_photo_table{
+    width: 500px;
+    height: 500px;
+}
+
 
 
