@@ -616,7 +616,7 @@ $(function () {
                         listentodelete(team_img);//监听删除
 
                         $("#save_photo_edit").on('click',function(){//保存改变
-                            console.log(old_delete.length);
+                            var record_length=old_delete.length;
                             if(old_delete.length!=0) {//没有删除旧的照片
                                 for (var i = 0; i < old_delete.length; i++) {
                                     var result = {'tid': 1, 'img_id': old_delete[i]};
@@ -627,8 +627,7 @@ $(function () {
                                         xhrFields: {withCredentials: true},
                                         data: result,
                                         success: function (res) {
-                                            console.log(res);
-                                            if (i == old_delete.length) {
+                                            if (i == record_length) {
                                                 $.ajax({
                                                     type: 'GET',
                                                     url: cur_site + "team/info/",
@@ -681,6 +680,7 @@ $(function () {
                             }
                             old_delete.length = 0;//清除
                             cancel_display.length=0;//清除
+                            new_increase_photo.length=0;//清除
                         });
 
                         //监听取消事件
@@ -708,7 +708,6 @@ $(function () {
                                                 full_width: true,
                                                 height: 250
                                             });
-                                            new_increase_photo.length = 0;//清除
                                         }
                                     });
                                 }
@@ -727,6 +726,8 @@ $(function () {
                             }
                             old_delete.length = 0;//清除
                             cancel_display.length=0;//清除
+                            new_increase_photo.length=0;//清除
+
                         });
 
                     }
@@ -810,6 +811,7 @@ $(function () {
                 $("#team_photo_table").empty();
                 $("#confirm_delete").closeModal();
                 //console.log(new_team_img);
+                console.log(team_img);
                 append_photo_add(team_img.length,team_img);
                 listentomousemove();
                 listentodelete(team_img);
