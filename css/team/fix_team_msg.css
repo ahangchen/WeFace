@@ -40,17 +40,18 @@
 }
 
 .job_type{
-    width: 150px;
+    width: 100px;
     height: 42px;
-    margin-top: -35px;
+    /*margin-top: -35px;*/
 
 }
 
 .add_type{
-    margin-left: 120px;
-    margin-top: -60px;
-   width: 35px;
+    /*margin-left: 120px;
+    margin-top: -60px;*/
+    width: 35px;
     height: 35px;
+    margin-top: 25px;
 }
 
 .team_number{
@@ -358,7 +359,6 @@
 }
 
 .team_type_fix{
-    margin-top: 10px;
     margin-left: 5px;
     background-color: #fff;
     text-align: center;
@@ -371,7 +371,6 @@
 .tag_select{
     width: 100px;
     height: 30px;
-    margin-top: 5px;
 }
 
 #show_type_as_tag{
@@ -486,6 +485,12 @@
     width: 500px;
     height: 500px;
 }
+
+#team_belong_type td{
+    width: 130px;
+}
+
+
 
 
 
