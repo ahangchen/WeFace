@@ -1,4 +1,5 @@
 $(function () {
+    var tid = getId();//从url得到学生的id
 
     var oldIntro, oldHistory, team_tel, team_mail, oldTid, oldName, oldLogoPath, oldSlogan, oldAbout, oldBType, oldLabel;
 
@@ -195,399 +196,485 @@ $(function () {
         })
     });
 
-
-    //对团队的基本信息进行修改
+    //对基本信息进行编辑
     $("#fix_msg_button").on("click", function () {
         $("#fix_msg_button").css("opacity", '0');
         $("#remove_basic_msg").empty();
-        $.ajax({
-            type: "get",
-            url: "basic_msg_for_team.html",
-            dataType: "html",
-            success: function (data) {
-                //对修改页面的加载
-                $("#remove_basic_msg").html(data);
-                var b_type_id = [];
-                var b_type_name = [];
-                //请求团队的职业类型
-                $.getJSON(cur_site + "team/business/", function (data) {
-                    if (data.err == 0) {
-                        for (var i = 0; i < data.msg.length; i++) {
-                            $(".tag_select").append('<option id="option' + i + '"value=' + data.msg[i].id + '>' + data.msg[i].name + '</option>');
-                            b_type_id.push(data.msg[i].id);
-                            b_type_name.push(data.msg[i].name);
+
+
+            $.ajax({
+                type: "get",
+                url: "basic_msg_for_team.html",
+                dataType: "html",
+                success: function (data) {
+                    //对修改页面的加载
+                    $("#remove_basic_msg").html(data);
+                    //请求团队的职业类型,初始化选择框
+                    $.ajax({
+                        type: "get",
+                        url: cur_site + "team/business/",
+                        dataType: "json",
+                        success: function (data) {
+                            var all_team_type = data.msg;
+
+
+                            $.ajax({
+                                type: 'GET',
+                                url: cur_site + "team/info/",
+                                dataType: "json",
+                                data: {'tid': tid},
+                                success: function (data) {
+                                    console.log(data);
+                                    var team_name = data.res.name;
+                                    var team_slogan = data.res.slogan;
+                                    var team_member_num = data.res.man_cnt;
+                                    var team_logo = data.res.logo_path;
+                                    var team_about=data.res.about;
+                                    var team_history=data.res.history;
+                                    //对label的操作,对最原始的label,删除,不post,对新加的label删除直接post,记录新加的label,在取消的时候删除
+                                    var team_label = data.res.label;
+                                    var old_label = team_label;//原始的label
+                                    var new_label = [];//新加的label
+                                    var delete_old_label = [];//删除的旧标签
+                                    var team_type = [];
+                                    /*for(var i=0;i<data.res.b_type.length;i++){
+                                     team_type.push(data.res.b_type[i]);
+                                     }*/
+                                    team_type.push(data.res.b_type);
+                                    var new_team_type_name=[];
+                                    var team_type_name=[];
+                                     for(var i=0;i<team_type.length;i++){
+                                         for(var j=0;j<all_team_type.length;j++){
+                                             if(all_team_type[j].id==team_type[i]){
+                                             team_type_name.push(all_team_type[j].name);
+                                                 new_team_type_name.push(all_team_type[j].name);
+                                             }
+                                         }
+                                     }
+
+
+                                    $("#team_name").val(team_name);
+                                    $("#team_number").val(team_member_num + '人团队');
+                                    $("#team_slogan").val(team_slogan);
+                                    $("#local_photo").attr('src', cur_media + team_logo);
+                                    if (team_label.length == 0) {
+                                        $('.chips-placeholder').material_chip({
+                                            secondaryPlaceholder: '请输入团队标签'
+                                        });
+                                    }
+                                    else {
+                                        var team_label_data = [];
+                                        for (var i = 0; i < team_label.length; i++) {
+                                            var tag_temp = {
+                                                tag: team_label[i],
+                                                id: i
+                                            };
+                                            team_label_data.push(tag_temp);
+                                        }
+                                        $('.chips-initial').material_chip({//要用一定的格式
+                                            data: team_label_data,
+                                            placeholder: "请输入团队标签"
+                                        });
+                                        if (team_label.length == 8) {
+                                            $('.chips-initial .input').remove();
+                                        }
+                                    }
+                                    editlabel(old_label, new_label, delete_old_label);
+                                    deletelabel(old_label, new_label, delete_old_label);
+                                    showtype(team_type_name,all_team_type);
+                                    addType(new_team_type_name,all_team_type);
+                                    deleteType(new_team_type_name,all_team_type);
+
+
+
+                                    //保存对基本信息的编辑
+                                    $("#saveButton").on("click", function () {
+                                            //删除旧的删除标签
+                                        if(delete_old_label.length!=0) {
+                                            for (var i = 0; i < delete_old_label.length; i++) {
+                                                var result = {
+                                                    tid: tid,
+                                                    name: delete_old_label[i]
+                                                };
+
+                                            }
+                                            $.ajax({
+                                                type: 'POST',
+                                                data: result,
+                                                url: cur_site + "team/rm_team_label/",
+                                                xhrFields: {withCredentials: true},
+                                                dataType: 'json',
+                                                success: function (data) {
+                                                    console.log(data);
+                                                }
+                                            });
+                                        }
+
+                                        var newName=$("#team_name").val();
+                                        var newSlogan= $("#team_slogan").val();
+                                        var new_team_type=[];
+                                        var new_team_label=[];
+                                        for(var k=0;k<old_label.length;k++){
+                                            if(old_label[k]!=delete_old_label[k]){
+                                                new_team_label.push(old_label[k]);
+                                            }
+                                        }
+                                        for(var k=0;k<new_label.length;k++){
+                                            new_team_label.push(new_label[k]);
+                                        }
+                                        if(new_team_type_name.length!=0){
+                                            for(var i=0;i<new_team_type_name.length;i++){
+                                                for(var j=0;j<all_team_type.length;j++){
+                                                    if(all_team_type[j].name==new_team_type_name[i]){
+                                                        new_team_type.push(all_team_type[j].id);
+                                                    }
+                                                }
+                                            }
+                                        }
+                                        else{
+                                            for(var i=0;i<team_type.length;i++){
+                                                new_team_type.push(team_type[i]);
+                                            }
+                                        }
+
+
+                                        if (tag_logo_change == 1) {//表示有上传新的logo,保存
+                                            var formData = new FormData();
+                                            formData.append('name', $("#update_photo").val());
+                                            formData.append('photo', $('#update_photo')[0].files[0]);
+                                            //上传照片
+                                            $.ajax({
+                                                url: cur_site + "team/upload_logo/",
+                                                type: "POST",
+                                                cache: false,
+                                                dataType: 'json',
+                                                data: formData,
+                                                processData: false,
+                                                contentType: false
+                                            }).done(function (res) {
+                                                console.log(res);
+                                                var new_team_logo=res.msg;
+                                                var result = {
+                                                    tid: tid,
+                                                    name: newName,
+                                                    logo_path: new_team_logo.replace(cur_media,""),
+                                                    slogan: newSlogan,
+                                                    about: team_about,
+                                                    history: team_history,
+                                                    b_type: new_team_type
+                                                };
+                                                $.ajax({
+                                                    type: 'POST',
+                                                    data: result,
+                                                    url: cur_site + "team/update_team_info/",
+                                                    xhrFields: {withCredentials: true},
+                                                    dataType: 'json',
+                                                    success: function (data) {
+                                                        console.log(data.msg);
+                                                        $("#fix_msg_button").css("opacity", '1');
+                                                        $("#remove_basic_msg").empty().append(
+                                                            '<div id="team_logo_div"><img src="' +cur_media+ new_team_logo+ '" id="team_logo"></div>' +
+                                                            '<div id="information"><p id="p1">' + newName+ '</p><p id="p2">' + new_team_type_name[0] + '</p>' +
+                                                            '<p id="p3">' + team_about + '</p> ' +
+                                                            '<p id="p4">' + team_member_num + "人团队" + '</p>'+
+                                                            '<p id="p5">' + newSlogan + '</p></div>'+
+                                                            '<div id="information_three"></div>'
+                                                        );
+                                                        //动态加载div
+                                                        var tag_cnt = new_team_label.length;
+                                                        for (var j = 0; j < tag_cnt; j++) {
+                                                            $("#information_three").append('<div class="tag"></div>');
+                                                        }
+                                                        var tag = $(".tag");
+                                                        for (var j = 0; j < new_team_label.length; j++) {
+                                                            $(tag[j]).html(new_team_label[j]);
+                                                        }
+                                                    }
+                                                });
+
+
+
+                                            });
+
+                                        }
+
+                                        else {//表示没有改变
+                                            var result = {
+                                                tid: tid,
+                                                name: newName,
+                                                logo_path: team_logo,
+                                                slogan: newSlogan,
+                                                about: team_about,
+                                                history: team_history,
+                                                b_type: new_team_type
+                                            };
+
+                                            $.ajax({
+                                                type: 'POST',
+                                                data: result,
+                                                url: cur_site + "team/update_team_info/",
+                                                xhrFields: {withCredentials: true},
+                                                dataType: 'json',
+                                                success: function (data) {
+                                                    console.log(data.msg);
+                                                    $("#fix_msg_button").css("opacity", '1');
+                                                    $("#remove_basic_msg").empty().append(
+                                                        '<div id="team_logo_div"><img src="' +cur_media+ team_logo + '" id="team_logo"></div>' +
+                                                        '<div id="information"><p id="p1">' + newName+ '</p><p id="p2">' + new_team_type_name[0] + '</p>' +
+                                                        '<p id="p3">' + team_about + '</p> ' +
+                                                        '<p id="p4">' + team_member_num + "人团队" + '</p>'+
+                                                        '<p id="p5">' + newSlogan + '</p></div>'+
+                                                        '<div id="information_three"></div>'
+                                                    );
+                                                    //动态加载div
+                                                    var tag_cnt = new_team_label.length;
+                                                    for (var j = 0; j < tag_cnt; j++) {
+                                                        $("#information_three").append('<div class="tag"></div>');
+                                                    }
+                                                    var tag = $(".tag");
+                                                    for (var j = 0; j < new_team_label.length; j++) {
+                                                        $(tag[j]).html(new_team_label[j]);
+                                                    }
+                                                }
+                                            });
+
+                                        }
+                                        new_team_type.length=0;
+                                        new_team_label.length=0;
+
+                                    });
+
+
+                                    //取消对基本信息的编辑
+                                    $("#cancelButton").on("click", function () {
+                                        var length_temp=new_label.length;
+                                        if(length_temp!=0){
+                                            for (var i = 0; i < new_label.length; i++) {
+                                                var result = {
+                                                    tid: tid,
+                                                    name: new_label[i]
+                                                };
+                                                $.ajax({
+                                                    type: 'POST',
+                                                    data: result,
+                                                    url: cur_site + "team/rm_team_label/",
+                                                    xhrFields: {withCredentials: true},
+                                                    dataType: 'json',
+                                                    success: function (data) {
+                                                        console.log(data);
+                                                            $("#fix_msg_button").css("opacity", '1');
+                                                            $("#remove_basic_msg").empty().append(
+                                                                '<div id="team_logo_div"><img src="' +cur_media+ team_logo + '" id="team_logo"></div>' +
+                                                                '<div id="information"><p id="p1">' + team_name+ '</p><p id="p2">' + team_type_name[0] + '</p>' +
+                                                                '<p id="p3">' + team_about + '</p> ' +
+                                                                '<p id="p4">' + team_member_num + "人团队" + '</p>'+
+                                                                '<p id="p5">' + team_slogan + '</p></div>'+
+                                                                '<div id="information_three"></div>'
+                                                            );
+                                                            //动态加载div
+                                                            var tag_cnt = old_label.length;
+                                                            for (var j = 0; j < tag_cnt; j++) {
+                                                                $("#information_three").append('<div class="tag"></div>');
+                                                            }
+                                                            var tag = $(".tag");
+                                                            for (var j = 0; j < old_label.length; j++) {
+                                                                $(tag[j]).html(old_label[j]);
+                                                            }
+                                                    }
+                                                });
+                                            }
+                                        }
+                                        else{
+                                            $("#fix_msg_button").css("opacity", '1');
+                                            $("#remove_basic_msg").empty().append(
+                                                '<div id="team_logo_div"><img src="' +cur_media+ team_logo + '" id="team_logo"></div>' +
+                                                '<div id="information"><p id="p1">' + team_name+ '</p><p id="p2">' + team_type_name[0] + '</p>' +
+                                                '<p id="p3">' + team_about + '</p> ' +
+                                                '<p id="p4">' + team_member_num + "人团队" + '</p>'+
+                                                '<p id="p5">' + team_slogan + '</p></div>' +
+                                                '<div id="information_three"></div>'
+                                            );
+                                            //动态加载div
+                                            var tag_cnt = old_label.length;
+                                            for (var i = 0; i < tag_cnt; i++) {
+                                                $("#information_three").append('<div class="tag"></div>');
+                                            }
+                                            var tag = $(".tag");
+                                            for (var i = 0; i < old_label.length; i++) {
+                                                $(tag[i]).html(old_label[i]);
+                                            }
+                                        }
+                                    });
+
+
+                                },
+                                error: function (data) {
+                                    console.log('get team info error');
+                                },
+                                headers: {
+                                    "Access-Control-Allow-Origin": "*"
+                                }
+                            });
+
+                        },
+                        error: function (data) {
+                            console.log('get job_type error');
+                        },
+                        headers: {
+                            "Access-Control-Allow-Origin": "*"
+                        }
+
+                    });
+                }
+
+        });
+        
+        function editlabel(old_label,new_label,delete_old_label) {
+            var label_num;
+            //对label进行添加
+            $('.chips-initial').on('chip.add', function (e, chip) {//监听只允许添加八个
+                label_num=old_label.length+new_label.length-delete_old_label.length;
+                new_label.push(chip.tag);//把添加到的新的push,纯数据
+                label_num++;
+                //Post新增标签的请求
+                var result = {
+                    tid: tid,
+                    name: chip.tag
+                };
+                $.ajax({
+                    type: 'POST',
+                    data: result,
+                    url: cur_site + "team/add_team_label/",
+                    xhrFields: {withCredentials: true},
+                    dataType: 'json',
+                    success: function (data) {
+                        console.log(data.msg);
+                        if (label_num == 8) {
+                            //console.log($('.chips-initial')[0]);
+                            $('.chips-initial .input').remove();
                         }
                     }
-                    else
-                        console.log(data.err);
                 });
+            });
+            
+        }
 
-
-                //option的value是id,后面查找的时候根据这个就行了
-                var tag_type_num;
-                $.ajax({
-                    type: 'GET',
-                    url: cur_site + "team/info/",
-                    // url: "../data/team_index.json",
-                    dataType: "json",
-                    data: {'tid': 1/*tid*/},
-                    success: function (data) {
-                        //得到有多少个行业类型
-                        tag_type_num = $(".tag_select option").length - 1;
-
-                        //先只得到一个行业类型
-                        for (var i = 0; i < tag_type_num; i++) {
-                            if (data.res.b_type + 1 == $("#option" + i).attr("value"))
-                                oldBType = [$("#option" + i).text()];
-                        }
-
-                        //记录之前所有的值
-                        oldHistory = data.res.history;
-                        oldIntro = data.res.about;
-                        oldTid = data.res.tid;
-                        oldName = data.res.name;
-                        oldLogoPath = cur_media + data.res.logo_path;
-                        oldSlogan = data.res.slogan;
-                        oldAbout = data.res.about;
-                        oldLabel = data.res.label;
-                        var type_num = oldBType.length;//记录标签的个数
-                        var type_dym_name = oldBType;//动态记录标签的名字,删除,添加
-                        var move_distance = 0;//记录下拉框的移动距离
-                        var label_num = oldLabel.length;//记录label的个数
-                        var label_dym_name = oldLabel;//动态记录label的名字,删除,添加
-                        var newLogo = cur_media + oldLogoPath;//新的logo
-                        var newSlogan = oldSlogan;//新的slogan
-                        var newName = oldName;//新的名字
-                        //-----------初始化之前的信息------------
-                        //初始化团队的logo
-                        $("#local_photo").attr("src", oldLogoPath);
-                        //初始化团队名称
-                        $("#team_name").val(oldName);
-                        //动态加载tag,初始化tag的信息
-                        for (var i = 0; i < oldBType.length; i++) {
-                            $("#show_type_as_tag").append('<div class="chip team_type_fix">' + oldBType[i] +
-                                '<i class="close material-icons" id=' + oldBType[i] + '>close</i> </div>');
-                        }
-
-                        //计算移动距离
-                        if (oldBType.length > 3) {//需要换行处理
-                            for (var i = 3; i < oldBType.length; i++) {
-                                move_distance = move_distance + oldBType[i].length + 4;
-                            }
-                        }
-                        else {//不需要换行处理
-                            for (var i = 0; i < oldBType.length; i++)
-                                move_distance = move_distance + oldBType[i].length + 4;
-                        }
-                        //移动下拉选择框
-                        $(".job_type").css("margin-left", move_distance + 'em');
-                        //初始化团队人数,人数不可修改
-                        $("#team_number").val(data.res.man_cnt + "人团队");
-                        //初始化团队标语
-                        $("#team_slogan").val(oldSlogan);
-                        //初始化团队标签
-                        var chip_data = [];
-                        for (var i = 0; i < label_num; i++) {
-                            var tag_temp = {
-                                tag: oldLabel[i],
-                                id: oldLabel[i]
-                            };
-                            chip_data.push(tag_temp);
-                        }
-                        $('.chips-initial').material_chip({//要用一定的格式
-                            data: chip_data,
-                            placeholder: '输入新标签'
-                        });
-
-                        //-------------初始化完成-----------------
-
-                        //对Label进行添加,上限八个
-                        $('.chips-initial').on('chip.add', function (e, chip) {//监听只允许添加八个
-                            label_dym_name.push(chip.tag);//把添加到的新的push,纯数据
-                            label_num++;
-                            //Post新增标签的请求
-                            var result = {
-                                tid: oldTid,
-                                name: chip.tag
-                            };
-                            $.ajax({
-                                type: 'POST',
-                                data: result,
-                                url: cur_site + "team/add_team_label/",
-                                xhrFields: {withCredentials: true},
-                                dataType: 'json',
-                                success: function (data) {
-                                    console.log(data.msg);
-                                }
-                            });
-                            if (label_num == 8) {
-                                //console.log($('.chips-initial')[0]);
-                                $('.chips-initial .input').remove();
-                            }
-                        });
-                        //对label进行删除
-                        $('.chips-initial').on('chip.delete', function (e, chip) {
-                            label_dym_name.splice($.inArray(chip.tag, label_dym_name), 1);//把删除的label从数组中去掉
-                            label_num--;
-                            //Post删除标签的请求
-                            var result = {
-                                tid: oldTid,
-                                name: chip.tag
-                            };
-                            $.ajax({
-                                type: 'POST',
-                                data: result,
-                                url: cur_site + "team/rm_team_label/",
-                                xhrFields: {withCredentials: true},
-                                dataType: 'json',
-                                success: function (data) {
-                                    console.log(data.msg);
-                                }
-                            });
+        function deletelabel(old_label,new_label,delete_old_label){
+            var label_num;
+            $('.chips-initial').on('chip.delete', function (e, chip) {
+                //label_dym_name.splice($.inArray(chip.tag, label_dym_name), 1);//把删除的label从数组中去掉
+                label_num=old_label.length+new_label.length-delete_old_label.length;
+                label_num--;
+                //如果删除的是新增的标签直接删除
+                if($.inArray(chip.tag, old_label)==-1){
+                    //Post删除标签的请求
+                    var result = {
+                        tid: tid,
+                        name: chip.tag
+                    };
+                    $.ajax({
+                        type: 'POST',
+                        data: result,
+                        url: cur_site + "team/rm_team_label/",
+                        xhrFields: {withCredentials: true},
+                        dataType: 'json',
+                        success: function (data) {
+                            console.log(data.msg);
+                            console.log(label_num);
+                            new_label.splice($.inArray(chip.tag, new_label), 1);//把删除的label从数组中去掉
                             if (label_num == 7) {//允许继续添加
                                 $('.chips-initial').append('<input class="input" placeholder>');
                             }
-                        });
-
-                        //对行业类型进行修改,行业类型的上限是五个
-                        //对行业类型的删除操作
-                        $(".team_type_fix .close").on("click", function () {//如果点击了关闭按钮,在删除标签的同时需要记录
-                            type_dym_name.splice($.inArray(this.id, type_dym_name), 1);//从数组中删除特定元素
-                            type_num--;//行业类型的数目减1
-                            //计算移动距离
-                            if (type_num == 3) {//需要换行处理
-                                move_distance = 0;
-                                for (var i = 0; i < type_num; i++) {
-                                    move_distance = move_distance + type_dym_name[i].length + 4;
-                                }
-                            }
-                            else//不需要换行处理
-                                move_distance = move_distance - this.id.length - 4;
-                            //移动下拉选择框
-                            $(".job_type").css("margin-left", move_distance + 'em');
-                        });
-                        //对行业类型进行添加操作
-                        $(".add_type").on("click", function () {
-                            //获取到在selector中选择的行业类型
-                            var select_tag = $(".tag_select option:selected").text();
-                            //-------------判断是否添加-------
-                            //不能为空,且不能冲突
-                            if (select_tag != '行业类型' && $.inArray(select_tag, type_dym_name) < 0 && type_num != 5) {
-                                type_dym_name.push(select_tag);
-                                type_num++;
-                                $("#show_type_as_tag").append('<div class="chip team_type_fix">' + select_tag +
-                                    '<i class="close material-icons" id=' + select_tag + '>close</i> </div>');
-
-                                //新的没绑定,可能有好的办法解决
-                                $(".team_type_fix .close").unbind("click").on("click", function () {//如果点击了关闭按钮,在删除标签的同时需要记录
-                                    type_dym_name.splice($.inArray(this.id, type_dym_name), 1);//从数组中删除特定元素
-                                    type_num--;//行业类型的数目减1
-                                    //计算移动距离
-                                    if (type_num == 3) {//需要换行处理
-                                        move_distance = 0;
-                                        for (var i = 0; i < type_num; i++) {
-                                            move_distance = move_distance + type_dym_name[i].length + 4;
-                                        }
-                                    }
-                                    else//不需要换行处理
-                                        move_distance = move_distance - this.id.length - 4;
-                                    //移动下拉选择框
-                                    $(".job_type").css("margin-left", move_distance + 'em');
-                                });
-                                //计算移动距离
-                                if (type_num == 4) {//需要换行处理
-                                    move_distance = select_tag.length + 4;
-                                }
-                                else//不需要换行处理
-                                    move_distance = move_distance + select_tag.length + 4;
-                                //移动下拉选择框
-                                $(".job_type").css("margin-left", move_distance + 'em');
-                            }
-                            else if (type_num == 5)
-                                alert("行业类型上限为5!");
-
-                        });
+                        }
+                    });
+                }
+                //如果是旧的标签进行记录
+                else{
+                    delete_old_label.push(chip.tag);
+                    //console.log(delete_old_label);
+                }
 
 
-                        //取消修改
-                        var type_temp = '';//加载行业类型
-                        for (var i = 0; i < (oldBType).length; i++)
-                            type_temp = type_temp + oldBType[i] + ' ';
-                        $("#cancelButton").on("click", function () {
-                            $("#fix_msg_button").css("opacity", '1');
-                            $("#remove_basic_msg").empty().append(
-                                '<div id="team_logo_div"><img src="' + oldLogoPath + '" id="team_logo"></div>' +
-                                '<div id="information"><p id="p1">' + data.res.name + '</p><p id="p2">' + type_temp + '</p>' +
-                                '<p id="p3">' + oldAbout + "," + data.res.man_cnt + "人团队" + '</p> ' +
-                                '<p id="p4">' + oldSlogan + '</p></div>' +
-                                '<div id="information_three"></div>'
-                            );
-                            //动态加载div
-                            var tag_cnt = data.res.label.length;
-                            for (var i = 0; i < tag_cnt; i++) {
-                                $("#information_three").append('<div class="tag"></div>');
-                            }
-                            var tag = $(".tag");
-                            for (var i = 0; i < tag.length; i++) {
-                                $(tag[i]).html(data.res.label[i]);
-                            }
-                        });
+            });
+        }
 
+        function showtype(team_type_name,all_team_type){
+            $("#type_line1").empty();
+            $("#type_line2").empty();
+           if(team_type_name.length<3){
+               $("#type_table").css("width",120*(team_type_name.length+2)+'px');
+               for(var i=0;i<team_type_name.length;i++){
+                   $("#type_line1").append('<td><div class="chip team_type_fix">' + team_type_name[i] +
+                   '<i class="close material-icons" id=' + team_type_name[i] + '>close</i> </div></td>');
+               }
+               $("#type_line1").append('<td><div class="input-field job_type"><select class="browser-default tag_select">'+
+                   '<option value="" disabled selected>行业类型</option></select></div></td>');
+               $("#type_line1").append('<a class="add_type btn-floating btn-small waves-effect waves white">'+
+                   '<i class="material-icons" style="color:orange">add</i></a>');
+               for (var i = 0; i < all_team_type.length; i++) {
+                   $(".tag_select").append('<option id="option' + i + '" value=' + all_team_type[i].id + '>' + all_team_type[i].name + '</option>');
+               }
+           }
+            else{
+               $("#type_table").css("width","400px");
+               for(var i=0;i<3;i++){
+                   $("#type_line1").append('<td><div class="chip team_type_fix">' + team_type_name[i] +
+                       '<i class="close material-icons" id=' + team_type_name[i] + '>close</i> </div></td>');
+               }
+               for(var i=3;i<team_type_name.length;i++){
+                   $("#type_line2").append('<td><div class="chip team_type_fix">' + team_type_name[i] +
+                       '<i class="close material-icons" id=' + team_type_name[i] + '>close</i> </div></td>');
+                   if(i==4){
+                       $("#type_table").css("width","500px");
+                   }
+               }
+               $("#type_line2").append('<td><div class="input-field job_type"><select class="browser-default tag_select">'+
+                   '<option value="" disabled selected>行业类型</option></select></div></td>');
+               $("#type_line2").append('<a class="add_type btn-floating btn-small waves-effect waves white">'+
+                   '<i class="material-icons" style="color:orange">add</i></a>');
+               for (var i = 0; i < all_team_type.length; i++) {
+                   $(".tag_select").append('<option id="option' + i + '" value=' + all_team_type[i].id + '>' + all_team_type[i].name + '</option>');
+               }
+           }
+        }
 
-                        //上传照片返回地址,赋给新的logo
-                        $("#upload").on("click", function () {
-                            var formData = new FormData();
-                            formData.append('name', $("#update_photo").val());
-                            formData.append('photo', $('#update_photo')[0].files[0]);
-                            var update_typeID;
+        function addType(new_team_type_name,all_team_type){
+            var type_num=new_team_type_name.length;
+            //对行业类型进行添加操作
+            $(".add_type").on("click", function () {
+                //获取到在selector中选择的行业类型
+                var select_tag = $(".tag_select option:selected").text();
+                //-------------判断是否添加-------
+                //不能为空,且不能冲突
+                if (select_tag != '行业类型' && $.inArray(select_tag, new_team_type_name) < 0 && type_num != 5) {
+                    new_team_type_name.push(select_tag);
+                    showtype(new_team_type_name,all_team_type);
+                    addType(new_team_type_name,all_team_type);
+                    deleteType(new_team_type_name,all_team_type)
+                }
+                else if (type_num == 5)
+                    alert("行业类型上限为5!");
 
-                            //先只得到一个行业类型
-                            for (var i = 0; i < tag_type_num; i++) {
-                                if (type_dym_name[1] == $("#option" + i).text())
-                                    update_typeID = $("#option" + i).attr('value');
-                            }
+            });
 
-                            //上传照片
-                            $.ajax({
-                                url: cur_site + "team/upload_logo/",
-                                type: "POST",
-                                cache: false,
-                                dataType: 'json',
-                                data: formData,
-                                processData: false,
-                                contentType: false
-                            }).done(function (res) {
-                                newLogo = res.msg;
-                                //对团队的名字进行修改
-                                newName = $("#team_name").val();
-                                //对团队的slogan进行修改
-                                newSlogan = $("#team_slogan").val();
-                                //加载新的信息
-                                $("#remove_basic_msg").empty().append(
-                                    '<div id="team_logo_div"><img src="' + newLogo + '" id="team_logo"></div>' +
-                                    '<div id="information"><p id="p1">' + newName + '</p><p id="p2">' + type_dym_name + '</p>' +
-                                    '<p id="p3">' + oldAbout + "," + data.res.man_cnt + "人团队" + '</p> ' +
-                                    '<p id="p4">' + newSlogan + '</p></div>' +
-                                    '<div id="information_three"></div>'
-                                );
-                                //动态加载div,加载新的label
-                                for (var i = 0; i < label_num; i++) {
-                                    $("#information_three").append('<div class="tag"></div>');
-                                }
-                                var tag = $(".tag");
-                                for (var i = 0; i < tag.length; i++) {
-                                    $(tag[i]).html(label_dym_name[i]);
-                                }
-                                //console.log(newLogo);
-                                //post的result
-                                //console.log(type_dym_name[1]);
+        }
 
+        function deleteType(new_team_type_name,all_team_type){
+            var type_num=new_team_type_name.length;
+            $(".team_type_fix .close").on('click',function(){
+                new_team_type_name.splice($.inArray(this.id, new_team_type_name), 1);//从数组中删除特定元素
+                type_num--;//行业类型的数目减1
+                showtype(new_team_type_name,all_team_type);
+                addType(new_team_type_name,all_team_type);
+                deleteType(new_team_type_name,all_team_type)
+            });
 
-                                var result = {
-                                    tid: oldTid,
-                                    name: newName,
-                                    logo_path: newLogo.replace(cur_media, ""),
-                                    slogan: newSlogan,
-                                    about: oldIntro,
-                                    history: oldHistory,
-                                    b_type: update_typeID
-                                };
+        }
 
-                                $.ajax({
-                                    type: 'POST',
-                                    data: result,
-                                    url: cur_site + "team/update_team_info/",
-                                    xhrFields: {withCredentials: true},
-                                    dataType: 'json',
-                                    success: function (data) {
-                                        console.log(data.msg);
-                                    }
-                                });
-
-                            });
-                        });
-
-                        //点击保存修改
-                        $("#saveButton").on("click", function () {
-                            $("#fix_msg_button").css("opacity", '1');
-                            if (tag_logo_change == 1)
-                                document.getElementById("upload").click();
-                            else {
-                                var update_typeID;
-
-                                //先只得到一个行业类型
-                                for (var i = 0; i < tag_type_num; i++) {
-                                    if (type_dym_name[1] == $("#option" + i).text())
-                                        update_typeID = $("#option" + i).attr('value');
-                                }
-
-                                //对团队的名字进行修改
-                                newName = $("#team_name").val();
-                                //对团队的slogan进行修改
-                                newSlogan = $("#team_slogan").val();
-                                //加载新的信息
-                                $("#remove_basic_msg").empty().append(
-                                    '<div id="team_logo_div"><img src="' + oldLogoPath + '" id="team_logo"></div>' +
-                                    '<div id="information"><p id="p1">' + newName + '</p><p id="p2">' + type_dym_name + '</p>' +
-                                    '<p id="p3">' + oldAbout + "," + data.res.man_cnt + "人团队" + '</p> ' +
-                                    '<p id="p4">' + newSlogan + '</p></div>' +
-                                    '<div id="information_three"></div>'
-                                );
-                                //动态加载div,加载新的label
-                                for (var i = 0; i < label_num; i++) {
-                                    $("#information_three").append('<div class="tag"></div>');
-                                }
-                                var tag = $(".tag");
-                                for (var i = 0; i < tag.length; i++) {
-                                    $(tag[i]).html(label_dym_name[i]);
-                                }
-                                //console.log(newLogo);
-                                //post的result
-                                //console.log(type_dym_name[1]);
-
-
-                                var result = {
-                                    tid: oldTid,
-                                    name: newName,
-                                    logo_path: oldLogoPath.replace(cur_media, ""),
-                                    slogan: newSlogan,
-                                    about: oldIntro,
-                                    history: oldHistory,
-                                    b_type: update_typeID
-                                };
-
-                                $.ajax({
-                                    type: 'POST',
-                                    data: result,
-                                    url: cur_site + "team/update_team_info/",
-                                    xhrFields: {withCredentials: true},
-                                    dataType: 'json',
-                                    success: function (data) {
-                                        console.log(data.msg);
-                                    }
-                                })
-                            }
-
-
-                        });
-                    }
-
-                })
-
-            },
-            error: function (data) {
-                console.log('get team info error');
-                console.log(data);
-            },
-            headers: {
-                "Access-Control-Allow-Origin": "*"
-            }
-
-        });
 
     });
 
-    var tid = getId();
+    
     //团队照片的编辑
     $(".edit_team_photo").on("click", function () {
         $.ajax({
