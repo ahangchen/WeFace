@@ -1,5 +1,196 @@
+.main_whole{
+    width: 970px;
+    margin: 0 auto;
+    height: 1000px;
+    padding-bottom: 20px;
+    background: rgba(255, 255, 255, 0.5);
+    -moz-box-shadow: 0 5px 5px 0 rgba(0, 0, 0, 0.22), 0 10px 10px 0 rgba(0, 0, 0, 0.21);
+    -webkit-box-shadow: 0 5px 5px 0 rgba(0, 0, 0, 0.22), 0 10px 10px 0 rgba(0, 0, 0, 0.21);
+    box-shadow: 0 5px 5px 0 rgba(0, 0, 0, 0.22), 0 10px 10px 0 rgba(0, 0, 0, 0.21);
+}
+
+#selector{
+    height: 100px;
+    width: 500px;
+}
+#select_position{
+    height: 50px;
+    width: 120px;
+    margin-top: 20px;
+    float: left;
+    padding: 8px;
+    background: rgba(255, 255, 255, 1);
+    cursor: pointer;
+}
+
+#select_team{
+    height: 50px;
+    width: 120px;
+    float: left;
+    margin-top: 20px;
+    margin-left: 10px;
+    padding: 8px;
+    background: rgba(255, 255, 255, 1);
+    cursor: pointer;
+}
+
+#select_project{
+    height: 50px;
+    width: 120px;
+    float: left;
+    margin-top: 20px;
+    margin-left: 10px;
+    padding: 8px;
+    background: rgba(255, 255, 255, 1);
+    cursor: pointer;
+}
+
+.search_title{
+    font-size: 22px;
+
+}
+
+.subtext{
+    font-size: 18px;
+}
+
+.changepage_btn{
+    width:400px;
+    margin: 50px auto;
+}
+
+.result_div{
+    background-color: #fff;
+    width: 960px;
+    height: 200px;
+    margin-bottom: 10px;
+}
+
+.job_left{
+    margin-left: 80px;
+    float: left;
+    margin-top: 35px;
+}
+#job_left_one{
+    font-size:22px;
+    font-weight: bold;
+}
+#job_left_two{
+    margin-top: 15px;
+    font-size: 18px;
+}
+
+#job_left_three{
+    margin-top: 15px;
+    font-size: 16px;
+    color: orange;
+}
+
+.job_middle{
+    margin-left: 50px;
+    margin-top: 40px;
+    float: left;
+}
+
+#job_middle_one{
+    font-size: 20px;
+}
+
+#job_middle_two{
+    font-size: 18px;
+    width: 300px;
+    margin-top: 15px;
+}
+
+#job_right{
+    float: left;
+    margin-top: 25px;
+    margin-left: 80px;
+    width: 100px;
+    height: 150px;
+}
+
+#team_left{
+    width: 150px;
+    height: 150px;
+    float: left;
+    margin-left: 30px;
+    margin-top: 20px;
+}
+
+.team_middle{
+    float: left;
+    margin-left: 100px;
+    margin-top: 20px;
+}
+
+#team_middle_one{
+    font-size: 20px;
+    font-weight: bold;
+}
+
+#team_middle_two{
+    margin-top: 20px;
+    font-size: 16px;
+}
+
+.team_right{
+    float: left;
+    margin-left: 100px;
+    margin-top: 70px;
+}
+.project_left{
+    float: left;
+    margin-left: 50px;
+    margin-top: 30px;
+}
+
+#project_left_one{
+    font-size: 22px;
+    font-weight: bold;
+}
+
+#project_left_two{
+    margin-top: 20px;
+    width: 300px;
+    font-size:16px;
+}
+
+.project_middle{
+    float: left;
+    margin-top: 35px;
+    margin-left: 50px;
+
+}
+
+#project_middle_one{
+    font-size: 18px;
+    color: orange;
+}
+
+#project_middle_two{
+    font-size: 16px;
+    width: 250px;
+    margin-top: 20px;
+}
+#project_right{
+    float: left;
+    margin-left: 60px;
+    width: 150px;
+    height: 150px;
+    margin-top: 20px;
+}
+
+.search_type{
+    background-color: orange;
+    width: 970px;
+    -moz-box-shadow: 0 5px 5px 0 rgba(0, 0, 0, 0.22), 0 10px 10px 0 rgba(0, 0, 0, 0.21);
+    -webkit-box-shadow: 0 5px 5px 0 rgba(0, 0, 0, 0.22), 0 10px 10px 0 rgba(0, 0, 0, 0.21);
+    box-shadow: 0 5px 5px 0 rgba(0, 0, 0, 0.22), 0 10px 10px 0 rgba(0, 0, 0, 0.21);
+
+}
 /*修改显示DIV的样式*/
-#search_result{
+/*#search_result{
     position: relative;
     top:10px;
     width:960px;
@@ -222,6 +413,21 @@
     width: 500px;
     height: 50px;
     left: 500px;
+}*/
+
+.allTags{
+    margin-left: 10px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    background-color: orange;
+    cursor: pointer;
+
+
 }
+.allTags span{
+    color:#fff;
+    font-size: 18px;
+}
+
 
 
