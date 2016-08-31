@@ -257,7 +257,7 @@
     margin-left: 10px;
 }
 
-#add_member_dialog{
+/*#add_member_dialog{
     height: 540px;
     width: 450px;
 }
@@ -334,12 +334,6 @@
     margin-top: 30px;
 }
 
-#team_connect{
-    margin-left: 290px;
-    margin-top: -50px;
-
-}
-
 #add_member{
     margin-left: 15px;
 }
@@ -352,6 +346,14 @@
     height:200px;
     width: 300px;
 }
+*/
+
+#team_connect{
+    margin-left: 290px;
+    margin-top: -50px;
+
+}
+
 
 #team_belong_type{
     margin-left: 400px;
@@ -490,7 +492,127 @@
     width: 130px;
 }
 
+.Head_portrait_edit{
+    height: 80px;
+    width: 80px;
+    border-radius: 80px;
+    border: 1px black solid;
+    cursor: pointer;
 
+}
+.Head_portrait_div_edit{
+    float: left;
+    height: 100px;
+    width: 100px;
+    text-align: center;
+    margin: 5px 0;
+}
+
+.Head_portrait_div_edit .name{
+    margin-left: -15px;
+
+}
+
+.team_member_logo{
+    height: 80px;
+    width: 80px;
+    border-radius: 80px;
+    position: relative;
+    background-color: #4d4d4d;
+    cursor: pointer;
+}
+
+.delete_team_member{
+    position: absolute;
+    font-size: 60px;
+    margin-left: 10px;
+    margin-top: 10px;
+    color:#fff;
+    visibility: hidden;
+}
+
+.add_member_btn{
+    height: 60px;
+    width: 60px;
+    margin-top: 15px;
+    margin-left: 10px;
+}
+
+.add_member_btn i{
+    font-size: 40px;
+    margin-top: 10px;
+}
+
+#complete_edit_member{
+    margin-left: 50px;
+    margin-top: 60px;
+    opacity: 0;
+}
+
+#member_saveButton{
+    color: #fff;
+    background-color: orange;
+    margin-left: 10px;
+}
+
+#member_cancelButton{
+    color: #000;
+    background-color: #fff;
+    margin-left: 10px;
+}
+
+.enter_member_name {
+    width: 300px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 20px;
+}
+
+.search_member_mail{
+    width: 300px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 20px;
+    display: none;
+}
+
+#add_member_action{
+    color: #fff;
+    background-color: orange;
+    margin-right: 225px;
+}
+
+.search_member_logo{
+    height: 100px;
+    width: 100px;
+    border-radius: 80px;
+    display:none
+}
+
+#add_member_dialog{
+    width: 550px;
+}
+
+#remainder_msg{
+   color:red;
+    display: none;
+
+}
+
+#invite_msg{
+    margin-left: auto;
+    margin-right: auto;
+    width: 450px;
+    display: none;
+}
+
+#new_member_mail_div{
+    width: 300px;
+    margin-left: auto;
+    margin-right: auto;
+    display: none;
+    margin-top: 20px;
+}
 
 
 
