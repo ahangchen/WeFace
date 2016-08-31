@@ -290,7 +290,18 @@ $(function () {
                                     //保存对基本信息的编辑
                                     $("#saveButton").on("click", function () {
                                             //删除旧的删除标签
+                                        var new_team_label=[];
                                         if(delete_old_label.length!=0) {
+                                            for (var k = 0; k < old_label.length; k++) {
+                                                var mark=0;
+                                                for(var q=0;q<delete_old_label.length;q++){
+                                                    if (old_label[k] == delete_old_label[q]) {
+                                                        mark=1;
+                                                    }
+                                                }
+                                                if(mark==0)
+                                                    new_team_label.push(old_label[k]);
+                                            }
                                             for (var i = 0; i < delete_old_label.length; i++) {
                                                 var result = {
                                                     tid: tid,
@@ -310,18 +321,18 @@ $(function () {
                                             });
                                         }
 
-                                        var newName=$("#team_name").val();
-                                        var newSlogan= $("#team_slogan").val();
-                                        var new_team_type=[];
-                                        var new_team_label=[];
-                                        for(var k=0;k<old_label.length;k++){
-                                            if(old_label[k]!=delete_old_label[k]){
+                                        else{
+                                            for (var k = 0; k < old_label.length; k++) {
                                                 new_team_label.push(old_label[k]);
                                             }
                                         }
                                         for(var k=0;k<new_label.length;k++){
                                             new_team_label.push(new_label[k]);
                                         }
+
+                                        var newName=$("#team_name").val();
+                                        var newSlogan= $("#team_slogan").val();
+                                        var new_team_type=[];
                                         if(new_team_type_name.length!=0){
                                             for(var i=0;i<new_team_type_name.length;i++){
                                                 for(var j=0;j<all_team_type.length;j++){
@@ -416,6 +427,7 @@ $(function () {
                                                 xhrFields: {withCredentials: true},
                                                 dataType: 'json',
                                                 success: function (data) {
+
                                                     console.log(data.msg);
                                                     $("#fix_msg_button").css("opacity", '1');
                                                     $("#remove_basic_msg").empty().append(
@@ -428,6 +440,7 @@ $(function () {
                                                     );
                                                     //动态加载div
                                                     var tag_cnt = new_team_label.length;
+
                                                     for (var j = 0; j < tag_cnt; j++) {
                                                         $("#information_three").append('<div class="tag"></div>');
                                                     }
@@ -435,12 +448,12 @@ $(function () {
                                                     for (var j = 0; j < new_team_label.length; j++) {
                                                         $(tag[j]).html(new_team_label[j]);
                                                     }
+                                                    new_team_type.length=0;
+                                                    new_team_label.length=0;
                                                 }
                                             });
 
                                         }
-                                        new_team_type.length=0;
-                                        new_team_label.length=0;
 
                                     });
 
