@@ -76,6 +76,7 @@
                         <p id="p2"></p>
                         <p id="p3"></p>
                         <p id="p4"></p>
+                        <p id="p5"></p>
                     </div>
                     <div id="information_three"></div>
                 </div>
@@ -118,7 +119,12 @@
                         <a class="btn-floating btn-small waves-effect waves-light orange" id="edit_member"><i class="material-icons" style="color:white">edit</i></a>
                         <div id="main_right_one">
                             <div id="team_member_icon">
-                                <div class="leader_div"><img src="" alt="头像" id ="leader" class="leader" /><br>创始人<br><span id="leaderName" class="name"></span></div>
+                                <!--<div class="leader_div"><img src="" alt="头像" id ="leader" class="leader" /><br>创始人<br><span id="leaderName" class="name"></span></div>-->
+                            </div>
+                            <br />
+                            <div id="complete_edit_member">
+                                <a id="member_saveButton" class="waves-effect waves-light btn">保存</a>
+                                <a id="member_cancelButton" class="waves-effect waves-light btn">取消</a>
                             </div>
                         </div>
                         <div class="float" id="contact_way">联系方式<i class="material-icons small">play_arrow</i></div>
@@ -206,6 +212,51 @@
                     <p>团队评价</p>
                     <div class="recent_p">7条</div>
                 </div>
+            </div>
+        </div>
+
+        <div id="add_member_dialog" class="modal modal-fixed-footer">
+            <a class="btn-floating btn-flat btn-small white modal-close right close_dialog"><i class="material-icons" style="color:orange">close</i></a>
+            <div class="modal-content">
+                <div style="width: 450px;margin-left: auto;margin-right: auto;margin-top: 30px;">
+                    输入姓名，搜索匹配头像和账号，可通过点击成员头像查看该成员个人主页。若有重名，请核对后进行选择。若成员未注册推荐注册，完善个人主页。
+                </div>
+
+                <div class="input-field enter_member_name ">
+                    <input id="member_name" type="text" class="validate"><label for="member_name">输入成员姓名</label>
+                    <p id="remainder_msg">未找到该名字匹配的账号</p>
+                </div>
+
+                <div class="input-field search_member_mail">
+                    <select id="member_mail" class="browser-default"></select>
+                </div>
+
+                <div style="width: 80px;margin-right: auto;margin-left: auto;margin-top: 40px;">
+                    <img class="search_member_logo">
+                </div>
+
+                <div id="invite_msg">
+                    请在下方填写该成员的一个邮箱,我们将发送一份邀请注册的邮件至此邮箱,即可完成注册,在该成员完成注册之前,无法在成员列表显示该成员的姓名和头像
+                </div>
+
+                <div class="input-field" id="new_member_mail_div">
+                    <input id="new_member_mail" type="text" class="validate"><label for="new_member_mail">输入一个该成员的邮箱</label>
+                </div>
+
+            </div>
+            <div class="modal-footer">
+                <a id="add_member_action" class="waves-effect waves-light btn modal-action">搜索</a>
+            </div>
+
+        </div>
+
+        <div id="confirm_delete_member" class="modal" style="width: 500px;">
+            <div class="modal-content">
+                <p>你确定要删除该成员么?</p>
+            </div>
+            <div class="modal-footer">
+                <a  id="certain_delete_member" class=" modal-action modal-close waves-effect waves-green btn-flat">确定</a>
+                <a  id="cancel_delete_member" class=" modal-action modal-close waves-effect waves-green btn-flat">取消</a>
             </div>
         </div>
     </body>
