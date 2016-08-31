@@ -68,15 +68,41 @@ $(document).ready(function () {
             var logo = cur_media + data.res.logo_path;
             $("#team_logo").attr('src', logo);
             // 团队标签加载
+            var tag_cnt = data.res.label.length;
+            for (var j = 0; j < tag_cnt; j++) {
+                $("#information_three").append('<div class="tag"></div>');
+            }
             var tag = $(".tag");
             for (var i = 0; i < tag.length; i++) {
                 $(tag[i]).html(data.res.label[i]);
             }
-
+            //团队行业类型
+            var team_type=[];
+            team_type.push(data.res.b_type);
+            var team_type_name=[];
+            $.ajax({
+                type: "get",
+                url: cur_site + "team/business/",
+                dataType: "json",
+                success: function (data) {
+                    var all_team_type = data.msg;
+                    for(var i=0;i<team_type.length;i++){
+                        for(var j=0;j<all_team_type.length;j++){
+                            if(all_team_type[j].id==team_type[i]){
+                                team_type_name.push(all_team_type[j].name);
+                            }
+                        }
+                    }
+                    $("#p2").html(team_type_name[0]);
+                }
+            });
             // 团队名称加载
             $("#p1").html(data.res.name);
             // 团队标语加载
-            $("#p2").html(data.res.slogan);
+            $("#p3").html(data.res.about);
+            $("#p4").html(data.res.man_cnt+'人团队');
+            $("#p5").html(data.res.slogan);
+            
             // 团队介绍加载
             $("#team_introuduction").html(data.res.about);
             // 团队发展历程加载
@@ -91,18 +117,25 @@ $(document).ready(function () {
             // 开启slider
             $('.slider').slider({
                 full_width: true,
-                height: 250,
+                height: 250
             });
             // 团队创始人头像姓名加载
             if(data.res.stus.length < 1) {
                 console.log('no team stu');
             } else {
-                $("#leader").attr('src',data.res.stus[0].logo_path);
-                $("#leaderName").html(data.res.stus[0].name);
+               // $("#leader").attr('src',data.res.stus[0].logo_path);
+                //$("#leaderName").html(data.res.stus[0].name);
                 // 团队非创始人成员头像加载
                 var stuNum = data.res.stus.length;
-                for (var i = 1; i < stuNum; i++) {
-                    $("#team_member_icon").append('<div class="Head_portrait_div "><img src="'+data.res.stus[i].logo_path+'" alt="头像" class="Head_portrait" /><br><span class="name">'+data.res.stus[i].name+'</span></div>')
+                for (var i = 0; i < stuNum; i++) {
+                    var name;
+                    if(data.res.stus[i].name.split('@')[1]!=null){
+                        name=data.res.stus[i].name.split('@')[0][0]+data.res.stus[i].name.split('@')[0][1]+'*@'+data.res.stus[i].name.split('@')[1];
+                    }
+                    else{
+                        name=data.res.stus[i].name;
+                    }
+                    $("#team_member_icon").append('<div class="Head_portrait_div "><img src="'+cur_media+data.res.stus[i].logo_path+'" alt="头像" class="Head_portrait" /><br><span class="name">'+name+'</span></div>')
                 }
             }
 
