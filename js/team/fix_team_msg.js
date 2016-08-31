@@ -718,7 +718,7 @@ $(function () {
             url: cur_site + "team/info/",
             // url: "../data/team_index.json",
             dataType: "json",
-            data: {'tid': 1/*tid*/},
+            data: {'tid': tid},
             success: function (data) {
                 var team_img = data.res.imgs;//初始化团队照片
                 var cancel_display=[];
@@ -742,7 +742,7 @@ $(function () {
                             var record_length=old_delete.length;
                             if(old_delete.length!=0) {//没有删除旧的照片
                                 for (var i = 0; i < old_delete.length; i++) {
-                                    var result = {'tid': 1, 'img_id': old_delete[i]};
+                                    var result = {'tid': tid, 'img_id': old_delete[i]};
                                     $.ajax({
                                         type: "post",
                                         url: cur_site + "team/rm_team_photo/",
@@ -756,7 +756,7 @@ $(function () {
                                                     url: cur_site + "team/info/",
                                                     // url: "../data/team_index.json",
                                                     dataType: "json",
-                                                    data: {'tid': 1/*tid*/},
+                                                    data: {'tid': tid},
                                                     success: function (data) {
                                                         var new_team_img = data.res.imgs;//初始化团队照片
                                                         //console.log(new_team_img.length);
@@ -784,7 +784,7 @@ $(function () {
                                     url: cur_site + "team/info/",
                                     // url: "../data/team_index.json",
                                     dataType: "json",
-                                    data: {'tid': 1/*tid*/},
+                                    data: {'tid': tid},
                                     success: function (data) {
                                         var new_team_img = data.res.imgs;//初始化团队照片
                                         console.log(new_team_img.length);
@@ -812,7 +812,7 @@ $(function () {
                             //console.log(new_increase_photo);
                             if(new_increase_photo.length!=0) {//有新上传的照片
                                 for (var i = 0; i < new_increase_photo.length; i++) {
-                                    var result = {'tid': 1, 'img_id': new_increase_photo[i].id};
+                                    var result = {'tid': tid, 'img_id': new_increase_photo[i].id};
                                     $.ajax({
                                         type: "post",
                                         url: cur_site + "team/rm_team_photo/",
@@ -895,9 +895,7 @@ $(function () {
         $(".team_photo_div .team_photo").on("mouseover", function () {
             $(this).css("opacity", "0.3");
             $(this).parent().children('.delete_team_photo').css("visibility", "visible");
-        });
-        //监听鼠标的移出事件
-        $(".team_photo_div .team_photo").on("mouseout", function () {
+        }).on("mouseout", function () {//监听鼠标的移出事件
             $(this).css("opacity", "1");
             $(this).parent().children('.delete_team_photo').css("visibility", "hidden");
         });
@@ -942,9 +940,358 @@ $(function () {
         });
     }
 
+
+    //团队成员编辑
+    $("#edit_member").on('click',function() {
+        $.ajax({
+            type: 'GET',
+            url: cur_site + "team/info/",
+            // url: "../data/team_index.json",
+            dataType: "json",
+            data: {'tid': tid},
+            success: function (data) {
+                console.log(data);
+                var team_member = data.res.stus;
+                var edit_team_member = [];
+                for(var i=0;i<team_member.length;i++){
+                    edit_team_member.push(team_member[i]);
+                }
+                var member_cnt = team_member.length;
+                $("#team_member_icon").empty().append(/*'<div class="leader_div"><img src="' + cur_media + team_member[0].logo_path + '" alt="头像" id ="leader" class="leader" />' +
+                    '<br>创始人<br><span id="leaderName" class="name">' + team_member[0].name + '</span></div>' +*/
+                    '<table id="team_member_table"></table>');
+                $("#complete_edit_member").css("opacity", "1.0");//显示保存取消按钮
+                show_team_member(team_member, member_cnt);//显示团队成员为编辑态
+                member_moveon();//监听鼠标的移入移出事件
+                add_member(edit_team_member);//监听增加团队成员
+                delete_member(edit_team_member);//监听删除成员
+                $("#member_cancelButton").on("click",function(){//取消对成员的编辑,全部删除,重新post
+                    var length_temp=edit_team_member.length;
+                    var cnt=0;
+                    for(var i=0;i<edit_team_member.length;i++){
+                        var result={"tid":tid,"sid":edit_team_member[i].id};
+                        $.ajax({
+                            type: 'POST',
+                            url: cur_site + "team/rm_team_stu/",
+                            dataType: "json",
+                            data: result,
+                            success: function (data) {
+                                console.log(data);
+                                cnt++;
+                                if(cnt==length_temp){
+                                    for(var j=0;j<team_member.length;j++) {
+                                        var update = {"tid": tid, "sid": team_member[j].id};
+                                        $.ajax({
+                                            type: 'POST',
+                                            url: cur_site + "team/add_team_stu/",
+                                            dataType: "json",
+                                            data: update,
+                                            success: function (data) {
+                                                console.log(data);
+                                                edit_team_member.length=0;
+                                                team_member.length=0;
+                                            }
+                                        });
+                                    }
+                                }
+                            }
+                        });
+                    }
+                    $("#team_member_icon").empty();
+                    $("#complete_edit_member").css("opacity","0");
+                    var stuNum = team_member.length;
+                    for (var i = 0; i < stuNum; i++) {
+                        var name;
+                        if(team_member[i].name.split('@')[1]!=null){
+                            name=team_member[i].name.split('@')[0][0]+team_member[i].name.split('@')[0][1]+'*@'+team_member[i].name.split('@')[1];
+                        }
+                        else{
+                            name=team_member[i].name;
+                        }
+                        $("#team_member_icon").append('<div class="Head_portrait_div "><img src="'+cur_media+team_member[i].logo_path+'" alt="头像" class="Head_portrait" /><br><span class="name">'+name+'</span></div>')
+                    }
+
+
+                });
+
+                $("#member_saveButton").on("click",function(){//不需要做任何操作直接返回显示
+                    $("#team_member_icon").empty();
+                    $("#complete_edit_member").css("opacity","0");
+                    var stuNum = edit_team_member.length;
+                    for (var i = 0; i < stuNum; i++) {
+                        var name;
+                        if(edit_team_member[i].name.split('@')[1]!=null){
+                            name=edit_team_member[i].name.split('@')[0][0]+edit_team_member[i].name.split('@')[0][1]+'*@'+edit_team_member[i].name.split('@')[1];
+                        }
+                        else{
+                            name=edit_team_member[i].name;
+                        }
+                        $("#team_member_icon").append('<div class="Head_portrait_div "><img src="'+cur_media+edit_team_member[i].logo_path+'" alt="头像" class="Head_portrait" /><br><span class="name">'+name+'</span></div>')
+                    }
+                    edit_team_member.length=0;
+                    team_member.length=0;
+
+                });
+
+            }
+        });
+    });
+
+    function dealName(name){
+        var new_name;
+        if(name.split('@')[1]!=null){
+            new_name=name.split('@')[0][0]+name.split('@')[0][1]+'*@'+name.split('@')[1];
+        }
+        else{
+            new_name=name;
+        }
+        return new_name;
+    }
+
+    function show_team_member(team_member,member_cnt){
+        $("#team_member_table").empty();
+        var line=parseInt(member_cnt/3)+1;//如果一行加三个成员,得到行数
+        for(var i=1;i<=line;i++){
+            $("#team_member_table").append('<tr id="line'+i+'"></tr>');
+            if(i!=line){
+                for(var j=0;j<3;j++){
+                    $("#line"+i).append('<div class="Head_portrait_div_edit "><div class="team_member_logo"><i class="material-icons delete_team_member">close</i>'+
+                        '<img id="'+team_member[(i-1)*3+j].id+'" src="'+cur_media+team_member[(i-1)*3+j].logo_path+'" alt="头像" class="Head_portrait_edit" /></div>'
+                        +'<span class="name">'+dealName(team_member[(i-1)*3+j].name)+'</span></div>')
+                }
+            }
+            else{
+                for(var j=0;j<member_cnt%3;j++){
+                    $("#line"+i).append('<div class="Head_portrait_div_edit "><div class="team_member_logo"><i class="material-icons delete_team_member">close</i>'+
+                        '<img id="'+team_member[(i-1)*3+j].id+'" src="'+cur_media+team_member[(i-1)*3+j].logo_path+'" alt="头像" class="Head_portrait_edit" /></div>'
+                        +'<span class="name">'+dealName(team_member[(i-1)*3+j].name)+'</span></div>')
+                }
+                $("#line"+i).append('<a class="btn-floating add_member_btn waves-effect waves orange">'
+                    +'<i class="material-icons" style="color:#fff">add</i></a>');
+            }
+        }
+    }
+
+    function member_moveon(){
+        //监听鼠标的移入事件
+        $(".team_member_logo .Head_portrait_edit").on("mouseover", function () {
+            $(this).css("opacity", "0.3");
+            $(this).parent().children('.delete_team_member').css("visibility", "visible");
+        }).on("mouseout", function () {//监听鼠标的移出事件
+            $(this).css("opacity", "1");
+            $(this).parent().children('.delete_team_member').css("visibility", "hidden");
+        });
+    }
+
+    function add_member(edit_team_member){
+        $(document).ready(function(){
+            // the "href" attribute of .modal-trigger must specify the modal ID that wants to be triggered
+            $('.modal-trigger').leanModal();
+        });
+        $(".add_member_btn").unbind("click").on('click',function(){
+            $('#add_member_dialog').openModal();
+        });
+        $("#add_member_action").unbind("click").on('click',function(){//点击弹出框的功能键
+            var funBtn=$("#add_member_action").text();
+            if(funBtn=="搜索"){
+                var search_name=$("#member_name").val();
+                if(search_name=="")
+                    Materialize.toast("输入要搜索的姓名",2000);
+                $.ajax({
+                    type: 'GET',
+                    url: cur_site + "team/name2mail",
+                    dataType: "json",
+                    data: {'name': search_name},
+                    success: function (data) {
+                        //console.log(data);
+                        var result_cnt=data.res.length;
+                        var search_result=data.res;
+                        if(result_cnt!=0) {
+                            $(".search_member_mail").show();
+                            for (var i = 0; i < result_cnt; i++) {
+                                $("#member_mail").append('<option value="' + search_result[i].sid + '">' + search_result[i].mail + '</option>');
+                            }
+
+                            var search_result_sid=search_result[0].sid;
+
+                            $.ajax({
+                                type: 'post',
+                                url: cur_site + "student/info/get/",
+                                dataType: "json",
+                                data: {'id': search_result_sid},
+                                success: function (data) {
+                                    //console.log(data);
+                                    $(".search_member_logo").show().attr("src", cur_media+data.avatar_path).attr("id",search_result_sid);
+                                    $("#add_member_action").empty().html("添加");
+                                }
+                            });
+                        }
+                        else{
+                            $("#remainder_msg").show();
+                            $("#invite_msg").show();
+                            $("#new_member_mail_div").show();
+                            $("#add_member_action").html("邀请");
+                        }
+                    }
+                });
+                
+            }
+            else if(funBtn=="添加"){
+                var add_id=$(".search_member_logo").attr("id");
+                var add_logo=$(".search_member_logo").attr("src").replace(cur_media,"");
+                for(var i=0;i<edit_team_member.length;i++){
+                    if(edit_team_member[i].id==add_id){
+                        Materialize.toast("该成员已存在",2000);
+                        return;
+                    }
+                }
+                var result={
+                    "tid":tid,
+                    "sid":add_id
+                };
+                edit_team_member.push({
+                    "name":$("#member_name").val(),
+                    "logo_path":add_logo,
+                    "id":add_id
+                });
+                $.ajax({
+                    type: 'POST',
+                    url: cur_site + "team/add_team_stu/",
+                    dataType: "json",
+                    data: result,
+                    success: function (data) {
+                        $('#add_member_dialog').closeModal();
+                        $("#member_mail").empty();
+                        $(".search_member_mail").css("display","none");
+                        $(".search_member_logo").css("display","none");
+                        $("#remainder_msg").css("display","none");
+                        $("#invite_msg").css("display","none");
+                        $("#new_member_mail_div").css("display","none");
+                        $("#member_name").val("");
+                        $("#add_member_action").html("搜索");
+                        show_team_member(edit_team_member,edit_team_member.length);
+                        member_moveon();
+                        add_member(edit_team_member);
+                        delete_member(edit_team_member);
+
+                    }
+                });
+
+            }
+
+            else if(funBtn=="邀请"){
+                var invite_mail=$("#new_member_mail").val();
+                if(invite_mail=="") {
+                    Materialize.toast("邮箱不能为空", 2000);
+                }
+                else{
+                    var res={"tid":tid,mail:invite_mail};
+                    $.ajax({
+                        type: 'POST',
+                        url: cur_site + "team/invite_stu/",
+                        dataType: "json",
+                        data: res,
+                        success: function (data) {
+                            console.log(data);
+                            if(data.err=='-3') {
+                                Materialize.toast("帐号已存在", 2000);
+                            }
+                            else{
+                                edit_team_member.push({
+                                    "name":invite_mail,
+                                    "logo_path":"student/avatar/default.jpg",
+                                    "id":data.msg
+                                });
+                                $('#add_member_dialog').closeModal();
+                                $("#member_mail").empty();
+                                $(".search_member_mail").css("display","none");
+                                $(".search_member_logo").css("display","none");
+                                $("#remainder_msg").css("display","none");
+                                $("#invite_msg").css("display","none");
+                                $("#new_member_mail_div").css("display","none");
+                                $("#member_name").val("");
+                                $("#new_member_mail").val("");
+                                $("#add_member_action").html("搜索");
+                                show_team_member(edit_team_member,edit_team_member.length);
+                                member_moveon();
+                                add_member(edit_team_member);
+                                delete_member(edit_team_member);
+                            }
+
+                        }
+                    });
+                }
+
+
+            }
+
+        });
+
+        $(".close_dialog").on("click",function(){
+            $('#add_member_dialog').closeModal();
+            $("#member_mail").empty();
+            $(".search_member_mail").css("display","none");
+            $(".search_member_logo").css("display","none");
+            $("#remainder_msg").css("display","none");
+            $("#invite_msg").css("display","none");
+            $("#new_member_mail_div").css("display","none");
+            $("#member_name").val("");
+            $("#new_member_mail").val("");
+            $("#add_member_action").html("搜索");
+        });
+
+    }
+
+    function  delete_member(edit_team_member) {
+        var team_member_temp=[];
+        $(".team_member_logo").on("click",function(){
+            var delete_sid=$(this).children("img").attr("id");
+            $("#confirm_delete_member").openModal();
+            $("#certain_delete_member").unbind('click').on('click',function(){
+                $("#confirm_delete_member").closeModal();
+                var result={
+                    "tid":tid,
+                    "sid":delete_sid
+                };
+                $.ajax({
+                    type: 'POST',
+                    url: cur_site + "team/rm_team_stu/",
+                    dataType: "json",
+                    data: result,
+                    success: function (data) {
+                        for(var i=0;i<edit_team_member.length;i++){
+                            if(edit_team_member[i].id!=delete_sid) {
+                                team_member_temp.push(edit_team_member[i]);
+                            }
+                        }
+                        edit_team_member.length=0;
+                        for(var j=0;j<team_member_temp.length;j++)
+                            edit_team_member.push(team_member_temp[j]);
+                        team_member_temp.length=0;
+                        $('#add_member_dialog').closeModal();
+                        $("#member_mail").empty();
+                        $(".search_member_mail").css("display","none");
+                        $(".search_member_logo").css("display","none");
+                        $("#remainder_msg").css("display","none");
+                        $("#invite_msg").css("display","none");
+                        $("#new_member_mail_div").css("display","none");
+                        $("#member_name").val("");
+                        $("#new_member_mail").val("");
+                        $("#add_member_action").html("搜索");
+                        show_team_member(edit_team_member,edit_team_member.length);
+                        member_moveon();
+                        add_member(edit_team_member);
+                        delete_member(edit_team_member);
+                    }
+                });
+            });
+
+        });
+    }
+
 });
 
-
+var tid=getId();
 var tag_logo_change=0;//记录团队logo是否上传
 //基本信息的编辑
 function F_Open_img() {
@@ -985,7 +1332,7 @@ function show_team_local_img(file) {//预览图片,添加团队照片
     reader.onload = function (evt) {
         //新增团队照片
         var formData = new FormData();
-        formData.append('tid', 1);
+        formData.append('tid', tid);
         formData.append('photo', $('#update_team_photo')[0].files[0]);
 
         $.ajax({
@@ -1024,7 +1371,7 @@ function show_team_local_img(file) {//预览图片,添加团队照片
                 url: cur_site + "team/info/",
                 // url: "../data/team_index.json",
                 dataType: "json",
-                data: {'tid': 1/*tid*/},
+                data: {'tid': tid},
                 success: function (data) {
                     //var team_img=data.res.imgs;
                     for(var i=0;i<data.res.imgs.length;i++){
@@ -1075,7 +1422,7 @@ function show_team_local_img(file) {//预览图片,添加团队照片
 
                     //console.log(new_increase_photo);
 
-                    var result = {'tid': 1, 'img_id': delete_id};
+                    var result = {'tid': tid, 'img_id': delete_id};
                     $.ajax({
                         type: "post",
                         url: cur_site + "team/rm_team_photo/",
@@ -1089,7 +1436,7 @@ function show_team_local_img(file) {//预览图片,添加团队照片
                                 url: cur_site + "team/info/",
                                 // url: "../data/team_index.json",
                                 dataType: "json",
-                                data: {'tid': 1/*tid*/},
+                                data: {'tid': tid},
                                 success: function (data) {
                                     var team_img = data.res.imgs;
                                     for(var i=0;i<team_img.length;i++){
@@ -1220,7 +1567,7 @@ function show_team_local_img(file) {//预览图片,添加团队照片
 
                 //console.log(new_increase_photo);
                 if(tag==0){
-                    var result = {'tid': 1, 'img_id': delete_id};
+                    var result = {'tid': tid, 'img_id': delete_id};
                     $.ajax({
                         type: "post",
                         url: cur_site + "team/rm_team_photo/",
@@ -1234,7 +1581,7 @@ function show_team_local_img(file) {//预览图片,添加团队照片
                                 url: cur_site + "team/info/",
                                 // url: "../data/team_index.json",
                                 dataType: "json",
-                                data: {'tid': 1/*tid*/},
+                                data: {'tid': tid},
                                 success: function (data) {
                                     var team_img = data.res.imgs;
                                     for(var i=0;i<team_img.length;i++){
@@ -1269,7 +1616,7 @@ function show_team_local_img(file) {//预览图片,添加团队照片
                         url: cur_site + "team/info/",
                         // url: "../data/team_index.json",
                         dataType: "json",
-                        data: {'tid': 1/*tid*/},
+                        data: {'tid': tid},
                         success: function (data) {
                             var team_img = data.res.imgs;
                             //console.log(team_img);
