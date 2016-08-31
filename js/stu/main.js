@@ -204,7 +204,7 @@ $(function () {
                     alert("学生不存在");
                 }
                 if (err == '-10') {
-                    alert("操作失败");
+                    console.log("操作失败");
                 }
                 if (err == '0') {
                     var avatar_path = cur_media + data.avatar_path;
@@ -316,10 +316,10 @@ $(function () {
                 if (err == '-118') {
                 }
                 if (err == '-1') {
-                    alert("请求方法错误");
+                    console.log("请求方法错误");
                 }
                 if (err == '-10') {
-                    alert("操作失败");
+                    console.log("操作失败");
                 }
                 if (err == '0') {
                     var grade = data.grade;
@@ -394,10 +394,10 @@ $(function () {
                     $("#prac-toggle").css("display", "none");
                 }
                 if (err == '-1') {
-                    alert("请求方法错误");
+                    console.log("请求方法错误");
                 }
                 if (err == '-10') {
-                    alert("操作失败");
+                    console.log("操作失败");
                 }
                 if (err == '0') {
                     var intern_list = data.intern_list;
@@ -447,10 +447,10 @@ $(function () {
                     $("#proj-toggle").css("display", "none");
                 }
                 if (err == '-1') {
-                    alert("请求方法错误");
+                    console.log("请求方法错误");
                 }
                 if (err == '-10') {
-                    alert("操作失败");
+                    console.log("操作失败");
                 }
                 if (err == '0') {
                     var proj_list = data.proj_list;
@@ -498,10 +498,10 @@ $(function () {
                     document.getElementById("works-site").innerHTML = "尚未上传作品集在线地址";
                 }
                 if (err == '-1') {
-                    alert("请求方法错误");
+                    console.log("请求方法错误");
                 }
                 if (err == '-10') {
-                    alert("操作失败");
+                    console.log("操作失败");
                 }
                 if (err == '0') {
                     var works_id=data.works_id;
@@ -544,10 +544,10 @@ $(function () {
                     document.getElementById("skill-all").innerHTML = "无技能评价";
                 }
                 if (err == '-1') {
-                    alert("请求方法错误");
+                    console.log("请求方法错误");
                 }
                 if (err == '-10') {
-                    alert("操作失败");
+                    console.log("操作失败");
                 }
                 if (err == '0') {
                     var skill_list = data.skill_list;
@@ -611,10 +611,10 @@ $(function () {
 
                     }
                     if (err == '-1') {
-                        alert("请求方法错误");
+                        console.log("请求方法错误");
                     }
                     if (err == '-10') {
-                        alert("操作失败");
+                        console.log("操作失败");
                     }
                     if (err == '0') {
                         $("#right-edit5").html("编辑");
@@ -797,10 +797,10 @@ $(function () {
                                     if (err == "0") {
                                     }
                                     if (err == '-1') {
-                                        alert("请求方法错误");
+                                        console.log("请求方法错误");
                                     }
                                     if (err == '-10') {
-                                        alert("操作失败");
+                                        console.log("操作失败");
                                     }
                                     if (err == '-127') {
                                         alert("技能评价已达上限");
@@ -834,10 +834,10 @@ $(function () {
                                     if (err == "0") {
                                     }
                                     if (err == '-1') {
-                                        alert("请求方法错误");
+                                        console.log("请求方法错误");
                                     }
                                     if (err == '-10') {
-                                        alert("操作失败");
+                                        console.log("操作失败");
                                     }
                                     account--;
                                     if (account == 0) {
@@ -880,10 +880,10 @@ $(function () {
                                         del_skill.remove();
                                     }
                                     if (err == '-1') {
-                                        alert("请求方法错误");
+                                        console.log("请求方法错误");
                                     }
                                     if (err == '-10') {
-                                        alert("操作失败");
+                                        console.log("操作失败");
                                     }
 
                                 },
@@ -955,10 +955,10 @@ $(function () {
 
                 }
                 if (err == '-1') {
-                    alert("请求方法错误");
+                    console.log("请求方法错误");
                 }
                 if (err == '-10') {
-                    alert("操作失败");
+                    console.log("操作失败");
                 }
                 if (err == '0') {
                     $("#right-edit5").html("编辑");
@@ -1112,10 +1112,10 @@ $(function () {
                                     document.getElementById("edu-show").innerHTML = "";
                                 }
                                 if (err == '-1') {
-                                    alert("请求方法错误");
+                                    console.log("请求方法错误");
                                 }
                                 if (err == '-10') {
-                                    alert("操作失败");
+                                    console.log("操作失败");
                                 }
                                 if (err == '0') {
                                     $(".add-new1").css("display", "none");
@@ -1161,10 +1161,10 @@ $(function () {
                         });
                     }
                     if (err == "-1") {
-                        alert("请求方法错误");
+                        console.log("请求方法错误");
                     }
                     if (err == "-10") {
-                        alert("操作失败");
+                        console.log("操作失败");
                     }
                     if (err == "-123") {
                         alert("教育经历已达上限");
@@ -1275,10 +1275,10 @@ $(function () {
                                     $("#prac-toggle").css("display", "none");
                                 }
                                 if (err == '-1') {
-                                    alert("请求方法错误");
+                                    console.log("请求方法错误");
                                 }
                                 if (err == '-10') {
-                                    alert("操作失败");
+                                    console.log("操作失败");
                                 }
                                 if (err == '0') {
                                     $(".add-new2").css("display", "none");
@@ -1317,10 +1317,10 @@ $(function () {
                         });
                     }
                     if (err == "-1") {
-                        alert("请求方法错误");
+                        console.log("请求方法错误");
                     }
                     if (err == "-10") {
-                        alert("操作失败");
+                        console.log("操作失败");
                     }
                     if (err == "-124") {
                         alert("实习经历已达上限");
@@ -1429,10 +1429,10 @@ $(function () {
                                     $("#proj-toggle").css("display", "none");
                                 }
                                 if (err == '-1') {
-                                    alert("请求方法错误");
+                                    console.log("请求方法错误");
                                 }
                                 if (err == '-10') {
-                                    alert("操作失败");
+                                    console.log("操作失败");
                                 }
                                 if (err == '0') {
                                     $(".add-new3").css("display", "none");
@@ -1469,10 +1469,10 @@ $(function () {
                         });
                     }
                     if (err == "-1") {
-                        alert("请求方法错误");
+                        console.log("请求方法错误");
                     }
                     if (err == "-10") {
-                        alert("操作失败");
+                        console.log("操作失败");
                     }
                     if (err == "-125") {
                         alert("项目经历已达上限");
@@ -1536,10 +1536,10 @@ $(function () {
                                         document.getElementById("works-site").innerHTML = "尚未上传作品集在线地址";
                                     }
                                     if (err == '-1') {
-                                        alert("请求方法错误");
+                                        console.log("请求方法错误");
                                     }
                                     if (err == '-10') {
-                                        alert("操作失败");
+                                        console.log("操作失败");
                                     }
                                     if (err == '0') {
                                         var works_id = data.works_id;
@@ -1567,10 +1567,10 @@ $(function () {
                             });
                         }
                         if (err == "-1") {
-                            alert("请求方法错误");
+                            console.log("请求方法错误");
                         }
                         if (err == "-10") {
-                            alert("操作失败");
+                            console.log("操作失败");
                         }
                         if (err == "-126") {
                             alert("已有作品集");
@@ -1612,10 +1612,10 @@ $(function () {
                                         document.getElementById("works-site").innerHTML = "尚未上传作品集在线地址";
                                     }
                                     if (err == '-1') {
-                                        alert("请求方法错误");
+                                        console.log("请求方法错误");
                                     }
                                     if (err == '-10') {
-                                        alert("操作失败");
+                                        console.log("操作失败");
                                     }
                                     if (err == '0') {
                                         var path = data.path;
@@ -1643,10 +1643,10 @@ $(function () {
                             });
                         }
                         if (err == "-1") {
-                            alert("请求方法错误");
+                            console.log("请求方法错误");
                         }
                         if (err == "-10") {
-                            alert("操作失败");
+                            console.log("操作失败");
                         }
                         if (err == "-126") {
                             alert("已有作品集");
@@ -1696,10 +1696,10 @@ $(function () {
                         }
                     }
                     if (err == "-1") {
-                        alert("请求方法错误");
+                        console.log("请求方法错误");
                     }
                     if (err == "-10") {
-                        alert("操作失败");
+                        console.log("操作失败");
                     }
                 },
                 headers: {
@@ -1836,10 +1836,10 @@ $(function () {
                             $(edu_fieldi).css("display", "none");
                         }
                         if (err == "-1") {
-                            alert("请求方法错误");
+                            console.log("请求方法错误");
                         }
                         if (err == "-10") {
-                            alert("操作失败");
+                            console.log("操作失败");
                         }
                     },
                     headers: {
@@ -1916,10 +1916,10 @@ $(function () {
                             $(right_iconi).css("display", "block")
                         }
                         if (err == "-1") {
-                            alert("请求方法错误");
+                            console.log("请求方法错误");
                         }
                         if (err == "-10") {
-                            alert("操作失败");
+                            console.log("操作失败");
                         }
                     },
                     headers: {
@@ -1983,10 +1983,10 @@ $(function () {
                             $(right_iconi).css("display", "block");
                         }
                         if (err == "-1") {
-                            alert("请求方法错误");
+                            console.log("请求方法错误");
                         }
                         if (err == "-10") {
-                            alert("操作失败");
+                            console.log("操作失败");
                         }
                     },
                     headers: {
@@ -2023,10 +2023,10 @@ $(function () {
                     alert("作品集文件不合法");
                 }
                 if (err == "-1") {
-                    alert("请求方法错误");
+                    console.log("请求方法错误");
                 }
                 if (err == "-10") {
-                    alert("操作失败");
+                    console.log("操作失败");
                 }
             },
             headers: {
@@ -2171,10 +2171,10 @@ $(function () {
                         }
                     }
                     if (err == "-1") {
-                        alert("请求方法错误");
+                        console.log("请求方法错误");
                     }
                     if (err == "-10") {
-                        alert("操作失败");
+                        console.log("操作失败");
                     }
                 },
                 headers: {
@@ -2236,10 +2236,10 @@ $(function () {
                         }
                     }
                     if (err == "-1") {
-                        alert("请求方法错误");
+                        console.log("请求方法错误");
                     }
                     if (err == "-10") {
-                        alert("操作失败");
+                        console.log("操作失败");
                     }
                 },
                 headers: {
