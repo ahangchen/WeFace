@@ -25,17 +25,17 @@ $(document).ready(function () {
     //点击保存
     $("#saveButton").on("click",function(){
 
-        var newName=$("#first_name").val()==null?-1:$("#first_name").val();
+        var newName=$("#first_name").val()==null?"":$("#first_name").val();
         var newSex=$("#select_sex").val();
         if(newSex==null)//如果没填性别为0
            newSex=0;
-        var newSchool=$("#school_name").val()==null?-1:$("#school_name").val();
-        var newMajor=$("#major_name").val()==null?-1:$("#major_name").val();
+        var newSchool=$("#school_name").val()==null?"":$("#school_name").val();
+        var newMajor=$("#major_name").val()==null?"":$("#major_name").val();
         var newYear=$("#select_year option:selected").text();
         var newMonth=$("#select_month option:selected").text();
         var newLocation=$("#select_location option:selected").text();
-        var newMail=$("#email").val()==null?-1:$("#email").val();
-        var newTel=$("#tel").val()==null?-1:$("#tel").val();
+        var newMail=$("#email").val()==null?"":$("#email").val();
+        var newTel=$("#tel").val()==null?"":$("#tel").val();
         if(newYear==null)
             newYear=-1;
         if(newMonth==null)
