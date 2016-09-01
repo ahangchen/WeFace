@@ -976,7 +976,7 @@ $(function () {
                             dataType: "json",
                             data: result,
                             success: function (data) {
-                                console.log(data);
+                                //console.log(data);
                                 cnt++;
                                 if(cnt==length_temp){
                                     for(var j=0;j<team_member.length;j++) {
@@ -987,7 +987,7 @@ $(function () {
                                             dataType: "json",
                                             data: update,
                                             success: function (data) {
-                                                console.log(data);
+                                                //console.log(data);
                                                 edit_team_member.length=0;
                                                 team_member.length=0;
                                             }
@@ -999,16 +999,24 @@ $(function () {
                     }
                     $("#team_member_icon").empty();
                     $("#complete_edit_member").css("opacity","0");
-                    var stuNum = team_member.length;
-                    for (var i = 0; i < stuNum; i++) {
-                        var name;
-                        if(team_member[i].name.split('@')[1]!=null){
-                            name=team_member[i].name.split('@')[0][0]+team_member[i].name.split('@')[0][1]+'*@'+team_member[i].name.split('@')[1];
+                    $("#team_member_icon").append('<table id="team_member_table"></table>');
+                    var line=parseInt(team_member.length/3)+1;//如果一行加三个成员,得到行数
+                    for(var i=1;i<=line;i++){
+                        $("#team_member_table").append('<tr id="line'+i+'"></tr>');
+                        if(i!=line){
+                            for(var j=0;j<3;j++){
+                                $("#line"+i).append('<div class="Head_portrait_div "><div class="team_member_logo">'+
+                                    '<img id="'+team_member[(i-1)*3+j].id+'" src="'+cur_media+team_member[(i-1)*3+j].logo_path+'" alt="头像" class="Head_portrait" /></div>'
+                                    +'<span class="name">'+dealName(team_member[(i-1)*3+j].name)+'</span></div>')
+                            }
                         }
                         else{
-                            name=team_member[i].name;
+                            for(var j=0;j<edit_team_member.length%3;j++){
+                                $("#line"+i).append('<div class="Head_portrait_div "><div class="team_member_logo">'+
+                                    '<img id="'+team_member[(i-1)*3+j].id+'" src="'+cur_media+team_member[(i-1)*3+j].logo_path+'" alt="头像" class="Head_portrait" /></div>'
+                                    +'<span class="name">'+dealName(team_member[(i-1)*3+j].name)+'</span></div>')
+                            }
                         }
-                        $("#team_member_icon").append('<div class="Head_portrait_div "><img src="'+cur_media+team_member[i].logo_path+'" alt="头像" class="Head_portrait" /><br><span class="name">'+name+'</span></div>')
                     }
 
 
@@ -1017,16 +1025,24 @@ $(function () {
                 $("#member_saveButton").on("click",function(){//不需要做任何操作直接返回显示
                     $("#team_member_icon").empty();
                     $("#complete_edit_member").css("opacity","0");
-                    var stuNum = edit_team_member.length;
-                    for (var i = 0; i < stuNum; i++) {
-                        var name;
-                        if(edit_team_member[i].name.split('@')[1]!=null){
-                            name=edit_team_member[i].name.split('@')[0][0]+edit_team_member[i].name.split('@')[0][1]+'*@'+edit_team_member[i].name.split('@')[1];
+                    $("#team_member_icon").append('<table id="team_member_table"></table>');
+                    var line=parseInt(edit_team_member.length/3)+1;//如果一行加三个成员,得到行数
+                    for(var i=1;i<=line;i++){
+                        $("#team_member_table").append('<tr id="line'+i+'"></tr>');
+                        if(i!=line){
+                            for(var j=0;j<3;j++){
+                                $("#line"+i).append('<div class="Head_portrait_div "><div class="team_member_logo">'+
+                                    '<img id="'+edit_team_member[(i-1)*3+j].id+'" src="'+cur_media+edit_team_member[(i-1)*3+j].logo_path+'" alt="头像" class="Head_portrait" /></div>'
+                                    +'<span class="name">'+dealName(edit_team_member[(i-1)*3+j].name)+'</span></div>')
+                            }
                         }
                         else{
-                            name=edit_team_member[i].name;
+                            for(var j=0;j<edit_team_member.length%3;j++){
+                                $("#line"+i).append('<div class="Head_portrait_div "><div class="team_member_logo">'+
+                                    '<img id="'+edit_team_member[(i-1)*3+j].id+'" src="'+cur_media+edit_team_member[(i-1)*3+j].logo_path+'" alt="头像" class="Head_portrait" /></div>'
+                                    +'<span class="name">'+dealName(edit_team_member[(i-1)*3+j].name)+'</span></div>')
+                            }
                         }
-                        $("#team_member_icon").append('<div class="Head_portrait_div "><img src="'+cur_media+edit_team_member[i].logo_path+'" alt="头像" class="Head_portrait" /><br><span class="name">'+name+'</span></div>')
                     }
                     edit_team_member.length=0;
                     team_member.length=0;
@@ -1037,7 +1053,7 @@ $(function () {
         });
     });
 
-    function dealName(name){
+    function dealName(name){//对邮箱中间添加*省略
         var new_name;
         if(name.split('@')[1]!=null){
             new_name=name.split('@')[0][0]+name.split('@')[0][1]+'*@'+name.split('@')[1];
