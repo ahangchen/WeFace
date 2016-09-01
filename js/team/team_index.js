@@ -125,9 +125,28 @@ $(document).ready(function () {
             } else {
                // $("#leader").attr('src',data.res.stus[0].logo_path);
                 //$("#leaderName").html(data.res.stus[0].name);
-                // 团队非创始人成员头像加载
+                // 团队成员头像加载
+                $("#team_member_icon").append('<table id="team_member_table"></table>');
                 var stuNum = data.res.stus.length;
-                for (var i = 0; i < stuNum; i++) {
+                var line=parseInt(stuNum/3)+1;//如果一行加三个成员,得到行数
+                for(var i=1;i<=line;i++){
+                    $("#team_member_table").append('<tr id="line'+i+'"></tr>');
+                    if(i!=line){
+                        for(var j=0;j<3;j++){
+                            $("#line"+i).append('<div class="Head_portrait_div "><div class="team_member_logo">'+
+                                '<img id="'+data.res.stus[(i-1)*3+j].id+'" src="'+cur_media+data.res.stus[(i-1)*3+j].logo_path+'" alt="头像" class="Head_portrait" /></div>'
+                                +'<span class="name">'+dealName(data.res.stus[(i-1)*3+j].name)+'</span></div>')
+                        }
+                    }
+                    else{
+                        for(var j=0;j<stuNum%3;j++){
+                            $("#line"+i).append('<div class="Head_portrait_div "><div class="team_member_logo">'+
+                                '<img id="'+data.res.stus[(i-1)*3+j].id+'" src="'+cur_media+data.res.stus[(i-1)*3+j].logo_path+'" alt="头像" class="Head_portrait" /></div>'
+                                +'<span class="name">'+dealName(data.res.stus[(i-1)*3+j].name)+'</span></div>')
+                        }
+                    }
+                }
+                /*for (var i = 0; i < stuNum; i++) {
                     var name;
                     if(data.res.stus[i].name.split('@')[1]!=null){
                         name=data.res.stus[i].name.split('@')[0][0]+data.res.stus[i].name.split('@')[0][1]+'*@'+data.res.stus[i].name.split('@')[1];
@@ -136,7 +155,7 @@ $(document).ready(function () {
                         name=data.res.stus[i].name;
                     }
                     $("#team_member_icon").append('<div class="Head_portrait_div "><img src="'+cur_media+data.res.stus[i].logo_path+'" alt="头像" class="Head_portrait" /><br><span class="name">'+name+'</span></div>')
-                }
+                }*/
             }
 
 
@@ -207,6 +226,17 @@ $(document).ready(function () {
          //    $("#team_member_icon").append('<div class="Head_portrait_div "><img src="'+data.res.stus[i].logo_path+'" alt="头像" class="Head_portrait" /><br><span class="name">'+data.res.stus[i].name+'</span></div>')
          //   }
          // });
+
+    function dealName(name){//对邮箱中间添加*省略
+        var new_name;
+        if(name.split('@')[1]!=null){
+            new_name=name.split('@')[0][0]+name.split('@')[0][1]+'*@'+name.split('@')[1];
+        }
+        else{
+            new_name=name;
+        }
+        return new_name;
+    }
 
        });
        
