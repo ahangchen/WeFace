@@ -382,17 +382,17 @@
 #team_label_edit{
     width: 300px;
     margin-left: 20px;
-    margin-top: 20px;
 }
 
 #left_one{
     height: 400px;
+
 }
 
 .chips-initial .chip{
     background-color:#fff;
     margin-left: 3px;
-    margin-top: 5px;
+    margin-top: 35px;
 }
 
 .chips-initial .close{
