@@ -80,8 +80,8 @@ function updatestringcheck(value){//对即将上传的值的检验,若为空返�
         return value;
 }
 
-function updateselectcheck(value){//对即将上传的select的空值处理
-    if(value==null)
+function updateselectcheck(value,default_value){//对即将上传的select的空值处理
+    if(value==default_value)
         return -1;
     else
         return value;
@@ -415,9 +415,9 @@ $(function () {
                         var newSex=updatesexcheck($("#select_sex").val());
                         var newSchool=updatestringcheck($("#school_name").val());
                         var newMajor=updatestringcheck($("#major_name").val());
-                        var newYear=updateselectcheck($("#select_year option:selected").text());
-                        var newMonth=updateselectcheck($("#select_month option:selected").text());
-                        var newLocation=updateselectcheck($("#select_location option:selected").text());
+                        var newYear=updateselectcheck($("#select_year option:selected").text(),"出生年份");
+                        var newMonth=updateselectcheck($("#select_month option:selected").text(),"月份");
+                        var newLocation=updateselectcheck($("#select_location option:selected").text(),"选择你所在的城市");
                         var newMail=updatestringcheck($("#email").val());
                         var newTel=updatestringcheck($("#tel").val());
 
