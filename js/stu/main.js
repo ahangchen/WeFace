@@ -63,6 +63,100 @@ function pracnone2() {
     }
 }
 
+function initbirth(){
+    for (var i = 1; i <= 12; i++) {
+        document.getElementById("select_month").innerHTML += '<option value="' + i + '">' + i + '</option>';
+    }
+
+    for (var i = 1970; i <= 2016; i++) {
+        document.getElementById("select_year").innerHTML += '<option value="' + i + '">' + i + '</option>';
+    }
+}
+
+function updatestringcheck(value){//对即将上传的值的检验,若为空返回""
+    if(value==null)
+        return "";
+    else
+        return value;
+}
+
+function updateselectcheck(value){//对即将上传的select的空值处理
+    if(value==null)
+        return -1;
+    else
+        return value;
+}
+
+function updatesexcheck(value){//对即将上传的性别判断
+    if(value==null)
+        return 0;
+    else
+        return value;
+}
+
+function F_Open_img() {
+    document.getElementById("update_photo").click();
+}
+var photo_tag=0;//记录是否上传新的照片
+var new_avatar;//记录新上传的头像
+function show_local_img(file) {//预览图片
+    var id=getId();//得到学生的id
+    $(".photo_logo").css("opacity", "0");
+    var img = document.getElementById("local_photo");
+    var reader = new FileReader();
+    reader.onload = function (evt) {
+        img.src = evt.target.result;
+        //上传照片
+        var formData = new FormData();
+        formData.append('id', id);
+        formData.append('avatar', $('#update_photo')[0].files[0]);
+        $.ajax({
+            type: 'POST',
+            data: formData,
+            cache:false,
+            url: cur_site + "student/info/avatar/",
+            processData: false,
+            contentType: false,
+            dataType: 'json'
+        }).done(function(res){
+            console.log(res);
+            new_avatar=res.path;
+            photo_tag=1;
+        })
+    };
+    reader.readAsDataURL(file.files[0]);
+}
+
+function F_Open_file() {
+    document.getElementById("update_file").click();
+}
+
+var path_href;//上传的简历路径
+function show_local_file() {
+    var id=getId();//得到学生的id
+    var path = document.getElementById('update_file');//得到简历的名字
+
+    $("#file_path").show();
+    $("#file_name").val(path.value.split("\\")[2]);
+    //上传简历
+    var formData = new FormData();
+    formData.append('id', 1/*id*/);
+    formData.append('resume', $('#update_file')[0].files[0]);
+    $.ajax({
+        type: 'POST',
+        data: formData,
+        cache:false,
+        url: cur_site + "student/resume/upload/",
+        processData: false,
+        contentType: false,
+        dataType: 'json'
+    }).done(function(res){
+        console.log(res);
+        path_href=res.path;
+    })
+
+}
+
 
 $(function () {
     var student_id = location.search.split("=")[1];
@@ -249,21 +343,34 @@ $(function () {
         });
         $('#edit-icon').click(function (event) {
             $('#student_message_box').css('display', 'block');
+            initbirth();//初始化出生日期的选择框
             $.ajax({
                 type: "POST",
-                data: {'id':1},//data_info,
+                data: data_info,
                 url: cur_site + "student/info/get/",
                 dataType: "json",
                 success: function (data) {
-                    $("#first_name").val(data.name);
-                    $("#school_name").val(data.school);
-                    $("#major_name").val(data.major);
-                    $("#email").val(data.mail);
-                    $("#tel").val(data.tel);
+                    //得到学生的基本信息
+                    var name=data.name;
+                    var school=data.school;
+                    var major=data.major;
+                    var mail=data.mail;
+                    var tel=data.tel;
+                    var sex=data.sex;
+                    var year=data.year;
+                    var month=data.month;
+                    var location=data.location;
+                    var avatar=data.avatar_path;
+
+                    $("#first_name").val(name);
+                    $("#school_name").val(school);
+                    $("#major_name").val(major);
+                    $("#email").val(mail);
+                    $("#tel").val(tel);
                     //获得性别
                     var all_options = document.getElementById("select_sex").options;
                     for (var i=0; i<all_options.length; i++){
-                        if (all_options[i].value == data.sex)
+                        if (all_options[i].value == sex)
                         {
                             all_options[i].selected = true;
                         }
@@ -271,7 +378,7 @@ $(function () {
                     //获得出生年月
                     all_options = document.getElementById("select_year").options;
                     for (var i=0; i<all_options.length; i++){
-                        if (all_options[i].value == data.year)
+                        if (all_options[i].value == year)
                         {
                             all_options[i].selected = true;
                         }
@@ -280,7 +387,7 @@ $(function () {
                     //获得出生月份
                     all_options = document.getElementById("select_month").options;
                     for (var i=0; i<all_options.length; i++){
-                        if (all_options[i].value == data.month)
+                        if (all_options[i].value == month)
                         {
                             all_options[i].selected = true;
                         }
@@ -289,14 +396,181 @@ $(function () {
                     //获得所在地
                     all_options = document.getElementById("select_location").options;
                     for (var i=0; i<all_options.length; i++){
-                        if (all_options[i].value==data.location)
+                        if (all_options[i].value==location)
                         {
                             all_options[i].selected = true;
                         }
                     }
 
                     //获得头像
-                    $("#local_photo").attr('src',cur_media+data.avatar_path);
+                    $("#local_photo").attr('src',cur_media+avatar);
+
+                    $("#delete_file").on("click",function(){//删除简历
+                        $("#file_path").css("display","none");
+                    });
+
+                    //保存对学生基本信息的修改
+                    $("#saveButton").on("click",function(){
+                        var newName=updatestringcheck($("#first_name").val());
+                        var newSex=updatesexcheck($("#select_sex").val());
+                        var newSchool=updatestringcheck($("#school_name").val());
+                        var newMajor=updatestringcheck($("#major_name").val());
+                        var newYear=updateselectcheck($("#select_year option:selected").text());
+                        var newMonth=updateselectcheck($("#select_month option:selected").text());
+                        var newLocation=updateselectcheck($("#select_location option:selected").text());
+                        var newMail=updatestringcheck($("#email").val());
+                        var newTel=updatestringcheck($("#tel").val());
+
+                        if(photo_tag==0){//表示没有新上传照片
+                            var result={
+                                "id": student_id,
+                                "path":avatar,
+                                "name":newName,
+                                "school":newSchool,
+                                "major": newMajor,
+                                "sex": newSex,
+                                "year": newYear,
+                                "month":newMonth,
+                                "location":newLocation,
+                                "mail":newMail,
+                                "tel":newTel
+                            };
+                            console.log(result);
+                            $.ajax({
+                                type: 'POST',
+                                data: result,
+                                url: cur_site + "student/info/update/",
+                                xhrFields: {withCredentials: true},
+                                dataType: 'json',
+                                success: function (data) {
+                                    //console.log(data);
+                                    $('#basic-info').css('display', 'block');
+                                    $('#student_message_box').css('display', 'none');
+                                    var myDate = new Date();
+                                    var end_year = myDate.getFullYear();
+                                    var end_month = myDate.getMonth() + 1;
+                                    var age = (end_year - newYear) + ((end_month - newMonth >= 0) ? 0 : (-1));
+                                    document.getElementById("avatar_path").src = cur_media+avatar;
+                                    document.getElementById("detail-name").innerHTML = newName;
+                                    document.getElementById("detail-school").innerHTML = newSchool;
+                                    if (newSex == "0") {
+                                    }
+                                    if (newSex == "1") {
+                                        $("#boy").css("display", "inline");
+                                    }
+                                    if (newSex == "2") {
+                                        $("#girl").css("display", "inline");
+                                    }
+                                    document.getElementById("detail-age").innerHTML = age;
+                                    document.getElementById("detail-major").innerHTML = newMajor;
+                                    document.getElementById("detail-location").innerHTML = newLocation;
+                                    document.getElementById("detail-tel").innerHTML = newTel;
+                                    document.getElementById("detail-mail").innerHTML = newMail;
+                                }
+                            });
+
+                        }
+                        else{
+                            var re={
+                                "id": student_id,
+                                "path":new_avatar,
+                                "name":newName,
+                                "school":newSchool,
+                                "major": newMajor,
+                                "sex": newSex,
+                                "year": newYear,
+                                "month":newMonth,
+                                "location":newLocation,
+                                "mail":newMail,
+                                "tel":newTel
+                            };
+                            //console.log(re);
+                            $.ajax({
+                                type: 'POST',
+                                data: re,
+                                url: cur_site + "student/info/update/",
+                                xhrFields: {withCredentials: true},
+                                dataType: 'json',
+                                success: function (data) {
+                                    console.log(data);
+                                    $('#basic-info').css('display', 'block');
+                                    $('#student_message_box').css('display', 'none');
+                                    var myDate = new Date();
+                                    var end_year = myDate.getFullYear();
+                                    var end_month = myDate.getMonth() + 1;
+                                    var age = (end_year - newYear) + ((end_month - newMonth >= 0) ? 0 : (-1));
+                                    document.getElementById("avatar_path").src = cur_media+new_avatar;
+                                    document.getElementById("detail-name").innerHTML = newName;
+                                    document.getElementById("detail-school").innerHTML = newSchool;
+                                    if (newSex == "0") {
+                                    }
+                                    if (newSex == "1") {
+                                        $("#boy").css("display", "inline");
+                                    }
+                                    if (newSex == "2") {
+                                        $("#girl").css("display", "inline");
+                                    }
+                                    document.getElementById("detail-age").innerHTML = age;
+                                    document.getElementById("detail-major").innerHTML = newMajor;
+                                    document.getElementById("detail-location").innerHTML = newLocation;
+                                    document.getElementById("detail-tel").innerHTML = newTel;
+                                    document.getElementById("detail-mail").innerHTML = newMail;
+                                }
+                            });
+                        }
+                    });
+
+                    //取消对学生基本信息的保存
+                    $("#cancelButton").on("click",function(){
+                        $('#basic-info').css('display', 'block');
+                        $('#student_message_box').css('display', 'none');
+                        //删除刚上传的照片和简历
+                        var result={
+                            "id": student_id,
+                            "path":avatar,
+                            "name":name,
+                            "school":school,
+                            "major": major,
+                            "sex": sex,
+                            "year": year,
+                            "month":month,
+                            "location":location,
+                            "mail":mail,
+                            "tel":tel
+                        };
+                        $.ajax({
+                            type: 'POST',
+                            data: result,
+                            url: cur_site + "student/info/update/",
+                            xhrFields: {withCredentials: true},
+                            dataType: 'json',
+                            success: function (data) {
+                                console.log(data);
+                                $('#basic-info').css('display', 'block');
+                                $('#student_message_box').css('display', 'none');
+                                var myDate = new Date();
+                                var end_year = myDate.getFullYear();
+                                var end_month = myDate.getMonth() + 1;
+                                var age = (end_year - year) + ((end_month - month >= 0) ? 0 : (-1));
+                                document.getElementById("avatar_path").src = cur_media+avatar;
+                                document.getElementById("detail-name").innerHTML = name;
+                                document.getElementById("detail-school").innerHTML = school;
+                                if (sex == "0") {
+                                }
+                                if (sex == "1") {
+                                    $("#boy").css("display", "inline");
+                                }
+                                if (sex == "2") {
+                                    $("#girl").css("display", "inline");
+                                }
+                                document.getElementById("detail-age").innerHTML = age;
+                                document.getElementById("detail-major").innerHTML = major;
+                                document.getElementById("detail-location").innerHTML = location;
+                                document.getElementById("detail-tel").innerHTML = tel;
+                                document.getElementById("detail-mail").innerHTML = mail;
+                            }
+                        });
+                    });
 
 
                 }
