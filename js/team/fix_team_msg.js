@@ -11,7 +11,7 @@ $(function () {
             url: cur_site + "team/info/",
             // url: "../data/team_index.json",
             dataType: "json",
-            data: {'tid': 1/*tid*/},
+            data: {'tid': tid},
             success: function (data) {
                 var change_line = (data.res.about).split('<br>').length - 1;//得到有几个换行
                 oldIntro = data.res.about;
@@ -93,7 +93,7 @@ $(function () {
             url: cur_site + "team/info/",
             // url: "../data/team_index.json",
             dataType: "json",
-            data: {'tid': 1/*tid*/},
+            data: {'tid': tid},
             success: function (data) {
                 oldHistory = data.res.history + '\n\n';
                 oldIntro = data.res.about;
@@ -170,7 +170,7 @@ $(function () {
             url: cur_site + "team/info/",
             // url: "../data/team_index.json",
             dataType: "json",
-            data: {'tid': 1/*tid*/},
+            data: {'tid': tid},
             success: function (data) {
                 team_tel = data.res.tel;
                 team_mail = data.res.mail;
@@ -197,7 +197,7 @@ $(function () {
                             var new_mail = $("#connect_mail").val();
                             $("#member_information").html(new_tel + "<br>" + new_mail);
                             var result = {
-                                "tid": 1,
+                                "tid": tid,
                                 "tel": new_tel,
                                 "mail": new_mail
                             };
@@ -1140,6 +1140,23 @@ $(function () {
                                     $(".search_member_logo").show().attr("src", cur_media+data.avatar_path).attr("id",search_result_sid);
                                     $("#add_member_action").empty().html("添加");
                                 }
+                            });
+
+                            $("#member_mail").on("change",function(){//如果改变了select中的值,头像跟着变
+                                //var mail_temp=$("#member_mail option:selected").text();//得到选择的邮箱
+                                var sid_temp=$("#member_mail option:selected").val();//得到邮箱对应的sid
+                                $.ajax({
+                                    type: 'post',
+                                    url: cur_site + "student/info/get/",
+                                    dataType: "json",
+                                    data: {'id': sid_temp},
+                                    success: function (data) {
+                                        //console.log(data);
+                                        $(".search_member_logo").show().attr("src", cur_media+data.avatar_path).attr("id",sid_temp);
+                                        //$("#add_member_action").empty().html("添加");
+                                    }
+                                });
+
                             });
                         }
                         else{
