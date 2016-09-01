@@ -404,6 +404,7 @@ $(function () {
                                                     xhrFields: {withCredentials: true},
                                                     dataType: 'json',
                                                     success: function (data) {
+                                                        tag_logo_change=0;
                                                         console.log(data.msg);
                                                         $("#fix_msg_button").css("opacity", '1');
                                                         $("#remove_basic_msg").empty().append(
@@ -473,6 +474,7 @@ $(function () {
                                                     }
                                                     new_team_type.length=0;
                                                     new_team_label.length=0;
+                                                    tag_logo_change=0;
                                                 }
                                             });
 
@@ -516,6 +518,7 @@ $(function () {
                                                             for (var j = 0; j < old_label.length; j++) {
                                                                 $(tag[j]).html(old_label[j]);
                                                             }
+                                                        tag_logo_change=0;
                                                     }
                                                 });
                                             }
