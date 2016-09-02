@@ -492,7 +492,6 @@ $(function () {
                                 xhrFields: {withCredentials: true},
                                 dataType: 'json',
                                 success: function (data) {
-                                    //window.open("http://110.64.69.101:8081/media/student/avatar/1.png","_blank");
                                     console.log(data);
                                     $('#basic-info').css('display', 'block');
                                     $('#student_message_box').css('display', 'none');
@@ -500,8 +499,7 @@ $(function () {
                                     var end_year = myDate.getFullYear();
                                     var end_month = myDate.getMonth() + 1;
                                     var age = (end_year - newYear) + ((end_month - newMonth >= 0) ? 0 : (-1));
-                                    //document.getElementById("avatar_path").src = cur_media+new_avatar;
-                                    //document.getElementById("avatar_path").src = "http://110.64.69.101:8081/media/student/avatar/1.png";
+                                    document.getElementById("avatar_path").src = cur_media+new_avatar;
                                     document.getElementById("detail-name").innerHTML = newName;
                                     document.getElementById("detail-school").innerHTML = newSchool;
                                     if (newSex == "0") {
@@ -518,17 +516,6 @@ $(function () {
                                     document.getElementById("detail-tel").innerHTML = newTel;
                                     document.getElementById("detail-mail").innerHTML = newMail;
                                     photo_tag=0;//标识位归零
-                                    $.ajax({
-                                        type: "POST",
-                                        data: data_info,
-                                        url: cur_site + "student/info/get/",
-                                        dataType: "json",
-                                        success: function (data) {
-                                            console.log(data);
-                                            //$("#avatar_path").attr('src',cur_media+data.avatar_path);
-                                            document.getElementById("avatar_path").src = cur_media+data.avatar_path;
-                                        }
-                                    });
                                 }
                             });
                         }
