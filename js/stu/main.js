@@ -120,7 +120,7 @@ function show_local_img(file) {//预览图片
             dataType: 'json'
         }).done(function(res){
             console.log(res);
-            new_avatar=res.path;
+            new_avatar=res.path.replace('/media/',"");
             photo_tag=1;
         })
     };
@@ -140,7 +140,7 @@ function show_local_file() {
     $("#file_name").val(path.value.split("\\")[2]);
     //上传简历
     var formData = new FormData();
-    formData.append('id', 1/*id*/);
+    formData.append('id', id);
     formData.append('resume', $('#update_file')[0].files[0]);
     $.ajax({
         type: 'POST',
@@ -341,7 +341,7 @@ $(function () {
                 "Access-Control-Allow-Origin": "*"
             }
         });
-        $('#edit-icon').click(function (event) {
+        $('#edit-icon').on("click",function() {
             $('#student_message_box').css('display', 'block');
             initbirth();//初始化出生日期的选择框
             $.ajax({
@@ -410,7 +410,7 @@ $(function () {
                     });
 
                     //保存对学生基本信息的修改
-                    $("#saveButton").on("click",function(){
+                    $("#saveButton").unbind("click").on("click",function(){
                         var newName=updatestringcheck($("#first_name").val());
                         var newSex=updatesexcheck($("#select_sex").val());
                         var newSchool=updatestringcheck($("#school_name").val());
@@ -492,6 +492,7 @@ $(function () {
                                 xhrFields: {withCredentials: true},
                                 dataType: 'json',
                                 success: function (data) {
+                                    //window.open("http://110.64.69.101:8081/media/student/avatar/1.png","_blank");
                                     console.log(data);
                                     $('#basic-info').css('display', 'block');
                                     $('#student_message_box').css('display', 'none');
@@ -499,7 +500,8 @@ $(function () {
                                     var end_year = myDate.getFullYear();
                                     var end_month = myDate.getMonth() + 1;
                                     var age = (end_year - newYear) + ((end_month - newMonth >= 0) ? 0 : (-1));
-                                    document.getElementById("avatar_path").src = cur_media+new_avatar;
+                                    //document.getElementById("avatar_path").src = cur_media+new_avatar;
+                                    //document.getElementById("avatar_path").src = "http://110.64.69.101:8081/media/student/avatar/1.png";
                                     document.getElementById("detail-name").innerHTML = newName;
                                     document.getElementById("detail-school").innerHTML = newSchool;
                                     if (newSex == "0") {
@@ -515,13 +517,25 @@ $(function () {
                                     document.getElementById("detail-location").innerHTML = newLocation;
                                     document.getElementById("detail-tel").innerHTML = newTel;
                                     document.getElementById("detail-mail").innerHTML = newMail;
+                                    photo_tag=0;//标识位归零
+                                    $.ajax({
+                                        type: "POST",
+                                        data: data_info,
+                                        url: cur_site + "student/info/get/",
+                                        dataType: "json",
+                                        success: function (data) {
+                                            console.log(data);
+                                            //$("#avatar_path").attr('src',cur_media+data.avatar_path);
+                                            document.getElementById("avatar_path").src = cur_media+data.avatar_path;
+                                        }
+                                    });
                                 }
                             });
                         }
                     });
 
                     //取消对学生基本信息的保存
-                    $("#cancelButton").on("click",function(){
+                    $("#cancelButton").unbind("click").on("click",function(){
                         $('#basic-info').css('display', 'block');
                         $('#student_message_box').css('display', 'none');
                         //删除刚上传的照片和简历
@@ -568,6 +582,7 @@ $(function () {
                                 document.getElementById("detail-location").innerHTML = location;
                                 document.getElementById("detail-tel").innerHTML = tel;
                                 document.getElementById("detail-mail").innerHTML = mail;
+                                photo_tag=0;//标识位归零
                             }
                         });
                     });
