@@ -763,16 +763,21 @@ $(function () {
                                                     success: function (data) {
                                                         var new_team_img = data.res.imgs;//初始化团队照片
                                                         //console.log(new_team_img.length);
-                                                        $("#edit_photo_area").empty().append('<div class="slider"><ul class="slides"> </ul>');
-                                                        // 团队图片动态加载
-                                                        for (var i = 0; i < new_team_img.length; i++) {
-                                                            $(".slides").append('<li><img src="' + cur_media + new_team_img[i].path + '" class="piture "></li>')
+                                                        if(new_team_img.length!=0){
+                                                            $("#edit_photo_area").empty().append('<div class="slider"><ul class="slides"> </ul>');
+                                                            // 团队图片动态加载
+                                                            for (var i = 0; i < new_team_img.length; i++) {
+                                                                $(".slides").append('<li><img src="' + cur_media + new_team_img[i].path + '" class="piture "></li>')
+                                                            }
+                                                            // 开启slider
+                                                            $('.slider').slider({
+                                                                full_width: true,
+                                                                height: 250
+                                                            });
                                                         }
-                                                        // 开启slider
-                                                        $('.slider').slider({
-                                                            full_width: true,
-                                                            height: 250
-                                                        });
+                                                        else{
+                                                            $("#edit_photo_area").empty();
+                                                        }
                                                     }
                                                 });
                                             }
@@ -791,22 +796,29 @@ $(function () {
                                     success: function (data) {
                                         var new_team_img = data.res.imgs;//初始化团队照片
                                         console.log(new_team_img.length);
-                                        $("#edit_photo_area").empty().append('<div class="slider"><ul class="slides"> </ul>');
-                                        // 团队图片动态加载
-                                        for (var i = 0; i < new_team_img.length; i++) {
-                                            $(".slides").append('<li><img src="' + cur_media + new_team_img[i].path + '" class="piture "></li>')
+                                        if(new_team_img.length!=0){
+                                            $("#edit_photo_area").empty().append('<div class="slider"><ul class="slides"> </ul>');
+                                            // 团队图片动态加载
+                                            for (var i = 0; i < new_team_img.length; i++) {
+                                                $(".slides").append('<li><img src="' + cur_media + new_team_img[i].path + '" class="piture "></li>')
+                                            }
+                                            // 开启slider
+                                            $('.slider').slider({
+                                                full_width: true,
+                                                height: 250
+                                            });
                                         }
-                                        // 开启slider
-                                        $('.slider').slider({
-                                            full_width: true,
-                                            height: 250
-                                        });
+                                        else{
+                                            $("#edit_photo_area").empty();
+                                        }
+
                                     }
                                 });
                             }
                             old_delete.length = 0;//清除
-                            cancel_display.length=0;//清除
+                            //cancel_display.length=0;//清除
                             new_increase_photo.length=0;//清除
+                            old_photo_remainder.length=0;
                         });
 
                         //监听取消事件
@@ -824,34 +836,45 @@ $(function () {
                                         data: result,
                                         success: function (res) {
                                             console.log(res);
-                                            $("#edit_photo_area").empty().append('<div class="slider"><ul class="slides"> </ul>');
-                                            // 团队图片动态加载
-                                            for (var i = 0; i < cancel_display.length; i++) {
-                                                $(".slides").append('<li><img src="' + cur_media + cancel_display[i].path + '" class="piture "></li>')
+                                            if(cancel_display.length!=0){
+                                                $("#edit_photo_area").empty().append('<div class="slider"><ul class="slides"> </ul>');
+                                                // 团队图片动态加载
+                                                for (var i = 0; i < cancel_display.length; i++) {
+                                                    $(".slides").append('<li><img src="' + cur_media + cancel_display[i].path + '" class="piture "></li>');
+                                                }
+                                                // 开启slider
+                                                $('.slider').slider({
+                                                    full_width: true,
+                                                    height: 250
+                                                });
                                             }
-                                            // 开启slider
-                                            $('.slider').slider({
-                                                full_width: true,
-                                                height: 250
-                                            });
+                                            else{
+                                                $("#edit_photo_area").empty();
+                                            }
                                         }
                                     });
                                 }
                             }
                             else{
-                                $("#edit_photo_area").empty().append('<div class="slider"><ul class="slides"> </ul>');
-                                // 团队图片动态加载
-                                for (var i = 0; i < cancel_display.length; i++) {
-                                    $(".slides").append('<li><img src="' + cur_media + cancel_display[i].path + '" class="piture "></li>')
+                                if(cancel_display.length!=0){
+                                    $("#edit_photo_area").empty().append('<div class="slider"><ul class="slides"> </ul>');
+                                    // 团队图片动态加载
+                                    for (var i = 0; i < cancel_display.length; i++) {
+                                        $(".slides").append('<li><img src="' + cur_media + cancel_display[i].path + '" class="piture "></li>')
+                                    }
+                                    // 开启slider
+                                    $('.slider').slider({
+                                        full_width: true,
+                                        height: 250
+                                    });
                                 }
-                                // 开启slider
-                                $('.slider').slider({
-                                    full_width: true,
-                                    height: 250
-                                });
+                                else{
+                                    $("#edit_photo_area").empty();
+                                }
+                               
                             }
                             old_delete.length = 0;//清除
-                            cancel_display.length=0;//清除
+                            //cancel_display.length=0;//清除
                             new_increase_photo.length=0;//清除
 
                         });
