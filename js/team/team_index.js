@@ -111,14 +111,21 @@ $(document).ready(function () {
             $("#member_information").html(data.res.tel + "<br/>" + data.res.mail);
 
             // 团队图片动态加载
-            for (var i = 0; i < data.res.imgs.length; i++) {
-                $(".slides").append('<li><img src="'+cur_media+data.res.imgs[i].path+'" class="piture "></li>')
+            if(data.res.imgs.length!=0){
+                for (var i = 0; i < data.res.imgs.length; i++) {
+                    $("#edit_photo_area").empty().append('<div class="slider"><ul class="slides"> </ul>');
+                    $(".slides").append('<li><img src="'+cur_media+data.res.imgs[i].path+'" class="piture "></li>')
+                }
+                // 开启slider
+                $('.slider').slider({
+                    full_width: true,
+                    height: 250
+                });
             }
-            // 开启slider
-            $('.slider').slider({
-                full_width: true,
-                height: 250
-            });
+            else{
+                $("#edit_photo_area").empty();
+            }
+
             // 团队创始人头像姓名加载
             if(data.res.stus.length < 1) {
                 console.log('no team stu');
