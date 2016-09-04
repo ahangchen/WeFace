@@ -42,9 +42,9 @@ $(function(){
             teamName = data.res.name;
             $('#firmName').attr('value',teamName);
         },
-        error: function (data) {
-            alert("找不到该团队");
-        },
+        //error: function (data) {
+        //    alert("找不到该团队");
+        //},
         headers:{
             "Access-Control-Allow-Origin":"*"
         }
@@ -101,9 +101,9 @@ $(function(){
                         alert("新增成功!");
                     }
                 },
-                error: function (data) {
-                    alert("新增失败");
-                },
+                //error: function (data) {
+                //    alert("新增失败");
+                //},
                 headers: {
                     "Access-Control-Allow-Origin": "*"
                 }
