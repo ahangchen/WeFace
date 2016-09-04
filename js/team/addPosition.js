@@ -43,7 +43,7 @@ $(function(){
             $('#firmName').attr('value',teamName);
         },
         error: function (data) {
-            alert(data.msg);
+            alert("找不到该团队");
         },
         headers:{
             "Access-Control-Allow-Origin":"*"
@@ -97,12 +97,12 @@ $(function(){
                 data: jobDetail,
                 dataType: 'application/json',
                 success: function (data) {
-                    //if (data.err == "0") {
-                    //    alert("新增成功!");
-                    //}
+                    if (data.err == "0") {
+                        alert("新增成功!");
+                    }
                 },
                 error: function (data) {
-                    alert(data.msg);
+                    alert("新增失败");
                 },
                 headers: {
                     "Access-Control-Allow-Origin": "*"
