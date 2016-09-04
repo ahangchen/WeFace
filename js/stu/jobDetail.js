@@ -156,14 +156,15 @@ $(function(){
         data:sId,
         dataType:'json',
         success:function(data){
-            if(!data.resume_path) {
-                $('#resume').html(data.resume_path);
-            }
-            else {
+
+            if(data.resume_path==""){
                 $('.hintText').html("你还没上传简历,请尽快上传");
                 $('#submitBtn').click(function(){
                     alert("请完善简历");
                 })
+            }
+            else {
+                $('#resume').html(data.resume_path);
             }
             //$('#subResTime').html(data.date);
         },
