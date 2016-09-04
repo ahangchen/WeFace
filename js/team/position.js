@@ -137,7 +137,7 @@ $(function(){
         }
     }
     function removeItem(){
-        $(".chip").each(function(i){ if(i > 0){$(this).remove();}});
+        $(".tags .chip").each(function(i){ if(i > 0){$(this).remove();}});
     }
     function getSelectedItem(){
         var target = $('#editBar input');
