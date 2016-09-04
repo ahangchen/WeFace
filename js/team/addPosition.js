@@ -97,9 +97,9 @@ $(function(){
                 data: jobDetail,
                 dataType: 'application/json',
                 success: function (data) {
-                    if (data.err == "0") {
-                        alert("新增成功!");
-                    }
+                    //if (data.err == "0") {
+                    //    alert("新增成功!");
+                    //}
                 },
                 error: function (data) {
                     alert(data.msg);
