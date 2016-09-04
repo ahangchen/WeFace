@@ -114,7 +114,7 @@ $(function(){
     }
     function initTeamDetail(){
         $('.name').html(tName);
-        $('.teamLogoBar img').attr('src',tLogo);
+        $('.teamLogoBar img').attr('src',cur_media+tLogo);
         $('#teamDesc ').html(tAbout);
         $('#email').html(tMail);
         $('#phone').html(tTel);
@@ -129,7 +129,7 @@ $(function(){
      var sId = {
        stu_id : stu_id
      };
-    
+
     $('#submitBtn').click(function(){
         $.ajax({
             type:'post',
