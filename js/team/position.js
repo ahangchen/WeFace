@@ -3,6 +3,7 @@
  */
 
 $(function(){
+    var wefaceBace_site = "http://110.64.69.101:8080/";
     //获取职位类型
     $.ajax({
         type:'post',
@@ -494,7 +495,7 @@ $(function(){
         });
 
     }
-    $('#cancelForm a').attr('href',local_site + 'team/position/showPosition.html?t_id='+tId);
+    $('#cancelForm a').attr('href',wefaceBace_site + 'team/position/showPosition.html?t_id='+tId);
     function initManageHTML(jobInfo){
         $("#jobName").attr("value",jobInfo.job_name);
 
