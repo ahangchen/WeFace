@@ -525,7 +525,7 @@ $(function(){
         $("#requirementForGetPosition").next('label').attr("class","active");
         $("#requirementForGetPosition").html(jobInfo.work_cmd);
 
-        var jobType = $(".type").children('ul').children();
+        var jobType = $("#type").children('ul').children();
         var type ="";
 
         switch(jobInfo.job_type){
@@ -540,7 +540,7 @@ $(function(){
             case "5":$(jobType[6]).attr("class","active selected");type = "市场";break;
             default:$(jobType[0]).attr("class","active selected");
         }
-        $('.type').children('input').attr("value",type);
+        $('#type').children('input').attr("value",type);
 
         if (jobInfo.pub_state == 1) {
             $('#submit').attr("checked","checked");
@@ -549,7 +549,7 @@ $(function(){
             $('#reserve').attr("checked","checked");
         }
 
-        var province = $(".province").children('ul').children();
+        var province = $('#province').children('ul').children();
         var provText = "";
         if (jobInfo.prince == 1) {
             $(province[1]).attr("class","active selected");
@@ -559,9 +559,9 @@ $(function(){
             $(province[2]).attr("class","active selected");
             provText = "其他";
         }
-        $('.province').children('input').attr("value",provText);
+        $('#province').children('input').attr("value",provText);
 
-        var city = $(".city").children('ul').children();
+        var city = $('#city').children('ul').children();
         var cityText = "";
         if (jobInfo.city == 1) {
             $(city[1]).attr("class","active selected");
@@ -571,9 +571,9 @@ $(function(){
             $(city[2]).attr("class","active selected");
             cityText = "其他";
         }
-        $('.city').children('input').attr("value",cityText);
+        $('#city').children('input').attr("value",cityText);
 
-        var region = $(".region").children('ul').children();
+        var region = $("#region").children('ul').children();
         var regionText = "";
         switch(jobInfo.town){
             case 1:$(region[1]).attr("class","active selected");regionText = "番禺区";break;
@@ -589,9 +589,9 @@ $(function(){
             case 11:$(region[11]).attr("class","active selected");regionText = "南沙区";break;
             default:$(region[12]).attr("class","active selected");
         }
-        $('.region').children('input').attr("value",regionText);
+        $('#region').children('input').attr("value",regionText);
 
-        var attribute = $('.atrr').children('ul').children();
+        var attribute = $('#atrr').children('ul').children();
         var attrText = "";
         switch(jobInfo.work_type){
             case 2:$(attribute[1]).attr("class","active selected");attrText = "实习";break;
@@ -599,7 +599,7 @@ $(function(){
             case 1:$(attribute[3]).attr("class","active selected");attrText = "兼职";break;
             default:$(attribute[0]).attr("class","active selected");
         }
-        $('.atrr').children('input').attr("value",attrText);
+        $('#atrr').children('input').attr("value",attrText);
 
         $('#manageDiv').css("display","block");
         $("#positionDiv").css("display","none");
@@ -610,14 +610,14 @@ $(function(){
         var jobDetail = {
             job_id:clickedJobId,
             name:$("#jobName").val(),
-            j_type:$('.type').children('input').val(),
+            j_type:$('#type').val(),
             min_salary: $("#minSaraly").val(),
             max_salary: $("#maxSaraly").val(),
-            prince: $('.province').children('input').val(),
-            city: $('.city').children('input').val(),
-            town: $('.region').children('input').val(),
+            prince: $('#province').val(),
+            city: $('#city').val(),
+            town: $('#region').val(),
             exp_cmd: $("#experience").val(),
-            w_type: $('.atrr').children('input').val(),
+            w_type: $('#atrr').val(),
             job_cmd:$("#requirementForPosition").val(),
             work_cmd: $("#requirementForGetPosition").val(),
             pub_state: 0,
