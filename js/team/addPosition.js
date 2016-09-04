@@ -98,7 +98,7 @@ $(function(){
                 dataType: 'application/json',
                 success: function (data) {
                     if (data.err == "0") {
-                        alert("你创建了id为" + data.msg + "的职位");
+                        alert("新增成功!");
                     }
                 },
                 error: function (data) {
