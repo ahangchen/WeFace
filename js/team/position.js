@@ -430,7 +430,7 @@ $(function(){
 
         var jobInfo = {
             "job_id":eId,
-            "job_name": "UI设计",
+            "job_name": "",
             "min_salary": "",
             "max_salary":"",
             "prince": "",
@@ -527,7 +527,7 @@ $(function(){
 
         var jobType = $(".typeClass").children('ul').children();
         var type ="";
-        $('#type').attr("value",jobInfo.job_type);
+        $('#type').val(jobInfo.job_type);
         switch(jobInfo.job_type){
             case 4:$(jobType[1]).attr("class","active selected");type = "产品";break;
             case 2:$(jobType[2]).attr("class","active selected");type = "技术";break;
@@ -549,7 +549,7 @@ $(function(){
             $('#reserve').attr("checked","checked");
         }
 
-        $('#province').attr("value",jobInfo.prince);
+        $('#province').val(jobInfo.prince);
         var province = $(".provinceClass").children('ul').children();
         var provText = "";
         if (jobInfo.prince == 1) {
@@ -562,7 +562,7 @@ $(function(){
         }
         $('.provinceClass').children('input').attr("value",provText);
 
-        $('#city').attr("value",jobInfo.city);
+        $('#city').val(jobInfo.city);
         var city = $(".cityClass").children('ul').children();
         var cityText = "";
         if (jobInfo.city == 1) {
@@ -575,7 +575,7 @@ $(function(){
         }
         $('.cityClass').children('input').attr("value",cityText);
 
-        $('#region').attr("value",jobInfo.town);
+        $('#region').val(jobInfo.town);
         var region = $(".regionClass").children('ul').children();
         var regionText = "";
         switch(jobInfo.town){
@@ -594,7 +594,7 @@ $(function(){
         }
         $('.regionClass').children('input').attr("value",regionText);
 
-        $('#attr').attr("value",jobInfo.work_type);
+        $('#attr').val(jobInfo.work_type);
         var attribute = $('.attrClass').children('ul').children();
         var attrText = "";
         switch(jobInfo.work_type){
