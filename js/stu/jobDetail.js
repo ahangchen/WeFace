@@ -129,24 +129,7 @@ $(function(){
      var sId = {
        stu_id : stu_id
      };
-    $.ajax({
-        type:'post',
-        url:cur_site + 'student/resume/get/',
-        data:sId,
-        dataType:'json',
-        success:function(data){
-            $('#resume').html(data.resume_path);
-            //$('#subResTime').html(data.date);
-        },
-        error:function(data){
-            $('#resume').html(data.msg);
-            $('#resume').css('color','red');
-        },
-        headers:{
-            "Access-Control-Allow-Origin":"*"
-        }
-    });
-
+    
     $('#submitBtn').click(function(){
         $.ajax({
             type:'post',
@@ -166,5 +149,33 @@ $(function(){
             }
         });
     });
+
+    $.ajax({
+        type:'post',
+        url:cur_site + 'student/resume/get/',
+        data:sId,
+        dataType:'json',
+        success:function(data){
+            if(!data.resume_path) {
+                $('#resume').html(data.resume_path);
+            }
+            else {
+                $('.hintText').html("你还没上传简历,请尽快上传");
+                $('#submitBtn').click(function(){
+                    alert("请完善简历");
+                })
+            }
+            //$('#subResTime').html(data.date);
+        },
+        error:function(data){
+            $('#resume').html(data.msg);
+            $('#resume').css('color','red');
+        },
+        headers:{
+            "Access-Control-Allow-Origin":"*"
+        }
+    });
+
+
 
 });
