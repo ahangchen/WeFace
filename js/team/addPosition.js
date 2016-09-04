@@ -27,7 +27,7 @@ $(function(){
     // 学生点击职位名字后，主页在url上传职位id
     var tId = getUrlVar('t_id');
     var wefaceBace_site = "http://110.64.69.101:8080/";
-    $('#cancelForm a').attr('href',wefaceBace_site + 'team/position/showPosition.html?t_id='+tId);
+    $('#cancelForm').attr('href',wefaceBace_site + 'team/position/showPosition.html?t_id='+tId);
     var teamUrl = cur_site + 'team/info/?tid='+tId;
     var teamId = {
       tid:tId
