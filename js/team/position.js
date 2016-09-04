@@ -494,7 +494,7 @@ $(function(){
         });
 
     }
-
+    $('#cancelForm a').attr('href',cur_site + 'team/position/showPosition.html?t_id='+tId);
     function initManageHTML(jobInfo){
         $("#jobName").attr("value",jobInfo.job_name);
 

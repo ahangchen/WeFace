@@ -26,7 +26,7 @@ $(function(){
 
     // 学生点击职位名字后，主页在url上传职位id
     var tId = getUrlVar('t_id');
-    $('#cancelForm a').attr('href','showPosition.html?t_id='+tId);
+    $('#cancelForm a').attr('href',cur_site + 'team/position/showPosition.html?t_id='+tId);
     var teamUrl = cur_site + 'team/info/?tid='+tId;
     var teamId = {
       tid:tId

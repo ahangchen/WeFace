@@ -386,7 +386,8 @@ hr{
     text-align: center;
     height: 76px;
     line-height: 76px;
-    font-size: 4em;
+    font-size: 1.5em;
+    width: 5%;
 }
 .add{
     position: relative;

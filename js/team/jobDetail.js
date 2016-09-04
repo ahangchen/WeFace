@@ -2,8 +2,27 @@
  * Created by jewel on 16/7/23.
  */
 $(function(){
-    // 团队点击职位名字后，在url传递职位id
-    var jId = $.url().param('data');
+    //得到参数数组
+
+    function getUrlVars(){
+
+        var vars = [], hash;
+        var hashes = window.location.href.slice(window.location.href.indexOf('?') + 1).split('&');
+        for(var i = 0; i < hashes.length; i++)
+        {
+            hash = hashes[i].split('=');
+            vars.push(hash[0]);
+            vars[hash[0]] = hash[1];
+        }
+        return vars;
+    }
+
+    //得到指定参数的value
+    function getUrlVar(name){
+        return getUrlVars()[name];
+    }
+    // 学生点击职位名字后，主页在url上传职位id
+    var jId = getUrlVar('data');
     var tId,jName,min,max,prov,city,town,addr,edu,exp,jobType,workType,sum,date,state,jobCmd,workCmd;
     var jobId = {
         id:jId
