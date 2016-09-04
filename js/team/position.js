@@ -529,15 +529,15 @@ $(function(){
         var type ="";
 
         switch(jobInfo.job_type){
-            case "4":$(jobType[1]).attr("class","active selected");type = "产品";break;
-            case "2":$(jobType[2]).attr("class","active selected");type = "技术";break;
-            case "3":$(jobType[3]).attr("class","active selected");type = "设计";break;
-            case "1":$(jobType[4]).attr("class","active selected");type = "行政";break;
-            case "9":$(jobType[5]).attr("class","active selected");type = "营销";break;
-            case "6":$(jobType[7]).attr("class","active selected");type = "运营";break;
-            case "8":$(jobType[8]).attr("class","active selected");type = "运维支持";break;
-            case "7":$(jobType[9]).attr("class","active selected");type = "文案策划";break;
-            case "5":$(jobType[6]).attr("class","active selected");type = "市场";break;
+            case 4:$(jobType[1]).attr("class","active selected");type = "产品";break;
+            case 2:$(jobType[2]).attr("class","active selected");type = "技术";break;
+            case 3:$(jobType[3]).attr("class","active selected");type = "设计";break;
+            case 1:$(jobType[4]).attr("class","active selected");type = "行政";break;
+            case 9:$(jobType[5]).attr("class","active selected");type = "营销";break;
+            case 6:$(jobType[7]).attr("class","active selected");type = "运营";break;
+            case 8:$(jobType[8]).attr("class","active selected");type = "运维支持";break;
+            case 7:$(jobType[9]).attr("class","active selected");type = "文案策划";break;
+            case 5:$(jobType[6]).attr("class","active selected");type = "市场";break;
             default:$(jobType[0]).attr("class","active selected");
         }
         $('.typeClass').children('input').attr("value",type);
@@ -548,8 +548,8 @@ $(function(){
         else{
             $('#reserve').attr("checked","checked");
         }
-        var undeAddress = $('.address');
-        var province = $(undeAddress[0]).children('ul').children();
+
+        var province = $(".provinceClass").children('ul').children();
         var provText = "";
         if (jobInfo.prince == 1) {
             $(province[1]).attr("class","active selected");
@@ -559,9 +559,9 @@ $(function(){
             $(province[2]).attr("class","active selected");
             provText = "其他";
         }
-        $(undeAddress[0]).children('input').attr("value",provText);
+        $('.provinceClass').children('input').attr("value",provText);
 
-        var city = $(undeAddress[1]).children('ul').children();
+        var city = $(".cityClass").children('ul').children();
         var cityText = "";
         if (jobInfo.city == 1) {
             $(city[1]).attr("class","active selected");
@@ -571,9 +571,9 @@ $(function(){
             $(city[2]).attr("class","active selected");
             cityText = "其他";
         }
-        $(undeAddress[1]).children('input').attr("value",cityText);
+        $('.cityClass').children('input').attr("value",cityText);
 
-        var region = $(undeAddress[2]).children('ul').children();
+        var region = $(".regionClass").children('ul').children();
         var regionText = "";
         switch(jobInfo.town){
             case 1:$(region[1]).attr("class","active selected");regionText = "番禺区";break;
@@ -589,7 +589,7 @@ $(function(){
             case 11:$(region[11]).attr("class","active selected");regionText = "南沙区";break;
             default:$(region[12]).attr("class","active selected");
         }
-        $(undeAddress[2]).children('input').attr("value",regionText);
+        $('.regionClass').children('input').attr("value",regionText);
 
         var attribute = $('.attrClass').children('ul').children();
         var attrText = "";
