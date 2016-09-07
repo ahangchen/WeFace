@@ -1,3 +1,7 @@
+$(document).ready(function() {
+    $('select').material_select();
+});
+
 function edit() {
     if ($("#edu1").html() == "" && $("#edu2").html() == "" && $("#edu3").html() == "" && $("#edu4").html() == "" && $("#edu5").html() == "") {
         $("#add1").css("display", "block");
@@ -64,6 +68,7 @@ function pracnone2() {
 }
 
 function initbirth(){
+    $('select').material_select('destroy');
     for (var i = 1; i <= 12; i++) {
         document.getElementById("select_month").innerHTML += '<option value="' + i + '">' + i + '</option>';
     }
@@ -71,11 +76,14 @@ function initbirth(){
     for (var i = 1970; i <= 2016; i++) {
         document.getElementById("select_year").innerHTML += '<option value="' + i + '">' + i + '</option>';
     }
+    $(document).ready(function() {
+        $('select').material_select();
+    });
 }
 
 function updatestringcheck(value){//对即将上传的值的检验,若为空返回""
-    if(value==null)
-        return "";
+    if(value==" ")
+        return " ";
     else
         return value;
 }
@@ -341,6 +349,8 @@ $(function () {
                 "Access-Control-Allow-Origin": "*"
             }
         });
+
+
         $('#edit-icon').on("click",function() {
             $('#student_message_box').css('display', 'block');
             initbirth();//初始化出生日期的选择框
@@ -435,7 +445,7 @@ $(function () {
                                 "mail":newMail,
                                 "tel":newTel
                             };
-                            console.log(result);
+                            //console.log(result);
                             $.ajax({
                                 type: 'POST',
                                 data: result,
