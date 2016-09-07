@@ -417,7 +417,19 @@ $(function () {
 
                     $("#delete_file").on("click",function(){//删除简历
                         $("#file_path").css("display","none");
+                        $.ajax({
+                            type: 'POST',
+                            data: data_file,
+                            url: cur_site + "student/resume/del/",
+                            xhrFields: {withCredentials: true},
+                            dataType: 'json',
+                            success: function (data) {
+                                //console.log(data);
+                            }
+                        });
+
                     });
+
 
                     //保存对学生基本信息的修改
                     $("#saveButton").unbind("click").on("click",function(){
@@ -535,6 +547,20 @@ $(function () {
                     $("#cancelButton").unbind("click").on("click",function(){
                         $('#basic-info').css('display', 'block');
                         $('#student_message_box').css('display', 'none');
+
+                        //取消学生上传的简历
+                        $.ajax({
+                            type: 'POST',
+                            data: data_file,
+                            url: cur_site + "student/resume/del/",
+                            xhrFields: {withCredentials: true},
+                            dataType: 'json',
+                            success: function (data) {
+                                //console.log(data);
+
+                            }
+                        });
+
                         //删除刚上传的照片和简历
                         var result={
                             "id": student_id,
