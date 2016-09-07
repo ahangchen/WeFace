@@ -1,7 +1,14 @@
-#fix_msg_button{
-    float: right;
-    margin-right:10px;
-    margin-top: 10px;
+#fix_basic_msg_div{
+    height: 450px;
+    width: 800px;
+    display: none;
+}
+
+/*-------修改团队头像------------*/
+
+#left_one{
+margin-left: 50px;
+    height: 400px;
 }
 
 .put_photo_here{
@@ -14,16 +21,13 @@
     border-radius: 10px;
     cursor:pointer;
     position: relative;
+    margin-bottom:20px;
 }
+
 #photo_camera{
     margin-left: 30px;
     margin-top: 30px;
-}
-
-.team_name{
-    width: 400px;
-    margin-left: 400px;
-    margin-top: -380px;
+    margin-bottom:20px;
 }
 
 #local_photo{
@@ -33,101 +37,54 @@
     position: absolute;
 }
 
-#fix_team_intro{
-    float: right;
-    margin-right: 6px;
-    margin-top: 6px;
+
+/*-------修改团队的标签---------*/
+.team_label_edit{
+    width: 300px;
+    margin-left: 20px;
 }
 
-.job_type{
-    width: 100px;
-    height: 42px;
-    /*margin-top: -35px;*/
-
+.chips-initial .chip{
+    background-color:#fff;
+    margin-left: 3px;
+    margin-top: 15px;
 }
 
-.add_type{
-    /*margin-left: 120px;
-    margin-top: -60px;*/
-    width: 35px;
-    height: 35px;
-    margin-top: 25px;
+.chips-initial .close{
+    color:orange;
+}
+.chips-initial input::-webkit-input-placeholder {
+    color: rgba(6, 6, 5, 0.56);
 }
 
-.team_number{
-    margin-top: 10px;
-    margin-left: 400px;
-    width: 200px;
-}
-
-.team_slogan{
-    margin-left: 400px;
+/*修改团队的基本信息*/
+.team_name{
     width: 400px;
-    margin-top: 10px;
+    margin-left: 470px;
+    margin-top: -380px;
 }
 
-.complete_btn{
-    margin-top: 20px;
-    height: 100px;
+.select_type_div{
+    width: 200px;
     margin-left: 470px;
 }
 
-#cancelButton{
-    margin-top: 15px;
-    margin-bottom: 15px;
-    margin-left: 20px;
-    width: 100px;
-    color: #000;
-    background-color: #fff;
-}
-
-#saveButton{
-    margin-top: 15px;
-    margin-bottom: 15px;
-    margin-left: 20px;
-    width: 100px;
-    color: #fff;
-    background-color: orange;
-}
-
-/*.team_msg{
-    width: 400px;
-    height:400px;
-    float: right;
-    margin-top:-180px;
-    margin-right: 200px;
-}
-
-.team_name{
-    height: 100px;
-    width: 400px;
-}
-
-.job_type{
-    width: 100px;
-    height: 100px;
-    margin-top: -20px;
-}
-
-.add_type{
-    margin-top:-100px;
-    margin-left: 150px;
-}
-
 .team_number{
-    margin-top: 30px;
     width: 200px;
-    height: 100px;
+    margin-left: 470px;
+    margin-top: 30px;
 }
-
 
 .team_slogan{
-    margin-top: -30px;
+    width: 400px;
+    margin-left: 470px;
 }
 
+/*保存和取消对基本信息的编辑*/
 .complete_btn{
-    margin-top: 10px;
-    margin-bottom: 10px;
+    margin-top: 30px;
+    height: 100px;
+    margin-left: 400px;
 }
 
 #cancelButton{
@@ -148,72 +105,63 @@
     background-color: orange;
 }
 
-
-#type_tag{
-    margin-top: -100px;
+/*修改团队介绍*/
+#fix_team_intro{
     float: right;
-    margin-right: -200px;
-    width: 400px;
-    height: 100px;
+    margin-right: 6px;
+    margin-top: 16px;
 }
 
-#type_tag .chip{
-    background-color: #fff;
-    color: orange;
-    float: left;
-}*/
-
 .team_intro{
-    margin-top: -30px;
-    margin-left: 40px;
-    width: 500px;
+    display: none;
+}
+
+#intro_list_auto{
+    margin-left: 460px;
+    margin-top: -85px;
+    margin-bottom: 35px;
 }
 
 .intro_complete_btn{
-    margin-left: 150px;
-    margin-top: -30px;
+  width: 400px;
+    margin-left: 200px;
+    margin-bottom: 20px;
+
 }
 
 #intro_cancelButton{
     color: #000;
     background-color: #fff;
-    margin-left: 10px;
+    margin-left: 20px;
+
 }
 
 #intro_saveButton{
     color: #fff;
     background-color: orange;
-    margin-left: 10px;
 }
 
-
-#intro_list_auto{
-    margin-left: 1px;
-    margin-top: -85px;
-    margin-bottom: 35px;
+/*修改团队历史*/
+.team_history{
+    display: none;
 }
 
-#history_button{
+#fix_team_history{
     float: right;
     margin-right: 6px;
-    margin-top: 6px;
-}
-
-#develop_history{
-    width: 500px;
-    margin-top: -30px;
-    margin-left: 40px;
-
+    margin-top: 16px;
 }
 
 #history_list_auto{
     margin-top: -65px;
-    margin-left: 38px;
+    margin-left: 460px;
     margin-bottom: 55px;
 }
 
 .history_complete_btn{
-    margin-left: 150px;
+    margin-left: 200px;
+    width: 400px;
+    margin-bottom: 20px;
 }
 
 #history_cancelButton{
@@ -228,21 +176,21 @@
     margin-left: 10px;
 }
 
-
-#edit_member{
+/*对团队的联系方式进行编辑*/
+#team_connect{
     margin-left: 290px;
-    margin-top: -80px;
+    margin-top: -50px;
 }
 
-#connect_tel,#connect_mail{
-    width: 200px;
-    margin-top: -10px;
+.connect{
+    display:none;
+    margin-top: 15px;
+    margin-left: 10px;
 }
-
 
 .edit_connect_btn{
     margin-left: 50px;
-    width: 400px;
+
 }
 
 #connect_cancelButton{
@@ -257,201 +205,30 @@
     margin-left: 10px;
 }
 
-/*#add_member_dialog{
-    height: 540px;
-    width: 450px;
-}
-
-#add_member_note{
-    margin-top: 25px;
-    width: 370px;
-    height: 70px;
-    margin-left: 30px;
-}
-
-.member_name{
-    margin-top: 1rem;
-    margin-left: 20px;
-}
-
-#member_name{
-    width: 250px;
-}
-
-.modal-content,.modal{
-    overflow: hidden;
-}
-
-.match_email{
-    width: 270px;
-    margin-left: 60px;
-
-}
-
-#searchMemberButton{
-    color: #fff;
-    background-color: #fb8c00;
-    margin-left: 150px;
-    margin-top:200px;
-
-}
-
-#search_member_icon{
-    margin-left: 0;
-    color: #fff;
-}
-
-#add_member_img{
-    margin-left: 80px;
-    margin-top:20px;
-}
-
-#addMemberButton{
-    color: #fff;
-    background-color: #fb8c00;
-    margin-left: 80px;
-    margin-top:35px;
-}
-
-
-#fault_note{
-    margin-top: 10px;
-    width: 350px;
-    height: 100px;
-    margin-left: 25px;
-}
-
-#member_found_email{
-    width: 300px;
-    margin-left: 20px;
-    margin-top: -14px;
-}
-
-#invite_btn{
-    color: #fff;
-    background-color: #fb8c00;
-    margin-left: 140px;
-    margin-top: 30px;
-}
-
-#add_member{
-    margin-left: 15px;
-}
-
-#invite_to_join{
-    margin-top:-5px;
-}
-
-#photo_area{
-    height:200px;
-    width: 300px;
-}
-*/
-
-#team_connect{
-    margin-left: 290px;
-    margin-top: -50px;
-
-}
-
-
-#team_belong_type{
-    margin-left: 400px;
-    margin-top: 10px;
-}
-
-.team_type_fix{
-    margin-left: 5px;
-    background-color: #fff;
-    text-align: center;
-}
-
-.team_type_fix .close{
-    color:orange;
-}
-
-.tag_select{
-    width: 100px;
-    height: 30px;
-}
-
-#show_type_as_tag{
-    width: 350px;
-}
-
-#team_label_edit{
-    width: 300px;
-    margin-left: 20px;
-}
-
-#left_one{
-    height: 400px;
-
-}
-
-.chips-initial .chip{
-    background-color:#fff;
-    margin-left: 3px;
-    margin-top: 35px;
-}
-
-.chips-initial .close{
-    color:orange;
-}
-.chips-initial input::-webkit-input-placeholder {
-    color: rgba(6, 6, 5, 0.56);
-}
-
-.job_type{
-   /* margin-top: 5px;*/
-
-}
-
-#information{
-    width: 250px;
-}
-
+/*对团队照片的编辑*/
 .edit_team_photo{
     float: right;
-    margin-top: -40px;
+    margin-top: -35px;
     margin-right: -10px;
 }
 
-#edit_photo_area{
-    margin-top: 20px;
+.team_photo_edit_div{
+    display: none;
+    margin-top: 10px;
 }
 
-
-.photo_edit_complete{
-    margin-left: 170px;
-    margin-top: 30px;
-    height: 50px;
+#team_photo_table .team_photo{
+    width: 150px;
+    height: 150px;
 }
 
-#save_photo_edit{
-    color: #fff;
-    background-color: orange;
-    margin-left: 10px;
+#team_photo_table td{
+    width: 150px;
 }
 
-#cancel_photo_edit{
-    color: #000;
-    background-color: #fff;
-    margin-left: 10px;
-}
-
-.put_team_photo_here{
-     width: 150px;
-     height: 150px;
-     background-color: orange;
-     cursor:pointer;
- }
-
-#team_photo_adding{
-    color: #fff;
-   font-size:100px;
-    margin-left: 25px;
-    margin-top: 20px;
+#team_photo_table{
+    width: 500px;
+    height: 500px;
 }
 
 .team_photo_div{
@@ -473,23 +250,61 @@
 
 }
 
-/*------------*/
-#team_photo_table .team_photo{
+.photo_edit_complete{
+    margin-left: 170px;
+    margin-top: 30px;
+    height: 50px;
+}
+
+#save_photo_edit{
+    color: #fff;
+    background-color: orange;
+    margin-left: 10px;
+}
+
+#cancel_photo_edit{
+    color: #000;
+    background-color: #fff;
+    margin-left: 10px;
+}
+
+.put_team_photo_here{
     width: 150px;
     height: 150px;
+    background-color: orange;
+    cursor:pointer;
+    margin-left: 10px;
 }
 
-#team_photo_table td{
-    width: 150px;
+#team_photo_adding{
+    color: #fff;
+    font-size:100px;
+    margin-left: 25px;
+    margin-top: 20px;
 }
 
-#team_photo_table{
-    width: 500px;
-    height: 500px;
+/*对团队成员的编辑*/
+#member_saveButton{
+    color: #fff;
+    background-color: orange;
+    margin-left: 10px;
 }
 
-#team_belong_type td{
-    width: 130px;
+#member_cancelButton{
+    color: #000;
+    background-color: #fff;
+    margin-left: 10px;
+}
+
+#edit_member{
+    margin-left: 290px;
+    margin-top: -45px;
+}
+
+#complete_edit_member{
+    margin-left: 50px;
+    margin-top: 20px;
+    opacity: 0;
 }
 
 .Head_portrait_edit{
@@ -500,6 +315,7 @@
     cursor: pointer;
 
 }
+
 .Head_portrait_div_edit{
     float: left;
     height: 100px;
@@ -543,22 +359,8 @@
     margin-top: 10px;
 }
 
-#complete_edit_member{
-    margin-left: 50px;
-    margin-top: 20px;
-    opacity: 0;
-}
-
-#member_saveButton{
-    color: #fff;
-    background-color: orange;
-    margin-left: 10px;
-}
-
-#member_cancelButton{
-    color: #000;
-    background-color: #fff;
-    margin-left: 10px;
+#add_member_dialog{
+    width: 550px;
 }
 
 .enter_member_name {
@@ -566,6 +368,11 @@
     margin-left: auto;
     margin-right: auto;
     margin-top: 20px;
+}
+
+#remainder_msg{
+    color:red;
+    display: none;
 }
 
 .search_member_mail{
@@ -576,27 +383,11 @@
     display: none;
 }
 
-#add_member_action{
-    color: #fff;
-    background-color: orange;
-    margin-right: 225px;
-}
-
 .search_member_logo{
     height: 100px;
     width: 100px;
     border-radius: 80px;
     display:none
-}
-
-#add_member_dialog{
-    width: 550px;
-}
-
-#remainder_msg{
-   color:red;
-    display: none;
-
 }
 
 #invite_msg{
@@ -614,5 +405,17 @@
     margin-top: 20px;
 }
 
+#search_member_again{
+    color: #fff;
+    background-color: orange;
+    margin-left: 20px;
+    margin-top: 20px;
+    opacity: 0;
 
+}
 
+#add_member_action{
+    color: #fff;
+    background-color: orange;
+    margin-right: 225px;
+}
