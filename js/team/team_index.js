@@ -64,6 +64,7 @@ $(document).ready(function () {
         dataType: "json",
         data: {'tid': tid} ,
         success: function (data) {
+            //console.log(data);
             // 团队logo路径加载
             var logo = cur_media + data.res.logo_path;
             $("#team_logo").attr('src', logo);
@@ -77,7 +78,7 @@ $(document).ready(function () {
                 $(tag[i]).html(data.res.label[i]);
             }
             //团队行业类型
-            var team_type=[];
+            /*var team_type=[];
             team_type.push(data.res.b_type);
             var team_type_name=[];
             $.ajax({
@@ -95,25 +96,41 @@ $(document).ready(function () {
                     }
                     $("#p2").html(team_type_name[0]);
                 }
+            });*/
+            var team_type=data.res.b_type;
+            var team_type_name;
+            $.ajax({
+                type: "get",
+                url: cur_site + "team/business/",
+                dataType: "json",
+                success: function (data) {
+                    var all_team_type = data.msg;
+                    for(var j=0;j<all_team_type.length;j++){
+                        if(all_team_type[j].id==team_type){
+                            team_type_name=all_team_type[j].name;
+                        }
+                    }
+
+                    $("#p2").html(team_type_name);
+                }
             });
             // 团队名称加载
             $("#p1").html(data.res.name);
             // 团队标语加载
-            $("#p3").html(data.res.about);
-            $("#p4").html(data.res.man_cnt+'人团队');
-            $("#p5").html(data.res.slogan);
+            $("#p3").html(data.res.man_cnt+'人团队');
+            $("#p4").html(data.res.slogan);
             
             // 团队介绍加载
-            $("#team_introuduction").html(data.res.about);
+            $("#team_introuduction").html(data.res.about.replace(/\n/gm,"<br />"));
             // 团队发展历程加载
-            $("#history_text").html(data.res.history);
+            $("#history_text").html(data.res.history.replace(/\n/gm,"<br />"));
             //团队联系方式加载
             $("#member_information").html(data.res.tel + "<br/>" + data.res.mail);
 
             // 团队图片动态加载
             if(data.res.imgs.length!=0){
+                $("#edit_photo_area").empty().append('<div class="slider"><ul class="slides"> </ul>');
                 for (var i = 0; i < data.res.imgs.length; i++) {
-                    $("#edit_photo_area").empty().append('<div class="slider"><ul class="slides"> </ul>');
                     $(".slides").append('<li><img src="'+cur_media+data.res.imgs[i].path+'" class="piture "></li>')
                 }
                 // 开启slider
