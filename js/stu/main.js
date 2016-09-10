@@ -1,3 +1,7 @@
+$(document).ready(function() {
+    $('select').material_select();
+});
+
 function edit() {
     if ($("#edu1").html() == "" && $("#edu2").html() == "" && $("#edu3").html() == "" && $("#edu4").html() == "" && $("#edu5").html() == "") {
         $("#add1").css("display", "block");
@@ -63,19 +67,9 @@ function pracnone2() {
     }
 }
 
-function initbirth(){
-    for (var i = 1; i <= 12; i++) {
-        document.getElementById("select_month").innerHTML += '<option value="' + i + '">' + i + '</option>';
-    }
-
-    for (var i = 1970; i <= 2016; i++) {
-        document.getElementById("select_year").innerHTML += '<option value="' + i + '">' + i + '</option>';
-    }
-}
-
 function updatestringcheck(value){//对即将上传的值的检验,若为空返回""
-    if(value==null)
-        return "";
+    if(value==" ")
+        return " ";
     else
         return value;
 }
@@ -341,9 +335,11 @@ $(function () {
                 "Access-Control-Allow-Origin": "*"
             }
         });
+
+
         $('#edit-icon').on("click",function() {
             $('#student_message_box').css('display', 'block');
-            initbirth();//初始化出生日期的选择框
+            //initbirth();//初始化出生日期的选择框
             $.ajax({
                 type: "POST",
                 data: data_info,
@@ -368,46 +364,65 @@ $(function () {
                     $("#email").val(mail);
                     $("#tel").val(tel);
                     //获得性别
-                    var all_options = document.getElementById("select_sex").options;
-                    for (var i=0; i<all_options.length; i++){
-                        if (all_options[i].value == sex)
-                        {
-                            all_options[i].selected = true;
-                        }
+                    $('select').material_select('destroy');
+                    $('#sex_div').empty().append('<select id="select_sex"><option value="" disabled selected>性别</option></select>');
+                    if(sex==1) {
+                        $("#select_sex").append(' <option value="1" selected>男</option> <option value="2">女</option>');
                     }
-                    //获得出生年月
-                    all_options = document.getElementById("select_year").options;
-                    for (var i=0; i<all_options.length; i++){
-                        if (all_options[i].value == year)
-                        {
-                            all_options[i].selected = true;
-                        }
+                    else if(sex==2){
+                        $("#select_sex").append(' <option value="1">男</option> <option value="2" selected>女</option>');
+                    }
+                    else{
+                        $("#select_sex").append(' <option value="1">男</option> <option value="2">女</option>');  
                     }
 
-                    //获得出生月份
-                    all_options = document.getElementById("select_month").options;
-                    for (var i=0; i<all_options.length; i++){
-                        if (all_options[i].value == month)
-                        {
-                            all_options[i].selected = true;
-                        }
+                    //获得出生年月
+                    $("#year_div").empty().append('<select id="select_year"><option value="" disabled selected>出生年份</option></select>');
+                    $("#month_div").empty().append(' <select id="select_month"><option value="" disabled selected>月份</option></select>');
+                    for (var i = 1; i <= 12; i++) {
+                        if(month==i)
+                            $("#select_month").append('<option selected value="' + i + '">' + i + '</option>');
+                        else
+                            $("#select_month").append('<option value="' + i + '">' + i + '</option>');
+                    }
+                    for (var i = 1970; i <= 2016; i++) {
+                        if(year==i)
+                            $("#select_year").append('<option selected value="' + i + '">' + i + '</option>');
+                        else
+                            $("#select_year").append('<option value="' + i + '">' + i + '</option>');
                     }
 
                     //获得所在地
-                    all_options = document.getElementById("select_location").options;
-                    for (var i=0; i<all_options.length; i++){
-                        if (all_options[i].value==location)
-                        {
-                            all_options[i].selected = true;
-                        }
+                    $(".location_div").empty().append(' <select id="select_location"><option value="" disabled selected>选择你所在的城市</option></select>');
+                    var location_choice=["广州","深圳","上海","北京","厦门","杭州","天津","成都","南京","其它"];
+                    for(var i=0;i<location_choice.length;i++){
+                        if(location_choice[i]==location)
+                            $("#select_location").append('<option selected value='+location_choice[i]+'>'+location_choice[i]+'</option>');
+                        else
+                            $("#select_location").append('<option value='+location_choice[i]+'>'+location_choice[i]+'</option>');
                     }
+                    $(document).ready(function() {
+                        $('select').material_select();
+                    });
 
                     //获得头像
                     $("#local_photo").attr('src',cur_media+avatar);
 
                     $("#delete_file").on("click",function(){//删除简历
                         $("#file_path").css("display","none");
+                        $.ajax({
+                            type: 'POST',
+                            data: data_file,
+                            url: cur_site + "student/resume/del/",
+                            xhrFields: {withCredentials: true},
+                            dataType: 'json',
+                            success: function (data) {
+                                //console.log(data);
+                            }
+                        });
+
                     });
+
 
                     //保存对学生基本信息的修改
                     $("#saveButton").unbind("click").on("click",function(){
@@ -435,7 +450,7 @@ $(function () {
                                 "mail":newMail,
                                 "tel":newTel
                             };
-                            console.log(result);
+                            //console.log(result);
                             $.ajax({
                                 type: 'POST',
                                 data: result,
@@ -525,6 +540,20 @@ $(function () {
                     $("#cancelButton").unbind("click").on("click",function(){
                         $('#basic-info').css('display', 'block');
                         $('#student_message_box').css('display', 'none');
+
+                        //取消学生上传的简历
+                        $.ajax({
+                            type: 'POST',
+                            data: data_file,
+                            url: cur_site + "student/resume/del/",
+                            xhrFields: {withCredentials: true},
+                            dataType: 'json',
+                            success: function (data) {
+                                //console.log(data);
+
+                            }
+                        });
+
                         //删除刚上传的照片和简历
                         var result={
                             "id": student_id,
