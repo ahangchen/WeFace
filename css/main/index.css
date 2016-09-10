@@ -28,12 +28,12 @@ a:visited {
 /*箭头样式*/
 .preBtn i,.nextBtn i,.preBtnOfTeams i,.preBtnOfProject i,.nextBtnOfProject i,.nextBtnOfTeams i{
     visibility: hidden;
-    color:#353535;
+    color: #6f6f6f;
     /*visibility: visible;*/
 }
 .preBtn:active{
     background-color: transparent;
-    color:#353535;
+    color:#6f6f6f;
 }
 /*----------------------------------导航栏-------------------------------------------------------------*/
 
