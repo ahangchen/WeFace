@@ -33,6 +33,11 @@ function edit() {
     else {
         $("#ea5").css("display", "inline-block");
     }
+    var a=$('#detail-background');
+    var b=$('#detail-grade');
+    if(a.html()==""&&b.html()==""){
+        a.parent().css("display","none");
+    }
     pracnone1();
     pracnone2();
 }
@@ -277,7 +282,37 @@ $(function () {
         var data_info = {"id": student_id};
         var data_file = {"stu_id": student_id};
 
+
+
+/*简历获取*/
+        $.ajax({
+            type:"POST",
+            data:data_file,
+            url: cur_site+"student/resume/get/",
+            dataType:"json",
+            success:function(data){
+                var err = data.err;
+                if (err == '-15') {
+                    console.log("未上传简历");
+                }
+                if (err == '-1') {
+                    console.log("请求方法错误");
+                }
+                if (err == '-10') {
+                    console.log("操作失败");
+                }
+                if(err=='0'){
+                    $("#personal_path").attr('href',data.resume_path);
+                    $("#personal_path").attr('download',data.resume_path);
+                }
+            },
+            headers: {
+                "Access-Control-Allow-Origin": "*"
+            }
+        });
         /*-----------------------------获取学生个人信息---------------------------*/
+
+
         $.ajax({
             type: "POST",
             data: data_info,
@@ -286,10 +321,10 @@ $(function () {
             success: function (data) {
                 var err = data.err;
                 if (err == '-8') {
-                    alert("学生不存在");
+                    console.log("学生不存在");
                 }
                 if (err == '-1') {
-                    alert("学生不存在");
+                    console.log("学生不存在");
                 }
                 if (err == '-10') {
                     console.log("操作失败");
@@ -322,6 +357,14 @@ $(function () {
                     }
                     document.getElementById("detail-age").innerHTML = age;
                     document.getElementById("detail-major").innerHTML = major;
+                    if(school=="" && major=="")
+                    {
+                        $('#detail-major').parent().css("display","none");
+                    }
+                    if(location=="")
+                    {
+                        $('#detail-location').css("display","none");
+                    }
                     document.getElementById("detail-location").innerHTML = location;
                     document.getElementById("detail-tel").innerHTML = tel;
                     document.getElementById("detail-mail").innerHTML = mail;
@@ -1427,6 +1470,26 @@ $(function () {
                                     $("#right-add1").html("添加").css("color", "#ff8f00").attr("disabled", false);
                                     $("#right-edit1").html("编辑").css("color", "#ff8f00").attr("disabled", false);
                                     $(".right-icon1").css("display", "none");
+                                    var grade = data.grade;
+                                    var edu_background = data.edu_background;
+                                    switch (edu_background) {
+                                        case 2:
+                                            edu_background = "本科";
+                                            break;
+                                        case 3:
+                                            edu_background = "硕士";
+                                            break;
+                                        case 4:
+                                            edu_background = "博士";
+                                            break;
+                                        case 1:
+                                            edu_background = "大专";
+                                            break;
+                                        case 0:
+                                            edu_background = "其他";
+                                    }
+                                    document.getElementById("detail-grade").innerHTML = "" + grade + "届";
+                                    document.getElementById("detail-background").innerHTML = "" + edu_background;
                                     var edu_list = data.edu_list;
                                     for (var i = 0; i < edu_list.length; i++) {
                                         var edu_id = edu_list[i].edu_id;
@@ -2101,7 +2164,7 @@ $(function () {
                 var choice2 = edu_fieldi + " .choice2>input";
                 var edu_id = $(edui).attr("name");
                 var edu_background = 0;
-                switch (choice1) {
+                switch ($(choice1).val()) {
                     case "本科":
                         edu_background = "2";
                         break;
@@ -2139,6 +2202,49 @@ $(function () {
                             $(edui).css("display", "inline-block");
                             $(right_iconi).css("display", "block");
                             $(edu_fieldi).css("display", "none");
+                            $.ajax({
+                                type: "POST",
+                                data: {"stu_id": student_id},
+                                url: cur_site + "student/info/edu/get/",
+                                dataType: "json",
+                                success: function (data) {
+                                    var err = data.err;
+                                    if (err == '-118') {
+                                    }
+                                    if (err == '-1') {
+                                        console.log("请求方法错误");
+                                    }
+                                    if (err == '-10') {
+                                        console.log("操作失败");
+                                    }
+                                    if (err == '0') {
+                                        var grade = data.grade;
+                                        var edu_background = data.edu_background;
+                                        switch (edu_background) {
+                                            case 2:
+                                                edu_background = "本科";
+                                                break;
+                                            case 3:
+                                                edu_background = "硕士";
+                                                break;
+                                            case 4:
+                                                edu_background = "博士";
+                                                break;
+                                            case 1:
+                                                edu_background = "大专";
+                                                break;
+                                            case 0:
+                                                edu_background = "其他";
+                                        }
+                                        document.getElementById("detail-grade").innerHTML = "" + grade + "届";
+                                        document.getElementById("detail-background").innerHTML = "" + edu_background;
+                                    }
+                                },
+                                headers: {
+                                    "Access-Control-Allow-Origin": "*"
+                                }
+                            });
+
                         }
                         if (err == "-1") {
                             console.log("请求方法错误");
