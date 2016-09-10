@@ -178,12 +178,12 @@
 
                 <div class="row salaryRow">
                     <div class="input-field col s4">
-                        <input   id="minSaraly" type="text" class="validate">
+                        <input   id="minSaraly" type="text" class="validate" onkeyup='this.value=this.value.replace(/\D/gi,"")' >
                         <label for="minSaraly">薪资（RMB）</label>
                     </div>
                     <div class="col s1 divide"> ~ </div>
                     <div class="input-field col s4">
-                        <input   id="maxSaraly" type="text" class="validate">
+                        <input   id="maxSaraly" type="text" class="validate" onkeyup='this.value=this.value.replace(/\D/gi,"")'>
                         <label for="maxSaraly">薪资（RMB）</label>
                     </div>
                 </div>
