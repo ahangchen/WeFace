@@ -100,17 +100,63 @@ $(function(){
             case "1":wType = "兼职";break;
             case "2":wType = "实习";break;
         }
-        $('#jobName').html(jName);
-        $('#minSalary').html(min);
-        $('#maxSalary').html(max);
-        $('#city').html(city);
-        $('#edu').html(edu);
-        $('#exp').html(exp);
-        $('#workType').html(wType);
-        $('#sum').html(sum);
-        $('#pubDate').html(date);
-        $('#jobCmd p').html(jobCmd);
-        $('#workCmd p').html(workCmd);
+        if(jName != "") {
+            $('#jobName').html(jName);
+        }else {
+            $('#jobName').html("暂无");
+        }
+        if(min != "") {
+            $('#minSalary').html(min);
+        }else {
+            $('#minSalary').html("暂无");
+        }
+        if(max != "") {
+            $('#maxSalary').html(max);
+        }else {
+            $('#maxSalary').html("暂无");
+        }
+        if(city != "") {
+            $('#city').html(city);
+        }else {
+            $('#city').html("暂无");
+        }
+        if(edu != "") {
+
+            $('#edu').html(edu);
+        }else {
+            $('#edu').html("暂无");
+        }
+        if(exp != "") {
+            $('#exp').html(exp);
+        }else{
+            $('#exp').html("暂无");
+        }
+        if(wType != "") {
+            $('#workType').html(wType);
+        }else{
+            $('#workType').html("暂无");
+        }
+        if(sum != "") {
+            $('#sum').html(sum);
+        }else{
+            $('#sum').html("暂无");
+        }
+        if(date != "") {
+            $('#pubDate').html(date);
+        }else {
+            $('#pubDate').html("暂无");
+        }
+        if(jobCmd != "") {
+            $('#jobCmd p').html(jobCmd);
+        }else {
+            $('#jobCmd p').html("暂无");
+        }
+        if(workCmd != "") {
+            $('#workCmd p').html(workCmd);
+        }else {
+            $('#workCmd p').html("暂无");
+        }
+
     }
     function initTeamDetail(){
         $('.name').html(tName);
@@ -149,7 +195,7 @@ $(function(){
             }
         });
     });
-
+    var wefaceBace_site = "http://110.64.69.101:8080/";
     $.ajax({
         type:'post',
         url:cur_site + 'student/resume/get/',
@@ -157,8 +203,9 @@ $(function(){
         dataType:'json',
         success:function(data){
 
-            if(data.resume_path==""){
-                $('.hintText').html("你还没上传简历,请尽快上传");
+            if(data.msg=="未上传简历"){
+                $('.hintText').html("您还没<a class='submitResume'>上传简历</a>,请尽快上传");
+                $('.submitResume').attr("href",wefaceBace_site + "stu/main.html");
                 $('#submitBtn').click(function(){
                     alert("请完善简历");
                 })
