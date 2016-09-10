@@ -2,6 +2,7 @@
  * Created by jewel on 16/7/21.
  */
 $(function(){
+
     //获取url中的参数t_id
 
     //得到参数数组
@@ -114,5 +115,6 @@ $(function(){
             alert("请将必填的信息补充完整");
         }
 
-    })
+    });
+
 });

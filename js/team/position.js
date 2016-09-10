@@ -496,6 +496,7 @@ $(function(){
 
     }
     $('#cancelForm').attr('href',wefaceBace_site + 'team/position/showPosition.html?t_id='+tId);
+
     function initManageHTML(jobInfo){
         $("#jobName").attr("value",jobInfo.job_name);
 
