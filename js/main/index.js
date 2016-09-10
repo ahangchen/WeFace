@@ -56,7 +56,7 @@ $(function(){
         for (var i = 0; i < lis.length; i++) {
             var bannerUrl = data.banner[i].bannerImg;
             var imgHref = data.banner[i].bannerUrl;
-            $(lis[i]).attr("src",bannerUrl);
+            $(lis[i]).attr("src",cur_media + bannerUrl);
             $(link[i]).attr("href",imgHref);
         }
     });
@@ -130,7 +130,7 @@ $(function(){
             var firstTeamName = data.message[i].name;
             var firstTeamDesc = data.message[i].about;
             var firstTeamid = data.message[i].id;
-            $(teamlis[i]).attr("src",firstTeamImg);
+            $(teamlis[i]).attr("src",cur_media + firstTeamImg);
             $(teamNames[i]).html(firstTeamName);
             $(teamsDesc[i]).html(firstTeamDesc);
             $(teamLi[i]).attr("id",firstTeamid);
@@ -195,7 +195,7 @@ $(function(){
                         var teamName = data.msg[i].name;
                         var teamDesc = data.msg[i].about;
                         var teamid = data.msg[i].id;
-                        $(teamlis[i]).attr("src", teamImg);
+                        $(teamlis[i]).attr("src", cur_media + teamImg);
                         $(teamNames[i]).html(teamName);
                         $(teamsDesc[i]).html(teamDesc);
                         $(teamLi[i]).attr("id",teamid);
@@ -242,7 +242,7 @@ $(function(){
                         var teamName = data.msg[i].name;
                         var teamDesc = data.msg[i].about;
                         var teamid = data.msg[i].id;
-                        $(teamlis[i]).attr("src",teamImg);
+                        $(teamlis[i]).attr("src",cur_media + teamImg);
                         $(teamNames[i]).html(teamName);
                         $(teamsDesc[i]).html(teamDesc);
                         $(teamLi[i]).attr("id",teamid);
@@ -255,7 +255,7 @@ $(function(){
                         var teamName = data.msg[i].name;
                         var teamDesc = data.msg[i].about;
                         var teamid = data.msg[i].id;
-                        $(teamlis[i]).attr("src",teamImg);
+                        $(teamlis[i]).attr("src",cur_media + teamImg);
                         $(teamNames[i]).html(teamName);
                         $(teamsDesc[i]).html(teamDesc);
                         $(teamLi[i]).attr("id",teamid);
@@ -296,7 +296,7 @@ $(function(){
             var firstProjectName = data.msg[i].name;
             var firstProjectDesc = data.msg[i].content;
             var proId = data.msg[i].id;
-            $(projectlis[i]).attr("src",firstProjectImg);
+            $(projectlis[i]).attr("src",cur_media + firstProjectImg);
             $(projectNames[i]).html(firstProjectName);
             $(projectsDesc[i]).html(firstProjectDesc);
             $(projectLi[i]).attr("id",proId);
@@ -337,7 +337,7 @@ $(function(){
                         var projectName = data.msg[i].name;
                         var projectDesc = data.msg[i].content;
                         var proId = data.msg[i].id;
-                        $(projectlis[i]).attr("src",projectImg);
+                        $(projectlis[i]).attr("src",cur_media + projectImg);
                         $(projectNames[i]).html(projectName);
                         $(projectsDesc[i]).html(projectDesc);
                         $(projectLi[i]).attr("id",proId);
@@ -381,7 +381,7 @@ $(function(){
                         var projectName = data.msg[i].name;
                         var projectDesc = data.msg[i].content;
                         var proId = data.msg[i].id;
-                        $(projectlis[i]).attr("src",projectImg);
+                        $(projectlis[i]).attr("src",cur_media + projectImg);
                         $(projectNames[i]).html(projectName);
                         $(projectsDesc[i]).html(projectDesc);
                         $(projectLi[i]).attr("id",proId);
@@ -393,7 +393,7 @@ $(function(){
                         var projectImg = data.msg[i].img_path;
                         var projectName = data.msg[i].name;
                         var projectDesc = data.msg[i].content;
-                        $(projectlis[i]).attr("src",projectImg);
+                        $(projectlis[i]).attr("src",cur_media + projectImg);
                         $(projectNames[i]).html(projectName);
                         $(projectsDesc[i]).html(projectDesc);
                         $(projectLi[i]).attr("id",proId);
