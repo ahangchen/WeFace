@@ -314,7 +314,7 @@ $(function(){
                     dataType:'json',
                     success:function(data){
                         if (data.err==0) {
-                            alert(data.msg);
+                            alert("删除成功");
                             delJobFromDom(delJob);
                             $("#firstPage").attr("class","activePage");
                         }
@@ -608,7 +608,6 @@ $(function(){
 
         $('#manageDiv').css("display","block");
         $("#positionDiv").css("display","none");
-
     }
 
     $('#saveForm').click(function(){
@@ -637,15 +636,14 @@ $(function(){
             data:jobDetail,
             dataType:'json',
             success:function(data){
-                alert(data.msg);
-            },
-            error:function(){
-                alert(data.msg);
+                alert("保存成功");
             },
             headers: {
                 "Access-Control-Allow-Origin":"*"
             }
         });
+        $('#manageDiv').css("display","none");
+        $("#positionDiv").css("display","display");
     });
 
 });
