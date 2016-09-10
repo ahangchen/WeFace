@@ -34,7 +34,7 @@ $(document).ready(function () {
         height: 250,
     });
     // 改变箭头图标的颜色
-    $("i:contains('play_arrow')").css("color", "rgb(255,147,74)");
+    // $("i:contains('play_arrow')").css("color", "rgb(255,147,74)");
     // JSON数据加载
     // 获取url中的参数
     function getUrlVars(){

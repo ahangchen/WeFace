@@ -2,6 +2,14 @@ body{
     background-image: url(../../res/imgs/bg.svg);
     background-size: 100% auto;
 }
+.clearfix:before,
+.clearfix:after{
+	content: " ";
+	display: table;
+}
+.clearfix:after{
+	clear:both;
+}
 #max{
 	width: 970px;
 	margin: 0 auto;
@@ -271,36 +279,40 @@ margin-top: 10px;
 
 /*团队项目css*/
 #Team_project_div{
-	height: 800px;
 	margin-top: 50px;
-	line-height: 800px;
 }
 .Team_project_list{
-	height: 200px;
 	background-color: white;
 	margin-bottom: 10px;
 }
-.projectName{
-	height: 50px;
-	line-height: 50px;
-	padding-left: 30px;
-	padding-top: 20px;
-	font-size: 30px; 
-	width: 650px;
+.project-content{
 	float: left;
+	width: 70%;
+	padding: 20px;
+}
+.projectName {
+}
+.projectName a{
+	font-size: 30px;
+	font-family: "Roboto",
+	"微软雅黑", "Microsoft YaHei",
+	"冬青黑体", "Hiragino Sans GB", "华文细黑", "STXihei",
+	"文泉驿微米黑", "WenQuanYi Micro Hei",
+	sans-serif;
+	color: #444;
 }
 .projectImgDiv{
-	width: 310px;
-	float: left;
+	width: 30%;
+	float: right;
 	height: 200px;
 }
 .projectImg{
-	width: 310px;
 	height: 200px;
+	width: 100%;
 }
  .projectIntroduction{
  	width: 650px;
- 	height: 200px;
+	float: left;
  }
  /*需求职位css*/
  #Demand_for_jobs_div{
