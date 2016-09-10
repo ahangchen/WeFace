@@ -2,35 +2,26 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="zh-CN">
 <head>
     <title>新建网页</title>
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-    <link href="../css/base.css" rel="stylesheet"/>
-    <link rel="stylesheet" href="../css/materialize.css">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <link href="../css/base.css"  rel="stylesheet"/>
+    <link rel="stylesheet"  href="../css/materialize.css">
     <link href="../css/md-icon.css" rel="stylesheet">
-    <link rel="stylesheet" href="../css/team/position.css">
-    <link rel="stylesheet" href="../css/team/team_index.css">
-    <link rel="stylesheet" href="../css/team/fix_team_msg.css">
-    <link href="../css/team/demand.css" rel="stylesheet"/>
-    <link href="../css/team/recent.css" rel="stylesheet"/>
-    <script src="../js/jquery-2.1.1.min.js"></script>
-    <script src="../js/etc.js"></script>
-    <script src="../js/util.js"></script>
-    <script type="text/javascript" src='../js/team/team_project.js'></script>
-    <script src="../js/team/team_index.js"></script>
-    <script src="../js/team/demand.js"></script>
-    <script src="../js/team/fix_team_msg.js"></script>
-    <script src="../js/materialize.js"></script>
-
+    <link rel="stylesheet"  href="../css/team/position.css">
+    <link rel="stylesheet"  href="../css/team/team_index.css">
+    <link rel="stylesheet"  href="../css/team/fix_team_msg.css">
+    <link href="../css/team/demand.css"  rel="stylesheet"/>
+    <link href="../css/team/recent.css"  rel="stylesheet"/>
 </head>
 <body>
 <div id="max">
     <div class="header comWidth">
         <div class="topBar">
             <div class="comWidth">
-                <div class="header fl">
+                <div class ="header fl">
                     <a href="test/information.html" target="_blank">关于基地</a>
                 </div>
                 <div class="header fr">
-                    <a class="topBarItem dropdown-button btn" data-activates='dropdown1' href="#">WEMEET </a>
+                    <a class="topBarItem dropdown-button btn"  data-activates='dropdown1' href="#">WEMEET </a>
                     <ul id='dropdown1' class='dropdown-content'>
                         <li><a href="#!">我的主页</a></li>
                         <li class="divider"></li>
@@ -66,9 +57,9 @@
             </div>
         </div>
     </nav>
+
     <div id="orgin_basic_msg">
-        <a class="btn-floating btn-small waves-effect waves-light orange" id="fix_msg_button"><i class="material-icons"
-                                                                                                 style="color:white">edit</i></a>
+        <a class="btn-floating btn-small waves-effect waves-light orange" id="fix_msg_button"><i class="material-icons" style="color:white">edit</i></a>
         <div id="remove_basic_msg">
             <div id="team_logo_div">
                 <img src="" id="team_logo">
@@ -78,62 +69,118 @@
                 <p id="p2"></p>
                 <p id="p3"></p>
                 <p id="p4"></p>
-                <p id="p5"></p>
             </div>
             <div id="information_three"></div>
+        </div>
+        <div id="fix_basic_msg_div">
+
+            <div id="left_one">
+                <div id="photo_area">
+                    <div class="put_photo_here">
+                        <img id="local_photo" />
+                        <i class="large material-icons dp48" id="photo_camera">photo_camera</i>
+                    </div>
+                    <form id="post_logo"  enctype="multipart/form-data">
+                        <input type="file" id="update_photo" style="display: none">
+                    </form>
+                </div>
+                <div class="team_label_edit">
+                    <div class="chips chips-initial chips-placeholder"></div>
+                </div>
+            </div>
+
+            <div class="input-field team_name">
+                <input id="team_name" value=" " type="text" class="validate">
+                <label class="active" for="team_name">团队名称</label>
+            </div>
+            <div class="input-field select_type_div">
+
+            </div>
+            <div class="input-field team_number">
+                <input disabled value=" " id="team_number" type="text" class="validate">
+                <label class="active" for="team_number">团队人数(自动关联)</label>
+            </div>
+            <div class="input-field team_slogan">
+                <input id="team_slogan" value=" " type="text" class="validate" />
+                <label for="team_slogan">团队标语</label>
+            </div>
+            <div class="complete_btn">
+                <a id="saveButton" class="waves-effect waves-light btn">保存</a>
+                <a id="cancelButton" class="waves-effect waves-light btn">取消</a>
+            </div>
+
         </div>
     </div>
     <div id="orgin_page">
         <div id="test">
-            <div class="four team_home"><a href="#team_home_div" class="selected">团队主页</a></div>
-            <div class="four"><a href="#Team_project_div">
-                <div class="four_need_medium">团队项目</div>
-                <div class="chip red white-text" id="badge_one">10</div>
-            </a></div>
-            <div class="four"><a href="#Demand_for_jobs_div">
-                <div class="four_need_medium">需求职位</div>
-                <div class="chip red white-text" id="badge_two">16</div>
-            </a></div>
-            <div class="four"><a href="#Recently_div">最近</a></div>
+            <div class="four team_home" ><a href="#team_home_div" class="selected">团队主页</a></div>
+            <div class="four"><a href="#Team_project_div" ><div class="four_need_medium">团队项目</div><div class="chip red white-text" id="badge_one">10</div></a></div>
+            <div class="four"><a href="#Demand_for_jobs_div" ><div class="four_need_medium">需求职位</div><div class="chip red white-text" id="badge_two">16</div></a></div>
+            <div class="four"><a href="#Recently_div" >最近</a></div>
         </div>
         <div id="team_home_div">
             <div id="left">
                 <div id="main_left_top">
-                    <a class="btn-floating btn-small waves-effect waves-light orange" id="fix_team_intro"><i
-                            class="material-icons" style="color:white">edit</i></a>
+                    <a class="btn-floating btn-small waves-effect waves-light orange" id="fix_team_intro"><i class="material-icons" style="color:white">edit</i></a>
                     <div class="float" id="one">团队介绍<i class="material-icons small">play_arrow</i></div>
                     <div class="textarea" id="team_introuduction"></div>
+                    <div class="row team_intro">
+                        <div class="input-field col s10 push-s1 ">
+                            <textarea id="team_intro" class="materialize-textarea"></textarea>
+                            <a title="(点击可自动分点)" class="btn-floating btn-small waves-effect waves white" id="intro_list_auto"><i class="material-icons" style="color:orange">list</i></a>
+                        </div>
+                        <div class="intro_complete_btn">
+                            <a id="intro_saveButton" class="waves-effect waves-light btn">保存</a>
+                            <a id="intro_cancelButton" class="waves-effect waves-light btn">取消</a>
+                        </div>
+                    </div>
                 </div>
                 <div id="main_left_middle">
                     <div id="main_left_middle_one">
-                        <a class="btn-floating btn-small waves-effect waves-light orange" id="history_button"><i
-                                class="material-icons" style="color:white">edit</i></a>
-                        <div class="float" id="two">发展历程<i class="material-icons small">play_arrow</i></div>
+                        <a class="btn-floating btn-small waves-effect waves-light orange" id="fix_team_history"><i class="material-icons" style="color:white">edit</i></a>
+                        <div class="float"  id="two">发展历程<i class="material-icons small">play_arrow</i></div>
                         <div class="textarea" id="history_text">
+                        </div>
+                        <div class="row team_history">
+                            <div class="input-field col s10 push-s1">
+                                <textarea id="team_history" class="materialize-textarea"></textarea>
+                                <a title="(点击可自动分点)" class="btn-floating btn-small waves-effect waves white" id="history_list_auto"><i class="material-icons" style="color:orange">list</i></a>
+                            </div>
+                            <div class="history_complete_btn">
+                                <a id="history_saveButton" class="waves-effect waves-light btn">保存</a>
+                                <a id="history_cancelButton" class="waves-effect waves-light btn">取消</a>
+                            </div>
                         </div>
                     </div>
                     <div id="main_left_middle_two">
                         <div class="float" id="team_img">团队照片<i class="material-icons small">play_arrow</i></div>
-                        <a class="edit_team_photo btn-floating btn-small waves-effect waves orange"><i
-                                class="material-icons" style="color:white">edit</i></a>
+                        <a class="edit_team_photo btn-floating btn-small waves-effect waves orange"><i class="material-icons" style="color:white">edit</i></a>
                         <div id="edit_photo_area">
                             <!--<div class="slider">
                                 <ul class="slides">
                                 </ul>
                             </div>-->
                         </div>
+                        <div class="team_photo_edit_div">
+                            <table id="team_photo_table">
+                            </table>
+                            <div class="photo_edit_complete">
+                                <a id="save_photo_edit" class="waves-effect waves-light btn">保存</a>
+                                <a id="cancel_photo_edit" class="waves-effect waves-light btn">取消</a>
+                            </div>
+                        </div>
+
                     </div>
                 </div>
             </div>
             <div id="right">
                 <div class="float" id="four">学生成员<i class="material-icons small">play_arrow</i></div>
-                <a class="btn-floating btn-small waves-effect waves-light orange" id="edit_member"><i
-                        class="material-icons" style="color:white">edit</i></a>
+                <a class="btn-floating btn-small waves-effect waves-light orange" id="edit_member"><i class="material-icons" style="color:white">edit</i></a>
                 <div id="main_right_one">
                     <div id="team_member_icon">
                         <!--<div class="leader_div"><img src="" alt="头像" id ="leader" class="leader" /><br>创始人<br><span id="leaderName" class="name"></span></div>-->
                     </div>
-                    <br/>
+                    <br />
                     <div id="complete_edit_member">
                         <a id="member_saveButton" class="waves-effect waves-light btn">保存</a>
                         <a id="member_cancelButton" class="waves-effect waves-light btn">取消</a>
@@ -141,14 +188,43 @@
                 </div>
                 <div class="float" id="contact_way">联系方式<i class="material-icons small">play_arrow</i></div>
                 <div id="main_right_two">
-                    <a class="btn-floating btn-small waves-effect waves-light orange" id="team_connect"><i
-                            class="material-icons" style="color:white">edit</i></a>
+                    <a class="btn-floating btn-small waves-effect waves-light orange" id="team_connect"><i class="material-icons" style="color:white">edit</i></a>
                     <div id="member_information"></div>
                 </div>
+                <div class="row connect">
+                    <div class="input-field col row s10"><i class="material-icons prefix">phone</i>
+                        <input id="connect_tel" value=" " type="text" class="validate"><label for="connect_tel"></label>
+                        <label for="connect_tel">联系电话</label>
+                    </div>
+                    <div class="input-field col row s10 "><i class="material-icons prefix">email</i>
+                        <input id="connect_mail"  value=" " type="text" class="validate"><label for="connect_mail"></label>
+                        <label for="connect_mail">联系邮箱</label>
+                    </div>
+                    <div class="edit_connect_btn">
+                        <a id="connect_saveButton" class="waves-effect waves-light btn">保存</a>
+                        <a id="connect_cancelButton" class="waves-effect waves-light btn">取消</a>
+                    </div>
+                </div>
+
             </div>
         </div>
     </div>
-    <div id="Team_project_div">
+    <div id="Team_project_div" >
+        <div class="Team_project_list">
+            <div class="projectName" >项目名称<i class="material-icons small">play_arrow</i></div>
+            <div class="projectImgDiv"><img src="" alt="" class="projectImg" /></div>
+            <div class="projectIntroduction"></div>
+        </div>
+        <div class="Team_project_list">
+            <div class="projectName" >项目名称<i class="material-icons small">play_arrow</i></div>
+            <div class="projectImgDiv"><img src="" alt="" class="projectImg" /></div>
+            <div class="projectIntroduction"></div>
+        </div>
+        <div class="Team_project_list">
+            <div class="projectName">项目名称<i class="material-icons small">play_arrow</i></div>
+            <div class="projectImgDiv"><img src="" alt="" class="projectImg" /></div>
+            <div class="projectIntroduction"></div>
+        </div>
 
     </div>
     <div id="Demand_for_jobs_div">
@@ -176,7 +252,10 @@
                     </div>
                 </div>
             </div>
+
             <div id="positionCards">
+
+
             </div>
             <div class="pageNum comWidth">
                 <ul class="pagination">
@@ -186,6 +265,7 @@
                 </ul>
             </div>
         </div>
+
     </div>
     <div id="Recently_div">
         <div class="recent_left z-depth-2">
@@ -208,42 +288,78 @@
         </div>
     </div>
 </div>
+
 <div id="add_member_dialog" class="modal modal-fixed-footer">
-    <a class="btn-floating btn-flat btn-small white modal-close right close_dialog"><i class="material-icons"
-                                                                                       style="color:orange">close</i></a>
+    <a class="btn-floating btn-flat btn-small white modal-close right close_dialog"><i class="material-icons" style="color:orange">close</i></a>
     <div class="modal-content">
         <div style="width: 450px;margin-left: auto;margin-right: auto;margin-top: 30px;">
             输入姓名，搜索匹配头像和账号，可通过点击成员头像查看该成员个人主页。若有重名，请核对后进行选择。若成员未注册推荐注册，完善个人主页。
         </div>
-        <div class="input-field enter_member_name ">
-            <input id="member_name" type="text" class="validate"><label for="member_name">输入成员姓名</label>
-            <p id="remainder_msg">未找到该名字匹配的账号</p>
+
+        <div class="enter_member_name ">
+            <div class="row">
+                <div class="input-field col s12 m6 l2">
+                    <input id="member_name" type="text" class="validate"><label for="member_name">输入成员姓名</label>
+                </div>
+                <div class="col s12 m6 l2">
+                    <a id="search_member_again" class="waves-effect waves-light btn">搜索</a>
+                </div>
+                <div class="col s12 m12 l2">
+                    <p id="remainder_msg">未找到该名字匹配的账号</p>
+                </div>
+
+            </div>
         </div>
+
         <div class="input-field search_member_mail">
-            <select id="member_mail" class="browser-default"></select>
         </div>
+
         <div style="width: 80px;margin-right: auto;margin-left: auto;margin-top: 40px;">
             <img class="search_member_logo">
         </div>
+
         <div id="invite_msg">
             请在下方填写该成员的一个邮箱,我们将发送一份邀请注册的邮件至此邮箱,即可完成注册,在该成员完成注册之前,无法在成员列表显示该成员的姓名和头像
         </div>
+
         <div class="input-field" id="new_member_mail_div">
             <input id="new_member_mail" type="text" class="validate"><label for="new_member_mail">输入一个该成员的邮箱</label>
         </div>
+
     </div>
     <div class="modal-footer">
         <a id="add_member_action" class="waves-effect waves-light btn modal-action">搜索</a>
     </div>
+
 </div>
+
 <div id="confirm_delete_member" class="modal" style="width: 500px;">
     <div class="modal-content">
         <p>你确定要删除该成员么?</p>
     </div>
     <div class="modal-footer">
-        <a id="certain_delete_member" class=" modal-action modal-close waves-effect waves-green btn-flat">确定</a>
-        <a id="cancel_delete_member" class=" modal-action modal-close waves-effect waves-green btn-flat">取消</a>
+        <a  id="certain_delete_member" class=" modal-action modal-close waves-effect waves-green btn-flat">确定</a>
+        <a  id="cancel_delete_member" class=" modal-action modal-close waves-effect waves-green btn-flat">取消</a>
     </div>
 </div>
+
+<div id="confirm_delete" class="modal" style="width: 500px;">
+    <div class="modal-content">
+        <p>你确定要删除么?</p>
+    </div>
+    <div class="modal-footer">
+        <a  id="yes" class=" modal-action modal-close waves-effect waves-green btn-flat">确定</a>
+        <a  id="no" class=" modal-action modal-close waves-effect waves-green btn-flat">取消</a>
+    </div>
+</div>
+<script type="text/javascript" src="../js/jquery-2.1.1.min.js"></script>
+<script type="text/javascript" src="../js/etc.js"></script>
+<script type="text/javascript" src="../js/util.js"></script>
+<script type="text/javascript" src="../js/team/team_index.js"></script>
+<script type="text/javascript" src="../js/team/demand.js"></script>
+<script type="text/javascript" src="../js/team/fix_team_msg.js"></script>
+<script type="text/javascript" src="../js/materialize.js"></script>
+
+
 </body>
 </html>
