@@ -314,7 +314,7 @@ $(function(){
                     dataType:'json',
                     success:function(data){
                         if (data.err==0) {
-                            alert(data.msg);
+                            alert("删除成功");
                             delJobFromDom(delJob);
                             $("#firstPage").attr("class","activePage");
                         }
@@ -608,12 +608,11 @@ $(function(){
 
         $('#manageDiv').css("display","block");
         $("#positionDiv").css("display","none");
-
     }
 
     $('#saveForm').click(function(){
         var jobDetail = {
-            job_id:clickedJobId,
+            id:clickedJobId,
             name:$("#jobName").val(),
             j_type:$('#type').val(),
             min_salary: $("#minSaraly").val(),
@@ -633,19 +632,18 @@ $(function(){
         }
         var a = $.ajax({
             type:'post',
-            url:cur_site + 'team/job_update/',
+            url:cur_site + 'team/update_job/',
             data:jobDetail,
             dataType:'json',
             success:function(data){
-                alert(data.msg);
-            },
-            error:function(){
-                alert(data.msg);
+                alert("保存成功");
             },
             headers: {
                 "Access-Control-Allow-Origin":"*"
             }
         });
+        $('#manageDiv').css("display","none");
+        $("#positionDiv").css("display","display");
     });
 
 });

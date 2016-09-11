@@ -992,7 +992,7 @@ function basic_team_msg(team_info){
                         $("#remainder_msg").css("display","none");
                         $("#invite_msg").css("display","none");
                         $("#new_member_mail_div").css("display","none");
-                        $("#member_name").val("");
+                        $("#member_name").val("").parent().attr("class","input-field col s12");
                         $("#add_member_action").html("搜索");
                         $("#search_member_again").css("opacity","0");
                         show_team_member(edit_team_member,edit_team_member.length);
@@ -1034,7 +1034,7 @@ function basic_team_msg(team_info){
                                 $("#remainder_msg").css("display","none");
                                 $("#invite_msg").css("display","none");
                                 $("#new_member_mail_div").css("display","none");
-                                $("#member_name").val("");
+                                $("#member_name").val("").parent().attr("class","input-field col s12");
                                 $("#new_member_mail").val("");
                                 $("#add_member_action").html("搜索");
                                 $("#search_member_again").css("opacity","0");
@@ -1061,7 +1061,7 @@ function basic_team_msg(team_info){
             $("#remainder_msg").css("display","none");
             $("#invite_msg").css("display","none");
             $("#new_member_mail_div").css("display","none");
-            $("#member_name").val("");
+            $("#member_name").val("").parent().attr("class","input-field col s12");
             $("#new_member_mail").val("");
             $("#add_member_action").html("搜索");
             $("#search_member_again").css("opacity","0");
@@ -1127,13 +1127,15 @@ function basic_team_msg(team_info){
         $("#invite_msg").css("display","none");
         $("#new_member_mail_div").css("display","none");
         $("#new_member_mail").val("");
-        var search_name=$("#member_name").val();
+        var temp_id="#member_name";
+        var search_name=$(temp_id).val();
         if(search_name=="") {
             Materialize.toast("输入要搜索的姓名", 2000);
             return;
         }
         //显示重复搜索的button
         $("#search_member_again").css("opacity","1");
+        $(temp_id).parent().attr("class","input-field col s12 m6 l6");
         $.ajax({
             type: 'GET',
             url: cur_site + "team/name2mail",
