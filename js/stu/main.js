@@ -302,8 +302,8 @@ $(function () {
                     console.log("操作失败");
                 }
                 if(err=='0'){
-                    $("#personal_path").attr('href',data.resume_path);
-                    $("#personal_path").attr('download',data.resume_path);
+                    $("#personal_path").attr('href',cur_site.substring(0,cur_site.length-2)+data.resume_path);
+                    $("#personal_path").attr('download',cur_site.substring(0,cur_site.length-2)+data.resume_path);
                 }
             },
             headers: {
@@ -345,7 +345,13 @@ $(function () {
                     var tel = data.tel;
                     var mail = data.mail;
                     document.getElementById("avatar_path").src = avatar_path;
-                    document.getElementById("detail-name").innerHTML = name;
+                    if(name=='')
+                    {
+                        document.getElementById("detail-name").innerHTML = '待完善';
+                    }
+                    else{
+                        document.getElementById("detail-name").innerHTML = name;
+                    }
                     document.getElementById("detail-school").innerHTML = school;
                     if (sex == "0") {
                     }
@@ -365,7 +371,13 @@ $(function () {
                     {
                         $('#detail-location').css("display","none");
                     }
-                    document.getElementById("detail-location").innerHTML = location;
+                    if(location=="-1")
+                    {
+                        document.getElementById("detail-location").innerHTML = '广州';
+                    }
+                    else{
+                        document.getElementById("detail-location").innerHTML = location;
+                    }
                     document.getElementById("detail-tel").innerHTML = tel;
                     document.getElementById("detail-mail").innerHTML = mail;
                 }

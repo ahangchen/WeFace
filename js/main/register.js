@@ -137,7 +137,7 @@
                             function timeleft() {
                                 a = a - 1;
                                 if (a == 0) {
-                                    window.location.href = "../index.html"
+                                    window.location.href = "./login.html"
                                 }
                                 document.getElementById('time').innerHTML = a;
                             }
@@ -198,7 +198,7 @@
                             function timeleft() {
                                 a = a - 1;
                                 if (a == 0) {
-                                    window.location.href = "../index.html"
+                                    window.location.href = "./login.html"
                                 }
                                 document.getElementById('time').innerHTML = a;
                             }
