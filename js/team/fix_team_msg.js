@@ -270,11 +270,16 @@ $(document).ready(function(){
 
     //对团队的联系方式进行编辑
     $("#team_connect").on("click",function(){
+        var duplicate_id;
         $("#main_right_two").css("display","none");
         $(".connect").show();
         //加载团队联系方式的信息
-        $("#connect_tel").val(team_info.team_tel);
-        $("#connect_mail").val(team_info.team_mail);
+        duplicate_id="#connect_tel";
+        $(duplicate_id).next('label').attr('class','active');
+        $(duplicate_id).val(team_info.team_tel);
+        duplicate_id="#connect_mail";
+        $(duplicate_id).next('label').attr('class','active');
+        $(duplicate_id).val(team_info.team_mail);
         
     });
     //保存对团队联系方式的编辑
