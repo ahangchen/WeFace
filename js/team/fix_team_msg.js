@@ -33,6 +33,7 @@ $(document).ready(function(){
     var delete_old_label = [];//删除的旧标签
     //对基本信息进行编辑
     $("#fix_msg_button").on("click",function(){
+        var duplicate_id;
         old_label.length=0;
         new_label.length=0;
         delete_old_label.length=0;
@@ -40,9 +41,15 @@ $(document).ready(function(){
         $("#fix_basic_msg_div").show();
         $("#fix_msg_button").css("opacity","0");
         $("#local_photo").attr('src', cur_media + team_info.team_logo);
-        $("#team_name").val(team_info.team_name);
-        $("#team_number").val(team_info.team_member_cnt+'人团队');
-        $("#team_slogan").val(team_info.team_slogan);
+        duplicate_id="#team_name";
+        $(duplicate_id).next('label').attr('class','active');
+        $(duplicate_id).val(team_info.team_name);
+        duplicate_id="#team_number";
+        $(duplicate_id).next('label').attr('class','active');
+        $(duplicate_id).val(team_info.team_member_cnt+'人团队');
+        duplicate_id="#team_slogan";
+        $(duplicate_id).next('label').attr('class','active');
+        $(duplicate_id).val(team_info.team_slogan);
         if (team_info.team_label.length == 0) {
             $('.chips-placeholder').material_chip({
                 secondaryPlaceholder: '请输入团队标签(回车进行添加)'
@@ -217,19 +224,19 @@ $(document).ready(function(){
     //点击对团队介绍进行分点
     click_to_dot("#intro_list_auto","#team_intro");
     var new_team_about;
-    id_temp="#team_intro";
+
     //对团队介绍进行修改
     $("#fix_team_intro").on("click",function(){
         $("#fix_team_intro").css("opacity","0");
         $("#team_introuduction").css("display","none");
         $(".team_intro").show();
         //加载团队介绍
-        $(id_temp).val(team_info.team_about);
+        $("#team_intro").val(team_info.team_about);
     });
     //点击保存团队介绍的修改
     $("#intro_saveButton").on("click",function(){
         //得到修改过的团队介绍,并修改team_info
-        new_team_about= $(id_temp).val();
+        new_team_about= $("#team_intro").val();
         team_info.team_about=new_team_about;
         update_other_msg(team_info,"#team_introuduction","about");
     });
@@ -240,7 +247,6 @@ $(document).ready(function(){
 
     //点击对团队历史进行分点
     click_to_dot("#history_list_auto","#team_history");
-    id_temp="#team_history";
     var new_team_history;
     //对团队历史进行修改
     $("#fix_team_history").on("click",function(){
@@ -248,12 +254,12 @@ $(document).ready(function(){
         $("#history_text").css("display","none");
         $(".team_history").show();
         //加载团队历史
-        $(id_temp).val(team_info.team_history);
+        $("#team_history").val(team_info.team_history);
     });
     //点击保存团队历史的修改
     $("#history_saveButton").on("click",function(){
         //得到修改过的团队历史,并修改team_info
-        new_team_history=$(id_temp).val();
+        new_team_history=$("#team_history").val();
         team_info.team_history=new_team_history;
         update_other_msg(team_info,"#history_text","history");
     });
