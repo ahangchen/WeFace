@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>添加项目</title>
+</head>
+<body>
+<div class="comWidth add_project_page">
+    <div class="row">
+        <div class="input-field edit_name col s8 push-s2">
+            <input type="text"  id="product_name">
+            <label for="product_name">项目名称</label>
+        </div>
+        <div class="input-field edit_introduce col s8 push-s2">
+            <textarea id="introduce" class="materialize-textarea"></textarea>
+            <label for="introduce">项目介绍</label>
+        </div>
+        <div class="input-field add_achieve_div col s8 push-s2">
+            <textarea id="achieve" class="materialize-textarea"></textarea>
+            <label for="achieve">添加成果</label>
+        </div>
+        <div id="add_photo" class="col s8 push-s2">
+            <div style="font-size: 27px;">添加照片
+                <i class="material-icons" style="color:orange">play_arrow</i>
+            </div>
+            <div class="put_photo_here">
+                <img id="local_photo" />
+                <i class="large material-icons dp48" id="photo_camera">photo_camera</i>
+            </div>
+            <form id="post_logo"  enctype="multipart/form-data">
+                <input type="file" id="update_photo" style="display: none">
+            </form>
+        </div>
+    </div>
+</div>
+<!--<div class="status">
+    <form id="status_form">
+        <span id="broadcast_span">
+            <input name="group1" type="radio" id="broadcast" checked/>
+            <label for="broadcast">发布项目</label>
+        </span>
+        <span id="memory_span">
+            <input name="group1" type="radio" id="memory" />
+            <label for="memory">暂存项目</label>
+        </span>
+    </form>
+    <p style="margin-left: 560px;margin-top: 10px;">(不会显示在外部职位显示页面)</p>
+</div>-->
+<div class="complete_btn">
+    <a id="saveButton" class="waves-effect waves-light btn orange">保存</a>
+    <a id="cancelButton" class="waves-effect waves-light btn white">取消</a>
+</div>
+</body>
+</html>
