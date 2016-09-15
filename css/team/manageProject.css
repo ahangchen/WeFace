@@ -1,0 +1,250 @@
+.comWidth {
+    width:        970px;
+    margin-left:  auto;
+    margin-right: auto;
+
+}
+
+a:link {
+    text-decoration: none;
+    color:           #353535;
+}
+
+a:visited {
+    color: #353535;
+}
+html{
+    background-image: url(../../res/imgs/bg.svg);
+    background-size: 100% auto;
+}
+.fl{
+    float: left;
+}
+.fr{
+    float: right;
+}
+label{
+    color: #353535;
+    font-size: 16px;
+}
+
+/*导航栏*/
+#logo {
+    height: 44px;
+    margin: 10px;
+}
+
+a.topBarItem.dropdown-button.btn{
+    width:            120px;
+    background-color: transparent;
+    box-shadow:       none;
+    text-align:       right;
+    padding-right:    6px;
+}
+
+.logo-name {
+    margin:      10px 5px 5px 5px;
+    font-size:   16px;
+    line-height: 20px;
+}
+
+.search-bar {
+    height: 100%;
+}
+
+.nav-wrapper li a {
+    width:      100px;
+    text-align: center;
+}
+
+.header {}
+
+.fl {
+    float: left;
+}
+
+.fr {
+    float: right;
+}
+
+.topBar {
+    top:         5%;
+    height:      35px;
+    font-size:   12px;
+    line-height: 30px;
+    background:  rgba(255, 255, 255, 0.5);
+}
+
+.topBar a {
+    font-size: 14px;
+    /*color:   #FF0000;*/
+    cursor:    pointer;
+}
+
+.header a {
+    margin-left:  7px;
+    margin-right: 5px;
+    line-height:  35px;
+}
+
+.header .line {
+    position:    relative;
+    top:         3px;
+    margin-left: 5px;
+    font-weight: lighter;
+    font-size:   20pt;
+    line-height: 20px;
+    color:       gray;
+}
+
+.mainBtn {
+    margin: 20px 5px 20px 13px;
+}
+
+/*添加职位*/
+.add_project_div{
+    height: 80px;
+    background:  rgba(255, 255, 255, 0.5);
+
+}
+
+#add_msg{
+    font-size: 20px;
+    float: left;
+    width: 800px;
+    margin-left: 100px;
+
+}
+
+#add_project_btn{
+    margin-left: 580px;
+    margin-top: -20px;
+}
+
+/*新增职位页面*/
+.add_project_page{
+    background:  rgba(255, 255, 255, 0.5);
+    min-height: 500px;
+
+}
+
+.add_achieve_div{
+    margin-top: 20px;
+}
+
+.put_photo_here{
+    width: 150px;
+    height: 150px;
+    background-color: #dcd8d7;
+    margin-top: 40px;
+
+    float: left;
+    border-radius: 10px;
+    cursor:pointer;
+    position: relative;
+    margin-bottom:30px;
+}
+
+#photo_camera{
+    margin-left: 30px;
+    margin-top: 30px;
+    margin-bottom:20px;
+}
+
+#local_photo{
+    width: 150px;
+    height: 150px;
+    border-radius: 10px;
+    position: absolute;
+}
+
+/*状态选择*/
+/*.status{
+    width: 970px;
+    box-shadow: 0 5px 11px 0 rgba(0, 0, 0, 0.18), 0 4px 15px 0 rgba(0, 0, 0, 0.15);
+    background-color: rgb(255,255,255);
+    height: 150px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.row{
+    margin-bottom: 10px;
+}
+
+#status_form{
+    width: 800px;
+    float: left;
+    margin-left: 200px;
+    margin-top: 60px;
+}
+
+#broadcast_span label{
+    font-size: 22px;
+}
+
+#memory_span label{
+    font-size: 22px;
+    margin-left: 200px;
+}*/
+
+
+
+/*保存编辑和取消编辑*/
+.complete_btn{
+    margin-left: 500px;
+    margin-top: 50px;
+    margin-bottom: 50px;
+    width: 300px;
+}
+
+#saveButton{
+    color: #fff;
+}
+
+#cancelButton{
+    color: #000;
+    margin-left: 20px;
+}
+
+/*对该团队的项目进行显示*/
+.project_card{
+    width: 970px;
+    height: 120px;
+    background-color: #fff;
+    margin-top: 10px;
+}
+
+#project_name{
+    font-size: 25px;
+    float: left;
+    margin-left: 100px;
+    margin-top: 40px;
+}
+
+#function_btn{
+    float: right;
+    margin-right: 30px;
+    margin-top: 25px;
+}
+
+.edit_project{
+    margin-left: 20px;
+}
+
+.show_page{
+    width:100px;
+    margin-top: 60px;
+    margin-left:  auto;
+    margin-right: auto;
+    margin-bottom: 60px;
+    opacity: 0;
+}
+
+.active_page{
+    text-decoration: underline;
+}
+
+.show_page li{
+    cursor: pointer;
+}
