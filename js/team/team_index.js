@@ -1,5 +1,9 @@
 // 实现四个标签页的切换
 $(document).ready(function () {
+    $("#projectBtn").on("click",function(){
+        $("#projectBtn").attr("href",'manageProject/manageProject.html?tid='+getId());
+    });
+
     var tabhosts = $(".four a");
     $('.slider').slider({
         full_width: true
