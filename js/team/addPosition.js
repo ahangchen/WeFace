@@ -99,8 +99,8 @@ $(function(){
                 dataType: 'json',
                 success: function (data) {
 
-                        alert("新增成功!");
-
+                    alert("新增成功!");
+                    window.location = wefaceBace_site + 'showPosition.html?t_id='+tId;
                 },
                 error: function (data) {
                     alert("新增失败");
@@ -109,7 +109,7 @@ $(function(){
                     "Access-Control-Allow-Origin": "*"
                 }
             });
-            $('#addJob a').attr('href','showPosition.html?t_id='+tId);
+
         }
         else {
             alert("请将必填的信息补充完整");

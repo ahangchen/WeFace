@@ -1,3 +1,40 @@
+
+/*-------------------------------------------居中公用类------------------------------------------------------*/
+.comWidth {
+    width: 970px;
+    margin-left: auto;
+    margin-right: auto;
+
+}
+
+/*---------------------------------------公用代码－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－*/
+a:link {
+    text-decoration: none;
+    color: black;
+}
+
+a:visited {
+    color: black;
+}
+
+.z-depth {
+    -moz-box-shadow: 0 5px 5px 0 rgba(0, 0, 0, 0.22), 0 10px 10px 0 rgba(0, 0, 0, 0.21);
+    -webkit-box-shadow: 0 5px 5px 0 rgba(0, 0, 0, 0.22), 0 10px 10px 0 rgba(0, 0, 0, 0.21);
+    box-shadow: 0 5px 5px 0 rgba(0, 0, 0, 0.22), 0 10px 10px 0 rgba(0, 0, 0, 0.21);
+}
+
+
+/*箭头样式*/
+.preBtn i,.nextBtn i,.preBtnOfTeams i,.preBtnOfProject i,.nextBtnOfProject i,.nextBtnOfTeams i{
+    visibility: hidden;
+    color: #6f6f6f;
+    /*visibility: visible;*/
+}
+.preBtn:active{
+    background-color: transparent;
+    color:#6f6f6f;
+}
+
 /*----------------------------------导航栏-------------------------------------------------------------*/
 
 #logo {

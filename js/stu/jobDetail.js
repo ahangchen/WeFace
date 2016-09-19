@@ -205,7 +205,7 @@ $(function(){
 
             if(data.msg=="未上传简历"){
                 $('.hintText').html("您还没<a class='submitResume'>上传简历</a>,请尽快上传");
-                $('.submitResume').attr("href",wefaceBace_site + "stu/main.html");
+                $('.submitResume').attr("href",wefaceBace_site + "stu/main.html?std_id="+sId);
                 $('#submitBtn').click(function(){
                     alert("请完善简历");
                 })
