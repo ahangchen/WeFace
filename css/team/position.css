@@ -80,7 +80,9 @@ a.topBarItem.dropdown-button.btn{
     /*color:   #FF0000;*/
     cursor:    pointer;
 }
-
+.nav-wrapper a{
+    color: #353535;
+}
 .header a {
     margin-left:  7px;
     margin-right: 5px;
