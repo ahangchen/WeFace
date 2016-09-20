@@ -1,4 +1,10 @@
 $(document).ready(function () {
+    var wefaceBace_site = "http://110.64.69.101:8080/";
+
+    $("#projectBtn").attr("href",wefaceBace_site+'team/manageProject/manageProject.html?tid='+getId());
+    $('#resumeBtn').attr('href',wefaceBace_site + 'team/resumeManage/resume.html?t_id='+getId());
+    $('#positionBtn').attr('href',wefaceBace_site + 'team/position/showPosition.html?t_id='+getId());
+
     var ajax_data={teamId:getId()};//获取信息的data
     var project=[];//记录该团队拥有的项目
     var team_id=getId();//得到团队的ID
