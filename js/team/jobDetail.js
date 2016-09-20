@@ -52,6 +52,8 @@ $(function(){
                 state = data.pub_state;
                 jobCmd = data.job_cmd;
                 workCmd = data.work_cmd;
+                $('#resumeBtn').attr('href',wefaceBace_site + 'team/resumeManage/resume.html?t_id='+tId);
+                $('#positionBtn').attr('href',wefaceBace_site + 'team/position/showPosition.html?t_id='+tId);
                 initJobDetail();
             }
         },

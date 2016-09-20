@@ -16,13 +16,16 @@ $(function(){
     var completeArray = new Array();
     var stateObj = $('.stateBar ul li');
     var tId = getUrlVar('t_id');
+    var wefaceBace_site = "http://110.64.69.101:8080/";
+    $('#resumeBtn').attr('href',wefaceBace_site + 'team/resumeManage/resume.html?t_id='+tId);
+    $('#positionBtn').attr('href',wefaceBace_site + 'team/position/showPosition.html?t_id='+tId);
     $('.newNum').css('visibility','hidden');
     $('.tab').click(function(){
         $(this).children('a').children('.newNum').css('visibility','hidden');
     });
     $('.solveBtn').click(function(){
         var id = $(this).parents('.resumeCard').attr('id');
-        $(this).attr('href','resumeSolve.html?id='+id);
+        $(this).attr('href',wefaceBace_site + 'team/resumeManage/resumeSolve.html?id='+id);
     });
     // 隔一段时间刷新新接收版块，调用初始化页面函数
     initNew();
@@ -131,6 +134,7 @@ $(function(){
                 // 显示未读信息条数
                 switch(state){
                     case 1:
+
                         $('.unConLink .newNum').html(unreadNum);
                         $('.unConLink .newNum').css('visibility','visible');
                         break;

@@ -6,7 +6,12 @@ $(function(){
     var postData ={
         apply_id:apply_id
     };
+    var wefaceBace_site = "http://110.64.69.101:8080/";
+    $('#resumeBtn').attr('href',wefaceBace_site + 'team/resumeManage/resume.html?t_id='+t_id);
+    $('#positionBtn').attr('href',wefaceBace_site + 'team/position/showPosition.html?t_id='+t_id);
+
     $("#returnBtn").attr("href","resume.html?t_id="+t_id);
+
     var resumeInfo = {
         imgSrc:"",
         name:"",
