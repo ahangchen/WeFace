@@ -99,6 +99,9 @@ $(function(){
                 changeContent(newCurrentPage,"newCardDiv",appObjArray,0);
                 initPages(newCurrentPage,num,"newPageNum","newCardDiv",appObjArray,0);
             },
+            error:function(data){
+                console.log(data.msg);
+            },
             headers:{
                 "Access-Control-Allow-Origin":"*"
             }
@@ -168,6 +171,9 @@ $(function(){
                 }
                 changeContent(currentPage,divId,array,isCheckBtn);
                 initPages(currentPage,total,pageClass,divId,array,isCheckBtn);
+            },
+            error:function(data){
+                console.log(data.msg);
             },
             headers:{
                 "Access-Control-Allow-Origin":"*"
