@@ -45,7 +45,7 @@ $(function(){
             initForm(resumeInfo);
         },
         error:function(data){
-            alert(data.msg);
+            console.log(data.msg);
         },
         headers:{
             "Access-Control-Allow-Origin":"*"
@@ -81,7 +81,7 @@ $(function(){
                     console.log("邮件发送成功");
                 },
                 error: function (data) {
-                    alert(data.msg);
+                    console.log(data.msg);
                 },
                 headers: {
                     "Access-Control-Allow-Origin": "*"
@@ -97,7 +97,7 @@ $(function(){
                 alert("处理成功");
             },
             error:function(data){
-                alert(data.msg);
+                console.log(data.msg);
             },
             headers:{
                 "Access-Control-Allow-Origin":"*"
