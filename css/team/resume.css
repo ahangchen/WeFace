@@ -108,7 +108,9 @@ a.topBarItem.dropdown-button.btn{
 .mainBtn {
     margin: 20px 5px 20px 13px;
 }
-
+.nav-wrapper a{
+    color: #353535;
+}
 /*－－－－－－－－－－－－－－－－－－－－选择状态栏－－－－－－－－－－－－－－－－－－*/
 div.col.s12{
     position: relative;
