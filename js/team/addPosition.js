@@ -100,7 +100,7 @@ $(function(){
                 success: function (data) {
 
                     alert("新增成功!");
-                    window.location = wefaceBace_site + 'showPosition.html?t_id='+tId;
+                    window.location = wefaceBace_site + 'team/position/showPosition.html?t_id='+tId;
                 },
                 error: function (data) {
                     alert("新增失败");
