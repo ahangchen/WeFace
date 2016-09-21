@@ -3,7 +3,7 @@
 <html>
 <meta charset="utf-8">
 <head>
-    <title>简历管理</title>
+    <title>项目管理</title>
 </head>
 <link href="../../css/base.css"  rel="stylesheet"/>
 <link rel="stylesheet"  href="../../css/materialize.css">
@@ -40,9 +40,9 @@
             <li><img id="logo" src="../../res/imgs/materialize.svg"/></li>
             <li><p class="logo-name">华南理工大学<br/>人才交流平台
                 <p></li>
-            <li><a href="#" id="resumeBtn">简历管理</a></li>
-            <li><a href="#" id="positionBtn">职位管理</a></li>
-            <li><a href="#" id="projectBtn">项目管理</a></li>
+            <li><a  id="resumeBtn">简历管理</a></li>
+            <li><a  id="positionBtn">职位管理</a></li>
+            <li><a  id="projectBtn">项目管理</a></li>
         </ul>
         <div class="input-field right search-bar">
             <input id="search" type="search" placeholder="Click to search" required>
@@ -67,6 +67,16 @@
         <ul class="pagination">
     </ul>
 
+    </div>
+</div>
+
+<div id="confirm_delete_project" class="modal" style="width: 500px;">
+    <div class="modal-content">
+        <p>你确定要删除该项目么?</p>
+    </div>
+    <div class="modal-footer">
+        <a  id="certain_delete_project" class=" modal-action modal-close waves-effect waves-green btn-flat">确定</a>
+        <a  id="cancel_delete_project" class=" modal-action modal-close waves-effect waves-green btn-flat">取消</a>
     </div>
 </div>
 
