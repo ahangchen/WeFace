@@ -53,8 +53,9 @@ a:visited {
 }
 
 .nav-wrapper li a {
-    width: 100px;
+    /*width: 100px;*/
     text-align: center;
+    height:64px;
 }
 
 .header {
@@ -100,6 +101,9 @@ a:visited {
     font-size: 20pt;
     line-height: 20px;
     color: gray;
+}
+nav ul li{
+    height:64px;
 }
 
 
