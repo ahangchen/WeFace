@@ -118,6 +118,7 @@ $(function(){
     });
 // －－－－－－－－－－－－－－－热门团队－－－－－－－－－－－－－－－－－－－－－－－－－－－
 // －－－－－－－－－－－－－热门团队初始化－－－－－－－－－－－－－－－－－－－－－－－－－－
+    var wefaceBace_site = "http://110.64.69.101:8080/";
     var teamlis = $(".teamList li img");
     var teamLink = $(".teamList li a");
     var teamNames = $(".teamList li div");
@@ -131,6 +132,7 @@ $(function(){
             var firstTeamDesc = data.message[i].about;
             var firstTeamid = data.message[i].id;
             $(teamlis[i]).attr("src",cur_media + firstTeamImg);
+            $(teamLink[i]).attr("href",wefaceBace_site+'team/index.html?t_id='+firstTeamid);
             $(teamNames[i]).html(firstTeamName);
             $(teamsDesc[i]).html(firstTeamDesc);
             $(teamLi[i]).attr("id",firstTeamid);
@@ -162,7 +164,7 @@ $(function(){
     //    }
     //});
 // －－－－－－－－－－－－－－－－－动态加载团队－－－－－－－－－－－－－－－－－－－－－－－－－
-    var triTeamLen = $(".teamList li").length;
+    var triTeamLen = $(teamLi).length;
     $(".nextBtnOfTeams").click(function(){
         var a = $.ajax({
             type: "get",
@@ -196,6 +198,7 @@ $(function(){
                         var teamDesc = data.msg[i].about;
                         var teamid = data.msg[i].id;
                         $(teamlis[i]).attr("src", cur_media + teamImg);
+                        $(teamLink[i]).attr("href",wefaceBace_site+'team/index.html?t_id='+teamid);
                         $(teamNames[i]).html(teamName);
                         $(teamsDesc[i]).html(teamDesc);
                         $(teamLi[i]).attr("id",teamid);
@@ -218,7 +221,7 @@ $(function(){
             url: cur_site + "team/hot_team/",
             dataType: "json",
             success: function(data){
-                var maxLength = data.msg.length;
+                var maxLength = data.message.length;
 
                 if (curIndexOfTeam == 0) {
                     if(triTeamLen < maxLength) {
@@ -243,6 +246,7 @@ $(function(){
                         var teamDesc = data.msg[i].about;
                         var teamid = data.msg[i].id;
                         $(teamlis[i]).attr("src",cur_media + teamImg);
+                        $(teamLink[i]).attr("href",wefaceBace_site+'team/index.html?t_id='+teamid);
                         $(teamNames[i]).html(teamName);
                         $(teamsDesc[i]).html(teamDesc);
                         $(teamLi[i]).attr("id",teamid);
@@ -256,6 +260,7 @@ $(function(){
                         var teamDesc = data.msg[i].about;
                         var teamid = data.msg[i].id;
                         $(teamlis[i]).attr("src",cur_media + teamImg);
+                        $(teamLink[i]).attr("href",wefaceBace_site+'team/index.html?t_id='+teamid);
                         $(teamNames[i]).html(teamName);
                         $(teamsDesc[i]).html(teamDesc);
                         $(teamLi[i]).attr("id",teamid);
@@ -292,11 +297,12 @@ $(function(){
     var curIndexOfProject = 0;
     $.getJSON(cur_site + 'team/hot_product/',function(data){
         for (var i = 0; i < 3; i++) {
-            var firstProjectImg = data.msg[i].img_path;
-            var firstProjectName = data.msg[i].name;
-            var firstProjectDesc = data.msg[i].content;
-            var proId = data.msg[i].id;
+            var firstProjectImg = data.message[i].img_path;
+            var firstProjectName = data.message[i].name;
+            var firstProjectDesc = data.message[i].content;
+            var proId = data.message[i].id;
             $(projectlis[i]).attr("src",cur_media + firstProjectImg);
+            $(projectLink[i]).attr("href",wefaceBace_site + 'team/index.html?t_id=' + proId);
             $(projectNames[i]).html(firstProjectName);
             $(projectsDesc[i]).html(firstProjectDesc);
             $(projectLi[i]).attr("id",proId);
@@ -305,14 +311,14 @@ $(function(){
     });
 
 // －－－－－－－－－－－－－－－－－动态加载项目－－－－－－－－－－－－－－－－－－－－－－－－－
-    var triProjectLen = $(".projectList li").length;
+    var triProjectLen = $(projectLi).length;
     $(".nextBtnOfProject").click(function(){
         var a = $.ajax({
             type: "get",
             url: cur_site + "team/hot_product/",
             dataType: "json",
             success: function(data){
-                var maxLength = data.msg.length;
+                var maxLength = data.message.length;
                 if (curIndexOfProject == maxLength) {
                     curIndexOfProject = 0 ;
                 }
@@ -331,13 +337,14 @@ $(function(){
                     projectNames = $(".projectList li div");
                     projectsDesc = $(".projectList li span");
                     projectLi = $(".projectList li");
-
+                    projectLink = $(".projectList li a");
                     for (var i = curIndexOfProject ; i < curIndexOfProject + 3; i++) {
-                        var projectImg = data.msg[i].img_path;
-                        var projectName = data.msg[i].name;
-                        var projectDesc = data.msg[i].content;
-                        var proId = data.msg[i].id;
+                        var projectImg = data.message[i].img_path;
+                        var projectName = data.message[i].name;
+                        var projectDesc = data.message[i].content;
+                        var proId = data.message[i].id;
                         $(projectlis[i]).attr("src",cur_media + projectImg);
+                        $(projectLink[i]).attr("href",wefaceBace_site + 'team/index.html?t_id=' + proId);
                         $(projectNames[i]).html(projectName);
                         $(projectsDesc[i]).html(projectDesc);
                         $(projectLi[i]).attr("id",proId);
@@ -347,7 +354,7 @@ $(function(){
                 curIndexOfProject += 3;
             },
             error:function(data){
-                alert(data.msg);
+                alert(data.message);
             },
             headers: {
                 "Access-Control-Allow-Origin":"*"
@@ -361,7 +368,7 @@ $(function(){
             url: cur_site + "team/hot_product/",
             dataType: "json",
             success: function(data){
-                var maxLength = data.msg.length;
+                var maxLength = data.message.length;
                 if (curIndexOfProject == 0) {
                     if (triProjectLen < maxLength) {
                         for (var j = 0; j < maxLength - triProjectLen; j++) {
@@ -377,11 +384,12 @@ $(function(){
                     projectsDesc = $(".projectList li span");
                     projectLi = $(".projectList li");
                     for (var i = maxLength - 3 ; i < maxLength ; i++) {
-                        var projectImg = data.msg[i]. img_path;
-                        var projectName = data.msg[i].name;
-                        var projectDesc = data.msg[i].content;
-                        var proId = data.msg[i].id;
+                        var projectImg = data.message[i]. img_path;
+                        var projectName = data.message[i].name;
+                        var projectDesc = data.message[i].content;
+                        var proId = data.message[i].id;
                         $(projectlis[i]).attr("src",cur_media + projectImg);
+                        $(projectLink[i]).attr("href",wefaceBace_site + 'team/index.html?t_id=' + proId);
                         $(projectNames[i]).html(projectName);
                         $(projectsDesc[i]).html(projectDesc);
                         $(projectLi[i]).attr("id",proId);
@@ -390,10 +398,12 @@ $(function(){
                 }
                 else{
                     for (var i = curIndexOfProject - 3; i < curIndexOfProject ; i++) {
-                        var projectImg = data.msg[i].img_path;
-                        var projectName = data.msg[i].name;
-                        var projectDesc = data.msg[i].content;
+                        var projectImg = data.message[i].img_path;
+                        var projectName = data.message[i].name;
+                        var projectDesc = data.message[i].content;
+                        var proId = data.message[i].id;
                         $(projectlis[i]).attr("src",cur_media + projectImg);
+                        $(projectLink[i]).attr("href",wefaceBace_site + 'team/index.html?t_id=' + proId);
                         $(projectNames[i]).html(projectName);
                         $(projectsDesc[i]).html(projectDesc);
                         $(projectLi[i]).attr("id",proId);
@@ -404,7 +414,7 @@ $(function(){
 
             },
             error:function(data){
-                alert(data.msg);
+                alert(data.message);
             },
             headers: {
                 "Access-Control-Allow-Origin":"*"
