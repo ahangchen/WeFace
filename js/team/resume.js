@@ -19,6 +19,7 @@ $(function(){
     var wefaceBace_site = "http://110.64.69.101:8080/";
     $('#resumeBtn').attr('href',wefaceBace_site + 'team/resumeManage/resume.html?t_id='+tId);
     $('#positionBtn').attr('href',wefaceBace_site + 'team/position/showPosition.html?t_id='+tId);
+    $("#projectBtn").attr("href",wefaceBace_site+'team/manageProject/manageProject.html?tid='+getId());
     $('.newNum').css('visibility','hidden');
     $('.tab').click(function(){
         $(this).children('a').children('.newNum').css('visibility','hidden');
