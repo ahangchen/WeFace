@@ -45,7 +45,7 @@ $(function(){
 
     $('#resumeBtn').attr('href',wefaceBace_site + 'team/resumeManage/resume.html?t_id='+tId);
     $('#positionBtn').attr('href',wefaceBace_site + 'team/position/showPosition.html?t_id='+tId);
-    $("#projectBtn").attr("href",wefaceBace_site+'team/manageProject/manageProject.html?tid='+getId());
+    $("#projectBtn").attr("href",wefaceBace_site+'team/manageProject/manageProject.html?tid='+tId);
 
     $("#addBtn").click(function(){
         $(this).attr('href','addPosition.html?t_id='+tId);
