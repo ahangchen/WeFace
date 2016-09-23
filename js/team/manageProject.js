@@ -27,13 +27,14 @@ $(document).ready(function () {
             changePage(project,pageActive);
             deleteProject(project);
             rewriteProject(project);
+            showDetail(pageActive);
         }
     });
 
     function showProject(project){//显示出记录
         if(project.length<=10){
             for(var i=0;i<project.length;i++){
-                $(".show_project").append('<div class="project_card" id="'+project[i].id+'"><p id="project_name">'+project[i].name+'</p>'+
+                $(".show_project").append('<div class="project_card" id="'+project[i].id+'"><p class="project_name">'+project[i].name+'</p>'+
                     '<span id="function_btn"><a class="btn-floating btn-large waves-effect waves-light white delete_project">'+
                     '<i class="material-icons" style="color:orange">remove</i></a>'+'' +
                     '<a class="btn-floating btn-large waves-effect waves-light white edit_project">'+
@@ -42,13 +43,47 @@ $(document).ready(function () {
         }
         else{
             for(var j=0;j<10;j++){
-                $(".show_project").append('<div class="project_card" id="'+project[j].id+'"><p id="project_name">'+project[j].name+'</p>'+
+                $(".show_project").append('<div class="project_card" id="'+project[j].id+'"><p class="project_name">'+project[j].name+'</p>'+
                     '<span id="function_btn"><a class="btn-floating btn-large waves-effect waves-light white delete_project">'+
                     '<i class="material-icons" style="color:orange">remove</i></a>'+'' +
                     '<a class="btn-floating btn-large waves-effect waves-light white edit_project">'+
                     '<i class="material-icons" style="color:orange">edit</i></a></span> </div>');
             }
         }
+    }
+
+    function showDetail(pageActive){//点击显示详情
+        $(".project_name").on("click",function(){
+            //pageActive=$('.active_page a').text();
+           var project_showId=$(this).parent().attr('id');
+            $.ajax({
+                type: 'POST',
+                data: {productId: project_showId},
+                url: cur_site + "team/product/info/",
+                xhrFields: {withCredentials: true},
+                dataType: 'json',
+                success: function (text) {
+                    $.ajax({
+                        type: "get",
+                        url: "showProject.html",
+                        dataType: "html",
+                        success: function (data) {
+                            $("#main_page").html(data);
+                            $("#show_product_name").text(text.msg.name+'项目');
+                            $("#show_introduce").text(text.msg.content);
+                            $("#show_achieve").text(text.msg.reward);
+                            if(text.msg.img_path!="")
+                                $("#show_photo").show().attr('src',cur_media+text.msg.img_path);
+                            $("#goBackButton").on('click',function(){
+                                updateShow(project,pageActive);
+                            });
+                        }
+                    });
+
+                }
+            });
+
+        });
     }
 
     function deleteProject(project){//删除项目
@@ -193,7 +228,8 @@ $(document).ready(function () {
 
     function showPage(project,pageActive){
         var pageNum=parseInt(project.length/11)+1;
-        $(".show_page").css('opacity','1').css('width',100*pageNum+'px');
+        var temp_page=".show_page";
+        $(temp_page).css('opacity','1').css('width',100*pageNum+'px');
         var temp_class=".pagination";
         if(pageNum!=1){//如果不止一页,进行追加
             $(temp_class).empty().append(' <li id="upPage"><a><i class="material-icons">chevron_left</i></a></li>');
@@ -201,6 +237,11 @@ $(document).ready(function () {
                 $(temp_class).append(' <li id="page'+i+'"><a>'+i+'</a></li>');
             }
             $(temp_class).append('<li id="downPage"><a><i class="material-icons">chevron_right</i></a></li>');
+        }
+        else{
+            $(temp_page).css('width','200px');
+            $(temp_class).empty().append(' <li id="upPage"><a><i class="material-icons">chevron_left</i></a></li> <li id="page1"><a>1</a></li><li id="downPage"><a><i class="material-icons">chevron_right</i></a></li>');
+
         }
         if(pageActive==1){
             $("#upPage").attr('class','disabled');
@@ -357,6 +398,7 @@ $(document).ready(function () {
         changePage(project,pageActive);
         deleteProject(project);
         rewriteProject(project);
+        showDetail();
         tag=0;
     }
 
@@ -384,7 +426,7 @@ $(document).ready(function () {
                 }
             }
             else{
-                pageActive=$(this).children('a').text();
+                pageActive=parseInt($(this).children('a').text());
             }
             if(total-(pageActive-1)*10>10) {
                 for (var i = 0; i < 10; i++) {
@@ -402,6 +444,7 @@ $(document).ready(function () {
             changePage(project,pageActive);
             deleteProject(project);
             rewriteProject(project);
+            showDetail(pageActive);
         });
     }
 
