@@ -137,7 +137,6 @@ a.topBarItem.dropdown-button.btn{
     height: 150px;
     background-color: #dcd8d7;
     margin-top: 40px;
-
     float: left;
     border-radius: 10px;
     cursor:pointer;
@@ -216,11 +215,12 @@ a.topBarItem.dropdown-button.btn{
     margin-top: 10px;
 }
 
-#project_name{
+.project_name{
     font-size: 25px;
     float: left;
     margin-left: 100px;
     margin-top: 40px;
+    cursor: pointer;
 }
 
 #function_btn{
@@ -249,3 +249,59 @@ a.topBarItem.dropdown-button.btn{
 .show_page li{
     cursor: pointer;
 }
+
+/*显示职位详情页面*/
+.show_project_page{
+    background:  rgba(255, 255, 255, 0.5);
+    min-height: 400px;
+}
+
+.show_name_div span{
+    font-size: 26px;
+    padding-left: 10px;
+}
+
+.show_introduce_div{
+     margin-top: 10px;
+
+ }
+
+.show_introduce_div span{
+    font-size: 22px;
+}
+
+.show_achieve_div{
+    margin-top: 20px;
+
+}
+
+.show_achieve_div span{
+    font-size: 22px;
+}
+
+#show_introduce{
+    font-size: 18px;
+}
+
+#show_achieve{
+    font-size: 18px;
+}
+
+.goBack{
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 50px;
+    margin-bottom: 50px;
+    width: 100px;
+}
+
+#show_photo{
+    width: 150px;
+    height: 150px;
+    border-radius: 10px;
+    display: none;
+    margin-top: 40px;
+    float: left;
+    margin-bottom:30px;
+}
+
