@@ -57,33 +57,7 @@ $(document).ready(function () {
         $(".project_name").on("click",function(){
             pageActive=$('.active_page a').text();
            var project_showId=$(this).parent().attr('id');
-            $.ajax({
-                type: 'POST',
-                data: {productId: project_showId},
-                url: cur_site + "team/product/info/",
-                xhrFields: {withCredentials: true},
-                dataType: 'json',
-                success: function (text) {
-                    $("#main_page").empty().append('<div class="comWidth show_project_page"><div class="row"><div class=" show_name_div col s8 push-s2">'+
-                        '<i class="material-icons" style="color:orange;font-size: 30px;">cloud</i> <span id="show_product_name"></span> </div>'+
-                        '<div class="show_introduce_div col s8 push-s2"> <p><i class="material-icons" style="color:orange;font-size: 20px;">play_arrow</i>'+
-                        '<span>项目介绍</span></p><div id="show_introduce"></div></div><div class="show_achieve_div col s8 push-s2"> <p>'+
-                        '<i class="material-icons" style="color:orange;font-size: 20px;">play_arrow</i> <span>成果展示</span> </p> <div id="show_achieve"></div>'+
-                        '</div><div id="show_photo_div" class="col s8 push-s2"><img  id="show_photo" /></div></div> </div> <div class="goBack">'+
-                        '<a id="goBackButton" class="waves-effect waves-light btn orange">返回</a></div>');
-                    $("#show_product_name").text(text.msg.name+'项目');
-                    $("#show_introduce").text(text.msg.content);
-                    if(text.msg.reward!="")
-                        $("#show_achieve").text(text.msg.reward);
-                    else
-                        $("#show_achieve").text('暂无');
-                    if(text.msg.img_path!="")
-                        $("#show_photo").show().attr('src',cur_media+text.msg.img_path);
-                    $("#goBackButton").on('click',function(){
-                        updateShow(project,pageActive);
-                    });
-                }
-            });
+            window.location.href='showProject.html?projectId='+project_showId;
 
         });
     }
