@@ -144,7 +144,7 @@ $(function(){
         if(date != "") {
             $('#pubDate').html(date);
         }else {
-            $('#pubDate').html("暂无");
+            $('#pubDate').html("");
         }
         if(jobCmd != "") {
             $('#jobCmd p').html(jobCmd);
@@ -188,7 +188,7 @@ $(function(){
                 }
             },
             error:function(data){
-                alert(data.msg);
+                console.log(data.msg);
             },
             headers:{
                 "Access-Control-Allow-Origin":"*"
@@ -214,10 +214,6 @@ $(function(){
                 $('#resume').html(data.resume_path);
             }
             //$('#subResTime').html(data.date);
-        },
-        error:function(data){
-            $('#resume').html(data.msg);
-            $('#resume').css('color','red');
         },
         headers:{
             "Access-Control-Allow-Origin":"*"
