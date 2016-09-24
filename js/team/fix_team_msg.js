@@ -149,7 +149,13 @@ $(document).ready(function(){
         //得到需要上传的团队类型
         class_temp=".type_select option:selected";
         var new_team_type_id=$(class_temp).val();
-        var new_team_type_name=$(class_temp).text();
+        var new_team_type_name;
+        if(new_team_type_id==""){
+            new_team_type_name="校园服务";
+            new_team_type_id='1';
+        }
+        else
+            new_team_type_name=$(class_temp).text();
 
         if (photo_tag == 1) {//表示有上传新的logo,保存
             var formData = new FormData();
@@ -190,8 +196,11 @@ $(document).ready(function(){
     //取消对基本信息的修改
     $("#cancelButton").on("click",function(){
         var team_type_name;
+        if(team_info.team_type==""){
+            team_info.team_type="1";
+        }
         for(var i=0;i<team_type.length;i++){
-            if(team_type[i].id==team_info.team_type)
+           if(team_type[i].id==team_info.team_type)
                 team_type_name=team_type[i].name;
         }
         var length_temp=new_label.length;//是否有新增的label,如果有需要删除
