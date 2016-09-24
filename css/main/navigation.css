@@ -56,8 +56,15 @@ a:visited {
     /*width: 100px;*/
     text-align: center;
     height:64px;
+    color: #353535;
 }
-
+a.topBarItem.dropdown-button.btn {
+    width: 120px;
+    background-color: transparent;
+    box-shadow: none;
+    text-align: right;
+    padding-right: 6px;
+}
 .header {
 
 }
@@ -112,4 +119,7 @@ nav ul li{
     margin: 30px 5px 30px 13px;
 
 }
-
+#search{
+    position: relative;
+    top: -1px;
+}

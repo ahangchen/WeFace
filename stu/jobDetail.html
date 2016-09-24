@@ -7,9 +7,11 @@
 <body>
 <link href="../css/base.css"  rel="stylesheet"/>
 <link rel="stylesheet"  href="../css/materialize.css">
-<link rel="stylesheet"  href="../css/main/navigation.css">
+
 <link href="../css/md-icon.css" rel="stylesheet">
 <link rel="stylesheet"  href="../css/stu/jobDetail.css">
+<link rel="stylesheet"  href="../css/main/navigation.css">
+<link rel="stylesheet"  href="../css/main/search.css">
 <script src="../js/jquery-2.1.1.min.js"></script>
 <script src="../js/etc.js"></script>
 <script src="../js/materialize.min.js"></script>
@@ -41,16 +43,16 @@
 <nav class="white lighten-5 comWidth">
     <div class="nav-wrapper">
         <ul class="left">
-            <li><img id="logo" src="../res/imgs/materialize.svg"/></li>
-            <li><p class="logo-name">华南理工大学<br/>人才交流平台
-                <p></li>
-            <li><a href="#" id="resumeBtn">简历管理</a></li>
-            <li><a href="#" id="positionBtn">职位管理</a></li>
-            <li><a href="#" id="projectBtn">项目管理</a></li>
+            <li><a class="toIndexLink"><img id="logo" src="../res/imgs/materialize.svg"/></a></li>
+            <li><a class="toIndexLink"><p class="logo-name">华南理工大学<br/>人才交流平台
+                <p></a></li>
+            <li><a class="toIndexLink" id="indexBtn">首页</a></li>
+            <li><a href="../team/roles_team.html" id="teamBtn">团队</a></li>
         </ul>
+
         <div class="input-field right search-bar">
-            <input id="search" type="search" placeholder="Click to search" required>
-            <label for="search"><i class="material-icons">search</i></label>
+            <input class="start" id="search" type="search" placeholder="Click to search" required>
+            <label for="search" ><a id="startSearch" href="#"><i class="material-icons">search</i></a></label>
             <i class="material-icons">close</i>
         </div>
     </div>
@@ -132,4 +134,5 @@
     <button class="btn waves-effect waves-light fr" id="submitBtn" type="submit" name="action">投递简历</button>
 </div>
 </body>
+<script src="../js/main/navigation.js"></script>
 </html>

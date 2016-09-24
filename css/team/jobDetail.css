@@ -4,7 +4,9 @@
     margin-right: auto;
 
 }
-
+.left a{
+    color: #353535;
+}
 a:link {
     text-decoration: none;
     color:           #353535;
@@ -93,10 +95,7 @@ a.topBarItem.dropdown-button.btn{
 .mainBtn {
     margin: 20px 5px 20px 13px;
 }
-#search{
-    position: relative;
-    top: -1px;
-}
+
 /*-----------------------------------大型板块的样式-------------------------------------*/
 .jobDetail{
     padding-bottom: 10px;
