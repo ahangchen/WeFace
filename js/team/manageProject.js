@@ -64,23 +64,24 @@ $(document).ready(function () {
                 xhrFields: {withCredentials: true},
                 dataType: 'json',
                 success: function (text) {
-                    $.ajax({
-                        type: "get",
-                        url: "showProject.html",
-                        dataType: "html",
-                        success: function (data) {
-                            $("#main_page").html(data);
-                            $("#show_product_name").text(text.msg.name+'项目');
-                            $("#show_introduce").text(text.msg.content);
-                            $("#show_achieve").text(text.msg.reward);
-                            if(text.msg.img_path!="")
-                                $("#show_photo").show().attr('src',cur_media+text.msg.img_path);
-                            $("#goBackButton").on('click',function(){
-                                updateShow(project,pageActive);
-                            });
-                        }
+                    $("#main_page").empty().append('<div class="comWidth show_project_page"><div class="row"><div class=" show_name_div col s8 push-s2">'+
+                        '<i class="material-icons" style="color:orange;font-size: 30px;">cloud</i> <span id="show_product_name"></span> </div>'+
+                        '<div class="show_introduce_div col s8 push-s2"> <p><i class="material-icons" style="color:orange;font-size: 20px;">play_arrow</i>'+
+                        '<span>项目介绍</span></p><div id="show_introduce"></div></div><div class="show_achieve_div col s8 push-s2"> <p>'+
+                        '<i class="material-icons" style="color:orange;font-size: 20px;">play_arrow</i> <span>成果展示</span> </p> <div id="show_achieve"></div>'+
+                        '</div><div id="show_photo_div" class="col s8 push-s2"><img  id="show_photo" /></div></div> </div> <div class="goBack">'+
+                        '<a id="goBackButton" class="waves-effect waves-light btn orange">返回</a></div>');
+                    $("#show_product_name").text(text.msg.name+'项目');
+                    $("#show_introduce").text(text.msg.content);
+                    if(text.msg.reward!="")
+                        $("#show_achieve").text(text.msg.reward);
+                    else
+                        $("#show_achieve").text('暂无');
+                    if(text.msg.img_path!="")
+                        $("#show_photo").show().attr('src',cur_media+text.msg.img_path);
+                    $("#goBackButton").on('click',function(){
+                        updateShow(project,pageActive);
                     });
-
                 }
             });
 
@@ -261,84 +262,95 @@ $(document).ready(function () {
 
     function addProject(project){
         $("#add_project_btn").on("click",function() {
-            $.ajax({
-                type: "get",
-                url: "addProject.html",
-                dataType: "html",
-                success: function (data) {
-                    $("#main_page").html(data);
-                    var project_msg={
-                        id:"",
-                        name:"",
-                        img_path:"",
-                        content:"",
-                        reward:"",
-                        team_id:team_id
-                    };
-                    addPhoto(project_msg);//添加项目照片,获得product的完整信息
-                    //监听对项目的保存
-                    $("#saveButton").on("click",function(){
-                        if(tag==0){//表示没有得到项目的ID
-                            project_msg.name=$("#product_name").val();
-                            project_msg.img_path="";
-                            project_msg.content=$("#introduce").val();
-                            project_msg.reward=$("#achieve").val();
-                            $.ajax({
-                                type: 'POST',
-                                data: project_msg,
-                                url: cur_site + "team/product/insert/",
-                                xhrFields: {withCredentials: true},
-                                dataType: 'json',
-                                success: function (data) {
-                                    project_msg.id=data.msg;
-                                    $.ajax({
-                                        type: 'POST',
-                                        data: project_msg,
-                                        url: cur_site + "team/product/update/",
-                                        xhrFields: {withCredentials: true},
-                                        dataType: 'json',
-                                        success: function () {
-                                            project.push(project_msg);
-                                            updateShow(project,pageActive);
-                                        }
-                                    });
-                                }
-                            });
+            $("#main_page").empty().append('<div class="comWidth add_project_page"><div class="row"><div class="input-field edit_name col s8 push-s2">'+
+                '<input type="text" id="product_name"> <label for="product_name">项目名称</label> </div> <div class="input-field edit_introduce col s8 push-s2">'+
+                '<textarea id="introduce" class="materialize-textarea"></textarea> <label for="introduce">项目介绍</label> </div> <div class="input-field add_achieve_div col s8 push-s2">'+
+                '<textarea id="achieve" class="materialize-textarea"></textarea><label for="achieve">添加成果</label> </div> <div id="add_photo" class="col s8 push-s2">'+
+                '<div style="font-size: 27px;">添加照片<i class="material-icons" style="color:orange">play_arrow</i> </div> <div class="put_photo_here"> <img  id="local_photo" />'+
+                '<i class="large material-icons dp48" id="photo_camera">photo_camera</i> </div> <form id="post_logo"  enctype="multipart/form-data"> <input type="file" id="update_photo" style="display: none">'+
+                '</form></div></div></div><div class="complete_btn"><a id="saveButton" class="waves-effect waves-light btn orange">保存</a><a id="cancelButton" class="waves-effect waves-light btn white">取消</a></div>');
+                var project_msg={
+                    id:"",
+                    name:"",
+                    img_path:"",
+                    content:"",
+                    reward:"",
+                    team_id:team_id
+                };
+                addPhoto(project_msg);//添加项目照片,获得product的完整信息
+                //监听对项目的保存
+                $("#saveButton").on("click",function(){
+                    if(tag==0){//表示没有得到项目的ID
+                        project_msg.name=$("#product_name").val();
+                        project_msg.img_path="";
+                        project_msg.content=$("#introduce").val();
+                        project_msg.reward=$("#achieve").val();
+                        if(project_msg.name==""){
+                            Materialize.toast('项目名称为必填项',2000);
+                            return;
                         }
-                        else{
-                            $.ajax({
-                                type: 'POST',
-                                data: project_msg,
-                                url: cur_site + "team/product/update/",
-                                xhrFields: {withCredentials: true},
-                                dataType: 'json',
-                                success: function () {
-                                    project.push(project_msg);
-                                    updateShow(project,pageActive);
-                                }
-                            });
+                        if(project_msg.content==""){
+                            Materialize.toast('项目简介为必填项',2000);
+                            return;
                         }
-                    });
+                        if(project_msg.img_path==""){
+                            Materialize.toast('项目照片为必填项',2000);
+                            return;
+                        }
+                        $.ajax({
+                            type: 'POST',
+                            data: project_msg,
+                            url: cur_site + "team/product/insert/",
+                            xhrFields: {withCredentials: true},
+                            dataType: 'json',
+                            success: function (data) {
+                                project_msg.id=data.msg;
+                                $.ajax({
+                                    type: 'POST',
+                                    data: project_msg,
+                                    url: cur_site + "team/product/update/",
+                                    xhrFields: {withCredentials: true},
+                                    dataType: 'json',
+                                    success: function () {
+                                        project.push(project_msg);
+                                        updateShow(project,pageActive);
+                                    }
+                                });
+                            }
+                        });
+                    }
+                    else{
+                        $.ajax({
+                            type: 'POST',
+                            data: project_msg,
+                            url: cur_site + "team/product/update/",
+                            xhrFields: {withCredentials: true},
+                            dataType: 'json',
+                            success: function () {
+                                project.push(project_msg);
+                                updateShow(project,pageActive);
+                            }
+                        });
+                    }
+                });
 
-                    //监听取消修改,删除之前上传的项目
-                    $("#cancelButton").on("click",function(){
-                        if(tag==0)//表示新项目没有上传到服务器
-                            updateShow(project,pageActive);
-                        else{
-                            $.ajax({
-                                type: 'POST',
-                                data: {productId:project_msg.id},
-                                url: cur_site + "team/product/delete/",
-                                xhrFields: {withCredentials: true},
-                                dataType: 'json',
-                                success: function () {
-                                    updateShow(project,pageActive);
-                                }
-                            });
-                        }
-                    });
-                }
-            });
+                //监听取消修改,删除之前上传的项目
+                $("#cancelButton").on("click",function(){
+                    if(tag==0)//表示新项目没有上传到服务器
+                        updateShow(project,pageActive);
+                    else{
+                        $.ajax({
+                            type: 'POST',
+                            data: {productId:project_msg.id},
+                            url: cur_site + "team/product/delete/",
+                            xhrFields: {withCredentials: true},
+                            dataType: 'json',
+                            success: function () {
+                                updateShow(project,pageActive);
+                            }
+                        });
+                    }
+                });
         });
     }
 
