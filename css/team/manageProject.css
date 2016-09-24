@@ -293,14 +293,6 @@ a.topBarItem.dropdown-button.btn{
     padding-left: 20px;
 }
 
-.goBack{
-    margin-left: auto;
-    margin-right: auto;
-    margin-top: 50px;
-    margin-bottom: 50px;
-    width: 100px;
-}
-
 #show_photo{
     width: 150px;
     height: 150px;
