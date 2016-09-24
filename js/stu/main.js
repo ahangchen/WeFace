@@ -293,6 +293,7 @@ $(function () {
             success:function(data){
                 var err = data.err;
                 if (err == '-15') {
+                    $('#detail4').css('display','none');
                     console.log("未上传简历");
                 }
                 if (err == '-1') {
@@ -302,8 +303,8 @@ $(function () {
                     console.log("操作失败");
                 }
                 if(err=='0'){
-                    $("#personal_path").attr('href',cur_site.substring(0,cur_site.length-2)+data.resume_path);
-                    $("#personal_path").attr('download',cur_site.substring(0,cur_site.length-2)+data.resume_path);
+                    $("#personal_path").attr('href',cur_site.substring(0,cur_site.length-1)+data.resume_path);
+                    $("#personal_path").attr('download',cur_site.substring(0,cur_site.length-1)+data.resume_path);
                 }
             },
             headers: {
@@ -332,6 +333,7 @@ $(function () {
                 if (err == '0') {
                     var avatar_path = cur_media + data.avatar_path;
                     var name = data.name;
+
                     var school = data.school;
                     var sex = data.sex;
                     var myDate = new Date();
@@ -347,9 +349,11 @@ $(function () {
                     document.getElementById("avatar_path").src = avatar_path;
                     if(name=='')
                     {
+                        $('#personal_path').html(name+'个人简历.pdf');
                         document.getElementById("detail-name").innerHTML = '待完善';
                     }
                     else{
+                        $('#personal_path').html(name+'-个人简历.pdf');
                         document.getElementById("detail-name").innerHTML = name;
                     }
                     document.getElementById("detail-school").innerHTML = school;
@@ -428,7 +432,7 @@ $(function () {
                         $("#select_sex").append(' <option value="1">男</option> <option value="2" selected>女</option>');
                     }
                     else{
-                        $("#select_sex").append(' <option value="1">男</option> <option value="2">女</option>');  
+                        $("#select_sex").append(' <option value="1">男</option> <option value="2">女</option>');
                     }
 
                     //获得出生年月
@@ -2054,15 +2058,15 @@ $(function () {
                 data: {
                     stu_id: location.search.split("=")[1],
                     edu_id: edu_id
-                },
-                url: cur_site + "student/info/edu/del/",
-                dataType: "json",
-                success: function (data) {
-                    var err = data.err;
-                    if (err == "0") {
-                        $(edualli).css("display", "none");
-                        $(edui).html("");
-                        var account = 0;
+                    },
+                    url: cur_site + "student/info/edu/del/",
+                        dataType: "json",
+                        success: function (data) {
+                        var err = data.err;
+                        if (err == "0"||err=="1") {
+                            $(edualli).css("display", "none");
+                            $(edui).html("");
+                            var account = 0;
                         for (var i = 0; i < 5; i++) {
                             var eduix = "edu" + (i + 1);
                             var temp = document.getElementById(eduix).innerHTML;

@@ -1,19 +1,14 @@
-<!-- 处理／查看简历的html -->
 <!DOCTYPE html>
-<html>
-<meta charset="utf-8">
+<html lang="en">
 <head>
-    <title>简历处理</title>
+    <meta charset="UTF-8">
+    <title>显示项目细节</title>
 </head>
 <body>
 <link href="../../css/base.css"  rel="stylesheet"/>
 <link rel="stylesheet"  href="../../css/materialize.css">
 <link href="https://fonts.css.network/icon?family=Material+Icons" rel="stylesheet">
-<link rel="stylesheet"  href="../../css/team/resumeSolve.css">
-<script src="../../js/jquery-2.1.1.min.js"></script>
-<script src="../../js/etc.js"></script>
-<script src="../../js/materialize.js"></script>
-<script src="../../js/team/resumeSolve.js"></script>
+<link rel="stylesheet"  href="../../css/team/manageProject.css">
 <div class="header comWidth">
     <div class="topBar">
         <div class="comWidth">
@@ -38,7 +33,6 @@
     </div>
 </div>
 
-
 <nav class="white lighten-5 comWidth">
     <div class="nav-wrapper">
         <ul class="left">
@@ -56,41 +50,40 @@
         </div>
     </div>
 </nav>
-<div class="comWidth manageDiv">
-    <div class="infoCard z-depth-2">
-        <div class="imgBox">
-            <img src="../../res/imgs/main/img1.jpg" class="stuImg">
-        </div>
-        <div class="baseInfo">
-            <div class="nameBar">
-                <span class="name">姓名</span>
-                <span class="sex">性别</span>
-                <span class="age">年龄</span>
+<div id="main_page">
+    <div class="comWidth show_project_page">
+        <div class="row">
+            <div class=" show_name_div col s8 push-s2">
+                <i class="material-icons" style="color:orange;font-size: 30px;">cloud</i>
+                <span id="show_product_name"></span>
             </div>
-            <div class="contactInfo">
-                <span class="mail">123456789@163.com</span>
-                <span class="tel">12345678901</span>
+            <div class="show_introduce_div col s8 push-s2">
+                <p>
+                    <i class="material-icons" style="color:orange;font-size: 20px;">play_arrow</i>
+                    <span>项目介绍</span>
+                </p>
+
+                <div id="show_introduce"></div>
 
             </div>
-            <div class="eduInfo">
-                <div class="chip"><span class="school">学校&nbsp&nbsp&nbsp&nbsp</span><span class="department">专业</span></div>
-                <div class="chip grade">年级</div>
-                <div class="chip addr">所在地</div>
+            <div class="show_achieve_div col s8 push-s2">
+                <p>
+                    <i class="material-icons" style="color:orange;font-size: 20px;">play_arrow</i>
+                    <span>成果展示</span>
+                </p>
+
+                <div id="show_achieve"></div>
             </div>
-        </div>
-        <div class="resumeCard ">
-            <span class="attachImg"><img src="../../res/imgs/attach_file.svg"></span>
-            <a class="resumeName">XX的简历.pdf</a>
-        </div>
-    </div>
-    <div class="selectBar z-depth-2">
-        <div class="state  row">
-            已录用
-        </div>
-        <div class="buttonBar ">
-            <a class="waves-effect waves-light btn" id="returnBtn">返回</a>
+            <div id="show_photo_div" class="col s8 push-s2">
+                <img  id="show_photo" />
+            </div>
         </div>
     </div>
 </div>
+<script src="../../js/jquery-2.1.1.min.js"></script>
+<script src="../../js/etc.js"></script>
+<script src="../../js/materialize.min.js"></script>
+<script src="../../js/team/showProject.js"></script>
+<script src="../../js/util.js"></script>
 </body>
 </html>

@@ -11,7 +11,9 @@
     <link rel="stylesheet" href="../css/stu/fix_msg.css">
 
     <link rel="stylesheet"  href="../css/stu/main.css">
-    <link href="../css/md-icon.css" rel="stylesheet">
+    <link rel="stylesheet"  href="../css/info/info.css">
+    <link href="https://fonts.css.network/icon?family=Material+Icons" rel="stylesheet">
+    <!--<link href="https://fonts.css.network/icon?family=Material+Icons" rel="stylesheet">-->
     <title>学生个人主页</title>
 </head>
 
@@ -22,11 +24,23 @@
                 <div class="header fl">
                     <a href="../main/test/information.html" target="_blank">关于基地</a>
                 </div>
-                <div class="header fr">
+                <div class="header fr" id="login-off">
                     <a class="mainBtn" href="../main/role/login.html" target="_blank">登录</a>
                     <span class="line">|</span>
                     <a class="mainBtn" href="../main/role/register.html" target="_blank">注册</a>
                 </div>
+                <!--消息栏-->
+                <div class="header fr" id="login-on" style="display:none">
+                    <a class="mainBtn" id="user_click" target="_blank">用户名</a>
+                    <ul class="card" id="main-list" style="display:none"><li id="go-main"><a>我的主页</a></li><li><a id="account-set">账号设置</a></li><li><a id="account-exit">退出</a></li></ul>
+                    <span class="line">|</span>
+                    <a class="mainBtn" href="../stu/deliver.html" target="_blank">投递</a>
+                    <span class="line">|</span>
+                    <a class="mainBtn" target="_blank">消息</a><div class="chip info-tag">50</div>
+                    <span class="line">|</span>
+                    <a class="mainBtn" target="_blank">关注收藏</a>
+                </div>
+                <!--消息栏-->
             </div>
         </div>
     </div>
@@ -1476,6 +1490,7 @@
     <script src="../js/stu/main.js"></script>
     <script src="../js/util.js"></script>
     <script src="../js/main/navigation.js"></script>
+    <script src="../js/info/info.js"></script>
 </body>
 
 </html>

@@ -21,19 +21,21 @@ $(document).ready(function () {
             for(var i=0;i<data.msg.length;i++){
                 project.push(data.msg[i]);
             }
-            showProject(project);
+            showProject(project,pageActive);
             showPage(project,pageActive);
             addProject(project);
             changePage(project,pageActive);
-            deleteProject(project);
+            deleteProject(project,pageActive);
             rewriteProject(project);
+            showDetail(pageActive);
         }
     });
 
-    function showProject(project){//显示出记录
-        if(project.length<=10){
-            for(var i=0;i<project.length;i++){
-                $(".show_project").append('<div class="project_card" id="'+project[i].id+'"><p id="project_name">'+project[i].name+'</p>'+
+    function showProject(project,pageActive){//显示出记录
+        var begin=(pageActive-1)*10;
+        if(project.length-begin<=10){
+            for(var i=begin;i<project.length;i++){
+                $(".show_project").append('<div class="project_card" id="'+project[i].id+'"><p class="project_name">'+project[i].name+'</p>'+
                     '<span id="function_btn"><a class="btn-floating btn-large waves-effect waves-light white delete_project">'+
                     '<i class="material-icons" style="color:orange">remove</i></a>'+'' +
                     '<a class="btn-floating btn-large waves-effect waves-light white edit_project">'+
@@ -41,8 +43,8 @@ $(document).ready(function () {
             }
         }
         else{
-            for(var j=0;j<10;j++){
-                $(".show_project").append('<div class="project_card" id="'+project[j].id+'"><p id="project_name">'+project[j].name+'</p>'+
+            for(var j=begin;j<begin+10;j++){
+                $(".show_project").append('<div class="project_card" id="'+project[j].id+'"><p class="project_name">'+project[j].name+'</p>'+
                     '<span id="function_btn"><a class="btn-floating btn-large waves-effect waves-light white delete_project">'+
                     '<i class="material-icons" style="color:orange">remove</i></a>'+'' +
                     '<a class="btn-floating btn-large waves-effect waves-light white edit_project">'+
@@ -51,7 +53,16 @@ $(document).ready(function () {
         }
     }
 
-    function deleteProject(project){//删除项目
+    function showDetail(pageActive){//点击显示详情
+        $(".project_name").on("click",function(){
+            pageActive=$('.active_page a').text();
+           var project_showId=$(this).parent().attr('id');
+            window.location.href='showProject.html?projectId='+project_showId;
+
+        });
+    }
+
+    function deleteProject(project,pageActive){//删除项目
         var delete_id;
         $(".delete_project").on("click",function(){
             $("#confirm_delete_project").openModal();
@@ -193,7 +204,8 @@ $(document).ready(function () {
 
     function showPage(project,pageActive){
         var pageNum=parseInt(project.length/11)+1;
-        $(".show_page").css('opacity','1').css('width',100*pageNum+'px');
+        var temp_page=".show_page";
+        $(temp_page).css('opacity','1').css('width',100*pageNum+'px');
         var temp_class=".pagination";
         if(pageNum!=1){//如果不止一页,进行追加
             $(temp_class).empty().append(' <li id="upPage"><a><i class="material-icons">chevron_left</i></a></li>');
@@ -201,6 +213,11 @@ $(document).ready(function () {
                 $(temp_class).append(' <li id="page'+i+'"><a>'+i+'</a></li>');
             }
             $(temp_class).append('<li id="downPage"><a><i class="material-icons">chevron_right</i></a></li>');
+        }
+        else{
+            $(temp_page).css('width','200px');
+            $(temp_class).empty().append(' <li id="upPage"><a><i class="material-icons">chevron_left</i></a></li> <li id="page1"><a>1</a></li><li id="downPage"><a><i class="material-icons">chevron_right</i></a></li>');
+
         }
         if(pageActive==1){
             $("#upPage").attr('class','disabled');
@@ -219,84 +236,95 @@ $(document).ready(function () {
 
     function addProject(project){
         $("#add_project_btn").on("click",function() {
-            $.ajax({
-                type: "get",
-                url: "addProject.html",
-                dataType: "html",
-                success: function (data) {
-                    $("#main_page").html(data);
-                    var project_msg={
-                        id:"",
-                        name:"",
-                        img_path:"",
-                        content:"",
-                        reward:"",
-                        team_id:team_id
-                    };
-                    addPhoto(project_msg);//添加项目照片,获得product的完整信息
-                    //监听对项目的保存
-                    $("#saveButton").on("click",function(){
-                        if(tag==0){//表示没有得到项目的ID
-                            project_msg.name=$("#product_name").val();
-                            project_msg.img_path="";
-                            project_msg.content=$("#introduce").val();
-                            project_msg.reward=$("#achieve").val();
-                            $.ajax({
-                                type: 'POST',
-                                data: project_msg,
-                                url: cur_site + "team/product/insert/",
-                                xhrFields: {withCredentials: true},
-                                dataType: 'json',
-                                success: function (data) {
-                                    project_msg.id=data.msg;
-                                    $.ajax({
-                                        type: 'POST',
-                                        data: project_msg,
-                                        url: cur_site + "team/product/update/",
-                                        xhrFields: {withCredentials: true},
-                                        dataType: 'json',
-                                        success: function () {
-                                            project.push(project_msg);
-                                            updateShow(project,pageActive);
-                                        }
-                                    });
-                                }
-                            });
+            $("#main_page").empty().append('<div class="comWidth add_project_page"><div class="row"><div class="input-field edit_name col s8 push-s2">'+
+                '<input type="text" id="product_name"> <label for="product_name">项目名称</label> </div> <div class="input-field edit_introduce col s8 push-s2">'+
+                '<textarea id="introduce" class="materialize-textarea"></textarea> <label for="introduce">项目介绍</label> </div> <div class="input-field add_achieve_div col s8 push-s2">'+
+                '<textarea id="achieve" class="materialize-textarea"></textarea><label for="achieve">添加成果</label> </div> <div id="add_photo" class="col s8 push-s2">'+
+                '<div style="font-size: 27px;">添加照片<i class="material-icons" style="color:orange">play_arrow</i> </div> <div class="put_photo_here"> <img  id="local_photo" />'+
+                '<i class="large material-icons dp48" id="photo_camera">photo_camera</i> </div> <form id="post_logo"  enctype="multipart/form-data"> <input type="file" id="update_photo" style="display: none">'+
+                '</form></div></div></div><div class="complete_btn"><a id="saveButton" class="waves-effect waves-light btn orange">保存</a><a id="cancelButton" class="waves-effect waves-light btn white">取消</a></div>');
+                var project_msg={
+                    id:"",
+                    name:"",
+                    img_path:"",
+                    content:"",
+                    reward:"",
+                    team_id:team_id
+                };
+                addPhoto(project_msg);//添加项目照片,获得product的完整信息
+                //监听对项目的保存
+                $("#saveButton").on("click",function(){
+                    if(tag==0){//表示没有得到项目的ID
+                        project_msg.name=$("#product_name").val();
+                        project_msg.img_path="";
+                        project_msg.content=$("#introduce").val();
+                        project_msg.reward=$("#achieve").val();
+                        if(project_msg.name==""){
+                            Materialize.toast('项目名称为必填项',2000);
+                            return;
                         }
-                        else{
-                            $.ajax({
-                                type: 'POST',
-                                data: project_msg,
-                                url: cur_site + "team/product/update/",
-                                xhrFields: {withCredentials: true},
-                                dataType: 'json',
-                                success: function () {
-                                    project.push(project_msg);
-                                    updateShow(project,pageActive);
-                                }
-                            });
+                        if(project_msg.content==""){
+                            Materialize.toast('项目简介为必填项',2000);
+                            return;
                         }
-                    });
+                        if(project_msg.img_path==""){
+                            Materialize.toast('项目照片为必填项',2000);
+                            return;
+                        }
+                        $.ajax({
+                            type: 'POST',
+                            data: project_msg,
+                            url: cur_site + "team/product/insert/",
+                            xhrFields: {withCredentials: true},
+                            dataType: 'json',
+                            success: function (data) {
+                                project_msg.id=data.msg;
+                                $.ajax({
+                                    type: 'POST',
+                                    data: project_msg,
+                                    url: cur_site + "team/product/update/",
+                                    xhrFields: {withCredentials: true},
+                                    dataType: 'json',
+                                    success: function () {
+                                        project.push(project_msg);
+                                        updateShow(project,pageActive);
+                                    }
+                                });
+                            }
+                        });
+                    }
+                    else{
+                        $.ajax({
+                            type: 'POST',
+                            data: project_msg,
+                            url: cur_site + "team/product/update/",
+                            xhrFields: {withCredentials: true},
+                            dataType: 'json',
+                            success: function () {
+                                project.push(project_msg);
+                                updateShow(project,pageActive);
+                            }
+                        });
+                    }
+                });
 
-                    //监听取消修改,删除之前上传的项目
-                    $("#cancelButton").on("click",function(){
-                        if(tag==0)//表示新项目没有上传到服务器
-                            updateShow(project,pageActive);
-                        else{
-                            $.ajax({
-                                type: 'POST',
-                                data: {productId:project_msg.id},
-                                url: cur_site + "team/product/delete/",
-                                xhrFields: {withCredentials: true},
-                                dataType: 'json',
-                                success: function () {
-                                    updateShow(project,pageActive);
-                                }
-                            });
-                        }
-                    });
-                }
-            });
+                //监听取消修改,删除之前上传的项目
+                $("#cancelButton").on("click",function(){
+                    if(tag==0)//表示新项目没有上传到服务器
+                        updateShow(project,pageActive);
+                    else{
+                        $.ajax({
+                            type: 'POST',
+                            data: {productId:project_msg.id},
+                            url: cur_site + "team/product/delete/",
+                            xhrFields: {withCredentials: true},
+                            dataType: 'json',
+                            success: function () {
+                                updateShow(project,pageActive);
+                            }
+                        });
+                    }
+                });
         });
     }
 
@@ -351,18 +379,17 @@ $(document).ready(function () {
             '<i class="material-icons">add</i></a></div></div>'+
             '<div class="comWidth show_project"></div><div class="show_page">'+
             '<ul class="pagination"></ul></div>');
-        showProject(project);
+        showProject(project,pageActive);
         showPage(project,pageActive);
         addProject(project);
         changePage(project,pageActive);
-        deleteProject(project);
+        deleteProject(project,pageActive);
         rewriteProject(project);
+        showDetail();
         tag=0;
     }
 
     function changePage(project,pageActive){//换页操作
-        var total=project.length;
-        var newPageProject=[];//记录新的一页的记录
         $(".show_page li").on("click",function(){
 
             if($(this).attr('id')=='upPage') {
@@ -384,9 +411,9 @@ $(document).ready(function () {
                 }
             }
             else{
-                pageActive=$(this).children('a').text();
+                pageActive=parseInt($(this).children('a').text());
             }
-            if(total-(pageActive-1)*10>10) {
+            /*if(total-(pageActive-1)*10>10) {
                 for (var i = 0; i < 10; i++) {
                     newPageProject.push(project[(pageActive - 1) * 10 + i]);
                 }
@@ -395,13 +422,14 @@ $(document).ready(function () {
                 for(i=0;i<project.length%10;i++){
                     newPageProject.push(project[(pageActive-1)*10+i]);
                 }
-            }
+            }*/
             $(".show_project").empty();
-            showProject(newPageProject);
+            showProject(project,pageActive);
             showPage(project,pageActive);
             changePage(project,pageActive);
-            deleteProject(project);
+            deleteProject(project,pageActive);
             rewriteProject(project);
+            showDetail(pageActive);
         });
     }
 

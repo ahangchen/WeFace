@@ -40,13 +40,13 @@ $.ajax({
             console.log(parseInt(curIndex / 3));
             switch (recent["type"]) {
                 case 1:
-                    resLi[parseInt(curIndex / 3)].append(show("jobDetail.html?data=", recent["value"].tid, recent["value"].logo_path, recent["value"].name, "成立了新团队"));
+                    resLi[parseInt(curIndex / 3)].append(show("index.html?tid=", recent["value"].tid, recent["value"].logo_path, recent["value"].name, "成立了新团队"));
                     break;
                 case 2:
                     resLi[parseInt(curIndex / 3)].append(show("jobDetail.html?data=", recent["value"].jid, recent["value"].team_logo, recent["value"].t_name, "发布了新职位:" + recent["value"].j_name));
                     break;
                 case 3:
-                    resLi[parseInt(curIndex / 3)].append(show("index.html?data=", recent["value"].tid, recent["value"].p_img, recent["value"].t_name, "发布了新项目:" + recent["value"].p_name));
+                    resLi[parseInt(curIndex / 3)].append(show("manageProject/manageProject.html?tid=", recent["value"].tid, recent["value"].p_img, recent["value"].t_name, "发布了新项目:" + recent["value"].p_name));
                     break;
             }
             curIndex++;
