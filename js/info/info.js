@@ -50,15 +50,15 @@
                     console.log("操作失败");
                 }
                 if (err == '0') {
-                    $('.info_tag').css('display','inline-block');
                     var apply_list=data.apply_list;
                     var un_read=0;
                     for(var i in apply_list){
-                        if(i.is_read=='0'){
+                        if(apply_list[i].is_read==false){
                             un_read++;
                         }
                     }
-                    $('.info_tag').html(un_read);
+                    console.log(un_read);
+                    $('.info-tag').css('display','inline-block').html(un_read);
                 }
             },
             headers: {

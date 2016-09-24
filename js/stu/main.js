@@ -432,7 +432,7 @@ $(function () {
                         $("#select_sex").append(' <option value="1">男</option> <option value="2" selected>女</option>');
                     }
                     else{
-                        $("#select_sex").append(' <option value="1">男</option> <option value="2">女</option>');  
+                        $("#select_sex").append(' <option value="1">男</option> <option value="2">女</option>');
                     }
 
                     //获得出生年月
