@@ -404,8 +404,6 @@ $(document).ready(function () {
     }
 
     function changePage(project,pageActive){//换页操作
-        var total=project.length;
-        var newPageProject=[];//记录新的一页的记录
         $(".show_page li").on("click",function(){
 
             if($(this).attr('id')=='upPage') {
