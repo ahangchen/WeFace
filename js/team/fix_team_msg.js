@@ -197,7 +197,7 @@ $(document).ready(function(){
     $("#cancelButton").on("click",function(){
         var team_type_name;
         if(team_info.team_type==""){
-            team_info.team_type="1";
+            team_info.team_type='1';
         }
         for(var i=0;i<team_type.length;i++){
            if(team_type[i].id==team_info.team_type)
