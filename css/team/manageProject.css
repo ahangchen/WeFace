@@ -252,8 +252,12 @@ a.topBarItem.dropdown-button.btn{
 
 /*显示职位详情页面*/
 .show_project_page{
-    background:  rgba(255, 255, 255, 0.5);
+    background:  rgba(255, 255, 255, 1);
+    -webkit-box-shadow:0 0 10px gray;
+    -moz-box-shadow:0 0 10px gray;
+    box-shadow:0 0 10px gray;
     min-height: 400px;
+    margin-top: 10px;
 }
 
 .show_name_div span{
@@ -281,10 +285,12 @@ a.topBarItem.dropdown-button.btn{
 
 #show_introduce{
     font-size: 18px;
+    padding-left: 20px;
 }
 
 #show_achieve{
     font-size: 18px;
+    padding-left: 20px;
 }
 
 .goBack{
@@ -303,5 +309,6 @@ a.topBarItem.dropdown-button.btn{
     margin-top: 40px;
     float: left;
     margin-bottom:30px;
+    margin-left: 20px;
 }
 
