@@ -11,9 +11,11 @@ $(function () {
             $('.regi-group').css('display', 'none');
         }
     }); //选择完角色进入注册页面
-    var account = document.getElementById("email").value;
+
+
     $('#conf').click(function () {
-        if (choice = "学生") {
+        var account =$("#email").val();
+        if (choice == "学生") {
             var data = {
                 "account": account
             };
