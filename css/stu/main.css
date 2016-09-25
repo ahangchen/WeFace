@@ -568,7 +568,4 @@ input[type="range"]::-webkit-slider-thumb{
     transition:.2s;        /* 點選放大時候的漸變時間 */
 }
 
-.nosave{
-    background-color: #fff;
-    color:#ff8f00;
-}
+

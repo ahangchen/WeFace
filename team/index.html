@@ -11,6 +11,7 @@
     <link rel="stylesheet"  href="../css/team/fix_team_msg.css">
     <link href="../css/team/demand.css"  rel="stylesheet"/>
     <link href="../css/team/recent.css"  rel="stylesheet"/>
+    <link rel="stylesheet"  href="../css/info/info_team.css">
 </head>
 <body>
 <div id="max">
@@ -20,22 +21,15 @@
                 <div class ="header fl">
                     <a href="test/information.html" target="_blank">关于基地</a>
                 </div>
-                <div class="header fr">
-                    <a class="topBarItem dropdown-button btn"  data-activates='dropdown1' href="#">WEMEET </a>
-                    <ul id='dropdown1' class='dropdown-content'>
-                        <li><a href="#!">我的主页</a></li>
-                        <li class="divider"></li>
-                        <li><a href="#!">个人简历</a></li>
-                        <li><a href="#!">账号设置</a></li>
-                        <li><a href="#!">退出</a></li>
-                    </ul>
-                    <!-- <span id="line">|</span> -->
+                <div class="header fr" id="login-on">
+                    <a class="mainBtn" id="user_click" target="_blank">发布</a>
+                    <ul class="card" id="main-list" style="display:none"><li><a id="pub-posi">发布职位</a></li><li><a id="pub-proj">发布项目</a></li></ul>
                     <span class="line">|</span>
-                    <a class="topBarItem" id="submintBtn" href="test/submit.html" target="_blank">投递</a>
+                    <a class="mainBtn" href="../team/deliver.html" target="_blank">投递</a>
                     <span class="line">|</span>
-                    <a class="topBarItem" id="message" href="test/message.html" target="_blank">消息</a>
+                    <a class="mainBtn" target="_blank">消息</a><div class="chip info-tag">50</div>
                     <span class="line">|</span>
-                    <a class="topBarItem" id="collection" href="test/collection.html" target="_blank">关注收藏</a>
+                    <a class="mainBtn" target="_blank">关注收藏</a>
                 </div>
             </div>
         </div>
@@ -344,7 +338,7 @@
 <script type="text/javascript" src="../js/team/fix_team_msg.js"></script>
 <script type="text/javascript" src="../js/materialize.js"></script>
 <script type="text/javascript" src="../js/team/team_project.js"></script>
-
+<script src="../js/info/info_team.js"></script>
 
 </body>
 </html>

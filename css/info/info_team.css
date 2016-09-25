@@ -1,0 +1,55 @@
+*{
+    padding:0;
+    margin:0;
+    color:black;
+}
+#login-on .info-tag{
+    background-color:#ff8f00;
+    color:#ffffff;
+    width:27px;
+    height:20px;
+    line-height:20px;
+    text-align: center;
+    padding:0;
+    margin-left: -5px;
+}
+#login-on .input-field{
+    margin:0;
+    height:35px;
+    width:90px;
+    margin-right:5px;
+}
+
+#login-on{
+    position: relative;
+}
+
+#main-list{
+    width:95px;
+    position: absolute;
+    display:none;
+    text-align:center;
+}
+#main-list>li{
+    height:35px;
+    font-size: 14px;
+}
+#main-list>li:hover{
+    background: #eee;
+}
+
+#login-on .card{
+    background: #ffffff;
+    margin:0;
+    padding:0;
+    margin-left:-38px;
+    z-index: 100;
+}
+
+.info-tag{
+    display: none;
+}
+
+#login-on>a,#main-list a{
+    color:black;
+}
