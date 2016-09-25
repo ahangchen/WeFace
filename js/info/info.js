@@ -57,7 +57,6 @@
                             un_read++;
                         }
                     }
-                    console.log(un_read);
                     $('.info-tag').css('display','inline-block').html(un_read);
                 }
             },

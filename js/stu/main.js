@@ -293,8 +293,7 @@ $(function () {
             success:function(data){
                 var err = data.err;
                 if (err == '-15') {
-                    $('#detail4').css('display','none');
-                    console.log("未上传简历");
+                    $('#detail4').html("未上传简历");
                 }
                 if (err == '-1') {
                     console.log("请求方法错误");
@@ -303,8 +302,8 @@ $(function () {
                     console.log("操作失败");
                 }
                 if(err=='0'){
-                    $("#personal_path").attr('href',cur_site.substring(0,cur_site.length-1)+data.resume_path);
-                    $("#personal_path").attr('download',cur_site.substring(0,cur_site.length-1)+data.resume_path);
+                    $("#personal_path").attr('href',cur_media+data.resume_path);
+                    $("#personal_path").attr('download',cur_media+data.resume_path);
                 }
             },
             headers: {
