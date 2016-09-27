@@ -211,7 +211,10 @@ $(function(){
                 })
             }
             else {
-                $('#resume').html(data.resume_path);
+                var subPath = data.resume_path.split('/');
+                var pathLen = subPath.length;
+                var fileName = subPath[pathLen-1];
+                $('#resume').html(fileName);
             }
             //$('#subResTime').html(data.date);
         },
