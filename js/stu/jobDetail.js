@@ -21,6 +21,16 @@ $(function(){
     function getUrlVar(name){
         return getUrlVars()[name];
     }
+    //获取city的字符串
+    function getCity(cityId){
+        switch (cityId){
+            case 0:
+                return "其他";
+            case 1:
+                return "广州";
+        }
+    }
+
     // 学生点击职位名字后，主页在url上传职位id
     var jId = getUrlVar('job_id');
     var stu_id = getUrlVar('stu_id');
@@ -43,7 +53,7 @@ $(function(){
                 min = data.min_salary;
                 max = data.max_salary;
                 prov = data.prince;
-                city = data.city;
+                city = getCity(data.city);
                 town = data.town;
                 addr = data.address;
                 edu = data.edu_cmd;
@@ -78,7 +88,7 @@ $(function(){
                         initTeamDetail();
                     },
                     error:function(data){
-                        alert(data.msg);
+                        console.log(data.msg);
                     },
                     headers:{
                         "Access-Control-Allow-Origin":"*"
@@ -87,7 +97,7 @@ $(function(){
             }
         },
         error:function(data){
-            alert("获取失败");
+            console.log("获取失败");
         },
         headers:{
             "Access-Control-Allow-Origin":"*"
