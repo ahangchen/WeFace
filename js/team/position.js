@@ -42,7 +42,7 @@ $(function(){
     // 团队点击职位名字后，在url上获取传职位id
     var tId = getUrlVar('t_id');
 
-
+    //导航栏跳转
     $('#resumeBtn').attr('href',wefaceBace_site + 'team/resumeManage/resume.html?t_id='+tId);
     $('#positionBtn').attr('href',wefaceBace_site + 'team/position/showPosition.html?t_id='+tId);
     $("#projectBtn").attr("href",wefaceBace_site+'team/manageProject/manageProject.html?tid='+tId);
