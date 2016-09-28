@@ -95,6 +95,16 @@ $(function(){
             for (var i = 0; i < targetObj.length; i++) {
                 selectedTags[i] = $(targetObj[i]).html();
             }
+            if(selectedTags[0]==''){
+                var entire = $('#entireTag');
+                var tags = $(entire).nextAll();
+                for (var i = 0; i < (tags.length - 1); i++) {
+                    $(tags[i]).attr("class","chip normalTag");
+                    selectedTags[i+1] = "";
+                }
+                $(entire).attr("class","chip activeTag");
+                selectedTags[0] = "全部";
+            }
         }
 
         removeLastPage();
