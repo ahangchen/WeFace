@@ -1,6 +1,11 @@
 // 实现四个标签页的切换
 $(document).ready(function () {
-    
+    var wefaceBace_site = "http://110.64.69.101:8080/";
+
+    //导航栏跳转
+    $('#resumeBtn').attr('href',wefaceBace_site + 'team/resumeManage/resume.html?t_id='+getId());
+    $('#positionBtn').attr('href',wefaceBace_site + 'team/position/showPosition.html?t_id='+getId());
+
     $("#projectBtn").attr("href",'manageProject/manageProject.html?tid='+getId());
     var tabhosts = $(".four a");
     $('.slider').slider({
@@ -265,4 +270,3 @@ $(document).ready(function () {
     }
 
        });
-       

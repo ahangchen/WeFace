@@ -5,18 +5,17 @@
 }
 .search-bar {
     height: 100%;
-    position: relative;
-    left: 300px;
 }
 /*-----------------------------------大型板块的样式-------------------------------------*/
 .jobDetail{
     padding-bottom: 10px;
     min-height: 736px;
+    overflow: auto;
 }
 .jobDiv{
     width: 640px;
     min-height: 736px;
-    display: inline-block;
+    float:left;
 }
 .sumDiv{
     padding-top: 34px;
@@ -43,7 +42,7 @@
     width: 320px;
     min-height: 736px;
     background-color: rgba(255,255,255,0.5);
-    /*display: inline-block;*/
+
     margin-left: 6px;
     overflow: hidden;
 }
