@@ -71,6 +71,8 @@
         });
         $('#login-on').css('display','block');
         $('#login-off').css('display','none');
+        var deliever_path="../stu/deliver.html?stu_id="+student_id;
+        $('#info-deliver').attr('href',deliever_path);
         //$('#go-main').attr('href',url+id);//设置
         //$('#account-set').attr('href',url);//设置
         //$('#account-exit').attr('href',url);//设置
