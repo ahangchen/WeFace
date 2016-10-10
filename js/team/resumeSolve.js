@@ -123,6 +123,7 @@ $(function(){
             dataType:"json",
             success:function(data){
                 alert("处理成功");
+                window.location = wefaceBace_site + 'team/resumeManage/resume.html?t_id='+t_id;
             },
             error:function(data){
                 console.log(data.msg);
