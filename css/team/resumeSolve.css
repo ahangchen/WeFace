@@ -52,6 +52,7 @@ a.topBarItem.dropdown-button.btn{
 .nav-wrapper li a {
     width:      100px;
     text-align: center;
+    color: #353535;
 }
 
 .header {}
