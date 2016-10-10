@@ -1,5 +1,5 @@
 // 简历管理的js
-$(function(){
+$(document).ready(function(){
     var newNum = 0;
     var newCurrentPage = 1;
     var unConCurPage = 1;
@@ -130,49 +130,51 @@ $(function(){
              data:post_data,
             url:cur_site + 'team/apply/list/',
             dataType:'json',
-            success:function(data){
-                var unreadNum = data.unread_num;
-                // 显示未读信息条数
-                switch(state){
-                    case 1:
-
-                        $('.unConLink .newNum').html(unreadNum);
-                        $('.unConLink .newNum').css('visibility','visible');
-                        break;
-                    case 2:
-                        $('.unQuizLink .newNum').html(unreadNum);
-                        $('.unQuizLink .newNum').css('visibility','visible');
-                        break;
-                    case 3:
-                        break;
+            success:function(data) {
+                if (data.err != "0") {
+                    return;
                 }
-                // 获取总条数
-                var total = data.apply_list.length;
+                    var unreadNum = data.unread_num;
+                    // 显示未读信息条数
+                    switch (state) {
+                        case 1:
+                            $('.unConLink .newNum').html(unreadNum);
+                            $('.unConLink .newNum').css('visibility', 'visible');
+                            break;
+                        case 2:
+                            $('.unQuizLink .newNum').html(unreadNum);
+                            $('.unQuizLink .newNum').css('visibility', 'visible');
+                            break;
+                        case 3:
+                            break;
+                    }
+                    // 获取总条数
+                    var total = data.apply_list.length;
 
-                for (var i = 0; i < total; i++) {
-                    var applyObj = {
-                        id:"",
-                        job_id:"",
-                        stu_id:"",
-                        job_name:"",
-                        stu_name:"",
-                        position:"",
-                        date:"",
-                        state:0,
-                        is_read:1
-                    };
-                    applyObj.id = data.apply_list[i].apply_id;
-                    applyObj.job_id = data.apply_list[i].job_id;
-                    applyObj.stu_name = data.apply_list[i].stu_name;
-                    applyObj.job_name = data.apply_list[i].job_name;
-                    applyObj.date = data.apply_list[i].apply_time;
-                    applyObj.state = data.apply_list[i].state;
-                    applyObj.is_read = data.apply_list[i].is_read;
-                    array[i] = applyObj;
-                }
-                changeContent(currentPage,divId,array,isCheckBtn);
-                initPages(currentPage,total,pageClass,divId,array,isCheckBtn);
-            },
+                    for (var i = 0; i < total; i++) {
+                        var applyObj = {
+                            id: "",
+                            job_id: "",
+                            stu_id: "",
+                            job_name: "",
+                            stu_name: "",
+                            position: "",
+                            date: "",
+                            state: 0,
+                            is_read: 1
+                        };
+                        applyObj.id = data.apply_list[i].apply_id;
+                        applyObj.job_id = data.apply_list[i].job_id;
+                        applyObj.stu_name = data.apply_list[i].stu_name;
+                        applyObj.job_name = data.apply_list[i].job_name;
+                        applyObj.date = data.apply_list[i].apply_time;
+                        applyObj.state = data.apply_list[i].state;
+                        applyObj.is_read = data.apply_list[i].is_read;
+                        array[i] = applyObj;
+                    }
+                    changeContent(currentPage, divId, array, isCheckBtn);
+                    initPages(currentPage, total, pageClass, divId, array, isCheckBtn);
+                },
             error:function(data){
                 console.log(data.msg);
             },
