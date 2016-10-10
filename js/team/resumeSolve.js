@@ -22,8 +22,11 @@ $(function(){
         if(id == 1){
             return "男";
         }
-        else {
+        if(id == 2){
             return "女";
+        }
+        else {
+            return "未定";
         }
     }
     // 从URL中获取投递的id
