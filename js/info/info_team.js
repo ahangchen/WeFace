@@ -30,8 +30,8 @@
         $('body').click(function(){
             list.css('display','none');
         });
-        //$('#pub-posi').attr('href',url+id);//设置
-        //$('#pub-proj').attr('href',url);//设置
+        $('#pub-posi').attr('href','http://110.64.69.101:8080/team/position/addPosition.html?t_id='+team_id);
+        $('#pub-proj').attr('href','http://110.64.69.101:8080/team/manageProject/manageProject.html?tid='+team_id);//设置
         user_click.click(function(){
             if(list.css('display')=='block'){
                 list.css('display','none');
