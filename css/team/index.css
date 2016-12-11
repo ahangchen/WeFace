@@ -1,0 +1,296 @@
+p{
+    margin: 0;
+}
+
+/*导航栏的样式在这里修改*/
+.header{
+    height: 40px;
+    min-width: 980px;
+    background-color: #c5c5c5;
+}
+
+.nav{
+    min-width: 980px;
+    height: 80px;
+    background-color: #e0e0e0;
+}
+
+/*团队导航*/
+.team_nav{
+    min-height: 260px;
+    min-width: 980px;
+    /*background-image: url('../../res/imgs/team/team_bg.jpg');*/
+    /*background-size: 100% 340px;*/
+}
+
+.team_nav_content{
+    width: 960px;
+    margin: auto;
+    min-height: 260px;
+    padding: 50px 60px 30px 60px;
+    /*border: 1px solid;*/
+}
+
+.team_nav_img{
+    float: left;
+    height: 180px;
+    width: 170px;
+    /*border: 1px solid;*/
+}
+
+.team_nav_word {
+    float: right;
+    width: 550px;
+    min-height: 180px;
+    /*border: 1px solid;*/
+}
+
+#team_logo{
+    height: 150px;
+    width: 150px;
+    border-radius: 150px;
+}
+
+.team_nav_word_title{
+    border-bottom: 1px solid rgba(255, 255, 255, 0.7);
+    width: 300px;
+    height: 60px;
+    padding: 10px 15px 10px 15px;
+}
+
+#team_name{
+    color: #fff;
+    font-size: 20px;
+}
+
+#favourite,#chat{
+    margin-left: 20px;
+}
+
+#favourite img,#chat img{
+    width: 35px;
+    height: 35px;
+}
+
+.slogan_div{
+    padding: 15px 15px 15px 15px;
+    height: 60px;
+    color: #fff;
+    font-size: 18px;
+    /*border: 1px solid;*/
+}
+
+.label_div{
+    min-height: 60px;
+    padding-right: 10px;
+    /*border: 1px solid;*/
+}
+
+.team_label{
+    background-color: #fff;
+    font-size: 18px;
+    margin-left: 10px;
+    color: orange;
+    margin-top: 15px;
+    text-align: center;
+    width: 110px;
+}
+
+.function_tabs{
+    clear: both;
+    min-width: 980px;
+    height: 80px;
+    /*border: 1px solid;*/
+    background-color: rgba(255, 255, 255, 0.3);
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+.function_tabs ul{
+    width: 960px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+
+.function_tabs ul li {
+    display: inline-block;
+    margin-left: 110px;
+    width: 100px;
+    text-align: center;
+    font-size: 20px;
+    color: #fff;
+    cursor:pointer;
+}
+
+#team_homepage{
+    border-bottom: 3px solid;
+}
+
+
+.sub_title{
+    color: orange;
+    text-align: center;
+    font-size: 20px;
+}
+
+.introduction_div{
+    min-width: 980px;
+    min-height: 200px;
+    padding: 40px;
+}
+
+#team_intro{
+    text-indent: 2em;
+    width: 900px;
+    margin-left: auto;
+    margin-right: auto;
+    font-size: 17px;
+    margin-top: 40px;
+}
+
+.member_div{
+    min-width: 980px;
+    min-height: 350px;
+    padding: 40px;
+    background: url('../../res/imgs/team/div_bg.jpg');
+}
+
+
+.member_slider{
+    width: 800px;
+    height: 300px;
+    margin-left: auto;
+    margin-right: auto;
+    /*border: 1px solid;*/
+}
+
+.carousel .carousel-item{
+    width: 150px;
+    cursor: pointer;
+}
+
+
+.member_slider a img{
+    border-radius: 200px;
+    height: 150px;
+}
+
+.member_name{
+    display: block;
+    text-align: center;
+    margin-top: 10px;
+    color: orange;
+    font-size: 17px;
+}
+
+.member_id{
+    text-align: center;
+    margin-top: 5px;
+    color: orange;
+    display: block;
+}
+
+.photo_div{
+    min-width: 980px;
+    min-height: 600px;
+    padding: 40px;
+}
+
+.team_photo_slider{
+    width: 800px;
+    height: 500px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 30px;
+}
+
+
+.slider .indicators .indicator-item.active {
+    background-color: orange;
+}
+
+.product_div{
+    min-width: 980px;
+    min-height: 450px;
+    background: url('../../res/imgs/team/div_bg.jpg');
+    padding: 40px;
+}
+
+.team_products{
+    width: 900px;
+    min-height: 320px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 30px;
+    /*border: 1px solid;*/
+}
+
+.team_product{
+    display: inline-block;
+    margin-left: 30px;
+    margin-top: 20px;
+    width: 400px;
+    height: 280px;
+    -webkit-box-shadow: 1px 1px 8px 8px #b3b3b3;
+}
+
+.team_product img{
+    width: 400px;
+    height: 280px;
+    position: absolute;
+}
+
+.product_name_area{
+    position: relative;
+    width: 260px;
+    height: 150px;
+    border-top: 60px solid orange;
+    border-right: 32px solid transparent;
+    border-bottom: 60px solid transparent;
+    border-left: 110px solid transparent;
+    transform:rotate(151deg) translate(10px,95px);
+}
+
+.product_number{
+    bottom: 30px;
+    right: 10px;
+    position: relative;
+    transform:rotate(180deg);
+    color: white;
+    font-size: 15px;
+}
+
+.product_name{
+    bottom: 80px;
+    right:50px;
+    position: relative;
+    transform:rotate(180deg);
+    color: white;
+    font-size: 18px;
+}
+
+.footer{
+    min-width: 980px;
+    height: 250px;
+    background-color: orange;
+    padding: 40px;
+}
+
+.contact{
+    margin-top: 10px;
+    height: 50px;
+    width: 400px;
+    margin-left: auto;
+    margin-right: auto;
+    color: white;
+    font-size: 20px;
+    /*border: 1px solid;*/
+    padding: 10px;
+}
+
+
+#web_site,#mail_address{
+    margin-left: 80px;
+    /*border: 1px solid;*/
+}
