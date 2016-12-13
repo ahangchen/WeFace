@@ -4,9 +4,10 @@
     <meta charset="UTF-8">
     <title>团队主页改版</title>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <link rel="stylesheet"  href="../css/base.css">
     <link rel="stylesheet"  href="../css/materialize.css">
     <link href="https://fonts.css.network/icon?family=Material+Icons" rel="stylesheet">
-    <link rel="stylesheet"  href="../css/team/index.css">
+    <link rel="stylesheet"  href="../css/team/team.css">
 </head>
 <body>
     <div class="header">
@@ -44,110 +45,68 @@
         </div>
     </div>
 
-    <div class="introduction_div">
-        <p class="sub_title">团队介绍</p>
-        <p id="team_intro"></p>
-    </div>
+    <div class="switch_tab">
 
-    <div class="member_div">
-        <p class="sub_title">团队成员</p>
-        <div class="member_slider carousel">
-            <!--<i class="material-icons" id="pre_member">chevron_left</i>-->
-            <!--<div class="team_member">-->
-                <!--<img  src="../res/imgs/team/touxiang1.jpg">-->
-                <!--<span class="member_name">吃土小王子</span>-->
-                <!--<span class="member_id">创始人</span>-->
-            <!--</div>-->
-            <!--<div class="team_member">-->
-                <!--<img  src="../res/imgs/team/touxiang1.jpg">-->
-                <!--<span class="member_name">吃土小王子</span>-->
-                <!--<span class="member_id">创始人</span>-->
-            <!--</div>-->
-            <!--<div class="team_member">-->
-                <!--<img  src="../res/imgs/team/touxiang1.jpg">-->
-                <!--<span class="member_name">吃土小王子</span>-->
-                <!--<span class="member_id">创始人</span>-->
-            <!--</div>-->
-            <!--<div class="team_member">-->
-                <!--<img  src="../res/imgs/team/touxiang1.jpg">-->
-                <!--<span class="member_name">吃土小王子</span>-->
-                <!--<span class="member_id">创始人</span>-->
-            <!--</div>-->
-            <!--<div class="team_member">-->
-                <!--<img  src="../res/imgs/team/touxiang1.jpg">-->
-                <!--<span class="member_name">吃土小王子</span>-->
-                <!--<span class="member_id">创始人</span>-->
-            <!--</div>-->
-            <!--<i class="material-icons" id="next_member">chevron_right</i>-->
-
-            <!--<a class="carousel-item">-->
-                <!--<img src="../res/imgs/team/touxiang1.jpg">-->
-                <!--<span class="member_name">吃土小王子</span>-->
-                <!--<span class="member_id">创始人</span>-->
-            <!--</a>-->
-            <!--<a class="carousel-item">-->
-                <!--<img src="../res/imgs/team/touxiang1.jpg">-->
-            <!--</a>-->
-            <!--<a class="carousel-item">-->
-                <!--<img src="../res/imgs/team/touxiang1.jpg">-->
-            <!--</a>-->
-            <!--<a class="carousel-item">-->
-                <!--<img src="../res/imgs/team/touxiang1.jpg">-->
-            <!--</a>-->
-            <!--<a class="carousel-item">-->
-                <!--<img src="../res/imgs/team/touxiang1.jpg">-->
-            <!--</a>-->
-
-        </div>
-    </div>
-
-    <div class="photo_div">
-        <p class="sub_title">团队风采</p>
-        <div class="slider team_photo_slider">
-            <ul class="slides">
-                <!--<li><img class="team_photo" src="../res/imgs/team/p1.jpg" style="background-size:800px 400px;"></li>-->
-                <!--<li><img class="team_photo" src="../res/imgs/team/p2.jpg" style="background-size:800px 400px;"></li>-->
-                <!--<li><img class="team_photo" src="../res/imgs/team/p3.jpg" style="background-size:800px 400px;"></li>-->
-            </ul>
-        </div>
-    </div>
-
-    <div class="product_div">
-        <p class="sub_title">团队产品</p>
-        <div class=team_products>
-            <!--<div class="team_product">-->
-                <!--<img src="../res/imgs/team/p1.jpg">-->
-                <!--<div class="product_name_area"><p class="product_number">产品一</p><p class="product_name">饮料包装</p></div>-->
-
-            <!--</div>-->
-            <!--<div class="team_product">-->
-                <!--<img src="../res/imgs/team/p1.jpg">-->
-                <!--<div class="product_name_area"><p class="product_name">产品一 饮料包装</p></div>-->
-            <!--</div>-->
-            <!--<div class="team_product">-->
-                <!--<img src="../res/imgs/team/p1.jpg">-->
-                <!--<div class="product_name_area"><p class="product_name">产品一 饮料包装</p></div>-->
-            <!--</div>-->
-            <!--<div class="team_product">-->
-                <!--<img src="../res/imgs/team/p1.jpg">-->
-                <!--<div class="product_name_area"><p class="product_name">产品一 饮料包装</p></div>-->
-            <!--</div>-->
-        </div>
-    </div>
-
-    <div class="footer">
-        <p class="sub_title" style="color:white">联系我们</p>
-        <div  class="contact">
-            <!--<p style="display: inline-block;height: 30px;"><i class="material-icons" style="font-size: 30px;">language</i></p>-->
-            <!--<p id="web_site">www.yuruilee.com</p>-->
-            <i class="material-icons" style="font-size: 30px;">language</i>
-            <span id="web_site"></span>
-        </div>
-        <div  class="contact">
-            <i class="material-icons" style="font-size: 30px;">mail</i>
-            <span id="mail_address"></span>
+        <div class="introduction_div">
+            <p class="sub_title">团队介绍</p>
+            <p id="team_intro"></p>
         </div>
 
+        <div class="member_div">
+            <p class="sub_title">团队成员</p>
+            <div class="member_slider carousel">
+                <!--<div class="team_member">-->
+                    <!--<img  src="../res/imgs/team/touxiang1.jpg">-->
+                    <!--<span class="member_name">吃土小王子</span>-->
+                    <!--<span class="member_id">创始人</span>-->
+                <!--</div>-->
+            </div>
+        </div>
+
+        <div class="photo_div">
+            <p class="sub_title">团队风采</p>
+            <div class="slider team_photo_slider">
+                <ul class="slides">
+                    <!--<li><img class="team_photo" src="../res/imgs/team/p1.jpg" style="background-size:800px 400px;"></li>-->
+                </ul>
+            </div>
+        </div>
+
+        <div class="product_div">
+            <p class="sub_title">团队产品</p>
+            <div class=team_products>
+                <!--<div class="team_product" style="background-image: url('../res/imgs/team/p1.jpg');background-size: 400px 280px">-->
+                    <!--<div class="product_name_area"><p class="product_number">产品一</p><p class="product_name">饮料包装</p></div>-->
+                <!--</div>-->
+                <!--<div class="team_product">-->
+                    <!--<img src="../res/imgs/team/p1.jpg">-->
+                    <!--<div class="product_name_area"><p class="product_number">产品一</p><p class="product_name">饮料包装</p></div>-->
+                <!--</div>-->
+                <!--<div class="team_product">-->
+                    <!--<img src="../res/imgs/team/p1.jpg">-->
+                    <!--<div class="product_name_area"><p class="product_number">产品一</p><p class="product_name">饮料包装</p></div>-->
+                <!--</div>-->
+                <!--<div class="team_product">-->
+                    <!--<img src="../res/imgs/team/p1.jpg">-->
+                    <!--<div class="product_name_area"><p class="product_number">产品一</p><p class="product_name">饮料包装</p></div>-->
+                <!--</div>-->
+            </div>
+        </div>
+
+        <div class="footer">
+            <p class="sub_title" style="color:white">联系我们</p>
+            <div  class="contact">
+                <!--<p style="display: inline-block;height: 30px;"><i class="material-icons" style="font-size: 30px;">language</i></p>-->
+                <!--<p id="web_site">www.yuruilee.com</p>-->
+                <i class="material-icons">language</i>
+                <span id="web_site"></span>
+            </div>
+            <div  class="contact">
+                <i class="material-icons">mail</i>
+                <span id="mail_address"></span>
+            </div>
+
+        </div>
     </div>
 
     <script type="text/javascript" src="../js/jquery-2.1.1.min.js"></script>

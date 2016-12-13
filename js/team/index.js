@@ -38,60 +38,95 @@ $(document).ready(function(){
             for(i=0;i<team_info.label.length;i++){
                 $(".label_div").append('<div class="team_label chip">'+team_info.label[i]+'</div>');
             }
-
-
-            $("#team_intro").html(team_info.intro);
             temp_class=".team_nav";
             $(temp_class).css("background-size","100% "+$(temp_class).css("height")).css("background-image","url('../res/imgs/team/team_bg.jpg')");
 
-            // temp_class=".member_slider";
-            // $(temp_class).append('<i class="material-icons" id="pre_member">chevron_left</i>');
-            // $(temp_class).append('<div class="team_member"><img  src="'+cur_media+team_info.member[0].logo_path+'">'+
-            //     '<span class="member_name">'+team_info.member[0].name+'</span><span class="member_id">创始人</span></div>');
-            //
-            // for(i=1;i<team_info.member.length;i++){
-            //     $(temp_class).append('<div class="team_member"><img  src="'+cur_media+team_info.member[i].logo_path+'">'+
-            //         '<span class="member_name">'+team_info.member[i].name+'</span><span class="member_id">成员</span></div>');
-            // }
-            // $(temp_class).append('<i class="material-icons" id="next_member">chevron_right</i>');
-            // if(team_info.member.length<=5){
-            //     $(".member_slider i").css("opacity","0");
-            // }
-
-            temp_class=".member_slider";
-            $(temp_class).append('<a class="carousel-item"><img src="'+cur_media+team_info.member[0].logo_path+'">'+
-                '<span class="member_name">'+team_info.member[0].name+'</span>'+
-                '<span class="member_id">创始人</span></a>');
-
-            for(i=1;i<team_info.member.length;i++){
-                $(temp_class).append('<a class="carousel-item"><img src="'+cur_media+team_info.member[i].logo_path+'">'+
-                    '<span class="member_name">'+team_info.member[i].name+'</span>'+
-                    '<span class="member_id">成员</span></a>');
-            }
-
-            $('.carousel').carousel();
-
-
-            for(i=0;i<team_info.photo.length;i++){
-                var temp_photo=cur_media+team_info.photo[i].path;
-                $(".team_photo_slider .slides").append('<li><img class="team_photo" src="'+temp_photo+'" style="background-size:800px 500px;"></li>');
-            }
-
-            $('.slider').slider({
-                full_width: true,
-                height: 500
-            });
-
-            for(i=0;i<team_product.length;i++){
-                if(team_product[i].img_path!="")
-                    $(".team_products").append('<div class="team_product"><img src="'+cur_media+team_product[i].img_path+'">'+
-                        '<div class="product_name_area"><p class="product_number">产品'+(i+1)+'</p><p class="product_name">'+team_product[i].name+'</p></div></div>');
-            }
-
-            $("#web_site").html(team_info.tel);
-            $("#mail_address").html(team_info.mail);
+            load_team_homepage();
         }
     });
+
+    //监听标签页的改变
+    $(".function_tabs ul li").on("click",function(){
+        $(".function_tabs ul li").css("border-bottom","none");
+        $(this).css("border-bottom","3px solid");
+
+        if($(this).attr('id')=='team_product'){//点击的团队产品的标签加载对应的内容
+            $(".switch_tab").empty().append('<div class="product_div"><div class=team_products></div></div>');
+            load_team_product();
+
+        }
+
+        if($(this).attr('id')=='team_homepage'){//加载团队的主页面
+            $(".switch_tab").empty().append('<div class="introduction_div"><p class="sub_title">团队介绍</p><p id="team_intro"></p></div> ' +
+                '<div class="member_div"><p class="sub_title">团队成员</p><div class="member_slider carousel"></div>'+
+                '</div><div class="photo_div"><p class="sub_title">团队风采</p><div class="slider team_photo_slider">'+
+                '<ul class="slides"></ul></div></div><div class="product_div"><p class="sub_title">团队产品</p><div class=team_products></div></div>'+
+                '<div class="footer"><p class="sub_title" style="color:white">联系我们</p><div  class="contact"><i class="material-icons">language</i>'+
+                '<span id="web_site"></span></div><div  class="contact"><i class="material-icons" >mail</i><span id="mail_address"></span>'+
+                '</div></div>');
+            load_team_homepage();
+        }
+    });
+
+    //加载团队主页标签下的内容
+    function load_team_homepage(){
+        $("#team_intro").html(team_info.intro);
+        temp_class=".member_slider";
+        $(temp_class).append('<a class="carousel-item"><img src="'+cur_media+team_info.member[0].logo_path+'">'+
+            '<span class="member_name">'+team_info.member[0].name+'</span>'+
+            '<span class="member_id">创始人</span></a>');
+
+        for(i=1;i<team_info.member.length;i++){
+            $(temp_class).append('<a class="carousel-item"><img src="'+cur_media+team_info.member[i].logo_path+'">'+
+                '<span class="member_name">'+team_info.member[i].name+'</span>'+
+                '<span class="member_id">成员</span></a>');
+        }
+
+        $('.carousel').carousel();
+
+
+        for(i=0;i<team_info.photo.length;i++){
+            var temp_photo=cur_media+team_info.photo[i].path;
+            $(".team_photo_slider .slides").append('<li><img class="team_photo" src="'+temp_photo+'" style="background-size:800px 500px;"></li>');
+        }
+
+        $('.slider').slider({
+            full_width: true,
+            height: 500
+        });
+
+        for(i=0;i<team_product.length;i++){
+            if(team_product[i].img_path!="")
+                $(".team_products").append('<div class="team_product"><img src="'+cur_media+team_product[i].img_path+'">'+
+                    '<div class="product_name_area"><p class="product_number">产品'+(i+1)+'</p><p class="product_name">'+team_product[i].name+'</p></div></div>');
+        }
+
+        $("#web_site").html(team_info.tel);
+        $("#mail_address").html(team_info.mail);
+    }
+
+    //加载团队产品标签下的内容
+    function load_team_product(){
+        temp_class=".team_products";
+        $(temp_class).css("background","none").css("width","940px");
+        for(i=0;i<team_product.length;i++){
+            if(team_product[i].img_path!="")
+                $(temp_class).append('<div class="team_product" id="product_'+i+'"><img src="'+cur_media+team_product[i].img_path+'">'+
+                    '<div class="product_name_area"><p class="product_number">产品'+(i+1)+'</p><p class="product_name">'+team_product[i].name+'</p></div>'+
+                    '<div class="product_content_area"><p class="product_content">'+team_product[i].content+'</p></div>');
+        }
+
+        //监听鼠标移动
+        $(".team_product").css("margin-left","60px").on("mouseover",function(){
+            $(this).children('img').css("filter","blur(3px)");
+            $(this).children('.product_name_area').css("opacity","0");
+            $(this).children('.product_content_area').css("opacity","1");
+        }).on("mouseout",function(){
+            $(this).children('img').css("filter","blur(0)");
+            $(this).children('.product_name_area').css("opacity","1");
+            $(this).children('.product_content_area').css("opacity","0");
+        });
+    }
 
 
 
