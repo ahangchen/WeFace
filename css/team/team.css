@@ -64,7 +64,6 @@ html{
 }
 
 #team_name{
-    color: #000;
     font-size: 20px;
 }
 
@@ -84,7 +83,6 @@ html{
 }
 
 #team_slogan{
-    color: #000;
     font-size: 18px;
 }
 
@@ -120,7 +118,7 @@ html{
     height: 80px;
     /*border: 1px solid;*/
     background-color: #d4d4d4;
-    padding-top: 20px;
+    padding-top: 25px;
     padding-bottom: 10px;
 }
 
@@ -133,7 +131,7 @@ html{
 
 .function_tabs ul li {
     display: inline-block;
-    margin-left: 115px;
+    margin-left: 135px;
     width: 80px;
     height: 37px;
     text-align: center;
@@ -144,6 +142,7 @@ html{
 
 #team_homepage{
     border-bottom: 3px solid;
+    margin-left: 115px;
 }
 
 
@@ -343,5 +342,91 @@ html{
     margin-left: 80px;
     color: white;
     font-size: 20px;
+    display: inline-table;
+    vertical-align: middle;
+    height: 50px;
     /*border: 1px solid;*/
+}
+
+/*团队互动社区*/
+.team_topic_div{
+    min-width: 980px;
+    min-height: 250px;
+    /*border: 1px solid;*/
+}
+
+.team_topic{
+    padding: 50px 20px 30px 20px;
+    /*border: 1px solid;*/
+    width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.team_topic_div:nth-child(2n){
+    background: url('../../res/imgs/team/div_bg.jpg');
+}
+
+
+.topic_title{
+    /*border: 1px solid;*/
+    height: 50px;
+    padding: 5px;
+}
+
+.question_icon{
+    width: 40px;
+    height: 40px;
+}
+
+.question_title{
+    font-size: 18px;
+    margin-left: 20px;
+    text-align: center;
+}
+
+.submit_date{
+    color: #909090;
+    float: right;
+    font-size: 18px;
+    margin-right: 10px;
+    margin-top: 5px;
+}
+
+.topic_detail{
+    /*border: 1px solid;*/
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 70px;
+}
+
+.topic_detail p{
+
+    font-size: 16px;
+    /*border: 1px solid;*/
+}
+
+.topic_function{
+    /*border: 1px solid;*/
+    height: 70px;
+    padding: 20px;
+    text-align: right;
+}
+
+.agree_icon, .commit_icon{
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+}
+
+.commit_icon{
+    margin-left: 20px;
+}
+
+.agree_num,.commit_num{
+    color: #ffbf24;
+}
+
+.commit_num{
+    margin-left: 5px;
 }

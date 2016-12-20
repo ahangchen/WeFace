@@ -67,6 +67,23 @@ $(document).ready(function(){
                 '</div></div>');
             load_team_homepage();
         }
+
+        if($(this).attr('id')=='communicate'){
+            $(".switch_tab").empty().append('<div class="topic_module"><div class="team_topic_div"><div class="team_topic"><div class="topic_title">' +
+                '<img class="question_icon" src="../res/imgs/team/问题.svg" align="AbsMiddle"><span class="question_title">如果在这个软件中增加一个小天使的功能，大家觉得怎么样？</span> ' +
+                '<p class="submit_date">12月5日</p></div><div class="topic_detail"> ' +
+                '<p>在这个软件中增加一个小天使的功能，当你在忙碌的时候可以激活小天使来帮你，然后可以给小天使一个合理的回报，比如请吃饭，你们觉得怎么样？</p> </div> ' +
+                '<div class="topic_function"><img class="agree_icon" src="../res/imgs/team/赞.svg" align="AbsMiddle"> ' +
+                '<span class="agree_num">17</span><img class="commit_icon" src="../res/imgs/team/评论.svg" align="AbsMiddle">' +
+                '<span class="commit_num">15</span></div></div></div>' +
+                '<div class="team_topic_div"><div class="team_topic"><div class="topic_title">' +
+                '<img class="question_icon" src="../res/imgs/team/问题.svg" align="AbsMiddle"><span class="question_title">如果在这个软件中增加一个小天使的功能，大家觉得怎么样？</span> ' +
+                '<p class="submit_date">12月5日</p></div><div class="topic_detail"> ' +
+                '<p>在这个软件中增加一个小天使的功能，当你在忙碌的时候可以激活小天使来帮你，然后可以给小天使一个合理的回报，比如请吃饭，你们觉得怎么样？</p> </div> ' +
+                '<div class="topic_function"><img class="agree_icon" src="../res/imgs/team/赞.svg" align="AbsMiddle"> ' +
+                '<span class="agree_num">17</span><img class="commit_icon" src="../res/imgs/team/评论.svg" align="AbsMiddle">' +
+                '<span class="commit_num">15</span></div></div></div></div>');
+        }
     });
 
     //加载团队主页标签下的内容
@@ -108,8 +125,9 @@ $(document).ready(function(){
 
     //加载团队产品标签下的内容
     function load_team_product(){
+        $(".product_div").css("background","none");
         temp_class=".team_products";
-        $(temp_class).css("background","none").css("width","940px");
+        $(temp_class).css("width","940px");
         for(i=0;i<team_product.length;i++){
             if(team_product[i].img_path!="")
                 $(temp_class).append('<div class="team_product" id="product_'+i+'"><img src="'+cur_media+team_product[i].img_path+'">'+
@@ -127,6 +145,11 @@ $(document).ready(function(){
             $(this).children('.product_name_area').css("opacity","1");
             $(this).children('.product_content_area').css("opacity","0");
         });
+    }
+
+    //加载互动社区的话题内容
+    function load_team_topic(){
+
     }
 
 
