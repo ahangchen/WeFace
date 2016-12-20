@@ -39,7 +39,8 @@ $(document).ready(function(){
                 $(".label_div").append('<div class="team_label chip">'+team_info.label[i]+'</div>');
             }
             temp_class=".team_nav";
-            $(temp_class).css("background-size","100% "+$(temp_class).css("height")).css("background-image","url('../res/imgs/team/team_bg.jpg')");
+            //console.log( $(temp_class).css('width'));
+            // $(temp_class).css("background-size","1440px "+$(temp_class).css("height")).css("background-image","url('../res/imgs/team/team_bg.svg')");
 
             load_team_homepage();
         }
