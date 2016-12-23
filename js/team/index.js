@@ -83,6 +83,7 @@ $(document).ready(function(){
                 '<div class="topic_function"><img class="agree_icon" src="../res/imgs/team/赞.svg" align="AbsMiddle"> ' +
                 '<span class="agree_num">17</span><img class="commit_icon" src="../res/imgs/team/评论.svg" align="AbsMiddle">' +
                 '<span class="commit_num">15</span></div></div></div></div>');
+            load_team_topic()
         }
     });
 
@@ -149,6 +150,10 @@ $(document).ready(function(){
 
     //加载互动社区的话题内容
     function load_team_topic(){
+        //点击话题进行页面的跳转
+        $(".topic_title").on('click',function(){
+            window.location.href="topic_detail.html?tid="+tid;
+        });
 
     }
 
