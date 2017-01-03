@@ -372,6 +372,7 @@ html{
     /*border: 1px solid;*/
     height: 50px;
     padding: 5px;
+    cursor: pointer;
 }
 
 .question_icon{

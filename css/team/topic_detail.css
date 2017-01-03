@@ -1,0 +1,364 @@
+p{
+    margin: 0;
+}
+
+html{
+    background: none;
+}
+
+/*导航栏的样式在这里修改*/
+.header{
+    height: 40px;
+    min-width: 980px;
+    background-color: #c5c5c5;
+}
+
+.nav{
+    min-width: 980px;
+    height: 80px;
+    background-color: #e0e0e0;
+}
+
+/*观点和团队基本信息*/
+.opinion_nav{
+    min-height: 280px;
+    min-width: 980px;
+    /*border: 1px solid;*/
+}
+
+.nav_content{
+    width: 960px;
+    min-height: 260px;
+    margin: auto;
+    /*border: 1px solid;*/
+    padding: 20px 0;
+}
+
+.opinion_msg{
+    float: left;
+    height: 230px;
+    width: 600px;
+    border-right: 2px solid;
+    /*border: 1px solid;*/
+}
+
+
+.question_icon{
+    width: 40px;
+    height: 40px;
+}
+
+.question_title{
+    font-size: 18px;
+    margin-left: 20px;
+    text-align: center;
+}
+
+.topic_detail{
+    /*border: 1px solid;*/
+    padding-top: 10px;
+    height: 130px;
+    padding-bottom: 10px;
+    padding-left: 70px;
+}
+
+.topic_function{
+    /*border: 1px solid;*/
+    height: 60px;
+    padding: 20px 0 0 70px;
+}
+
+#leave_msg{
+    background-color:  #F5AC23;
+}
+
+#online_people_num{
+    display: inline-table;
+    height: 36px;
+    padding-left: 20px;
+    padding-top: 15px;
+    color: #909090;
+    vertical-align: middle;
+}
+
+.topic_agree_icon{
+    width: 30px;
+    height: 30px;
+    margin-left: 210px;
+    cursor: pointer;
+}
+
+
+.topic_agree_num{
+    color: #ffbf24;
+    font-size: 20px;
+}
+
+.team_basic_msg{
+    float: right;
+    padding: 10px;
+    height: 230px;
+    width: 350px;
+    /*border: 1px solid;*/
+}
+
+.team_nav_img{
+    height: 110px;
+    width: 70px;
+    /*border:1px solid;*/
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#team_logo{
+    height: 70px;
+    width: 70px;
+    border-radius: 70px;
+}
+
+#team_name{
+    font-size: 17px;
+    text-align: center;
+}
+
+#team_slogan{
+    background-color: #ffbf24;
+    font-size: 17px;
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+    color: #fff;
+    border-radius: 10px;
+    text-align: center;
+    width: 200px;
+}
+
+.contact{
+    margin-top: 15px;
+    height: 30px;
+    width: 300px;
+    margin-left: auto;
+    margin-right: auto;
+    /*border:1px solid;*/
+}
+
+.contact:last-child{
+    margin-top: 5px;
+}
+
+.contact i{
+    font-size: 30px;
+    color: #ffbf24;
+}
+
+
+#web_site,#mail_address{
+    margin-left: 10px;
+    font-size: 17px;
+    display: inline-table;
+    vertical-align: middle;
+    height: 50px;
+    /*border: 1px solid;*/
+}
+
+/*评论区*/
+.opinion_commit_area{
+    min-height: 250px;
+    min-width: 980px;
+    /*border: 1px solid;*/
+}
+
+.opinion_commit_area:nth-child(2n){
+    background: url('../../res/imgs/team/div_bg.jpg');
+}
+
+.opinion_commit{
+    width: 960px;
+    min-height: 250px;
+    margin: auto;
+    padding: 20px 0 20px 0;
+    /*border: 1px solid;*/
+}
+
+.commit_student_msg{
+    width: 960px;
+    height: 70px;
+    /*border: 1px solid;*/
+}
+
+.stu_img,.reply_stu_img{
+    width: 70px;
+    height: 70px;
+    border-radius: 70px;
+}
+
+.stu_name,.reply_stu_name{
+    font-size: 17px;
+    padding-left: 10px;
+}
+
+.stu_slogan{
+    font-size: 17px;
+    color: #909090;
+    padding-left: 70px;
+}
+
+.commit_content{
+    /*border: 1px solid;*/
+    padding-top: 10px;
+    padding-bottom: 10px;
+    min-height: 80px;
+    padding-left: 80px;
+}
+
+.commit_function{
+    height: 40px;
+    padding: 20px;
+    text-align: right;
+}
+
+.commit_agree_icon,.commit_commit_icon{
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+}
+
+.commit_commit_icon{
+    margin-left: 15px;
+}
+
+.commit_agree_num,.commit_commit_num{
+    color: #ffbf24;
+}
+
+.commit_reply_area{
+    margin-top: 10px;
+    background:#fff;
+    min-height: 200px;
+    margin-left: 80px;
+    padding: 20px 40px 20px 20px;
+}
+
+
+.commit_reply_div{
+    border-bottom: 1px solid;
+    margin-top: 10px;
+}
+
+.reply_student_msg{
+    height: 70px;
+}
+
+.reply_commit_content{
+    padding-top: 10px;
+    padding-bottom: 20px;
+    min-height: 80px;
+    padding-left: 80px;
+}
+
+.my_reply_commit{
+    height: 100px;
+    resize : none;
+    padding: 10px;
+    border-radius: 5px;
+    -webkit-box-shadow:inset 1px 1px 10px #bababa;
+    background-color: #eeeeee;
+}
+
+
+.my_commit_to_commit{
+    background-color:  #F5AC23;
+    margin-left: 710px;
+    margin-top: 10px;
+}
+
+.questioner{
+    font-size: 17px;
+}
+
+
+.more_commit_function{
+    /*border: 1px solid;*/
+    width: 400px;
+    height: 100px;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 30px 0 30px 0;
+}
+
+#extend_more{
+    margin-left: 18px;
+    font-size: 18px;
+    color: #ffbf24;
+    cursor: pointer;
+}
+
+.my_commit_area{
+    min-height: 350px;
+    min-width: 980px;
+    /*border: 1px solid;*/
+}
+
+.my_commit_div{
+    width: 960px;
+    min-height: 350px;
+    margin: auto;
+    /*border: 1px solid;*/
+}
+
+#my_msg{
+    width: 960px;
+    height: 70px;
+    margin: auto;
+    /*border: 1px solid;*/
+}
+
+#my_img{
+    width: 70px;
+    height: 70px;
+    border-radius: 70px;
+}
+
+#my_name{
+    font-size: 17px;
+    padding-left: 10px;
+}
+
+#my_slogan{
+    font-size: 17px;
+    color: #909090;
+    padding-left: 70px;
+}
+
+#my_commit_here{
+    /*border: 1px solid;*/
+    padding-top: 10px;
+    padding-bottom: 10px;
+    height: 200px;
+    padding-left: 80px;
+}
+
+
+textarea:focus{
+    outline: none;
+}
+
+#my_commit_here textarea{
+    resize : none;
+    padding: 10px;
+    height: 180px;
+    border-radius: 5px;
+    -webkit-box-shadow:inset 1px 1px 10px #bababa;
+    background-color: #eeeeee;
+}
+
+#my_commit_to_topic{
+    text-align: right;
+    padding: 10px 0 10px 0;
+}
+
+#my_commit_to_topic a{
+    background-color:  #F5AC23;
+}
+
