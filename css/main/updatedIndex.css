@@ -106,7 +106,6 @@ body{
 
 .bannerBig {
     background-color: white;
-    height: 442px;
     margin-bottom: 10px;
     display: flex;
     flex-direction: row;
@@ -145,6 +144,7 @@ body{
     z-index: 90;
     flex: 1 0 80%;
     order: 1;
+    margin-bottom: 20px;
 }
 
 .imgList {
@@ -156,6 +156,12 @@ body{
     position: absolute;
     left: 0;
     top: 0;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: flex-start;
+    align-items: flex-start;
+    align-content: flex-start;
 }
 
 .bannerBig .imgList img {

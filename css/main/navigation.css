@@ -115,7 +115,9 @@ nav ul li{
     height:64px;
 }
 
-
+.guideBar{
+    box-shadow: none;
+}
 .mainBtn {
     /*background: rgba(255, 255, 255, 0.5);*/
     margin: 30px 5px 30px 13px;
