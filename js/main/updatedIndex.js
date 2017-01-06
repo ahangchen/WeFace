@@ -78,8 +78,8 @@ $(function(){
 
     });
     function changeTo(num){
-        var goLeft = num * 100;
-        $(".imgList").animate({left: "-" + goLeft + "%"},500);
+        var goLeft = num * 775;
+        $(".imgList").animate({left: "-" + goLeft + "px"},500);
     }
     $(".imgList").hover(function() {
         clearInterval(picTimer);

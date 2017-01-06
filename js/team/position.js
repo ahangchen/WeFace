@@ -10,8 +10,10 @@ $(function(){
         type:'post',
         url:cur_site + "team/job_type/",
         dataType:'json',
-        success:function(data){
-            console.log(data.msg);
+        success:function(data) {
+            if(data.err == 0) {
+                console.log(data.msg);
+            }
         },
         headers:{
             "Access-Control-Allow-Origin":"*"
