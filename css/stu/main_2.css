@@ -1,0 +1,172 @@
+*{
+    margin:0;
+    padding:0;
+}
+body,html{
+    width:100%;
+}
+.stu-base{
+    padding:40px 40px 20px 40px;
+    background-image: url(../../res/imgs/stu/background.svg);
+    background-size:cover;
+    display: flex;
+}
+.avatar{
+    padding:10px;
+    width:220px;
+    height:220px;
+}
+
+#popular{
+    width:200px;
+    text-align:center;
+}
+
+#info-list{
+    height:100px;
+}
+
+#base-name{
+    display: inline-block;
+    vertical-align: middle;
+    margin:-20px 15px 10px 0;
+    height:50px;
+    line-height: 50px;
+    font-size: 28px;
+}
+
+.like-comment{
+    display: inline-block;
+    width:50px;
+    height: 50px;
+    text-align: center;
+    background-color: #FFFFFF;
+    border-radius: 50%;
+    margin:0 10px;
+}
+
+.like-comment>img{
+    padding:10px;
+}
+
+#title{
+    margin-top:-10px;
+    font-size: 20px;
+}
+
+#signature{
+    font-size: 20px;
+    width:200px;
+    padding-top:5px;
+    border-top:1px solid black;
+}
+
+#tag-list{
+    margin-top:40px;
+    width:650px;
+    margin-left:-10px;
+    padding-top:40px;
+}
+
+.chip-local{
+    display: inline-block;
+    height:40px;
+    font-size:20px;
+    padding:6px 10px;
+    margin:0 10px;
+    background-color: #FFFFFF;
+    color:rgb(244,171,35);
+    border-radius:5px;
+    margin-bottom:20px;
+}
+
+.base-item1{
+    flex:1 1 30%;
+    padding-left:40px;
+}
+.base-item2{
+    flex:1 1 70%;
+    padding-top:10px;
+}
+
+.base-item1 img{
+    border-radius:50%;
+}
+
+
+.title{
+    font-size: 28px;
+    color:rgb(244,171,35);
+    text-align:center;
+    padding:50px 0;
+    z-index:1;
+}
+
+/*stu-about部分*/
+.stu-about{
+    background-color: #ffffff;
+    padding-bottom:80px;
+}
+.about-main{
+    display:flex;
+    margin:0 40px;
+    z-index:-10000;
+}
+
+.about-item{
+    flex:1 1 400px;
+    margin:0 20px;
+    overflow: hidden;
+}
+
+.about-title{
+    font-size: 28px;
+    color:#ffffff;
+    width:255px;
+    padding:12px 10px 4px 0;
+    margin:15px 0 0 -50px;
+    background-color:rgb(244,171,35);
+    transform: rotate(-32deg);
+    text-align:center;
+}
+
+.about-content{
+    font-size:18px;
+    margin-top:40px;
+    padding:25px;
+}
+
+/*stu-kill部分*/
+.stu-skill{
+    background-color: rgb(242,242,242);
+}
+
+#stu-canvas{
+}
+
+/*work部分*/
+.work-content{
+    padding:20px 80px;
+}
+
+.work-site{
+    float:right;
+}
+
+.work-name{
+    font-size:28px;
+    color:rgb(244,171,35);
+}
+
+.work-site{
+    font-size:24px;
+}
+
+a:link,a:visited{
+    color:rgb(244,171,35);
+    text-decoration:underline;
+}
+
+.work-p{
+    padding:30px 0;
+}
