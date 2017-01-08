@@ -154,6 +154,9 @@ $(document).ready(function(){
         $(".topic_title").on('click',function(){
             window.location.href="topic_detail.html?tid="+tid;
         });
+        $(".commit_icon").on("click",function(){
+            window.location.href="topic_detail.html?tid="+tid;
+        });
 
     }
 

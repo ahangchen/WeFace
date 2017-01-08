@@ -29,19 +29,19 @@ html{
 .nav_content{
     width: 960px;
     min-height: 260px;
-    margin: auto;
+    margin: 10px auto;
+    overflow: hidden;
     /*border: 1px solid;*/
-    padding: 20px 0;
 }
 
 .opinion_msg{
     float: left;
-    height: 230px;
+    min-height: 220px;
     width: 600px;
+    margin: 20px 4px;
     border-right: 2px solid;
     /*border: 1px solid;*/
 }
-
 
 .question_icon{
     width: 40px;
@@ -56,16 +56,14 @@ html{
 
 .topic_detail{
     /*border: 1px solid;*/
-    padding-top: 10px;
-    height: 130px;
-    padding-bottom: 10px;
-    padding-left: 70px;
+    padding:10px 0 10px 70px;
+    min-height: 115px;
 }
 
 .topic_function{
     /*border: 1px solid;*/
-    height: 60px;
-    padding: 20px 0 0 70px;
+    height: 65px;
+    padding: 32px 0 0 70px;
 }
 
 #leave_msg{
@@ -75,7 +73,7 @@ html{
 #online_people_num{
     display: inline-table;
     height: 36px;
-    padding-left: 20px;
+    margin-left: 20px;
     padding-top: 15px;
     color: #909090;
     vertical-align: middle;
@@ -84,21 +82,25 @@ html{
 .topic_agree_icon{
     width: 30px;
     height: 30px;
-    margin-left: 210px;
+    margin-left: 200px;
     cursor: pointer;
 }
 
 
 .topic_agree_num{
+    display: inline-table;
+    height: 30px;
     color: #ffbf24;
-    font-size: 20px;
+    font-size: 18px;
+    vertical-align: bottom;
 }
 
+
 .team_basic_msg{
-    float: right;
-    padding: 10px;
-    height: 230px;
-    width: 350px;
+    float: left;
+    margin: 20px 4px;
+    min-height: 220px;
+    width: 340px;
     /*border: 1px solid;*/
 }
 
@@ -117,24 +119,38 @@ html{
 }
 
 #team_name{
-    font-size: 17px;
+    font-size: 16px;
     text-align: center;
 }
 
-#team_slogan{
-    background-color: #ffbf24;
-    font-size: 17px;
+.team_label_div{
+    width: 320px;
     margin-left: auto;
     margin-right: auto;
-    display: block;
+    min-height: 45px;
+    /*border: 1px solid;*/
+    text-align: center;
+    padding-bottom: 4px;
+}
+
+.team_label{
+    background-color: #ffbf24;
+    font-size: 13px;
+    width: 80px;
+    margin-top: 4px;
+    margin-left: 2px;
     color: #fff;
     border-radius: 10px;
     text-align: center;
-    width: 200px;
+}
+
+.contact_div{
+    /*border: 1px solid;*/
+    height: 61px;
 }
 
 .contact{
-    margin-top: 15px;
+    margin-top: 2px;
     height: 30px;
     width: 300px;
     margin-left: auto;

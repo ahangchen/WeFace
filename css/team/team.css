@@ -431,3 +431,9 @@ html{
 .commit_num{
     margin-left: 5px;
 }
+
+/*对团队基本信息的编辑*/
+#edit_team_basic{
+    color: orange;
+    cursor: pointer;
+}
