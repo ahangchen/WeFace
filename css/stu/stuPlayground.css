@@ -1,0 +1,240 @@
+
+.selectedIndex{
+    background: transparent;
+    border-bottom: rgb(244, 171, 35) 2px solid;
+}
+/*广告栏的样式*/
+.bannerBig {
+    background-color: white;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+    padding: 10px;
+}
+
+.preBtn, .nextBtn {
+    height: 100px;
+    width: 100px;
+    border: none;
+    background-color: transparent;
+    z-index: 100;
+
+}
+
+.preBtn {
+    order: 0;
+}
+
+.nextBtn {
+    order: 2;
+}
+
+.imgBox {
+    position: relative;
+    background-color: gray;
+    height: 362px;
+    width: 80%;
+    /*margin-left: 50px;*/
+    /*margin-right: 50px;*/
+    list-style-type: none;
+    overflow: hidden;
+    z-index: 90;
+    flex: 1 0 80%;
+    order: 1;
+    margin-bottom: 20px;
+}
+
+.imgList {
+    list-style-type: none;
+    width: 300%;
+    height: 362px;
+    margin: 0;
+    padding-left: 0;
+    position: absolute;
+    left: 0;
+    top: 0;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: flex-start;
+    align-items: flex-start;
+    align-content: flex-start;
+}
+
+.bannerBig .imgList img {
+    display: block;
+    height: 362px;
+    width: 100%;
+}
+
+.bannerBig .imgBox li {
+    width: 33.333333333%;
+    list-style-type: none;
+}
+/*---*/
+.joinSologan{
+    height: 200px;
+    padding: 30px;
+    font-size: 2em;
+    background-image: url("../../res/imgs/main/1.jpg");
+    text-align: center;
+}
+#showYourself{
+    font-size: 0.8em;
+}
+h4,h6{
+    text-align: center;
+}
+h4{
+    color: rgb(244, 171, 35);
+}
+.cardDiv{
+    background-color: white;
+    padding: 30px;
+}
+.hotMembers{
+    margin: 50px auto;
+    min-width: 891px;
+}
+.hotMember{
+    width: 30%;
+    margin:5px 1.5%;
+    display: inline-block;
+
+}
+.memberTags .chip{
+    margin-top: 10px;
+    background-color: rgb(244, 171, 35);
+    color: white;
+    border-radius: 20px;
+    font-weight: lighter;
+}
+
+.memberImg{
+    width: 100%;
+    height: 150px;
+    background-color: #353535;
+}
+.memberDetail{
+    padding: 10px;
+}
+.memberInfo{
+    color: rgb(244, 171, 35);
+}
+.memberInfo div{
+    color: rgb(244,171,35);
+    display: inline-block;
+    font-size: 2em;
+}
+#searchDiv{
+    width: 100%;
+    margin-top: 30px;
+}
+.domainTypes{
+    height: 200px;
+}
+.engineerTab,.artTab,.finacialTab,.humanTab{
+    display: inline-block;
+    width: 54px;
+    height: 54px;
+    margin: 0 30px;
+    cursor: pointer;
+}
+.engineerTab{
+    background-image: url("../../res/imgs/stu/engineer.svg");
+}
+.artTab{
+    background-image: url("../../res/imgs/stu/art.svg");
+}
+.finacialTab{
+    background-image: url("../../res/imgs/stu/money.svg");
+}
+.humanTab{
+    background-image: url("../../res/imgs/stu/human.svg");
+}
+.line{
+    height: 40px;
+    width: 100%;
+    border-bottom: rgb(244 , 171, 35) solid 2px;
+}
+#selectedTab{
+    width: 54px;
+    height: 54px;
+    border-width: 27px;
+    border-style: solid;
+    border-color:  transparent transparent rgb(244, 171, 35);
+    position: relative;
+    top: -54px;
+    left:30px;
+}
+#selectedTab:before{
+    position: absolute;
+    content: '';
+    width: 54px;
+    height: 54px;
+    border-width: 27px;
+    border-style: solid;
+    border-color:  transparent transparent rgb(242, 242, 242);
+    top: -24px;
+    left: -27px;
+    z-index: 10;
+}
+.introText{
+    margin-left: 20px;
+    margin-top: 10px;
+}
+.topMembers{
+    margin: 30px auto;
+    padding: 20px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: center;
+    align-items: flex-start;
+    align-content: flex-start;
+}
+.topMember .memberImg{
+    height: 250px;
+}
+.topMember{
+    order: 0;
+    display: inline-block;
+    width: 30%;
+    min-width: 290px;
+    min-height: 418px;
+    max-height: 418px;
+}
+.lessInfoMembers{
+    margin-left: 20px;
+    order: 1;
+    width: 65%;
+    display: inline-block;
+    min-width: 600px;
+    min-height: 438px;
+    max-height: 438px;
+}
+.lessInfoMember{
+    display: inline-block;
+    width: 45%;
+    margin-right: 3%;
+    min-width: 270px;
+    margin-bottom: 20px;
+}
+.lessInfoMember .memberInfo{
+    text-align: center;
+    font-size: 9px;
+
+}
+.lessInfoMember .memberInfo div{
+    color: rgb(112, 112, 112);
+}
+.lessInfoMember .imgFrame{
+    width: 100px;
+    height: 100px;
+    border-radius: 50px;
+    overflow: hidden;
+    margin: 5px auto;
+}

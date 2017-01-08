@@ -56,7 +56,8 @@ $(function(){
         for (var i = 0; i < lis.length; i++) {
             var bannerUrl = data.banner[i].bannerImg;
             var imgHref = data.banner[i].bannerUrl;
-            $(lis[i]).attr("src",cur_media + bannerUrl);
+            // $(lis[i]).attr("src",cur_media + bannerUrl);
+            $(lis[i]).attr("src",bannerUrl);
             $(link[i]).attr("href",imgHref);
         }
     });

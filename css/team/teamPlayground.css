@@ -1,0 +1,276 @@
+*{
+    color: rgb(112, 112, 112);
+}
+/*广告栏的样式*/
+.bannerBig {
+    background-color: white;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+    padding: 10px;
+}
+
+.preBtn, .nextBtn {
+    height: 100px;
+    width: 100px;
+    border: none;
+    background-color: transparent;
+    z-index: 100;
+
+}
+
+.preBtn {
+    order: 0;
+}
+
+.nextBtn {
+    order: 2;
+}
+
+.imgBox {
+    position: relative;
+    background-color: gray;
+    height: 362px;
+    width: 80%;
+    /*margin-left: 50px;*/
+    /*margin-right: 50px;*/
+    list-style-type: none;
+    overflow: hidden;
+    z-index: 90;
+    flex: 1 0 80%;
+    order: 1;
+    margin-bottom: 20px;
+}
+
+.imgList {
+    list-style-type: none;
+    width: 300%;
+    height: 362px;
+    margin: 0;
+    padding-left: 0;
+    position: absolute;
+    left: 0;
+    top: 0;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: flex-start;
+    align-items: flex-start;
+    align-content: flex-start;
+}
+
+.bannerBig .imgList img {
+    display: block;
+    height: 362px;
+    width: 100%;
+}
+
+.bannerBig .imgBox li {
+    width: 33.333333333%;
+    list-style-type: none;
+}
+/*---*/
+/*------------------------------------------------热门团队板块-----------------------------*/
+.hotTeamsDiv{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+    padding: 30px;
+}
+.hotTeamsDiv h5{
+    order: 0;
+    color: rgb(244, 171, 35);
+}
+.moreBtn{
+    order: 1;
+    align-self: flex-end;
+}
+.hotTeams{
+    order: 2;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+}
+.hotTeams .preBtnOfTeams{
+    order: 0;
+}
+.hotTeams .nextBtnOfTeams{
+    order: 2;
+}
+.hotTeams .teamList{
+    order: 1;
+}
+
+.hotTeam {
+    height: 450px;
+    margin-bottom: 10px;
+    background: rgba(255, 255, 255, 0.8);
+}
+
+.preBtnOfTeams, .nextBtnOfTeams {
+    height: 100px;
+    width: 100px;
+    border: none;
+    background-color: transparent;
+}
+
+.hotTeams {
+    margin: 5px auto;
+    position: relative;
+    min-width: 1040px;
+    max-width: 1240px;
+    height: 250px;
+    padding-left: 0;
+    padding-right: 30px;
+    overflow: hidden;
+
+}
+
+.teamList {
+    list-style-type: none;
+    width: 860px;
+    height: 200px;
+    min-width: 860px;
+    max-width: 860px;
+    margin: 5px 10px;
+}
+
+.teamList li {
+    display: inline-block;
+    margin-left: 10px;
+    width: 200px;
+    height: 200px;
+    min-width: 200px;
+    max-width: 200px;
+}
+
+.teamList a {
+    display: block;
+}
+
+.teamList a:visited {
+    text-decoration: none;
+}
+.imgFrame{
+    width: 120px;
+    height: 120px;
+    overflow: hidden;
+    border-radius: 60px;
+    border: rgb(112,112,112) solid 2px;
+}
+.teamList .imgDiv {
+    position: relative;
+    z-index: 22;
+    width: 200px;
+    height: 150px;
+    display: block;
+    padding: 15px 40px;
+}
+
+.teamList .desc {
+    text-align: center;
+    font-weight: normal;
+    padding: 10px;
+    background-color: rgb(244, 171, 35);
+    color: white;
+    width: 100%;
+    height: 50px;
+    font-size: 25px;
+    margin-right: 16px;
+    /*border-top: white solid 2px;*/
+}
+
+.teamList span {
+    text-align: center;
+    vertical-align: middle;
+    /*line-height: 200px;*/
+    position: absolute;
+    top: 25px;
+    width: 200px;
+    height: 150px;
+    max-height: 150px;
+    overflow: hidden;
+    margin-right: 35px;
+    border: gray solid 2px;
+    visibility: hidden;
+    background: rgba(190, 190, 190, 0.5);
+    color: black;
+}
+
+.teamList a:hover span {
+    visibility: visible;
+}
+
+/*互动社区的样式设计*/
+.communityDiv{
+    padding: 30px;
+    background-color: white;
+}
+.communityDiv h5{
+    color: rgb(244, 171, 35);
+    text-align: center;
+}
+.moreBtn{
+    text-align: right;
+}
+.communityCards{
+    width: 900px;
+    max-width: 900px;
+    min-width: 900px;
+    margin: 10px auto;
+}
+.comunityCard{
+    display: inline-block;
+    width: 45%;
+    margin: 10px 2%;
+    padding: 10px;
+    max-width: 570px;
+}
+.comunityCard .teamInfoRight{
+    width: 320px;
+    display: inline-block;
+}
+.comunityCard .teamInfo .teamImg{
+    display: inline-block;
+    width: 50px;
+    height: 50px;
+    border-radius: 25px;
+    border: rgb(112,112,112) solid 2px;
+    vertical-align: middle;
+}
+.comunityCard .teamInfo .teamName{
+    display: inline-block;
+    vertical-align: middle;
+    font-size: 20px;
+    margin: 10px;
+    width: 45%;
+}
+.comunityCard .teamInfo .date{
+    display: inline-block;
+    width: 45%;
+    text-align: right;
+}
+.question{
+    margin: 10px;
+    font-size: 20px;
+}
+.quesDesc{
+    font-size:14px;
+    margin: 10px;
+}
+.response{
+    padding: 10px;
+}
+.notes, .goods{
+    display: inline-block;
+}

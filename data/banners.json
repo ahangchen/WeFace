@@ -1,7 +1,7 @@
 {
 	"banner":[
-    {"bannerImg":"../../res/imgs/main/1.jpg","bannerUrl":"../main/test/bannerRes.html"},
-    {"bannerImg":"../../res/imgs/main/2.jpg","bannerUrl":"../main/test/bannerRes.html"},
-    {"bannerImg":"../../res/imgs/main/3.jpg","bannerUrl":"../main/test/bannerRes.html"}
+    {"bannerImg":"../res/imgs/main/1.jpg","bannerUrl":"../main/test/bannerRes.html"},
+    {"bannerImg":"../res/imgs/main/2.jpg","bannerUrl":"../main/test/bannerRes.html"},
+    {"bannerImg":"../res/imgs/main/3.jpg","bannerUrl":"../main/test/bannerRes.html"}
     ]
 }

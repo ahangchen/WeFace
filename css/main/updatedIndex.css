@@ -50,12 +50,18 @@ body{
     order: 4;
     flex: 0 1 auto;
     align-self: center;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: flex-start;
+    align-items: center;
+    align-content: center;
 }
 .entryBar{
     order: 5;
     flex: 0 1 auto;
     align-self: center;
-    width: 100%;
+    margin: 80px auto 30px auto;
 }
 .search-bar{
     position: relative;
@@ -69,11 +75,17 @@ body{
     /*margin-bottom: 30px;*/
 
 }
-
+.entryBar{
+    width: 70%;
+    min-width: 896px;
+    height: 300px;
+}
 .teamEntry,.personEntry{
     width: 45%;
+
     display: inline-block;
     text-align: center;
+    padding: 50px;
 }
 .teamEntry div,.personEntry div{
     margin-top: 30px;
@@ -93,11 +105,11 @@ body{
 .dividerBar{
     display: inline-block;
     position: relative;
-    top: -60px;
+    top: -63px;
 }
 .dividerBar .up,.dividerBar .down{
     width: 3px;
-    height: 70px;
+    height: 120px;
     background-color: lightgray;
     position: relative;
     left: 7px;
@@ -113,6 +125,7 @@ body{
     justify-content: center;
     align-items: center;
     align-content: center;
+    padding: 10px;
 }
 
 .preBtn, .nextBtn {
@@ -180,14 +193,28 @@ body{
     display: inline-block;
     margin: 15px;
 }
-.searchItems .chip{
+.chip{
+    background: transparent;
+    color: rgb(112,112,112);
+    cursor: pointer;
+}
+.selectedChip{
     color: white;
-    background-color: #ff8f00;
+    background-color: rgb(244, 171, 35);
     font-size: 0.9em;
     margin-right: 10px;
 }
+
 .hot-search{
     text-align: center;
     width: 80%;
     margin: 15px auto;
+}
+.teamEntry{
+    background-image: url('../../res/imgs/main/findTeam.svg');
+    background-size:100% auto;
+}
+.personEntry{
+    background-image: url('../../res/imgs/main/findMember.svg');
+    background-size:100% auto;
 }

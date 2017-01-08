@@ -29,4 +29,7 @@ $(document).ready(function(){
     else {
         $('.toIndexLink').attr('href',wefaceBace_site + "main/index.html");
     }
+
+
+
 });

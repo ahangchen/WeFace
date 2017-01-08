@@ -1,13 +1,13 @@
 {
-	"teams":[
-	{"teamId":1,"teamName":"1队","teamDesc":"11111111","teamImg":"../res/imgs/main/team/team9.png"},
-	{"teamId":2,"teamName":"2队","teamDesc":"22222","teamImg":"../res/imgs/main/team/team7.png"},
-	{"teamId":3,"teamName":"3队","teamDesc":"33333","teamImg":"../res/imgs/main/team/team8.png"},
-	{"teamId":4,"teamName":"4队","teamDesc":"22","teamImg":"../res/imgs/main/team/team2.jpg"},
-	{"teamId":5,"teamName":"5队","teamDesc":"3333","teamImg":"../res/imgs/main/team/team3.jpg"},
-	{"teamId":6,"teamName":"6队","teamDesc":"5555","teamImg":"../res/imgs/main/team/team5.jpg"},
-	{"teamId":7,"teamName":"7队","teamDesc":"666666","teamImg":"../res/imgs/main/team/team1.jpg"},
-	{"teamId":8,"teamName":"8队","teamDesc":"777777","teamImg":"../res/imgs/main/team/team4.jpg"},
-	{"teamId":9,"teamName":"9队","teamDesc":"999999","teamImg":"../res/imgs/main/team/team6.jpg"}
+	"messages":[
+		{"logo_path": "../res/imgs/main/1.jpg","name": "WEMEET", "about":"pupupu","id":"1"},
+		{"logo_path": "../res/imgs/main/1.jpg","name": "WEMEET", "about":"pupupu","id":"2"},
+		{"logo_path": "../res/imgs/main/1.jpg","name": "WEMEET", "about":"pupupu","id":"3"},
+		{"logo_path": "../res/imgs/main/1.jpg","name": "WEMEET", "about":"pupupu","id":"4"},
+		{"logo_path": "../res/imgs/main/1.jpg","name": "WEMEET", "about":"pupupu","id":"5"},
+		{"logo_path": "../res/imgs/main/1.jpg","name": "WEMEET", "about":"pupupu","id":"6"},
+		{"logo_path": "../res/imgs/main/1.jpg","name": "WEMEET", "about":"pupupu","id":"7"},
+		{"logo_path": "../res/imgs/main/1.jpg","name": "WEMEET", "about":"pupupu","id":"8"},
+		{"logo_path": "../res/imgs/main/1.jpg","name": "WEMEET", "about":"pupupu","id":"9"}
 	]
 }
