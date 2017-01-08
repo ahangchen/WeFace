@@ -147,6 +147,7 @@ nav ul li{
 }
 .guideBar{
     box-shadow: none;
+    min-width: 1000px;
 }
 .mainBtn {
     /*background: rgba(255, 255, 255, 0.5);*/

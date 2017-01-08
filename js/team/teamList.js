@@ -2,7 +2,29 @@
  * Created by jewel on 2016/12/25.
  */
 $(function(){
-   $.ajax({
+   // 标签的选择
+    var chips = $('.domainClasses .chip')
+    for(var i = 0; i < chips.length; i++){
+        if(i === 0){
+            $(chips[i]).click(function(){
+                for(var j = 1; j < chips.length; j++){
+                    $(chips[j]).removeClass('selectedChip');
+                }
+                $(this).addClass('selectedChip');
+            })
+        }
+        else{
+            $(chips[i]).click(function(){
+                $(chips[0]).removeClass('selectedChip')
+                if($(this).hasClass("selectedChip")){
+                    $(this).removeClass("selectedChip");
+                }else{
+                    $(this).addClass("selectedChip");
+                }
+            });
+        }
+    }
+    $.ajax({
        type:'get',
        url:'../data/teamList.json',
        dataType: "json",
