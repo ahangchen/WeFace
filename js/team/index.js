@@ -990,6 +990,8 @@ $(document).ready(function(){
                     success: function (data) {
                         if(data.res.length!=0){
                             $(".not_find_div").remove();
+                            $("#search_member_name").css('width','350px');
+                            $("#search_again").remove();
                             student_exist(data.res,new_member,delete_member);
                         }
                     }
