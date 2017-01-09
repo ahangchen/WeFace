@@ -65,6 +65,9 @@ html{
 
 #team_name{
     font-size: 20px;
+    display: inline-block;
+    vertical-align: middle;
+    color:rgb(112,112,112);
 }
 
 #favourite,#chat{
@@ -84,12 +87,13 @@ html{
 
 #team_slogan{
     font-size: 18px;
+    color:rgb(112,112,112);
 }
 
 .label_div{
-    min-height: 60px;
+    min-height: 30px;
     padding-right: 10px;
-    padding-bottom: 10px;
+    padding-bottom: 30px;
     /*border: 1px solid;*/
 }
 
@@ -97,11 +101,11 @@ html{
     background-color: #fff;
     font-size: 18px;
     margin-left: 10px;
-    color: orange;
+    color: rgb(244,171,35);
     border-radius: 10px;
     margin-top: 15px;
     text-align: center;
-    width: 110px;
+    width: 115px;
 }
 
 .team_label:first-child{
@@ -147,9 +151,17 @@ html{
 
 
 .sub_title{
-    color: orange;
-    text-align: center;
+    margin: auto;
+    width: 400px;
+    /*border: 1px solid;*/
+    padding-left:140px;
+}
+
+.sub_title span{
+    color: rgb(244,171,35);
     font-size: 20px;
+    display: inline-block;
+    vertical-align: middle;
 }
 
 .introduction_div{
@@ -165,13 +177,14 @@ html{
     margin-right: auto;
     font-size: 17px;
     margin-top: 40px;
+    color:rgb(112,112,112);
 }
 
 .member_div{
     min-width: 980px;
     min-height: 350px;
     padding: 40px;
-    background: url('../../res/imgs/team/div_bg.jpg');
+    background-color: rgb(242,242,242);
 }
 
 
@@ -198,26 +211,26 @@ html{
     display: block;
     text-align: center;
     margin-top: 10px;
-    color: orange;
+    color: rgb(244,171,35);
     font-size: 17px;
 }
 
 .member_id{
     text-align: center;
     margin-top: 5px;
-    color: #000;
+    color:rgb(112,112,112);
     display: block;
 }
 
 .photo_div{
     min-width: 980px;
-    min-height: 600px;
+    min-height: 400px;
     padding: 40px;
 }
 
 .team_photo_slider{
     width: 800px;
-    height: 500px;
+    height: 450px;
     margin-left: auto;
     margin-right: auto;
     margin-top: 50px;
@@ -225,13 +238,13 @@ html{
 
 
 .slider .indicators .indicator-item.active {
-    background-color: orange;
+    background-color: rgb(244,171,35);
 }
 
 .product_div{
     min-width: 980px;
     min-height: 450px;
-    background: url('../../res/imgs/team/div_bg.jpg');
+    background-color: rgb(242,242,242);
     padding: 40px;
 }
 
@@ -265,7 +278,7 @@ html{
     position: relative;
     width: 260px;
     height: 150px;
-    border-top: 60px solid orange;
+    border-top: 60px solid rgb(244,171,35);
     border-right: 32px solid transparent;
     border-bottom: 60px solid transparent;
     border-left: 110px solid transparent;
@@ -298,7 +311,7 @@ html{
     display: table;
     position: relative;
     padding: 30px;
-    background-color: orange;
+    background-color: rgb(244,171,35);
     left: 60px;
     bottom: 70px;
     opacity: 0;
@@ -319,7 +332,7 @@ html{
 .footer{
     min-width: 980px;
     height: 250px;
-    background-color: orange;
+    background-color: rgb(244,171,35);
     padding: 40px;
 }
 
@@ -364,7 +377,7 @@ html{
 }
 
 .team_topic_div:nth-child(2n){
-    background: url('../../res/imgs/team/div_bg.jpg');
+    background-color: rgb(242,242,242);
 }
 
 
@@ -425,7 +438,7 @@ html{
 }
 
 .agree_num,.commit_num{
-    color: #ffbf24;
+    color: rgb(244,171,35);
 }
 
 .commit_num{
@@ -434,6 +447,118 @@ html{
 
 /*对团队基本信息的编辑*/
 #edit_team_basic{
-    color: orange;
+    margin-left: 20px;
+    background-color: rgb(244,171,35);
+}
+
+#edit_team_basic_icon,#edit_team_member_icon,#edit_team_photo_icon{
+    color: white;
     cursor: pointer;
 }
+
+#edit_team_intro,#edit_team_member,#edit_team_photo{
+    margin-left: 50px;
+    background-color: rgb(244,171,35);
+    display: inline-block;
+}
+
+#edit_team_contact{
+    margin-left: 50px;
+    background-color: #fff;
+    display: inline-block;
+}
+
+#edit_team_contact_icon{
+    color: rgb(244,171,35);
+    cursor: pointer;
+}
+
+/*添加成员模态框的样式*/
+#close_add_member_modal{
+    position: absolute;
+    z-index: 10;
+    right: 10px;
+    top: 10px;
+    cursor: pointer;
+    color: rgb(244,171,35);
+}
+
+#search_member_btn,#invite_member_btn,#add_new_member_btn{
+    background-color: rgb(244,171,35);
+}
+
+.modal_function{
+    max-width: 130px;
+    height: 40px;
+    margin: auto;
+}
+
+#search_member_btn i,#add_new_member_btn i{
+    color: #fff;
+}
+
+#search_member_btn p,#invite_member_btn p,#add_new_member_btn p{
+    color: #fff;
+    display: inline-block;
+    vertical-align: top;
+}
+
+#add_member_modal_content{
+    width: 400px;
+    clear: both;
+    margin: 40px auto;
+    font-size: 15px;
+    color:rgb(112,112,112);
+}
+
+.search_member_name_area,.search_member_mail_area{
+    width: 350px;
+    margin: auto;
+}
+
+.not_find_div{
+    width: 400px;
+    margin: auto;
+}
+
+#not_find_msg{
+    width: 200px;
+    margin: auto;
+    color: red;
+}
+
+#invite_msg{
+    margin: 20px auto;
+    font-size: 15px;
+    color:rgb(112,112,112);
+}
+
+.find_div{
+    width: 350px;
+    margin: auto;
+}
+
+.member_possible_avatar_area{
+    width: 350px;
+    margin: 50px auto;
+    text-align: center;
+}
+
+#member_avatar{
+    width: 100px;
+    height: 100px;
+    border-radius: 100px;
+}
+
+.dropdown-content li > a, .dropdown-content li > span{
+    color: rgb(112,112,112);
+}
+
+#search_again{
+    margin-left: 30px;
+    background-color: rgb(244,171,35) ;
+    color: #fff;
+}
+
+
+

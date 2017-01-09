@@ -8,6 +8,7 @@
     <link rel="stylesheet"  href="../css/materialize.css">
     <link href="https://fonts.css.network/icon?family=Material+Icons" rel="stylesheet">
     <link rel="stylesheet"  href="../css/team/team.css">
+    <link rel="stylesheet"  href="../css/team/team_edit.css">
 </head>
 <body>
     <div class="header">
@@ -19,15 +20,15 @@
 
     <div class="team_nav">
         <div class="team_nav_content">
-            <i class="material-icons" id="edit_team_basic">edit</i>
             <div class="team_nav_img">
                 <img  src="" id="team_logo">
             </div>
             <div class="team_nav_word">
                 <div class="team_nav_word_title">
-                    <span id="team_name"></span>
-                    <a id="favourite" class="btn-floating btn waves-effect waves-light white"><img src="../res/imgs/team/收藏.svg"></a>
-                    <a id="chat" class="btn-floating btn waves-effect waves-light white"><img src="../res/imgs/team/私信.svg"></a>
+                    <p id="team_name"></p>
+                    <a id="favourite" class="btn-floating  waves-effect waves-light white"><img src="../res/imgs/team/收藏.svg"></a>
+                    <a id="chat" class="btn-floating waves-effect waves-light white"><img src="../res/imgs/team/私信.svg"></a>
+                    <a id="edit_team_basic" class="btn-floating waves-effect waves-light"><i class="material-icons" id="edit_team_basic_icon">edit</i></a>
                 </div>
                 <div class="slogan_div">
 
@@ -52,32 +53,45 @@
     <div class="switch_tab">
 
         <div class="introduction_div">
-            <p class="sub_title">团队介绍</p>
+            <div class="sub_title">
+                <span>团队介绍</span>
+                <a id="edit_team_intro" class="btn-floating waves-effect waves-light"><i class="material-icons" id="edit_team_intro_icon">edit</i></a>
+            </div>
             <p id="team_intro"></p>
         </div>
 
         <div class="member_div">
-            <p class="sub_title">团队成员</p>
-            <div class="member_slider carousel">
-                <!--<div class="team_member">-->
-                    <!--<img  src="../res/imgs/team/touxiang1.jpg">-->
-                    <!--<span class="member_name">吃土小王子</span>-->
-                    <!--<span class="member_id">创始人</span>-->
-                <!--</div>-->
+            <div class="sub_title">
+                <span>团队成员</span>
+                <a id="edit_team_member" class="btn-floating waves-effect waves-light"><i class="material-icons" id="edit_team_member_icon">edit</i></a>
             </div>
+            <!--<div class="member_slider carousel">-->
+                <!--<div class="team_member">-->
+                    <!--<a class="carousel-item">-->
+                        <!--<img src="../res/imgs/team/touxiang1.jpg">-->
+                         <!--<span class="member_name">吃土小王子</span>-->
+                        <!--<span class="member_id">创始人</span>-->
+                    <!--</a>-->
+                <!--</div>-->
+            <!--</div>-->
         </div>
 
         <div class="photo_div">
-            <p class="sub_title">团队风采</p>
-            <div class="slider team_photo_slider">
-                <ul class="slides">
-                    <!--<li><img class="team_photo" src="../res/imgs/team/p1.jpg" style="background-size:800px 400px;"></li>-->
-                </ul>
+            <div class="sub_title">
+                <span>团队风采</span>
+                <a id="edit_team_photo" class="btn-floating waves-effect waves-light"><i class="material-icons" id="edit_team_photo_icon">edit</i></a>
             </div>
+            <!--<div class="slider team_photo_slider">-->
+                <!--<ul class="slides">-->
+                    <!--<li><img class="team_photo" src="../res/imgs/team/p1.jpg" style="background-size:800px 400px;"></li>-->
+                <!--</ul>-->
+            <!--</div>-->
         </div>
 
         <div class="product_div">
-            <p class="sub_title">团队产品</p>
+            <div class="sub_title">
+                <span>团队产品</span>
+            </div>
             <div class=team_products>
                 <!--<div class="team_product" style="background-image: url('../res/imgs/team/p1.jpg');background-size: 400px 280px">-->
                     <!--<div class="product_name_area"><p class="product_number">产品一</p><p class="product_name">饮料包装</p></div>-->
@@ -98,10 +112,11 @@
         </div>
 
         <div class="footer">
-            <p class="sub_title" style="color:white">联系我们</p>
+            <div class="sub_title">
+                <span style="color:white">联系我们</span>
+                <a id="edit_team_contact" class="btn-floating waves-effect waves-light"><i class="material-icons" id="edit_team_contact_icon">edit</i></a>
+            </div>
             <div  class="contact">
-                <!--<p style="display: inline-block;height: 30px;"><i class="material-icons" style="font-size: 30px;">language</i></p>-->
-                <!--<p id="web_site">www.yuruilee.com</p>-->
                 <i class="material-icons">language</i>
                 <div id="web_site"></div>
             </div>
@@ -111,6 +126,54 @@
             </div>
 
         </div>
+    </div>
+
+    <!--成员和照片删除时候出来的选择框-->
+    <div id="delete_modal" class="modal" style="width: 500px;">
+        <div class="modal-content">
+            <p>你确定要删除么?</p>
+        </div>
+        <div class="modal-footer">
+            <a  id="confirm_delete_photo" class=" modal-action modal-close waves-effect waves-green btn-flat">确定</a>
+            <a  id="remain_photo" class=" modal-action modal-close waves-effect waves-green btn-flat">取消</a>
+        </div>
+    </div>
+
+    <!--添加成员的时候出来的模态框-->
+    <div id="add_member_modal" class="modal modal-fixed-footer">
+        <i class="material-icons modal-close" id="close_add_member_modal">close</i>
+
+        <div class="modal-content add_member_modal_content">
+            <div id="add_member_modal_content">
+                输入姓名，搜索匹配头像和账号，可通过点击成员头像查看该成员个人主页。若有重名，请核对后进行选择。若成员未注册推荐注册，完善个人主页。
+            </div>
+            <div class="input-field search_member_name_area">
+                <input id="search_member_name" type="text" class="validate">
+                <label for="search_member_name">输入成员姓名</label>
+            </div>
+            <!--<div class="find_div">-->
+                <!--<select id="member_possible_mail">-->
+                    <!--<option value="">111111111</option>-->
+                    <!--<option value="">211111111</option>-->
+                <!--</select>-->
+                <!--<label for="member_possible_mail"></label>-->
+                <!--<div class="member_possible_avatar_area">-->
+                    <!--<img id="member_avatar" src="../res/imgs/team/p1.jpg">-->
+                <!--</div>-->
+            <!--</div>-->
+            <!--<div class="not_find_div">-->
+                <!--<p id="not_find_msg">未找到该名字匹配的账号</p>-->
+                <!--<p id="invite_msg">请在下方填写该成员的一个邮箱,我们将发送一份邀请注册的邮件至此邮箱,即可完成注册,在该成员完成注册之前,无法在成员列表显示该成员的姓名和头像</p>-->
+                <!--<div class="input-field search_member_name_area">-->
+                    <!--<input id="enter_member_mail" type="text" class="validate">-->
+                    <!--<label for="enter_member_mail">输入一个该成员的邮箱</label>-->
+                <!--</div>-->
+            <!--</div>-->
+        </div>
+        <div class="modal-footer add_member_modal_footer">
+
+        </div>
+
     </div>
 
     <script type="text/javascript" src="../js/jquery-2.1.1.min.js"></script>
