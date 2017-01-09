@@ -904,7 +904,7 @@ $(document).ready(function(){
                             else{
                                 new_member.push({"name":member_mail_address,"logo_path":"student/avatar/default.jpg","id":data.msg});
                                 $("#close_add_member_modal").click();
-                                show_team_member_edit_area();
+                                show_team_member_edit_area(new_member,delete_member);
                             }
                         }
                     });
