@@ -856,7 +856,6 @@ $(document).ready(function(){
                         dataType: "json",
                         data: {'name': search_member_name},
                         success: function (data) {
-                            console.log(data);
                             if(data.res.length==0){
                                 student_not_exist(search_member_name,new_member,delete_member);
                             }
@@ -1061,7 +1060,7 @@ $(document).ready(function(){
                     if(has_creator==0){
                         has_creator=1;
                         member_edit_div.append('<div class="member_origin"><img src="'+cur_media+new_member[j].logo_path+'">'+
-                            '<div class="delete_member" id=member_photo'+member_id+'><i class="material-icons">remove</i></div><p class="member_origin_name">'+new_member[j].name+'</p>'+
+                            '<div class="delete_member" id=member_photo'+new_member[j].id+'><i class="material-icons">remove</i></div><p class="member_origin_name">'+new_member[j].name+'</p>'+
                             '<p class="member_id">创始人</p></div>');
                     }
                     else{
