@@ -168,6 +168,10 @@
     border-radius: 60px;
     border: rgb(112,112,112) solid 2px;
 }
+.imgFrame img{
+    width: 120px;
+    height: auto;
+}
 .teamList .imgDiv {
     position: relative;
     z-index: 22;
@@ -205,6 +209,7 @@
     visibility: hidden;
     background: rgba(190, 190, 190, 0.5);
     color: black;
+    z-index: 1000;
 }
 
 .teamList a:hover span {
