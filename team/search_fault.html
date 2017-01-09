@@ -1,32 +1,208 @@
-<!--团队信息修改和编辑-->
 <!DOCTYPE html>
-
-<html>
-<meta charset="utf-8">
+<html lang="en">
 <head>
-    <title>华南理工大学人才交流市场</title>
+    <meta charset="UTF-8">
+    <title>团队主页改版</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <link rel="stylesheet"  href="../css/base.css">
+    <link rel="stylesheet"  href="../css/materialize.css">
+    <link href="https://fonts.css.network/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet"  href="../css/team/team.css">
+    <link rel="stylesheet"  href="../css/team/team_edit.css">
 </head>
 <body>
-<link href="https://fonts.css.network/icon?family=Material+Icons" rel="stylesheet">
-<link rel="stylesheet"  href="../css/materialize.min.css">
-<link rel="stylesheet"  href="../css/team/fix_team_msg.css">
-<script src="../js/jquery-2.1.1.min.js"></script>
-<script src="../js/materialize.min.js"></script>
-<script src="../js/team/fix_team_msg1.js"></script>
-<div>
-    <div class="container" style="color:red;">
-        未找到该名字匹配的账号
+<div class="header">
+
+</div>
+<div class="nav">
+
+</div>
+
+<div class="team_nav">
+    <div class="team_basic_edit_area">
+        <div class="team_img_edit_div">
+            <i class="medium material-icons" id="photo_camera">photo_camera</i>
+        </div>
+        <div class="team_msg_edit_div">
+            <div class="input-field">
+                <input  id="team_name_input" type="text" class="validate">
+                <label for="team_name_input">团队名称</label>
+            </div>
+            <div class="input-field">
+                <input  id="team_slogan_input" type="text" class="validate">
+                <label for="team_slogan_input">团队定位/宣传语</label>
+            </div>
+            <div class="team_label_edit_area">
+                <p class="placeholder_text">团队标签(可多选 上限为8)</p>
+                <div class="chip label_choice">移动互联网</div>
+                <div class="chip label_choice">电子商务</div>
+                <div class="chip label_choice">医疗健康</div>
+                <div class="chip label_choice">金融</div>
+                <div class="chip label_choice">法务</div>
+                <div class="chip label_choice">数据安全</div>
+                <div class="chip label_choice">咨询</div>
+                <div class="chip label_choice">O2O</div>
+                <div class="chip label_choice">广告营销</div>
+                <div class="chip label_choice">游戏</div>
+                <div class="chip label_choice">招聘</div>
+                <div class="chip label_choice">旅游</div>
+                <div class="chip label_choice">教育</div>
+                <div class="chip label_choice">分类信息</div>
+                <div class="chip label_choice">学生服务</div>
+                <div class="chip label_choice">文化娱乐</div>
+                <div class="chip label_choice">其他</div>
+            </div>
+        </div>
     </div>
-    <div  id="fault_note">
-        请在下方填写该成员的一个邮箱,我们将发送一份邀请注册的邮件至此邮箱,即可完成注册,在该成员完成注册之前,无法在成员列表显示该成员的姓名和头像
-    </div>
-    <div id="member_found_email" class="input-field">
-        <i class="material-icons prefix">email</i>
-        <input id="member_mail" type="email" class="validate"><label for="member_mail">输入一个该成员的邮箱</label> </div>
-    </div>
-    <div id="invite_to_join">
-        <a href="#" id="invite_btn" class="waves-effect waves-light btn modal-action">邀请注册</a>
+    <div class="team_basic_function_area">
+        <a class="waves-effect waves-light btn" id="save_team_basic">保存</a>
+        <a class="waves-effect waves-light btn" id="cancel_team_basic">取消</a>
     </div>
 </div>
+
+
+<div class="switch_tab">
+
+    <div class="introduction_div">
+        <p class="sub_title">团队介绍</p>
+        <div class="input-field team_intro_edit_area">
+            <textarea id="team_intro_input" class="materialize-textarea"></textarea>
+            <label for="team_intro_input"></label>
+        </div>
+        <div class="team_intro_function_area">
+            <a class="waves-effect waves-light btn" id="save_team_intro">保存</a>
+            <a class="waves-effect waves-light btn" id="cancel_team_intro">取消</a>
+        </div>
+    </div>
+
+    <div class="member_div">
+        <p class="sub_title">团队成员</p>
+        <div class="member_edit_div">
+            <div class="member_origin">
+                <img src="../res/imgs/team/p1.jpg" />
+                <div class="delete_member"><i class="material-icons">remove</i></div>
+                <p class="member_origin_name">吃土小王子</p>
+                <p class="member_origin_id">创始人</p>
+            </div>
+            <div class="member_origin">
+                <img src="../res/imgs/team/p1.jpg" />
+                <div class="delete_member"><i class="material-icons">remove</i></div>
+                <p class="member_origin_name">吃土小王子</p>
+                <p class="member_origin_id">创始人</p>
+            </div>
+            <div class="member_origin">
+                <img src="../res/imgs/team/p1.jpg" />
+                <div class="delete_member"><i class="material-icons">remove</i></div>
+                <p class="member_origin_name">吃土小王子</p>
+                <p class="member_origin_id">创始人</p>
+            </div>
+            <div class="member_origin">
+                <img src="../res/imgs/team/p1.jpg" />
+                <div class="delete_member"><i class="material-icons">remove</i></div>
+                <p class="member_origin_name">吃土小王子</p>
+                <p class="member_origin_id">创始人</p>
+            </div>
+            <div class="member_origin">
+                <img src="../res/imgs/team/p1.jpg" />
+                <div class="delete_member"><i class="material-icons">remove</i></div>
+                <p class="member_origin_name">吃土小王子</p>
+                <p class="member_origin_id">创始人</p>
+            </div>
+
+            <div class="add_member_div">
+                <div id="add_member_btn">
+                    <i class="material-icons">add</i>
+                </div>
+                <p style="color:rgb(244,171,35);font-size: 17px;margin-top: 5px;">添加成员</p>
+            </div>
+        </div>
+        <div class="team_member_function_area">
+            <a class="waves-effect waves-light btn" id="save_team_member">保存</a>
+            <a class="waves-effect waves-light btn" id="cancel_team_member">取消</a>
+        </div>
+    </div>
+
+    <div class="photo_div">
+        <p class="sub_title">团队风采</p>
+        <div class="photo_edit_div">
+            <div class="photo_origin">
+                <img src="../res/imgs/team/p1.jpg" />
+                <div class="delete_photo"><i class="material-icons">remove</i></div>
+            </div>
+            <div class="photo_origin">
+                <img src="../res/imgs/team/p1.jpg" />
+                <div class="delete_photo"><i class="material-icons">remove</i></div>
+            </div>
+            <div class="photo_origin">
+                <img src="../res/imgs/team/p1.jpg" />
+                <div class="delete_photo"><i class="material-icons">remove</i></div>
+            </div>
+            <div class="photo_origin">
+                <img src="../res/imgs/team/p1.jpg" />
+                <div class="delete_photo"><i class="material-icons">remove</i></div>
+            </div>
+            <div class="photo_origin">
+                <img src="../res/imgs/team/p1.jpg" />
+                <div class="delete_photo"><i class="material-icons">remove</i></div>
+            </div>
+            <div class="add_photo_div">
+                <div id="add_photo_btn">
+                    <i class="material-icons">add</i>
+                </div>
+            </div>
+        </div>
+        <div class="team_photo_function_area">
+            <a class="waves-effect waves-light btn" id="save_team_photo">保存</a>
+            <a class="waves-effect waves-light btn" id="cancel_team_photo">取消</a>
+        </div>
+
+    </div>
+
+    <div class="product_div">
+        <p class="sub_title">团队产品</p>
+        <div class=team_products>
+            <!--<div class="team_product" style="background-image: url('../res/imgs/team/p1.jpg');background-size: 400px 280px">-->
+            <!--<div class="product_name_area"><p class="product_number">产品一</p><p class="product_name">饮料包装</p></div>-->
+            <!--</div>-->
+            <!--<div class="team_product">-->
+            <!--<img src="../res/imgs/team/p1.jpg">-->
+            <!--<div class="product_name_area"><p class="product_number">产品一</p><p class="product_name">饮料包装</p></div>-->
+            <!--</div>-->
+            <!--<div class="team_product">-->
+            <!--<img src="../res/imgs/team/p1.jpg">-->
+            <!--<div class="product_name_area"><p class="product_number">产品一</p><p class="product_name">饮料包装</p></div>-->
+            <!--</div>-->
+            <!--<div class="team_product">-->
+            <!--<img src="../res/imgs/team/p1.jpg">-->
+            <!--<div class="product_name_area"><p class="product_number">产品一</p><p class="product_name">饮料包装</p></div>-->
+            <!--</div>-->
+        </div>
+    </div>
+
+    <div class="footer">
+        <p class="sub_title">联系我们</p>
+        <div class="team_contact_edit_div">
+            <div class="input-field">
+                <input  id="team_website_input" type="text" class="validate">
+                <label for="team_website_input">输入团队网站链接</label>
+            </div>
+            <div class="input-field">
+                <input  id="team_mailAddress_input" type="text" class="validate">
+                <label for="team_mailAddress_input">输入团队邮箱地址</label>
+            </div>
+        </div>
+        <div class="team_contact_function_area">
+            <a class="waves-effect waves-light btn" id="save_team_contact">保存</a>
+            <a class="waves-effect waves-light btn" id="cancel_team_contact">取消</a>
+        </div>
+
+    </div>
+</div>
+
+<script type="text/javascript" src="../js/jquery-2.1.1.min.js"></script>
+<script type="text/javascript" src="../js/materialize.js"></script>
+<script type="text/javascript" src="../js/etc.js"></script>
+<script type="text/javascript" src="../js/util.js"></script>
+<script type="text/javascript" src="../js/team/team_edit.js"></script>
 </body>
 </html>
