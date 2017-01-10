@@ -8,16 +8,107 @@ html{
 
 /*导航栏的样式在这里修改*/
 .header{
-    height: 40px;
     min-width: 980px;
-    background-color: #c5c5c5;
+    height: 35px;
+    background-color: rgb(242,242,242);
+    padding: 2px;
+}
+
+.header a {
+    padding-right: 5px;
+    line-height: 35px;
+    cursor: pointer;
+}
+
+.header a:link {
+    text-decoration: none;
+    color: rgb(112, 112, 112);
+}
+
+.header a:visited {
+    color: rgb(112, 112, 112);
+}
+
+.aboutWe{
+    float: left;
+}
+
+.userLogin{
+    float: right;
+}
+
+/*首页导航栏*/
+.guideBar{
+    min-width: 980px;
+    padding: 10px 0 3px 0;
 }
 
 .nav{
-    min-width: 980px;
-    height: 80px;
-    background-color: #e0e0e0;
+    width: 960px;
+    height: 65px;
+    margin: auto;
 }
+
+#home_title{
+    display: inline-block;
+    color: rgb(244, 171, 35);
+    font-size: 32px;
+    margin-left: 100px;
+}
+
+#home_subtitle{
+    display: inline-block;
+    margin-left: 10px;
+    color: rgb(244, 171, 35);
+    font-size: 17px;
+}
+
+#homePage{
+    font-size: 25px;
+    color: rgb(244, 171, 35);
+    display: inline-block;
+    margin-left: 100px;
+    height: 50px;
+    cursor: pointer;
+}
+
+#teamPage{
+    font-size: 25px;
+    color: rgb(244, 171, 35);
+    display: inline-block;
+    margin-left: 50px;
+    height: 50px;
+    border-bottom: 3px solid ;
+    cursor: pointer;
+}
+
+#studentPage{
+    font-size: 25px;
+    color: rgb(244, 171, 35);
+    display: inline-block;
+    height: 50px;
+    margin-left: 50px;
+    cursor: pointer;
+}
+
+/*.dropdown_select_div{*/
+    /*display: inline-block;*/
+    /*margin-left: 150px;*/
+    /*vertical-align: top;*/
+    /*height: 50px;*/
+/*}*/
+
+/*#dropdown_select{*/
+    /*color: rgb(244, 171, 35);*/
+    /*cursor: pointer;*/
+    /*font-size: 50px;*/
+/*}*/
+
+/*#total_message_num{*/
+    /*background-color: red;*/
+    /*color: #fff;*/
+    /*line-height: 2px;*/
+/*}*/
 
 
 /*团队导航*/
@@ -154,7 +245,7 @@ html{
     margin: auto;
     width: 400px;
     /*border: 1px solid;*/
-    padding-left:140px;
+    padding-left:160px;
 }
 
 .sub_title span{
@@ -182,7 +273,7 @@ html{
 
 .member_div{
     min-width: 980px;
-    min-height: 350px;
+    min-height: 200px;
     padding: 40px;
     background-color: rgb(242,242,242);
 }
@@ -224,7 +315,7 @@ html{
 
 .photo_div{
     min-width: 980px;
-    min-height: 400px;
+    min-height: 200px;
     padding: 40px;
 }
 
@@ -243,7 +334,7 @@ html{
 
 .product_div{
     min-width: 980px;
-    min-height: 450px;
+    min-height: 200px;
     background-color: rgb(242,242,242);
     padding: 40px;
 }
@@ -352,13 +443,16 @@ html{
 
 
 #web_site,#mail_address{
-    margin-left: 80px;
+    margin-left: 50px;
+    display: inline-table;
+    vertical-align: top;
     color: white;
     font-size: 20px;
-    display: inline-table;
-    vertical-align: middle;
-    height: 50px;
-    /*border: 1px solid;*/
+}
+
+#web_site a{
+    color: white;
+    font-size: 20px;
 }
 
 /*团队互动社区*/
@@ -558,6 +652,16 @@ html{
     margin-left: 30px;
     background-color: rgb(244,171,35) ;
     color: #fff;
+}
+
+.empty_remainder{
+    width: 900px;
+    margin-left: auto;
+    margin-right: auto;
+    font-size: 17px;
+    margin-top: 40px;
+    color:rgb(112,112,112);
+    text-align: center;
 }
 
 
