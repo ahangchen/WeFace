@@ -82,14 +82,15 @@ $(function() {
     // －－－－－－－－－－－－－－－热门团队－－－－－－－－－－－－－－－－－－－－－－－－－－－
 // －－－－－－－－－－－－－热门团队初始化－－－－－－－－－－－－－－－－－－－－－－－－－－
     var wefaceBace_site = "http://110.64.69.101:8080/";
-    var teamlis = $(".teamList li img");
+    var teamlis = $(".teamList .imgFrame img");
     var teamLink = $(".teamList li a");
-    var teamNames = $(".teamList li div");
+    var teamNames = $(".teamList li .desc");
     var teamsDesc = $(".teamList li span");
     var teamLi = $('.teamList li');
     var curIndexOfTeam = 0;
     $.getJSON(cur_site + 'team/hot_team/',function(data){
-        for (var i = 0; i < 4; i++) {
+        console.log(data);
+        for (var i = 0; i < data.message.length; i++) {
             var firstTeamImg = data.message[i].logo_path;
             var firstTeamName = data.message[i].name;
             var firstTeamDesc = data.message[i].about;
