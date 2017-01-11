@@ -5,6 +5,17 @@ $(document).ready(function(){
     var i,j,k;
     $('.modal-trigger').leanModal();
 
+    $("#nav_function_btn").click(function(){
+        var nav_function_div=$(".nav_function_div");
+        if(nav_function_div.css("opacity")=="0"){
+            nav_function_div.css("opacity","1");
+        }
+        else{
+            nav_function_div.css("opacity","0");
+        }
+
+    });
+
     $.ajax({
         url: cur_site + 'team/product/search/',
         type: 'POST',
@@ -332,13 +343,18 @@ $(document).ready(function(){
 
             //点击取消团队基本信息的编辑
             $("#cancel_team_basic").on("click",function(){
-                $(".team_nav").empty().append('<div class="team_nav_content"><div class="team_nav_img"><img  src="" id="team_logo">'+
-                    '</div><div class="team_nav_word"><div class="team_nav_word_title"><span id="team_name"></span>'+
-                    '<a id="favourite" class="btn-floating  waves-effect waves-light white"><img src="../res/imgs/team/收藏.svg"></a>'+
-                    '<a id="chat" class="btn-floating waves-effect waves-light white"><img src="../res/imgs/team/私信.svg"></a>'+
-                    '<a id="edit_team_basic" class="btn-floating waves-effect waves-light"><i class="material-icons" id="edit_team_basic_icon">edit</i></a>'+
-                    '</div><div class="slogan_div"></div><div class="label_div"></div></div></div><div class="function_tabs"><ul>'+
-                    '<li id="team_homepage">团队主页</li><li id="team_product">团队产品</li><li id="position">需求职位</li><li id="communicate">互动社区</li>'+
+                $(".team_nav").empty().append('<div class="team_nav_content"><div class="team_nav_img"><img  src="" id="team_logo"></div>' +
+                    '<div class="team_nav_word"><div class="name_slogan_area"><div class="name_slogan_div"><div class="team_nav_word_title">' +
+                    '<p id="team_name"></p><a id="favourite" class="btn-floating  waves-effect waves-light white"><img src="../res/imgs/team/收藏.svg"></a> ' +
+                    '<a id="chat" class="btn-floating waves-effect waves-light white"><img src="../res/imgs/team/私信.svg"></a> ' +
+                    '<a id="edit_team_basic" class="btn-floating waves-effect waves-light"><i class="material-icons" id="edit_team_basic_icon">edit</i></a> ' +
+                    '</div><div class="slogan_div"></div></div><div class="collection nav_function_div"><a href="" class="collection-item">' +
+                    '<img src="../res/imgs/team/简历管理.svg" class="downIcon"><span class="downWord">简历管理</span><span class="new_msg_num">7</span></a>' +
+                    '<a href="" class="collection-item"><img src="../res/imgs/team/职位管理.svg" class="downIcon"><span class="downWord">职位管理</span></a> ' +
+                    '<a href="" class="collection-item"><img src="../res/imgs/team/产品管理.svg" class="downIcon"><span class="downWord">产品管理</span>' +
+                    '<span class="new_msg_num">2</span></a><a href="" class="collection-item"><img src="../res/imgs/team/社区管理.svg" class="downIcon">' +
+                    '<span class="downWord">社区管理</span></a></div></div><div class="label_div"></div></div></div><div class="function_tabs"><ul>' +
+                    '<li id="team_homepage">团队主页</li><li id="team_product">团队产品</li><li id="position">需求职位</li><li id="communicate">互动社区</li>' +
                     '</ul></div>').css("background-image","url('../res/imgs/team/team_bg.svg')").css("background-size","100% auto");
                 load_team_nav();
                 listen_change_page();
@@ -407,13 +423,18 @@ $(document).ready(function(){
                         team_info.slogan=team_slogan;
                         team_info.logo=team_logo;
                         team_info.label=label_tmp;
-                        $(".team_nav").empty().append('<div class="team_nav_content"><div class="team_nav_img"><img  src="" id="team_logo">'+
-                            '</div><div class="team_nav_word"><div class="team_nav_word_title"><span id="team_name"></span>'+
-                            '<a id="favourite" class="btn-floating  waves-effect waves-light white"><img src="../res/imgs/team/收藏.svg"></a>'+
-                            '<a id="chat" class="btn-floating waves-effect waves-light white"><img src="../res/imgs/team/私信.svg"></a>'+
-                            '<a id="edit_team" class="btn-floating waves-effect waves-light"><i class="material-icons" id="edit_team_icon">edit</i></a>'+
-                            '</div><div class="slogan_div"></div><div class="label_div"></div></div></div><div class="function_tabs"><ul>'+
-                            '<li id="team_homepage">团队主页</li><li id="team_product">团队产品</li><li id="position">需求职位</li><li id="communicate">互动社区</li>'+
+                        $(".team_nav").empty().append('<div class="team_nav_content"><div class="team_nav_img"><img  src="" id="team_logo"></div>' +
+                            '<div class="team_nav_word"><div class="name_slogan_area"><div class="name_slogan_div"><div class="team_nav_word_title">' +
+                            '<p id="team_name"></p><a id="favourite" class="btn-floating  waves-effect waves-light white"><img src="../res/imgs/team/收藏.svg"></a> ' +
+                            '<a id="chat" class="btn-floating waves-effect waves-light white"><img src="../res/imgs/team/私信.svg"></a> ' +
+                            '<a id="edit_team_basic" class="btn-floating waves-effect waves-light"><i class="material-icons" id="edit_team_basic_icon">edit</i></a> ' +
+                            '</div><div class="slogan_div"></div></div><div class="collection nav_function_div"><a href="" class="collection-item">' +
+                            '<img src="../res/imgs/team/简历管理.svg" class="downIcon"><span class="downWord">简历管理</span><span class="new_msg_num">7</span></a>' +
+                            '<a href="" class="collection-item"><img src="../res/imgs/team/职位管理.svg" class="downIcon"><span class="downWord">职位管理</span></a> ' +
+                            '<a href="" class="collection-item"><img src="../res/imgs/team/产品管理.svg" class="downIcon"><span class="downWord">产品管理</span>' +
+                            '<span class="new_msg_num">2</span></a><a href="" class="collection-item"><img src="../res/imgs/team/社区管理.svg" class="downIcon">' +
+                            '<span class="downWord">社区管理</span></a></div></div><div class="label_div"></div></div></div><div class="function_tabs"><ul>' +
+                            '<li id="team_homepage">团队主页</li><li id="team_product">团队产品</li><li id="position">需求职位</li><li id="communicate">互动社区</li>' +
                             '</ul></div>').css("background-image","url('../res/imgs/team/team_bg.svg')").css("background-size","100% auto");
                         load_team_nav();
                         listen_change_page();
