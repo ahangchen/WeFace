@@ -4,3 +4,4 @@
 function getId() {
     return location.search.split("=")[1]
 }
+

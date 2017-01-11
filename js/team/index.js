@@ -1,5 +1,6 @@
 $(document).ready(function(){
-    var tid=getId();
+    var tid=(location.search.split("tid=")[1]).split('?')[0];
+    var token=location.search.split("token=")[1];
     var team_info={};
     var team_product;
     var i,j,k;
@@ -15,6 +16,15 @@ $(document).ready(function(){
         }
 
     });
+
+    //如果没有token隐藏所有的编辑按钮
+    if(token==undefined){
+        $("#edit_team_basic").remove();
+        $("#edit_team_intro").remove();
+        $("#edit_team_member").remove();
+        $("#edit_team_photo").remove();
+        $("#edit_team_contact").remove();
+    }
 
     $.ajax({
         url: cur_site + 'team/product/search/',
@@ -113,6 +123,15 @@ $(document).ready(function(){
                     '</div><div  class="contact"><i class="material-icons">language</i>'+
                     '<span id="web_site"></span></div><div  class="contact"><i class="material-icons" >mail</i><span id="mail_address"></span>'+
                     '</div></div>');
+
+                //如果没有token隐藏所有的编辑按钮
+                if(token==undefined){
+                    $("#edit_team_basic").remove();
+                    $("#edit_team_intro").remove();
+                    $("#edit_team_member").remove();
+                    $("#edit_team_photo").remove();
+                    $("#edit_team_contact").remove();
+                }
 
                 load_team_homepage();
 
@@ -322,6 +341,7 @@ $(document).ready(function(){
                 var formData = new FormData();
                 formData.append('name', "new_team_logo");
                 formData.append('photo', $(this)[0].files[0]);
+                formData.append('token', token);
                 //上传logo
                 $.ajax({
                     url: cur_site + "team/upload_logo/",
@@ -383,7 +403,7 @@ $(document).ready(function(){
                 for(i=0;i<team_info.label.length;i++){
                     $.ajax({
                         type: 'POST',
-                        data: {tid: tid, name: team_info.label[i]},
+                        data: {tid: tid, name: team_info.label[i],token:token},
                         url: cur_site + "team/rm_team_label/",
                         dataType: 'json',
                         success: function () {
@@ -399,7 +419,7 @@ $(document).ready(function(){
                         label_tmp.push(label_choice[i].innerText);
                         $.ajax({
                             type: 'POST',
-                            data: {tid: tid, name: label_choice[i].innerText},
+                            data: {tid: tid, name: label_choice[i].innerText,token:token},
                             url: cur_site + "team/add_team_label/",
                             dataType: 'json',
                             success: function () {
@@ -416,7 +436,8 @@ $(document).ready(function(){
                     slogan: team_slogan,
                     about: team_info.intro,
                     history: team_info.history,
-                    btype: parseInt(team_info.b_type)
+                    btype: parseInt(team_info.b_type),
+                    token:token
                 };
                 $.ajax({
                     type: 'POST',
@@ -531,7 +552,8 @@ $(document).ready(function(){
                     slogan: team_info.slogan,
                     about: team_intro,
                     history: team_info.history,
-                    btype: parseInt(team_info.b_type)
+                    btype: parseInt(team_info.b_type),
+                    token:token
                 };
                 $.ajax({
                     type: 'POST',
@@ -610,7 +632,8 @@ $(document).ready(function(){
                 var update_msg = {
                     "tid": tid,
                     "tel": team_website,
-                    "mail": team_mailaddress
+                    "mail": team_mailaddress,
+                    "token":token
                 };
                 $.ajax({
                     type: 'POST',
@@ -670,7 +693,7 @@ $(document).ready(function(){
                         type: "post",
                         url: cur_site + "team/rm_team_photo/",
                         dataType: "json",
-                        data: {'tid': tid, 'img_id': new_photo[i].id},
+                        data: {'tid': tid, 'img_id': new_photo[i].id,'token':token},
                         success: function () {
                         }
                     });
@@ -714,7 +737,7 @@ $(document).ready(function(){
                         type: "post",
                         url: cur_site + "team/rm_team_photo/",
                         dataType: "json",
-                        data: {'tid': tid, 'img_id': delete_photo[i]},
+                        data: {'tid': tid, 'img_id': delete_photo[i],'token':token},
                         success: function () {
                         }
                     });
@@ -800,6 +823,7 @@ $(document).ready(function(){
                 var formData = new FormData();
                 formData.append('tid', tid);
                 formData.append('photo', $(this)[0].files[0]);
+                formData.append('token',token);
                 //上传logo
                 $.ajax({
                     url: cur_site + "team/add_team_photo/",
@@ -902,7 +926,7 @@ $(document).ready(function(){
                         type: "post",
                         url: cur_site + "team/rm_team_stu/",
                         dataType: "json",
-                        data: {'tid': tid, 'sid': delete_member[i]},
+                        data: {'tid': tid, 'sid': delete_member[i],'token':token},
                         success: function () {
                         }
                     });
@@ -960,7 +984,7 @@ $(document).ready(function(){
                         type: 'GET',
                         url: cur_site + "team/name2mail",
                         dataType: "json",
-                        data: {'name': search_member_name},
+                        data: {'name': search_member_name,'token':token},
                         success: function (data) {
                             if(data.res.length==0){
                                 student_not_exist(search_member_name,new_member,delete_member);
@@ -1001,7 +1025,7 @@ $(document).ready(function(){
                         type: 'POST',
                         url: cur_site + "team/invite_stu/",
                         dataType: "json",
-                        data: {"tid":tid,mail:member_mail_address},
+                        data: {"tid":tid,mail:member_mail_address,token:token},
                         success: function (data) {
                             if(data.err=='-3') {
                                 Materialize.toast("帐号已存在", 2000);
@@ -1070,7 +1094,7 @@ $(document).ready(function(){
                     type: 'POST',
                     url: cur_site + "team/add_team_stu/",
                     dataType: "json",
-                    data: {"tid":tid,sid:sid_temp},
+                    data: {"tid":tid,sid:sid_temp,token:token},
                     success: function (data) {
                         if(data.err=='0') {
                             new_member.push({"name":name,"logo_path":stu_path,"id":sid_temp});
