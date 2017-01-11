@@ -40,13 +40,12 @@ html{
 /*首页导航栏*/
 .guideBar{
     min-width: 980px;
-    padding: 10px 0 3px 0;
+    padding: 10px 30px 3px 0;
+    height: 75px;
 }
 
 .nav{
-    width: 960px;
-    height: 65px;
-    margin: auto;
+    float: left;
 }
 
 
@@ -93,9 +92,9 @@ html{
 }
 
 .nav_function_icon{
+    float: right;
     display: inline-block;
     height: 50px;
-    margin-left: 80px;
     vertical-align: top;
     /*border: 1px solid;*/
     position: relative;
@@ -126,6 +125,7 @@ html{
     min-width: 980px;
     background-image: url('../../res/imgs/team/team_bg.svg');
     background-size: 100% auto;
+    position: relative;
 }
 
 .team_nav_content{
@@ -236,9 +236,11 @@ html{
 .nav_function_div{
     width: 160px;
     /*border: 1px solid;*/
-    float: right;
+    position: absolute;
     min-height: 180px;
     margin: 0;
+    right: 2px;
+    z-index: 100;
     opacity: 0;
 }
 

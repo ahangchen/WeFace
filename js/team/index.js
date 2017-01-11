@@ -258,7 +258,12 @@ $(document).ready(function(){
     //监听修改团队的基本信息
     function edit_team_basic(){
         $("#edit_team_basic").on("click",function(){
-            $(".team_nav").empty().append('<div class="team_basic_edit_area"><div class="team_img_edit_div">'+
+            $(".team_nav").empty().append('<div class="team_basic_edit_area"><div class="collection nav_function_div"><a href="" class="collection-item">' +
+                '<img src="../res/imgs/team/简历管理.svg" class="downIcon"><span class="downWord">简历管理</span><span class="new_msg_num">7</span></a>' +
+                '<a href="" class="collection-item"><img src="../res/imgs/team/职位管理.svg" class="downIcon"><span class="downWord">职位管理</span></a>' +
+                '<a href="" class="collection-item"><img src="../res/imgs/team/产品管理.svg" class="downIcon"><span class="downWord">产品管理</span>' +
+                '<span class="new_msg_num">2</span></a><a href="" class="collection-item"><img src="../res/imgs/team/社区管理.svg" class="downIcon">' +
+                '<span class="downWord">社区管理</span></a></div><div class="team_img_edit_div">'+
                 '<i class="medium material-icons" id="photo_camera">photo_camera</i> </div> <form id="post_logo"  enctype="multipart/form-data">'+
                 '<input type="file" id="upload_team_logo" style="display: none"></form><div class="team_msg_edit_div">'+
                 '<div class="input-field"><input  id="team_name_input" type="text" class="validate"><label for="team_name_input">团队名称</label>'+

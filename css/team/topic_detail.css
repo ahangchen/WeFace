@@ -8,15 +8,94 @@ html{
 
 /*导航栏的样式在这里修改*/
 .header{
-    height: 40px;
     min-width: 980px;
-    background-color: #c5c5c5;
+    height: 35px;
+    background-color: rgb(242,242,242);
+    padding: 2px;
+}
+
+.header a {
+    padding-right: 5px;
+    line-height: 35px;
+    cursor: pointer;
+}
+
+.header a:link {
+    text-decoration: none;
+    color: rgb(112, 112, 112);
+}
+
+.header a:visited {
+    color: rgb(112, 112, 112);
+}
+
+.aboutWe{
+    float: left;
+}
+
+.userLogin{
+    float: right;
+}
+
+/*首页导航栏*/
+.guideBar{
+    min-width: 980px;
+    padding: 10px 30px 3px 0;
+    height: 75px;
 }
 
 .nav{
+    float: left;
+}
+
+
+#home_title{
+    display: inline-block;
+    color: rgb(244, 171, 35);
+    font-size: 32px;
+    margin-left: 100px;
+}
+
+#home_subtitle{
+    display: inline-block;
+    margin-left: 10px;
+    color: rgb(244, 171, 35);
+    font-size: 17px;
+}
+
+#homePage{
+    font-size: 25px;
+    color: rgb(244, 171, 35);
+    display: inline-block;
+    margin-left: 100px;
+    height: 50px;
+    cursor: pointer;
+}
+
+#teamPage{
+    font-size: 25px;
+    color: rgb(244, 171, 35);
+    display: inline-block;
+    margin-left: 100px;
+    height: 50px;
+    border-bottom: 3px solid ;
+    cursor: pointer;
+}
+
+#studentPage{
+    font-size: 25px;
+    color: rgb(244, 171, 35);
+    display: inline-block;
+    height: 50px;
+    margin-left: 100px;
+    cursor: pointer;
+}
+
+
+.nav_blank{
     min-width: 980px;
     height: 80px;
-    background-color: #e0e0e0;
+    background-image: url('../../res/imgs/team/team_bg.jpg');
 }
 
 /*观点和团队基本信息*/
@@ -52,12 +131,17 @@ html{
     font-size: 18px;
     margin-left: 20px;
     text-align: center;
+    color:rgb(112,112,112);
 }
 
 .topic_detail{
     /*border: 1px solid;*/
     padding:10px 0 10px 70px;
     min-height: 115px;
+}
+
+.topic_detail p{
+    color:rgb(112,112,112);
 }
 
 .topic_function{
@@ -67,7 +151,7 @@ html{
 }
 
 #leave_msg{
-    background-color:  #F5AC23;
+    background-color:  rgb(244,171,35);
 }
 
 #online_people_num{
@@ -75,7 +159,7 @@ html{
     height: 36px;
     margin-left: 20px;
     padding-top: 15px;
-    color: #909090;
+    color:rgb(180,180,180);
     vertical-align: middle;
 }
 
@@ -90,7 +174,7 @@ html{
 .topic_agree_num{
     display: inline-table;
     height: 30px;
-    color: #ffbf24;
+    color: rgb(244,171,35);
     font-size: 18px;
     vertical-align: bottom;
 }
@@ -121,10 +205,11 @@ html{
 #team_name{
     font-size: 16px;
     text-align: center;
+    color:rgb(112,112,112);
 }
 
 .team_label_div{
-    width: 320px;
+    width: 340px;
     margin-left: auto;
     margin-right: auto;
     min-height: 45px;
@@ -134,19 +219,14 @@ html{
 }
 
 .team_label{
-    background-color: #ffbf24;
+    background-color: rgb(244,171,35);
     font-size: 13px;
-    width: 80px;
+    width: 90px;
     margin-top: 4px;
     margin-left: 2px;
     color: #fff;
     border-radius: 10px;
     text-align: center;
-}
-
-.contact_div{
-    /*border: 1px solid;*/
-    height: 61px;
 }
 
 .contact{
@@ -164,7 +244,7 @@ html{
 
 .contact i{
     font-size: 30px;
-    color: #ffbf24;
+    color: rgb(244,171,35);
 }
 
 
@@ -172,10 +252,17 @@ html{
     margin-left: 10px;
     font-size: 17px;
     display: inline-table;
-    vertical-align: middle;
-    height: 50px;
+    vertical-align: top;
+    color: rgb(112,112,112);
     /*border: 1px solid;*/
 }
+
+#web_site a{
+    color: rgb(112,112,112);
+    font-size: 17px;
+}
+
+
 
 /*评论区*/
 .opinion_commit_area{
@@ -184,9 +271,6 @@ html{
     /*border: 1px solid;*/
 }
 
-.opinion_commit_area:nth-child(2n){
-    background: url('../../res/imgs/team/div_bg.jpg');
-}
 
 .opinion_commit{
     width: 960px;
@@ -211,11 +295,12 @@ html{
 .stu_name,.reply_stu_name{
     font-size: 17px;
     padding-left: 10px;
+    color:rgb(112,112,112);
 }
 
 .stu_slogan{
     font-size: 17px;
-    color: #909090;
+    color:rgb(180,180,180);
     padding-left: 70px;
 }
 
@@ -225,6 +310,7 @@ html{
     padding-bottom: 10px;
     min-height: 80px;
     padding-left: 80px;
+    color:rgb(112,112,112);
 }
 
 .commit_function{
@@ -244,7 +330,7 @@ html{
 }
 
 .commit_agree_num,.commit_commit_num{
-    color: #ffbf24;
+    color: rgb(244,171,35);
 }
 
 .commit_reply_area{
@@ -270,6 +356,7 @@ html{
     padding-bottom: 20px;
     min-height: 80px;
     padding-left: 80px;
+    color:rgb(112,112,112);
 }
 
 .my_reply_commit{
@@ -278,18 +365,19 @@ html{
     padding: 10px;
     border-radius: 5px;
     -webkit-box-shadow:inset 1px 1px 10px #bababa;
-    background-color: #eeeeee;
+    /*background-color: #eeeeee;*/
 }
 
 
 .my_commit_to_commit{
-    background-color:  #F5AC23;
+    background-color:  rgb(244,171,35);
     margin-left: 710px;
     margin-top: 10px;
 }
 
 .questioner{
     font-size: 17px;
+    color:rgb(112,112,112);
 }
 
 
@@ -306,7 +394,7 @@ html{
 #extend_more{
     margin-left: 18px;
     font-size: 18px;
-    color: #ffbf24;
+    color: rgb(244,171,35);
     cursor: pointer;
 }
 
@@ -339,11 +427,12 @@ html{
 #my_name{
     font-size: 17px;
     padding-left: 10px;
+    color:rgb(112,112,112);
 }
 
 #my_slogan{
     font-size: 17px;
-    color: #909090;
+    color:rgb(180,180,180);
     padding-left: 70px;
 }
 
@@ -375,6 +464,6 @@ textarea:focus{
 }
 
 #my_commit_to_topic a{
-    background-color:  #F5AC23;
+    background-color:  rgb(244,171,35);
 }
 
