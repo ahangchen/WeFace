@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>创建产品</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <link rel="stylesheet"  href="../../css/base.css">
+    <link rel="stylesheet"  href="../../css/materialize.css">
+    <link href="https://fonts.css.network/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet"  href="../../css/team/product/create_product.css">
+</head>
+<body>
+    <div class="header">
+        <div class="aboutWe">
+            <a href="../../main/test/information.html" target="_blank" style="padding-left: 7px">关于基地</a>
+        </div>
+        <div class="userLogin">
+            <a class="mainBtn" href="" target="_blank">发布</a>
+            <span class="line">|</span>
+            <a class="mainBtn" href="" target="_blank">团队主页</a>
+            <span class="line">|</span>
+            <a class="mainBtn" href="" target="_blank">消息</a>
+            <span class="line">|</span>
+            <a class="mainBtn" href="" target="_blank">退出</a>
+        </div>
+    </div>
+    <div class="guideBar">
+        <div class="nav">
+            <p id="home_title">四方馆</p>
+            <p id="home_subtitle">人才交流平台</p>
+            <p id="homePage">首页</p>
+            <p id="teamPage">团队</p>
+            <p id="studentPage">学生</p>
+        </div>
+        <div class="nav_function_icon">
+            <i id="nav_function_btn" class="material-icons">apps</i>
+            <span id="total_new_msg">9</span>
+        </div>
+    </div>
+    <div class="product_basic_inform">
+        <div class="product_basic_div">
+            <div class="input-field product_name_area">
+                <p class="tip_name">产品名称:</p>
+                <input id="product_name" type="text" class="validate" placeholder="输入产品名称">
+                <label for="product_name"></label>
+            </div>
+            <div class="input-field product_slogan_area">
+                <p class="tip_name">产品标语:</p>
+                <input id="product_slogan" type="text" class="validate" placeholder="输入产品标语/定位(20字)">
+                <label for="product_slogan"></label>
+            </div>
+            <div class="product_label_div">
+                <p class="tip_name">产品类型:</p>
+                <div class="choose_label_area">
+                    <div class="chip product_label_selected">互联网应用<i class="close material-icons">close</i></div>
+                    <div class="chip product_label_selected">网页应用<i class="close material-icons">close</i></div>
+                    <div class="chip product_label_selected">移动应用<i class="close material-icons">close</i></div>
+                    <div class="chip product_label_selected">智能硬件<i class="close material-icons">close</i></div>
+                </div>
+                <div class="input-field product_label_input_area">
+                    <input id="product_label_input" type="text" class="validate" placeholder="输入你的产品所属的类型">
+                    <label for="product_label_input"></label>
+                    <a  id="add_team_label_btn" class="waves-effect waves-light btn">添加</a>
+                </div>
+                <div class="product_label_choice_div">
+                    <div class="chip product_label">互联网应用</div>
+                    <div class="chip product_label">网页应用</div>
+                    <div class="chip product_label">移动应用</div>
+                    <div class="chip product_label">智能硬件</div>
+                    <div class="chip product_label">实体产品</div>
+                    <div class="chip product_label">游戏</div>
+                    <div class="chip product_label">电子商务</div>
+                    <div class="chip product_label">O2O</div>
+                    <div class="chip product_label">社交网络</div>
+                    <div class="chip product_label">学生服务</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="product_detail_div">
+        <div class="product_detail_area">
+            <div class="input-field product_content_div">
+                <p class="tip_name">产品介绍:</p>
+                <textarea id="product_content" type="text" class="materialize-textarea" placeholder="产品详细介绍（没有特定的模版）"></textarea>
+                <label for="product_content"></label>
+            </div>
+            <div class="input-field product_link_div">
+                <p class="tip_name">产品链接:</p>
+                <input id="product_link" type="text" class="validate" placeholder="输入你的产品链接（如产品网站，展示网页等）">
+                <label for="product_link"></label>
+            </div>
+            <div class="add_photo_div">
+                <p class="tip_name">产品照片:</p>
+                <div id="add_photo_btn">
+                    <i class="material-icons">add</i>
+                    <p>上传作品图片</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="product_status_div">
+        <div class="product_status">
+            <span class="product_publish_status">
+                <input class="with-gap" name="product_status" type="radio" id="publish_product" checked />
+                <label for="publish_product">发布项目</label>
+            </span>
+            <span class="product_stay_status">
+                <input class="with-gap" name="product_status" type="radio" id="stay_product" />
+                <label for="stay_product">暂存项目<br/><span style="color:rgb(112, 112, 112);">(不会展示在外部产品展示页面)</span></label>
+            </span>
+        </div>
+    </div>
+    <div class="product_function_div">
+        <a class="waves-effect waves-light btn" id="save_product">保存</a>
+        <a class="waves-effect waves-light btn" id="cancel_product">取消</a>
+    </div>
+
+    <script type="text/javascript" src="../../js/jquery-2.1.1.min.js"></script>
+    <script type="text/javascript" src="../../js/materialize.js"></script>
+    <script type="text/javascript" src="../../js/etc.js"></script>
+    <script type="text/javascript" src="../../js/util.js"></script>
+    <script type="text/javascript" src="../../js/team/product/create_product.js"></script>
+</body>
+</html>

@@ -1,0 +1,307 @@
+p{
+    margin: 0;
+}
+
+html{
+    background: none;
+}
+
+/*导航栏的样式在这里修改*/
+.header{
+    min-width: 980px;
+    height: 35px;
+    background-color: rgb(242,242,242);
+    padding: 2px;
+}
+
+.header a {
+    padding-right: 5px;
+    line-height: 35px;
+    cursor: pointer;
+}
+
+.header a:link {
+    text-decoration: none;
+    color: rgb(112, 112, 112);
+}
+
+.header a:visited {
+    color: rgb(112, 112, 112);
+}
+
+.aboutWe{
+    float: left;
+}
+
+.userLogin{
+    float: right;
+}
+
+/*首页导航栏*/
+.guideBar{
+    min-width: 980px;
+    padding: 10px 30px 3px 0;
+    height: 75px;
+    -webkit-box-shadow: 5px 5px 5px #c6c6c6;
+}
+
+.nav{
+    float: left;
+}
+
+
+#home_title{
+    display: inline-block;
+    color: rgb(244, 171, 35);
+    font-size: 32px;
+    margin-left: 100px;
+}
+
+#home_subtitle{
+    display: inline-block;
+    margin-left: 10px;
+    color: rgb(244, 171, 35);
+    font-size: 17px;
+}
+
+#homePage{
+    font-size: 25px;
+    color: rgb(244, 171, 35);
+    display: inline-block;
+    margin-left: 100px;
+    height: 50px;
+    cursor: pointer;
+}
+
+#teamPage{
+    font-size: 25px;
+    color: rgb(244, 171, 35);
+    display: inline-block;
+    margin-left: 100px;
+    height: 50px;
+    border-bottom: 3px solid ;
+    cursor: pointer;
+}
+
+#studentPage{
+    font-size: 25px;
+    color: rgb(244, 171, 35);
+    display: inline-block;
+    height: 50px;
+    margin-left: 100px;
+    cursor: pointer;
+}
+
+.nav_function_icon{
+    float: right;
+    display: inline-block;
+    height: 50px;
+    vertical-align: top;
+    /*border: 1px solid;*/
+    position: relative;
+    width: 80px;
+}
+
+#nav_function_btn{
+    color: rgb(244, 171, 35);
+    cursor: pointer;
+    font-size: 50px;
+}
+
+#total_new_msg{
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    right: 30px;
+    border-radius: 100px;
+    background-color: red;
+    padding: 0 0 0 6px;
+    color: #fff;
+}
+
+/*产品的基本信息*/
+input[type="text"]:focus:not([readonly]),input[type="text"].valid,textarea.materialize-textarea:focus:not([readonly]){
+    border-bottom: 1px solid rgb(244,171,35);
+    box-shadow:0 1px 0 0 rgb(244,171,35);
+}
+
+input[type="text"],textarea.materialize-textarea{
+    border-bottom: 1px solid rgb(244,171,35);
+    font-size: 17px;
+    color:rgb(112,112,112);
+}
+
+input[type="text"]:focus:not([readonly])+label,input[type="text"].valid+label{
+    color:rgb(180,180,180);
+}
+
+.input-field label{
+    left: 0;
+}
+
+.tip_name{
+    color:rgb(112,112,112);
+    font-size: 20px;
+}
+
+.product_basic_div .input-field{
+    margin-top: 15px;
+}
+
+.product_basic_inform{
+    min-width: 980px;
+    min-height: 450px;
+    margin-top: 5px;
+    background-color: rgb(242,242,242);
+}
+
+.product_basic_div{
+    width: 960px;
+    min-height: 450px;
+    margin: auto;
+    padding: 20px 0 40px 0;
+}
+
+.product_label_div{
+    margin-top: 15px;
+}
+
+.choose_label_area{
+    margin: 10px 0;
+}
+
+#product_label_input{
+    width: 820px;
+}
+
+#add_team_label_btn{
+    background-color: rgb(244,171,35);
+    margin-left: 40px;
+}
+
+.product_label_choice_div{
+    background-color: #fff;
+    height: 70px;
+    margin-top: 20px;
+}
+
+.product_label{
+    background-color: rgb(180,180,180);
+    color: #fff;
+    margin-left: 10px;
+    margin-top: 20px;
+    font-size: 15px;
+    cursor: pointer;
+}
+
+.product_label_selected{
+    background-color: rgb(244,171,35);
+    color: #fff;
+    margin-top: 8px;
+    font-size: 15px;
+    margin-left: 5px;
+    cursor: pointer;
+}
+
+.product_label_selected i{
+    color: #fff;
+}
+
+.product_label_selected:first-child{
+    margin-left: 0;
+}
+
+/*产品详细信息*/
+.product_detail_div{
+    min-width: 980px;
+    min-height: 500px;
+    padding: 50px 0 40px 0;
+    /*border: 1px solid;*/
+}
+
+.product_detail_area{
+    width: 960px;
+    margin: auto;
+}
+
+.add_photo_div{
+    margin-top: 15px;
+}
+
+#add_photo_btn{
+    width: 190px;
+    margin-top: 15px;
+    height: 120px;
+    border: 1px solid rgb(244,171,35);
+    text-align: center;
+    padding: 20px 0;
+    cursor: pointer;
+}
+
+#add_photo_btn i{
+    font-size: 50px;
+    color:rgb(244,171,35);
+}
+
+#add_photo_btn p {
+    color:rgb(244,171,35);
+}
+
+/*选择产品的状态*/
+
+[type="radio"]:checked + label, [type="radio"]:not(:checked) + label{
+    font-size: 25px;
+    color: rgb(112, 112, 112);
+}
+
+[type="radio"]:checked + label:after, [type="radio"].with-gap:checked + label:before, [type="radio"].with-gap:checked + label:after {
+    border: 2px solid rgb(244,171,35);
+}
+
+[type="radio"]:checked + label:after, [type="radio"].with-gap:checked + label:after {
+    background-color:  rgb(244,171,35);
+}
+
+.product_status_div{
+    min-width: 980px;
+    height: 200px;
+    background-color: rgb(242,242,242);
+    padding: 80px 0;
+}
+
+.product_status{
+    width: 600px;
+    margin: auto;
+    /*border: 1px solid;*/
+}
+
+.product_publish_status{
+    display: inline-block;
+    vertical-align: top;
+}
+
+.product_stay_status{
+    display: inline-block;
+    margin-left: 200px;
+}
+
+
+.product_function_div{
+    width: 960px;
+    height: 200px;
+    margin: auto;
+    padding: 70px 330px;
+}
+
+#save_product{
+    background-color: rgb(244,171,35);
+}
+
+#cancel_product{
+    margin-left: 80px;
+    background-color: #fff;
+    color: rgb(244,171,35);
+}
+
+
+
