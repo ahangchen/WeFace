@@ -1,5 +1,5 @@
 $(document).ready(function(){
-    var tid=(location.search.split("tid=")[1]).split('?')[0];
+    var tid=(location.search.split("=")[1]).split('?')[0];
     var token=location.search.split("token=")[1];
     var team_info={};
     var team_product;
