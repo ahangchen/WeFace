@@ -32,6 +32,7 @@ $(document).ready(function(){
         dataType: 'json',
         data: {"teamId": tid},
         success:function(data) {
+            console.log(data);
             team_product=data.msg;
         }
     });

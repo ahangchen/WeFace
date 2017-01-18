@@ -119,6 +119,42 @@ html{
     color: #fff;
 }
 
+.downIcon{
+    width: 20px;
+    height: 20px;
+}
+
+.downWord{
+    color: rgb(112,112,112);
+    display: inline-block;
+    vertical-align: top;
+    font-size: 17px;
+    margin-left: 3px;
+}
+
+
+.new_msg_num{
+    position: absolute;
+    right: 8px;
+    width: 20px;
+    height: 20px;
+    border-radius: 100px;
+    background-color: red;
+    padding: 0 0 0 6px;
+    color: #fff;
+}
+
+.nav_function_div{
+    width: 160px;
+    /*border: 1px solid;*/
+    position: absolute;
+    min-height: 180px;
+    margin: 0;
+    right: 2px;
+    z-index: 100;
+    opacity: 0;
+}
+
 /*产品的基本信息*/
 input[type="text"]:focus:not([readonly]),input[type="text"].valid,textarea.materialize-textarea:focus:not([readonly]){
     border-bottom: 1px solid rgb(244,171,35);
@@ -180,18 +216,30 @@ input[type="text"]:focus:not([readonly])+label,input[type="text"].valid+label{
 }
 
 .product_label_choice_div{
-    background-color: #fff;
     height: 70px;
-    margin-top: 20px;
 }
 
 .product_label{
     background-color: rgb(180,180,180);
     color: #fff;
     margin-left: 10px;
-    margin-top: 20px;
     font-size: 15px;
     cursor: pointer;
+}
+
+.active_product_label{
+    background-color: rgb(244,171,35);
+    color: #fff;
+    margin-left: 10px;
+    font-size: 15px;
+}
+
+.product_label:first-child{
+    margin-left: 0;
+}
+
+.active_product_label:first-child{
+    margin-left: 0;
 }
 
 .product_label_selected{

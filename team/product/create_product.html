@@ -34,10 +34,29 @@
         </div>
         <div class="nav_function_icon">
             <i id="nav_function_btn" class="material-icons">apps</i>
-            <span id="total_new_msg">9</span>
+            <span id="total_new_msg">7</span>
         </div>
     </div>
     <div class="product_basic_inform">
+        <div class="collection nav_function_div">
+            <a href="" class="collection-item">
+                <img src="../../res/imgs/team/简历管理.svg" class="downIcon">
+                <span class="downWord">简历管理</span>
+                <span class="new_msg_num">7</span>
+            </a>
+            <a href="" class="collection-item">
+                <img src="../../res/imgs/team/职位管理.svg" class="downIcon">
+                <span class="downWord">职位管理</span>
+            </a>
+            <a href="" class="collection-item">
+                <img src="../../res/imgs/team/产品管理.svg" class="downIcon">
+                <span class="downWord">产品管理</span>
+            </a>
+            <a href="" class="collection-item">
+                <img src="../../res/imgs/team/社区管理.svg" class="downIcon">
+                <span class="downWord">社区管理</span>
+            </a>
+        </div>
         <div class="product_basic_div">
             <div class="input-field product_name_area">
                 <p class="tip_name">产品名称:</p>
@@ -46,16 +65,16 @@
             </div>
             <div class="input-field product_slogan_area">
                 <p class="tip_name">产品标语:</p>
-                <input id="product_slogan" type="text" class="validate" placeholder="输入产品标语/定位(20字)">
+                <input id="product_slogan" type="text" class="validate" placeholder="输入产品标语/定位(20字)" maxlength="20">
                 <label for="product_slogan"></label>
             </div>
             <div class="product_label_div">
                 <p class="tip_name">产品类型:</p>
                 <div class="choose_label_area">
-                    <div class="chip product_label_selected">互联网应用<i class="close material-icons">close</i></div>
-                    <div class="chip product_label_selected">网页应用<i class="close material-icons">close</i></div>
-                    <div class="chip product_label_selected">移动应用<i class="close material-icons">close</i></div>
-                    <div class="chip product_label_selected">智能硬件<i class="close material-icons">close</i></div>
+                    <!--<div class="chip product_label_selected">互联网应用<i class="close material-icons">close</i></div>-->
+                    <!--<div class="chip product_label_selected">网页应用<i class="close material-icons">close</i></div>-->
+                    <!--<div class="chip product_label_selected">移动应用<i class="close material-icons">close</i></div>-->
+                    <!--<div class="chip product_label_selected">智能硬件<i class="close material-icons">close</i></div>-->
                 </div>
                 <div class="input-field product_label_input_area">
                     <input id="product_label_input" type="text" class="validate" placeholder="输入你的产品所属的类型">
@@ -95,21 +114,24 @@
                     <i class="material-icons">add</i>
                     <p>上传作品图片</p>
                 </div>
+                <form enctype="multipart/form-data">
+                    <input type="file" id="upload_product_image" style="display: none">
+                </form>
             </div>
         </div>
     </div>
-    <div class="product_status_div">
-        <div class="product_status">
-            <span class="product_publish_status">
-                <input class="with-gap" name="product_status" type="radio" id="publish_product" checked />
-                <label for="publish_product">发布项目</label>
-            </span>
-            <span class="product_stay_status">
-                <input class="with-gap" name="product_status" type="radio" id="stay_product" />
-                <label for="stay_product">暂存项目<br/><span style="color:rgb(112, 112, 112);">(不会展示在外部产品展示页面)</span></label>
-            </span>
-        </div>
-    </div>
+    <!--<div class="product_status_div">-->
+        <!--<div class="product_status">-->
+            <!--<span class="product_publish_status">-->
+                <!--<input class="with-gap" name="product_status" type="radio" id="publish_product" checked />-->
+                <!--<label for="publish_product">发布项目</label>-->
+            <!--</span>-->
+            <!--<span class="product_stay_status">-->
+                <!--<input class="with-gap" name="product_status" type="radio" id="stay_product" />-->
+                <!--<label for="stay_product">暂存项目<br/><span style="color:rgb(112, 112, 112);">(不会展示在外部产品展示页面)</span></label>-->
+            <!--</span>-->
+        <!--</div>-->
+    <!--</div>-->
     <div class="product_function_div">
         <a class="waves-effect waves-light btn" id="save_product">保存</a>
         <a class="waves-effect waves-light btn" id="cancel_product">取消</a>
