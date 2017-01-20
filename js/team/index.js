@@ -17,6 +17,10 @@ $(document).ready(function(){
 
     });
 
+    $("#product_manage").click(function(){
+        window.location.href="product/product_list.html?tid="+tid;
+    });
+
     //如果没有token隐藏所有的编辑按钮
     if(token==undefined){
         $("#edit_team_basic").remove();
