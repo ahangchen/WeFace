@@ -1,5 +1,5 @@
 $(document).ready(function(){
-    var tid=(location.search.split("=")[1]).split('?')[0];
+    var tid=(location.search.split("=")[1]).split('&')[0];
     var token=location.search.split("token=")[1];
     var team_info={};
     var team_product;
@@ -32,7 +32,6 @@ $(document).ready(function(){
         dataType: 'json',
         data: {"teamId": tid},
         success:function(data) {
-            console.log(data);
             team_product=data.msg;
         }
     });
@@ -248,7 +247,7 @@ $(document).ready(function(){
             if(team_product[i].img_path!="")
                 team_products.append('<div class="team_product" id="product_'+i+'"><img src="'+cur_media+team_product[i].img_path+'">'+
                     '<div class="product_name_area"><p class="product_number">产品'+(i+1)+'</p><p class="product_name">'+team_product[i].name+'</p></div>'+
-                    '<div class="product_content_area"><p class="product_content">'+team_product[i].content+'</p></div>');
+                    '<div class="product_content_area"><p class="product_content">'+JSON.parse(team_product[i].reward).slogan+'</p></div>');
         }
 
         //监听鼠标移动

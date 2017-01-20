@@ -180,6 +180,15 @@ input[type="text"]:focus:not([readonly])+label,input[type="text"].valid+label{
     font-size: 20px;
 }
 
+.product_basic_div{
+    width: 960px;
+    min-height: 450px;
+    margin: auto;
+    padding: 20px 20px 40px 20px;
+    /*border: 1px solid;*/
+}
+
+
 .product_basic_div .input-field{
     margin-top: 15px;
 }
@@ -189,13 +198,7 @@ input[type="text"]:focus:not([readonly])+label,input[type="text"].valid+label{
     min-height: 450px;
     margin-top: 5px;
     background-color: rgb(242,242,242);
-}
-
-.product_basic_div{
-    width: 960px;
-    min-height: 450px;
-    margin: auto;
-    padding: 20px 0 40px 0;
+    position: relative;
 }
 
 .product_label_div{
@@ -207,12 +210,12 @@ input[type="text"]:focus:not([readonly])+label,input[type="text"].valid+label{
 }
 
 #product_label_input{
-    width: 820px;
+    width: 790px;
 }
 
 #add_team_label_btn{
     background-color: rgb(244,171,35);
-    margin-left: 40px;
+    margin-left: 30px;
 }
 
 .product_label_choice_div{
@@ -263,12 +266,12 @@ input[type="text"]:focus:not([readonly])+label,input[type="text"].valid+label{
 .product_detail_div{
     min-width: 980px;
     min-height: 500px;
-    padding: 50px 0 40px 0;
+    padding: 50px 20px 40px 20px;
     /*border: 1px solid;*/
 }
 
 .product_detail_area{
-    width: 960px;
+    width: 900px;
     margin: auto;
 }
 

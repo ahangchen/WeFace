@@ -112,13 +112,13 @@ html{
 }
 
 .label_div{
-    width: 480px;
+    width: 960px;
     margin: auto;
+    text-align: center;
     /*border: 1px solid;*/
 }
 
 .product_label{
-    width: 100px;
     background-color: #fff;
     color: rgb(244, 171, 35);
     font-size: 16px;
