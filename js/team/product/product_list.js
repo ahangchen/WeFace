@@ -148,6 +148,13 @@ $(document).ready(function(){
                     data: {productId: productId},
                     success: function (data) {
                         console.log(data);
+                        $(".show_product_area").empty();
+                        for(var k=0;k<product.length;k++){
+                            if(product[k].id==productId){
+                                product.splice(k,1);
+                                break;
+                            }
+                        }
                         show_item(page,product);
                     }
                 });
