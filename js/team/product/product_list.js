@@ -49,7 +49,7 @@ $(document).ready(function(){
     }
 
     function add_page(product,activePage){
-        var pageNum=parseInt(product.length/10+1);
+        var pageNum=parseInt((product.length-1)/10+1);
         var change_page_div=$(".change_page_div ul");
 
         change_page_div.append('<li class="waves-effect" id="last_page"><a><i class="material-icons">chevron_left</i></a></li>');
@@ -147,7 +147,6 @@ $(document).ready(function(){
                     dataType: 'json',
                     data: {productId: productId},
                     success: function (data) {
-                        console.log(data);
                         $(".show_product_area").empty();
                         for(var k=0;k<product.length;k++){
                             if(product[k].id==productId){
@@ -155,6 +154,11 @@ $(document).ready(function(){
                                 break;
                             }
                         }
+                        $(".change_page_div ul").empty();
+                        if(parseInt((product.length-1)/10+1)<page){
+                            page=page-1;
+                        }
+                        add_page(product,page);
                         show_item(page,product);
                     }
                 });
