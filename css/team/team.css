@@ -94,17 +94,19 @@ html{
 .nav_function_icon{
     float: right;
     display: inline-block;
-    height: 50px;
-    vertical-align: top;
+    height: 45px;
+    vertical-align: middle;
     /*border: 1px solid;*/
     position: relative;
     width: 80px;
+    margin-top: 5px;
 }
 
 #nav_function_btn{
     color: rgb(244, 171, 35);
     cursor: pointer;
-    font-size: 50px;
+    width: 40px;
+    height: 40px;
 }
 
 #total_new_msg{
