@@ -35,32 +35,31 @@ $(document).ready(function(){
         type: 'POST',
         dataType: 'json',
         data: {"teamId": tid},
-        success:function(data) {
-            team_product=data.msg;
-        }
-    });
+        success:function(res) {
+            team_product=res.msg;
+            $.ajax({
+                type: 'GET',
+                url: cur_site + "team/info/",
+                dataType: "json",
+                data: {'tid': tid} ,
+                success: function (data) {
+                    team_info.name=data.res.name;
+                    team_info.label=data.res.label;
+                    team_info.slogan=data.res.slogan;
+                    team_info.intro=(data.res.about).replace('\n','<br />');
+                    team_info.logo=data.res.logo_path;
+                    team_info.photo=data.res.imgs;
+                    team_info.mail=data.res.mail;
+                    team_info.tel=data.res.tel;
+                    team_info.member=data.res.stus;
+                    //没有用到的字段
+                    team_info.history=data.res.history;
+                    team_info.b_type=data.res.b_type;
 
-    $.ajax({
-        type: 'GET',
-        url: cur_site + "team/info/",
-        dataType: "json",
-        data: {'tid': tid} ,
-        success: function (data) {
-            team_info.name=data.res.name;
-            team_info.label=data.res.label;
-            team_info.slogan=data.res.slogan;
-            team_info.intro=(data.res.about).replace('\n','<br />');
-            team_info.logo=data.res.logo_path;
-            team_info.photo=data.res.imgs;
-            team_info.mail=data.res.mail;
-            team_info.tel=data.res.tel;
-            team_info.member=data.res.stus;
-            //没有用到的字段
-            team_info.history=data.res.history;
-            team_info.b_type=data.res.b_type;
-
-            load_team_nav();
-            load_team_homepage();
+                    load_team_nav();
+                    load_team_homepage();
+                }
+            });
         }
     });
 
@@ -223,7 +222,7 @@ $(document).ready(function(){
             $(".product_div").append('<div class=team_products></div>');
             for(i=0;i<team_product.length;i++){
                 if(team_product[i].img_path!="")
-                    $(".team_products").append('<div class="team_product"><img src="'+cur_media+team_product[i].img_path+'">'+
+                    $(".team_products").append('<div class="team_product" id="team_product'+team_product[i].id+'"><img src="'+cur_media+team_product[i].img_path+'">'+
                         '<div class="product_name_area"><p class="product_number">产品'+(i+1)+'</p><p class="product_name">'+team_product[i].name+'</p></div></div>');
             }
         }
@@ -231,6 +230,10 @@ $(document).ready(function(){
             $(".product_div").append('<p class="empty_remainder">精彩等待开启</p>');
         }
 
+        $(".team_product").on('click',function(){
+            var productId=$(this).attr('id').split('team_product')[1];
+            window.location.href="product/product_detail.html?productId="+productId;
+        });
 
         if(team_info.tel.length>25){
             var team_tel_show=team_info.tel.slice(0,25)+"...";
@@ -249,12 +252,12 @@ $(document).ready(function(){
         team_products.css("width","940px");
         for(i=0;i<team_product.length;i++){
             if(team_product[i].img_path!="")
-                team_products.append('<div class="team_product" id="product_'+i+'"><img src="'+cur_media+team_product[i].img_path+'">'+
+                team_products.append('<div class="team_product" id="team_product'+team_product[i].id+'"><img src="'+cur_media+team_product[i].img_path+'">'+
                     '<div class="product_name_area"><p class="product_number">产品'+(i+1)+'</p><p class="product_name">'+team_product[i].name+'</p></div>'+
                     '<div class="product_content_area"><p class="product_content">'+JSON.parse(team_product[i].reward).slogan+'</p></div>');
         }
 
-        //监听鼠标移动
+        //监听鼠标移动，点击
         $(".team_product").css("margin-left","60px").on("mouseover",function(){
             $(this).children('img').css("filter","blur(3px)");
             $(this).children('.product_name_area').css("opacity","0");
@@ -263,7 +266,12 @@ $(document).ready(function(){
             $(this).children('img').css("filter","blur(0)");
             $(this).children('.product_name_area').css("opacity","1");
             $(this).children('.product_content_area').css("opacity","0");
+        }).on('click',function(){
+            var productId=$(this).attr('id').split('team_product')[1];
+            window.location.href="product/product_detail.html?productId="+productId;
         });
+
+
     }
 
     //加载互动社区的话题内容

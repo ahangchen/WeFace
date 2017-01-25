@@ -246,6 +246,10 @@ html{
     opacity: 0;
 }
 
+.nav_function_div a{
+    cursor: pointer;
+}
+
 .downIcon{
     width: 20px;
     height: 20px;
