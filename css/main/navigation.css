@@ -86,9 +86,9 @@ a.topBarItem.dropdown-button.btn {
     border-bottom: rgb(244, 171, 35) 2px solid;
 }
 .indexTab{
-    height: 56px;
     margin-left: 30px;
     padding: 10px;
+    font-size: 1.2em;
 }
 .header {
 
@@ -107,6 +107,7 @@ a.topBarItem.dropdown-button.btn {
     height: 35px;
     font-size: 12px;
     line-height: 30px;
+    padding: 0 10px;
 }
 
 .topBar a {

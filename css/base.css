@@ -19,6 +19,6 @@ html, body {
 }
 
 html {
-    background-image: url(../res/imgs/bg.svg);
+    /*background-image: url(../res/imgs/bg.svg);*/
     background-size: 100% auto;
 }

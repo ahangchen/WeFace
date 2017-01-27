@@ -24,10 +24,10 @@ $(document).ready(function(){
     var stu_id = getUrlVar("stu_id");
     var wefaceBace_site = "http://110.64.69.101:8080/";
     if(stu_id){
-        $('.toIndexLink').attr('href',wefaceBace_site + "main/index.html?stu_id=" + stu_id);
+        $('.toIndexLink').attr('href',wefaceBace_site + "main/updatedIndex.html?stu_id=" + stu_id);
     }
     else {
-        $('.toIndexLink').attr('href',wefaceBace_site + "main/index.html");
+        $('.toIndexLink').attr('href',wefaceBace_site + "main/updatedIndex.html");
     }
 
 

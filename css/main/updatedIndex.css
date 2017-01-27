@@ -46,6 +46,14 @@ body{
     flex: 0 1 auto;
     align-self: center;
 }
+.searchIcon{
+    position: relative;
+    top:30px;
+}
+#closeIcon{
+    position: absolute;
+    top: 5px;
+}
 .hot-search{
     order: 4;
     flex: 0 1 auto;
@@ -117,15 +125,9 @@ body{
 
 
 .bannerBig {
+    height: 390px;
     background-color: white;
     margin-bottom: 10px;
-    display: flex;
-    flex-direction: row;
-    flex-wrap: nowrap;
-    justify-content: center;
-    align-items: center;
-    align-content: center;
-    padding: 10px;
 }
 
 .preBtn, .nextBtn {
@@ -133,30 +135,32 @@ body{
     width: 100px;
     border: none;
     background-color: transparent;
+    position: relative;
     z-index: 100;
-
+    display: inline;
 }
 
 .preBtn {
-    order: 0;
+    float: left;
+    top: 141px;
 }
 
 .nextBtn {
-    order: 2;
+    float: right;
+    top: -341px;
 }
 
 .imgBox {
     position: relative;
+    top: -100px;
     background-color: gray;
     height: 362px;
-    width: 80%;
+    width: 100%;
     /*margin-left: 50px;*/
     /*margin-right: 50px;*/
     list-style-type: none;
     overflow: hidden;
     z-index: 90;
-    flex: 1 0 80%;
-    order: 1;
     margin-bottom: 20px;
 }
 
@@ -191,7 +195,7 @@ body{
 /*搜索标签的样式*/
 .searchText,.searchItems{
     display: inline-block;
-    margin: 15px;
+    margin: 0 15px;
 }
 .chip{
     background: transparent;
@@ -208,7 +212,7 @@ body{
 .hot-search{
     text-align: center;
     width: 80%;
-    margin: 15px auto;
+    margin: 0 auto;
 }
 .teamEntry{
     background-image: url('../../res/imgs/main/findTeam.svg');
