@@ -119,8 +119,7 @@ $(document).ready(function(){
                     '<a id="edit_team_member" class="btn-floating waves-effect waves-light"><i class="material-icons" id="edit_team_member_icon">edit</i></a>'+
                     '</div></div><div class="photo_div"><div class="sub_title"><span>团队风采</span>'+
                     '<a id="edit_team_photo" class="btn-floating waves-effect waves-light"><i class="material-icons" id="edit_team_photo_icon">edit</i></a>'+
-                    '</div></div><div class="product_div">' +
-                    '<div class="sub_title"><span>团队产品</span></div></div>'+
+                    '</div></div>'+
                     '<div class="footer"><div class="sub_title"><span style="color:white">联系我们</span>'+
                     '<a id="edit_team_contact" class="btn-floating waves-effect waves-light"><i class="material-icons" id="edit_team_contact_icon">edit</i></a>'+
                     '</div><div  class="contact"><i class="material-icons">language</i>'+
@@ -218,22 +217,22 @@ $(document).ready(function(){
             $(".photo_div").append('<p class="empty_remainder">精彩等待开启</p>');
         }
 
-        if(team_product.length>0){
-            $(".product_div").append('<div class=team_products></div>');
-            for(i=0;i<team_product.length;i++){
-                if(team_product[i].img_path!="")
-                    $(".team_products").append('<div class="team_product" id="team_product'+team_product[i].id+'"><img src="'+cur_media+team_product[i].img_path+'">'+
-                        '<div class="product_name_area"><p class="product_number">产品'+(i+1)+'</p><p class="product_name">'+team_product[i].name+'</p></div></div>');
-            }
-        }
-        else{
-            $(".product_div").append('<p class="empty_remainder">精彩等待开启</p>');
-        }
-
-        $(".team_product").on('click',function(){
-            var productId=$(this).attr('id').split('team_product')[1];
-            window.location.href="product/product_detail.html?productId="+productId;
-        });
+        // if(team_product.length>0){
+        //     $(".product_div").append('<div class=team_products></div>');
+        //     for(i=0;i<team_product.length;i++){
+        //         if(team_product[i].img_path!="")
+        //             $(".team_products").append('<div class="team_product" id="team_product'+team_product[i].id+'"><img src="'+cur_media+team_product[i].img_path+'">'+
+        //                 '<div class="product_name_area"><p class="product_number">产品'+(i+1)+'</p><p class="product_name">'+team_product[i].name+'</p></div></div>');
+        //     }
+        // }
+        // else{
+        //     $(".product_div").append('<p class="empty_remainder">精彩等待开启</p>');
+        // }
+        //
+        // $(".team_product").on('click',function(){
+        //     var productId=$(this).attr('id').split('team_product')[1];
+        //     window.location.href="product/product_detail.html?productId="+productId;
+        // });
 
         if(team_info.tel.length>25){
             var team_tel_show=team_info.tel.slice(0,25)+"...";
