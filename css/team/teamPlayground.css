@@ -1,16 +1,10 @@
 *{
     color: rgb(112, 112, 112);
 }
-/*广告栏的样式*/
 .bannerBig {
+    height: 390px;
     background-color: white;
-    display: flex;
-    flex-direction: row;
-    flex-wrap: nowrap;
-    justify-content: center;
-    align-items: center;
-    align-content: center;
-    padding: 10px;
+    margin-bottom: 10px;
 }
 
 .preBtn, .nextBtn {
@@ -18,33 +12,34 @@
     width: 100px;
     border: none;
     background-color: transparent;
+    position: relative;
     z-index: 100;
-
+    display: inline;
 }
 
 .preBtn {
-    order: 0;
+    float: left;
+    top: 141px;
 }
 
 .nextBtn {
-    order: 2;
+    float: right;
+    top: -341px;
 }
 
 .imgBox {
     position: relative;
+    top: -100px;
     background-color: gray;
     height: 362px;
-    width: 80%;
+    width: 100%;
     /*margin-left: 50px;*/
     /*margin-right: 50px;*/
     list-style-type: none;
     overflow: hidden;
     z-index: 90;
-    flex: 1 0 80%;
-    order: 1;
     margin-bottom: 20px;
 }
-
 .imgList {
     list-style-type: none;
     width: 300%;
@@ -74,6 +69,10 @@
 }
 /*---*/
 /*------------------------------------------------热门团队板块-----------------------------*/
+.hotTeamsDiv,.communityDiv{
+    position: relative;
+    top: -200px;
+}
 .hotTeamsDiv{
     width: 100%;
     display: flex;

@@ -4,15 +4,15 @@
     border-bottom: rgb(244, 171, 35) 2px solid;
 }
 /*广告栏的样式*/
+.bannerBar{
+    order: 2;
+    flex: 0 1 auto;
+    align-self: center;
+}
 .bannerBig {
+    height: 390px;
     background-color: white;
-    display: flex;
-    flex-direction: row;
-    flex-wrap: nowrap;
-    justify-content: center;
-    align-items: center;
-    align-content: center;
-    padding: 10px;
+    margin-bottom: 10px;
 }
 
 .preBtn, .nextBtn {
@@ -20,23 +20,28 @@
     width: 100px;
     border: none;
     background-color: transparent;
+    position: relative;
     z-index: 100;
-
+    display: inline;
 }
 
 .preBtn {
-    order: 0;
+    float: left;
+    top: 141px;
 }
 
 .nextBtn {
-    order: 2;
+    float: right;
+    top: -341px;
 }
+
 
 .imgBox {
     position: relative;
     background-color: gray;
     height: 362px;
-    width: 80%;
+    width: 100%;
+    top: -100px;
     /*margin-left: 50px;*/
     /*margin-right: 50px;*/
     list-style-type: none;
