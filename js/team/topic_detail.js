@@ -1,8 +1,10 @@
 $(document).ready(function() {
-    var tid = getId();
+    var tid = (location.search.split("=")[1]).split('&')[0];
+    var topic_id=location.search.split("topic_id=")[1];
     var team_info = {};
-    var temp_class;
     var i;
+
+    $(".ds-thread").attr('data-thread-key',topic_id).attr('data-title','吃土').attr('data-url',location.href);
 
     $.ajax({
         type: 'GET',
