@@ -7,6 +7,7 @@
 }
 body{
     background-color: rgb(242,242,242);
+    min-width: 1000px;
 }
 *{
     color: rgb(112,112,112);
@@ -114,8 +115,10 @@ a.topBarItem.dropdown-button.btn {
     cursor: pointer;
 }
 #logoIndex{
-    font-size: 2.5em;
-    color: rgb(244, 171,35);
+    height: 65px;
+    width: 70px;
+    background-size: 100% auto;
+    background-image: url('../../res/imgs/main/logo.svg');
 }
 .header a {
     margin-left: 0;
@@ -155,4 +158,8 @@ nav ul li{
 #search{
     position: relative;
     top: -1px;
+}
+.selectedIndex{
+    background: transparent;
+    border-bottom: rgb(244, 171, 35) 2px solid;
 }

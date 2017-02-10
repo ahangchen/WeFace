@@ -170,7 +170,7 @@ $(function(){
     }
     function initTeamDetail(){
         $('.name').html(tName);
-        $('.teamLogoBar img').attr('src',cur_media+tLogo);
+        $('.imgFrame img').attr('src',cur_media+tLogo);
         $('#teamDesc ').html(tAbout);
         $('#email').html(tMail);
         $('#phone').html(tTel);

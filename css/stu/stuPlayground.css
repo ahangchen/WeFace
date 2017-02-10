@@ -1,8 +1,5 @@
 
-.selectedIndex{
-    background: transparent;
-    border-bottom: rgb(244, 171, 35) 2px solid;
-}
+
 /*广告栏的样式*/
 .bannerBar{
     order: 2;
