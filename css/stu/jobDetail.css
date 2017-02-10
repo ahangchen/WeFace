@@ -90,6 +90,36 @@
     display: inline-block;
     width: 500px;
 }
+.nameDiv{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: flex-start;
+    align-items: flex-start;
+    align-content: stretch;
+}
+.nameDiv .name{
+    order: 0;
+    flex:1 1 70%;
+}
+.starImg{
+    height: 42px;
+    width: 42px;
+    position: relative;
+    top: -1px;
+    left: -1px;
+    background-size: 100% auto;
+    background-image: url('../../res/imgs/team/收藏.svg');
+}
+.nameDiv .star{
+    height: 40px;
+    width: 40px;
+    border-radius: 20px;
+    overflow: hidden;
+    background-color: white;
+    order: 1;
+    flex: 0 1 40px;
+}
 .jobContent .row{
     margin-bottom: 10px;
     width: 100%;
