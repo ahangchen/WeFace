@@ -6,56 +6,79 @@ div.col.s10.stateBar{
     padding: 0;
 }
 .selectBar{
-    height: 144px;
-    background-color: rgba(255,255,255,0.4);
+    padding-top: 20px;
+    padding-right: 50px;
 }
 .jobCard{
-    margin-top: 8px;
     min-height: 112px;
+    padding: 27px 46px 20px 40px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: flex-start;
+    align-items: flex-start;
+    align-content: stretch;
+}
+.jobCard:nth-child(odd){
     background-color: rgba(255,255,255,1.0);
-    padding: 27px 46px 20px 70px;
-
 }
 #entire,#unchecked,#uncontact,#unquiz,#admitted,#unsuit{
     padding: 0;
+}
+.stateBar .tabs .tab .selectTab{
+    color: rgb(244, 171, 35);
+}
+.tabs .indicator{
+    background-color: rgb(244, 171, 35);
+}
+.nameBar{
+    order: 0;
+    flex: 0 1 160px;
 }
 .nameBar a{
     cursor: pointer;
 }
 .tab .active{
-    border-bottom: #f9c9cb 2px solid;
+    border-bottom: rgb(244, 171, 35) 2px solid;
 }
 .chip{
     color: white;
-    float: right;
-    width: 63px;
+    width: 80px;
+    font-weight: lighter;
     text-align: center;
+    display: inline-block;
 }
 .unchChip{
-    background-color: #fcc02e;
+    background-color: rgb(105, 193, 175);
 }
 .unconChip{
-    background-color: #03a9f5;
+    background-color: rgb(245, 209, 59);
 }
 .unquChip{
-    background-color: #67bc69;
+    background-color: rgb(101, 197, 291);
 }
 .admChip{
-    background-color: #ff8f00;
+    background-color: rgb(66, 168, 82);
 }
 .unsuitChip{
-    background-color: #939393;
-}
-.flushBar{
-    height: 96px;
-    padding: 15px 44px 20px 74px;
+    background-color: rgb(180, 180, 180);
 }
 .flushBar i{
-    color: #ff8f00;
+    color: white;
+    position: relative;
+    top: -3px;
+    left: 2px;
 }
+
 #flushBtn{
+    background-color: rgb(244, 171, 35);
+    height: 32px;
+    width: 32px;
+    border-radius: 16px;
     cursor: pointer;
     padding-top: 5px;
+    position: relative;
+    top: 5px;
 }
 div.col.s10.stateBar{
     height: 44px;
@@ -74,18 +97,46 @@ div.col.s10.stateBar{
     font-size: 24px;
 }
 .chageTime{
-    float: right;
+    order: 4;
+    flex: 1 1 auto;
+    text-align: right;
 }
 .descBar{
-    margin-top: 14px;
+    order: 1;
+    flex:0 1 150px;
+    justify-content: flex-end;
+    text-align: right;
+}
+.firmName{
+    margin-top: 10px;
 }
 .money{
-    margin-left: 50px;
-    color: #ff8f00;
+    color: rgb(244, 171, 35);
+    margin-top: 5px;
 }
 .min,.max{
-    color: #ff8f00;
+    color: rgb(244, 171, 35);
 
+}
+.questionMark{
+    width: 20px;
+    height: 20px;
+    border-radius: 10px;
+    background-color: rgb(244, 171, 35);
+    color: white;
+    font-size: 20px;
+    line-height: 20px;
+    padding-left: 5px;
+    order: 2;
+    flex: 0 1 20px;
+    margin-left: 40px;
+}
+.tips{
+    order: 3;
+    flex: 0 1 50%;
+    margin-left: 20px;
+    color: rgb(180, 180, 180
+    );
 }
 .newNum{
     display: inline-block;

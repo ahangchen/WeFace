@@ -10,13 +10,15 @@
 <script src="../js/etc.js"></script>
 <script src="../js/stu/deliver.js"></script>
 <script src="../js/materialize.js"></script>
-<link href="../css/main/base.css"  rel="stylesheet"/>
-<link href="../css/base.css"  rel="stylesheet"/>
-<link rel="stylesheet"  href="../css/materialize.css">
+<link href="../css/main/base.css" rel="stylesheet"/>
 
+
+<link rel="stylesheet" href="../css/materialize.css">
+<link rel="stylesheet" href="../css/stu/deliver.css">
 <link href="../css/md-icon.css" rel="stylesheet">
-<link rel="stylesheet"  href="../css/stu/deliver.css">
-<link rel="stylesheet"  href="../css/main/navigation.css">
+
+<link rel="stylesheet" href="../css/main/navigation.css">
+<link href="../css/base.css" rel="stylesheet"/>
 <div class="header comWidth">
     <div class="topBar">
         <div class="comWidth">
@@ -33,46 +35,93 @@
     </div>
 </div>
 
-<nav class="white lighten-5 comWidth">
+<div class="white lighten-5  guideBar">
     <div class="nav-wrapper">
-        <ul class="left">
-            <li><a class="toIndexLink"><img id="logo" src="../res/imgs/materialize.svg"/></a></li>
-            <li><a class="toIndexLink"><p class="logo-name">华南理工大学<br/>人才交流平台
+        <ul class="indexBar">
+            <li id="logoIndex"><a class="toIndexLink"></a></li>
+            <li><a class="toIndexLink"><p class="logo-name">人才交流平台
                 <p></a></li>
-            <li><a class="toIndexLink" id="indexBtn">首页</a></li>
-            <li><a href="../team/roles_team.html" id="teamBtn">团队</a></li>
+            <li class="indexTab"><a class="toIndexLink " id="indexBtn">首页</a></li>
+            <li class="indexTab selectedIndex"><a href="../team/teamPlayGround.html" id="teamBtn">团队</a></li>
+            <li class="indexTab "><a href="../stu/stuPlayground.html" id="stuBtn">学生</a></li>
         </ul>
 
-        <div class="input-field right search-bar" id="searchDiv">
-            <input id="search" type="search" placeholder="Click to search" required>
-            <label for="search"><i class="material-icons">search</i></label>
-            <i class="material-icons">close</i>
-        </div>
     </div>
-</nav>
+</div>
 <div class="row comWidth">
-    <div class="selectBar z-depth-2">
+    <div class="selectBar">
         <div class="flushBar">
-            <span class="text"><span >投递状态</span><i class="material-icons small ">play_arrow</i></span>
-            <span class="fr"><a id="flushBtn"><i class="material-icons small">replay</i></a></span>
+            <span class="fr"><div id="flushBtn"><i class="material-icons small">cached</i></div></span>
         </div>
         <div class="col s10 stateBar">
             <ul class="tabs ">
-                <li class="tab col s3"><a href="#entire" class="active">全部<div class="newNum">10</div></a></li>
+                <li class="tab col s3"><a class="selectTab" href="#entire" class="active ">全部
+                    <div class="newNum">10</div>
+                </a></li>
                 <li class="tab col s3">
-                    <a href="#unchecked">待查看<div class="newNum">2</div></a>
+                    <a class="selectTab" href="#unchecked">待查看
+                        <div class="newNum">2</div>
+                    </a>
                 </li>
-                <li class="tab col s3 "><a href="#uncontact">待沟通<div class="newNum">2</div></a></li>
-                <li class="tab col s3"><a href="#unquiz">待面试<div class="newNum">2</div></a></li>
-                <li class="tab col s3"><a href="#admitted">录用<div class="newNum">2</div></a></li>
-                <li class="tab col s3"><a href="#unsuit">不合适<div class="newNum">2</div></a></li>
+                <li class="tab col s3 "><a class="selectTab" href="#uncontact">待沟通
+                    <div class="newNum">2</div>
+                </a></li>
+                <li class="tab col s3"><a class="selectTab" href="#unquiz">待面试
+                    <div class="newNum">2</div>
+                </a></li>
+                <li class="tab col s3"><a class="selectTab" href="#admitted">录用
+                    <div class="newNum">2</div>
+                </a></li>
+                <li class="tab col s3"><a class="selectTab" href="#unsuit">不合适
+                    <div class="newNum">2</div>
+                </a></li>
             </ul>
         </div>
     </div>
     <div id="entire" class="col s12">
+        <div class="jobCard ">
+            <div class="nameBar">
+                <a>
+                    <span class="jobName">UI设计狮/</span>
+                    <span class="addr">广州</span>
+                </a>
+                <div class="money">
+                    <span class="min">3000</span>
+                    ~
+                    <span class="max">6000</span>/月
+                </div>
+            </div>
+            <div class="descBar">
+                <div class="chip unchChip">待查看</div>
+                <div class="firmName">WEMEET</div>
+            </div>
+            <div class="questionMark">?</div>
+            <div class="tips">您的简历已被标志为不合适</div>
+            <div class="chageTime">2017年1月20日</div>
+        </div>
+
     </div>
     <div id="unchecked" class="col s12">
-
+        <div class="jobCard ">
+            <div class="nameBar">
+                <a>
+                    <span class="jobName">UI设计狮/</span>
+                    <span class="addr">广州</span>
+                </a>
+                <div class="money">
+                    <span class="min">3000</span>
+                    ~
+                    <span class="max">6000</span>/月
+                </div>
+            </div>
+            <div class="descBar">
+                <div class="chip unchChip">待查看</div>
+                <div class="firmName">WEMEET</div>
+            </div>
+            <div class="questionMark">?</div>
+            <div class="tips">您的简历已被标志为不合适</div>
+            <div class="chageTime">2017年1月20日</div>
+        </div>
     </div>
     <div id="uncontact" class="col s12">
 

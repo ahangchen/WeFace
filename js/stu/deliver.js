@@ -2,9 +2,41 @@
  * Created by jewel on 16/7/24.
  */
 // 投递页面的js
+// function appendCard(divId, card){
+//     $('#'+divId).append('<div class="jobCard">'+
+//         '<div class="nameBar">'+
+//         '<a>'+
+//         '<span class="jobName">'+card.jName+'/</span>'+
+//         '<span class="addr">'+card.addr+'</span>'+
+//         '</a>'+
+//         '<div class="money"><span class="min">'+card.min+'</span>'+
+//         '~'+
+//         '<span class="max">'+card.max+'</span>'+
+//         '/月</div>'+
+//         '</div>'+
+//         '<div class="descBar">'+
+//         '<div class="chip '+card.stateType+'">'+card.stateText+'</div>'+
+//         '<div class="firmName">'+card.firmName+'</div>'+
+//         '</div>'+
+//         '<div class="questionMark">?</div>'+
+//         '<div class="tips">'+card.tips+'</div>'+
+//         '<div class="chageTime">'+card.changeDate+'</div>'+
+//         '</div>');
+// }
 $(function(){
-    var teamId,jobId;
-    var changeDate,state,min,max,firmName,addr,jName;
+    var cardContent = {
+        max:'',
+        min: '',
+        changeDate: '',
+        firmName: '',
+        jName: '',
+        addr: '',
+        stateText: '',
+        stateType: '',
+        tips: ''
+    };
+    var teamId,jobId,state;
+    // var changeDate,state,min,max,firmName,addr,jName;
     var unreadCh = 0;
     var unredCon = 0;
     var unreadAdm = 0;
@@ -38,6 +70,27 @@ $(function(){
         $('#unsuit').html("");
         init();
     });
+    function appendCard(divId, card){
+        $('#'+divId).append('<div class="jobCard">'+
+            '<div class="nameBar">'+
+            '<a>'+
+            '<span class="jobName">'+card.jName+'/</span>'+
+            '<span class="addr">'+card.addr+'</span>'+
+            '</a>'+
+            '<div class="money"><span class="min">'+card.min+'</span>'+
+            '~'+
+            '<span class="max">'+card.max+'</span>'+
+            '/月</div>'+
+            '</div>'+
+            '<div class="descBar">'+
+            '<div class="chip '+card.stateType+'">'+card.stateText+'</div>'+
+            '<div class="firmName">'+card.firmName+'</div>'+
+            '</div>'+
+            '<div class="questionMark">?</div>'+
+            '<div class="tips">'+tips+'</div>'+
+            '<div class="chageTime">'+card.changeDate+'</div>'+
+            '</div>');
+    }
     function init(){
         $.ajax({
             type:'post',
@@ -52,71 +105,40 @@ $(function(){
                 var quiCnt = 0;
                 var admCnt = 0;
                 var suitCnt = 0;
-                var stateType = "";
-                var stateText = "";
+                // var stateType = "";
+                // var stateText = "";
                 for (var i = 0; i < data.apply_list.length; i++) {
-                    changeDate = data.apply_list[i].change_time;
+                    cardContent.changeDate = data.apply_list[i].change_time;
                     state = data.apply_list[i].state;
-                    min = data.apply_list[i].min_salary;
-                    max = data.apply_list[i].max_salary;
-                    firmName = data.apply_list[i].team_name;
-                    addrNum = data.apply_list[i].city;
-                    jName = data.apply_list[i].job_name;
+                    cardContent.min = data.apply_list[i].min_salary;
+                    cardContent.max = data.apply_list[i].max_salary;
+                    cardContent.firmName = data.apply_list[i].team_name;
+                    var addrNum = data.apply_list[i].city;
+                    cardContent.jName = data.apply_list[i].job_name;
                     teamId = data.apply_list[i].team_id;
                     jobId = data.apply_list[i].job_id;
-                    var addr;
                     if(data.apply_list[i].is_read == 0){
                         unreadNum++;
                     }
                     switch (addrNum){
-                        case 1:addr = "广州市";break;
-                        default:addr = "其他";break;
+                        case 1:cardContent.addr = "广州市";break;
+                        default:cardContent.addr = "其他";break;
                     }
                     switch(state){
-                        case 0:stateType ="unchChip";stateText ="待查看";break;
-                        case 1:stateType ="unconChip";stateText ="待沟通";break;
-                        case 2:stateType ="unquChip";stateText ="待面试";break;
-                        case 3:stateType ="admChip";stateText ="录用";break;
-                        case 4:stateType ="unsuitChip";stateText ="不合适";break;
+                        case 0:cardContent.stateType ="unchChip";cardContent.stateText ="待查看";break;
+                        case 1:cardContent.stateType ="unconChip";cardContent.stateText ="待沟通";break;
+                        case 2:cardContent.stateType ="unquChip";cardContent.stateText ="待面试";break;
+                        case 3:cardContent.stateType ="admChip";cardContent.stateText ="录用";break;
+                        case 4:cardContent.stateType ="unsuitChip";cardContent.stateText ="不合适";break;
                     }
-                    $('#entire').append('<div class="jobCard z-depth-3">'+
-                        '<div class="nameBar">'+
-                        '<a>'+
-                        '<span class="jobName">'+jName+'</span>'+
-                        '<span class="addr">（'+addr+'）</span>'+
-                        '</a>'+
-                        '<div class="chip '+stateType+'">'+stateText+'</div>'+
-                        '</div>'+
-                        '<div class="descBar">'+
-                        '<span class="firmName">'+firmName+'</span>'+
-                        '<span class="money"><span class="min">'+min+'</span>'+
-                        '-'+
-                        '<span class="max">'+max+'</span>'+
-                        '/月<span>'+
-                        '<span class="chageTime">'+changeDate+'</span>'+
-                        '</div></div>');
+                    appendCard("entire",cardContent);
                     var link = $('#entire .nameBar a');
                     $(link[i]).attr('href','jobDetail.html?job_id='+jobId+'&stu_id='+stuId);
                     $(li[0]).html(unreadNum);
                     var statelink;
                     switch(stateText){
                         case "待查看":
-                            $('#unchecked').append('<div class="jobCard z-depth-3">'+
-                                '<div class="nameBar">'+
-                                '<a>'+
-                                '<span class="jobName">'+jName+'</span>'+
-                                '<span class="addr">（'+addr+'）</span>'+
-                                '</a>'+
-                                '<div class="chip '+stateType+'">'+stateText+'</div>'+
-                                '</div>'+
-                                '<div class="descBar">'+
-                                '<span class="firmName">'+firmName+'</span>'+
-                                '<span class="money"><span class="min">'+min+'</span>'+
-                                '-'+
-                                '<span class="max">'+max+'</span>'+
-                                '/月<span>'+
-                                '<span class="chageTime">'+changeDate+'</span>'+
-                                '</div></div>');
+                            appendCard("unchecked",cardContent);
                             statelink = $('#unchecked .nameBar a');
                             $(statelink[chCnt]).attr('href','jobDetail.html?job_id='+jobId+'&stu_id='+stuId);
                             chCnt++;
@@ -126,22 +148,7 @@ $(function(){
                             $(li[1]).html(unreadCh);
                             break;
                         case "待沟通":
-                            $('#uncontact').append('<div class="jobCard z-depth-3">'+
-                                '<div class="nameBar">'+
-                                '<a>'+
-                                '<span class="jobName">'+jName+'</span>'+
-                                '<span class="addr">（'+addr+'）</span>'+
-                                '</a>'+
-                                '<div class="chip '+stateType+'">'+stateText+'</div>'+
-                                '</div>'+
-                                '<div class="descBar">'+
-                                '<span class="firmName">'+firmName+'</span>'+
-                                '<span class="money"><span class="min">'+min+'</span>'+
-                                '-'+
-                                '<span class="max">'+max+'</span>'+
-                                '/月<span>'+
-                                '<span class="chageTime">'+changeDate+'</span>'+
-                                '</div></div>');
+                            appendCard("uncontact",cardContent);
                             statelink = $('#uncontact .nameBar a');
 
                             $(statelink[conCnt]).attr('href','jobDetail.html?job_id='+jobId+'&stu_id='+stuId);
@@ -152,22 +159,7 @@ $(function(){
                             $(li[2]).html(unredCon);
                             break;
                         case "待面试":
-                            $('#unquiz').append('<div class="jobCard z-depth-3">'+
-                                '<div class="nameBar">'+
-                                '<a>'+
-                                '<span class="jobName">'+jName+'</span>'+
-                                '<span class="addr">（'+addr+'）</span>'+
-                                '</a>'+
-                                '<div class="chip '+stateType+'">'+stateText+'</div>'+
-                                '</div>'+
-                                '<div class="descBar">'+
-                                '<span class="firmName">'+firmName+'</span>'+
-                                '<span class="money"><span class="min">'+min+'</span>'+
-                                '-'+
-                                '<span class="max">'+max+'</span>'+
-                                '/月<span>'+
-                                '<span class="chageTime">'+changeDate+'</span>'+
-                                '</div></div>');
+                            appendCard(unquiz)
                             statelink = $('#unquiz .nameBar a');
                             $(statelink[quiCnt]).attr('href','jobDetail.html?job_id='+jobId+'&stu_id='+stuId);
                             quiCnt++;
@@ -177,22 +169,7 @@ $(function(){
                             $(li[3]).html(unreadQui);
                             break;
                         case "录用":
-                            $('#admitted').append('<div class="jobCard z-depth-3">'+
-                                '<div class="nameBar">'+
-                                '<a>'+
-                                '<span class="jobName">'+jName+'</span>'+
-                                '<span class="addr">（'+addr+'）</span>'+
-                                '</a>'+
-                                '<div class="chip '+stateType+'">'+stateText+'</div>'+
-                                '</div>'+
-                                '<div class="descBar">'+
-                                '<span class="firmName">'+firmName+'</span>'+
-                                '<span class="money"><span class="min">'+min+'</span>'+
-                                '-'+
-                                '<span class="max">'+max+'</span>'+
-                                '/月<span>'+
-                                '<span class="chageTime">'+changeDate+'</span>'+
-                                '</div></div>');
+                            appendCard("admitted",cardContent);
                             statelink = $('#admitted .nameBar a');
                             $(statelink[admCnt]).attr('href','jobDetail.html?job_id='+jobId+'&stu_id='+stuId);
                             admCnt++;
@@ -202,22 +179,7 @@ $(function(){
                             $(li[4]).html(unreadAdm);
                             break;
                         case "不合适":
-                            $('#unsuit').append('<div class="jobCard z-depth-3">'+
-                                '<div class="nameBar">'+
-                                '<a>'+
-                                '<span class="jobName">'+jName+'</span>'+
-                                '<span class="addr">（'+addr+'）</span>'+
-                                '</a>'+
-                                '<div class="chip '+stateType+'">'+stateText+'</div>'+
-                                '</div>'+
-                                '<div class="descBar">'+
-                                '<span class="firmName">'+firmName+'</span>'+
-                                '<span class="money"><span class="min">'+min+'</span>'+
-                                '-'+
-                                '<span class="max">'+max+'</span>'+
-                                '/月<span>'+
-                                '<span class="chageTime">'+changeDate+'</span>'+
-                                '</div></div>');
+                            appendCard("unsuit",cardContent);
                             statelink = $('#unsuit .nameBar a');
                             $(statelink[suitCnt]).attr('href','jobDetail.html?job_id='+jobId+'&stu_id='+stuId);
                             suitCnt++;
