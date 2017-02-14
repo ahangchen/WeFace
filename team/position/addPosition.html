@@ -16,6 +16,7 @@
 <script src="../../js/team/position.js"></script>
 <script src="../../js/team/addPosition.js"></script>
 <link rel="stylesheet"  href="../../css/team/addPosition.css">
+<link rel="stylesheet"  href="../../css/main/navigation.css">
 <div class="header comWidth">
     <div class="topBar">
         <div class="comWidth">
@@ -40,42 +41,38 @@
     </div>
 </div>
 
-<nav class="white lighten-5 comWidth">
+<div class="white lighten-5  guideBar">
     <div class="nav-wrapper">
-        <ul class="left">
-            <li><img id="logo" src="../../res/imgs/materialize.svg"/></li>
-            <li><p class="logo-name">华南理工大学<br/>人才交流平台
-                <p></li>
-            <li><a  id="resumeBtn">简历管理</a></li>
-            <li><a  id="positionBtn">职位管理</a></li>
-            <li><a  id="projectBtn">项目管理</a></li>
+        <ul class="indexBar">
+            <li id="logoIndex"><a class="toIndexLink" ></a></li>
+            <li><a class="toIndexLink"><p class="logo-name">人才交流平台
+                <p></a></li>
+            <li class="indexTab"><a class="toIndexLink " id="indexBtn">首页</a></li>
+            <li class="indexTab selectedIndex"><a href="../team/teamPlayGround.html" id="teamBtn">团队</a></li>
+            <li class="indexTab "><a href="../stu/stuPlayground.html" id="stuBtn">学生</a></li>
         </ul>
-        <div class="input-field right search-bar">
-            <input id="search" type="search" placeholder="Click to search" required>
-            <label for="search"><i class="material-icons">search</i></label>
-            <i class="material-icons">close</i>
-        </div>
+
     </div>
-</nav>
+</div>
 
 <div id="positionDiv" class="comWidth">
     <div class="row mainForm">
         <form class="col s12 manageForm">
             <div class="baseInfo comWidth">
                 <div class="row">
-                    <div class="input-field col s6">
+                    <div class="input-field col s12">
                         <input disabled="disabled" value="WeMeet"id="firmName" type="text" class="validate">
                         <label for="firmName">公司名称(自动关联)</label>
                     </div>
                 </div>
 
                 <div class="row">
-                    <div class="input-field col s6">
+                    <div class="input-field col s4">
                         <input   id="jobName" type="text" class="validate">
                         <label for="jobName">职位名称</label>
                         <p class="prescribe">*必填</p>
                     </div>
-                    <div class="input-field col s6 ">
+                    <div class="input-field col s4 ">
                         <select class="type">
                             <option value="" disabled selected>请选择</option>
                             <option value="1">产品</option>
@@ -90,6 +87,14 @@
                         </select>
                         <label>职业类型</label>
                         <p class="prescribe">*必填</p>
+                    </div>
+                    <div class="input-field col s4 ">
+                        <select id="atrr" class="attrClass">
+                            <option value="" disabled selected>工作性质</option>
+                            <option value="1">实习</option>
+                            <option value="2">全职</option>
+                            <option value="3">兼职</option>
+                        </select>
                     </div>
                 </div>
 
@@ -106,17 +111,17 @@
                 </div>
                 <div class="row">
                     <div class="input-field col s12 ">
-                        <select class="col s4 " id="province">
+                        <select class="col s2 " id="province">
                             <option value="" disabled selected>请选择</option>
                             <option value="1">广东省</option>
                             <option value="2">其他</option>
                         </select>
-                        <select class="col s4 " id="city">
+                        <select class="col s2 " id="city">
                             <option value="" disabled selected>请选择</option>
                             <option value="1">广州市</option>
                             <option value="2">其他</option>
                         </select>
-                        <select class="col s4 " id="region">
+                        <select class="col s2 " id="region">
                             <option value="" disabled selected>请选择</option>
                             <option value="1">番禺区</option>
                             <option value="2">海珠区</option>
@@ -131,41 +136,34 @@
                             <option value="11">南沙区</option>
                             <option value="12">其他</option>
                         </select>
-                        <label>工作地点</label>
+                        <div class="row detailAddress">
+                            <div class="input-field col s6">
+                                <input id="detailAddress" type="text" class="validate">
+                                <label for="detailAddress">具体地址</label>
+                                <p class="prescribe">*必填</p>
+                            </div>
+                        </div>
                         <p class="prescribe">&nbsp&nbsp&nbsp&nbsp*必填</p>
                     </div>
-                    <div class="row detailAddress">
-                        <div class="input-field col s6">
-                            <input id="detailAddress" type="text" class="validate">
-                            <label for="detailAddress">具体地址</label>
-                            <p class="prescribe">*必填</p>
-                        </div>
-                    </div>
+
                 </div>
                 <div class="row ">
-                    <div class="input-field col s6">
+                    <div class="input-field col s12">
                         <input  value="" id="experience" type="text" class="validate">
                         <label for="experience">经验要求</label>
                     </div>
-                    <div class="input-field col s6 ">
-                        <select id="atrr">
-                            <option value="" disabled selected>请选择</option>
-                            <option value="1">实习</option>
-                            <option value="2">全职</option>
-                            <option value="3">兼职</option>
-                        </select>
-                        <label>工作性质</label>
-                    </div>
+
                 </div>
 
                 <div class="row ">
-                    <div class="input-field col s6">
+                    <div class="input-field col s12">
                         <input  value="" id="requirement" type="text" class="validate" length="20">
                         <label for="requirement">职位突出特点（20字）</label>
                     </div>
                 </div>
             </div>
             <div class="requirementDiv">
+                <div class="descText">职位描述</div>
                 <div class="row ">
                     <div class="input-field col s10">
                         <textarea id="requirementForPosition" class="materialize-textarea"></textarea>

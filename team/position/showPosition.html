@@ -6,14 +6,16 @@
     <title>职业管理</title>
 </head>
 <body>
-<link href="../../css/base.css"  rel="stylesheet"/>
+
 <link rel="stylesheet"  href="../../css/materialize.css">
 <link href="https://fonts.css.network/icon?family=Material+Icons" rel="stylesheet">
 <link rel="stylesheet"  href="../../css/team/position.css">
+<link rel="stylesheet"  href="../../css/main/navigation.css">
 <script src="../../js/jquery-2.1.1.min.js"></script>
 <script src="../../js/etc.js"></script>
 <script src="../../js/materialize.min.js"></script>
 <script src="../../js/team/position.js"></script>
+<link href="../../css/base.css"  rel="stylesheet"/>
 <div class="header comWidth">
     <div class="topBar">
         <div class="comWidth">
@@ -38,23 +40,19 @@
     </div>
 </div>
 
-<nav class="white lighten-5 comWidth">
+<div class="white lighten-5  guideBar">
     <div class="nav-wrapper">
-        <ul class="left">
-            <li><img id="logo" src="../../res/imgs/materialize.svg"/></li>
-            <li><p class="logo-name">华南理工大学<br/>人才交流平台
-                <p></li>
-            <li><a  id="resumeBtn">简历管理</a></li>
-            <li><a  id="positionBtn">职位管理</a></li>
-            <li><a  id="projectBtn">项目管理</a></li>
+        <ul class="indexBar">
+            <li id="logoIndex"><a class="toIndexLink" ></a></li>
+            <li><a class="toIndexLink"><p class="logo-name">人才交流平台
+                <p></a></li>
+            <li class="indexTab"><a class="toIndexLink " id="indexBtn">首页</a></li>
+            <li class="indexTab selectedIndex"><a href="../team/teamPlayGround.html" id="teamBtn">团队</a></li>
+            <li class="indexTab "><a href="../stu/stuPlayground.html" id="stuBtn">学生</a></li>
         </ul>
-        <div class="input-field right search-bar">
-            <input id="search" type="search" placeholder="Click to search" required>
-            <label for="search"><i class="material-icons">search</i></label>
-            <i class="material-icons">close</i>
-        </div>
+
     </div>
-</nav>
+</div>
 
 <div id="positionDiv" class="comWidth">
     <div class="row" id="selectBar">
@@ -78,11 +76,12 @@
             <div class="chip normalTag">
                 <a>市场</a>
             </div>
-            <div class="editBtnGroup">
-                <a class="btn-floating btn-large waves-effect waves-light white" id="addBtn" ><i class="material-icons" >add</i></a>
-                <a class="btn-floating btn-large white" id="editBtn"><i class="large material-icons" >mode_edit</i></a>
-            </div>
         </div>
+            <div class="editBtnGroup">
+                <a class="btn-floating  waves-effect waves-light " id="addBtn" ><i class="material-icons large" >add</i></a>
+                <a class="btn-floating " id="editBtn"><i class="large material-icons" >mode_edit</i></a>
+            </div>
+
     </div>
 
 
@@ -132,6 +131,30 @@
         </form>
     </div>
     <div id="positionCards">
+        <div class="positionCard comwidth" >
+            <div class="nameBar">
+                <label class="positionName">
+                    <a>UI工程师/</a>
+                    <span class = "jAddr">广州</span>
+                </label>
+                <div class="salary">3000～5000/月</div>
+
+            </div>
+            <div class="descBar">
+                <div class="chip submitted">已发布</div>
+                <div class="required">应届生</div>
+            </div>
+            <div class="btngroups">
+                <div class="waves-effect waves-light editInfoBtn z-depth-1" >
+                    管理
+                </div>
+                <div class="waves-effect waves-light  delJobBtn z-depth-1" >
+                    删除
+                </div>
+            </div>
+        </div>
+
+
 
     </div>
     <div class="pageNum comWidth">
@@ -147,20 +170,20 @@
         <form class="col s12 manageForm">
             <div class="baseInfo comWidth">
                 <div class="row">
-                    <div class="input-field col s6">
+                    <div class="input-field col s12">
                         <input disabled value="weMeet" id="firmName" type="text" class="validate">
                         <label for="firmName">公司名称（自动关联）</label>
                     </div>
                 </div>
 
                 <div class="row">
-                    <div class="input-field col s6 ">
+                    <div class="input-field col s4 ">
                         <input  value="网页前端工程师" id="jobName" type="text" class="validate">
                         <label for="jobName">职位名称</label>
                     </div>
-                    <div class="input-field col s6 ">
+                    <div class="input-field col s4 ">
                         <select id="type" class="typeClass">
-                            <option value="" disabled selected>请选择</option>
+                            <option value="" disabled selected>职业类型</option>
                             <option value="2">产品</option>
                             <option value="3">技术</option>
                             <option value="4" >设计</option>
@@ -171,7 +194,14 @@
                             <option value="8">文案策划</option>
                             <option value="7">市场</option>
                         </select>
-                        <label>职业类型</label>
+                    </div>
+                    <div class="input-field col s4 ">
+                        <select id="atrr" class="attrClass">
+                            <option value="" disabled selected>工作性质</option>
+                            <option value="1">实习</option>
+                            <option value="2">全职</option>
+                            <option value="3">兼职</option>
+                        </select>
                     </div>
                 </div>
 
@@ -188,18 +218,18 @@
                 </div>
 
                 <div class="input-field col s12 ">
-                    <select class="col s4 provinceClass" id="province">
-                        <option value="" disabled selected>请选择</option>
+                    <select class="col s2 provinceClass" id="province">
+                        <option value="" disabled selected>省</option>
                         <option value="1">广东省</option>
                         <option value="2">其他</option>
                     </select>
-                    <select class="col s4 cityClass" id="city">
-                        <option value="" disabled selected>请选择</option>
+                    <select class="col s2 cityClass" id="city">
+                        <option value="" disabled selected>市</option>
                         <option value="1">广州市</option>
                         <option value="2">其他</option>
                     </select>
-                    <select class="col s4 regionClass" id="region">
-                        <option value="" disabled selected>请选择</option>
+                    <select class="col s2 regionClass" id="region">
+                        <option value="" disabled selected>区</option>
                         <option value="1" >番禺区</option>
                         <option value="2">海珠区</option>
                         <option value="3">天河区</option>
@@ -213,7 +243,6 @@
                         <option value="11">南沙区</option>
                         <option value="12">其他</option>
                     </select>
-                    <label>工作地点</label>
                     <div class="row detailAddress">
                         <div class="input-field col s6">
                             <input id="detailAddress" type="text" class="validate">
@@ -222,29 +251,22 @@
                     </div>
                 </div>
                 <div class="row ">
-                    <div class="input-field col s6">
+                    <div class="input-field col s12">
                         <input  value="" id="experience" type="text" class="validate">
                         <label for="experience">经验要求</label>
                     </div>
-                    <div class="input-field col s6 ">
-                        <select id="atrr" class="attrClass">
-                            <option value="" disabled selected>请选择</option>
-                            <option value="1">实习</option>
-                            <option value="2">全职</option>
-                            <option value="3">兼职</option>
-                        </select>
-                        <label>工作性质</label>
-                    </div>
+
                 </div>
 
                 <div class="row ">
-                    <div class="input-field col s6">
+                    <div class="input-field col s12">
                         <input  value="" id="requirement" type="text" class="validate" length="20">
                         <label for="requirement">职位突出特点（20字）</label>
                     </div>
                 </div>
             </div>
             <div class="requirementDiv comWidth">
+                <div class="descText">职位描述</div>
                 <div class="row ">
                     <div class="input-field col s10">
                         <textarea id="requirementForPosition" class="materialize-textarea"></textarea>

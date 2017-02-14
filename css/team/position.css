@@ -14,7 +14,6 @@ a:visited {
     color: #353535;
 }
 html{
-    background-image: url(../../res/imgs/bg.svg);
     background-size: 100% auto;
 }
 .fl{
@@ -106,15 +105,11 @@ a.topBarItem.dropdown-button.btn{
 
 
 /*选择导航栏*/
-div.col.s12{
-    position: relative;
-    top:      -15px;
-    padding:  0;
-}
+
 
 .label{
     height: 80px;
-    color: white;
+    color: rgb(112, 112, 112);
     font-size: 16px;
     line-height: 80px;
     -webkit-box-sizing: border-box;
@@ -122,38 +117,52 @@ div.col.s12{
     box-sizing: border-box;
 }
 .activeTag{
-    background-color: white;
-    color: #ff8f00;
+    background-color: rgb(244, 171, 35);
+
     margin-left: 10px;
 }
 .normalTag{
-    background-color: #ff8f00;
+    background: transparent;
     margin-left: 10px;
 }
 .normalTag a{
-    color: white;
+    color: rgb(112, 112, 112);
     cursor: pointer;
 }
 .activeTag a{
-    color: #ff8f00;
+    color: white;
     cursor: pointer;
 }
 .editBtnGroup{
-    width: 160px;
-    float: right;
-    margin-right: 20px;
-    margin-top: 15px;
+    flex: 0 1 200px;
+    line-height: 80px;
 }
 .editBtnGroup i{
-    color: #ff8f00;
+    color: white;
 }
 #addBtn{
     margin-right: 20px;
+
+}
+#addBtn,#editBtn{
+    height: 42px;
+    width: 42px;
+    line-height: 42px;
+    background-color: rgb(244, 171, 35);
+    color: white;
+}
+#addBtn i,#editBtn i{
+    font-size: 28px;
+    line-height: 42px;
 }
 #selectBar{
-    /*display: none;*/
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: flex-start;
+    align-items: stretch;
+    align-content: stretch;
     padding-left: 30px;
-    background-color: #ff8f00;
     height: 80px;
     margin-bottom: 0px;
     transition:height 2s;
@@ -161,10 +170,7 @@ div.col.s12{
     -webkit-transition:height 2s; /* Safari and Chrome */
     -o-transition:height 2s; /* Opera */
 }
-#selectBar  .s12{
-    position: relative;
-    top: -30px;
-}
+
 #editBar{
     display: none;
     background-color: rgba(255,255,255,0.5);
@@ -177,6 +183,15 @@ div.col.s12{
     -webkit-transition:height 2s; /* Safari and Chrome */
     -o-transition:height 2s; /* Opera */
 }
+#selectBar .chip,.positionCard .chip{
+    height: 25px;
+    line-height: 25px;
+}
+.tags{
+    order:0;
+    flex: 1 1 auto;
+}
+
 form p{
     display: inline;
     color: black;
@@ -194,7 +209,7 @@ form p label{
     margin-right: 10px;
 }
 #saveEdit{
-    background-color: #ff8f00;
+    background-color: rgb(244, 171, 35);
     color: white;
 }
 #cancelEdit{
@@ -209,17 +224,27 @@ form .buttonBar{
 }
 
 /*每一个卡片的显示*/
-#positionCards{
-    margin-top: 10px;
-}
+
 .positionCard{
-    box-shadow: 0 5px 11px 0 rgba(0, 0, 0, 0.18), 0 4px 15px 0 rgba(0, 0, 0, 0.15);
     height: 120px;
-    padding-top: 20px;
-    padding-left: 10px;
-    /*padding-right: 20px;*/
-    background-color: rgb(255,255,255);
-    margin-bottom: 10px;
+    padding: 30px 60px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: flex-start;
+    align-items: stretch;
+    align-content: stretch;
+}
+.nameBar{
+    order: 0;
+    flex: 0 1 300px;
+}
+.descBar{
+    order: 1;
+    flex: 0 1 200px;
+}
+.positionCard:nth-child(odd){
+    background-color: white;
 }
 .positionCard label{
     text-align: center;
@@ -236,34 +261,32 @@ form .buttonBar{
     left: 0;
     top: 0;
     font-size: 24px;
-    padding: 10px 10px 10px 10px;
     cursor: pointer;
 }
 .positionName a{
     font-size: 24px;
-    color: #353535;
+    color: rgb(112, 112, 112);
 }
 .salary{
-    width: 180px;
     font-size: 16px;
-    color: #ff8f00;
-    padding: 10px 90px 10px 10px;
+    color: rgb(244, 171, 35);
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
     box-sizing: border-box;
+    margin-top: 10px;
 }
 .required{
     /*  position: relative;
       top: 60px;
       left: -300px;*/
     margin-left: 30px;
-    padding: 10px 10px 10px 10px;
+    margin-top: 10px;
 }
 .submitted{
     text-align: center;
     width: 63px;
     margin-left: 30px;
-    background-color: #66bb6a;
+    background-color: rgb(101, 197, 219);
     color: white;
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
@@ -273,7 +296,7 @@ form .buttonBar{
     text-align: center;
     width: 63px;
     margin-left: 30px;
-    background-color: #03a9f4;
+    background-color: rgb(112, 112, 112);
     color: white;
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
@@ -285,21 +308,25 @@ form .buttonBar{
     margin-bottom: 20px;
 }
 .btngroups{
-    margin-right: 20px;
-    margin-top: 35px;
-    padding-top: 10px;
-    width: 160px;
-    height: 95px;
-    line-height: 95px;
-    position: relative;
-    top: -155px;
+    order: 2;
+    flex:1 1 auto;
+    text-align: right;
 }
-.btngroups a i{
-    color: #ff8f00;
+.editInfoBtn,.delJobBtn{
+    display: block;
+    height: 30px;
+    width: 100px;
+    margin-left: auto;
+    padding: 5px 35px;
+    color: white;
 
 }
+.editInfoBtn{
+    background-color: rgb(66, 168, 82);
+}
 .delJobBtn{
-    margin-right: 20px;
+    background-color: rgb(231, 56, 40);
+    margin-top: 10px;
 }
 /*页码的显示*/
 .pageNum{
@@ -317,6 +344,29 @@ form .buttonBar{
 }
 
 /*－－－－－－－－－－－－－－－－－－－管理编辑页面的样式－－－－－－－－－－－－－－－－－－－－－－*/
+.baseInfo input,input[type=text]:disabled,input[type=text].valid,.baseInfo input[type=text]:focus{
+    border-bottom: 1px solid rgb(244, 171, 35);
+    color: rgb(180, 180, 180);
+    box-shadow: none;
+}
+.select-wrapper input.select-dropdown{
+    border-bottom: 1px solid rgb(244, 171, 35);
+}
+.row .col .provinceClass{
+    padding: 0;
+}
+.detailAddress .input-field{
+    margin-top: 0;
+}
+.select-wrapper span.caret{
+    color: rgb(244, 171, 35);
+}
+.baseInfo input[type=text]:focus + label{
+    color: rgb(244, 171, 35);
+}
+.typeClass .disabled span{
+    color: rgb(180, 180, 180);
+}
 .mainForm .manageForm{
     padding: 0;
 }
@@ -341,7 +391,7 @@ hr{
 }
 #saveForm,#addJob{
     margin-right: 40px;
-    background-color: #ff8f00;
+    background-color: rgb(244, 171, 35);
 }
 #cancelForm{
     margin-left: 40px;
@@ -352,8 +402,6 @@ hr{
     padding-top: 20px;
     padding-right: 100px;
     padding-left: 100px;
-    position: relative;
-    top: -27px;
     height: 700px;
     background-color: rgba(255,255,255,0.7);
 }
@@ -365,14 +413,17 @@ hr{
     position: relative;
     top: -27px;
     min-height: 320px;
-    margin-top: 20px;
     background-color:rgb(255,255,255);
 }
+.descText{
+    color: rgb(244, 171, 35);
+    padding-left: 10px;
+}
+
 .buttonDiv{
     /* position: relative;
      top: -27px;*/
     height: 126px;
-    background-color: rgba(255,255,255,0.7);
     line-height: 126px;
     color: #353535;
     font-size: 16px;
@@ -381,7 +432,6 @@ hr{
     width: 280px;
     margin-left: auto;
     margin-right: auto;
-    margin-top: 20px;
     padding-bottom: 30px;
 }
 .divide{
@@ -410,7 +460,11 @@ hr{
 #manageDiv{
     display: none;
 }
-
-
+[type="radio"]:checked + label:after, [type="radio"].with-gap:checked + label:before, [type="radio"].with-gap:checked + label:after,[type="radio"]:checked + label:after, [type="radio"].with-gap:checked + label:before, [type="radio"].with-gap:checked + label:after{
+    border: 2px solid rgb(244, 171, 35);
+}
+[type="radio"]:checked + label:after, [type="radio"].with-gap:checked + label:after{
+    background-color: rgb(244, 171, 35);
+}
 
 
