@@ -266,8 +266,15 @@
     height: 90px;
     width: 320px;
     font-size: 24px;
+    line-height: 90px;
 }
-
+#submitBtn i{
+    color: white;
+    font-size: 60px;
+    line-height: 90px;
+    float: left;
+    margin-left: 10px;
+}
 
 
 
