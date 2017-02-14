@@ -1,0 +1,8 @@
+/*修改多说的样式*/
+#ds-thread #ds-reset .ds-sort a.ds-current, #ds-thread #ds-reset .ds-sort a:active{
+    color: rgb(244,171,35);
+}
+
+#ds-thread #ds-reset .ds-login-buttons .ds-more-services{
+    color: rgb(244,171,35) !important;
+}

@@ -1,41 +1,65 @@
 $(document).ready(function(){
-    var tid=getId();
+    var tid=(location.search.split("=")[1]).split('&')[0];
+    var token=location.search.split("token=")[1];
     var team_info={};
     var team_product;
     var i,j,k;
     $('.modal-trigger').leanModal();
+
+    $("#nav_function_btn").click(function(){
+        var nav_function_div=$(".nav_function_div");
+        if(nav_function_div.css("opacity")=="0"){
+            nav_function_div.css("opacity","1");
+        }
+        else{
+            nav_function_div.css("opacity","0");
+        }
+
+    });
+
+    $("#product_manage").click(function(){
+        window.location.href="product/product_list.html?tid="+tid;
+    });
+
+    //如果没有token隐藏所有的编辑按钮
+    if(token==undefined){
+        $("#edit_team_basic").remove();
+        $("#edit_team_intro").remove();
+        $("#edit_team_member").remove();
+        $("#edit_team_photo").remove();
+        $("#edit_team_contact").remove();
+    }
 
     $.ajax({
         url: cur_site + 'team/product/search/',
         type: 'POST',
         dataType: 'json',
         data: {"teamId": tid},
-        success:function(data) {
-            team_product=data.msg;
-        }
-    });
+        success:function(res) {
+            team_product=res.msg;
+            $.ajax({
+                type: 'GET',
+                url: cur_site + "team/info/",
+                dataType: "json",
+                data: {'tid': tid} ,
+                success: function (data) {
+                    team_info.name=data.res.name;
+                    team_info.label=data.res.label;
+                    team_info.slogan=data.res.slogan;
+                    team_info.intro=(data.res.about).replace('\n','<br />');
+                    team_info.logo=data.res.logo_path;
+                    team_info.photo=data.res.imgs;
+                    team_info.mail=data.res.mail;
+                    team_info.tel=data.res.tel;
+                    team_info.member=data.res.stus;
+                    //没有用到的字段
+                    team_info.history=data.res.history;
+                    team_info.b_type=data.res.b_type;
 
-    $.ajax({
-        type: 'GET',
-        url: cur_site + "team/info/",
-        dataType: "json",
-        data: {'tid': tid} ,
-        success: function (data) {
-            team_info.name=data.res.name;
-            team_info.label=data.res.label;
-            team_info.slogan=data.res.slogan;
-            team_info.intro=(data.res.about).replace('\n','<br />');
-            team_info.logo=data.res.logo_path;
-            team_info.photo=data.res.imgs;
-            team_info.mail=data.res.mail;
-            team_info.tel=data.res.tel;
-            team_info.member=data.res.stus;
-            //没有用到的字段
-            team_info.history=data.res.history;
-            team_info.b_type=data.res.b_type;
-
-            load_team_nav();
-            load_team_homepage();
+                    load_team_nav();
+                    load_team_homepage();
+                }
+            });
         }
     });
 
@@ -95,14 +119,38 @@ $(document).ready(function(){
                     '<a id="edit_team_member" class="btn-floating waves-effect waves-light"><i class="material-icons" id="edit_team_member_icon">edit</i></a>'+
                     '</div></div><div class="photo_div"><div class="sub_title"><span>团队风采</span>'+
                     '<a id="edit_team_photo" class="btn-floating waves-effect waves-light"><i class="material-icons" id="edit_team_photo_icon">edit</i></a>'+
-                    '</div></div><div class="product_div">' +
-                    '<div class="sub_title"><span>团队产品</span></div><div class=team_products></div></div>'+
+                    '</div></div>'+
                     '<div class="footer"><div class="sub_title"><span style="color:white">联系我们</span>'+
                     '<a id="edit_team_contact" class="btn-floating waves-effect waves-light"><i class="material-icons" id="edit_team_contact_icon">edit</i></a>'+
                     '</div><div  class="contact"><i class="material-icons">language</i>'+
                     '<span id="web_site"></span></div><div  class="contact"><i class="material-icons" >mail</i><span id="mail_address"></span>'+
                     '</div></div>');
+
+                //如果没有token隐藏所有的编辑按钮
+                if(token==undefined){
+                    $("#edit_team_basic").remove();
+                    $("#edit_team_intro").remove();
+                    $("#edit_team_member").remove();
+                    $("#edit_team_photo").remove();
+                    $("#edit_team_contact").remove();
+                }
+
                 load_team_homepage();
+
+                //加载团队基本信息修改页面
+                edit_team_basic();
+
+                //加载团队介绍修改页面
+                edit_team_intro();
+
+                //加载团队联系方式修改页面
+                edit_team_contact();
+
+                //加载团队风采编辑页面
+                edit_team_photo();
+
+                //加载团队成员编辑页面
+                edit_team_member();
             }
 
             if($(this).attr('id')=='communicate'){
@@ -127,7 +175,13 @@ $(document).ready(function(){
 
     //加载团队主页标签下的内容
     function load_team_homepage(){
-        $("#team_intro").html(team_info.intro);
+        if(team_info.intro==""){
+            $(".introduction_div").append('<p class="empty_remainder">精彩等待开启</p>');
+        }
+        else{
+            $(".introduction_div").append('<p id="team_intro"></p>');
+            $("#team_intro").html(team_info.intro);
+        }
 
         //在有团队成员的情况下才显示
         if(team_info.member.length>0){
@@ -143,6 +197,9 @@ $(document).ready(function(){
             }
             $('.carousel').carousel();
         }
+        else{
+            $(".member_div").append('<p class="empty_remainder">精彩等待开启</p>');
+        }
 
         //如果没有团队照片显示空白
         if(team_info.photo.length>0){
@@ -156,14 +213,34 @@ $(document).ready(function(){
                 height: 450
             });
         }
-
-        for(i=0;i<team_product.length;i++){
-            if(team_product[i].img_path!="")
-                $(".team_products").append('<div class="team_product"><img src="'+cur_media+team_product[i].img_path+'">'+
-                    '<div class="product_name_area"><p class="product_number">产品'+(i+1)+'</p><p class="product_name">'+team_product[i].name+'</p></div></div>');
+        else{
+            $(".photo_div").append('<p class="empty_remainder">精彩等待开启</p>');
         }
 
-        $("#web_site").html(team_info.tel);
+        // if(team_product.length>0){
+        //     $(".product_div").append('<div class=team_products></div>');
+        //     for(i=0;i<team_product.length;i++){
+        //         if(team_product[i].img_path!="")
+        //             $(".team_products").append('<div class="team_product" id="team_product'+team_product[i].id+'"><img src="'+cur_media+team_product[i].img_path+'">'+
+        //                 '<div class="product_name_area"><p class="product_number">产品'+(i+1)+'</p><p class="product_name">'+team_product[i].name+'</p></div></div>');
+        //     }
+        // }
+        // else{
+        //     $(".product_div").append('<p class="empty_remainder">精彩等待开启</p>');
+        // }
+        //
+        // $(".team_product").on('click',function(){
+        //     var productId=$(this).attr('id').split('team_product')[1];
+        //     window.location.href="product/product_detail.html?productId="+productId;
+        // });
+
+        if(team_info.tel.length>25){
+            var team_tel_show=team_info.tel.slice(0,25)+"...";
+            $("#web_site").append('<a href="'+team_info.tel+'">'+team_tel_show+'</a>');
+        }
+        else{
+            $("#web_site").append('<a href="'+team_info.tel+'">'+team_info.tel+'</a>');
+        }
         $("#mail_address").html(team_info.mail);
     }
 
@@ -174,12 +251,12 @@ $(document).ready(function(){
         team_products.css("width","940px");
         for(i=0;i<team_product.length;i++){
             if(team_product[i].img_path!="")
-                team_products.append('<div class="team_product" id="product_'+i+'"><img src="'+cur_media+team_product[i].img_path+'">'+
+                team_products.append('<div class="team_product" id="team_product'+team_product[i].id+'"><img src="'+cur_media+team_product[i].img_path+'">'+
                     '<div class="product_name_area"><p class="product_number">产品'+(i+1)+'</p><p class="product_name">'+team_product[i].name+'</p></div>'+
-                    '<div class="product_content_area"><p class="product_content">'+team_product[i].content+'</p></div>');
+                    '<div class="product_content_area"><p class="product_content">'+JSON.parse(team_product[i].reward).slogan+'</p></div>');
         }
 
-        //监听鼠标移动
+        //监听鼠标移动，点击
         $(".team_product").css("margin-left","60px").on("mouseover",function(){
             $(this).children('img').css("filter","blur(3px)");
             $(this).children('.product_name_area').css("opacity","0");
@@ -188,7 +265,12 @@ $(document).ready(function(){
             $(this).children('img').css("filter","blur(0)");
             $(this).children('.product_name_area').css("opacity","1");
             $(this).children('.product_content_area').css("opacity","0");
+        }).on('click',function(){
+            var productId=$(this).attr('id').split('team_product')[1];
+            window.location.href="product/product_detail.html?productId="+productId;
         });
+
+
     }
 
     //加载互动社区的话题内容
@@ -206,7 +288,12 @@ $(document).ready(function(){
     //监听修改团队的基本信息
     function edit_team_basic(){
         $("#edit_team_basic").on("click",function(){
-            $(".team_nav").empty().append('<div class="team_basic_edit_area"><div class="team_img_edit_div">'+
+            $(".team_nav").empty().append('<div class="team_basic_edit_area"><div class="collection nav_function_div"><a href="" class="collection-item">' +
+                '<img src="../res/imgs/team/简历管理.svg" class="downIcon"><span class="downWord">简历管理</span><span class="new_msg_num">7</span></a>' +
+                '<a href="" class="collection-item"><img src="../res/imgs/team/职位管理.svg" class="downIcon"><span class="downWord">职位管理</span></a>' +
+                '<a href="" class="collection-item"><img src="../res/imgs/team/产品管理.svg" class="downIcon"><span class="downWord">产品管理</span>' +
+                '<span class="new_msg_num">2</span></a><a href="" class="collection-item"><img src="../res/imgs/team/社区管理.svg" class="downIcon">' +
+                '<span class="downWord">社区管理</span></a></div><div class="team_img_edit_div">'+
                 '<i class="medium material-icons" id="photo_camera">photo_camera</i> </div> <form id="post_logo"  enctype="multipart/form-data">'+
                 '<input type="file" id="upload_team_logo" style="display: none"></form><div class="team_msg_edit_div">'+
                 '<div class="input-field"><input  id="team_name_input" type="text" class="validate"><label for="team_name_input">团队名称</label>'+
@@ -265,6 +352,7 @@ $(document).ready(function(){
                 var formData = new FormData();
                 formData.append('name', "new_team_logo");
                 formData.append('photo', $(this)[0].files[0]);
+                formData.append('token', token);
                 //上传logo
                 $.ajax({
                     url: cur_site + "team/upload_logo/",
@@ -291,13 +379,18 @@ $(document).ready(function(){
 
             //点击取消团队基本信息的编辑
             $("#cancel_team_basic").on("click",function(){
-                $(".team_nav").empty().append('<div class="team_nav_content"><div class="team_nav_img"><img  src="" id="team_logo">'+
-                    '</div><div class="team_nav_word"><div class="team_nav_word_title"><span id="team_name"></span>'+
-                    '<a id="favourite" class="btn-floating  waves-effect waves-light white"><img src="../res/imgs/team/收藏.svg"></a>'+
-                    '<a id="chat" class="btn-floating waves-effect waves-light white"><img src="../res/imgs/team/私信.svg"></a>'+
-                    '<a id="edit_team_basic" class="btn-floating waves-effect waves-light"><i class="material-icons" id="edit_team_basic_icon">edit</i></a>'+
-                    '</div><div class="slogan_div"></div><div class="label_div"></div></div></div><div class="function_tabs"><ul>'+
-                    '<li id="team_homepage">团队主页</li><li id="team_product">团队产品</li><li id="position">需求职位</li><li id="communicate">互动社区</li>'+
+                $(".team_nav").empty().append('<div class="team_nav_content"><div class="team_nav_img"><img  src="" id="team_logo"></div>' +
+                    '<div class="team_nav_word"><div class="name_slogan_area"><div class="name_slogan_div"><div class="team_nav_word_title">' +
+                    '<p id="team_name"></p><a id="favourite" class="btn-floating  waves-effect waves-light white"><img src="../res/imgs/team/收藏.svg"></a> ' +
+                    '<a id="chat" class="btn-floating waves-effect waves-light white"><img src="../res/imgs/team/私信.svg"></a> ' +
+                    '<a id="edit_team_basic" class="btn-floating waves-effect waves-light"><i class="material-icons" id="edit_team_basic_icon">edit</i></a> ' +
+                    '</div><div class="slogan_div"></div></div><div class="collection nav_function_div"><a href="" class="collection-item">' +
+                    '<img src="../res/imgs/team/简历管理.svg" class="downIcon"><span class="downWord">简历管理</span><span class="new_msg_num">7</span></a>' +
+                    '<a href="" class="collection-item"><img src="../res/imgs/team/职位管理.svg" class="downIcon"><span class="downWord">职位管理</span></a> ' +
+                    '<a href="" class="collection-item"><img src="../res/imgs/team/产品管理.svg" class="downIcon"><span class="downWord">产品管理</span>' +
+                    '<span class="new_msg_num">2</span></a><a href="" class="collection-item"><img src="../res/imgs/team/社区管理.svg" class="downIcon">' +
+                    '<span class="downWord">社区管理</span></a></div></div><div class="label_div"></div></div></div><div class="function_tabs"><ul>' +
+                    '<li id="team_homepage">团队主页</li><li id="team_product">团队产品</li><li id="position">需求职位</li><li id="communicate">互动社区</li>' +
                     '</ul></div>').css("background-image","url('../res/imgs/team/team_bg.svg')").css("background-size","100% auto");
                 load_team_nav();
                 listen_change_page();
@@ -321,7 +414,7 @@ $(document).ready(function(){
                 for(i=0;i<team_info.label.length;i++){
                     $.ajax({
                         type: 'POST',
-                        data: {tid: tid, name: team_info.label[i]},
+                        data: {tid: tid, name: team_info.label[i],token:token},
                         url: cur_site + "team/rm_team_label/",
                         dataType: 'json',
                         success: function () {
@@ -337,7 +430,7 @@ $(document).ready(function(){
                         label_tmp.push(label_choice[i].innerText);
                         $.ajax({
                             type: 'POST',
-                            data: {tid: tid, name: label_choice[i].innerText},
+                            data: {tid: tid, name: label_choice[i].innerText,token:token},
                             url: cur_site + "team/add_team_label/",
                             dataType: 'json',
                             success: function () {
@@ -354,7 +447,8 @@ $(document).ready(function(){
                     slogan: team_slogan,
                     about: team_info.intro,
                     history: team_info.history,
-                    btype: parseInt(team_info.b_type)
+                    btype: parseInt(team_info.b_type),
+                    token:token
                 };
                 $.ajax({
                     type: 'POST',
@@ -366,13 +460,18 @@ $(document).ready(function(){
                         team_info.slogan=team_slogan;
                         team_info.logo=team_logo;
                         team_info.label=label_tmp;
-                        $(".team_nav").empty().append('<div class="team_nav_content"><div class="team_nav_img"><img  src="" id="team_logo">'+
-                            '</div><div class="team_nav_word"><div class="team_nav_word_title"><span id="team_name"></span>'+
-                            '<a id="favourite" class="btn-floating  waves-effect waves-light white"><img src="../res/imgs/team/收藏.svg"></a>'+
-                            '<a id="chat" class="btn-floating waves-effect waves-light white"><img src="../res/imgs/team/私信.svg"></a>'+
-                            '<a id="edit_team" class="btn-floating waves-effect waves-light"><i class="material-icons" id="edit_team_icon">edit</i></a>'+
-                            '</div><div class="slogan_div"></div><div class="label_div"></div></div></div><div class="function_tabs"><ul>'+
-                            '<li id="team_homepage">团队主页</li><li id="team_product">团队产品</li><li id="position">需求职位</li><li id="communicate">互动社区</li>'+
+                        $(".team_nav").empty().append('<div class="team_nav_content"><div class="team_nav_img"><img  src="" id="team_logo"></div>' +
+                            '<div class="team_nav_word"><div class="name_slogan_area"><div class="name_slogan_div"><div class="team_nav_word_title">' +
+                            '<p id="team_name"></p><a id="favourite" class="btn-floating  waves-effect waves-light white"><img src="../res/imgs/team/收藏.svg"></a> ' +
+                            '<a id="chat" class="btn-floating waves-effect waves-light white"><img src="../res/imgs/team/私信.svg"></a> ' +
+                            '<a id="edit_team_basic" class="btn-floating waves-effect waves-light"><i class="material-icons" id="edit_team_basic_icon">edit</i></a> ' +
+                            '</div><div class="slogan_div"></div></div><div class="collection nav_function_div"><a href="" class="collection-item">' +
+                            '<img src="../res/imgs/team/简历管理.svg" class="downIcon"><span class="downWord">简历管理</span><span class="new_msg_num">7</span></a>' +
+                            '<a href="" class="collection-item"><img src="../res/imgs/team/职位管理.svg" class="downIcon"><span class="downWord">职位管理</span></a> ' +
+                            '<a href="" class="collection-item"><img src="../res/imgs/team/产品管理.svg" class="downIcon"><span class="downWord">产品管理</span>' +
+                            '<span class="new_msg_num">2</span></a><a href="" class="collection-item"><img src="../res/imgs/team/社区管理.svg" class="downIcon">' +
+                            '<span class="downWord">社区管理</span></a></div></div><div class="label_div"></div></div></div><div class="function_tabs"><ul>' +
+                            '<li id="team_homepage">团队主页</li><li id="team_product">团队产品</li><li id="position">需求职位</li><li id="communicate">互动社区</li>' +
                             '</ul></div>').css("background-image","url('../res/imgs/team/team_bg.svg')").css("background-size","100% auto");
                         load_team_nav();
                         listen_change_page();
@@ -440,10 +539,17 @@ $(document).ready(function(){
 
             //取消对团队介绍的编辑
             $("#cancel_team_intro").on("click",function(){
-                $(".introduction_div").empty().append('<div class="sub_title"><span>团队介绍</span>'+
+                var introduction_div=$(".introduction_div");
+                introduction_div.empty().append('<div class="sub_title"><span>团队介绍</span>'+
                     '<a id="edit_team_intro" class="btn-floating waves-effect waves-light"><i class="material-icons" id="edit_team_intro_icon">edit</i></a>'+
-                    '</div><p id="team_intro"></p>');
-                $("#team_intro").html(team_info.intro);
+                    '</div>');
+                if(team_info.intro==""){
+                    introduction_div.append('<p class="empty_remainder">精彩等待开启</p>');
+                }
+                else{
+                    introduction_div.append('<p id="team_intro"></p>');
+                    $("#team_intro").html(team_info.intro);
+                }
                 edit_team_intro();
             });
 
@@ -457,7 +563,8 @@ $(document).ready(function(){
                     slogan: team_info.slogan,
                     about: team_intro,
                     history: team_info.history,
-                    btype: parseInt(team_info.b_type)
+                    btype: parseInt(team_info.b_type),
+                    token:token
                 };
                 $.ajax({
                     type: 'POST',
@@ -467,10 +574,17 @@ $(document).ready(function(){
                     success: function (data) {
                         if(data.err=="0"){
                             team_info.intro=team_intro.replace('\n','<br />');
-                            $(".introduction_div").empty().append('<div class="sub_title"><span>团队介绍</span>'+
+                            var introduction_div=$(".introduction_div");
+                            introduction_div.empty().append('<div class="sub_title"><span>团队介绍</span>'+
                                 '<a id="edit_team_intro" class="btn-floating waves-effect waves-light"><i class="material-icons" id="edit_team_intro_icon">edit</i></a>'+
-                                '</div><p id="team_intro"></p>');
-                            $("#team_intro").html(team_info.intro);
+                                '</div>');
+                            if(team_info.intro==""){
+                                introduction_div.append('<p class="empty_remainder">精彩等待开启</p>');
+                            }
+                            else{
+                                introduction_div.append('<p id="team_intro"></p>');
+                                $("#team_intro").html(team_info.intro);
+                            }
                             edit_team_intro();
                         }
                     }
@@ -510,7 +624,14 @@ $(document).ready(function(){
                     '</div><div  class="contact"><i class="material-icons">language</i><div id="web_site"></div></div><div  class="contact">'+
                     '<i class="material-icons">mail</i><div id="mail_address"></div></div>').css("background-color","rgb(244,171,35)");
 
-                $("#web_site").html(team_info.tel);
+                if(team_info.tel.length>25){
+                    var team_tel_show=team_info.tel.slice(0,25)+"...";
+                    $("#web_site").append('<a href="'+team_info.tel+'">'+team_tel_show+'</a>');
+                }
+                else{
+                    $("#web_site").append('<a href="'+team_info.tel+'">'+team_info.tel+'</a>');
+                }
+
                 $("#mail_address").html(team_info.mail);
                 edit_team_contact();
             });
@@ -522,7 +643,8 @@ $(document).ready(function(){
                 var update_msg = {
                     "tid": tid,
                     "tel": team_website,
-                    "mail": team_mailaddress
+                    "mail": team_mailaddress,
+                    "token":token
                 };
                 $.ajax({
                     type: 'POST',
@@ -538,7 +660,13 @@ $(document).ready(function(){
                                 '</div><div  class="contact"><i class="material-icons">language</i><div id="web_site"></div></div><div  class="contact">'+
                                 '<i class="material-icons">mail</i><div id="mail_address"></div></div>').css("background-color","rgb(244,171,35)");
 
-                            $("#web_site").html(team_info.tel);
+                            if(team_info.tel.length>25){
+                                var team_tel_show=team_info.tel.slice(0,25)+"...";
+                                $("#web_site").append('<a href="'+team_info.tel+'">'+team_tel_show+'</a>');
+                            }
+                            else{
+                                $("#web_site").append('<a href="'+team_info.tel+'">'+team_info.tel+'</a>');
+                            }
                             $("#mail_address").html(team_info.mail);
                             edit_team_contact();
                         }
@@ -576,7 +704,7 @@ $(document).ready(function(){
                         type: "post",
                         url: cur_site + "team/rm_team_photo/",
                         dataType: "json",
-                        data: {'tid': tid, 'img_id': new_photo[i].id},
+                        data: {'tid': tid, 'img_id': new_photo[i].id,'token':token},
                         success: function () {
                         }
                     });
@@ -596,6 +724,9 @@ $(document).ready(function(){
                         full_width: true,
                         height: 450
                     });
+                }
+                else{
+                    photo_div.append('<p class="empty_remainder">精彩等待开启</p>');
                 }
                 edit_team_photo();
             });
@@ -617,7 +748,7 @@ $(document).ready(function(){
                         type: "post",
                         url: cur_site + "team/rm_team_photo/",
                         dataType: "json",
-                        data: {'tid': tid, 'img_id': delete_photo[i]},
+                        data: {'tid': tid, 'img_id': delete_photo[i],'token':token},
                         success: function () {
                         }
                     });
@@ -637,6 +768,9 @@ $(document).ready(function(){
                         full_width: true,
                         height: 450
                     });
+                }
+                else{
+                    photo_div.append('<p class="empty_remainder">精彩等待开启</p>');
                 }
                 edit_team_photo();
             });
@@ -700,6 +834,7 @@ $(document).ready(function(){
                 var formData = new FormData();
                 formData.append('tid', tid);
                 formData.append('photo', $(this)[0].files[0]);
+                formData.append('token',token);
                 //上传logo
                 $.ajax({
                     url: cur_site + "team/add_team_photo/",
@@ -779,6 +914,9 @@ $(document).ready(function(){
                     }
                     $('.carousel').carousel();
                 }
+                else{
+                    member_div.append('<p class="empty_remainder">精彩等待开启</p>');
+                }
                 edit_team_member();
             });
 
@@ -799,7 +937,7 @@ $(document).ready(function(){
                         type: "post",
                         url: cur_site + "team/rm_team_stu/",
                         dataType: "json",
-                        data: {'tid': tid, 'sid': delete_member[i]},
+                        data: {'tid': tid, 'sid': delete_member[i],'token':token},
                         success: function () {
                         }
                     });
@@ -823,6 +961,9 @@ $(document).ready(function(){
                             '<span class="member_id">成员</span></a>');
                     }
                     $('.carousel').carousel();
+                }
+                else{
+                    member_div.append('<p class="empty_remainder">精彩等待开启</p>');
                 }
                 edit_team_member();
             });
@@ -854,7 +995,7 @@ $(document).ready(function(){
                         type: 'GET',
                         url: cur_site + "team/name2mail",
                         dataType: "json",
-                        data: {'name': search_member_name},
+                        data: {'name': search_member_name,'token':token},
                         success: function (data) {
                             if(data.res.length==0){
                                 student_not_exist(search_member_name,new_member,delete_member);
@@ -895,12 +1036,16 @@ $(document).ready(function(){
                         type: 'POST',
                         url: cur_site + "team/invite_stu/",
                         dataType: "json",
-                        data: {"tid":tid,mail:member_mail_address},
+                        data: {"tid":tid,mail:member_mail_address,token:token},
                         success: function (data) {
                             if(data.err=='-3') {
                                 Materialize.toast("帐号已存在", 2000);
                             }
                             else{
+                                //对太长的邮箱做处理
+                                if(member_mail_address.length>16) {
+                                    member_mail_address = member_mail_address.slice(0, 1) + '***' + member_mail_address.slice(-12);
+                                }
                                 new_member.push({"name":member_mail_address,"logo_path":"student/avatar/default.jpg","id":data.msg});
                                 $("#close_add_member_modal").click();
                                 show_team_member_edit_area(new_member,delete_member);
@@ -960,7 +1105,7 @@ $(document).ready(function(){
                     type: 'POST',
                     url: cur_site + "team/add_team_stu/",
                     dataType: "json",
-                    data: {"tid":tid,sid:sid_temp},
+                    data: {"tid":tid,sid:sid_temp,token:token},
                     success: function (data) {
                         if(data.err=='0') {
                             new_member.push({"name":name,"logo_path":stu_path,"id":sid_temp});
@@ -1035,6 +1180,10 @@ $(document).ready(function(){
                     var member_path=cur_media+team_info.member[i].logo_path;
                     var member_id='member_photo'+team_info.member[i].id;
                     var member_name=team_info.member[i].name;
+                    //对太长的名字做处理
+                    if(member_name.length>16) {
+                        member_name = member_name.slice(0, 1) + '***' + member_name.slice(-12);
+                    }
                     if(has_creator==0) {
                         has_creator=1;
                         member_edit_div.append('<div class="member_origin"><img src="'+member_path+'">'+
@@ -1057,6 +1206,11 @@ $(document).ready(function(){
                     }
                 }
                 if(status==0){
+                    //对太长的名字做处理
+                    if(new_member[j].name.length>16) {
+                        new_member[j].name = new_member[j].name.slice(0, 1) + '***' + new_member[j].name.slice(-12);
+                    }
+
                     if(has_creator==0){
                         has_creator=1;
                         member_edit_div.append('<div class="member_origin"><img src="'+cur_media+new_member[j].logo_path+'">'+

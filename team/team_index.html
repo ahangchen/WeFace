@@ -12,10 +12,32 @@
 </head>
 <body>
     <div class="header">
-
+        <div class="aboutWe">
+            <a href="../main/test/information.html" target="_blank" style="padding-left: 7px">关于基地</a>
+        </div>
+        <div class="userLogin">
+            <a class="mainBtn" href="" target="_blank">发布</a>
+            <span class="line">|</span>
+            <a class="mainBtn" href="" target="_blank">团队主页</a>
+            <span class="line">|</span>
+            <a class="mainBtn" href="" target="_blank">消息</a>
+            <span class="line">|</span>
+            <a class="mainBtn" href="" target="_blank">退出</a>
+        </div>
     </div>
-    <div class="nav">
-
+    <div class="guideBar">
+        <div class="nav">
+            <p id="home_title">四方馆</p>
+            <p id="home_subtitle">人才交流平台</p>
+            <p id="homePage">首页</p>
+            <p id="teamPage">团队</p>
+            <p id="studentPage">学生</p>
+        </div>
+        <div class="nav_function_icon">
+            <img src="../res/imgs/team/all.svg" id="nav_function_btn">
+            <!--<i id="nav_function_btn" class="material-icons">apps</i>-->
+            <span id="total_new_msg">9</span>
+        </div>
     </div>
 
     <div class="team_nav">
@@ -24,20 +46,45 @@
                 <img  src="" id="team_logo">
             </div>
             <div class="team_nav_word">
-                <div class="team_nav_word_title">
-                    <p id="team_name"></p>
-                    <a id="favourite" class="btn-floating  waves-effect waves-light white"><img src="../res/imgs/team/收藏.svg"></a>
-                    <a id="chat" class="btn-floating waves-effect waves-light white"><img src="../res/imgs/team/私信.svg"></a>
-                    <a id="edit_team_basic" class="btn-floating waves-effect waves-light"><i class="material-icons" id="edit_team_basic_icon">edit</i></a>
+                <div class="name_slogan_area">
+                    <div class="name_slogan_div">
+                        <div class="team_nav_word_title">
+                            <p id="team_name"></p>
+                            <a id="favourite" class="btn-floating  waves-effect waves-light white"><img src="../res/imgs/team/收藏.svg"></a>
+                            <a id="chat" class="btn-floating waves-effect waves-light white"><img src="../res/imgs/team/私信.svg"></a>
+                            <a id="edit_team_basic" class="btn-floating waves-effect waves-light"><i class="material-icons" id="edit_team_basic_icon">edit</i></a>
+                        </div>
+                        <div class="slogan_div"></div>
+                    </div>
+                    <div class="collection nav_function_div">
+                        <a href="" class="collection-item">
+                            <img src="../res/imgs/team/简历管理.svg" class="downIcon">
+                            <span class="downWord">简历管理</span>
+                            <span class="new_msg_num">7</span>
+                        </a>
+                        <a href="" class="collection-item">
+                            <img src="../res/imgs/team/职位管理.svg" class="downIcon">
+                            <span class="downWord">职位管理</span>
+                        </a>
+                        <a class="collection-item" id="product_manage">
+                            <img src="../res/imgs/team/产品管理.svg" class="downIcon">
+                            <span class="downWord">产品管理</span>
+                            <span class="new_msg_num">2</span>
+                        </a>
+                        <a href="" class="collection-item">
+                            <img src="../res/imgs/team/社区管理.svg" class="downIcon">
+                            <span class="downWord">社区管理</span>
+                        </a>
+                    </div>
                 </div>
-                <div class="slogan_div">
 
-                </div>
                 <div class="label_div">
 
                 </div>
             </div>
+
         </div>
+
         <div class="function_tabs">
             <ul>
                 <li id="team_homepage">团队主页</li>
@@ -57,7 +104,7 @@
                 <span>团队介绍</span>
                 <a id="edit_team_intro" class="btn-floating waves-effect waves-light"><i class="material-icons" id="edit_team_intro_icon">edit</i></a>
             </div>
-            <p id="team_intro"></p>
+
         </div>
 
         <div class="member_div">
@@ -88,11 +135,11 @@
             <!--</div>-->
         </div>
 
-        <div class="product_div">
-            <div class="sub_title">
-                <span>团队产品</span>
-            </div>
-            <div class=team_products>
+        <!--<div class="product_div">-->
+            <!--<div class="sub_title">-->
+                <!--<span>团队产品</span>-->
+            <!--</div>-->
+            <!--<div class=team_products>-->
                 <!--<div class="team_product" style="background-image: url('../res/imgs/team/p1.jpg');background-size: 400px 280px">-->
                     <!--<div class="product_name_area"><p class="product_number">产品一</p><p class="product_name">饮料包装</p></div>-->
                 <!--</div>-->
@@ -108,8 +155,8 @@
                     <!--<img src="../res/imgs/team/p1.jpg">-->
                     <!--<div class="product_name_area"><p class="product_number">产品一</p><p class="product_name">饮料包装</p></div>-->
                 <!--</div>-->
-            </div>
-        </div>
+            <!--</div>-->
+        <!--</div>-->
 
         <div class="footer">
             <div class="sub_title">

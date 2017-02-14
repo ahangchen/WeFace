@@ -1,0 +1,189 @@
+p{
+    margin: 0;
+}
+
+html{
+    background: none;
+}
+
+/*导航栏的样式在这里修改*/
+.header{
+    min-width: 980px;
+    height: 35px;
+    background-color: rgb(242,242,242);
+    padding: 2px;
+}
+
+.header a {
+    padding-right: 5px;
+    line-height: 35px;
+    cursor: pointer;
+}
+
+.header a:link {
+    text-decoration: none;
+    color: rgb(112, 112, 112);
+}
+
+.header a:visited {
+    color: rgb(112, 112, 112);
+}
+
+.aboutWe{
+    float: left;
+}
+
+.userLogin{
+    float: right;
+}
+
+/*首页导航栏*/
+.guideBar{
+    min-width: 980px;
+    padding: 10px 30px 3px 0;
+    height: 75px;
+}
+
+.nav{
+    float: left;
+}
+
+
+#home_title{
+    display: inline-block;
+    color: rgb(244, 171, 35);
+    font-size: 32px;
+    margin-left: 100px;
+}
+
+#home_subtitle{
+    display: inline-block;
+    margin-left: 10px;
+    color: rgb(244, 171, 35);
+    font-size: 17px;
+}
+
+#homePage{
+    font-size: 25px;
+    color: rgb(244, 171, 35);
+    display: inline-block;
+    margin-left: 100px;
+    height: 50px;
+    cursor: pointer;
+}
+
+#teamPage{
+    font-size: 25px;
+    color: rgb(244, 171, 35);
+    display: inline-block;
+    margin-left: 100px;
+    height: 50px;
+    border-bottom: 3px solid ;
+    cursor: pointer;
+}
+
+#studentPage{
+    font-size: 25px;
+    color: rgb(244, 171, 35);
+    display: inline-block;
+    height: 50px;
+    margin-left: 100px;
+    cursor: pointer;
+}
+
+.nav_product{
+    min-width: 980px;
+    min-height: 250px;
+    background-color: rgb(244, 171, 35);
+}
+
+.product_inform{
+    width: 960px;
+    min-height: 250px;
+    /*border: 1px solid;*/
+    margin: auto;
+    padding: 50px 0 10px 0;
+}
+
+#product_name{
+    color: #fff;
+    font-size: 35px;
+    text-align: center;
+}
+
+.label_div{
+    width: 960px;
+    margin: auto;
+    text-align: center;
+    /*border: 1px solid;*/
+}
+
+.product_label{
+    background-color: #fff;
+    color: rgb(244, 171, 35);
+    font-size: 16px;
+    margin-left: 10px;
+    margin-top: 5px;
+    text-align: center;
+}
+
+.product_slogan_div{
+    width: 650px;
+    height: 60px;
+    margin: 30px auto 0 auto;
+    padding-top:10px;
+    border-top: 1px solid #fff;
+}
+
+#product_slogan{
+    font-size: 22px;
+    color: #fff;
+    text-align: center;
+}
+
+.product_link_div{
+    min-width: 980px;
+    text-align: center;
+    height: 100px;
+    /*border: 1px solid;*/
+    padding: 20px 0;
+}
+
+#product_link_icon{
+    width: 40px;
+    height: 40px;
+}
+
+#product_link{
+    color: rgb(112, 112, 112);
+    font-size: 25px;
+    margin-left: 10px;
+    text-decoration: underline;
+}
+
+.product_intro_div{
+    min-width: 980px;
+    min-height: 100px;
+    /*border: 1px solid;*/
+    padding: 20px 0 50px 0;
+}
+
+#product_intro{
+    width: 960px;
+    font-size: 18px;
+    color: rgb(112, 112, 112);
+    margin: auto;
+    text-indent: 2em;
+}
+
+.product_image_div{
+    min-width: 980px;
+    height: 550px;
+}
+
+#product_image{
+    width: 960px;
+    height: 500px;
+    margin: auto;
+    display: block;
+}
