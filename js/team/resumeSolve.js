@@ -88,7 +88,7 @@ $(function(){
         $('.sendMail').css('display','none');
     });
     $("#solveBtn").click(function(){
-        var mailText = $('.mailContent').val();
+        var mailText = $('#mailContent').val();
         var mailData = {
             apply_id:apply_id,
             text:mailText
@@ -162,7 +162,6 @@ $(function(){
         var subPath = info.resumePath.split('/');
         var pathLen = subPath.length;
         var fileName = subPath[pathLen-1];
-        $(".resumeName").html(fileName);
     }
 });
 

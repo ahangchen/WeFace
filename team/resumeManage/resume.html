@@ -10,6 +10,7 @@
 <link rel="stylesheet"  href="../../css/materialize.css">
 <link href="https://fonts.css.network/icon?family=Material+Icons" rel="stylesheet">
 <link rel="stylesheet"  href="../../css/team/resume.css">
+<link rel="stylesheet"  href="../../css/main/navigation.css">
 <script src="../../js/jquery-2.1.1.min.js"></script>
 <script src="../../js/etc.js"></script>
 <script src="../../js/materialize.min.js"></script>
@@ -39,25 +40,21 @@
 </div>
 
 
-<nav class="white lighten-5 comWidth">
+<div class="white lighten-5  guideBar">
     <div class="nav-wrapper">
-        <ul class="left">
-            <li><img id="logo" src="../../res/imgs/materialize.svg"/></li>
-            <li><p class="logo-name">华南理工大学<br/>人才交流平台
-                <p></li>
-            <li><a  id="resumeBtn">简历管理<div class="newNum z-depth-1">20</div></a></li>
-            <li><a  id="positionBtn">职位管理</a></li>
-            <li><a  id="projectBtn">项目管理</a></li>
+        <ul class="indexBar">
+            <li id="logoIndex"><a class="toIndexLink" ></a></li>
+            <li><a class="toIndexLink"><p class="logo-name">人才交流平台
+                <p></a></li>
+            <li class="indexTab"><a class="toIndexLink " id="indexBtn">首页</a></li>
+            <li class="indexTab"><a href="../team/teamPlayGround.html" id="teamBtn">团队</a></li>
+            <li class="indexTab "><a href="../stu/stuPlayground.html" id="stuBtn">学生</a></li>
         </ul>
-        <div class="input-field right search-bar">
-            <input id="search" type="search" placeholder="Click to search" required>
-            <label for="search"><i class="material-icons">search</i></label>
-            <i class="material-icons">close</i>
-        </div>
-    </div>
-</nav>
 
-<div class="row comWidth">
+    </div>
+</div>
+
+<div class="row ">
     <div class="states">
         <div class="col s9 stateBar">
             <ul class="tabs ">
@@ -72,16 +69,17 @@
     </div>
     <div id="new" class="col s12">
         <div id="newCardDiv">
-            <!--<div class="resumeCard  z-depth-3" id="001">-->
+            <!--<div class="resumeCard  " id="001">-->
                 <!--<div class="col s10">-->
                     <!--<div class="name">姓名</div>-->
                     <!--<div class="deliverBar">-->
-                        <!--<span class="position">投递岗位</span>-->
-                        <!--<span class="date">投递时间</span>-->
+                        <!--<div class="position">投递岗位</div>-->
+
                     <!--</div>-->
                 <!--</div>-->
                 <!--<div class="col s2">-->
-                    <!--<a class="waves-effect waves-light btn-large solveBtn">处理</a>-->
+                    <!--<div class="waves-effect waves-light solveBtn z-depth-1">处理</div>-->
+                    <!--<div class="date">投递时间</div>-->
                 <!--</div>-->
             <!--</div>-->
         </div>

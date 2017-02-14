@@ -120,7 +120,7 @@ div.col.s12{
 /*－－－－－－－－－－－－－－－－－－－－－新消息条数－－－－－－－－－－－－－－－－－－－－－－－－－－*/
 .tabs .newNum{
     display: inline-block;
-    background-color: #ff8f00;
+    background-color: rgb(244, 171, 35);
     border-radius: 50%;
     color: white;
     position: relative;
@@ -135,7 +135,7 @@ div.col.s12{
     /*visibility: hidden;*/
 }
 #resumeBtn .newNum{
-    background-color: #ff8f00;
+    background-color: rgb(244, 171, 35);
     border-radius: 50%;
     color: white;
     position: absolute;
@@ -148,16 +148,12 @@ div.col.s12{
 }
 
 .states{
-    width: 970px;
     min-height: 66px;
     padding-bottom: 2px;
-    background-color: rgba(255,255,255,0.5);
-    margin-bottom: 15px;
 }
 .stateBar .tabs{
     height: 44px;
     width: 532px;
-
 }
 div.col.s9.stateBar{
     padding-left: 0;
@@ -168,12 +164,20 @@ ul.tabs{
     margin-left: 0;
     margin-bottom: 5px;
 }
+.tabs .tab a{
+    color: rgb(244, 171, 35);
+}
+.tabs .indicator{
+    background-color: rgb(244, 171, 35);
+}
 /*－－－－－－－－简历显示－－－－－－－－－－*/
 .resumeCard{
     min-height: 114px;
-    background-color: white;
     padding: 24px 44px 30px 70px;
     margin-top: 8px;
+}
+.resumeCard:nth-child(odd){
+    background-color: white;
 }
 .deliverBar{
     margin-top: 16px;
@@ -198,13 +202,14 @@ div.col.s3{
 }
 .date{
     margin-top: 16px;
+    text-align: center;
 }
 .admitChip{
-    background-color: #ff8f00;
+    background-color: rgb(66, 168, 82);
     color: white;
 }
 .unsuitChip{
-    background-color: #939393;
+    background-color: rgb(112, 112, 112);
     color: white;
 }
 .admitChip,.unsuitChip{
@@ -221,7 +226,12 @@ div.col.s3{
 }
 .checkBtn,.solveBtn{
     color: white;
-    background-color: #ff8f00;
+    font-size: 20px;
+    height:40px;
+    line-height: 40px;
+    background-color: rgb(244, 171, 35);
+    width: 126px;
+    text-align: center;
 }
 .checkBtn:hover,.solveBtn:hover{
     background-color: #ffaf10;

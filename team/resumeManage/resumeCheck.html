@@ -10,6 +10,7 @@
 <link rel="stylesheet"  href="../../css/materialize.css">
 <link href="https://fonts.css.network/icon?family=Material+Icons" rel="stylesheet">
 <link rel="stylesheet"  href="../../css/team/resumeSolve.css">
+<link rel="stylesheet"  href="../../css/main/navigation.css">
 <script src="../../js/jquery-2.1.1.min.js"></script>
 <script src="../../js/etc.js"></script>
 <script src="../../js/materialize.js"></script>
@@ -39,57 +40,50 @@
 </div>
 
 
-<nav class="white lighten-5 comWidth">
+<div class="white lighten-5  guideBar">
     <div class="nav-wrapper">
-        <ul class="left">
-            <li><img id="logo" src="../../res/imgs/materialize.svg"/></li>
-            <li><p class="logo-name">华南理工大学<br/>人才交流平台
-                <p></li>
-            <li><a  id="resumeBtn">简历管理</a></li>
-            <li><a  id="positionBtn">职位管理</a></li>
-            <li><a  id="projectBtn">项目管理</a></li>
+        <ul class="indexBar">
+            <li id="logoIndex"><a class="toIndexLink" ></a></li>
+            <li><a class="toIndexLink"><p class="logo-name">人才交流平台
+                <p></a></li>
+            <li class="indexTab"><a class="toIndexLink " id="indexBtn">首页</a></li>
+            <li class="indexTab selectedIndex"><a href="../team/teamPlayGround.html" id="teamBtn">团队</a></li>
+            <li class="indexTab "><a href="../stu/stuPlayground.html" id="stuBtn">学生</a></li>
         </ul>
-        <div class="input-field right search-bar">
-            <input id="search" type="search" placeholder="Click to search" required>
-            <label for="search"><i class="material-icons">search</i></label>
-            <i class="material-icons">close</i>
-        </div>
+
     </div>
-</nav>
-<div class="comWidth manageDiv">
-    <div class="infoCard z-depth-2">
-        <div class="imgBox">
-            <img src="../../res/imgs/main/img1.jpg" class="stuImg">
+</div>
+<div class=" manageDiv">
+    <div class="infoCard">
+        <div class="logoBar">
+            <div class="imgBox">
+                <img src="../../res/imgs/main/img1.jpg" class="stuImg">
+            </div>
+            <div class="name">姓名</div>
         </div>
         <div class="baseInfo">
-            <div class="nameBar">
-                <span class="name">姓名</span>
-                <span class="sex">性别</span>
-                <span class="age">年龄</span>
-            </div>
-            <div class="contactInfo">
-                <span class="mail">123456789@163.com</span>
-                <span class="tel">12345678901</span>
-
-            </div>
-            <div class="eduInfo">
-                <div class="chip"><span class="school">学校&nbsp&nbsp&nbsp&nbsp</span><span class="department">专业</span></div>
-                <div class="chip grade">年级</div>
-                <div class="chip addr">所在地</div>
-            </div>
+            <div class="personZone z-depth-1"><i class="material-icons">person</i></div>
+            <div>Ta的个人主页</div>
         </div>
         <div class="resumeCard ">
-            <span class="attachImg"><img src="../../res/imgs/team/attach_file.svg"></span>
-            <a class="resumeName">XX的简历.pdf</a>
+            <div class="attachImg z-depth-1"><i class="material-icons">attach_file</i></div>
+            <div class="resumeName">点击下载简历</div>
         </div>
     </div>
-    <div class="selectBar z-depth-2">
+    <div class="selectBar ">
         <div class="state  row">
             已录用
         </div>
-        <div class="buttonBar ">
-            <a class="waves-effect waves-light btn" id="returnBtn">返回</a>
+        <div class="informationDiv">
+            恭喜你，已经成功通过我司面试，现将相关事项通知如下
+            <div class="informations">
+                <div class="information">1、 http://baidu.com</div>
+            </div>
         </div>
+        <div class="buttonBar ">
+            <a class="waves-effect waves-light btn" id="returnBtn">完成</a>
+        </div>
+
     </div>
 </div>
 </body>

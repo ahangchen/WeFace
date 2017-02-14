@@ -290,16 +290,15 @@ $(document).ready(function(){
         var count = 0;
         if (checkBtn == 0) {
             for (var i = (pN-1)*10; i < len; i++) {
-                $('#'+divId).append('<div class="resumeCard  z-depth-3" id="'+array[i].id+'">'+
+                $('#'+divId).append('<div class="resumeCard" id="'+array[i].id+'">'+
                     '<div class="col s9">'+
                     '<div class="name">'+array[i].stu_name+'</div>'+
                     '<div class="deliverBar">'+
-                    '<span class="position">'+array[i].job_name+'</span>'+
-
+                    '<div class="position">'+array[i].job_name+'</div>'+
                     '</div>'+
                     '</div>'+
                     '<div class="col s3">'+
-                    '<a class="waves-effect waves-light btn solveBtn">处理</a>'+
+                    '<div class="waves-effect waves-light  solveBtn z-depth-1 ">处理</div>'+
                     '<div class="date">'+array[i].date+'</div>'+
                     '</div>'+
                     '</div>');
@@ -311,33 +310,33 @@ $(document).ready(function(){
         else{
             for (var i = (pN-1)*10; i < len; i++) {
                 if (array[i].state == 3) {
-                    $('#'+divId).append('<div class="resumeCard  z-depth-3" id="'+array[i].id+'">'+
+                    $('#'+divId).append('<div class="resumeCard " id="'+array[i].id+'">'+
                         '<div class="col s9">'+
-                        '<span class="name">'+array[i].stu_name+'</span>'+
+                        '<div class="name">'+array[i].stu_name+'</div>'+
                         '<div class="chip admitChip">'+'录用'+'</div>'+
                         '<div class="deliverBar">'+
-                        '<span class="position">'+array[i].job_name+'</span>'+
+                        '<div class="position">'+array[i].job_name+'</div>'+
 
                         '</div>'+
                         '</div>'+
                         '<div class="col s3">'+
-                        '<a class="waves-effect waves-light btn checkBtn">查看</a>'+
+                        '<div class="waves-effect waves-light  checkBtn z-depth-1">查看</div>'+
                         '<div class="date">'+array[i].date+'</div>'+
                         '</div>'+
                         '</div>');
                 }
                 if (array[i].state == 4) {
-                    $('#'+divId).append('<div class="resumeCard  z-depth-3" id="'+array[i].id+'">'+
+                    $('#'+divId).append('<div class="resumeCard " id="'+array[i].id+'">'+
                         '<div class="col s9">'+
-                        '<span class="name">'+array[i].stu_name+'</span>'+
+                        '<div class="name">'+array[i].stu_name+'</div>'+
                         '<div class="chip unsuitChip">'+'不合适'+'</div>'+
                         '<div class="deliverBar">'+
-                        '<span class="position">'+array[i].job_name+'</span>'+
+                        '<div class="position">'+array[i].job_name+'</div>'+
 
                         '</div>'+
                         '</div>'+
                         '<div class="col s3">'+
-                        '<a class="waves-effect waves-light btn checkBtn">查看</a>'+
+                        '<div class="waves-effect waves-light  checkBtn z-depth-1">查看</div>'+
                         '<div class="date">'+array[i].date+'</div>'+
                         '</div>'+
                         '</div>');
