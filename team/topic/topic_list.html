@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>产品列表</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <link rel="stylesheet"  href="../../css/base.css">
+    <link rel="stylesheet"  href="../../css/materialize.css">
+    <link href="https://fonts.css.network/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet"  href="../../css/team/topic/topic_list.css">
+</head>
+<body>
+<div class="header">
+    <div class="aboutWe">
+        <a href="../../main/test/information.html" target="_blank" style="padding-left: 7px">关于基地</a>
+    </div>
+    <div class="userLogin">
+        <a class="mainBtn" href="" target="_blank">发布</a>
+        <span class="line">|</span>
+        <a class="mainBtn" href="" target="_blank">团队主页</a>
+        <span class="line">|</span>
+        <a class="mainBtn" href="" target="_blank">消息</a>
+        <span class="line">|</span>
+        <a class="mainBtn" href="" target="_blank">退出</a>
+    </div>
+</div>
+<div class="guideBar">
+    <div class="nav">
+        <p id="home_title">四方馆</p>
+        <p id="home_subtitle">人才交流平台</p>
+        <p id="homePage">首页</p>
+        <p id="teamPage">团队</p>
+        <p id="studentPage">学生</p>
+    </div>
+    <div class="nav_function_icon">
+        <img src="../../res/imgs/team/all.svg" id="nav_function_btn">
+        <!--<i id="nav_function_btn" class="material-icons">apps</i>-->
+        <span id="total_new_msg">7</span>
+    </div>
+</div>
+<div class="add_new_topic_function_div">
+    <div class="collection nav_function_div">
+        <a href="" class="collection-item">
+            <img src="../../res/imgs/team/简历管理.svg" class="downIcon">
+            <span class="downWord">简历管理</span>
+            <span class="new_msg_num">7</span>
+        </a>
+        <a href="" class="collection-item">
+            <img src="../../res/imgs/team/职位管理.svg" class="downIcon">
+            <span class="downWord">职位管理</span>
+        </a>
+        <a href="" class="collection-item">
+            <img src="../../res/imgs/team/产品管理.svg" class="downIcon">
+            <span class="downWord">产品管理</span>
+        </a>
+        <a href="" class="collection-item">
+            <img src="../../res/imgs/team/社区管理.svg" class="downIcon">
+            <span class="downWord">社区管理</span>
+        </a>
+    </div>
+    <div class="add_new_topic_function">
+        <p class="word_style">发布新话题</p>
+        <a class="btn-floating btn waves-effect waves-light" id="add_new_topic"><i class="material-icons">add</i></a>
+    </div>
+</div>
+<div class="show_topic_area">
+    <!--<div class="topic_div">-->
+        <!--<div class="topic_info">-->
+            <!--<p class="topic_name">如果在这个软件中增加一个小天使的功能，大家觉得怎么样?</p>-->
+            <!--<p class="topic_time">2016-10-20-10-18-16</p>-->
+        <!--</div>-->
+        <!--<div class="topic_function_btn">-->
+            <!--<a class="waves-effect waves-light btn" id="manage_topic">管理</a>-->
+            <!--<a class="waves-effect waves-light btn" id="delete_topic">删除</a>-->
+        <!--</div>-->
+    <!--</div>-->
+</div>
+<div class="change_page_div">
+    <ul class="pagination">
+        <!--<li class="disabled"><a href="#!"><i class="material-icons">chevron_left</i></a></li>-->
+        <!--<li class="waves-effect"><a href="#!">1</a></li>-->
+        <!--<li class="waves-effect"><a href="#!">2</a></li>-->
+        <!--<li class="active"><a href="#!">3</a></li>-->
+        <!--<li class="waves-effect"><a href="#!">4</a></li>-->
+        <!--<li class="waves-effect"><a href="#!">5</a></li>-->
+        <!--<li class="waves-effect"><a href="#!"><i class="material-icons">chevron_right</i></a></li>-->
+    </ul>
+</div>
+
+<div id="delete_modal" class="modal" style="width: 500px;">
+    <div class="modal-content">
+        <p>你确定要删除么?</p>
+    </div>
+    <div class="modal-footer">
+        <a  id="confirm_delete_topic" class=" modal-action modal-close waves-effect waves-green btn-flat">确定</a>
+        <a  id="remain_topic" class=" modal-action modal-close waves-effect waves-green btn-flat">取消</a>
+    </div>
+</div>
+<script type="text/javascript" src="../../js/jquery-2.1.1.min.js"></script>
+<script type="text/javascript" src="../../js/materialize.js"></script>
+<script type="text/javascript" src="../../js/etc.js"></script>
+<script type="text/javascript" src="../../js/util.js"></script>
+<script type="text/javascript" src="../../js/team/topic/topic_list.js"></script>
+</body>
+</html>

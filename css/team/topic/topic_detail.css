@@ -95,7 +95,7 @@ html{
 .nav_blank{
     min-width: 980px;
     height: 80px;
-    background-image: url('../../res/imgs/team/team_bg.jpg');
+    background-image: url('../../../res/imgs/team/team_bg.jpg');
 }
 
 /*观点和团队基本信息*/

@@ -3,8 +3,19 @@ $(document).ready(function() {
     var topic_id=location.search.split("topic_id=")[1];
     var team_info = {};
     var i;
+    $(".ds-thread").attr('data-thread-key',topic_id);
 
-    $(".ds-thread").attr('data-thread-key',topic_id).attr('data-title','吃土').attr('data-url',location.href);
+    $.ajax({
+        type: 'GET',
+        url: cur_site + "team/topic/info/",
+        dataType: "json",
+        data: {'topic': topic_id},
+        success:function(data){
+            $(".question_title").html(data.res.title);
+            $(".topic_detail").append('<p>'+data.res.content+'</p>');
+            $(".ds-thread").attr('data-title',data.res.title).attr('data-url',location.href);
+        }
+    });
 
     $.ajax({
         type: 'GET',
@@ -46,6 +57,7 @@ $(document).ready(function() {
 
         }
     });
+
 
 
 });
