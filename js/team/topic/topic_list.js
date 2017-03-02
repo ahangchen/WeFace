@@ -41,14 +41,23 @@ $(document).ready(function(){
             var time=topic[i].time.split('-');
             var publish_time=time[0]+'年'+time[1]+'月'+time[2]+'日'+time[3]+'时';
             $(".show_topic_area").append('<div class="each_topic"><div class="topic_div"><div class="topic_info">' +
-                '<p class="topic_name">'+topic[i].title+'</p><p class="topic_time">'+publish_time+'</p></div>' +
+                '<p class="topic_name" id="'+topic[i].topic_id+'">'+topic[i].title+'</p><p class="topic_time">'+publish_time+'</p></div>' +
                 '<div class="topic_function_btn"><a class="waves-effect waves-light btn" id="manage_topic'+topic[i].topic_id+'">管理</a>' +
                 '<a class="waves-effect waves-light btn" id="delete_topic'+topic[i].topic_id+'">删除</a></div></div></div>');
         }
         $("a[id^='manage_topic']").css('background-color','rgb(66,168,82)').css('margin-top','10px');
         $("a[id^='delete_topic']").css('background-color','rgb(231,56,40)').css('margin-top','10px');
+
+        show_topic_detail();
         manageTopic();
         deleteTopic(page,topic);
+    }
+
+    function show_topic_detail(){
+        $(".topic_name").on('click',function(){
+            var topic_id = $(this).attr('id');
+            window.location.href="topic_detail.html?tid="+tid+"&topic_id="+topic_id;
+        });
     }
 
     function add_page(topic,activePage){
