@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>创建话题</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <link rel="stylesheet"  href="../../css/base.css">
+    <link rel="stylesheet"  href="../../css/materialize.css">
+    <link href="https://fonts.css.network/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet"  href="../../css/team/topic/create_topic.css">
+</head>
+<body>
+<div class="header">
+    <div class="aboutWe">
+        <a href="../../main/test/information.html" target="_blank" style="padding-left: 7px">关于基地</a>
+    </div>
+    <div class="userLogin">
+        <a class="mainBtn" href="" target="_blank">发布</a>
+        <span class="line">|</span>
+        <a class="mainBtn" href="" target="_blank">团队主页</a>
+        <span class="line">|</span>
+        <a class="mainBtn" href="" target="_blank">消息</a>
+        <span class="line">|</span>
+        <a class="mainBtn" href="" target="_blank">退出</a>
+    </div>
+</div>
+<div class="guideBar">
+    <div class="nav">
+        <p id="home_title">四方馆</p>
+        <p id="home_subtitle">人才交流平台</p>
+        <p id="homePage">首页</p>
+        <p id="teamPage">团队</p>
+        <p id="studentPage">学生</p>
+    </div>
+    <div class="nav_function_icon">
+        <img src="../../res/imgs/team/all.svg" id="nav_function_btn">
+        <!--<i id="nav_function_btn" class="material-icons">apps</i>-->
+        <span id="total_new_msg">7</span>
+    </div>
+</div>
+<div class="topic_basic_inform">
+    <div class="collection nav_function_div">
+        <a href="" class="collection-item">
+            <img src="../../res/imgs/team/简历管理.svg" class="downIcon">
+            <span class="downWord">简历管理</span>
+            <span class="new_msg_num">7</span>
+        </a>
+        <a href="" class="collection-item">
+            <img src="../../res/imgs/team/职位管理.svg" class="downIcon">
+            <span class="downWord">职位管理</span>
+        </a>
+        <a href="" class="collection-item">
+            <img src="../../res/imgs/team/产品管理.svg" class="downIcon">
+            <span class="downWord">产品管理</span>
+        </a>
+        <a href="" class="collection-item">
+            <img src="../../res/imgs/team/社区管理.svg" class="downIcon">
+            <span class="downWord">社区管理</span>
+        </a>
+    </div>
+    <div class="topic_basic_div">
+        <div class="input-field topic_name_area">
+            <p class="tip_name">话题标题:</p>
+            <input id="topic_name" type="text" class="validate" placeholder="输入标题">
+            <label for="topic_name"></label>
+        </div>
+        <div class="input-field topic_content_div">
+            <p class="tip_name">正文:</p>
+            <textarea id="topic_content" type="text" class="materialize-textarea" placeholder="输入话题详细内容"></textarea>
+            <label for="topic_content"></label>
+        </div>
+        <div class="topic_function_div">
+            <a class="waves-effect waves-light btn" id="save_topic">发布</a>
+            <a class="waves-effect waves-light btn" id="cancel_topic">取消</a>
+        </div>
+    </div>
+</div>
+
+<script type="text/javascript" src="../../js/jquery-2.1.1.min.js"></script>
+<script type="text/javascript" src="../../js/materialize.js"></script>
+<script type="text/javascript" src="../../js/etc.js"></script>
+<script type="text/javascript" src="../../js/util.js"></script>
+<script type="text/javascript" src="../../js/team/topic/create_topic.js"></script>
+</body>
+</html>

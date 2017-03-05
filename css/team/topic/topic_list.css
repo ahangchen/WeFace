@@ -1,0 +1,280 @@
+p{
+    margin: 0;
+}
+
+html{
+    background: none;
+}
+
+/*导航栏的样式在这里修改*/
+.header{
+    min-width: 980px;
+    height: 35px;
+    background-color: rgb(242,242,242);
+    padding: 2px;
+}
+
+.header a {
+    padding-right: 5px;
+    line-height: 35px;
+    cursor: pointer;
+}
+
+.header a:link {
+    text-decoration: none;
+    color: rgb(112, 112, 112);
+}
+
+.header a:visited {
+    color: rgb(112, 112, 112);
+}
+
+.aboutWe{
+    float: left;
+}
+
+.userLogin{
+    float: right;
+}
+
+/*首页导航栏*/
+.guideBar{
+    min-width: 980px;
+    padding: 10px 30px 3px 0;
+    height: 75px;
+    -webkit-box-shadow: 5px 5px 5px #c6c6c6;
+}
+
+.nav{
+    float: left;
+}
+
+
+#home_title{
+    display: inline-block;
+    color: rgb(244, 171, 35);
+    font-size: 32px;
+    margin-left: 100px;
+}
+
+#home_subtitle{
+    display: inline-block;
+    margin-left: 10px;
+    color: rgb(244, 171, 35);
+    font-size: 17px;
+}
+
+#homePage{
+    font-size: 25px;
+    color: rgb(244, 171, 35);
+    display: inline-block;
+    margin-left: 100px;
+    height: 50px;
+    cursor: pointer;
+}
+
+#teamPage{
+    font-size: 25px;
+    color: rgb(244, 171, 35);
+    display: inline-block;
+    margin-left: 100px;
+    height: 50px;
+    border-bottom: 3px solid ;
+    cursor: pointer;
+}
+
+#studentPage{
+    font-size: 25px;
+    color: rgb(244, 171, 35);
+    display: inline-block;
+    height: 50px;
+    margin-left: 100px;
+    cursor: pointer;
+}
+
+.nav_function_icon{
+    float: right;
+    display: inline-block;
+    height: 50px;
+    vertical-align: top;
+    /*border: 1px solid;*/
+    position: relative;
+    width: 80px;
+    margin-top: 5px;
+}
+
+#nav_function_btn{
+    color: rgb(244, 171, 35);
+    cursor: pointer;
+    width: 40px;
+    height: 40px;
+}
+
+#total_new_msg{
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    right: 30px;
+    border-radius: 100px;
+    background-color: red;
+    padding: 0 0 0 6px;
+    color: #fff;
+}
+
+.downIcon{
+    width: 20px;
+    height: 20px;
+}
+
+.downWord{
+    color: rgb(112,112,112);
+    display: inline-block;
+    vertical-align: top;
+    font-size: 17px;
+    margin-left: 3px;
+}
+
+
+.new_msg_num{
+    position: absolute;
+    right: 8px;
+    width: 20px;
+    height: 20px;
+    border-radius: 100px;
+    background-color: red;
+    padding: 0 0 0 6px;
+    color: #fff;
+}
+
+.nav_function_div{
+    width: 160px;
+    /*border: 1px solid;*/
+    position: absolute;
+    min-height: 180px;
+    margin: 0;
+    right: 2px;
+    z-index: 100;
+    display: none;
+}
+
+.add_new_topic_function_div{
+    min-width: 980px;
+    height: 50px;
+    background-color: rgb(242,242,242);
+    margin-top: 5px;
+    position: relative;
+}
+
+.add_new_topic_function{
+    width: 930px;
+    margin: auto;
+    /*border: 1px solid;*/
+    height: 50px;
+    padding: 5px 0;
+}
+
+.word_style{
+    font-size: 22px;
+    color: rgb(112,112,112);
+    display: inline-block;
+    margin-left: 40px;
+}
+
+#add_new_topic{
+    background-color: rgb(244, 171, 35);
+    margin-left: 690px;
+    display: inline-block;
+    vertical-align: top;
+}
+
+.show_topic_area{
+    min-width: 980px;
+    min-height: 100px;
+}
+
+.each_topic{
+    min-width: 980px;
+}
+
+.each_topic:nth-child(2n){
+    background-color: rgb(242,242,242);
+}
+
+.topic_div{
+    width: 930px;
+    height: 120px;
+    /*border: 1px solid;*/
+    margin: auto;
+}
+
+.topic_info{
+    width: 750px;
+    margin-left: 40px;
+    margin-top: 10px;
+    /*border: 1px solid;*/
+    height: 100px;
+    display: inline-block;
+}
+
+.topic_name{
+    color: rgb(112,112,112);
+    font-size: 21px;
+    margin-top: 15px;
+    cursor: pointer;
+}
+
+.topic_time{
+    color: rgb(112,112,112);
+    font-size: 18px;
+    margin-top: 10px;
+}
+
+.topic_function_btn{
+    display: inline-block;
+    vertical-align: top;
+    width: 100px;
+    margin-top: 10px;
+    /*border: 1px solid;*/
+    height: 100px;
+}
+
+/*#manage_product{*/
+/*background-color: rgb(66,168,82);*/
+/*margin-top: 10px;*/
+/*}*/
+
+/*.delete_product{*/
+/*background-color: rgb(231,56,40);*/
+/*margin-top: 12px;*/
+/*}*/
+
+.change_page_div{
+    min-width: 980px;
+    height: 100px;
+    padding: 30px 0;
+    text-align: center;
+}
+
+.pagination li.active{
+    background-color: #fff;
+    text-decoration: underline;
+}
+
+.pagination li.active a{
+    color: rgb(244, 171, 35);
+}
+
+.pagination li a{
+    font-size: 22px;
+    color: rgb(112,112,112);
+}
+
+.pagination li{
+    vertical-align: middle;
+    padding: 0 20px;
+    cursor: pointer;
+}
+
+.pagination li i{
+    vertical-align: top;
+}

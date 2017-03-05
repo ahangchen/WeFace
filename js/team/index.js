@@ -21,6 +21,12 @@ $(document).ready(function(){
         window.location.href="product/product_list.html?tid="+tid;
     });
 
+    $("#topic_manage").click(function(){
+        window.location.href="topic/topic_list.html?tid="+tid;
+    });
+
+
+
     //如果没有token隐藏所有的编辑按钮
     if(token==undefined){
         $("#edit_team_basic").remove();
@@ -28,6 +34,8 @@ $(document).ready(function(){
         $("#edit_team_member").remove();
         $("#edit_team_photo").remove();
         $("#edit_team_contact").remove();
+        $(".nav_function_div").remove();
+        $(".nav_function_icon").remove();
     }
 
     $.ajax({
@@ -154,24 +162,47 @@ $(document).ready(function(){
             }
 
             if($(this).attr('id')=='communicate'){
-                $(".switch_tab").empty().append('<div class="topic_module"><div class="team_topic_div"><div class="team_topic"><div class="topic_title">' +
-                    '<img class="question_icon" src="../res/imgs/team/问题.svg" align="AbsMiddle"><span class="question_title">如果在这个软件中增加一个小天使的功能，大家觉得怎么样？</span> ' +
-                    '<p class="submit_date">12月5日</p></div><div class="topic_detail"> ' +
-                    '<p>在这个软件中增加一个小天使的功能，当你在忙碌的时候可以激活小天使来帮你，然后可以给小天使一个合理的回报，比如请吃饭，你们觉得怎么样？</p> </div> ' +
-                    '<div class="topic_function"><img class="agree_icon" src="../res/imgs/team/赞.svg" align="AbsMiddle"> ' +
-                    '<span class="agree_num">17</span><img class="commit_icon" src="../res/imgs/team/评论.svg" align="AbsMiddle">' +
-                    '<span class="commit_num">15</span></div></div></div>' +
-                    '<div class="team_topic_div"><div class="team_topic"><div class="topic_title">' +
-                    '<img class="question_icon" src="../res/imgs/team/问题.svg" align="AbsMiddle"><span class="question_title">如果在这个软件中增加一个小天使的功能，大家觉得怎么样？</span> ' +
-                    '<p class="submit_date">12月5日</p></div><div class="topic_detail"> ' +
-                    '<p>在这个软件中增加一个小天使的功能，当你在忙碌的时候可以激活小天使来帮你，然后可以给小天使一个合理的回报，比如请吃饭，你们觉得怎么样？</p> </div> ' +
-                    '<div class="topic_function"><img class="agree_icon" src="../res/imgs/team/赞.svg" align="AbsMiddle"> ' +
-                    '<span class="agree_num">17</span><img class="commit_icon" src="../res/imgs/team/评论.svg" align="AbsMiddle">' +
-                    '<span class="commit_num">15</span></div></div></div></div>');
-                load_team_topic()
+                // $(".switch_tab").empty().append('<div class="topic_module"><div class="team_topic_div"><div class="team_topic"><div class="topic_title">' +
+                //     '<img class="question_icon" src="../res/imgs/team/问题.svg" align="AbsMiddle"><span class="question_title">如果在这个软件中增加一个小天使的功能，大家觉得怎么样？</span> ' +
+                //     '<p class="submit_date">12月5日</p></div><div class="topic_detail"> ' +
+                //     '<p>在这个软件中增加一个小天使的功能，当你在忙碌的时候可以激活小天使来帮你，然后可以给小天使一个合理的回报，比如请吃饭，你们觉得怎么样？</p> </div> ' +
+                //     '<div class="topic_function"><img class="agree_icon" src="../res/imgs/team/赞.svg" align="AbsMiddle"> ' +
+                //     '<span class="agree_num">17</span><img class="commit_icon" src="../res/imgs/team/评论.svg" align="AbsMiddle">' +
+                //     '<span class="commit_num">15</span></div></div></div>' +
+                //     '<div class="team_topic_div"><div class="team_topic"><div class="topic_title">' +
+                //     '<img class="question_icon" src="../res/imgs/team/问题.svg" align="AbsMiddle"><span class="question_title">如果在这个软件中增加一个小天使的功能，大家觉得怎么样？</span> ' +
+                //     '<p class="submit_date">12月5日</p></div><div class="topic_detail"> ' +
+                //     '<p>在这个软件中增加一个小天使的功能，当你在忙碌的时候可以激活小天使来帮你，然后可以给小天使一个合理的回报，比如请吃饭，你们觉得怎么样？</p> </div> ' +
+                //     '<div class="topic_function"><img class="agree_icon" src="../res/imgs/team/赞.svg" align="AbsMiddle"> ' +
+                //     '<span class="agree_num">17</span><img class="commit_icon" src="../res/imgs/team/评论.svg" align="AbsMiddle">' +
+                //     '<span class="commit_num">15</span></div></div></div></div>');
+
+                $(".switch_tab").empty().append('<div class="topic_module"></div>');
+
+                $.ajax({
+                    url: cur_site + 'team/topic/list/',
+                    type: 'GET',
+                    dataType: 'json',
+                    data: {"tid": tid},
+                    success:function(data) {
+                        if(data.err=="0"){
+                            var topic=data.msg;
+                            for(var i=0;i<topic.length;i++){
+                                var time=topic[i].time.split('-');
+                                var publish_time=time[0]+'年'+time[1]+'月'+time[2]+'日';
+                                $(".topic_module").append('<div class="team_topic_div"><div class="team_topic"><div class="topic_title" id="topic'+topic[i].topic_id+'">' +
+                                    '<img class="question_icon" src="../res/imgs/team/问题.svg" align="AbsMiddle"><span class="question_title">'+topic[i].title+'</span> ' +
+                                    '<p class="submit_date">'+publish_time+'</p></div><div class="topic_detail"> ' +
+                                    '<p>'+topic[i].content+'</p></div></div></div>');
+                            }
+                            load_team_topic();
+                        }
+                    }
+                });
             }
         });
     }
+
 
     //加载团队主页标签下的内容
     function load_team_homepage(){
@@ -277,10 +308,8 @@ $(document).ready(function(){
     function load_team_topic(){
         //点击话题进行页面的跳转
         $(".topic_title").on('click',function(){
-            window.location.href="topic_detail.html?tid="+tid;
-        });
-        $(".commit_icon").on("click",function(){
-            window.location.href="topic_detail.html?tid="+tid;
+            var topic_id=$(this).attr('id').split('topic')[1];
+            window.location.href="topic/topic_detail.html?tid="+tid+"&topic_id="+topic_id;
         });
 
     }
@@ -291,8 +320,8 @@ $(document).ready(function(){
             $(".team_nav").empty().append('<div class="team_basic_edit_area"><div class="collection nav_function_div"><a href="" class="collection-item">' +
                 '<img src="../res/imgs/team/简历管理.svg" class="downIcon"><span class="downWord">简历管理</span><span class="new_msg_num">7</span></a>' +
                 '<a href="" class="collection-item"><img src="../res/imgs/team/职位管理.svg" class="downIcon"><span class="downWord">职位管理</span></a>' +
-                '<a href="" class="collection-item"><img src="../res/imgs/team/产品管理.svg" class="downIcon"><span class="downWord">产品管理</span>' +
-                '<span class="new_msg_num">2</span></a><a href="" class="collection-item"><img src="../res/imgs/team/社区管理.svg" class="downIcon">' +
+                '<a class="collection-item" id="product_manage"><img src="../res/imgs/team/产品管理.svg" class="downIcon"><span class="downWord">产品管理</span>' +
+                '<span class="new_msg_num">2</span></a><a id="topic_manage" class="collection-item"><img src="../res/imgs/team/社区管理.svg" class="downIcon">' +
                 '<span class="downWord">社区管理</span></a></div><div class="team_img_edit_div">'+
                 '<i class="medium material-icons" id="photo_camera">photo_camera</i> </div> <form id="post_logo"  enctype="multipart/form-data">'+
                 '<input type="file" id="upload_team_logo" style="display: none"></form><div class="team_msg_edit_div">'+
@@ -307,6 +336,14 @@ $(document).ready(function(){
                 '<div class="chip label_choice">其他</div></div></div></div><div class="team_basic_function_area">'+
                 '<a class="waves-effect waves-light btn" id="save_team_basic">保存</a>' +
                 '<a class="waves-effect waves-light btn" id="cancel_team_basic">取消</a></div>').css("background","rgb(242,242,242)");
+
+            $("#product_manage").click(function(){
+                window.location.href="product/product_list.html?tid="+tid;
+            });
+
+            $("#topic_manage").click(function(){
+                window.location.href="topic/topic_list.html?tid="+tid;
+            });
 
             var label_choice=$(".label_choice");
             var label_type=[];
