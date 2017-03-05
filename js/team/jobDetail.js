@@ -32,7 +32,7 @@ $(function(){
     }
     // 学生点击职位名字后，主页在url上传职位id
     var jId = getUrlVar('data');
-    var wefaceBace_site = "http://110.64.69.101:8080/";
+    var wefaceBace_site = "http://wemeet.tech:8080/";
     var tId,jName,min,max,prov,city,town,addr,edu,exp,jobType,workType,sum,date,state,jobCmd,workCmd;
     var jobId = {
         id:jId

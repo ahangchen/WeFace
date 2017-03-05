@@ -119,7 +119,7 @@ $(function(){
     });
 // －－－－－－－－－－－－－－－热门团队－－－－－－－－－－－－－－－－－－－－－－－－－－－
 // －－－－－－－－－－－－－热门团队初始化－－－－－－－－－－－－－－－－－－－－－－－－－－
-    var wefaceBace_site = "http://110.64.69.101:8080/";
+    var wefaceBace_site = "http://wemeet.tech:8080/";
     var teamlis = $(".teamList li img");
     var teamLink = $(".teamList li a");
     var teamNames = $(".teamList li div");

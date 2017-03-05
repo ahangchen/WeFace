@@ -86,7 +86,7 @@ a.topBarItem.dropdown-button.btn {
 .indexTab{
     margin-left: 30px;
     padding: 10px;
-    font-size: 1.2em;
+    font-size: 16px;
 }
 .header {
 
@@ -115,10 +115,16 @@ a.topBarItem.dropdown-button.btn {
     cursor: pointer;
 }
 #logoIndex{
-    height: 65px;
-    width: 70px;
+    height: 45px;
+    width: 50px;
     background-size: 100% auto;
     background-image: url('../../res/imgs/main/logo.svg');
+    cursor: pointer;
+    display: block;
+}
+
+.logo-name{
+    cursor: pointer;
 }
 .header a {
     margin-left: 0;

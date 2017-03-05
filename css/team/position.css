@@ -355,7 +355,7 @@ form .buttonBar{
 .row .col .provinceClass{
     padding: 0;
 }
-.detailAddress .input-field{
+.input-field{
     margin-top: 0;
 }
 .select-wrapper span.caret{
@@ -402,7 +402,7 @@ hr{
     padding-top: 20px;
     padding-right: 100px;
     padding-left: 100px;
-    height: 700px;
+    height: 600px;
     background-color: rgba(255,255,255,0.7);
 }
 .requirementDiv{
@@ -452,9 +452,10 @@ hr{
 
 /*新增职位页面的样式*/
 .prescribe{
-    color: red;
+    color: rgb(244, 171, 35);
     font-size: 16px;
-    margin-right: 50px;
+    position: relative;
+    top: 20px;
 }
 
 #manageDiv{

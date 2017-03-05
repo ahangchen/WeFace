@@ -3,7 +3,7 @@
  */
 
 $(function(){
-    var wefaceBace_site = "http://110.64.69.101:8080/";
+    var wefaceBace_site = "http://wemeet.tech:8080/";
 
     //获取职位类型
     $.ajax({
@@ -42,7 +42,7 @@ $(function(){
     }
 
     // 团队点击职位名字后，在url上获取传职位id
-    var tId = getUrlVar('t_id');
+    var tId = getUrlVar('tid');
 
     //导航栏跳转
     $('#resumeBtn').attr('href',wefaceBace_site + 'team/resumeManage/resume.html?t_id='+tId);
@@ -50,7 +50,7 @@ $(function(){
     $("#projectBtn").attr("href",wefaceBace_site+'team/manageProject/manageProject.html?tid='+tId);
 
     $("#addBtn").click(function(){
-        $(this).attr('href','addPosition.html?t_id='+tId);
+        $(this).attr('href','addPosition.html?tid='+tId);
     });
     var clickedJobId = "";
     var tagsObj = $(".activeTag a");

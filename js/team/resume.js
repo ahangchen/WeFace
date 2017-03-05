@@ -16,7 +16,7 @@ $(document).ready(function(){
     var completeArray = new Array();
     var stateObj = $('.stateBar ul li');
     var tId = getUrlVar('t_id');
-    var wefaceBace_site = "http://110.64.69.101:8080/";
+    var wefaceBace_site = "http://wemeet.tech:8080/";
     $('#resumeBtn').attr('href',wefaceBace_site + 'team/resumeManage/resume.html?t_id='+tId);
     $('#positionBtn').attr('href',wefaceBace_site + 'team/position/showPosition.html?t_id='+tId);
     $("#projectBtn").attr("href",wefaceBace_site+'team/manageProject/manageProject.html?tid='+tId);

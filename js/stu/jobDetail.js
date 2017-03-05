@@ -205,7 +205,7 @@ $(function(){
             }
         });
     });
-    var wefaceBace_site = "http://110.64.69.101:8080/";
+    var wefaceBace_site = "http://wemeet.tech:8080/";
     $.ajax({
         type:'post',
         url:cur_site + 'student/resume/get/',

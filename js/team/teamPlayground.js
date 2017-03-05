@@ -81,7 +81,7 @@ $(function() {
     }).trigger("mouseleave");
     // －－－－－－－－－－－－－－－热门团队－－－－－－－－－－－－－－－－－－－－－－－－－－－
 // －－－－－－－－－－－－－热门团队初始化－－－－－－－－－－－－－－－－－－－－－－－－－－
-    var wefaceBace_site = "http://110.64.69.101:8080/";
+    var wefaceBace_site = "http://wemmet.tech:8080/";
     var teamlis = $(".teamList .imgFrame img");
     var teamLink = $(".teamList li a");
     var teamNames = $(".teamList li .desc");
@@ -226,7 +226,56 @@ $(function() {
         $(".teamList").animate({left: "-" + goTeam + "px"},500);
     }
 
+//-------互动社区最新话题
+    $.ajax({
+        type: 'get',
+        url: cur_site+ 'team/topic/newest/',
+        dataType: 'json',
+        success: function(data){
+            console.log(data.res.length);
+            let topicArray = [];
+            for(let i = 0; i < data.res.length; i++){
+                let topicInfo = {
+                    time: data.res[i].topic_time,
+                    title: data.res[i].topic_title,
+                    team_id: data.res[i].team_id,
+                    team_name: data.res[i].team_name,
+                    topic_id: data.res[i].topic_id,
+                    team_logo: data.res[i].team_logo,
+                    topic_content: data.res[i].topic_content
+                };
+                topicArray.push(topicInfo)
+            }
+            showTopics(topicArray)
+        },
+        error: function(data){
+            console.log('获取最新话题失败，请刷新')
+        }
+    });
+    function showTopics(array){
+        for(let i = 0; i < array.length; i++ ){
+            $('.communityCards').append(`<div class="comunityCard z-depth-2">
+            <div class="teamInfo">
+                <div class="teamImg">
+                    <img src="${cur_media+array[i].team_logo}">
+                </div>
+                <div class="teamInfoRight">
+                    <div class="teamName">${array[i].team_name}</div>
+                    <div class="date">${array[i].time}</div>
+                </div>
+            </div>
+            <div class="question">
+                ${array[i].title}
+            </div>
+            <div class="quesDesc">${array[i].topic_content}</div>
+            <div class="response">
+                <div class="notes">17个留言</div>
+                <div class="goods">2个赞</div>
+            </div>
+        </div>`)
+        }
 
+    }
 
 
 
