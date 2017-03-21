@@ -81,7 +81,7 @@ $(function() {
     }).trigger("mouseleave");
     // －－－－－－－－－－－－－－－热门团队－－－－－－－－－－－－－－－－－－－－－－－－－－－
 // －－－－－－－－－－－－－热门团队初始化－－－－－－－－－－－－－－－－－－－－－－－－－－
-    var wefaceBace_site = "http://wemmet.tech:8080/";
+    var wefaceBace_site = "http://wemeet.tech:8080/";
     var teamlis = $(".teamList .imgFrame img");
     var teamLink = $(".teamList li a");
     var teamNames = $(".teamList li .desc");
@@ -96,7 +96,7 @@ $(function() {
             var firstTeamDesc = data.message[i].about;
             var firstTeamid = data.message[i].id;
             $(teamlis[i]).attr("src",cur_media + firstTeamImg);
-            $(teamLink[i]).attr("href",wefaceBace_site+'team/index.html?t_id='+firstTeamid);
+            $(teamLink[i]).attr("href",wefaceBace_site+'team/team_index.html?tid='+firstTeamid);
             $(teamNames[i]).html(firstTeamName);
             $(teamsDesc[i]).html(firstTeamDesc);
             $(teamLi[i]).attr("id",firstTeamid);
@@ -140,7 +140,7 @@ $(function() {
                         var teamDesc = data.msg[i].about;
                         var teamid = data.msg[i].id;
                         $(teamlis[i]).attr("src", cur_media + teamImg);
-                        $(teamLink[i]).attr("href",wefaceBace_site+'team/index.html?t_id='+teamid);
+                        $(teamLink[i]).attr("href",wefaceBace_site+'team/team_index.html?tid='+teamid);
                         $(teamNames[i]).html(teamName);
                         $(teamsDesc[i]).html(teamDesc);
                         $(teamLi[i]).attr("id",teamid);
@@ -188,7 +188,7 @@ $(function() {
                         var teamDesc = data.msg[i].about;
                         var teamid = data.msg[i].id;
                         $(teamlis[i]).attr("src",cur_media + teamImg);
-                        $(teamLink[i]).attr("href",wefaceBace_site+'team/index.html?t_id='+teamid);
+                        $(teamLink[i]).attr("href",wefaceBace_site+'team/team_index.html?tid='+teamid);
                         $(teamNames[i]).html(teamName);
                         $(teamsDesc[i]).html(teamDesc);
                         $(teamLi[i]).attr("id",teamid);
@@ -202,7 +202,7 @@ $(function() {
                         var teamDesc = data.msg[i].about;
                         var teamid = data.msg[i].id;
                         $(teamlis[i]).attr("src",cur_media + teamImg);
-                        $(teamLink[i]).attr("href",wefaceBace_site+'team/index.html?t_id='+teamid);
+                        $(teamLink[i]).attr("href",wefaceBace_site+'team/team_index.html?tid='+teamid);
                         $(teamNames[i]).html(teamName);
                         $(teamsDesc[i]).html(teamDesc);
                         $(teamLi[i]).attr("id",teamid);

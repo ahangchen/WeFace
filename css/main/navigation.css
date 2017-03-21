@@ -120,7 +120,6 @@ a.topBarItem.dropdown-button.btn {
     background-size: 100% auto;
     background-image: url('../../res/imgs/main/logo.svg');
     cursor: pointer;
-    display: block;
 }
 
 .logo-name{
