@@ -254,7 +254,8 @@ $(function() {
     });
     function showTopics(array){
         for(let i = 0; i < array.length; i++ ){
-            $('.communityCards').append(`<div class="comunityCard z-depth-2">
+            let url = `http://wemeet.tech:8080/team/topic/topic_detail.html?tid=${array[i].team_id}&topic_id=${array[i].topic_id}`
+            $('.communityCards').append(`<a href=${url}><div class="comunityCard z-depth-2">
             <div class="teamInfo">
                 <div class="teamImg">
                     <img src="${cur_media+array[i].team_logo}">
@@ -272,7 +273,7 @@ $(function() {
                 <div class="notes">17个留言</div>
                 <div class="goods">2个赞</div>
             </div>
-        </div>`)
+        </div></a>`)
         }
 
     }
