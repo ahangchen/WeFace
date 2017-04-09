@@ -25,6 +25,10 @@ $(document).ready(function(){
         window.location.href="topic/topic_list.html?tid="+tid;
     });
 
+    $("#position_manage").click(function(){
+        window.location.href="position/showPosition.html?tid="+tid;
+    });
+
 
 
     //如果没有token隐藏所有的编辑按钮
@@ -200,6 +204,11 @@ $(document).ready(function(){
                     }
                 });
             }
+
+            if($(this).attr('id')=='position'){
+                $(".switch_tab").empty();
+                load_position();
+            }
         });
     }
 
@@ -312,6 +321,67 @@ $(document).ready(function(){
             window.location.href="topic/topic_detail.html?tid="+tid+"&topic_id="+topic_id;
         });
 
+    }
+
+    //加载职位信息
+    function load_position(){
+        $.ajax({
+            type:'post',
+            url:cur_site + "team/job_type/",
+            dataType:'json',
+            success:function(data) {
+                if(data.err == 0) {
+                    var job_type=data.msg;
+                    $(".switch_tab").append('<div class="position_tag_container"><div class="position_tag_div">' +
+                        '<div class="pos_tips">职位</div><div class="chip position_tag" id="positionAll">全部</div></div>' +
+                        '</div><div class="position_detail_area"></div><div class="page_area"></div>');
+                    console.log(job_type);
+                    for(var i=0;i<job_type.length;i++){
+                        $(".position_tag_div").append('<div class="chip position_tag" id="position_tag'+job_type[i].id+'">'+job_type[i].name+'</div>');
+                    }
+                    listen_to_position();
+                }
+            }
+        });
+    }
+
+    //监听搜索的职位类型变化
+    function listen_to_position(){
+        $(".position_tag").on('click',function(){
+           $(this).addClass('active_tag').siblings().removeClass('active_tag');
+           var jobTags=[];
+           if($(this).attr('id')=='positionAll'){
+               jobTags=[1,2,3,4,5,6,7,8,9];
+           }
+           else{
+               jobTags.push(parseInt($(this).attr('id').split('position_tag')[1]));
+           }
+           var uploadData={'teamId':tid,'jobTags':jobTags};
+           $('.position_detail_area').empty();
+            $.ajax({
+                type:'post',
+                data:uploadData,
+                url:cur_site + "team/search_job/",
+                dataType:'json',
+                success:function(data) {
+                    var position_detail=data.message;
+                    for(var i=0;i<position_detail.length;i++){
+                        var city = position_detail[i].city==1?'广州市':'其他';
+                        var status = position_detail[i].job_state==1?['broadcast','已发布']:['stay','暂存'];
+                        $(".position_detail_area").append('<div class="position_detail_div" id=position'+position_detail[i].jobId+'><div class="position_basic">' +
+                            '<div class="position_title"><span class="title">'+position_detail[i].name+'/</span><span class="city">'+city+'</span></div>' +
+                            '<div class="position_salary">' +
+                            '<span class="salary">'+position_detail[i].minSaraly+'~'+position_detail[i].maxSaraly+'/月</span></div></div>' +
+                            '<div class="position_extra"><div class="chip '+status[0]+'">'+status[1]+'</div>' +
+                            '<div class="postion_describe">'+position_detail[i].exp+'</div></div></div>');
+                    }
+                    $(".position_detail_div").on('click',function(){
+                       var data = $(this).attr('id').split('position')[1];
+                       window.location.href = 'jobDetail.html?data='+data;
+                    });
+                }
+            });
+        }).eq(0).click();
     }
 
     //监听修改团队的基本信息
