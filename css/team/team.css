@@ -734,6 +734,111 @@ html{
     text-align: center;
 }
 
+/*职位区域的样式*/
+.position_tag_container{
+    min-width: 960px;
+    height: 70px;
+    background-color: rgb(242,242,242);
+    padding: 20px;
+}
+
+
+.pos_tips{
+    color: #716f70;
+    font-size: 18px;
+    margin-left: 20px;
+    display: inline-block;
+}
+
+.position_tag{
+    color:#717171;
+    font-size: 18px;
+    margin-left: 20px;
+    display: inline-block;
+    border-radius: 10px;
+    background: transparent;
+    cursor: pointer;
+}
+
+.position_tag.active_tag{
+    color: #fff;
+    background-color: rgb(244, 171, 35);
+}
+
+.position_detail_div{
+    min-width: 960px;
+    height: 150px;
+    padding: 10px 50px;
+    cursor: pointer;
+}
+
+.position_detail_div:nth-child(2n){
+    background-color: rgb(242,242,242);
+}
+
+.position_basic{
+    display: inline-block;
+    width: 250px;
+    height: 120px;
+    vertical-align: top;
+    padding: 20px 30px;
+
+}
+
+.position_extra{
+    display: inline-block;
+    width: 350px;
+    height: 120px;
+    vertical-align: top;
+    text-align: center;
+    padding: 20px 0;
+}
+
+
+.position_title .title{
+    font-size: 24px;
+    color: #717171;
+}
+
+.position_title .city{
+    font-size: 18px;
+    color:#737172;
+}
+
+.position_salary{
+    margin-top: 10px;
+}
+
+.position_salary .salary{
+    font-size: 20px;
+    color:rgb(244, 171, 35);
+}
+
+.position_extra .chip{
+    padding: 2px 20px;
+    border-radius: 20px;
+    font-size: 18px;
+    color: #fff;
+}
+
+.position_extra .postion_describe{
+    font-size: 20px;
+    color: #737172;
+    margin-top: 15px;
+}
+
+.chip.broadcast{
+    background-color: rgb(101, 197, 219);
+}
+
+.chip.stay{
+    background-color: rgb(112, 112, 112);
+}
+
+.page_area{
+    height: 100px;
+}
+
 
 
 
