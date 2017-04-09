@@ -368,8 +368,8 @@ $(document).ready(function(){
                     for(var i=0;i<position_detail.length;i++){
                         var city = position_detail[i].city==1?'广州市':'其他';
                         var status = position_detail[i].job_state==1?['broadcast','已发布']:['stay','暂存'];
-                        $(".position_detail_area").append('<div class="position_detail_div" id=position'+position_detail[i].jobId+'><div class="position_basic">' +
-                            '<div class="position_title"><span class="title">'+position_detail[i].name+'/</span><span class="city">'+city+'</span></div>' +
+                        $(".position_detail_area").append('<div class="position_detail_div" id=position'+position_detail[i].jobId+'>' +
+                            '<div class="position_basic"><div class="position_title"><span class="title">'+position_detail[i].name+'/</span><span class="city">'+city+'</span></div>' +
                             '<div class="position_salary">' +
                             '<span class="salary">'+position_detail[i].minSaraly+'~'+position_detail[i].maxSaraly+'/月</span></div></div>' +
                             '<div class="position_extra"><div class="chip '+status[0]+'">'+status[1]+'</div>' +

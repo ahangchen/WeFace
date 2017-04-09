@@ -766,11 +766,17 @@ html{
 }
 
 .position_detail_div{
-    min-width: 960px;
+    min-width: 980px;
     height: 150px;
-    padding: 10px 50px;
     cursor: pointer;
+    padding: 10px 0 10px 100px;
 }
+
+/*.position_detail{*/
+    /*width: 960px;*/
+    /*margin: auto;*/
+    /*padding: 10px 50px;*/
+/*}*/
 
 .position_detail_div:nth-child(2n){
     background-color: rgb(242,242,242);
@@ -778,11 +784,11 @@ html{
 
 .position_basic{
     display: inline-block;
-    width: 250px;
+    width: 200px;
     height: 120px;
     vertical-align: top;
     padding: 20px 30px;
-
+    /*border: 1px solid;*/
 }
 
 .position_extra{
@@ -792,6 +798,7 @@ html{
     vertical-align: top;
     text-align: center;
     padding: 20px 0;
+    /*border: 1px solid;*/
 }
 
 
