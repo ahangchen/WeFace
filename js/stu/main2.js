@@ -16,7 +16,7 @@ $(document).ready(function () {
     let save_skill_error = -1;
 
     //关于作品集的相关数据
-    const work_type_map = ["img", "audio", 'video'];
+    const work_type_map = ['img', "audio", 'video'];
     let new_work_file = new FormData();
     let new_work_type = -1;
     let works_arr = [];
@@ -291,12 +291,12 @@ $(document).ready(function () {
             name: $('#work_name').val(),
             duty: $('#work_role').val(),
             url: $('#work_link').val(),
-            description: $('#work_desc'),
+            description: $('#work_desc').val(),
             img: null,
             audio: null,
             video: null
         };
-        new_work[work_type_map[type]] = file_url;
+        new_work[work_type_map[type]]= file_url;
         console.log(new_work);
 
         $.ajax({
@@ -341,8 +341,7 @@ $(document).ready(function () {
                     works_arr = data.works_arr;
                     data.works_list.map((work, index) => {
                         updateNewWork(work, index)
-
-                    })
+                    });
                     $('.editbar button').addClass('hidden')
                 } else {
                     console.log(data.msg)
@@ -407,14 +406,13 @@ $(document).ready(function () {
                 </div>
                 <div class="work-site">
                     <span class="edit-link"></span>
-                <a class="work-site" href="">${work.url}</a></div>
+                <a class="work-site" href=${work.url}>${work.url}</a></div>
             </div>
             <p class="work-p">
                 ${work.description}
             </p>
         </div>`)
         $($('.del-work')[index]).click(() => {
-             // @TODO 删除某一个作品集的操作;
             deleteWork(index)
         })
 
