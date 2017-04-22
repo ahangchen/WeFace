@@ -19,16 +19,17 @@ $(document).ready(function () {
     const work_type_map = ['img', "audio", 'video'];
     let new_work_file = new FormData();
     let new_work_type = -1;
-    let works_arr = [{
-        works_id: 0,
-        name: 'heiheihie',
-        duty: 'sa',
-        url: 'http://www.baidu.com',
-        description: 'sa',
-        img: '../../res/imgs/stu/complete.svg',
-        audio: null,
-        video: null
-    }];
+    let works_arr = [];
+    // {
+    //     works_id: 0,
+    //         name: 'heiheihie',
+    //     duty: 'sa',
+    //     url: 'http://www.baidu.com',
+    //     description: 'sa',
+    //     img: '../../res/imgs/stu/complete.svg',
+    //     audio: null,
+    //     video: null
+    // }
     let current_change_work = new FormData();
     let current_change_type = -1;
 
@@ -465,10 +466,10 @@ $(document).ready(function () {
 
     }
 
-    //测试代码
-    $('.edit-work').click(() => {
-        editWork(0)
-    });
+    // //测试代码
+    // $('.edit-work').click(() => {
+    //     editWork(0)
+    // });
     function editWork(index) {
         //    @TODO 显示编辑页面
         $($('.work-content')[index]).css('display', 'none');
