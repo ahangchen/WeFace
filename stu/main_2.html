@@ -2,9 +2,9 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <link href="../css/main/base.css" rel="stylesheet" />
+    <link href="../css/main/base.css" rel="stylesheet"/>
     <link rel="stylesheet" href="../css/materialize.min.css">
-    <link rel="stylesheet"  href="../css/main/navigation.css">
+    <link rel="stylesheet" href="../css/main/navigation.css">
     <link rel="stylesheet" href="../css/main/search.css">
     <link href="https://fonts.css.network/icon?family=Material+Icons" rel="stylesheet">
     <link rel="stylesheet" href="../css/stu/main_2.css">
@@ -13,22 +13,26 @@
 <body>
 
 <div class="stu-base">
-    <div class="base-item base-item1"><img class="avatar" src="../res/imgs/stu/stu-test.png"/><div id="popular">人气</div></div>
+    <div class="base-item base-item1"><img class="avatar" src="../res/imgs/stu/stu-test.png"/>
+        <div id="popular">人气</div>
+    </div>
     <div class="base-item base-item2">
         <div id="info-list">
             <div><span id="base-name">姓名昵称♂♀</span>
                 <div class="like-comment"><img src="../res/imgs/stu/like.svg" class=""/></div>
-                <div class="like-comment"><img src="../res/imgs/stu/comment.svg" /></div>
+                <div class="like-comment"><img src="../res/imgs/stu/comment.svg"/></div>
             </div>
             <div id="title">吃土</div>
             <div id="signature">人生苦短，代码为伴</div>
         </div>
         <div id="tag-list">
-            <span class="chip-local">使用js动态插入</span><span class="chip-local">标签1</span><span class="chip-local">标签2</span><span class="chip-local">使用js动态插入3</span><span class="chip-local">标签444fdffddf1</span><span class="chip-local">标签1</span><span class="chip-local">使用js动态插入</span><span class="chip-local">标签1</span><span class="chip-local">标签1</span>
+            <span class="chip-local">使用js动态插入</span><span class="chip-local">标签1</span><span
+                class="chip-local">标签2</span><span class="chip-local">使用js动态插入3</span><span class="chip-local">标签444fdffddf1</span><span
+                class="chip-local">标签1</span><span class="chip-local">使用js动态插入</span><span class="chip-local">标签1</span><span
+                class="chip-local">标签1</span>
         </div>
     </div>
 </div>
-
 
 
 <div class="stu-about">
@@ -50,25 +54,193 @@
 </div>
 
 <div class="stu-skill">
-    <div class="title">特长与技能</div>
-    <canvas width="1000" height="500"  id="stu-canvas"></canvas >
+    <div class="title">特长与技能
+        <span class="editable"></span>
+    </div>
+    <div class="edit-container">
+        <div class="new-skill row">
+            <div class="col s4">
+                <input type="text" placeholder="输入你擅长的技能" id="skill-name">
+            </div>
+            <div class="col s6">
+                <p class="range-field">
+                    <input type="range" id="new_skill" min="0" max="100"/>
+                </p>
+            </div>
+            <div class="col s2 add-btn">
+                <a class="btn-floating btn-large waves-effect waves-light "><i class="material-icons">add</i></a>
+            </div>
+        </div>
+        <div class="hots-skills">
+            <span>热门技能：</span>
+            <span class="reference">平面设计</span>
+            <span class="reference">文案策划</span>
+            <span class="reference">3D建模</span>
+            <span class="reference">web开发</span>
+            <span class="reference">H5开发</span>
+            <span class="reference">摄影剪辑</span>
+        </div>
+        <div id="skills">
+            <!--<div class="skill row">-->
+                <!--<div class="name col s3">交互设计</div>-->
+                <!--<div class="col s8 level">-->
+                    <!--<p class="range-field">-->
+                        <!--<input type="range" id="skill_0" min="0" max="100" value="80"/>-->
+                    <!--</p>-->
+                <!--</div>-->
+                <!--<a class="delete-btn col s1">-->
+                    <!--<i class="material-icons">cancel</i>-->
+                <!--</a>-->
+            <!--</div>-->
+            <!--<div class="skill row">-->
+                <!--<div class="name col s3">xuxux</div>-->
+                <!--<div class="col s8 level">-->
+                    <!--<p class="range-field">-->
+                        <!--<input type="range" id="skill_1" min="0" max="100" value="80"/>-->
+                    <!--</p>-->
+                <!--</div>-->
+                <!--<a class="delete-btn col s1">-->
+                    <!--<i class="material-icons">cancel</i>-->
+                <!--</a>-->
+            <!--</div>-->
+        </div>
+        <p class="hint">* 您添加的技能已达到上限，最多添加八个技能</p>
+        <div class="btn-bar">
+            <button class="btn waves-effect waves-light save-btn" id="save-skills">保存</button>
+            <button class="btn waves-effect waves-light cancel-btn">取消</button>
+        </div>
+    </div>
+    <!--<canvas width="1000" height="500" class="stu-canvas"></canvas>-->
+    <div id="circles" class="show-container">
+        <div class="deco-circle" id="deco_0"></div>
+        <div class="deco-circle" id="deco_1"></div>
+        <div class="skill-circle" id="circle_0">
+            <div class="inner-circle">
+                <p></p>
+                <p></p>
+            </div>
+        </div>
+        <div class="skill-circle" id="circle_1">
+            <div class="inner-circle">
+                <p></p>
+                <p></p>
+            </div>
+        </div>
+        <div class="skill-circle" id="circle_2">
+            <div class="inner-circle">
+                <p></p>
+                <p></p>
+            </div>
+        </div>
+        <div class="skill-circle" id="circle_3">
+            <div class="inner-circle">
+                <p></p>
+                <p></p>
+            </div>
+        </div>
+        <div class="skill-circle" id="circle_4">
+            <div class="inner-circle">
+                <p></p>
+                <p></p>
+            </div>
+        </div>
+        <div class="skill-circle" id="circle_5">
+            <div class="inner-circle">
+                <p></p>
+                <p></p>
+            </div>
+        </div>
+        <div class="skill-circle" id="circle_6">
+            <div class="inner-circle">
+                <p></p>
+                <p></p>
+            </div>
+        </div>
+        <div class="skill-circle" id="circle_7">
+            <div class="inner-circle">
+                <p></p>
+                <p></p>
+            </div>
+        </div>
+        <div class="deco-circle" id="deco_2"></div>
+    </div>
 </div>
 
 <div class="stu-work">
-    <div class="title">作品展示</div>
-
-    <div>
+    <div class="title">作品展示
+        <span class="editable"></span>
+    </div>
+    <div class="edit-container">
+        <div class="input-field row">
+            <input id="work_name" type="text" class="validate" maxlength="20">
+            <label for="work_name">作品名称（20字以内）</label>
+        </div>
+        <div class="input-field row">
+            <input id="work_role" type="text" class="validate" maxlength="20">
+            <label for="work_role">职责介绍（20字以内）</label>
+        </div>
+        <div class="input-field col s12">
+            <textarea class="materialize-textarea" id="work_link" type="text" class="validate"
+                      maxlength="250"></textarea>
+            <label for="work_link">实际作品链接或地址（250字以内）</label>
+        </div>
+        <div>上传作品附件</div>
+        <div class="upload-container">
+            <div class="btn-container">
+                <div class="upload-btn image-selector">
+                    <input type="file" id="image_selector" accept=".jpg,.png,.jpeg.jp3,.jp2">
+                    <label for="image_selector"></label>
+                </div>
+                <p class="hint">(尺寸为800 * 450px)</p>
+            </div>
+            <div class="btn-container">
+                <div class="upload-btn video-selector">
+                    <input type="file" id="video_selector" accept=".mp4,.ogg,.webm">
+                    <label for="video_selector"></label>
+                </div>
+                <p class="hint">(大小在20M以内)</p>
+            </div>
+            <div class="btn-container">
+                <div class="upload-btn music-selector">
+                    <input type="file" id="music_selector" accept=".mp3,.ogg,.mp2">
+                    <label for="music_selector"></label>
+                </div>
+                <p class="hint">(大小在10M以内)</p>
+            </div>
+        </div>
+        <div id="filename"></div>
+        <div class="input-field col s12">
+            <textarea placeholder="作品描述，请输入你在这个作品或者项目中主要做的工作以及相关的成果和绩效是什么，遇到了什么问题然后能够很好的解决，等等"
+                      class="materialize-textarea" id="work_desc" type="text" class="validate"></textarea>
+            <label for="work_desc">作品描述</label>
+        </div>
+        <div class="btn-bar">
+            <button class="btn waves-effect waves-light save-btn" id="save-work">保存</button>
+            <button class="btn waves-effect waves-light cancel-btn">取消</button>
+        </div>
+    </div>
+    <div class="show-container">
         <div class="work-content">
+            <div class="work-file">
+
+            </div>
             <div class="work-title">
-                <span class="work-name">作品名称/职称</span><a class="work-site" href="">www.baidu.com</a>
+                <div class="work-name">作品名称</div>
+                <div class="line">/</div>
+                <div class="work-duty">职责</div>
+                <div class="editbar">
+                    <button class="edit-work "></button>
+                    <button class="del-work "></button>
+                </div>
+                <div class="work-site">
+                    <span class="edit-link"></span>
+                <a class="work-site" href="">www.baidu.com</a></div>
             </div>
             <p class="work-p">
                 作品正文
             </p>
         </div>
-        <div>图片</div>
     </div>
-
 
 </div>
 

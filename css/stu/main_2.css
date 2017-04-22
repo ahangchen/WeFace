@@ -98,7 +98,7 @@ body,html{
     font-size: 28px;
     color:rgb(244,171,35);
     text-align:center;
-    padding:50px 0;
+    padding:30px 0;
     z-index:1;
 }
 
@@ -140,25 +140,285 @@ body,html{
 .stu-skill{
     background-color: rgb(242,242,242);
 }
-
-#stu-canvas{
+.editable{
+    visibility: hidden;
+    background-image: url("../../res/imgs/stu/编辑.svg");
+    width: 32px;
+    height: 32px;
+    background-size: 100% auto;
+    display: inline-block;
+    margin: 0 10px;
+    cursor: pointer;
+}
+#circles{
+    width: 100%;
+    min-width: 1300px;
+    height: 600px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+.skill-circle{
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: -webkit-box;
+    display: -webkit-flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+.inner-circle{
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: -webkit-box;
+    display: -webkit-flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    text-align: center;
+    padding: 10px;
+    box-sizing: border-box;
+}
+.deco-circle{
+    position: relative;
+}
+#deco_0{
+    width: 44px;
+    height: 44px;
+    border-radius: 22px;
+    background-color: #FAEECB;
+    top: -46px;
+    left: 300px;
+}
+#deco_1{
+    width: 40px;
+    height: 40px;
+    border-radius: 20px;
+    background-color: #D7E4F4;
+    left: 350px;
+    top: 194px;
+}
+#deco_2{
+    width: 60px;
+    height: 60px;
+    border-radius: 30px;
+    background-color: #CAE8F4;
+    top: 48px;
+    left: -300px;
+}
+#circle_0{
+    width: 100px;
+    height: 100px;
+    border-radius: 50px;
+    background-color: #CFE5DE;
+    top: 124px;
+    left: 204px;
+}
+#circle_0 .inner-circle{
+    width: 100px;
+    height: 100px;
+    border-radius: 50px;
+}
+#circle_1{
+    width: 110px;
+    height: 110px;
+    border-radius: 55px;
+    background-color: #F7DBDA;
+    top: 20px;
+    left: 126px;
+}
+#circle_1 .inner-circle{
+    width: 110px;
+    height: 110px;
+    border-radius: 55px;
+}
+#circle_2{
+    width: 160px;
+    height: 160px;
+    border-radius: 80px;
+    background-color: #EADCEA;
+    top: 110px;
+    left: 96px;
+}
+#circle_2 .inner-circle{
+    width: 160px;
+    height: 160px;
+    border-radius: 80px;
+}
+#circle_3{
+    width: 132px;
+    height: 132px;
+    border-radius: 66px;
+    background-color: #E2DACF;
+    top: -146px;
+    left: -34px;
+}
+#circle_3 .inner-circle{
+    width: 132px;
+    height: 132px;
+    border-radius: 66px;
+}
+#circle_4{
+    width: 240px;
+    height: 240px;
+    border-radius: 120px;
+    background-color: #F6DAAA;
+    top: -20px;
+    left: -82px;
+}
+#circle_4 .inner-circle{
+    width: 240px;
+    height: 240px;
+    border-radius: 120px;
+}
+#circle_5{
+    width: 160px;
+    height: 160px;
+    border-radius: 80px;
+    background-color: #D3EAF1;
+    top: -120px;
+    left: -106px;
+}
+#circle_5 .inner-circle{
+    width: 160px;
+    height: 160px;
+    border-radius: 80px;
+}
+#circle_6{
+    width: 120px;
+    height: 120px;
+    border-radius: 60px;
+    background-color: #D6E5CA;
+    top: 20px;
+    left: -246px;
+}
+#circle_6 .inner-circle{
+    width: 120px;
+    height: 120px;
+    border-radius: 60px;
+}
+#circle_7{
+    width: 120px;
+    height: 120px;
+    border-radius: 60px;
+    background-color: #EFDDC9;
+    top: -32px;
+    left: -254px;
+}
+#circle_7 .inner-circle{
+    width: 110px;
+    height: 110px;
+    border-radius: 55px;
+}
+.inner-circle p{
+    font-weight: bold;
+    color: white;
 }
 
+input[type="range"]::-webkit-slider-thumb{
+    background-color: rgb(244, 171, 35);
+}
+input[type=range]+.thumb{
+    background-color: rgb(244, 171, 35);
+}
+.hots-skills{
+    padding-left: 1em;
+    font-size: 16px;
+}
+.reference{
+    border-radius: 15px;
+    background-color: rgb(244, 171, 35);
+    color: white;
+    padding: 6px;
+    margin: 5px;
+}
+.add-btn a, .add-btn a:hover{
+    background-color: rgb(244, 171, 35);
+}
+#skills{
+    padding: 50px;
+    text-align: center;
+}
+.skill{
+    width: 600px;
+    background-color: white;
+    padding: 5px 30px;
+    border-radius: 25px;
+    margin: 20px auto;
+}
+.skill .name{
+    line-height: 35px;
+    font-size: 16px;
+}
+.delete-btn{
+    height: 35px;
+
+}
+.skill .delete-btn i{
+    color: rgb(244, 171, 35);
+    line-height: 35px;
+    font-size: 35px;
+    cursor: pointer;
+}
+.btn-bar{
+    text-align: center;
+}
+.save-btn,.cancel-btn{
+    margin: 10px 50px;
+}
+.save-btn:hover{
+    background-color: rgb(244, 191, 49);
+}
+.save-btn,.save-btn:active,.save-btn:focus{
+    background-color: rgb(244, 171, 35);
+    color: white;
+}
+.cancel-btn:hover{
+    background-color: whitesmoke;
+}
+.cancel-btn,.cancel-btn:active,.cancel-btn:focus{
+    background-color: white;
+    color: rgb(244, 171, 35);
+}
+.stu-skill .hint{
+    color: rgb(244, 171, 35);
+    text-align: center;
+    display: none;
+}
 /*work部分*/
 .work-content{
     padding:20px 80px;
-}
 
-.work-site{
-    float:right;
 }
-
+.work-file img, .work-file video, .work-file audio{
+    width: 100%;
+}
+.work-file{
+    height: 400px;
+    overflow: hidden;
+}
 .work-name{
     font-size:28px;
     color:rgb(244,171,35);
+    margin: 0 5px;
+}
+.line{
+    font-size:28px;
+    color:rgb(244,171,35);
+}
+.work-duty{
+    font-size: 20px;
+    padding-bottom: 4px;
+    color: rgb(244,171,35);
+    margin: 0 5px;
 }
 
-.work-site{
+.work-site a{
     font-size:24px;
 }
 
@@ -166,7 +426,116 @@ a:link,a:visited{
     color:rgb(244,171,35);
     text-decoration:underline;
 }
+.work-title{
+    color: rgb(244, 171, 35);
+    margin-top: 20px;
+    display: flex;
+    flex-direction: row;
+    align-items: flex-end;
+}
+.hidden{
+    display: hidden;
+}
+.editbar button{
+    margin: 0 15px;
+
+}
+.editbar{
+    flex: 0 1 200px;
+    align-self: center;
+    text-align: center;
+}
+.work-site{
+    flex:  1 1 300px;
+    text-align: right;
+}
+
+.edit-work{
+    width: 44px;
+    height: 44px;
+    border-radius: 22px;
+    border:none;
+    background: url("../../res/imgs/stu/编辑.svg");
+}
+.del-work{
+    width: 44px;
+    height: 44px;
+    border-radius: 22px;
+    border:none;
+    background: url("../../res/imgs/stu/删除.svg");
+}
+.edit-link{
+    width: 33px;
+    height: 33px;
+    display: inline-block;
+    background: url("../../res/imgs/stu/作品链接.svg");
+}
 
 .work-p{
-    padding:30px 0;
+    padding:30px 10px;
+}
+.edit-container{
+    padding: 20px ;
+    display: none;
+}
+.show-container,.edit-container{
+    transition: height 2s ease;
+}
+.upload-container{
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: -webkit-box;
+    display: -webkit-flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 30px 50px;
+}
+.btn-container{
+    flex: 1;
+    align-self: center;
+}
+.upload-btn{
+    width: 100px;
+    height: 100px;
+
+    border-radius: 50px;
+    line-height: 100px;
+    text-align: center;
+    vertical-align: middle;
+    margin: auto;
+    box-shadow: 0 1px 15px 0 rgba(0,0,0,0.2), 0 17px 50px 0 rgba(0,0,0,0.19);
+}
+.upload-btn label{
+    display: block;
+    width: 100px;
+    height: 100px;
+    cursor: pointer;
+    background-size: 50% auto;
+    background-repeat: no-repeat;
+}
+.upload-btn input{
+    display: none;
+}
+.image-selector label{
+    background-image: url("../../res/imgs/stu/图片.svg");
+    background-position: 25px 30px;
+}
+.video-selector label{
+    background-image: url("../../res/imgs/stu/视频.svg");
+    background-position: 25px 35px;
+}
+.music-selector label{
+    background-image: url("../../res/imgs/stu/音乐.svg");
+    background-position: 20px 20px;
+}
+.stu-work{
+    background-color: white;
+    padding: 20px;
+}
+.stu-work .hint{
+
+    margin: 30px auto;
+    color: rgb(180, 180, 180);
+    text-align: center;
 }
