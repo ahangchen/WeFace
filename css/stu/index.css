@@ -1,0 +1,340 @@
+p{
+    margin: 0;
+}
+
+html{
+    background: none;
+}
+
+/*导航栏的样式在这里修改*/
+.header{
+    min-width: 980px;
+    height: 35px;
+    background-color: rgb(242,242,242);
+    padding: 2px;
+}
+
+.header a {
+    padding-right: 5px;
+    line-height: 35px;
+    cursor: pointer;
+}
+
+.header a:link {
+    text-decoration: none;
+    color: rgb(112, 112, 112);
+}
+
+.header a:visited {
+    color: rgb(112, 112, 112);
+}
+
+.aboutWe{
+    float: left;
+}
+
+.userLogin{
+    float: right;
+}
+
+/*首页导航栏*/
+.guideBar{
+    min-width: 980px;
+    padding: 10px 30px 3px 0;
+    height: 75px;
+}
+
+.nav{
+    float: left;
+}
+
+
+#home_title{
+    display: inline-block;
+    color: rgb(244, 171, 35);
+    font-size: 32px;
+    margin-left: 100px;
+}
+
+#home_subtitle{
+    display: inline-block;
+    margin-left: 10px;
+    color: rgb(244, 171, 35);
+    font-size: 17px;
+}
+
+#homePage{
+    font-size: 25px;
+    color: rgb(244, 171, 35);
+    display: inline-block;
+    margin-left: 100px;
+    height: 50px;
+    cursor: pointer;
+}
+
+#teamPage{
+    font-size: 25px;
+    color: rgb(244, 171, 35);
+    display: inline-block;
+    margin-left: 100px;
+    height: 50px;
+    cursor: pointer;
+}
+
+#studentPage{
+    font-size: 25px;
+    color: rgb(244, 171, 35);
+    display: inline-block;
+    height: 50px;
+    margin-left: 100px;
+    cursor: pointer;
+    border-bottom: 3px solid ;
+}
+
+/*下面是学生基本信息框*/
+.stu_nav{
+    min-height: 260px;
+    min-width: 980px;
+    background: url('../../res/imgs/team/team_bg.svg') no-repeat;
+    background-size: 100% auto;
+    /*background-color: rgb(242,242,242);*/
+}
+
+.stu_nav_edit{
+    min-height: 260px;
+    min-width: 980px;
+    background-color: rgb(242,242,242);
+}
+
+.stu_nav_content{
+    width: 960px;
+    margin: auto;
+    min-height: 260px;
+    padding: 0 0 30px 60px;
+    /*border: 1px solid;*/
+    overflow: hidden;
+}
+
+.stu_nav_img{
+    float: left;
+    height: 260px;
+    width: 170px;
+    padding: 55px 0;
+    display: block;
+    /*border: 1px solid;*/
+}
+
+#stu_logo{
+    height: 150px;
+    width: 150px;
+    border-radius: 150px;
+}
+
+.like_div{
+    text-align: center;
+    padding: 10px 0;
+}
+
+.like_div img{
+    display: inline-block;
+    vertical-align: top;
+}
+
+.like_div #like_count{
+    display: inline-block;
+    vertical-align: top;
+    font-size: 18px;
+    margin-left: 10px;
+    color: #727071;
+}
+
+.stu_nav_word {
+    float: right;
+    width: 600px;
+    min-height: 260px;
+    /*border: 1px solid;*/
+}
+
+.name_slogan_div{
+    width: 400px;
+    /*border: 1px solid;*/
+    min-height: 180px;
+    display: inline-block;
+}
+
+.stu_nav_word_title{
+    border-bottom: 2px solid rgba(0, 0, 0, 0.7);
+    width: 370px;
+    height: 80px;
+    padding: 0 5px 10px 0;
+    margin-top: 55px;
+}
+
+#stu_name{
+    font-size: 20px;
+    display: inline-block;
+    vertical-align: middle;
+    color:rgb(112,112,112);
+}
+
+#favourite,#chat{
+    margin-left: 25px;
+}
+
+#chat img{
+    width: 35px;
+    height: 35px;
+}
+
+#favourite img{
+    width: 20px;
+    height: 20px;
+    margin-left: 8px;
+    margin-top: 8px;
+}
+
+#sex{
+    width: 25px;
+    height: 25px;
+    margin-left: 5px;
+    display: inline-block;
+    vertical-align: middle;
+}
+
+#stu_title{
+    font-size: 18px;
+    margin-top: 5px;
+    color:rgb(112,112,112);
+}
+
+.slogan_div{
+    padding: 15px 15px 15px 0;
+    height: 60px;
+    /*border: 1px solid;*/
+}
+
+#stu_slogan{
+    font-size: 18px;
+    color:rgb(112,112,112);
+}
+
+#edit_stu_basic{
+    margin-left: 20px;
+    background-color: rgb(244,171,35);
+}
+
+#stu_slogan{
+    font-size: 18px;
+    color:rgb(112,112,112);
+}
+
+.label_div{
+    min-height: 30px;
+    padding-right: 10px;
+    padding-bottom: 10px;
+    /*border: 1px solid;*/
+}
+
+.stu_label{
+    background-color: #fff;
+    font-size: 18px;
+    margin-left: 10px;
+    color: rgb(244,171,35);
+    border-radius: 10px;
+    margin-top: 15px;
+    text-align: center;
+    width: 115px;
+}
+
+.stu_label:first-child{
+    margin-left: 0;
+}
+
+.stu_label:nth-child(5){
+    margin-left: 0;
+}
+
+.sub_title{
+    margin: auto;
+    width: 400px;
+    /*border: 1px solid;*/
+    padding-left:160px;
+}
+
+.sub_title span{
+    color: rgb(244,171,35);
+    font-size: 20px;
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.about_me{
+    min-width: 980px;
+    min-height: 200px;
+    padding: 40px;
+    /*border: 1px solid;*/
+}
+
+#edit_about_me_icon{
+    color: white;
+    cursor: pointer;
+}
+
+#edit_about_me{
+    margin-left: 50px;
+    background-color: rgb(244,171,35);
+    display: inline-block;
+}
+
+.about_me_container{
+    /*border: 1px solid;*/
+    padding: 30px 0;
+    margin:0 auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+.about_me_div{
+    width: 250px;
+    height: 350px;
+    background-color: #f7f7f7;
+    box-shadow: 0 0 20px #656665;
+    overflow: auto;
+}
+
+.about_me_title{
+    width: 220px;
+    height: 50px;
+    background-color: rgb(244,171,35);
+    color: #fff;
+    transform: rotate(-35deg);
+    text-align:center;
+    margin:15px 0 0 -50px;
+    padding: 10px 0;
+    font-size: 18px;
+}
+
+.about_me_content{
+    font-size: 16px;
+    margin-top:40px;
+    padding:15px 20px;
+}
+
+.empty_remainder{
+    width: 960px;
+    margin-left: auto;
+    margin-right: auto;
+    font-size: 17px;
+    margin-top: 20px;
+    color:rgb(112,112,112);
+    text-align: center;
+}
+
+textarea.materialize-textarea.edit_content{
+    min-height: 9rem;
+}
+
+textarea.materialize-textarea.edit_title{
+    padding-bottom: 0;
+}

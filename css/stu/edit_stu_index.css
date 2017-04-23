@@ -1,0 +1,206 @@
+/*基本信息的编辑样式*/
+.edit_stu_nav_content{
+    width: 960px;
+    margin: auto;
+    min-height: 400px;
+    padding: 0 60px 30px 60px;
+    /*border: 1px solid;*/
+}
+
+.upload_file_div{
+    float: left;
+    height: 400px;
+    width: 230px;
+    padding: 15px 0;
+    display: block;
+    /*border: 1px solid;*/
+    text-align: center;
+}
+
+.edit_stu_nav_img{
+    height: 150px;
+    width: 150px;
+    border-radius: 150px;
+    text-align: center;
+    padding: 45px;
+    cursor: pointer;
+    /*border: 1px solid rgb(244,171,35);*/
+    margin: 50px auto 0 auto;
+    position: relative;
+}
+
+#photo_camera{
+    color: rgb(244,171,35);
+}
+
+#orign_stu_avatar{
+    height: 150px;
+    width: 150px;
+    border-radius: 150px;
+    top:0;
+    left: 0;
+    position: absolute;
+}
+
+.upload_resume_div,.scan_personal_homepage_div{
+    margin-top: 30px;
+}
+
+.upload_resume_div img,.scan_personal_homepage_div img{
+    width: 30px;
+    height: 30px;
+    display: inline-block;
+    vertical-align: top;
+}
+
+.upload_resume_div #upload_resume,.scan_personal_homepage_div #scan_personal_homepage{
+    display: inline-block;
+    vertical-align: top;
+    color: #727071;
+    font-size: 20px;
+    cursor: pointer;
+    margin-left: 5px;
+    border-bottom: 1px solid;
+}
+
+.upload_resume_div p{
+    font-size: 12px;
+    color: #717171;
+    margin-top: 5px;
+}
+
+.stu_basic_edit_div{
+    float: right;
+    width: 550px;
+    min-height: 300px;
+    padding: 0 30px;
+    /*border: 1px solid;*/
+    margin-top: 30px;
+}
+
+.select_div{
+    height: 70px;
+    display: inline-block;
+    width: 200px;
+}
+
+.dropdown-content li>span,.select-wrapper span.caret{
+    color: rgb(244,171,35);
+}
+
+.stu_label_container{
+    height: 100px;
+}
+
+.placeholder_text{
+    color: #727071;
+}
+
+.label_choice{
+    background-color: rgb(180,180,180);
+    color: #fff;
+    margin-top: 8px;
+    font-size: 15px;
+    margin-left: 5px;
+    cursor: pointer;
+}
+
+.label_choice.active{
+    background-color: rgb(244,171,35);
+    color: #fff;
+}
+
+.stu_info_function_area{
+    clear: both;
+    width: 900px;
+    height: 60px;
+    margin: 20px auto;
+    /*border: 1px solid;*/
+    padding: 5px 260px;
+}
+
+#save_stu_info{
+    background-color: rgb(244,171,35);
+}
+
+#cancel_stu_info{
+    margin-left: 80px;
+    background-color: #fff;
+    color: rgb(244,171,35);
+}
+
+/*关于我编辑样式*/
+.edit_about_me_div{
+    padding: 10px 0;
+    width: 960px;
+    margin:0 auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+.edit_about_me_div .input-field{
+    width: 240px;
+    min-height: 250px;
+    position: relative;
+}
+
+.edit_about_me_div .input-field i{
+    position: absolute;
+    right: -20px;
+    top:25px;
+    color: rgb(244,171,35);
+    cursor: pointer;
+}
+
+input[type="text"]:focus:not([readonly]),input[type="text"].valid,textarea.materialize-textarea:focus:not([readonly]){
+    border-bottom: 1px solid rgb(244,171,35);
+    box-shadow:0 1px 0 0 rgb(244,171,35);
+}
+
+input[type="text"],textarea.materialize-textarea{
+    border-bottom: 1px solid rgb(244,171,35);
+    font-size: 17px;
+    color:rgb(112,112,112);
+}
+
+input[type="text"]:focus:not([readonly])+label,input[type="text"].valid+label{
+    color: #9e9e9e;
+}
+
+.input-field label{
+    left: 0;
+}
+
+.edit_about_me_container .tips{
+    color: rgb(244,171,35);
+    font-size: 16px;
+    text-align: center;
+}
+
+.about_me_function_area{
+    clear: both;
+    width: 960px;
+    height: 60px;
+    margin: 20px auto;
+    /*border: 1px solid;*/
+    padding: 5px 330px;
+}
+
+#save_about_me{
+    background-color: rgb(244,171,35);
+}
+
+#cancel_about_me{
+    margin-left: 80px;
+    background-color: #fff;
+    color: rgb(244,171,35);
+}
+
+textarea.materialize-textarea{
+    padding-right: 15px;
+}
+
+.no-display{
+    display: none;
+}
