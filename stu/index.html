@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link href="../css/main/base.css" rel="stylesheet" />
+    <link rel="stylesheet" href="../css/materialize.min.css">
+    <link href="https://fonts.css.network/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="../css/stu/index.css">
+    <link rel="stylesheet" href="../css/stu/edit_stu_index.css">
+    <title>学生个人主页</title>
+</head>
+<body>
+<div class="header">
+    <div class="aboutWe">
+        <a href="../main/test/information.html" target="_blank" style="padding-left: 7px">关于基地</a>
+    </div>
+    <div class="userLogin">
+        <a class="mainBtn" href="" target="_blank">发布</a>
+        <span class="line">|</span>
+        <a class="mainBtn" href="" target="_blank">团队主页</a>
+        <span class="line">|</span>
+        <a class="mainBtn" href="" target="_blank">消息</a>
+        <span class="line">|</span>
+        <a class="mainBtn" href="" target="_blank">退出</a>
+    </div>
+</div>
+<div class="guideBar">
+    <div class="nav">
+        <p id="home_title">四方馆</p>
+        <p id="home_subtitle">人才交流平台</p>
+        <p id="homePage">首页</p>
+        <p id="teamPage">团队</p>
+        <p id="studentPage">学生</p>
+    </div>
+</div>
+<div class="stu_nav">
+    <div class="stu_nav_content">
+        <div class="stu_nav_img">
+            <img  src="" id="stu_logo">
+            <div class="like_div">
+                <img src="../res/imgs/stu/like.svg">
+                <span id="like_count"></span>
+            </div>
+        </div>
+        <div class="stu_nav_word">
+            <div class="name_slogan_div">
+                <div class="stu_nav_word_title">
+                    <p id="stu_name"></p>
+                    <img  id="sex"/>
+                    <a id="favourite" class="btn-floating  waves-effect waves-light white"><img src="../res/imgs/team/赞.svg"></a>
+                    <a id="chat" class="btn-floating waves-effect waves-light white"><img src="../res/imgs/team/私信.svg"></a>
+                    <a id="edit_stu_basic" class="btn-floating waves-effect waves-light"><i class="material-icons" id="edit_stu_basic_icon">edit</i></a>
+                    <p id="stu_title"></p>
+                </div>
+                <div class="slogan_div">
+                    <span id="stu_slogan"></span>
+                </div>
+            </div>
+            <div class="label_div">
+
+            </div>
+        </div>
+    </div>
+    <div class="edit_stu_nav_content no-display">
+        <div class="upload_file_div">
+            <div class="edit_stu_nav_img">
+                <i class="medium material-icons" id="photo_camera">photo_camera</i>
+                <img id="orign_stu_avatar">
+            </div>
+            <form id="post_logo"  enctype="multipart/form-data">
+                <input type="file" id="upload_stu_logo" style="display: none">
+            </form>
+            <div class="upload_resume_div">
+                <img src="../res/imgs/stu/attachment.svg">
+                <a id="upload_resume">上传简历附件</a>
+                <p>(仅自己可见，供投递简历时自动选择)</p>
+            </div>
+            <form id="post_resume"  enctype="multipart/form-data">
+                <input type="file" id="upload_stu_resume" style="display: none">
+            </form>
+            <div class="scan_personal_homepage_div">
+                <img src="../res/imgs/stu/browse.svg">
+                <a id="scan_personal_homepage">预览个人主页</a>
+            </div>
+        </div>
+        <div class="stu_basic_edit_div">
+            <div class="input-field">
+                <input id="stu_name_input" type="text" class="validate">
+                <label for="stu_name_input">个人姓名(昵称)</label>
+            </div>
+            <div class="input-field">
+                <input id="stu_title_input" type="text" class="validate">
+                <label for="stu_title_input">头衔</label>
+            </div>
+            <div class="input-field">
+                <input id="personal_signature" type="text" class="validate">
+                <label for="personal_signature">个性签名</label>
+            </div>
+            <div class="input-field">
+                <input id="school_name" type="text" class="validate">
+                <label for="school_name">学校名称</label>
+            </div>
+            <div class="input-field select_div">
+                <select id="stu_sex">
+                    <option value="-1" selected="selected">请选择</option>
+                    <option value="1">男</option>
+                    <option value="2">女</option>
+                </select>
+                <label for="stu_sex">性别</label>
+            </div>
+            <div class="input-field select_div" style="margin-left: 20px;">
+                <select id="stu_grade">
+                    <option value="-1" selected>请选择</option>
+                    <option value="0">大一</option>
+                    <option value="1">大二</option>
+                    <option value="2">大三</option>
+                    <option value="3">大四</option>
+                    <option value="4">研一</option>
+                    <option value="5">研二</option>
+                    <option value="6">研三</option>
+                    <option value="7">博士</option>
+                </select>
+                <label for="stu_grade">年级</label>
+            </div>
+            <div class="stu_label_container">
+                <p class="placeholder_text">个人领域类型(可多选)</p>
+                <div class="stu_label_div">
+                    <div class="chip label_choice active">工程</div>
+                    <div class="chip label_choice">文艺</div>
+                    <div class="chip label_choice">咨询</div>
+                    <div class="chip label_choice">硬件</div>
+                </div>
+            </div>
+        </div>
+        <div class="stu_info_function_area">
+            <a class="waves-effect waves-light btn" id="save_stu_info">保存</a>
+            <a class="waves-effect waves-light btn" id="cancel_stu_info">取消</a>
+        </div>
+    </div>
+
+</div>
+<div class="stu_detail">
+    <div class="about_me">
+        <div class="sub_title">
+            <span>关于我</span>
+            <a id="edit_about_me" class="btn-floating waves-effect waves-light"><i class="material-icons" id="edit_about_me_icon">edit</i></a>
+        </div>
+        <div class="about_me_container">
+            <p class="empty_remainder">精彩等待开启</p>
+            <!--<div class="about_me_div card">-->
+                <!--<div class="about_me_title">个人经历</div>-->
+                <!--<div class="about_me_content">-->
+                    <!--在这个软件中增加一个小天使的功能，当你在忙碌的时候可以激活小天使来帮你，然后可以给小天使一个合理的回报，比如请吃饭，你们觉得怎么样？-->
+                <!--</div>-->
+            <!--</div>-->
+            <!--<div class="about_me_div card">-->
+                <!--<div class="about_me_title">实习经历</div>-->
+                <!--<div class="about_me_content">-->
+                    <!--在这个软件中增加一个小天使的功能，当你在忙碌的时候可以激活小天使来帮你，然后可以给小天使一个合理的回报，比如请吃饭，你们觉得怎么样？-->
+                <!--</div>-->
+            <!--</div>-->
+            <!--<div class="about_me_div card">-->
+                <!--<div class="about_me_title">我</div>-->
+                <!--<div class="about_me_content">-->
+                    <!--在这个软件中增加一个小天使的功能，当你在忙碌的时候可以激活小天使来帮你，然后可以给小天使一个合理的回报，比如请吃饭，你们觉得怎么样？-->
+                <!--</div>-->
+            <!--</div>-->
+        </div>
+        <div class="edit_about_me_container no-display">
+            <div class="edit_about_me_div">
+                <div class="input-field">
+                    <textarea class="materialize-textarea edit_title"></textarea>
+                    <i class="material-icons clear_content">close</i>
+                    <textarea class="materialize-textarea edit_content"></textarea>
+                </div>
+                <div class="input-field">
+                    <textarea class="materialize-textarea edit_title"></textarea>
+                    <i class="material-icons clear_content">close</i>
+                    <textarea class="materialize-textarea edit_content"></textarea>
+                </div>
+                <div class="input-field">
+                    <textarea class="materialize-textarea edit_title"></textarea>
+                    <i class="material-icons clear_content">close</i>
+                    <textarea class="materialize-textarea edit_content"></textarea>
+                </div>
+            </div>
+            <p class="tips">*你也可以通过自定义修改每个卡片的标签，来填上你最想展示的内容。</p>
+            <div class="about_me_function_area">
+                <a class="waves-effect waves-light btn" id="save_about_me">保存</a>
+                <a class="waves-effect waves-light btn" id="cancel_about_me">取消</a>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+
+<script type="text/javascript" src="../js/jquery-2.1.1.min.js"></script>
+<script type="text/javascript" src="../js/materialize.js"></script>
+<script type="text/javascript" src="../js/etc.js"></script>
+<script type="text/javascript" src="../js/util.js"></script>
+<script type="text/javascript" src="../js/stu/index.js"></script>
+</body>
+</html>
