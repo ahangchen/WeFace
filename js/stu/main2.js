@@ -552,7 +552,7 @@ $(document).ready(function () {
             $($('.work-content')[index]).css('display', 'block');
             $($('.work .work-edit-container')[index]).remove()
         });
-        //    @TODO 访问接口更新文件
+
     }
 
     function updateWork(path, type, index){
