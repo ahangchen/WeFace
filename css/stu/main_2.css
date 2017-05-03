@@ -142,7 +142,7 @@ body,html{
 }
 .editable{
     visibility: hidden;
-    background-image: url("../../res/imgs/stu/编辑.svg");
+    background-image: url("../../res/imgs/stu/edit.svg");
     width: 32px;
     height: 32px;
     background-size: 100% auto;
@@ -455,7 +455,7 @@ a:link,a:visited{
     height: 44px;
     border-radius: 22px;
     border:none;
-    background: url("../../res/imgs/stu/编辑.svg");
+    background: url("../../res/imgs/stu/edit.svg");
 }
 .del-work{
     width: 44px;
@@ -468,7 +468,7 @@ a:link,a:visited{
     width: 33px;
     height: 33px;
     display: inline-block;
-    background: url("../../res/imgs/stu/作品链接.svg");
+    background: url("../../res/imgs/stu/link.svg");
 }
 
 .work-p{
@@ -518,15 +518,15 @@ a:link,a:visited{
     display: none;
 }
 .image-selector label{
-    background-image: url("../../res/imgs/stu/图片.svg");
+    background-image: url("../../res/imgs/stu/picture.svg");
     background-position: 25px 30px;
 }
 .video-selector label{
-    background-image: url("../../res/imgs/stu/视频.svg");
+    background-image: url("../../res/imgs/stu/video.svg");
     background-position: 25px 35px;
 }
 .music-selector label{
-    background-image: url("../../res/imgs/stu/音乐.svg");
+    background-image: url("../../res/imgs/stu/music.svg");
     background-position: 20px 20px;
 }
 .stu-work{

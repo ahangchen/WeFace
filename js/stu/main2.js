@@ -1,4 +1,20 @@
 // 穗珠修改的内容，暂时用一个闭包包着
+function getUrlVars() {
+
+    let vars = [], hash;
+    let hashes = window.location.href.slice(window.location.href.indexOf('?') + 1).split('&');
+    for (let i = 0; i < hashes.length; i++) {
+        hash = hashes[i].split('=');
+        vars.push(hash[0]);
+        vars[hash[0]] = hash[1];
+    }
+    return vars;
+}
+
+//得到指定参数的value
+function getUrlVar(name) {
+    return getUrlVars()[name];
+}
 $(document).ready(function () {
 
     const circle_map = [
@@ -141,22 +157,7 @@ $(document).ready(function () {
     }
 
 
-    function getUrlVars() {
 
-        let vars = [], hash;
-        let hashes = window.location.href.slice(window.location.href.indexOf('?') + 1).split('&');
-        for (let i = 0; i < hashes.length; i++) {
-            hash = hashes[i].split('=');
-            vars.push(hash[0]);
-            vars[hash[0]] = hash[1];
-        }
-        return vars;
-    }
-
-    //得到指定参数的value
-    function getUrlVar(name) {
-        return getUrlVars()[name];
-    }
 
     function updateSkills(edit) {
         $.ajax({
@@ -314,7 +315,7 @@ $(document).ready(function () {
         $.ajax({
             type: 'POST',
             data: new_work,
-            url: cur_site + 'student/info/works/add/',
+            url: cur_site + 'student/works/add/',
             dataType: 'json',
             success: (data) => {
                 if (data.err === "0") {
@@ -354,11 +355,11 @@ $(document).ready(function () {
         $.ajax({
             type: 'POST',
             data: {stu_id: getUrlVar('stu_id')},
-            url: cur_site + 'student/info/works/get/',
+            url: cur_site + 'student/works/get/',
             dataType: 'json',
             success: (data) => {
                 if (data.err === "0") {
-                    works_arr = data.works_arr;
+                    works_arr = data.works_list;
                     data.works_list.map((work, index) => {
                         updateNewWork(work, index)
                     });
@@ -412,7 +413,7 @@ $(document).ready(function () {
                 </video>`
         }
 
-        $('.show-container').append(`<div class="work">
+        $($('.show-container')[1]).append(`<div class="work">
         <div class="work-content">
             <div class="work-file">
                 ${show_element}
@@ -450,7 +451,7 @@ $(document).ready(function () {
                 stu_id: getUrlVar('stu_id'),
                 works_id: works_arr[index].works_id
             },
-            url: cur_site + 'student/info/works/del/',
+            url: cur_site + 'student/works/del/',
             dataType: 'json',
             success: (data) => {
                 if (data.err === "0") {
@@ -573,7 +574,7 @@ $(document).ready(function () {
         $.ajax({
             type: 'POST',
             data: new_work,
-            url: cur_site + 'student/info/works/update/',
+            url: cur_site + 'student/works/update/',
             dataType: 'json',
             success: (data) => {
                 if (data.err === "0") {
