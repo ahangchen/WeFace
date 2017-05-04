@@ -56,7 +56,7 @@ $(document).ready(function () {
     let token = getUrlVar('token');
     if (token) {
         let editBtn = $('.editable');
-        let cancel_btns = $('.cancel-btn');
+        let cancel_btns = $('.total-cancel-btn');
         let edit_div = $('.edit-container');
         let show_div = $('.show-container');
         $(editBtn[0]).click(() => {
@@ -75,7 +75,7 @@ $(document).ready(function () {
 
             $(cancel_btns[i]).click(() => {
                 $(edit_div[i]).css('display', 'none');
-                $(show_div[i]).css('display', 'flex');
+                $(show_div[i]).css('display', 'block');
                 updateSkills(false)
             })
         }
@@ -90,6 +90,7 @@ $(document).ready(function () {
                 let show_div = $('.show-container')[0];
                 $(edit_div).css('display', 'none');
                 $(show_div).css('display', 'flex');
+                resetCircles();
                 updateSkills(false);
             }
 
@@ -160,6 +161,7 @@ $(document).ready(function () {
 
 
     function updateSkills(edit) {
+
         $.ajax({
             type: 'POST',
             data: {stu_id: getUrlVar('stu_id')},
@@ -177,7 +179,6 @@ $(document).ready(function () {
                                 updateCircle(circles[circle_pos[index]], index, item);
                             } else {
                                 updateEditSkill(skill_bars, item, index);
-
                             }
                         });
 
@@ -257,7 +258,14 @@ $(document).ready(function () {
 
     }
 
-
+    function resetCircles() {
+        $('.inner-circle').css({
+            'width': 0,
+            'height': 0,
+            'padding': 0
+        });
+        $('.inner-circle p').html('');
+    }
     function updateCircle(c, index, item) {
         let circle_seat = circle_map[circle_pos[index]];
         let inner_circle = $(c).children('.inner-circle');
