@@ -55,6 +55,7 @@ $(document).ready(function () {
     //如果url中出现token即可以显示编辑部分
     let token = getUrlVar('token');
     if (token) {
+        $('#deliver-btn').attr('href', 'deliver.html?stu_id='+getUrlVar('stu_id'));
         let editBtn = $('.editable');
         let cancel_btns = $('.total-cancel-btn');
         let edit_div = $('.edit-container');

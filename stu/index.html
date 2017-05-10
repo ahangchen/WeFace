@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <link href="../css/main/base.css" rel="stylesheet" />
+    <link href="../css/main/base.css" rel="stylesheet"/>
     <link rel="stylesheet" href="../css/materialize.min.css">
     <link href="https://fonts.css.network/icon?family=Material+Icons" rel="stylesheet">
     <link rel="stylesheet" href="../css/stu/index.css">
@@ -16,9 +16,19 @@
         <a href="../main/test/information.html" target="_blank" style="padding-left: 7px">关于基地</a>
     </div>
     <div class="userLogin">
-        <a class="mainBtn" href="" target="_blank">发布</a>
+        <span class="userInfo">
+            <a class='dropdown-button btn' href='#' data-activates='user-zone' id="username">XXX</a>
+            <!-- Dropdown Structure -->
+            <ul id='user-zone' class='dropdown-content'>
+                <li><a href="#!">我的主页</a></li>
+                <li class="divider"></li>
+                <li><a href="#!">账号设置</a></li>
+                <li class="divider"></li>
+                <li><a href="#!">退出</a></li>
+            </ul>
+        </span>
         <span class="line">|</span>
-        <a class="mainBtn" href="" target="_blank">团队主页</a>
+        <a class="mainBtn" target="_blank" id="deliver-btn">投递</a>
         <span class="line">|</span>
         <a class="mainBtn" href="" target="_blank">消息</a>
         <span class="line">|</span>
@@ -37,7 +47,7 @@
 <div class="stu_nav">
     <div class="stu_nav_content">
         <div class="stu_nav_img">
-            <img  src="" id="stu_logo">
+            <img src="" id="stu_logo">
             <div class="like_div">
                 <img src="../res/imgs/stu/like.svg">
                 <span id="like_count"></span>
@@ -47,10 +57,12 @@
             <div class="name_slogan_div">
                 <div class="stu_nav_word_title">
                     <p id="stu_name"></p>
-                    <img  id="sex"/>
-                    <a id="favourite" class="btn-floating  waves-effect waves-light white"><img src="../res/imgs/team/赞.svg"></a>
+                    <img id="sex"/>
+                    <a id="favourite" class="btn-floating  waves-effect waves-light white"><img
+                            src="../res/imgs/team/赞.svg"></a>
                     <a id="chat" class="btn-floating waves-effect waves-light white"><img src="../res/imgs/team/私信.svg"></a>
-                    <a id="edit_stu_basic" class="btn-floating waves-effect waves-light"><i class="material-icons" id="edit_stu_basic_icon">edit</i></a>
+                    <a id="edit_stu_basic" class="btn-floating waves-effect waves-light"><i class="material-icons"
+                                                                                            id="edit_stu_basic_icon">edit</i></a>
                     <p id="stu_title"></p>
                 </div>
                 <div class="slogan_div">
@@ -68,7 +80,7 @@
                 <i class="medium material-icons" id="photo_camera">photo_camera</i>
                 <img id="orign_stu_avatar">
             </div>
-            <form id="post_logo"  enctype="multipart/form-data">
+            <form id="post_logo" enctype="multipart/form-data">
                 <input type="file" id="upload_stu_logo" style="display: none">
             </form>
             <div class="upload_resume_div">
@@ -76,7 +88,7 @@
                 <a id="upload_resume">上传简历附件</a>
                 <p>(仅自己可见，供投递简历时自动选择)</p>
             </div>
-            <form id="post_resume"  enctype="multipart/form-data">
+            <form id="post_resume" enctype="multipart/form-data">
                 <input type="file" id="upload_stu_resume" style="display: none">
             </form>
             <div class="scan_personal_homepage_div">
@@ -144,27 +156,28 @@
     <div class="about_me">
         <div class="sub_title">
             <span>关于我</span>
-            <a id="edit_about_me" class="btn-floating waves-effect waves-light"><i class="material-icons" id="edit_about_me_icon">edit</i></a>
+            <a id="edit_about_me" class="btn-floating waves-effect waves-light"><i class="material-icons"
+                                                                                   id="edit_about_me_icon">edit</i></a>
         </div>
         <div class="about_me_container">
             <p class="empty_remainder">精彩等待开启</p>
             <!--<div class="about_me_div card">-->
-                <!--<div class="about_me_title">个人经历</div>-->
-                <!--<div class="about_me_content">-->
-                    <!--在这个软件中增加一个小天使的功能，当你在忙碌的时候可以激活小天使来帮你，然后可以给小天使一个合理的回报，比如请吃饭，你们觉得怎么样？-->
-                <!--</div>-->
+            <!--<div class="about_me_title">个人经历</div>-->
+            <!--<div class="about_me_content">-->
+            <!--在这个软件中增加一个小天使的功能，当你在忙碌的时候可以激活小天使来帮你，然后可以给小天使一个合理的回报，比如请吃饭，你们觉得怎么样？-->
+            <!--</div>-->
             <!--</div>-->
             <!--<div class="about_me_div card">-->
-                <!--<div class="about_me_title">实习经历</div>-->
-                <!--<div class="about_me_content">-->
-                    <!--在这个软件中增加一个小天使的功能，当你在忙碌的时候可以激活小天使来帮你，然后可以给小天使一个合理的回报，比如请吃饭，你们觉得怎么样？-->
-                <!--</div>-->
+            <!--<div class="about_me_title">实习经历</div>-->
+            <!--<div class="about_me_content">-->
+            <!--在这个软件中增加一个小天使的功能，当你在忙碌的时候可以激活小天使来帮你，然后可以给小天使一个合理的回报，比如请吃饭，你们觉得怎么样？-->
+            <!--</div>-->
             <!--</div>-->
             <!--<div class="about_me_div card">-->
-                <!--<div class="about_me_title">我</div>-->
-                <!--<div class="about_me_content">-->
-                    <!--在这个软件中增加一个小天使的功能，当你在忙碌的时候可以激活小天使来帮你，然后可以给小天使一个合理的回报，比如请吃饭，你们觉得怎么样？-->
-                <!--</div>-->
+            <!--<div class="about_me_title">我</div>-->
+            <!--<div class="about_me_content">-->
+            <!--在这个软件中增加一个小天使的功能，当你在忙碌的时候可以激活小天使来帮你，然后可以给小天使一个合理的回报，比如请吃饭，你们觉得怎么样？-->
+            <!--</div>-->
             <!--</div>-->
         </div>
         <div class="edit_about_me_container no-display">

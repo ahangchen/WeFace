@@ -5,6 +5,12 @@
 body,html{
     width:100%;
 }
+#username{
+    background: transparent;
+    box-shadow: none;
+    width: 100px;
+    text-align: right;
+}
 .stu-base{
     padding:40px 40px 20px 40px;
     background-image: url(../../res/imgs/stu/background.svg);
