@@ -20,11 +20,12 @@ $(document).ready(function () {
                 var ret = data['err'];
                 console.log(ret);
                 if(ret == "0") {
+                    $('#inv_text').html('团队登录邮箱：' + $('#mail').val() + '<br/>邀请码：' + data['msg']);
                     $('#inv_result').attr('style', 'display:block');
-                    $('#inv_text').html('团队登录邮箱：' + $('#mail').attr('value') + '<br/>邀请码：' + data['msg']);
+                    alert("邀请码:" + data['msg']);
                 } else {
-                    $('#inv_result').attr('style', 'display:block');
                     $('#inv_text').html('团队登录邮箱已被占用');
+                    $('#inv_result').attr('style', 'display:block');
                 }
             },
             error: function (data) {
