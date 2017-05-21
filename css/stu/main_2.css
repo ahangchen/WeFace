@@ -5,6 +5,12 @@
 body,html{
     width:100%;
 }
+#username{
+    background: transparent;
+    box-shadow: none;
+    width: 100px;
+    text-align: right;
+}
 .stu-base{
     padding:40px 40px 20px 40px;
     background-image: url(../../res/imgs/stu/background.svg);
@@ -368,7 +374,7 @@ input[type=range]+.thumb{
 .btn-bar{
     text-align: center;
 }
-.save-btn,.cancel-btn{
+.save-btn,.cancel-btn,.total-cancel-btn{
     margin: 10px 50px;
 }
 .save-btn:hover{
@@ -378,10 +384,10 @@ input[type=range]+.thumb{
     background-color: rgb(244, 171, 35);
     color: white;
 }
-.cancel-btn:hover{
+.cancel-btn:hover,.total-cancel-btn:hover{
     background-color: whitesmoke;
 }
-.cancel-btn,.cancel-btn:active,.cancel-btn:focus{
+.cancel-btn,.cancel-btn:active,.cancel-btn:focus,.total-cancel-btn,.total-cancel-btn:active,.total-cancel-btn:focus{
     background-color: white;
     color: rgb(244, 171, 35);
 }
