@@ -1,7 +1,38 @@
 
 //-----------------------------------------------首页的js代码-----------------------------------------------------
+page_site = "http://wemeet.tech:8080/";
+function getUrlVars() {
 
+    let vars = [], hash;
+    let hashes = window.location.href.slice(window.location.href.indexOf('?') + 1).split('&');
+    for (let i = 0; i < hashes.length; i++) {
+        hash = hashes[i].split('=');
+        vars.push(hash[0]);
+        vars[hash[0]] = hash[1];
+    }
+    return vars;
+}
+
+//得到指定参数的value
+function getUrlVar(name) {
+    return getUrlVars()[name];
+}
 $(function(){
+
+//    载入页面后，开始给超链接赋值
+//    ???疑问：是否需要判断是以什么身份来到的首页？
+    if(getUrlVar('token')){
+        if(getUrlVar('stu_id')) {
+            $('.findTeamBtn').attr('href', `${page_site}team/teamPlayGround.html?token=${getUrlVar('token')}&stu_id=${getUrlVar('stu_id')}`)
+            $('.showYourselfBtn').attr('href', `${page_site}stu/index.html?token=${getUrlVar('token')}&stu_id=${getUrlVar('stu_id')}`)
+            $('.findPersonBtn').attr('href', `${page_site}stu/stuPlayground.html?token=${getUrlVar('token')}&stu_id=${getUrlVar('stu_id')}`)
+        }
+        if(getUrlVar('tid')){
+            $('.findTeamBtn').attr('href', `${page_site}team/teamPlayGround.html?token=${getUrlVar('token')}&tid=${getUrlVar('tid')}`)
+            $('.showYourselfBtn').attr('href', `${page_site}team/index.html?token=${getUrlVar('token')}&tid=${getUrlVar('tid')}`)
+            $('.findPersonBtn').attr('href', `${page_site}stu/stuPlayground.html?token=${getUrlVar('token')}&tid=${getUrlVar('tid')}`)
+        }
+    }
 //------------------------------------------------按钮显示-----------------------------------
     $('.preBtn').hover(function(){
         $('.preBtn i').css("visibility","visible");
@@ -94,6 +125,3 @@ $(function(){
         });
     }
 });
-
-
-   

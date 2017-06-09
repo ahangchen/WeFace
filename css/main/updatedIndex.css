@@ -74,7 +74,7 @@ body{
 .search-bar{
     position: relative;
     width: 80%;
-    margin: 10px auto;
+    margin: 30px auto 0 auto;
 }
 .slideBar{
     position: relative;
@@ -98,8 +98,13 @@ body{
 .teamEntry div,.personEntry div{
     margin-top: 30px;
 }
-.showYourselfBtn,.joinTeamBtn{
+.showYourselfBtn:visited, .showYourselfBtn:link, .joinTeamBtn:visited, .joinTeamBtn:link{
     background-color: #ff8F00;
+    border-radius: 20px;
+    color: white;
+}
+.showYourselfBtn:hover, .joinTeamBtn:hover{
+    background-color: #ffb94f;
     border-radius: 20px;
     color: white;
 }
@@ -142,22 +147,20 @@ body{
 
 .preBtn {
     float: left;
-    top: 141px;
+    top: 152px;
 }
 
 .nextBtn {
     float: right;
-    top: -341px;
+    top: -366px;
 }
 
 .imgBox {
     position: relative;
     top: -100px;
     background-color: gray;
-    height: 362px;
+    height: 400px;
     width: 100%;
-    /*margin-left: 50px;*/
-    /*margin-right: 50px;*/
     list-style-type: none;
     overflow: hidden;
     z-index: 90;
@@ -167,7 +170,7 @@ body{
 .imgList {
     list-style-type: none;
     width: 300%;
-    height: 362px;
+    height: 400px;
     margin: 0;
     padding-left: 0;
     position: absolute;
@@ -183,7 +186,7 @@ body{
 
 .bannerBig .imgList img {
     display: block;
-    height: 362px;
+    height: auto;
     width: 100%;
 }
 
