@@ -55,6 +55,7 @@ $(document).ready(function(){
                 dataType: "json",
                 data: {'tid': tid} ,
                 success: function (data) {
+                    console.log(data);
                     team_info.name=data.res.name;
                     team_info.label=data.res.label;
                     team_info.slogan=data.res.slogan;

@@ -1,139 +1,210 @@
-<!--搜索框负责总的切换-->
-
 <!DOCTYPE html>
-<html>
-<meta charset="utf-8">
+<html lang="en">
 <head>
-    <title>华南理工大学人才交流市场</title>
+    <meta charset="UTF-8">
+    <title>搜索页面</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <link rel="stylesheet"  href="../css/base.css">
+    <link rel="stylesheet"  href="../css/materialize.css">
+    <link href="https://fonts.css.network/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet"  href="../css/main/search.css">
 </head>
-<link href="../css/main/base.css"  rel="stylesheet"/>
-<link href="../css/base.css"  rel="stylesheet"/>
-<link rel="stylesheet"  href="../css/materialize.css">
-<link rel="stylesheet"  href="../css/main/navigation.css">
-<link rel="stylesheet"  href="../css/main/search.css">
-<link href="https://fonts.css.network/icon?family=Material+Icons" rel="stylesheet">
 <body>
-<div class="header comWidth">
-    <div class="topBar">
-        <div class="comWidth">
-            <div class="header fl">
-                <a href="test/information.html" target="_blank">关于基地</a>
+    <div class="header">
+        <div class="aboutWe">
+            <a href="../main/test/information.html" target="_blank" style="padding-left: 7px">关于基地</a>
+        </div>
+        <div class="userLogin">
+            <a class="mainBtn" href="" target="_blank">发布</a>
+            <span class="line">|</span>
+            <a class="mainBtn" href="" target="_blank">团队主页</a>
+            <span class="line">|</span>
+            <a class="mainBtn" href="" target="_blank">消息</a>
+            <span class="line">|</span>
+            <a class="mainBtn" href="" target="_blank">退出</a>
+        </div>
+    </div>
+    <div class="guideBar">
+        <div class="nav">
+            <p id="home_title">四方馆</p>
+            <p id="home_subtitle">人才交流平台</p>
+            <p id="homePage">首页</p>
+            <p id="teamPage">团队</p>
+            <p id="studentPage">学生</p>
+        </div>
+    </div>
+    <div class="search_input_container">
+        <div class="search_input_div">
+            <div class="search_input_content">
+                <img src="../res/imgs/main/search.svg" id="search_icon"/>
+                <input id="search_input" type="text" placeholder="输入团队、职位、产品项目关键字，开始搜索你感兴趣的领域">
             </div>
-            <div class="header fr">
-                <a class="mainBtn" href="role/login.html" target="_blank">登录</a>
-
-                <span class="line">|</span>
-                <a class="mainBtn" href="role/register.html" target="_blank">注册</a>
+            <div class="search_btn_div">
+                <a class="waves-effect waves-light btn" id="search_btn">搜索</a>
             </div>
         </div>
     </div>
-</div>
+    <div class="search_type_container">
+        <div class="search_type_div">
+            <div class="type_tab_div">
+                <div id="job" class="type_tab" data-val="0">
+                    职位（1000+）
+                </div>
+                <div id="team" class="type_tab" data-val="1">
+                    团队（1000+）
+                </div>
+                <div id="product" class="type_tab" data-val="2">
+                    产品（1000+）
+                </div>
+            </div>
+            <div class="sub_type_div">
+                <div class="sub_type">
+                    <div class="chip type_title">职位</div>
+                    <div class="chip type_choice active">全部</div>
+                    <div class="chip type_choice">行政</div>
+                    <div class="chip type_choice">技术</div>
+                    <div class="chip type_choice">设计</div>
+                    <div class="chip type_choice">产品</div>
+                    <div class="chip type_choice">市场</div>
+                </div>
+                <div class="sub_type">
+                    <div class="chip type_title">团队</div>
+                    <div class="chip type_choice active">全部</div>
+                    <div class="chip type_choice">移动互联网</div>
+                    <div class="chip type_choice">电子商务</div>
+                    <div class="chip type_choice">医疗健康</div>
+                    <div class="chip type_choice">金融</div>
+                    <div class="chip type_choice">法务</div>
+                    <div class="chip type_choice">数据安全</div>
+                    <div class="chip type_choice">咨询</div>
+                    <div class="chip type_choice">O2O</div>
+                    <div class="chip type_choice">广告营销</div>
+                    <div class="chip type_choice">游戏</div>
+                    <div class="chip type_choice">招聘</div>
+                    <div class="chip type_choice">旅游</div>
+                    <div class="chip type_choice">教育</div>
+                    <div class="chip type_choice">分类信息</div>
+                    <div class="chip type_choice">学生服务</div>
+                    <div class="chip type_choice">文化娱乐</div>
+                    <div class="chip type_choice">其他</div>
+                </div>
+                <div class="sub_type">
+                    <div class="chip type_title">产品</div>
+                    <div class="chip type_choice active">全部</div>
+                    <div class="chip type_choice">移动互联网</div>
+                    <div class="chip type_choice">电子商务</div>
+                    <div class="chip type_choice">医疗健康</div>
+                    <div class="chip type_choice">金融</div>
+                    <div class="chip type_choice">法务</div>
+                    <div class="chip type_choice">数据安全</div>
+                    <div class="chip type_choice">咨询</div>
+                    <div class="chip type_choice">O2O</div>
+                    <div class="chip type_choice">广告营销</div>
+                    <div class="chip type_choice">游戏</div>
+                    <div class="chip type_choice">招聘</div>
+                    <div class="chip type_choice">旅游</div>
+                    <div class="chip type_choice">教育</div>
+                    <div class="chip type_choice">分类信息</div>
+                    <div class="chip type_choice">学生服务</div>
+                    <div class="chip type_choice">文化娱乐</div>
+                    <div class="chip type_choice">其他</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="search_result_container">
+        <!--<div class="search_result_div">-->
+            <!--<div class="job_search_result">-->
+                <!--<div class="job_name_div">-->
+                    <!--<p class="job_name">UI设计师/<span class="job_city">广州</span></p>-->
+                    <!--<p class="job_salary">3000~6000/月</p>-->
+                <!--</div>-->
+                <!--<div class="job_type_div">-->
+                    <!--<div class="chip job_type">设计</div>-->
+                    <!--<div class="job_request">本科生 有相关实习经验，项目经验</div>-->
 
-<nav class="white lighten-5 comWidth">
-    <div class="nav-wrapper">
-        <ul class="left">
-            <li><a class="toIndexLink"><img id="logo" src="../res/imgs/materialize.svg"/></a></li>
-            <li><a class="toIndexLink"><p class="logo-name">华南理工大学<br/>人才交流平台
-                <p></a></li>
-            <li><a class="toIndexLink" id="indexBtn">首页</a></li>
-           <li><a href="../team/roles_team.html" id="teamBtn">团队</a></li>
+                <!--</div>-->
+                <!--<div class="job_team_type_div">-->
+                    <!--<div class="chip job_team_label">学生服务</div>-->
+                    <!--<div class="chip job_team_label">学生服务</div>-->
+                    <!--<div class="chip job_team_label">学生服务</div>-->
+                    <!--<div class="chip job_team_label">学生服务</div>-->
+                    <!--<div class="chip job_team_label">学生服务</div>-->
+                    <!--<div class="chip job_team_label">学生服务</div>-->
+                    <!--<div class="chip job_team_label">学生服务</div>-->
+                    <!--<div class="chip job_team_label">学生服务</div>-->
+                <!--</div>-->
+                <!--<div class="job_team_logo_div">-->
+                    <!--<img src="../res/imgs/team/touxiang1.jpg"/>-->
+                    <!--<p>wemeet</p>-->
+                <!--</div>-->
+            <!--</div>-->
+        <!--</div>-->
+        <!--<div class="search_result_div">-->
+            <!--<div class="team_search_result">-->
+                <!--<div class="team_logo_div">-->
+                    <!--<img src="../res/imgs/team/touxiang1.jpg"/>-->
+                    <!--<p>wemeet</p>-->
+                <!--</div>-->
+                <!--<div class="team_slogan_div">-->
+                    <!--<p>在这里遇见更好的自己</p>-->
+                    <!--<div class="chip team_label">学生服务</div>-->
+                    <!--<div class="chip team_label">学生服务</div>-->
+                    <!--<div class="chip team_label">学生服务</div>-->
+                    <!--<div class="chip team_label">学生服务</div>-->
+                    <!--<div class="chip team_label">学生服务</div>-->
+                    <!--<div class="chip team_label">学生服务</div>-->
+                <!--</div>-->
+                <!--<div class="team_link_div">-->
+                    <!--<a class="waves-effect waves-light btn">团队主页</a>-->
+                <!--</div>-->
+            <!--</div>-->
+        <!--</div>-->
+        <!--<div class="search_result_div">-->
+            <!--<div class="product_search_result">-->
+                <!--<div class="product_name_div">-->
+                    <!--<p class="product_name">人才交流平台</p>-->
+                    <!--<div class="product_label_div">-->
+                        <!--<div class="chip product_label">学生服务</div>-->
+                        <!--<div class="chip product_label">学生服务</div>-->
+                        <!--<div class="chip product_label">学生服务</div>-->
+                        <!--<div class="chip product_label">学生服务</div>-->
+                    <!--</div>-->
+                    <!--<div class="product_slogan">在这里发现更广阔的平台、更优质的项目和更好的自己</div>-->
+                <!--</div>-->
+                <!--<div class="product_team_type_div">-->
+                    <!--<div class="chip product_team_label">学生服务</div>-->
+                    <!--<div class="chip product_team_label">学生服务</div>-->
+                    <!--<div class="chip product_team_label">学生服务</div>-->
+                    <!--<div class="chip product_team_label">学生服务</div>-->
+                    <!--<div class="chip product_team_label">学生服务</div>-->
+                    <!--<div class="chip product_team_label">学生服务</div>-->
+                    <!--<div class="chip product_team_label">学生服务</div>-->
+                    <!--<div class="chip product_team_label">学生服务</div>-->
+                <!--</div>-->
+                <!--<div class="product_team_logo_div">-->
+                    <!--<img src="../res/imgs/team/touxiang1.jpg"/>-->
+                    <!--<p>wemeet</p>-->
+                <!--</div>-->
+            <!--</div>-->
+        <!--</div>-->
+    </div>
+    <div class="change_page_div">
+        <ul class="pagination">
+            <!--<li class="disabled"><a href="#!"><i class="material-icons">chevron_left</i></a></li>-->
+            <!--<li class="waves-effect"><a href="#!">1</a></li>-->
+            <!--<li class="waves-effect"><a href="#!">2</a></li>-->
+            <!--<li class="active"><a href="#!">3</a></li>-->
+            <!--<li class="waves-effect"><a href="#!">4</a></li>-->
+            <!--<li class="waves-effect"><a href="#!">5</a></li>-->
+            <!--<li class="waves-effect"><a href="#!"><i class="material-icons">chevron_right</i></a></li>-->
         </ul>
-
-        <div class="input-field right search-bar">
-            <input class="start" id="search" type="search" placeholder="Click to search" required>
-            <label for="search" ><a id="startSearch" href="#"><i class="material-icons">search</i></a></label>
-            <i class="material-icons">close</i>
-        </div>
-    </div>
-</nav>
-
-<div class="main_whole">
-    <div id="selector">
-        <div id="select_position">
-            <span class="search_title">职位</span>
-            <span class="sub_title">(100+)</span>
-        </div>
-        <div id="select_team">
-            <span class="search_title">团队</span>
-            <span class="sub_title">(50+)</span>
-        </div>
-        <div id="select_project">
-            <span class="search_title">项目</span>
-            <span class="sub_title">(1000+)</span>
-        </div>
     </div>
 
-    <div class="search_type">
-        <div class="col s12 search_tags"></div>
-    </div>
-    <div id="search_result">
-
-    </div>
-    <!--<div class="changepage_btn">
-        <a id="firstPage" class="waves-effect waves-light btn">首页</a>
-        <a id="prePage" class="waves-effect waves-light btn">上一页</a>
-        <a id="nextPage" class="waves-effect waves-light btn">下一页</a>
-        <a id="lastPage" class="waves-effect waves-light btn">尾页</a>
-    </div>-->
-</div>
-
-
-<!--<div class="comWidth" id="search_result">
-    <div id="selector">
-        <div id="selectPosition">
-            <span class="selectText">职位</span>
-            <span class="subtext">(100+)</span>
-        </div>
-        <div id="selectTeam">
-            <span class="selectText">团队</span>
-            <span class="subtext">(50+)</span>
-        </div>
-        <div id="selectProject">
-            <span class="selectText">项目</span>
-            <span class="subtext">(1000+)</span>
-        </div>
-
-    </div>
-
-    <div id="searchResult">
-
-    </div>
-
-    <div id="changePage">
-        <div id='firstPage'>首页</div>
-        <div id='previousPage'>上一页</div>
-        <div id='nextPage'>下一页</div>
-        <div id='lastPage'>尾页</div>
-    </div>
-
-</div>
-
-<!--<div class="row" id="selector" style="visibility: hidden;">
-    <div class="col s2 pull-s3" id="selectPosition"><span class="selectText">职位</span>
-        <span class="subtext">(100+)</span>
-    </div>
-    <div class="col s2 pull-s3" id="selectTeam">  <span class="selectText">团队</span>
-        <span class="subtext">(50+)</span>
-    </div>
-    <div class="col s2 pull-s3" id="selectProject"> <span class="selectText">项目</span>
-        <span class="subtext">(1000+)</span>
-    </div>
-</div>
-
-<div id="searchResult"  class="container">
-
-</div>
-<div id="changePage" class="row" style="visibility: hidden">
-    <div class='col s2 push-s6' id='firstPage'>首页</div>
-    <div class='col s2 push-s6' id='previousPage'>上一页</div>
-    <div class='col s2 push-s6' id='nextPage'>下一页</div>
-    <div class='col s2 push-s6' id='lastPage'>尾页</div>
-</div>-->
-
-<script type="text/javascript" src="../js/jquery-2.1.1.min.js"></script>
-<script type="text/javascript" src="../js/materialize.min.js"></script>
-<script type="text/javascript" src="../js/search/search.js"></script>
-<script src="../js/etc.js"></script>
-<script src="../js/main/navigation.js"></script>
+    <script type="text/javascript" src="../js/jquery-2.1.1.min.js"></script>
+    <script type="text/javascript" src="../js/materialize.js"></script>
+    <script type="text/javascript" src="../js/etc.js"></script>
+    <script type="text/javascript" src="../js/util.js"></script>
+    <script type="text/javascript" src="../js/search/search.js"></script>
 </body>
 </html>
