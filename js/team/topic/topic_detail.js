@@ -3,7 +3,7 @@ $(document).ready(function() {
     var topic_id=location.search.split("topic_id=")[1];
     var team_info = {};
     var i;
-    $(".ds-thread").attr('data-thread-key',topic_id);
+    $("#SOHUCS").attr('sid',topic_id);
 
     $.ajax({
         type: 'GET',
