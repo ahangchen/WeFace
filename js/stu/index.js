@@ -34,6 +34,14 @@ $(document).ready(function(){
                            $(this).css('display','none');
                            edit_stu_basic(stu_msg);
                        });
+                       $(".stu_label_div .label_choice").click(function(){
+                           if($(this).hasClass('active')){
+                               $(this).removeClass('active');
+                           }
+                           else{
+                               $(this).addClass('active');
+                           }
+                       });
                    }
                });
            }
@@ -64,6 +72,8 @@ $(document).ready(function(){
        $(".stu_nav_edit").removeClass('stu_nav_edit').addClass('stu_nav');
        $(".stu_nav_content").removeClass('no-display');
        $(".edit_stu_nav_content").addClass('no-display');
+       var label_div = $(".label_div");
+       label_div.empty();
        $("#edit_stu_basic").show();
        //加载喜欢个数
        $("#like_count").html(data.likes);
@@ -103,10 +113,17 @@ $(document).ready(function(){
            $("#stu_slogan").html('个性签名');
        }
        //加载标签
-       if(data.label!=-1){
-           for(var i=0;i<data.label.length;i++){
-               $(".label_div").append('<div class="stu_label chip">'+data.label[i]+'</div>');
-           }
+       if(data.is_engineering!=0){
+           label_div.append('<div class="stu_label chip">工程</div>');
+       }
+       if(data.is_humanity!=0){
+           label_div.append('<div class="stu_label chip">艺术</div>');
+       }
+       if(data.is_literature!=0){
+           label_div.append('<div class="stu_label chip">人文</div>');
+       }
+       if(data.is_management!=0){
+           label_div.append('<div class="stu_label chip">经管</div>');
        }
        //加载简历
        if(data.resume_path!=''){
@@ -197,6 +214,18 @@ $(document).ready(function(){
             grade_seletor.find('option[value="'+stu_msg.grade+'"]').attr("selected",true);
             grade_seletor.material_select();
         }
+        if(stu_msg.is_engineering!=0){
+            $(".label_choice").eq(0).addClass('active');
+        }
+        if(stu_msg.is_humanity!=0){
+            $(".label_choice").eq(1).addClass('active');
+        }
+        if(stu_msg.is_literature!=0){
+            $(".label_choice").eq(2).addClass('active');
+        }
+        if(stu_msg.is_management!=0){
+            $(".label_choice").eq(3).addClass('active');
+        }
     }
 
     //关于上传简历和头像的监听
@@ -235,6 +264,7 @@ $(document).ready(function(){
         $("#cancel_stu_info").click(function(){
             $("#edit_stu_basic").show();
             $(".stu_nav").addClass('stu_nav').removeClass('stu_nav_edit');
+            $(".label_choice").removeClass('active');
             $(".stu_nav_content").removeClass('no-display');
             $(".edit_stu_nav_content").addClass('no-display');
             load_stu_basic(stu_msg);
@@ -249,7 +279,29 @@ $(document).ready(function(){
             var school_name = $("#school_name").val();
             var stu_sex = $("#stu_sex").val();
             var stu_grade = $("#stu_grade").val();
-            var label = -1;
+            var is_engineering = 0;
+            var is_humanity = 0;
+            var is_literature = 0;
+            var is_management = 0;
+            var label_choice = $('.label_choice');
+            for(var i=0;i<label_choice.length;i++){
+                if(label_choice.eq(i).hasClass('active')){
+                    switch(i){
+                        case 0:
+                            is_engineering = 1;
+                            break;
+                        case 1:
+                            is_humanity = 1;
+                            break;
+                        case 2:
+                            is_literature = 1;
+                            break;
+                        case 3:
+                            is_management = 1;
+                            break;
+                    }
+                }
+            }
             var formData;
 
             if(new_file!=undefined){
@@ -296,7 +348,7 @@ $(document).ready(function(){
                         type:'POST',
                         dataType:'json',
                         data:{stu_id:sid,name:name,title:title,personal_signature:personal_signature,sex:stu_sex,school:school_name,grade:stu_grade,
-                            avatar_path:stu_msg.avatar_path,label:label},
+                            avatar_path:stu_msg.avatar_path,is_engineering:is_engineering,is_humanity:is_humanity,is_literature:is_literature,is_management:is_management},
                         success:function(data){
                             console.log(data);
                             stu_msg.name = name;
@@ -304,7 +356,10 @@ $(document).ready(function(){
                             stu_msg.personal_signature = personal_signature;
                             stu_msg.school = school_name;
                             stu_msg.grade = stu_grade;
-                            stu_msg.label = label;
+                            stu_msg.is_engineering = is_engineering;
+                            stu_msg.is_literature = is_literature;
+                            stu_msg.is_management = is_management;
+                            stu_msg.is_humanity = is_humanity;
                             load_stu_basic(stu_msg);
                         }
                     })
@@ -312,7 +367,7 @@ $(document).ready(function(){
             }
             else{
                 var post_data = {stu_id:sid,name:name,title:title,personal_signature:personal_signature,sex:stu_sex,school:school_name,grade:stu_grade,
-                    avatar_path:stu_msg.avatar_path,label:label};
+                    avatar_path:stu_msg.avatar_path,is_engineering:is_engineering,is_humanity:is_humanity,is_literature:is_literature,is_management:is_management};
                 //上传其他基本信息
                 $.ajax({
                     url:cur_site+"student/info/update/",
@@ -326,7 +381,10 @@ $(document).ready(function(){
                         stu_msg.personal_signature = personal_signature;
                         stu_msg.school = school_name;
                         stu_msg.grade = stu_grade;
-                        stu_msg.label = label;
+                        stu_msg.is_engineering = is_engineering;
+                        stu_msg.is_literature = is_literature;
+                        stu_msg.is_management = is_management;
+                        stu_msg.is_humanity = is_humanity;
                         load_stu_basic(stu_msg);
                     }
                 })
