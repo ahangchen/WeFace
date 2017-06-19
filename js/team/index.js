@@ -29,6 +29,10 @@ $(document).ready(function(){
         window.location.href="position/showPosition.html?tid="+tid;
     });
 
+    $("#resume_manage").click(function(){
+       window.location.href = "resumeManage/resume.html?tid="+tid;
+    });
+
 
 
     //如果没有token隐藏所有的编辑按钮
