@@ -64,6 +64,9 @@ $(document).ready(function(){
         var pageNum=parseInt((topic.length-1)/10+1);
         var change_page_div=$(".change_page_div ul");
 
+        if(topic.length == 0){
+            return;
+        }
         change_page_div.append('<li class="waves-effect" id="last_page"><a><i class="material-icons">chevron_left</i></a></li>');
         for(var i=1;i<=pageNum;i++){
             change_page_div.append('<li class="page waves-effect" id=page'+i+'><a>'+i+'</a></li>');
