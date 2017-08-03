@@ -134,14 +134,19 @@
     overflow: hidden;
 
 }
-
+.ul-container {
+    width: 854px;
+    overflow: hidden;
+}
 .teamList {
     list-style-type: none;
-    width: 860px;
     height: 200px;
-    min-width: 860px;
-    max-width: 860px;
+    display: flex;
+    flex-direction: row;
     margin: 5px 10px;
+    position: relative;
+    left: 0px;
+    transition: left ease .5s;
 }
 
 .teamList li {
@@ -275,10 +280,18 @@
 .question{
     margin: 10px;
     font-size: 20px;
+    height: 60px;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
 }
 .quesDesc{
     font-size:14px;
     margin: 10px;
+    height: 63px;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
 }
 .response{
     padding: 10px;
