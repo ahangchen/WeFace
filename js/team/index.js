@@ -1,3 +1,20 @@
+function getUrlVars(){
+  
+  var vars = [], hash;
+  var hashes = window.location.href.slice(window.location.href.indexOf('?') + 1).split('&');
+  for(var i = 0; i < hashes.length; i++)
+  {
+    hash = hashes[i].split('=');
+    vars.push(hash[0]);
+    vars[hash[0]] = hash[1];
+  }
+  return vars;
+}
+
+//得到指定参数的value
+function getUrlVar(name){
+  return getUrlVars()[name];
+}
 $(document).ready(function(){
     var tid=(location.search.split("=")[1]).split('&')[0];
     var token=location.search.split("token=")[1];
@@ -382,7 +399,11 @@ $(document).ready(function(){
                     }
                     $(".position_detail_div").on('click',function(){
                        var data = $(this).attr('id').split('position')[1];
-                       window.location.href = 'jobDetail.html?data='+data;
+                       if(getUrlVar('stu_id')) {
+                         window.location.href = '../stu/jobDetail.html?data=' + data;
+                       } else {
+                         window.location.href = 'jobDetail.html?data=' + data;
+                       }
                     });
                 }
             });

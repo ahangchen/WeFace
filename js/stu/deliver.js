@@ -100,14 +100,15 @@ $(function(){
             url:cur_site + "student/apply/list/",
             dataType:"json",
             success:function(data){
-                var chCnt = 0;
-                var conCnt = 0;
-                var quiCnt = 0;
-                var admCnt = 0;
-                var suitCnt = 0;
-                // var stateType = "";
-                // var stateText = "";
-                for (var i = 0; i < data.apply_list.length; i++) {
+                if (data.apply_list) {
+                  var chCnt = 0;
+                  var conCnt = 0;
+                  var quiCnt = 0;
+                  var admCnt = 0;
+                  var suitCnt = 0;
+                  // var stateType = "";
+                  // var stateText = "";
+                  for (var i = 0; i < data.apply_list.length; i++) {
                     cardContent.changeDate = data.apply_list[i].change_time;
                     state = data.apply_list[i].state;
                     cardContent.min = data.apply_list[i].min_salary;
@@ -117,78 +118,98 @@ $(function(){
                     cardContent.jName = data.apply_list[i].job_name;
                     teamId = data.apply_list[i].team_id;
                     jobId = data.apply_list[i].job_id;
-                    if(data.apply_list[i].is_read == 0){
-                        unreadNum++;
+                    if (data.apply_list[i].is_read == 0) {
+                      unreadNum++;
                     }
-                    switch (addrNum){
-                        case 1:cardContent.addr = "广州市";break;
-                        default:cardContent.addr = "其他";break;
+                    switch (addrNum) {
+                      case 1:
+                        cardContent.addr = "广州市";
+                        break;
+                      default:
+                        cardContent.addr = "其他";
+                        break;
                     }
-                    switch(state){
-                        case 0:cardContent.stateType ="unchChip";cardContent.stateText ="待查看";break;
-                        case 1:cardContent.stateType ="unconChip";cardContent.stateText ="待沟通";break;
-                        case 2:cardContent.stateType ="unquChip";cardContent.stateText ="待面试";break;
-                        case 3:cardContent.stateType ="admChip";cardContent.stateText ="录用";break;
-                        case 4:cardContent.stateType ="unsuitChip";cardContent.stateText ="不合适";break;
+                    switch (state) {
+                      case 0:
+                        cardContent.stateType = "unchChip";
+                        cardContent.stateText = "待查看";
+                        break;
+                      case 1:
+                        cardContent.stateType = "unconChip";
+                        cardContent.stateText = "待沟通";
+                        break;
+                      case 2:
+                        cardContent.stateType = "unquChip";
+                        cardContent.stateText = "待面试";
+                        break;
+                      case 3:
+                        cardContent.stateType = "admChip";
+                        cardContent.stateText = "录用";
+                        break;
+                      case 4:
+                        cardContent.stateType = "unsuitChip";
+                        cardContent.stateText = "不合适";
+                        break;
                     }
-                    appendCard("entire",cardContent);
+                    appendCard("entire", cardContent);
                     var link = $('#entire .nameBar a');
-                    $(link[i]).attr('href','jobDetail.html?job_id='+jobId+'&stu_id='+stuId);
+                    $(link[i]).attr('href', 'jobDetail.html?job_id=' + jobId + '&stu_id=' + stuId);
                     $(li[0]).html(unreadNum);
                     var statelink;
-                    switch(stateText){
-                        case "待查看":
-                            appendCard("unchecked",cardContent);
-                            statelink = $('#unchecked .nameBar a');
-                            $(statelink[chCnt]).attr('href','jobDetail.html?job_id='+jobId+'&stu_id='+stuId);
-                            chCnt++;
-                            if (data.apply_list[i].is_read == 0) {
-                                unreadCh++;
-                            }
-                            $(li[1]).html(unreadCh);
-                            break;
-                        case "待沟通":
-                            appendCard("uncontact",cardContent);
-                            statelink = $('#uncontact .nameBar a');
-
-                            $(statelink[conCnt]).attr('href','jobDetail.html?job_id='+jobId+'&stu_id='+stuId);
-                            conCnt++;
-                            if (data.apply_list[i].is_read == 0) {
-                                unredCon++;
-                            }
-                            $(li[2]).html(unredCon);
-                            break;
-                        case "待面试":
-                            appendCard(unquiz)
-                            statelink = $('#unquiz .nameBar a');
-                            $(statelink[quiCnt]).attr('href','jobDetail.html?job_id='+jobId+'&stu_id='+stuId);
-                            quiCnt++;
-                            if (data.apply_list[i].is_read == 0) {
-                                unreadQui++;
-                            }
-                            $(li[3]).html(unreadQui);
-                            break;
-                        case "录用":
-                            appendCard("admitted",cardContent);
-                            statelink = $('#admitted .nameBar a');
-                            $(statelink[admCnt]).attr('href','jobDetail.html?job_id='+jobId+'&stu_id='+stuId);
-                            admCnt++;
-                            if (data.apply_list[i].is_read == 0) {
-                                unreadAdm++;
-                            }
-                            $(li[4]).html(unreadAdm);
-                            break;
-                        case "不合适":
-                            appendCard("unsuit",cardContent);
-                            statelink = $('#unsuit .nameBar a');
-                            $(statelink[suitCnt]).attr('href','jobDetail.html?job_id='+jobId+'&stu_id='+stuId);
-                            suitCnt++;
-                            if (data.apply_list[i].is_read == 0) {
-                                unreadSu++;
-                            }
-                            $(li[5]).html(unreadSu);
-                            break;
+                    switch (stateText) {
+                      case "待查看":
+                        appendCard("unchecked", cardContent);
+                        statelink = $('#unchecked .nameBar a');
+                        $(statelink[chCnt]).attr('href', 'jobDetail.html?job_id=' + jobId + '&stu_id=' + stuId);
+                        chCnt++;
+                        if (data.apply_list[i].is_read == 0) {
+                          unreadCh++;
+                        }
+                        $(li[1]).html(unreadCh);
+                        break;
+                      case "待沟通":
+                        appendCard("uncontact", cardContent);
+                        statelink = $('#uncontact .nameBar a');
+        
+                        $(statelink[conCnt]).attr('href', 'jobDetail.html?job_id=' + jobId + '&stu_id=' + stuId);
+                        conCnt++;
+                        if (data.apply_list[i].is_read == 0) {
+                          unredCon++;
+                        }
+                        $(li[2]).html(unredCon);
+                        break;
+                      case "待面试":
+                        appendCard(unquiz)
+                        statelink = $('#unquiz .nameBar a');
+                        $(statelink[quiCnt]).attr('href', 'jobDetail.html?job_id=' + jobId + '&stu_id=' + stuId);
+                        quiCnt++;
+                        if (data.apply_list[i].is_read == 0) {
+                          unreadQui++;
+                        }
+                        $(li[3]).html(unreadQui);
+                        break;
+                      case "录用":
+                        appendCard("admitted", cardContent);
+                        statelink = $('#admitted .nameBar a');
+                        $(statelink[admCnt]).attr('href', 'jobDetail.html?job_id=' + jobId + '&stu_id=' + stuId);
+                        admCnt++;
+                        if (data.apply_list[i].is_read == 0) {
+                          unreadAdm++;
+                        }
+                        $(li[4]).html(unreadAdm);
+                        break;
+                      case "不合适":
+                        appendCard("unsuit", cardContent);
+                        statelink = $('#unsuit .nameBar a');
+                        $(statelink[suitCnt]).attr('href', 'jobDetail.html?job_id=' + jobId + '&stu_id=' + stuId);
+                        suitCnt++;
+                        if (data.apply_list[i].is_read == 0) {
+                          unreadSu++;
+                        }
+                        $(li[5]).html(unreadSu);
+                        break;
                     }
+                  }
                 }
                 if (unreadNum > 0) {
                     $(li[0]).css('visibility','visible');

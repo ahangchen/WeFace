@@ -323,7 +323,12 @@ $(function(){
                                                 <div class="waves-effect waves-light  delJobBtn z-depth-1" >删除</div>
                                             </div>
                                         </div>`);
-            $('.positionName a').attr('href',"../jobDetail.html?data="+showArray[i].jobId);
+            console.log(`你的学生id是${getUrlVar('stu_id')}`)
+            if (getUrlVar('stu_id')) {
+              $('.positionName a').attr('href', "../../stu/jobDetail.html?data=" + showArray[i].jobId);
+            } else {
+              $('.positionName a').attr('href', "../jobDetail.html?data=" + showArray[i].jobId);
+            }
         }
 
         // 显示编辑职位的页面
