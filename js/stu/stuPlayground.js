@@ -71,11 +71,11 @@ $(function(){
         });
     }
     var changeTab = function(tabIndex){
-        var selected = $('#selectedTab');
-        console.log(tabIndex);
-        var left_pos = 30 + tabIndex * 118;
-        console.log(left_pos);
-        $(selected).css("left",left_pos + "px");
+        var selected = $('.selectedTab');
+        for(let i = 0; i < 4; i++ ){
+            $(selected[i]).css('display', 'none')
+        }
+        $(selected[tabIndex]).css('display', 'block')
     };
     for(var i = 0; i < tabs.length; i++){
         bindTabClick(tabs[i],i);

@@ -144,6 +144,12 @@ h4{
     top: 5px;
 }
 /**/
+.domainTypes{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
 .engineerTab,.artTab,.finacialTab,.humanTab{
     display: inline-block;
     width: 54px;
@@ -151,17 +157,9 @@ h4{
     margin: 0 30px;
     cursor: pointer;
 }
-.engineerTab{
-    background-image: url("../../res/imgs/stu/engineer.svg");
-}
-.artTab{
-    background-image: url("../../res/imgs/stu/art.svg");
-}
-.finacialTab{
-    background-image: url("../../res/imgs/stu/money.svg");
-}
-.humanTab{
-    background-image: url("../../res/imgs/stu/human.svg");
+.descText {
+    text-align: center;
+    color: rgb(244, 171, 35);
 }
 .line{
     height: 40px;
@@ -169,32 +167,36 @@ h4{
     border-bottom: rgb(244 , 171, 35) solid 2px;
     position: relative;
     top: 19px;
+    margin-bottom: 30px;
 }
-#selectedTab{
-    width: 26px;
-    height: 52px;
+.selectedTab{
+    width: 13px;
+    height: 26px;
     border-style: solid;
-    border-left: 26px solid transparent;
-    border-right: 26px solid transparent;
-    border-bottom: 52px solid rgb(244, 171, 35);
+    border-left: 13px solid transparent;
+    border-right: 13px solid transparent;
+    border-bottom: 26px solid rgb(244, 171, 35);
     border-top: transparent;
-    /*border-color:  transparent transparent rgb(244, 171, 35);*/
+    /* border-color: transparent transparent rgb(244, 171, 35); */
     position: relative;
-    top: -35px;
-    left:30px;
+    top: 4px;
+    left: 15px;
 }
-#selectedTab:before{
+.selectedTab:before{
     position: absolute;
     content: '';
-    border-color:  transparent transparent rgb(242, 242, 242);
-    width: 26px;
-    height: 52px;
-    border-left: 26px solid transparent;
-    border-right: 26px solid transparent;
-    border-bottom: 52px solid rgb(242, 242, 242);
+    border-color: transparent transparent rgb(242, 242, 242);
+    width: 13px;
+    height: 26px;
+    border-left: 13px solid transparent;
+    border-right: 13px solid transparent;
+    border-bottom: 26px solid rgb(242, 242, 242);
     top: 5px;
-    left: -26px;
+    left: -13px;
     z-index: 10;
+}
+.artTab .selectedTab, .finacialTab .selectedTab, .humanTab .selectedTab {
+    display: none;
 }
 .introText{
     margin-left: 20px;
