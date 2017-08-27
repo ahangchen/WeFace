@@ -59,7 +59,7 @@ $(function () {
                             document.getElementById('account-warn').innerHTML = "操作失败";
                         }
                         if (flag == true) {
-                            window.location.href = "../../stu/main.html?stu_id="+stu_id;
+                            window.location.href = "../../stu/index.html?stu_id="+stu_id;
                         }
                     },
                     headers: {
