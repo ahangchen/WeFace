@@ -1,38 +1,70 @@
 
 //-----------------------------------------------首页的js代码-----------------------------------------------------
 page_site = "http://wemeet.tech:8080/";
-function getUrlVars() {
+// function getUrlVars() {
 
-    let vars = [], hash;
-    let hashes = window.location.href.slice(window.location.href.indexOf('?') + 1).split('&');
-    for (let i = 0; i < hashes.length; i++) {
-        hash = hashes[i].split('=');
-        vars.push(hash[0]);
-        vars[hash[0]] = hash[1];
-    }
-    return vars;
-}
+//     let vars = [], hash;
+//     let hashes = window.location.href.slice(window.location.href.indexOf('?') + 1).split('&');
+//     for (let i = 0; i < hashes.length; i++) {
+//         hash = hashes[i].split('=');
+//         vars.push(hash[0]);
+//         vars[hash[0]] = hash[1];
+//     }
+//     return vars;
+// }
 
 //得到指定参数的value
-function getUrlVar(name) {
-    return getUrlVars()[name];
-}
-$(function(){
+// function getUrlVar(name) {
+//     return getUrlVars()[name];
+// }
 
+$(function(){
+var storage = window.localStorage;
+var stu_id = storage.getItem("stu_id");
+var token = storage.getItem("token");
+var tid = storage.getItem("tid");
+console.log(stu_id);
+console.log(token);
+console.log(tid);
 //    载入页面后，开始给超链接赋值
 //    ???疑问：是否需要判断是以什么身份来到的首页？
-    if(getUrlVar('token')){
-        if(getUrlVar('stu_id')) {
-            $('.findTeamBtn').attr('href', `${page_site}team/teamPlayGround.html?token=${getUrlVar('token')}&stu_id=${getUrlVar('stu_id')}`)
-            $('.showYourselfBtn').attr('href', `${page_site}stu/index.html?token=${getUrlVar('token')}&stu_id=${getUrlVar('stu_id')}`)
-            $('.findPersonBtn').attr('href', `${page_site}stu/stuPlayground.html?token=${getUrlVar('token')}&stu_id=${getUrlVar('stu_id')}`)
+        if(token){
+        if(stu_id) {
+            $('.findTeamBtn').attr('href', `${page_site}team/teamPlayGround.html?token=${token}&stu_id=${stu_id}`)
+            $('.showYourselfBtn').attr('href', `${page_site}stu/index.html?token=${token}&stu_id=${stu_id}`)
+            $('.findPersonBtn').attr('href', `${page_site}stu/stuPlayground.html?token=${token}&stu_id=${stu_id}`)
         }
-        if(getUrlVar('tid')){
-            $('.findTeamBtn').attr('href', `${page_site}team/teamPlayGround.html?token=${getUrlVar('token')}&tid=${getUrlVar('tid')}`)
-            $('.showYourselfBtn').attr('href', `${page_site}team/index.html?token=${getUrlVar('token')}&tid=${getUrlVar('tid')}`)
-            $('.findPersonBtn').attr('href', `${page_site}stu/stuPlayground.html?token=${getUrlVar('token')}&tid=${getUrlVar('tid')}`)
+        if(tid){
+            $('.findTeamBtn').attr('href', `${page_site}team/teamPlayGround.html?token=${token}&tid=${tid}`)
+            $('.showYourselfBtn').attr('href', `${page_site}team/index.html?token=${token}&tid=${tid}`)
+            $('.findPersonBtn').attr('href', `${page_site}stu/stuPlayground.html?token=${token}&tid=${tid}`)
         }
     }
+
+//--------------------------------------登录状态--------------------------------------------
+var loginBar = $("<a class='mainBtn' href='role/login.html'>登录</a><span class='line' target='_self'>|</span><a class='mainBtn' href='role/register.html' target='_self'>注册</a>");
+if (token) {
+    var welcome = $("<a id='welcome' class='mainBtn' target='_blank'></a><span class='line'>|</span><a id='exit' class='mainBtn' href=''>退出</a>");
+    $("#loginBar").html(welcome);
+    $("#exit").click(function(){
+        $("#loginBar").html(loginBar);
+        storage.removeItem("token");
+        storage.removeItem("stu_id");
+        storage.removeItem("tid");
+    })
+    if (stu_id) {         
+        $("#welcome").text("你好，xxx 学生");
+        $("#welcome").attr("href", "../stu/index.html?stu_id="+stu_id);
+    }
+    if (tid) {
+        $("#welcome").text("你好，xxx 团队");
+        $("#welcome").attr("href", "../team/team_index.html?tid="+tid);
+    }
+}
+else {
+    $("#loginBar").html(loginBar);
+}
+
 //------------------------------------------------按钮显示-----------------------------------
     $('.preBtn').hover(function(){
         $('.preBtn i').css("visibility","visible");

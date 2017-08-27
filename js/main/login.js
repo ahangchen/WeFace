@@ -1,5 +1,6 @@
 $(function () {
     var choice = "学生";
+    var storage = window.localStorage;
     $('.actor-choice').click(function () {
         choice = $(this).attr('name');
         document.getElementById("actor-show").innerHTML = choice;
@@ -23,6 +24,7 @@ $(function () {
             }
         }
         if (account !== "" && pwd !== ""){
+            console.log(choice);
             if (choice == "学生") {
                 var flag = false;
                 var account = document.getElementById("account").value;
@@ -40,6 +42,9 @@ $(function () {
                     success: function (data) {
                         var err = data.err;
                         var stu_id=data.id;
+                        storage.setItem("stu_id", stu_id);
+                        storage.setItem("token", "tmp_token");
+                        storage.removeItem("tid");
                         if (err == 0) {
                             flag = true;
                         }
@@ -68,6 +73,7 @@ $(function () {
                 });
             }
             else {
+                console.log("go to team");
                 var flag = false;
                 var account = document.getElementById("account").value;
                 var pwd = document.getElementById("pwd").value;
@@ -83,7 +89,10 @@ $(function () {
                     dataType: 'json',
                     success: function (data) {
                         var err = data.err;
-                        var tid=data.msg;
+                        var tid = data.msg;
+                        storage.setItem("tid", tid);
+                        storage.setItem("token", "tmp_token");
+                        storage.removeItem("stu_id");
                         if (err == 0) {
                             flag = true;
                         }
@@ -101,7 +110,7 @@ $(function () {
                         }
                         if (flag == true) {
                             console.log(tid);
-                            window.location.href = "../../team/index.html?tid="+tid;
+                            window.location.href = "../../team/team_index.html?tid="+tid;
                         }
                     },
                     headers: {
