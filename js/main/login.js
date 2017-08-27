@@ -63,7 +63,7 @@ $(function () {
                             document.getElementById('account-warn').innerHTML = "操作失败";
                         }
                         if (flag == true) {
-                            window.location.href = "../../stu/index.html";
+                            window.location.href = "../../stu/index.html?stu_id"+stu_id;
                         }
                     },
                     headers: {
@@ -108,7 +108,7 @@ $(function () {
                         }
                         if (flag == true) {
                             console.log(tid);
-                            window.location.href = "../../team/team_index.html";
+                            window.location.href = "../../team/team_index.html?tid="+tid;
                         }
                     },
                     headers: {
