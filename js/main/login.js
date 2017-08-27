@@ -41,9 +41,9 @@ $(function () {
                     success: function (data) {
                         var err = data.err;
                         var stu_id=data.id;
-                        storage.setItem("stu_id", stu_id);
+                        storage.setItem("login_id", stu_id);
                         storage.setItem("token", "tmp_token");
-                        storage.removeItem("tid");
+                        storage.setItem("role", "student");
                         if (err == 0) {
                             flag = true;
                         }
@@ -63,7 +63,7 @@ $(function () {
                             document.getElementById('account-warn').innerHTML = "操作失败";
                         }
                         if (flag == true) {
-                            window.location.href = "../../stu/index.html?stu_id"+stu_id;
+                            window.location.href = "../../stu/index.html?stu_id="+stu_id;
                         }
                     },
                     headers: {
@@ -88,9 +88,9 @@ $(function () {
                     success: function (data) {
                         var err = data.err;
                         var tid = data.msg;
-                        storage.setItem("tid", tid);
+                        storage.setItem("login_id", tid);
                         storage.setItem("token", "tmp_token");
-                        storage.removeItem("stu_id");
+                        storage.setItem("role", "team");
                         if (err == 0) {
                             flag = true;
                         }
@@ -107,7 +107,6 @@ $(function () {
                             document.getElementById('account-warn').innerHTML = "账号不可用";
                         }
                         if (flag == true) {
-                            console.log(tid);
                             window.location.href = "../../team/team_index.html?tid="+tid;
                         }
                     },

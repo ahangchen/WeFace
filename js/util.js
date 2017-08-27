@@ -7,8 +7,8 @@ function getId() {
 
 function getStorage () {
     storage = window.localStorage;
-    stu_id = storage.getItem("stu_id");
+    login_id = storage.getItem("login_id");
     token = storage.getItem("token");
-    tid = storage.getItem("tid");
+    role = storage.getItem("role");
 }
 

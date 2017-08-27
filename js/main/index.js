@@ -20,21 +20,18 @@ function getUrlVar(name) {
 
 $(function(){
     getStorage();
-    console.log(stu_id);
-    console.log(token);
-    console.log(tid);
 //    载入页面后，开始给超链接赋值
 //    ???疑问：是否需要判断是以什么身份来到的首页？
         if(token){
-        if(stu_id) {
-            $('.findTeamBtn').attr('href', `${page_site}team/teamPlayGround.html?token=${token}&stu_id=${stu_id}`)
-            $('.showYourselfBtn').attr('href', `${page_site}stu/index.html?token=${token}&stu_id=${stu_id}`)
-            $('.findPersonBtn').attr('href', `${page_site}stu/stuPlayground.html?token=${token}&stu_id=${stu_id}`)
+        if(role === "student") {
+            $('.findTeamBtn').attr('href', `${page_site}team/teamPlayGround.html?token=${token}&stu_id=${login_id}`)
+            $('.showYourselfBtn').attr('href', `${page_site}stu/index.html?token=${token}&stu_id=${login_id}`)
+            $('.findPersonBtn').attr('href', `${page_site}stu/stuPlayground.html?token=${token}&stu_id=${login_id}`)
         }
-        if(tid){
-            $('.findTeamBtn').attr('href', `${page_site}team/teamPlayGround.html?token=${token}&tid=${tid}`)
-            $('.showYourselfBtn').attr('href', `${page_site}team/index.html?token=${token}&tid=${tid}`)
-            $('.findPersonBtn').attr('href', `${page_site}stu/stuPlayground.html?token=${token}&tid=${tid}`)
+        if(role === "team"){
+            $('.findTeamBtn').attr('href', `${page_site}team/teamPlayGround.html?token=${token}&tid=${login_id}`)
+            $('.showYourselfBtn').attr('href', `${page_site}team/index.html?token=${token}&tid=${login_id}`)
+            $('.findPersonBtn').attr('href', `${page_site}stu/stuPlayground.html?token=${token}&tid=${login_id}`)
         }
     }
 
@@ -46,8 +43,7 @@ if (token) {
     $("#exit").click(function(){
         $("#loginBar").html(loginBar);
         storage.removeItem("token");
-        storage.removeItem("stu_id");
-        storage.removeItem("tid");
+        storage.removeItem("login_id");
     })
     if (stu_id) {         
         $("#welcome").text("你好，xxx 学生");
