@@ -16,11 +16,16 @@ function getUrlVar(name){
   return getUrlVars()[name];
 }
 $(document).ready(function(){
-    var tid=(location.search.split("=")[1]).split('&')[0];
-    var token=location.search.split("token=")[1];
+    // var tid=(location.search.split("=")[1]).split('&')[0];
+    // var token=location.search.split("token=")[1];
+    getStorage();//可以得到全局的storage对象和全局的stu_id/tid和全局的token
     var team_info={};
     var team_product;
     var i,j,k;
+    $("#exit").click(function(){
+        storage.removeItem("token");
+        storage.removeItem("tid");
+    })
     $('.modal-trigger').leanModal();
 
     $("#nav_function_btn").click(function(){

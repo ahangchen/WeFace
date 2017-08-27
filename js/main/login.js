@@ -24,7 +24,6 @@ $(function () {
             }
         }
         if (account !== "" && pwd !== ""){
-            console.log(choice);
             if (choice == "学生") {
                 var flag = false;
                 var account = document.getElementById("account").value;
@@ -64,7 +63,7 @@ $(function () {
                             document.getElementById('account-warn').innerHTML = "操作失败";
                         }
                         if (flag == true) {
-                            window.location.href = "../../stu/index.html?stu_id="+stu_id;
+                            window.location.href = "../../stu/index.html";
                         }
                     },
                     headers: {
@@ -73,7 +72,6 @@ $(function () {
                 });
             }
             else {
-                console.log("go to team");
                 var flag = false;
                 var account = document.getElementById("account").value;
                 var pwd = document.getElementById("pwd").value;
@@ -110,7 +108,7 @@ $(function () {
                         }
                         if (flag == true) {
                             console.log(tid);
-                            window.location.href = "../../team/team_index.html?tid="+tid;
+                            window.location.href = "../../team/team_index.html";
                         }
                     },
                     headers: {

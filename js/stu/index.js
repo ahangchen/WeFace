@@ -1,71 +1,77 @@
 $(document).ready(function(){
-   $('select').material_select();
-   var sid = (location.search.split("=")[1]).split('&')[0];
-   var token=location.search.split("token=")[1];
-   var stu_msg,about_me;
-   //记录新的头像
+    getStorage();//可以得到全局的storage对象和全局的stu_id/tid和全局的token
+    $('select').material_select();
+    var stu_msg,about_me;
     var new_avatar;
     var new_file;
-   $.ajax({
-       type:'POST',
-       url:cur_site + 'student/info/get/',
-       dataType:'json',
-       data:{id:sid},
-       success:function(data){
-           console.log(data);
-           if(data.err=='0'){
-               stu_msg = data;
-               $.ajax({
-                   type:'POST',
-                   url:cur_site+'student/resume/get/',
-                   dataType:'json',
-                   data:{stu_id:sid},
-                   success:function(res){
-                       if(res.err=='0'){
-                           data.resume_path = res.resume_path;
-                       }
-                       else{
-                           data.resume_path = '';
-                       }
-                       load_stu_basic(stu_msg);
-                       listenToFileUpdate();
-                       listenStudentBasicEdit(stu_msg);
-                       $("#edit_stu_basic").click(function(){
-                           $(this).css('display','none');
-                           edit_stu_basic(stu_msg);
-                       });
-                       $(".stu_label_div .label_choice").click(function(){
-                           if($(this).hasClass('active')){
-                               $(this).removeClass('active');
-                           }
-                           else{
-                               $(this).addClass('active');
-                           }
-                       });
-                   }
-               });
-           }
-       }
-   });
 
-   $.ajax({
-       type:'POST',
-       url:cur_site+'student/aboutme/get/',
-       dataType:'json',
-       data:{stu_id:sid},
-       success:function(data){
-           console.log(data);
-           if(data.err=='0'){
-               about_me=data;
-               load_about_me(about_me);
-               listenToEditaboutme();
-               $("#edit_about_me").click(function(){
-                   $(this).css('display','none');
-                   edit_about_me(about_me);
-               })
-           }
-       }
-   });
+    if(token) {
+        $("#exit").click(function(){
+            storage.removeItem("token");
+            storage.removeItem("stu_id");
+        });
+        $.ajax({
+            type:'POST',
+            url:cur_site + 'student/info/get/',
+            dataType:'json',
+            data:{id:stu_id},
+            success:function(data){
+                console.log(data);
+                if(data.err=='0'){
+                    stu_msg = data;
+                    $.ajax({
+                        type:'POST',
+                        url:cur_site+'student/resume/get/',
+                        dataType:'json',
+                        data:{stu_id:stu_id},
+                        success:function(res){
+                            if(res.err=='0'){
+                                data.resume_path = res.resume_path;
+                            }
+                            else{
+                                data.resume_path = '';
+                            }
+                            load_stu_basic(stu_msg);
+                            listenToFileUpdate();
+                            listenStudentBasicEdit(stu_msg);
+                            $("#edit_stu_basic").click(function(){
+                                $(this).css('display','none');
+                                edit_stu_basic(stu_msg);
+                            });
+                            $(".stu_label_div .label_choice").click(function(){
+                                if($(this).hasClass('active')){
+                                    $(this).removeClass('active');
+                                }
+                                else{
+                                    $(this).addClass('active');
+                                }
+                            });
+                        }
+                    });
+                }
+            }
+        });
+     
+        $.ajax({
+            type:'POST',
+            url:cur_site+'student/aboutme/get/',
+            dataType:'json',
+            data:{stu_id:stu_id},
+            success:function(data){
+                console.log(data);
+                if(data.err=='0'){
+                    about_me=data;
+                    load_about_me(about_me);
+                    listenToEditaboutme();
+                    $("#edit_about_me").click(function(){
+                        $(this).css('display','none');
+                        edit_about_me(about_me);
+                    })
+                }
+            }
+        });
+    }
+
 
    //加载学生的基本信息
    function load_stu_basic(data){
@@ -82,6 +88,7 @@ $(document).ready(function(){
        //加载名字
        if(data.name!=""){
            $("#stu_name").html(data.name);
+           $("#username").html(data.name);
        }
        else{
            $("#stu_name").html('姓名');

@@ -1,31 +1,28 @@
 
 //-----------------------------------------------首页的js代码-----------------------------------------------------
 page_site = "http://wemeet.tech:8080/";
-// function getUrlVars() {
+function getUrlVars() {
 
-//     let vars = [], hash;
-//     let hashes = window.location.href.slice(window.location.href.indexOf('?') + 1).split('&');
-//     for (let i = 0; i < hashes.length; i++) {
-//         hash = hashes[i].split('=');
-//         vars.push(hash[0]);
-//         vars[hash[0]] = hash[1];
-//     }
-//     return vars;
-// }
+    let vars = [], hash;
+    let hashes = window.location.href.slice(window.location.href.indexOf('?') + 1).split('&');
+    for (let i = 0; i < hashes.length; i++) {
+        hash = hashes[i].split('=');
+        vars.push(hash[0]);
+        vars[hash[0]] = hash[1];
+    }
+    return vars;
+}
 
-//得到指定参数的value
-// function getUrlVar(name) {
-//     return getUrlVars()[name];
-// }
+// 得到指定参数的value
+function getUrlVar(name) {
+    return getUrlVars()[name];
+}
 
 $(function(){
-var storage = window.localStorage;
-var stu_id = storage.getItem("stu_id");
-var token = storage.getItem("token");
-var tid = storage.getItem("tid");
-console.log(stu_id);
-console.log(token);
-console.log(tid);
+    getStorage();
+    console.log(stu_id);
+    console.log(token);
+    console.log(tid);
 //    载入页面后，开始给超链接赋值
 //    ???疑问：是否需要判断是以什么身份来到的首页？
         if(token){
