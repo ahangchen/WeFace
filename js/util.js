@@ -12,3 +12,8 @@ function getStorage () {
     role = storage.getItem("role");
 }
 
+function ismypage() {
+    var page_id = getId();
+    var login_id = storage.getItem("login_id");
+    return page_id == login_id;
+}

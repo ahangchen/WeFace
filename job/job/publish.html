@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no">
+    <title>Title</title>
+    <link href="https://fonts.css.network/icon?family=Material+Icons" rel="stylesheet">
+    <link href="../../css/ghpages-materialize.css"  rel="stylesheet" media="screen,projection">
+    <link href="../../css/admin/about.css"  rel="stylesheet" media="screen,projection">
+
+</head>
+<body>
+<div class="container">
+    <div class="row">
+        <form class="col s12">
+            <div class="row">
+                <div class="input-field col s12">
+                    <input placeholder="团队名称" id="team_name" type="text" class="validate" name="name" value="wemeet">
+                    <label for="team_name">团队名称</label>
+                </div>
+
+            </div>
+            <div class="row">
+                <div class="input-field col s12">
+                    <input id="leader" type="text" class="validate" name="leader" value="cwh">
+                    <label for="leader">负责人</label>
+                </div>
+            </div>
+            <div class="row">
+                <div class="input-field col s12">
+                    <input id="tel" type="tel" class="validate" name="tel" value="666752">
+                    <label for="tel">Tel</label>
+                </div>
+            </div>
+            <div class="row">
+                <div class="input-field col s12">
+                    <input id="mail" type="email" class="validate" name="mail" value="1418659400@qq.com">
+                    <label for="mail">Email</label>
+                </div>
+            </div>
+            <div class="row">
+                <button id="inv_btn" class="btn waves-effect waves-light" type="submit" name="action">Submit
+                    <i class="material-icons right">send</i>
+                </button>
+            </div>
+        </form>
+    </div>
+    <div class="row" id="inv_result" style="display:none">
+        <div class="col s12">
+            <div class="card">
+                <div class="card-content">
+                    <span class="card-title text-lighten-2">邀请团队成功</span>
+                    <p id="inv_text">这是团队的ID和邀请码：</p>
+                </div>
+                <div class="card-action">
+                    <a href="#">发送到团队邮箱</a>
+                    <a href="#">邀请新团队</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+</body>
+<script src="../../js/jquery-2.1.1.min.js"></script>
+<script src="../../js/etc.js"></script>
+<script src="../../js/materialize.min.js"></script>
+</html>

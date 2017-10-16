@@ -11,6 +11,17 @@ $(document).ready(function(){
         storage.removeItem("token");
         storage.removeItem("login_id");
     });
+    if(ismypage()) {
+        $("#edit_stu_basic_icon").style.display = 'block';
+        $("#edit_about_me_icon").style.display = 'block';
+        $("#edit_stu_basic_icon").style.display = 'block';
+        $("#edit_stu_basic_icon").style.display = 'block';
+    } else {
+        $("#edit_stu_basic_icon").style.display = 'none';
+        $("#edit_about_me_icon").style.display = 'none';
+        $("#edit_stu_basic_icon").style.display = 'none';
+        $("#edit_stu_basic_icon").style.display = 'none';
+    }
    $.ajax({
        type:'POST',
        url:cur_site + 'student/info/get/',

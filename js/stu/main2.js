@@ -66,8 +66,9 @@ $(document).ready(function () {
   initWorks()
   $(".skill").off("click")
   //如果url中出现token即可以显示编辑部分
-  let token = getUrlVar("token")
-  if (token) {
+  var mine = ismypage();
+  getStorage()
+  if (mine) {
     $("#deliver-btn").attr("href", "deliver.html?stu_id=" + getUrlVar("stu_id"))
     let editBtn = $(".editable")
     let cancel_btns = $(".total-cancel-btn")

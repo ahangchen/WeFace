@@ -195,7 +195,7 @@ textarea.materialize-textarea:focus:not([readonly]) {
     height: 7px;
     font-size: 7px;
     line-height: 10px;
-    color: red;
+    color: green;
 }
 
 img{

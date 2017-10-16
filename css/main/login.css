@@ -130,3 +130,7 @@ textarea.materialize-textarea:focus:not([readonly]) {
     font-size:1rem;
     text-indent:-2em;
 }
+
+#account-warn {
+    color: orangered;
+}
